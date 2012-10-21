@@ -1,0 +1,13 @@
+<!-- 
+  Plugin descriptor for the XML domain HTML rendering plugin.
+  
+  Copyright (c) 2012 OASIS Open
+    
+  This plug-in extends the base DITA-to-HTML process to provide appropriate
+  rendering for XML domain elements.
+  
+  -->
+<plugin id="org.oasis-open.dita.xmldomain.html">
+  <require plugin="org.oasis-open.dita.xmldomain.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/xmlDomain2html.xsl" type="file"/>  
+</plugin>

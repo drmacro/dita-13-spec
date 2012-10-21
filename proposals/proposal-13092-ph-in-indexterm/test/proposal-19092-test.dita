@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_nxl_n3q_th">
+  <title>Topic title</title>
+  <body>
+<p>Many people consider Euler's identity, 
+<i>e</i><sup><i>&#x03c0;</i><i>i</i></sup>+1=0,
+<indexterm><i>e</i><sup><i>&#x03c0;</i><i>i</i></sup>+1=0 <index-see>Euler's
+identity</index-see> </indexterm> <indexterm>Euler's identity</indexterm>
+  <indexterm>2.71828...
+    <index-see><i>e</i> (Euler's constant)</index-see>
+  </indexterm>
+to be the most beautiful equation in mathematics.</p>
+  </body>
+</topic>

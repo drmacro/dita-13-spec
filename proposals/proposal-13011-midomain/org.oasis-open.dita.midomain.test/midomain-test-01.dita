@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE concept SYSTEM "midomain-concept.dtd">
+<concept id="a123456">
+	<title>Machinery Industry 1.3</title>
+	<conbody>
+		<p>The value is: 
+			<miQuantity>
+				<miQuantityGroup>
+				  <miQuantityValue>
+				    <miSystemOfMeasurement value="SI"/>
+				    <miUnitOfMeasure value="mm"/>
+				    <miMeasuredValue>500</miMeasuredValue>
+				  </miQuantityValue>
+				  <miQualityTolerance>
+				    <miQualityToleranceType/>
+				    <miUnitOfMeasure value="mm"/>
+				    <miMeasuredValue>1</miMeasuredValue>
+				  </miQualityTolerance>
+				</miQuantityGroup>
+			</miQuantity>
+		</p>
+		<miTechDataList>
+			<miTechData>
+				<miDataType>Engine manufacturer </miDataType>
+			  <miQuantity>
+			    <miQuantityGroup>
+			      <miQuantityValue>
+			        <miSystemOfMeasurement/>
+			        <miUnitOfMeasure value=""/>
+			        <miMeasuredValue></miMeasuredValue>
+			      </miQuantityValue>
+			    </miQuantityGroup>
+			  </miQuantity>
+				<!--<miQuantity>MC</miQuantity>-->
+			</miTechData>
+			<miTechData>
+				<miDataType >Operating weight </miDataType>
+				<miQuantity>
+					<miQuantityGroup>
+					  <miQuantityValue>
+					    <miSystemOfMeasurement value="SI"/>
+					    <miUnitOfMeasure value="kg"/>
+					    <miMeasuredValue>481</miMeasuredValue>
+					  </miQuantityValue>
+					  <miQuantityValue>
+					    <miSystemOfMeasurement value="US"/>
+					    <miUnitOfMeasure value="lbs"/>
+					    <miMeasuredValue>1060.4</miMeasuredValue>
+					  </miQuantityValue>
+					</miQuantityGroup>
+				</miQuantity>
+			</miTechData>
+			<miTechData>
+				<miDataType >Operating pressure</miDataType>
+				<miQuantity>
+					<miQuantityGroup>
+					  <miQuantityValue>
+					    <miSystemOfMeasurement value="SI"/>
+					    <miUnitOfMeasure value="bar"/>
+					    <miMeasuredValue>210</miMeasuredValue>
+					  </miQuantityValue>
+					  <miQualityTolerance>
+					    <miQualityToleranceType value="plus"/>
+					    <miUnitOfMeasure value="bar"/>
+					    <miMeasuredValue>5</miMeasuredValue>
+					  </miQualityTolerance>
+					  <miQualityTolerance>
+					    <miQualityToleranceType value="minus"/>
+					    <miUnitOfMeasure value="bar"/>
+					    <miMeasuredValue>10</miMeasuredValue>
+					  </miQualityTolerance>
+					</miQuantityGroup>
+				</miQuantity>
+			</miTechData>
+		</miTechDataList>
+	</conbody>
+</concept>

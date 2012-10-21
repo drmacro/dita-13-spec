@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>XML Domain Tests</title>
+  <topicref
+    href="DITA%20XML%20Domain%20Test%20Topic%20DTD.dita"/>
+  <topicref
+    href="DITA%20XML%20Domain%20Test%20Topic%20RNC.dita"/>
+  <topicref
+    href="DITA%20XML%20Domain%20Test%20Topic%20XSD.dita"/>
+</map>

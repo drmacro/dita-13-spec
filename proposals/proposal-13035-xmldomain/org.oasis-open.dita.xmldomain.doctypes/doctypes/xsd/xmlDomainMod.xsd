@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  
+  <!-- DITA 1.3 XML Domain -->
+  
+    <xs:annotation>
+      <xs:appinfo>
+        <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic xml-d)</dita:domainsModule>
+      </xs:appinfo>
+      <xs:documentation>
+      
+      </xs:documentation>
+    </xs:annotation>
+
+
+  <xs:group name="xml-d-keyword">
+    <xs:choice>
+      <xs:element ref="numcharref"/>
+      <xs:element ref="parameterentity"/>
+      <xs:element ref="rngpattern"/>
+      <xs:element ref="textentity"/> 
+      <xs:element ref="xmlatt"/>
+      <xs:element ref="xmlelement"/> 
+      <xs:element ref="xmlnsname"/>
+      <xs:element ref="xsdattgroup"/> 
+      <xs:element ref="xsdcomplextype"/> 
+      <xs:element ref="xsdgroup"/> 
+      <xs:element ref="xsdsimpletype"/>   
+    </xs:choice>
+  </xs:group>
+  
+
+  <xs:group name="numcharref.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="parameterentity.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="rngpattern.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="textentity.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="xmlatt.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="xmlelement.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+<xs:group name="xmlnsname.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="xsdattgroup.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="xsdcomplextype.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group> 
+  <xs:group name="xsdgroup.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group> 
+  <xs:group name="xsdsimpletype.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- Basic form: Numeric character reference, e.g. &#10; or &#x0a; -->
+  <xs:element name="numcharref">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="numcharref.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/numcharref "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="numcharref.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="numcharref.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="numcharref.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="numcharref.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="parameterentity">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="parameterentity.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/parameterentity "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="parameterentity.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="parameterentity.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="parameterentity.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="parameterentity.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="rngpattern">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="rngpattern.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/rngpattern "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="rngpattern.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="rngpattern.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="rngpattern.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="rngpattern.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="textentity">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="textentity.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/textentity "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="textentity.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="textentity.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="textentity.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="textentity.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+ 
+<xs:element name="xmlatt">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xmlatt.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xmlatt "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xmlatt.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xmlatt.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xmlatt.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xmlatt.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="xmlelement">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xmlelement.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xmlelement "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xmlelement.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xmlelement.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xmlelement.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xmlelement.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+ 
+<xs:element name="xmlnsname">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xmlnsname.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xmlnsname "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xmlnsname.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xmlnsname.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xmlnsname.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xmlnsname.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="xsdattgroup">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xsdattgroup.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xsdattgroup "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xsdattgroup.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xsdattgroup.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xsdattgroup.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xsdattgroup.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+ 
+<xs:element name="xsdcomplextype">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xsdcomplextype.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xsdcomplextype "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xsdcomplextype.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xsdcomplextype.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xsdcomplextype.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xsdcomplextype.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="xsdgroup">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xsdgroup.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xsdgroup "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xsdgroup.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xsdgroup.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xsdgroup.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xsdgroup.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+<xs:element name="xsdsimpletype">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xsdsimpletype.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xsdsimpletype "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xsdsimpletype.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xsdsimpletype.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xsdsimpletype.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xsdsimpletype.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+  
+</xs:schema>

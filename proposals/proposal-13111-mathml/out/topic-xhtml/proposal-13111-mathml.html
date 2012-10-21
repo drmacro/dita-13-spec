@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DITA 1.3 proposed feature #13111"/>
+<meta name="abstract" content="Official domain for MathML"/>
+<meta name="description" content="Official domain for MathML"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="IssueNumber00"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>DITA 1.3 proposed feature #13111</title>
+</head>
+<body id="IssueNumber00">
+
+
+<h1 class="title topictitle1">DITA 1.3 proposed feature #13111</h1>
+
+
+<div class="body refbody"><p class="shortdesc">Official domain for MathML</p>
+
+<div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">Include the following information:<ul class="ul">
+     <li class="li">Proposal Submitted: 1 October 2012</li>
+
+        <li class="li">Change History:<ul class="ul" id="IssueNumber00__ul_qht_k5b_vh">
+          <li class="li">7 Oct 2012: <ul class="ul" id="IssueNumber00__ul_lps_n5b_vh">
+            <li class="li">Updated RNC declarations to correct issue with handling of
+              no-namespace elements</li>
+
+            <li class="li">Updated DTD declarations to correctly configure namespace prefix
+              declarations</li>
+
+            <li class="li">Corrected <span class="ph filepath">doctypes/rng</span> to
+              <span class="ph filepath">doctypes/rnc</span> in the implementation
+              materials.</li>
+
+            </ul>
+</li>
+
+          </ul>
+</li>
+
+     <li class="li">Champion: Eliot Kimber,</li>
+
+     <li class="li">Email discussion: <a class="xref" href="https://lists.oasis-open.org/archives/dita/201205/msg00013.html" target="_blank">https://lists.oasis-open.org/archives/dita/201205/msg00013.html</a></li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Original requirement</h2><p class="p">The MathML vocabulary is mature and well-established. It is now a formal part
+        of both HTML5 and EPUB3. It is supported to one degree or another by the
+        latest versions of most Web browsers. It is supported by the main
+        commercial XSL-FO engines. Design Science provides a free, open-source
+        JavaScript MathML library that enables MathML rendering in any Web
+        browser that supports JavaScript.</p>
+
+      <p class="p">MathML is used by many existing DITA communities, including learning
+        content, textbooks, and technical documents that involve
+        mathematics.</p>
+
+      <p class="p">There are a number of DITA MathML integrations in use, including
+        locally-created integrations and the DITA for Publishers project. While
+        there is no particular difficulty in defining a MathML vocabulary
+        module, there's also no reason for there to be be multiple. Having a
+        TC-provided MathML module would serve the community by removing the need
+        for groups to implement their own or use a less-standard
+        alternative.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Use cases</h2><div class="p">A MathML integration supports any context in which mathematics of any sort
+        need to be presented, especially where the equations need to be rendered
+        in a variety of contexts and in accessible ways (such as screen readers
+        for digital delivery). Typical use cases include:<ul class="ul" id="IssueNumber00__ul_gsv_1x2_ph">
+        <li class="li">Display and inline equations in learning content</li>
+
+        <li class="li">Formulas used in support of user tasks or concepts in technical
+          documentation</li>
+
+        <li class="li">Math and science textbooks</li>
+
+        <li class="li">Scientific, mathematics, engineering, and mathematics (STEM)
+          scholarly publishing.</li>
+
+        </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Benefits</h2><div class="p">Address the following questions:<ul class="ul">
+     <li class="li">Who benefits: DITA users who need to include MathML in their
+          content</li>
+
+     <li class="li">Expected benefit: Easy use of MathML without the need to define a
+          custom MathML vocabulary domain. Out-of-the-box support for MathML
+          delivery by common DITA processing tools.</li>
+
+     <li class="li">Potential users: Difficult to quantify, but many learning publications
+          require it (almost all math and science-related publications),
+          technical documentation that involves equations.</li>
+
+     <li class="li">Degree of positive impact: Significant, as it makes MathML available to
+          all DITA users without the need to define custom vocabulary
+          modules.</li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Costs</h2><div class="p">Costs:<ul class="ul">
+        <li class="li">Maintainers of the DTDs, XSDs, and RNGs: Adds a new vocabulary
+          module, which must be integrated into the appropriate shell document
+          types.</li>
+
+        <li class="li">Editors of the DITA specification:<ul class="ul">
+          <li class="li">How many new topics will be required? One new topic for new
+            element type &lt;mathml_container&gt;</li>
+
+          <li class="li">How many existing topics will need to be edited? None. Only change
+            to existing topics is generated content model descriptions.</li>
+
+          <li class="li">Will the feature require substantial changes to the information
+            architecture of the DITA specification? No architectural
+            change.</li>
+
+          </ul>
+</li>
+
+        <li class="li">Vendors of tools: Tool vendors may decide to support the new module
+          directly. The nature of this support will depend on the type of
+          processor. Many DITA-aware editors and output processors already
+          support MathML to one degree or another.</li>
+
+        <li class="li">DITA community-at-large. Will this feature add to the perception
+          that DITA is becoming too complex? Will it be simple for end users to
+          understand?<p class="p">This feature adds a new optional vocabulary module.
+          Users who need it will appreciate having it readily available. Users
+          who do not need it may safely ignore it. The general architecture and
+          semantics of DITA are not affected by this proposal.</p>
+</li>
+
+        </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2>
+      
+      <div class="p">Define a new vocabulary module,  mathmlDomain, that defines the
+        following element type:<ul class="ul" id="IssueNumber00__ul_oqh_qp5_sh">
+        <li class="li">&lt;mathml_container&gt;<p class="p">Specializes topic/foreign. Allows as content
+          the &lt;math&gt; element from the MathML 3 vocabulary, &lt;data&gt;, or
+          &lt;data-about&gt;, as a repeating OR group.</p>
+</li>
+
+        <li class="li">Include the MathML 3 declarations. See <a class="xref" href="http://www.w3.org/TR/MathML3/" target="_blank">http://www.w3.org/TR/MathML3/</a>.</li>
+
+        </ul>
+</div>
+
+      <div class="p">Processors that need to support MathML rendering have a number of options:<ul class="ul" id="IssueNumber00__ul_fjg_2r5_sh">
+        <li class="li">For HTML: <ul class="ul" id="IssueNumber00__ul_qsy_hr5_sh">
+          <li class="li">Generate inline MathML within the HTML. This is supported in the
+            latest versions of most common browsers at the time of writing.</li>
+
+          <li class="li">Use the open-source MathJax JavasScript library to render MathML
+            in any browser that supports JavaScript. See <a class="xref" href="http://www.mathjax.org" target="_blank">http://www.mathjax.org</a>.</li>
+
+          <li class="li">Generate images from the MathML using open-source or commercial
+            tools. See <a class="xref" href="http://www.w3.org/Math/Software/mathml_software_cat_components.html" target="_blank">http://www.w3.org/Math/Software/mathml_software_cat_components.html</a>.</li>
+
+          </ul>
+</li>
+
+        <li class="li">For PDF:<ul class="ul" id="IssueNumber00__ul_xqg_5t5_sh">
+          <li class="li">The commercial XSL-FO engines Antenna House XSL Formatter and
+            RenderX XEP both support rendering of MathML to PDF.</li>
+
+          <li class="li">Generate EPS, SVG, or images using open-source or commercial
+            tools</li>
+
+          </ul>
+</li>
+
+        </ul>
+</div>
+
+      <div class="fig fignone"><span class="figcap">Figure 1. DTD-Syntax Vocabulary Module</span>
+        
+        <div class="p">mathmlDomain.ent:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- =============================================================
+     DITA MathML Domain
+     
+     Defines a specialization of &lt;foreign&gt; that contains 
+     MathML markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= --&gt;
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                   Formatting DOMAIN ENTITIES                  --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % mathml-d-foreign
+   "mathml_container
+   "
+&gt;
+
+
+
+&lt;!ENTITY   mathml-d-att     
+  "(topic mathml-d)"
+&gt;
+
+
+&lt;!-- ================== End DITA MathML Domain Entities ============ --&gt;</pre>
+</div>
+
+        <div class="p">mathmlDomain.mod:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- =============================================================
+     DITA MathML Domain
+     
+     Defines a specialization of &lt;foreign&gt; that contains 
+     MathML markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= --&gt;
+     
+ &lt;!ENTITY % mathml_container        "mathml_container" &gt;
+
+&lt;!ENTITY % MATHML.prefixed "INCLUDE"&gt;
+&lt;!ENTITY % MATHML.prefix "m"&gt;
+
+&lt;!ENTITY % mathml3.dtd 
+  SYSTEM "mathml3/dtd/mathml3.dtd"
+&gt;%mathml3.dtd;
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                   ELEMENT NAME ENTITIES                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % mathml_container.content
+"
+  (%MATHML.pfx;math |
+   %data; |
+   %data-about;)*
+"
+&gt;
+&lt;!ENTITY % mathml_container.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+&gt; 
+&lt;!ELEMENT mathml_container %mathml_container.content; &gt;
+&lt;!ATTLIST mathml_container %mathml_container.attributes; &gt;
+
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ATTLIST mathml_container           %global-atts;  class CDATA "+ topic/foreign mathml-d/mathml_container "&gt;
+
+
+&lt;!-- ================== End MathML Domain ==================== --&gt;</pre>
+</div>
+
+      </div>
+
+      <div class="fig fignone"><span class="figcap">Figure 2. XSD-Syntax Vocabulary Module</span>
+        
+        <div class="p">mathmlDomainMod.xsd:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"  
+  elementFormDefault="qualified"&gt;
+  
+  &lt;xs:import schemaLocation="mathml3/mathml3.xsd"
+    namespace="http://www.w3.org/1998/Math/MathML"
+  /&gt;
+  
+  &lt;xs:group name="mathml_container"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:choice&gt;
+        &lt;xs:element ref="mathml_container"/&gt;
+      &lt;/xs:choice&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:group&gt;
+  
+  &lt;xs:group name="mathml_container.content"&gt;
+    &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+      &lt;xs:element ref="m:math"/&gt;
+      &lt;xs:group ref="data.elements.incl" minOccurs="0"/&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:group&gt;
+  
+  &lt;xs:attributeGroup name="mathml_container.attributes"&gt;
+    &lt;xs:attribute name="outputclass" type="xs:string"/&gt;
+    &lt;xs:attributeGroup ref="global-atts"/&gt;
+    &lt;xs:attributeGroup ref="univ-atts"/&gt;
+  &lt;/xs:attributeGroup&gt;
+  
+  &lt;xs:complexType name="mathml_container.class" mixed="false"&gt;
+    &lt;xs:sequence&gt;  
+      &lt;xs:group ref="mathml_container.content"/&gt;
+    &lt;/xs:sequence&gt;        
+    &lt;xs:attributeGroup ref="mathml_container.attributes"/&gt;
+  &lt;/xs:complexType&gt;
+  
+  &lt;xs:element name="mathml_container"&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;
+        The mathml_container (&amp;lt;&lt;keyword&gt;mathml_container&lt;/keyword&gt;&amp;gt;) element 
+        contains zero or more MathML equations, along with optional &amp;lt;&lt;keyword&gt;data&lt;/keyword&gt;&amp;gt;
+        or &amp;lt;&lt;keyword&gt;data-about&lt;/keyword&gt;&amp;gt; elements, which act as metadata for the
+        equations.
+      &lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+    &lt;xs:complexType mixed="false"&gt;
+      &lt;xs:complexContent&gt;
+        &lt;xs:extension base="mathml_container.class"&gt;
+          &lt;xs:attribute ref="class" default="+ topic/foreign mathml-d/mathml_container "/&gt;
+        &lt;/xs:extension&gt;
+      &lt;/xs:complexContent&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+  
+&lt;/xs:schema&gt;</pre>
+</div>
+
+      </div>
+
+      <div class="fig fignone"><span class="figcap">Figure 3. RNC-Syntax Vocabulary Module</span>
+        
+        <div class="p">mathmlDomainMod.rnc:<pre class="pre codeblock"># ===============================================================
+# MathML Domain Module
+#
+#    Defines a specialization of &lt;foreign&gt; that contains 
+#    MathML markup.
+#     
+#     DITA 1.3
+#     
+#     Copyright (c) 2012 OASIS Open
+# ===============================================================
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace m = "http://www.w3.org/1998/Math/MathML"
+
+# Define the domain values of this module
+
+domains-atts-value |= "(topic mathml-d)"
+
+# Define domain extension patterns
+
+mathml-d-foreign =
+  mathml_container.element
+  
+# Extend the patterns with the domain contribution
+foreign |= mathml-d-foreign
+
+# Define elements content and attributes
+
+# LONG NAME: MathML Container
+mathml_container.content =
+  (
+   external "mathml3.rnc" | 
+   data |
+   data-about
+   )*
+mathml_container.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+mathml_container.element =
+  
+  ## The bold (&lt;b&gt;) element is used to apply bold highlighting to the content
+  ##         of the element. Use this element only when there is not some other more proper element. For
+  ##         example, for specific items such as GUI controls, use the &lt;uicontrol&gt; element. This
+  ##         element is part of the DITA highlighting domain. 
+  ##         Category: Typographic elements
+  element mathml_container { 
+    mathml_container.attlist, 
+    mathml_container.content 
+  }
+mathml_container.attlist &amp;= mathml_container.attributes
+
+#
+# End of module
+#
+</pre>
+</div>
+
+      </div>
+
+      <div class="fig fignone"><span class="figcap">Figure 4. mathml3.rnc</span>. <span class="desc figdesc">This RNC module is required in order to correctly configure the
+          base MathML declarations for use with no-namespace DITA
+          elements.</span>
+        
+        
+        <pre class="pre codeblock">default namespace m = "http://www.w3.org/1998/Math/MathML"
+namespace local = ""
+
+# redefine the anyElement to exclude elements in no namespace, that is DITA elements
+include "mathml3/mathml3.rnc" {
+    anyElement =
+        element * - (m:* | local:*) {
+            (attribute * { text }
+             | text
+             | anyElement)*
+        }
+}
+</pre>
+
+      </div>
+
+    </div>
+
+<div class="section"><h2 class="title sectiontitle">Examples</h2><p class="p">Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
+    to include edge cases, if known.</p>
+
+      <div class="p">Equation inline within a
+        paragraph:<pre class="pre codeblock">&lt;p&gt;MathML Inline: &lt;mathml_container&gt;
+  &lt;m:math display='inline'&gt;
+    &lt;m:semantics&gt;
+      &lt;m:mrow&gt;
+        &lt;m:msqrt&gt;
+          &lt;m:mrow&gt;
+            &lt;m:msup&gt;
+              &lt;m:mi&gt;a&lt;/m:mi&gt;
+              &lt;m:mn&gt;2&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            &lt;m:mo&gt;+&lt;/m:mo&gt;&lt;m:msup&gt;
+              &lt;m:mi&gt;b&lt;/m:mi&gt;
+              &lt;m:mn&gt;2&lt;/m:mn&gt;
+            &lt;/m:msup&gt;
+            
+          &lt;/m:mrow&gt;
+        &lt;/m:msqrt&gt;
+        
+      &lt;/m:mrow&gt;
+    &lt;/m:semantics&gt;
+  &lt;/m:math&gt;
+&lt;/mathml_container&gt;&lt;/p&gt;
+</pre>
+</div>
+
+      <div class="p">Display equation within a figure
+        element:<pre class="pre codeblock">&lt;fig&gt;
+  &lt;title&gt;Figure With MathML Container&lt;/title&gt;
+  &lt;mathml_container&gt;
+    &lt;m:math display='block'&gt;
+      &lt;m:semantics&gt;
+        &lt;m:mrow&gt;
+          &lt;m:mfrac&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mi&gt;n&lt;/m:mi&gt;&lt;m:mo&gt;!&lt;/m:mo&gt;
+            &lt;/m:mrow&gt;
+            &lt;m:mrow&gt;
+              &lt;m:mi&gt;r&lt;/m:mi&gt;&lt;m:mo&gt;!&lt;/m:mo&gt;&lt;m:mrow&gt;&lt;m:mo&gt;(&lt;/m:mo&gt;
+                &lt;m:mrow&gt;
+                  &lt;m:mi&gt;n&lt;/m:mi&gt;&lt;m:mo&gt;&amp;#x2212;&lt;/m:mo&gt;&lt;m:mi&gt;r&lt;/m:mi&gt;
+                &lt;/m:mrow&gt;
+                &lt;m:mo&gt;)&lt;/m:mo&gt;&lt;/m:mrow&gt;&lt;m:mo&gt;!&lt;/m:mo&gt;
+            &lt;/m:mrow&gt;
+          &lt;/m:mfrac&gt;
+          
+        &lt;/m:mrow&gt;
+      &lt;/m:semantics&gt;
+    &lt;/m:math&gt;
+  &lt;/mathml_container&gt;
+&lt;/fig&gt;</pre>
+</div>
+
+      <div class="fig fignone"><span class="figcap">Figure 5. MathML samples as rendered to HTML with MathJax for
+          rendering</span>. <span class="desc figdesc">MathML rendered to HTML using the DITA for Publishers math-to-HTML
+          support. The generated HTML uses the MathJax JavaScript plugin to
+          render the math in the browser.</span>
+        
+        
+        <img class="image" id="IssueNumber00__image_zj5_n3v_sh" src="math-rendered-html.png" width="576" alt="Screen capture of MathML samples rendered to HTML and viewed in a browser using the MathJax JavaScript library."/>
+      </div>
+</div>
+
+</div>
+
+
+</body>
+</html>

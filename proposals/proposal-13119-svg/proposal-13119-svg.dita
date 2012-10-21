@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature #13119</title>
+<shortdesc>Official domain for SVG</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the following information:<ul>
+     <li>Proposal Completed: 1 Oct 2012</li>
+     <li>Champion: Eliot Kimber,</li>
+     <li>Email discussion: <xref
+          href="https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201209/msg00071.html"
+          format="html"
+          scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201209/msg00071.html</xref>.
+          An example of using &lt;foreign> for inline SVG was included in the
+          original DITA 1.1 proposal for the &lt;foreign> element.</li>
+    </ul></p></section>
+<section><title>Original requirement</title><p>The SVG vocabulary is mature and well-established. It is now a formal part of
+        both HTML5 and EPUB3. It is supported to one degree or another by the
+        latest versions of most Web browsers. It is supported by the main
+        commercial XSL-FO engines. </p>
+      <p>SVG is used by many existing DITA communities. Through DITA 1.2, SVG
+        can only be used by reference without doing custom specialization.
+        However, it is convenient in many cases to use SVG inline within topic
+        content.</p></section>
+<section><title>Use cases</title><p>An SVG integration supports any context in which graphics of any sort need to
+        be presented but where it is convenient or necessary to have the graphic
+        content inline rather than used by reference. For example, to facilitate
+        localization of graphic content.</p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who benefits: DITA users who need to include SVG in their content</li>
+     <li>Expected benefit: Easy use of SVG without the need to define a custom
+          SVG vocabulary domain. Out-of-the-box support for SVG delivery by
+          common DITA processing tools.</li>
+     <li>Potential users: Difficult to quantify.</li>
+     <li>Degree of positive impact: Significant, as it makes SVG available to
+          all DITA users without the need to define custom vocabulary
+          modules.</li>
+    </ul></p></section>
+<section><title>Costs</title><p>Costs:<ul>
+        <li>Maintainers of the DTDs and XSDs: Adds a new vocabulary module,
+          which must be integrated into the appropriate shell document
+          types.</li>
+        <li>Editors of the DITA specification:<ul>
+          <li>How many new topics will be required? 1 new topic for the
+            &lt;svg_container> element</li>
+          <li>How many existing topics will need to be edited? One or two,
+            should it be useful to mention the existence of the
+            &lt;svg_container> element as a specialization of &lt;foreign>.</li>
+          <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? No architectural
+            change.</li>
+          </ul></li>
+        <li>Vendors of tools: Tool vendors may decide to support the new module
+          directly. The nature of this support will depend on the type of
+          processor. Many DITA-aware editors and output processors already
+          support SVG to one degree or another.</li>
+        <li>DITA community-at-large. Will this feature add to the perception
+          that DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature adds a new optional vocabulary module.
+          Users who need it will appreciate having it readily available. Users
+          who do not need it may safely ignore it. The general architecture and
+          semantics of DITA are not affected by this proposal.</p></li>
+        </ul></p></section>
+<section><title>Technical requirements</title>
+      <p>Define a new vocabulary module, svgDomain, that defines the following
+        element type:<ul
+        id="ul_oqh_qp5_sh">
+        <li>&lt;svg_container><p>Specializes topic/foreign. Allows as content
+          the &lt;svg:svg> element from the SVG 1.1 vocabulary, &lt;data>, or
+          &lt;data-about>, as a repeating OR group.</p><p>Because the SVG
+          vocabulary includes some elements that have the same local name as
+          DITA elements, SVG included in DTD-based or RelaxNG-based documents
+          must use prefixed tagnames. Documents that use XSD schemas may use
+          unprefixed tagnames.</p></li>
+        <li>Include the SVG 1.1 DTD declarations. See <xref
+          href="http://www.w3.org/TR/SVG11/svgdtd.html"
+          format="html"
+          scope="external">http://www.w3.org/TR/SVG11/svgdtd.html</xref>.<p>There
+          do no appear to be normative XSD or RelaxNG versions of the SVG
+          vocabulary.</p></li>
+        </ul></p>
+      <p>Processors that need to support SVG rendering have a number of options:<ul
+        id="ul_fjg_2r5_sh">
+        <li>For HTML: <ul
+          id="ul_qsy_hr5_sh">
+          <li>Generate inline SVG within the HTML. This is supported in the
+            latest versions of most common browsers at the time of writing.</li>
+          <li>Generate images from the SVG using open-source or commercial
+            tools.  ImageMagick and Apache Batik both provide facilities for
+            generating images from SVG graphics.</li>
+          </ul></li>
+        <li>For PDF:<ul
+          id="ul_xqg_5t5_sh">
+          <li>The commercial XSL-FO engines Antenna House XSL Formatter and
+            RenderX XEP both support rendering of SVG to PDF. FOP supports SVG
+            through use of the Apache Batik library. For XSL-FO, SVG may be
+            referenced as an external graphic using the fo:external-graphic
+            object or including inline using the fo:instream-foreign-object
+            object.</li>
+          <li>Generate EPS, SVG, or images using open-source or commercial tools
+            as for HTML.</li>
+          </ul></li>
+        </ul></p>
+      <fig>
+        <title>DTD Syntax domain module declarations</title>
+        <p>svgDomain.ent:</p>
+        <codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA SVG Domain
+     
+     Defines a specialization of &lt;foreign> that contains 
+     SVG markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   Formatting DOMAIN ENTITIES                  -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- SVG elements must be prefixed, otherwise they conflict with
+     existing DITA elements (e.g., &lt;desc> and &lt;title>.
+  -->
+&lt;!ENTITY % NS.prefixed "INCLUDE" >
+&lt;!ENTITY % SVG.prefix "svg" >
+
+&lt;!ENTITY % svg-d-foreign
+   "svg_container
+   "
+>
+
+&lt;!ENTITY   svg-d-att     
+  "(topic svg-d)"
+>
+
+&lt;!-- ================== End DITA SVG Domain Entities ============ --></codeblock>
+        <p>svgDomain.mod:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA SVG Domain
+     
+     Defines a specialization of &lt;foreign> that contains 
+     SVG markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+     
+ &lt;!ENTITY % svg_container        "svg_container" >
+
+&lt;!ENTITY % svg11.dtd 
+  SYSTEM "svg11/svg11.dtd"
+>%svg11.dtd;
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % svg_container.content
+"
+  (%data; |
+   %data-about; |
+   %SVG.pfx;svg)*
+"
+>
+&lt;!ENTITY % svg_container.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+> 
+&lt;!ELEMENT svg_container %svg_container.content; >
+&lt;!ATTLIST svg_container %svg_container.attributes; >
+
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+&lt;!ATTLIST svg_container           %global-atts;  class CDATA "+ topic/foreign svg-d/svg_container ">
+
+
+&lt;!-- ================== End SVG Domain ==================== --></codeblock></p>
+      </fig>
+      <fig>
+        <title>XSD domain module declarations</title>
+        <p>svgDomainMod.xsd:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  elementFormDefault="qualified">
+  
+  &lt;xs:group name="svg-d-foreign">
+    &lt;xs:sequence>
+      &lt;xs:choice>
+        &lt;xs:element ref="svg_container"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  
+  &lt;xs:group name="svg_container.content">
+    &lt;xs:choice  minOccurs="0" maxOccurs="unbounded">
+      &lt;xs:any namespace="http://www.w3.org/2000/svg" processContents="lax"/>
+      &lt;xs:group ref="data.elements.incl" minOccurs="0"/>
+    &lt;/xs:choice>
+  &lt;/xs:group>
+  
+  &lt;xs:attributeGroup name="svg_container.attributes">
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+  &lt;/xs:attributeGroup>
+  
+  &lt;xs:complexType name="svg_container.class" mixed="false">
+    &lt;xs:sequence>  
+      &lt;xs:group ref="svg_container.content"/>
+    &lt;/xs:sequence>        
+    &lt;xs:attributeGroup ref="svg_container.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:element name="svg_container">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+        The svg_container (&amp;lt;&lt;keyword>svg_container&lt;/keyword>&amp;gt;) element 
+        contains zero or more SVG graphics, along with optional &amp;lt;&lt;keyword>data&lt;/keyword>&amp;gt;
+        or &amp;lt;&lt;keyword>data-about&lt;/keyword>&amp;gt; elements, which act as metadata for the
+        graphics.
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="false">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="svg_container.class">
+          &lt;xs:attribute ref="class" default="+ topic/foreign svg-d/svg_container "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  
+&lt;/xs:schema>
+</codeblock></p>
+      </fig>
+      <fig>
+        <title>RelaxNG Compact domain module declarations</title>
+        <note>These declarations are not complete. Waiting to work out details
+          of how to declare equivalent of &lt;xs:any> in RNC syntax.</note>
+        <p>svgDomainMod.rnc:<codeblock># ===============================================================
+# SVG Domain Module
+#
+#    Defines a specialization of &lt;foreign> that contains 
+#    SVG markup.
+#     
+#     DITA 1.3
+#     
+#     Copyright (c) 2012 OASIS Open
+# ===============================================================
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace svg = "http://www.w3.org/2000/svg"
+
+
+
+# Define the domain values of this module
+
+domains-atts-value |= "(topic svg-d)"
+
+# Define domain extension patterns
+
+svg-d-foreign =
+  svg_container.element
+  
+# Extend the patterns with the domain contribution
+foreign |= svg-d-foreign
+
+# Define elements content and attributes
+
+# Stub for SVG content, for which there appears
+# to be no normative RelaxNG schema.
+
+# LONG NAME: SVG Container
+svg_container.content =
+  (
+   element svg:svg {
+      (element svg;*)*
+   } | 
+   data |
+   data-about
+   )*
+
+svg_container.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+svg_container.element =
+  
+element svg_container { 
+    svg_container.attlist, 
+    svg_container.content 
+  }
+svg_container.attlist &amp;= svg_container.attributes
+
+#
+# End of module
+#</codeblock></p>
+      </fig></section>
+<section><title>Examples</title>
+      <fig>
+        <title>Sample topic with inline SVG</title>
+        <codeblock>&lt;topic id="svg-test-topic-01">
+  &lt;title>SVG Domain Test: Namespace Prefixed SVG Elements&lt;/title>
+  &lt;body>
+    &lt;p>SVG Inline: &lt;svg_container>
+      &lt;svg:svg
+        width="100"
+        height="100">
+        &lt;svg:defs>
+          &lt;svg:filter
+            id="f1"
+            x="0"
+            y="0">
+            &lt;svg:feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="15"/>
+          &lt;/svg:filter>
+        &lt;/svg:defs>
+        &lt;svg:rect
+          width="90"
+          height="90"
+          stroke="green"
+          stroke-width="3"
+          fill="yellow"
+          filter="url(#f1)"/>
+      &lt;/svg:svg>
+      &lt;/svg_container>&lt;/p>
+    &lt;p>SVG Directly in body:&lt;/p>
+    &lt;svg_container>
+      &lt;svg:svg width="200" height="200">
+        &lt;svg:ellipse cx="100" cy="100" rx="80" ry="80" style="fill:blue;
+          stroke:rgb(0,0,100);stroke-width:2"/>
+      &lt;/svg:svg>
+    &lt;/svg_container>
+    &lt;fig>
+      &lt;title>Figure With SVG Container&lt;/title>
+      &lt;svg_container>
+        &lt;svg:svg width="4in" height="6in" version="1.1"
+          >
+          
+          
+          &lt;svg:circle cx="150" cy="200" r="100" fill="url(#grad_blue)" >
+            &lt;svg:animate attributeName="r" begin="Go.click" end="Stop.click" dur="4s"  
+              values="100; 0; 100" repeatCount="indefinite"/>
+          &lt;/svg:circle>
+          
+          &lt;svg:radialGradient id="grad_blue" cx="20%" cy="20%" r="100%" fx="30%" fy="30%">
+            &lt;svg:stop stop-color="white" offset="0"/>
+            &lt;svg:stop stop-color="blue" offset="25%"/>
+            &lt;svg:stop stop-color="rgb(0,0,192)" offset="50%"/>
+            &lt;svg:stop stop-color="rgb(0,0,127)" offset="70%"/>
+            &lt;svg:stop stop-color="rgb(0,0,64)" offset="85%"/>
+            &lt;svg:stop stop-color="rgb(0,0,0)" offset="100%"/>
+          &lt;/svg:radialGradient>
+          
+          
+          &lt;svg:g id="Go">
+            &lt;svg:rect x="70" y="320" height="40" width="80" fill="aqua"/>
+            &lt;svg:text x="90" y="350" font-size="30" fill="green">Go &lt;/svg:text>
+          &lt;/svg:g>
+          
+          &lt;svg:g id="Stop">
+            &lt;svg:rect x="160" y="320" height="40" width="80" fill="aqua"/>
+            &lt;svg:text x="170" y="350" font-size="30" fill="red">Stop&lt;/svg:text>
+          &lt;/svg:g>
+          
+          
+        &lt;/svg:svg>
+
+      &lt;/svg_container>
+    &lt;/fig>
+  &lt;/body>
+&lt;/topic></codeblock>
+      </fig>
+      <fig>
+        <title>Topic rendered in an editor that supports inline SVG</title>
+        <p><image
+          href="svg-rendered.png"
+          id="image_f5v_hmc_th"
+          width="4in">
+          <alt>Screen capture of an editor window showing the topic in a
+            tags-off view with the SVG graphics rendered.</alt>
+          </image></p>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

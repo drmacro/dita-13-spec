@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>MathML Domain Tests</title>
+  <topicref
+    href="DITA%20MathML%20Test%20Topic%20Prefixed.dita"/>
+</map>

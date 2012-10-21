@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic
+  id="topic_x3l_qcd_th">
+  <title>Topic title</title>
+  <body>
+    <p>Line-through: DITA technology can be
+      <line-through>maddening</line-through>a challenge to implement.</p>
+    <p>Overline: <overline><i>x</i></overline> is the average value of
+      <i>x<sub>i</sub></i></p>
+  </body>
+</topic>

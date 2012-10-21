@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_t4p_nr2_th">
+  <title>Test of extended content model for &lt;data></title>
+  <prolog>
+    <author><data
+      name="author-bio">Ann Author is the author of many works, including
+      <cite>A Book You May Have Read</cite>. Learn more about Ms. Author at <xref
+      href="http://example.com/authors/ann-author"
+      format="html"
+      scope="external">http://example.com/authors/ann-author</xref>.</data></author>
+  </prolog>
+  <body>
+    <p/>
+  </body>
+</topic>

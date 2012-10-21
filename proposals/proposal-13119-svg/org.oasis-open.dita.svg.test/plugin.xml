@@ -1,0 +1,6 @@
+<!-- 
+   DITA Open Toolkit descriptor for the SVG test domain.
+  -->
+<plugin id="org.oasis-open.dita.svg.test">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

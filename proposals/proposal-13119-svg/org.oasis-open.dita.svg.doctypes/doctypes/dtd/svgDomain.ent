@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA SVG Domain
+     
+     Defines a specialization of <foreign> that contains 
+     SVG markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!-- SVG elements must be prefixed, otherwise they conflict with
+     existing DITA elements (e.g., <desc> and <title>.
+  -->
+<!ENTITY % NS.prefixed "INCLUDE" >
+<!ENTITY % SVG.prefix "svg" >
+
+<!ENTITY % svg-d-foreign
+   "svg_container
+   "
+>
+
+<!ENTITY   svg-d-att     
+  "(topic svg-d)"
+>
+
+<!-- ================== End DITA SVG Domain Entities ============ -->

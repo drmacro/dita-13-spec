@@ -1,0 +1,6 @@
+<!-- 
+   DITA Open Toolkit descriptor for the xmldomain test plugin.
+  -->
+<plugin id="org.oasis-open.dita.xmldomain.test">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

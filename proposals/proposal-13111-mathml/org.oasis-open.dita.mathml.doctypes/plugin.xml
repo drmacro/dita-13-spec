@@ -1,0 +1,6 @@
+<!-- 
+   DITA Open Toolkit descriptor for the MathML domain.
+  -->
+<plugin id="org.oasis-open.dita.mathml.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

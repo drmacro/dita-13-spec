@@ -1,0 +1,13 @@
+<!-- 
+  Plugin descriptor for the Ruby domain HTML rendering plugin.
+  
+  Copyright (c) 2012 OASIS Open
+    
+  This plug-in extends the base DITA-to-HTML process to provide appropriate
+  rendering for ruby domain elements.
+  
+  -->
+<plugin id="org.oasis-open.dita.ruby.html">
+  <require plugin="org.oasis-open.dita.ruby.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/rubyDomain2html.xsl" type="file"/>  
+</plugin>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  elementFormDefault="qualified">
+  
+  <xs:group name="svg-d-foreign">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="svg_container"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  
+  <xs:group name="svg_container.content">
+    <xs:choice  minOccurs="0" maxOccurs="unbounded">
+      <xs:any namespace="http://www.w3.org/2000/svg" processContents="lax"/>
+      <xs:group ref="data.elements.incl" minOccurs="0"/>
+    </xs:choice>
+  </xs:group>
+  
+  <xs:attributeGroup name="svg_container.attributes">
+    <xs:attribute name="outputclass" type="xs:string"/>
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+  </xs:attributeGroup>
+  
+  <xs:complexType name="svg_container.class" mixed="false">
+    <xs:sequence>  
+      <xs:group ref="svg_container.content"/>
+    </xs:sequence>        
+    <xs:attributeGroup ref="svg_container.attributes"/>
+  </xs:complexType>
+  
+  <xs:element name="svg_container">
+    <xs:annotation>
+      <xs:documentation>
+        The svg_container (&lt;<keyword>svg_container</keyword>&gt;) element 
+        contains zero or more SVG graphics, along with optional &lt;<keyword>data</keyword>&gt;
+        or &lt;<keyword>data-about</keyword>&gt; elements, which act as metadata for the
+        graphics.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="false">
+      <xs:complexContent>
+        <xs:extension base="svg_container.class">
+          <xs:attribute ref="class" default="+ topic/foreign svg-d/svg_container "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

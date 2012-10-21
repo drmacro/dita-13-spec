@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature #13118 </title>
+<shortdesc>Provide a domain that provides the ruby markup from HTML5 as used by
+    Japanese and other ideographic languages.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>
+        <ul>
+          <li>Proposal Completed: 1 Oct 2012</li>
+          <li>Change log:<ul
+            id="ul_lk1_tjp_xh">
+            <li>nn Oct 2012: <ul
+              id="ul_kk1_4kp_xh">
+              <li>Completed TBD in costs</li>
+              <li>Added RNC and XSD declarations</li>
+              </ul></li>
+            </ul></li>
+          <li>Champion: Eliot Kimber,</li>
+          <li>Email discussion: <xref
+            href="https://lists.oasis-open.org/archives/dita/201201/msg00061.html"
+            format="html"
+            scope="external">https://lists.oasis-open.org/archives/dita/201201/msg00061.html</xref>.</li>
+        </ul>
+      </p></section>
+<section><title>Original requirement</title>
+      <p>In Japanese, the pronunciation of ideographic characters cannot always
+        (or often) be known from context. The ideographic characters are
+        annotated with their phonetic transliteration, a "ruby", which is
+        rendered above or beside or following the ideographs. This is standard
+        Japanese typography. </p></section>
+<section><title>Use cases</title><p>Japanese and other ideographic or similar languages where correct
+        pronunciation may require phonetic annotation.</p></section>
+<section><title>Benefits</title><p>
+        <ul>
+          <li>Who benefits: DITA users who create Japanese- and similar
+            ideographic language content.</li>
+          <li>Expected benefit: Enables correct typographic rendering of ruby
+            annotations.</li>
+          <li>Potential users: At a minimum, all or most companies that write in
+            or localize to Japanese.</li>
+          <li>Degree of positive impact: Significant. Makes producing Japanese
+            documents with proper ruby annotation possible without the need to
+            implement a custom vocabulary module.</li>
+        </ul>
+      </p></section>
+<section><title>Costs</title><p>Costs:<ul>
+        <li>Maintainers of the DTDs and XSDs: Adds a new vocabulary module,
+          which must be integrated into the appropriate shell document
+          types.</li>
+        <li>Editors of the DITA specification:<ul>
+          <li>How many new topics will be required? 1 new reference topic.</li>
+          <li>How many existing topics will need to be edited?<ul
+            id="ul_plh_4z1_xh">
+            <li>Topic "Domain elements" in the Language Reference will need to
+              reflect this domain.</li>
+            </ul></li>
+          <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? No architectural
+            change.</li>
+          </ul></li>
+        <li>Vendors of tools: Processors that render DITA content visually
+          should provide appropriate rendering of ruby content. For HTML-based
+          outputs, ruby support is built in to most, if not all, browsers.</li>
+        <li>DITA community-at-large. Will this feature add to the perception
+          that DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature adds a new optional vocabulary module.
+          Users who need it will appreciate having it readily available. Users
+          who do not need it may safely ignore it. The general architecture and
+          semantics of DITA are not affected by this proposal.</p></li>
+        </ul></p></section>
+<section><title>Technical requirements</title>
+      <p>Define a new vocabulary module, rubyDomain, that defines the &lt;ruby>
+        element type with the same content as defined in HTML5.<dl>
+        <dlentry>
+          <dt>ruby</dt>
+          <dd>Contains the subelements &lt;rb>, &lt;rb>, and &lt;rt>. See the
+            HTML5 definition of the &lt;ruby> element.</dd>
+        </dlentry>
+        </dl></p>
+      <fig>
+        <title>DTD Syntax domain module declarations</title>
+        <p>rubyDomain.ent:</p>
+        <codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA Ruby Domain
+     
+     Defines equivalent of HTML ruby elements for marking up
+     Japanese language documents.
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   Ruby DOMAIN ENTITIES                  -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % ruby-d-ph
+   " ruby
+   "
+>
+
+
+
+&lt;!ENTITY   ruby-d-att     
+  "(topic ruby-d)"
+>
+
+
+&lt;!-- ================== End DITA For Publishers Ruby Domain Entities ============ --></codeblock>
+        <p>rubyDomain.mod:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA Ruby Domain
+     
+     Defines equivalent of HTML ruby elements for marking up
+     Japanese language documents.
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+     
+ &lt;!ENTITY % ruby           "ruby" >
+
+ &lt;!ENTITY % rb             "rb" >
+ &lt;!ENTITY % rp             "rp" >
+ &lt;!ENTITY % rt             "rt" >
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- In order to support HTML5, which allows a mix of PCDATA, other phrase-
+     level elements, and &lt;rt> and &lt;rp>, the content model must allow
+     %ph;, which means that the DTD allows &lt;ruby> within &lt;ruby>. However,
+     &lt;ruby> should *not* be used within &lt;ruby>, per the HTML 
+     constraints on &lt;ruby>. Likewise, if &lt;rp> is used, it should be
+     used as &lt;rp>(&lt;/rp>&lt;rt>...&lt;/rt>&lt;rp>)&lt;/rp> per the HTML5 spec.
+  -->
+&lt;!ENTITY % ruby.content
+"
+  (%ph.cnt; |
+   %rb; |
+   %rp; |
+   %rt;)*
+  " 
+>
+&lt;!ENTITY % ruby.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'ruby'    
+ "
+> 
+&lt;!ELEMENT ruby %ruby.content; >
+&lt;!ATTLIST ruby %ruby.attributes; >
+
+&lt;!ENTITY % rb.content
+"
+  (#PCDATA
+  )*
+  " 
+>
+&lt;!ENTITY % rb.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'rb'    
+ "
+> 
+&lt;!ELEMENT rb %rb.content; >
+&lt;!ATTLIST rb %rb.attributes; >
+
+&lt;!ENTITY % rp.content
+"
+  (#PCDATA
+  )*
+  " 
+>
+&lt;!ENTITY % rp.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'rp'    
+ "
+> 
+&lt;!ELEMENT rp %rp.content; >
+&lt;!ATTLIST rp %rp.attributes; >
+
+&lt;!ENTITY % rt.content
+"
+  (#PCDATA
+  )*
+  " 
+>
+&lt;!ENTITY % rt.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'rt'    
+ "
+> 
+&lt;!ELEMENT rt %rt.content; >
+&lt;!ATTLIST rt %rt.attributes; >
+
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+&lt;!ATTLIST ruby              %global-atts;  class CDATA "+ topic/ph    ruby-d/ruby ">
+&lt;!ATTLIST rb                %global-atts;  class CDATA "+ topic/ph    ruby-d/rb ">
+&lt;!ATTLIST rp                %global-atts;  class CDATA "+ topic/ph    ruby-d/rp ">
+&lt;!ATTLIST rt                %global-atts;  class CDATA "+ topic/ph    ruby-d/rt ">
+
+
+&lt;!-- ================== End Ruby Domain ==================== --></codeblock></p>
+      </fig>
+      <fig>
+        <title>XSD domain module declarations</title>
+        <p>rubyDomainMod.xsd:<codeblock>TBD
+</codeblock></p>
+      </fig>
+      <fig>
+        <title>RelaxNG Compact domain module declarations</title>
+        <note>These declarations are not complete. Waiting to work out details
+          of how to declare equivalent of &lt;xs:any> in RNC syntax.</note>
+        <p>rubyDomainMod.rnc:<codeblock>TBD</codeblock></p>
+      </fig></section>
+<section><title>Examples</title>
+      <fig>
+        <title>Sample topic with ruby markup.</title>
+        <codeblock>&lt;topic id="ruby-test-topic-01">
+  &lt;title>Ruby Domain Test&lt;/title>
+  &lt;body>
+    &lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の&lt;ruby>
+      &lt;rb>白熊&lt;/rb>
+      &lt;rp>（&lt;/rp>
+      &lt;rt>しろくま&lt;/rt>
+      &lt;rp>）&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>    
+  &lt;/body>
+&lt;/topic></codeblock>
+      </fig>
+      <fig>
+        <title>Ruby as rendered in HTML by Safari browser</title>
+        <p><image
+          href="ruby-html-rendition.png"
+          id="image_q4l_p1f_th">
+          <alt>Screen capture of the sample rendered to HTML with HTML ruby
+            markup. The sample shows a small phonetic annotation above two kanji
+            characters.</alt>
+          </image></p>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

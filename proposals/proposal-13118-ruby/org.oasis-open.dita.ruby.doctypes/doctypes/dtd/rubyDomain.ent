@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA Ruby Domain
+     
+     Defines equivalent of HTML ruby elements for marking up
+     Japanese language documents.
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Ruby DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % ruby-d-ph
+   " ruby
+   "
+>
+
+
+
+<!ENTITY   ruby-d-att     
+  "(topic ruby-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Ruby Domain Entities ============ -->

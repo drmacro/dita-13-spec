@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/html_temp?><?path2project?><reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="IssueNumber00" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic reference)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic       reference/reference " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="reference:1">
+<title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:1">DITA 1.3 proposed feature #13023 </title>
+<shortdesc class="- topic/shortdesc " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="shortdesc:1">New generic division element, &lt;div&gt;. Content is intersection of
+    &lt;bodydiv&gt; and &lt;sectiondiv&gt;. To be allowed wherever &lt;p&gt; or other
+    block-level elements are allowed.</shortdesc>
+<refbody class="- topic/body        reference/refbody " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="refbody:1">
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:1"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:2">Date and version information</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:1">
+        <ul class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:1">
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:1">Completed: 25 Jan 2012</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:2">Updated: 14 May 2012 to reflect TC decision to use name
+            &lt;div&gt;</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:3">Champion: W. Eliot Kimber</li>
+        </ul>
+      </p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:2"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:3">Original requirement</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:2">Original requirement as posted to the DITA TC mailing list 26 May 2009 by W.
+        Eliot
+        Kimber:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:1">On Friday, in the context of designing a new specialization for a client, I
+noticed that section-div is not allowed within li.
+
+I'm not sure what the finally-approved proposal said but it was certainly my
+intent/assumption that section-div would be allowed essentially anywhere &lt;p&gt;
+is allowed.
+
+By that logic, I would be inclined to argue that the lack of section-div in
+li (and similar elements, e.g., dd, etc.) is a bug. Having forgotten the
+original discussion and thinking only of the base semantics of section-div,
+I found it surprising that it was not included in li.</codeblock></p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:3">The general requirement is to have a generic, non-section-containing,
+        division element that can occur in any context, removing the need to
+        have different specializations for the same specialized semantic. </p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:4">Another related requirement is the ability to have division elements in
+        topic abstracts, in particular, in glossary entries, as the base type
+        for the &lt;glossdef&gt; element is &lt;abstract&gt;, not &lt;body&gt;. Thus,
+        having defined a specialization of &lt;bodydiv&gt; or &lt;sectiondiv&gt;,
+        there is no way to use that specialization in glossary entries in DITA
+        1.2.</p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:5">The existing &lt;bodydiv&gt; and &lt;sectiondiv&gt; elements are not allowed
+        in all contexts where &lt;p&gt; (and block elements generally) are allowed.
+        Therefore, a new, more-general division element is required.</p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:3"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:4">Use cases</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:6">The *-div elements are intended to enable the creation of specialized element
+        structures that may have arbitrarily complex structure and that are not
+        explicitly titled (meaning that there is no provision for authors to
+        specify titles). Primary use cases include:<ol id="ol_fr4_mjq_bf" class="- topic/ol " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ol:1">
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:4">Enabling replication of legacy markup structures in DITA documents
+          where the markup structures are not titled.</li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:5">As the base types for question markup as defined in the DITA 1.2
+          Learning and Training modules. If the bodydiv and sectiondiv elements
+          had been defined at the time the L&amp;T design was finalized, they
+          would have been used instead of &lt;fig&gt;, which was the closest DITA
+          1.1 provided to a generic container.</li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:6">Structures within topic bodies or sections that group several
+          block-level elements together for a common purpose. Examples include
+          the DITA for Publishers &lt;body-pullquote&gt; and &lt;section-pullquote&gt;
+          elements, which simply contain one or more block-level elements as a
+          quote that may be presented out of the main flow, as well as the
+          &lt;epigraph&gt; element, which binds one or more block elements with the
+          optional &lt;epigraph-attribution&gt; element.</li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:7">Complex data structures in technical documentation, such as
+          structured data values documented in reference information or in
+          descriptions of complex hardware components.</li>
+        </ol></p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:7">Note that case (3) demonstrates the problem in the 1.2 design: the pull
+        quote semantic does not include the need for section elements within the
+        pull quote and therefore &lt;sectiondiv&gt; would serve as the base
+        specialization in all possible occurrence contexts, but because
+        &lt;sectiondiv&gt; is not allowed in &lt;body&gt;, it is necessary to have two
+        variants, &lt;body-pullquote&gt; and &lt;section-pullquote&gt; in order to
+        satisfy the requirement that only specializations of &lt;bodydiv&gt; can
+        occur in &lt;body&gt; and only specializations of &lt;sectiondiv&gt; can occur
+        in &lt;section&gt;.</p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:4"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:5">Benefits</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:8">Address the following questions:<ul class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:2">
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:8">Who will benefit from this feature? Anyone who needs to create
+          specialized div-type structures for which &lt;section&gt; is not needed
+          (and therefore do not need to be limited &lt;body&gt;). Immediate and
+          obvious beneficiaries would be the L&amp;T vocabulary, which could
+          define new question elements specialized from &lt;div&gt; rather than
+          &lt;fig&gt; and DITA for Publishers, removing the need for the otherwise
+          unnecessary &lt;body-pullquote&gt;/&lt;section-pullquote&gt; distinction,
+          allowing a generic &lt;pullquote&gt; element.</li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:9">What is the expected benefit? Specializations and their generation and
+          authoring would be easier by avoiding the need to have two
+          specializations only allowed in specific contexts when one would
+          suffice. It would be possible to include divs in abstracts, and
+          specifically glossary entries, where today they are not allowed.</li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:10">How many people probably will make use of this feature? All users of
+          the DITA for Publishers vocabulary, all users of a new-and-improved
+          L&amp;T vocabulary, anyone specializing from &lt;div&gt;.</li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:11">How much of a positive impact is expected for the users who will make
+          use of the feature? This is a significant positive impact for users
+          that need it. It reduces definitional, authoring, and data conversion
+          complexity and, in the case of abstracts and other block contexts
+          where &lt;sectiondiv&gt; is not today allowed, makes the impossible
+          possible.</li>
+    </ul></p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:5"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:6">Costs</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:9">Outline the impact (time and effort) of the feature on the following groups:<ul class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:3">
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:12">Maintainers of the DTDs and XSDs:<ul id="ul_yjv_jmq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:4">
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:13">Will need to update the affected content model parameter entities
+            to allow &lt;div&gt;</li>
+          </ul></li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:14">Editors of the DITA specification:<ul class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:5">
+       <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:15">How many new topics will be required?<ul id="ul_hbn_nmq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:6">
+            <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:16">Will require one new topic for the new &lt;div&gt; element
+              type.</li>
+            </ul></li>
+       <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:17">How many existing topics will need to be edited?<ul id="ul_c3k_4mq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:7">
+            <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:18">No non-automatic updates</li>
+            </ul></li>
+       <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:19">Will the feature require substantial changes to the information
+            architecture of the DITA specification? If so, what?<ul id="ul_p1f_pmq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:8">
+            <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:20">Addition of one new element type, &lt;div&gt;, whose semantic is
+              essentially the same as &lt;sectiondiv&gt;.</li>
+            </ul></li>
+      </ul></li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:21">Vendors of tools: XML editors, component content management systems,
+          processsors, etc.<ul id="ul_1hr_qmq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:9">
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:22">Will need to account for &lt;div&gt;. However, as &lt;div&gt; has no
+            particular visual presentation, there should be little additional
+            processing required.</li>
+          </ul></li>
+     <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:23">DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to understand?<ul id="ul_xc2_5mq_bf" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:10">
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:24">This feature should not add to the perceived complexity of DITA.
+            It generalizes &lt;bodydiv&gt; and &lt;sectiondiv&gt; in a natural and
+            useful way.</li>
+          </ul></li>
+    </ul></p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:6"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:7">Technical requirements</title>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:10">Define a new element type, &lt;div&gt;, whose content model is all body
+        content except &lt;section&gt; and &lt;bodydiv&gt; (that is, the intersection
+        of the 1.2 &lt;bodydiv&gt; and &lt;sectiondiv&gt; content models) plus
+        &lt;div&gt;.</p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:11">Allow &lt;div&gt; wherever &lt;p&gt; is allowed or any block context where
+        &lt;p&gt; is not allowed for some reason (including within &lt;p&gt;,
+        &lt;fig&gt;, etc.). The design intent is to allow &lt;div&gt; in all
+        block-containing contexts. </p><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:12">For DTDs, the specific changes are:<ul id="ul_d1n_nb1_2g" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:11">
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:25">Declare the parameter entity %div in the commonElements.div
+          module:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:2">&lt;!ENTITY % div          "div"                                         &gt;</codeblock></li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:26">Declare the &lt;div&gt; element type in the commonElements.mod
+          module:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:3">&lt;!--                    LONG NAME: Div element                    --&gt;
+&lt;!ENTITY % div.content
+                       "(#PCDATA | 
+                         %basic.block; | 
+                         %basic.ph; | 
+                         %data.elements.incl; | 
+                         %foreign.unknown.incl; | 
+                         %txt.incl;)*
+"&gt;
+&lt;!ENTITY % div.attributes
+             "%data-element-atts;"
+&gt;
+&lt;!ELEMENT div    %div.content;&gt;
+&lt;!ATTLIST div    %div.attributes;&gt;</codeblock></li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:27">Add %div; to the following parameter entities:<ul id="ul_ds5_brj_gg" class="- topic/ul " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="ul:12">
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:28">%basic.block</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:29">%basic.block.notbl</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:30">%basic.block.nonote</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:31">%basic.block.nopara</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:32">%basic.block.nolq</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:33">%basic.block.notbnofg</li>
+          <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:34">%basic.block.notbfgobj</li>
+          </ul></li>
+        <li class="- topic/li " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="li:35">Declare the @class
+          attribute:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:4">&lt;!ATTLIST div       %global-atts;  class CDATA "- topic/div "       &gt;</codeblock></li>
+        </ul></p></section>
+<section class="- topic/section " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="section:7"><title class="- topic/title " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="title:8">Examples</title><p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:13">DITA for Publishers &lt;body-pullquote&gt;/&lt;section-pullquote&gt; reworked as a
+        single specialization
+        &lt;pullquote&gt;:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:5">&lt;!ENTITY % pullquote.content
+  "(%div.cnt;)*"
+&gt;
+&lt;!ENTITY % pullquote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+&gt;
+&lt;!ELEMENT pullquote    %pullquote.content;&gt;
+&lt;!ATTLIST pullquote    %pullquote.attributes;&gt;
+
+&lt;!ATTLIST pullquote      %global-atts;  class CDATA "+ topic/div d4p-pubcontent-d/pullquote "&gt;</codeblock></p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="p:14">Instances of &lt;pullquote&gt; could then be used in both &lt;body&gt; and
+        &lt;section&gt;
+        contexts:<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/Users/ekimber/workspace/dita-13-spec/proposals/proposal-13023/proposal-13023.dita" xtrc="codeblock:6">&lt;article id="article-01"&gt;
+  &lt;title&gt;My Article&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;Something pithy someone said&lt;/p&gt;
+    &lt;pullquote&gt;&lt;p&gt;Something Pithy&lt;/p&gt;&lt;/pullquote&gt;
+    ...
+    &lt;section spectitle="Deep Dive"&gt;
+      &lt;p&gt;This is really really pithy&lt;/p&gt;
+      &lt;pullquote&gt;&lt;p&gt;Really Pithy&lt;/p&gt;&lt;/pullquote&gt;
+      ...
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/article&gt;</codeblock></p></section>
+</refbody>
+</reference>

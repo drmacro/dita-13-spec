@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13044</title>
+<shortdesc>Allow elements within %basic.ph; within &lt;data>.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>
+        <ul>
+          <li>Date completed: 1 Oct 2012</li>
+          <li>Champion: Eliot Kimber</li>
+          <li>Email: None</li>
+        </ul>
+      </p></section>
+<section>
+      <title>Original requirement</title>
+      <p>There's no reason to limit the content model of data to the degree it
+        is in 1.2 as it makes an arbitrary and limiting decision about what is
+        and isn't useful as metadata. In particular, data currently allows ph,
+        keyword, and term, but not cite, xref, or q. For publishing applications
+        there is a general requirement to be able to capture as metadata
+        arbitrary content that could also occur within a topic body. Since, for
+        example, &lt;cite> is not a specialization of &lt;ph>, &lt;cite> is not
+        allowed within data, which is unnecessarily limiting. Note also that
+        &lt;ph> allows pretty much all inline elements, so the current
+        constraint is rather toothless anyway.</p>
+    </section>
+<section><title>Use cases</title><p>Use cases include:<ul
+        id="ul_fyt_wm5_sh">
+        <li>Metadata that includes more comprehensive information, such as
+          content constituting a author biography or additional bibliographic
+          information about a publication or topic.</li>
+        <li>Descriptive metadata that includes additional markup not currently
+          available.</li>
+        </ul></p></section>
+<section><title>Benefits</title><p>This change ensures that the content model of &lt;data> is not over
+        constrained, allowing any kind of phrase within &lt;data>.</p></section>
+<section><title>Costs</title><p>
+        <ul>
+          <li>Maintainers of the DTDs and XSDs:<ul
+            id="ul_hh4_cvt_ng">
+            <li>Update the content model for &lt;data> to use %basic.ph;.</li>
+            </ul></li>
+          <li>Editors of the DITA specification:<ul>
+            <li>How many new topics will be required?<ul
+              id="ul_g1q_jyt_ng">
+              <li>No new topics</li>
+              </ul></li>
+            <li>How many existing topics will need to be edited?<ul
+              id="ul_jkk_kyt_ng">
+              <li>The generated content model description for &lt;data> will
+                reflect the additional elements allowed by %basic.ph;.</li>
+              </ul></li>
+            <li>Will the feature require substantial changes to the information
+              architecture of the DITA specification?<ul
+              id="ul_ezr_ryt_ng">
+              <li>The feature does not represent a substantial change to the
+                architecture. </li>
+              </ul></li>
+            </ul></li>
+          <li>Vendors of tools:<ul
+            id="ul_g4z_vyt_ng">
+            <li>XML editors will need to allow editing of the updated content
+              model.</li>
+            </ul></li>
+          <li>DITA community-at-large. Will this feature add to the perception
+            that DITA is becoming too complex? <ul
+            id="ul_lsq_yyt_ng">
+            <li>This change should not add to the perception of complexity for
+              authors.</li>
+            </ul></li>
+        </ul>
+      </p></section>
+<section><title>Technical requirements</title><p>Modify the declarations for &lt;data> (and specializations of &lt;data>) as follows:<dl>
+        <dlentry>
+          <dt>DTDs</dt>
+          <dd>Modify <filepath>commonElements.mod</filepath> by changing the
+            declaration of %data.cnt;
+            to:<codeblock>&lt;!ENTITY % data.cnt 
+  "#PCDATA |
+   %basic.ph; |
+   %image; |
+   %object; |
+   %title;
+  "
+></codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>XSDs</dt>
+          <dd>Modify <filepath>commonElementMod.xsd</filepath> by changing the
+            declaration of the "data.cnt" group
+            to:<codeblock>	&lt;!--&lt;!ENTITY % data.cnt             "%basic.ph;|%image;|%object;|%title;">-->
+	&lt;xs:group name="data.cnt">
+		&lt;xs:choice>
+			&lt;xs:group ref="basc.ph"/>
+			&lt;xs:group ref="image"/>
+			&lt;xs:group ref="object"/>
+			&lt;xs:group ref="title"/>
+		&lt;/xs:choice>
+	&lt;/xs:group></codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>RNC</dt>
+          <dd>Modify <filepath>commonElements.mod.rnc</filepath> to set the
+            named pattern "data.cnt"
+            to:<codeblock>text | basic.ph | image | object  | title</codeblock></dd>
+        </dlentry>
+        </dl></p></section>
+<section><title>Examples</title><p>A &lt;data> element within &lt;author>, acting as an author biography:</p>
+      <codeblock>&lt;topic id="topic_t4p_nr2_th">
+  &lt;title>Test of extended content model for &amp;lt;data>&lt;/title>
+  &lt;prolog>
+    &lt;author><b>&lt;data
+      name="author-bio">Ann Author is the author of many works, including
+      &lt;cite>A Book You May Have Read&lt;/cite>. Learn more about Ms. Author at &lt;xref
+      href="http://example.com/authors/ann-author"
+      format="html"
+      scope="external">http://example.com/authors/ann-author&lt;/xref>.&lt;/data></b>&lt;/author>
+  &lt;/prolog>
+  &lt;body>
+    &lt;p/>
+  &lt;/body>
+&lt;/topic></codeblock></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

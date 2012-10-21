@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="TroubleshootingModel" xml:lang="en-us">
+<title>&lt;troubleshooting> model</title>
+<shortdesc>This topic describes the structure and the semantics used
+in the &lt;troubleshooting> specialization.</shortdesc>
+<refbody>
+<section><title>&lt;troubleshooting> children</title><p>The &lt;troubleshooting>
+specializes &lt;topic>. Except for &lt;body>, all top-level elements
+available in &lt;topic> are also available in &lt;troubleshooting>.
+The &lt;troublebody> specializes the &lt;body> element and takes the
+&lt;body> element's place in &lt;troubleshooting>.</p><p>The info-types
+available following &lt;troublebody> are restricted to &lt;task>.
+This allows writers to embed complete &lt;task> topics within &lt;troubleshooting>
+topics instead of using &lt;remedy> elements. &lt;troubleshooting>
+is deliberately excluded from the info-types to discourage complexity.</p
+><p>As with info-types in other topic types, topic composition through
+&lt;topicref> elements in the DITA map is preferable. Implementors
+may wish to disable this option from a shell DTD.</p> </section>
+<section><title>&lt;troublebody> children</title><p>&lt;troublebody>
+contains a mix of &lt;cause>, &lt;condition>, &lt;remedy>, and &lt;troublebodydiv>
+elements.</p> </section>
+<section><title>&lt;troublebodydiv> children</title><p>&lt;troublebodydiv>
+contains a mix of &lt;cause>, &lt;condition>, and &lt;remedy> elements.</p
+> </section>
+<section><title>&lt;cause></title><p>This element indicates the cause
+of whatever problem might exist. &lt;cause> specializes the &lt;section>
+element in name only. This means that &lt;cause> and &lt;section>
+have identical content models.</p> </section>
+<section><title>&lt;condition></title><p>This element describes conditions,
+symptoms, or states associated with the problem. &lt;condition> specializes
+the &lt;section> element in name only.</p> </section>
+<section><title>&lt;remedy></title><p>This element describes a resolution
+for the problem. &lt;remedy> specializes the &lt;section> element.
+&lt;remedy> begins with an optional &lt;title> element, then allows
+all block-level children of &lt;section>, followed by an optional
+choice of either the &lt;steps> element or the &lt;steps-unordered>
+element from &lt;task>. The steps can optionally be followed more
+block-level children of &lt;section>.</p><?Pub Caret 380?><p>Writers
+should select &lt;remedy> over embedded &lt;task> especially when
+multiple cause-solution pairs exist for the same troubleshooting condition.</p
+></section>
+<section><title>Embedded tasks</title><p>Embedded tasks may be used
+when the semantic elements of &lt;task> (such as &lt;context>, &lt;preqreq>,
+or &lt;result>) are necessary. Some reuse scenarios may also warrant
+the use of embedded tasks. Writers are encouraged to choose &lt;remedy>
+over &lt;task> when possible. Writers should embed tasks from the
+DITA map, with chunking, instead of putting the tasks directly into
+the topic. Embedded tasks cannot be presented in pairs the &lt;cause>
+element when multiple cause-solution combinations exist because the
+tasks are only allowed after of the &lt;troublebody> element.</p> </section>
+</refbody>
+</reference>
+<?Pub *0000003362 0?>

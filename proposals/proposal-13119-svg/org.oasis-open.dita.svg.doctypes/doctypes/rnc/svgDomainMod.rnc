@@ -1,0 +1,57 @@
+# ===============================================================
+# SVG Domain Module
+#
+#    Defines a specialization of <foreign> that contains 
+#    SVG markup.
+#     
+#     DITA 1.3
+#     
+#     Copyright (c) 2012 OASIS Open
+# ===============================================================
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace svg = "http://www.w3.org/2000/svg"
+
+
+
+# Define the domain values of this module
+
+domains-atts-value |= "(topic svg-d)"
+
+# Define domain extension patterns
+
+svg-d-foreign =
+  svg_container.element
+  
+# Extend the patterns with the domain contribution
+foreign |= svg-d-foreign
+
+# Define elements content and attributes
+
+# Stub for SVG content, for which there appears
+# to be no normative RelaxNG schema.
+
+# LONG NAME: SVG Container
+svg_container.content =
+  (
+   element svg:svg {
+      (element svg;*)*
+   } | 
+   data |
+   data-about
+   )*
+
+svg_container.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+svg_container.element =
+  
+element svg_container { 
+    svg_container.attlist, 
+    svg_container.content 
+  }
+svg_container.attlist &= svg_container.attributes
+
+#
+# End of module
+#

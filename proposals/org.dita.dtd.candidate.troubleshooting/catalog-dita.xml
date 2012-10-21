@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<!--
+ | (C) Copyright IBM Corporation 2005 - 2006. All Rights Reserved.
+ *-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+
+    <public publicId="-//OASIS//DTD DITA Troubleshooting//EN" uri="dtd/troubleshooting.dtd"/>
+    <public publicId="-//OASIS//ELEMENTS DITA Troubleshooting//EN" uri="dtd/troubleshooting.mod"/>
+
+    <!-- Topic Entities -->
+    <public publicId="-//OASIS//ENTITIES DITA Troubleshooting//EN" uri="dtd/troubleshooting.ent"/>
+
+</catalog>

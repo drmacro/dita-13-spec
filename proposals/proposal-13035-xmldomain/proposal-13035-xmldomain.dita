@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature #13035</title>
+<shortdesc>Provide "XML mention" domain for marking up mentions of XML syntactic
+    components</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>
+        <ul>
+          <li>Proposal Completed: 1 Oct 2012</li>
+          <li>Change history:<ul
+            id="ul_mrk_hz1_xh">
+            <li>14 Oct 2012:<ul
+              id="ul_wdy_hz1_xh">
+              <li>Resolved TBDs.</li>
+              <li>Changed name of "parment" to "parameterentity" per discussion
+                on TC mailing list.</li>
+              <li>Changed name of "textent" to "textentity" per discussion on TC
+                mailing list.</li>
+              <li>Added sample CSS style sheet.</li>
+              <li>Added trailing ";" to text entity, parameter entity, and
+                numeric character reference mentions.</li>
+              </ul></li>
+            <li>16 Oct 2012:<ul
+              id="ul_kdw_5kp_xh">
+              <li>Changed "xmlelem" to "xmlelement" per TC discussion.</li>
+              </ul></li>
+            </ul></li>
+          <li>Champion: Eliot Kimber,</li>
+          <li>Email discussion: None.</li>
+        </ul>
+      </p></section>
+<section><title>Original requirement</title><p>Any documentation that talks about XML vocabularies, including the DITA
+        standard itself, can benefit from dedicated markup for identifying
+        mentions of of XML components.</p></section>
+<section><title>Use cases</title><p>Any documentation that discusses XML vocabulary, including document type
+        reference information, the DITA standard, any other XML application
+        documentation, XML technology instructional material, etc.,
+        documentation of XML-based configuration files for software and
+        hardware, etc.</p></section>
+<section><title>Benefits</title><p>
+        <ul>
+          <li>Who benefits: DITA users who create documents about XML
+            markup.</li>
+          <li>Expected benefit: Enables search and retrieval of XML markup,
+            automatic styling of mentions to reflect consistent style rules,
+            automatic indexing of mentioned components (element types,
+            attributes, parameter entities, etc.).</li>
+          <li>Potential users: Difficult to quantify.</li>
+          <li>Degree of positive impact: Moderate-to-significant. Makes
+            documenting XML vocabularies much more convenient and
+            consistent.</li>
+        </ul>
+      </p></section>
+<section><title>Costs</title><p>Costs:<ul>
+        <li>Maintainers of the DTDs and XSDs: Adds a new vocabulary module,
+          which must be integrated into the appropriate shell document
+          types.</li>
+        <li>Editors of the DITA specification:<ul>
+          <li>How many new topics will be required? 11 new reference
+            topics.</li>
+          <li>How many existing topics will need to be edited? <ul
+            id="ul_plh_4z1_xh">
+            <li>Topic "Domain elements" in the Language Reference will need to
+              reflect this domain.</li>
+            </ul></li>
+          <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? No architectural
+            change.</li>
+          </ul></li>
+        <li>Vendors of tools: Processors that render DITA content visually
+          should provide appropriate styling of each type of mention, e.g.,
+          angle brackets around tagnames, "@" before attribute names, etc. In
+          general the implementation requirements are minimal.</li>
+        <li>DITA community-at-large. Will this feature add to the perception
+          that DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature adds a new optional vocabulary module.
+          Users who need it will appreciate having it readily available. Users
+          who do not need it may safely ignore it. The general architecture and
+          semantics of DITA are not affected by this proposal.</p></li>
+        </ul></p></section>
+<section><title>Technical requirements</title>
+      <p>Define a new vocabulary module, xmlDomain, that defines the following
+        element types:<dl>
+        <dlentry>
+          <dt>numcharref</dt>
+          <dd>Mention of a numeric character reference,
+            e.g.:<codeblock><b>&lt;numcharref>x0a&lt;/numcharref></b> is a newline character.</codeblock><p>A
+            typical rendition would be to add the "&amp;#" leading characters
+            and ";" trailing character: "&amp;#x0a;"</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>parameterentity</dt>
+          <dd>Mention of a parameter entity reference,
+            e.g.:<codeblock><b>&lt;parameterentity>p.content&lt;parameterentity></b> defines the content model 
+for &lt;xmlelement>p&lt;/xmlelement>.</codeblock><p>A
+            typical rendition would be to add the leading "%" character and ";"
+            trailing character: "%p.content;".</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>rngpattern</dt>
+          <dd>Mention of a RelaxNG named pattern,
+            e.g.:<codeblock>The pattern <b>&lt;rngpattern>anySvg&lt;/rngpattern></b> allows any SVG element.</codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>textentity</dt>
+          <dd>A mention of a text entity,
+            e.g.:<codeblock>The <b>&lt;textentity>hi-d-att&lt;/textentity></b> entity holds the contribution for
+the &lt;xmlatt>domains&lt;/xmlatt> attribute.</codeblock><p>A
+            typical rendition would be to add the leading "&amp;" character and
+            ";" trailing character: "&amp;hi-d-att;".</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xmlatt</dt>
+          <dd>Mention of an XML attribute,
+            e.g.:<codeblock>The <b>&lt;xmlatt>id&lt;/xmlatt></b> attribute may be specified on almost any
+element in DITA.</codeblock><p>A
+            typical rendition would be to add a leading "@" sign:
+            "@id".</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xmlelement</dt>
+          <dd>Mention of an XML element type,
+            e.g.:<codeblock>The <b>&lt;xmlelement>foreign&lt;/xmlelement></b> is used to hold non-DITA markup.</codeblock><p>A
+            typical rendition would be to add the left and right angle brackets:
+            "&lt;foreign>".</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xmlnsname</dt>
+          <dd>A mention of an XML namespace name,
+            e.g.:<codeblock>The SVG vocabulary uses the namespace
+<b>&lt;xmlnsname>http://www.w3.org/2000/svg&lt;/xmlnsname></b></codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xsdattgroup</dt>
+          <dd>Mention of a named attribute group within an XML Schema document,
+            e.g.:<codeblock>The attribute group <b>&lt;xsdattgroup>p.attributes&lt;/xsdattgroup></b>
+defines the attributes for the &lt;xmlelement>p&lt;/xmlelement> element.</codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xsdcomplextype</dt>
+          <dd>Mention of a named complex type within an XML Schema document,
+            e.g.:<codeblock>The complex type <b>&lt;xsdcomplextype>state.class&lt;/xsdcomplextype></b> defines
+the base content model for the &lt;xmlelement>state&lt;/xmlelement> element.</codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xsdgroup</dt>
+          <dd>Mention of a named group within an XML Schema document,
+            e.g.:<codeblock>The group <b>&lt;xsdgroup>text.content&lt;/xsdgroup></b> defines the full
+content model for the &lt;xmlelement>text&lt;/xmlelement> element.</codeblock></dd>
+        </dlentry>
+        <dlentry>
+          <dt>xsdsimpletype</dt>
+          <dd>Mention of a simple type (datatype) within an XML Schema document,
+            e.g.:<codeblock>The simple type <b>&lt;xsdsimpletype>type-tmtype-att.class&lt;/xsdsimpletype></b> 
+defines the allowed values for the &lt;xmlatt>tmtype&lt;/xmlatt> attribute.</codeblock></dd>
+        </dlentry>
+        </dl></p>
+      <fig>
+        <title>DTD Syntax domain module declarations</title>
+        <p>xmlDomain.ent:</p>
+        <codeblock>&lt;!-- =============================================================
+
+     XML construct domain
+     
+     Provides phrase-level elements for identifying mentions of
+     XML constructs: element types, attributes, etc., as well as
+     named constructs used in the main XML document grammar and
+     constraint languages (DTD, XSD, and RelaxNG).
+     
+     Copyright (c) 2012 OASIS Open
+     
+     
+     ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    XML DOMAIN ENTITIES                        -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % xml-d-keyword
+  "numcharref |
+   parameterentity |
+   rngpattern |
+   textentity | 
+   xmlatt |
+   xmlelement | 
+   xmlnsname |
+   xsdattgroup | 
+   xsdcomplextype | 
+   xsdgroup | 
+   xsdsimpletype
+  "                 
+  >
+
+&lt;!ENTITY   xml-d-att     "(topic xml-d)"
+>
+
+
+&lt;!-- ================== End XML Domain Entities ============ --></codeblock>
+        <p>xmlDomain.mod:<codeblock>&lt;!-- =============================================================
+
+     XML construct domain
+     
+     Provides phrase-level elements for identifying mentions of
+     XML constructs: element types, attributes, etc.
+     
+     Copyright (c) 2009, 2010 DITA For Publishers
+     
+     This domain module may be used by anyone without restriction.
+     
+     ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % numcharref
+  "numcharref"
+>   
+&lt;!ENTITY % parameterentity          
+  "parameterentity"                                          
+>
+&lt;!ENTITY % rngpattern          
+  "rngpattern"                                          
+>
+&lt;!ENTITY % textentity           
+  "textentity"                                           
+>     
+&lt;!ENTITY % xmlatt      
+  "xmlatt"
+>
+&lt;!ENTITY % xmlelement           
+  "xmlelement"                                           
+>
+&lt;!ENTITY % xmlnsname           
+  "xmlnsname"                                           
+>
+&lt;!ENTITY % xsdattgroup           
+  "xsdattgroup"                                           
+>
+&lt;!ENTITY % xsdcomplextype           
+  "xsdcomplextype"                                           
+>
+&lt;!ENTITY % xsdgroup           
+  "xsdgroup"                                           
+>
+&lt;!ENTITY % xsdsimpletype           
+  "xsdsimpletype"                                           
+>
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+&lt;!--                    LONG NAME: XML Element                            -->
+&lt;!ENTITY % xmlelement.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xmlelement.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xmlelement %xmlelement.content; >
+&lt;!ATTLIST xmlelement %xmlelement.attributes; >
+
+&lt;!--                    LONG NAME: XML Attribute                            -->
+&lt;!ENTITY % xmlatt.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xmlatt.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xmlatt %xmlatt.content; >
+&lt;!ATTLIST xmlatt %xmlatt.attributes; >
+
+&lt;!--                    LONG NAME: Text entity -->
+&lt;!ENTITY % textentity.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % textentity.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT textentity %textentity.content; >
+&lt;!ATTLIST textentity %textentity.attributes; >
+
+&lt;!--                    LONG NAME: Parameter entity -->
+&lt;!ENTITY % parameterentity.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % parameterentity.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT parameterentity %parameterentity.content; >
+&lt;!ATTLIST parameterentity %parameterentity.attributes; >
+
+&lt;!--                    LONG NAME: Numeric character reference -->
+&lt;!ENTITY % numcharref.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % numcharref.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT numcharref %numcharref.content; >
+&lt;!ATTLIST numcharref %numcharref.attributes; >
+
+&lt;!--                    LONG NAME: RelaxNG Named Pattern -->
+&lt;!ENTITY % rngpattern.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % rngpattern.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT rngpattern %rngpattern.content; >
+&lt;!ATTLIST rngpattern %rngpattern.attributes; >
+
+&lt;!--                    LONG NAME: XML Namespace name ("Namespace URI") -->
+&lt;!ENTITY % xmlnsname.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xmlnsname.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xmlnsname %xmlnsname.content; >
+&lt;!ATTLIST xmlnsname %xmlnsname.attributes; >
+
+&lt;!--                    LONG NAME: XSD Attribute Group -->
+&lt;!ENTITY % xsdattgroup.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xsdattgroup.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xsdattgroup %xsdattgroup.content; >
+&lt;!ATTLIST xsdattgroup %xsdattgroup.attributes; >
+
+
+&lt;!--                    LONG NAME: XSD Complex Type-->
+&lt;!ENTITY % xsdcomplextype.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xsdcomplextype.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xsdcomplextype %xsdcomplextype.content; >
+&lt;!ATTLIST xsdcomplextype %xsdcomplextype.attributes; >
+
+&lt;!--                    LONG NAME: XSD Group -->
+&lt;!ENTITY % xsdgroup.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xsdgroup.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xsdgroup %xsdgroup.content; >
+&lt;!ATTLIST xsdgroup %xsdgroup.attributes; >
+
+&lt;!--                    LONG NAME: XSD Simple Type-->
+&lt;!ENTITY % xsdsimpletype.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+&lt;!ENTITY % xsdsimpletype.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+&lt;!ELEMENT xsdsimpletype %xsdsimpletype.content; >
+&lt;!ATTLIST xsdsimpletype %xsdsimpletype.attributes; >
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+
+  &lt;!ATTLIST numcharref  %global-atts;  class CDATA "+ topic/keyword xml-d/numcharref "  >
+  &lt;!ATTLIST parameterentity %global-atts;  class CDATA "+ topic/keyword xml-d/parameterentity "  >
+  &lt;!ATTLIST rngpattern  %global-atts;  class CDATA "+ topic/keyword xml-d/rngpattern "  >
+  &lt;!ATTLIST textentity  %global-atts;  class CDATA "+ topic/keyword xml-d/textentity "  >
+  &lt;!ATTLIST xmlnsname   %global-atts;  class CDATA "+ topic/keyword xml-d/xmlnsname "  >
+  &lt;!ATTLIST xmlatt      %global-atts;  class CDATA "+ topic/keyword xml-d/xmlatt "  >
+  &lt;!ATTLIST xmlelement  %global-atts;  class CDATA "+ topic/keyword xml-d/xmlelement "  >
+  &lt;!ATTLIST xsdattgroup %global-atts;  class CDATA "+ topic/keyword xml-d/xsdattgroup "  >
+  &lt;!ATTLIST xsdcomplextype %global-atts;  class CDATA "+ topic/keyword xml-d/xsdcomplextype "  >
+  &lt;!ATTLIST xsdgroup    %global-atts;  class CDATA "+ topic/keyword xml-d/xsdgroup "  >
+  &lt;!ATTLIST xsdsimpletype %global-atts;  class CDATA "+ topic/keyword xml-d/xsdsimpletype "  >
+
+
+&lt;!-- ================== DITA Highlight Domain ==================== --></codeblock></p>
+      </fig>
+      <fig>
+        <title>XSD domain module declarations</title>
+        <p>xmlDomainMod.xsd:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  
+  &lt;!-- DITA 1.3 XML Domain -->
+  
+    &lt;xs:annotation>
+      &lt;xs:appinfo>
+        &lt;dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic xml-d)&lt;/dita:domainsModule>
+      &lt;/xs:appinfo>
+      &lt;xs:documentation>
+      
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+
+
+  &lt;xs:group name="xml-d-keyword">
+    &lt;xs:choice>
+      &lt;xs:element ref="numcharref"/>
+      &lt;xs:element ref="parameterentity"/>
+      &lt;xs:element ref="rngpattern"/>
+      &lt;xs:element ref="textentity"/> 
+      &lt;xs:element ref="xmlatt"/>
+      &lt;xs:element ref="xmlelement"/> 
+      &lt;xs:element ref="xmlnsname"/>
+      &lt;xs:element ref="xsdattgroup"/> 
+      &lt;xs:element ref="xsdcomplextype"/> 
+      &lt;xs:element ref="xsdgroup"/> 
+      &lt;xs:element ref="xsdsimpletype"/>   
+    &lt;/xs:choice>
+  &lt;/xs:group>
+  
+
+  &lt;xs:group name="numcharref.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="parameterentity.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="rngpattern.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="textentity.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="xmlatt.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="xmlelement.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+&lt;xs:group name="xmlnsname.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="xsdattgroup.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  &lt;xs:group name="xsdcomplextype.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group> 
+  &lt;xs:group name="xsdgroup.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group> 
+  &lt;xs:group name="xsdsimpletype.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="keyword.content"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+
+  &lt;!-- Basic form: Numeric character reference, e.g. &amp;#10; or &amp;#x0a; -->
+  &lt;xs:element name="numcharref">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="numcharref.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/numcharref "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="numcharref.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="numcharref.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="numcharref.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="numcharref.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="parameterentity">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="parameterentity.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/parameterentity "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="parameterentity.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="parameterentity.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="parameterentity.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="parameterentity.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="rngpattern">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="rngpattern.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/rngpattern "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="rngpattern.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="rngpattern.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="rngpattern.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="rngpattern.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="textentity">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="textentity.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/textentity "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="textentity.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="textentity.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="textentity.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="textentity.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+ 
+&lt;xs:element name="xmlatt">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xmlatt.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xmlatt "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xmlatt.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xmlatt.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xmlatt.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xmlatt.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="xmlelement">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xmlelement.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xmlelement "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xmlelement.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xmlelement.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xmlelement.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xmlelement.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+ 
+&lt;xs:element name="xmlnsname">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xmlnsname.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xmlnsname "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xmlnsname.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xmlnsname.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xmlnsname.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xmlnsname.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="xsdattgroup">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xsdattgroup.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xsdattgroup "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xsdattgroup.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xsdattgroup.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xsdattgroup.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xsdattgroup.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+ 
+&lt;xs:element name="xsdcomplextype">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xsdcomplextype.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xsdcomplextype "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xsdcomplextype.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xsdcomplextype.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xsdcomplextype.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xsdcomplextype.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="xsdgroup">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xsdgroup.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xsdgroup "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xsdgroup.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xsdgroup.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xsdgroup.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xsdgroup.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+&lt;xs:element name="xsdsimpletype">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+       
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="true">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="xsdsimpletype.class">
+          &lt;xs:attribute ref="class" default="+ topic/keyword xml-d/xsdsimpletype "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  &lt;xs:complexType name="xsdsimpletype.class" mixed="true">
+        &lt;xs:sequence>
+          &lt;xs:group ref="xsdsimpletype.content"/>
+        &lt;/xs:sequence>
+    &lt;xs:attributeGroup ref="xsdsimpletype.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:attributeGroup name="xsdsimpletype.attributes">
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+
+  
+&lt;/xs:schema></codeblock></p>
+      </fig>
+      <fig>
+        <title>RelaxNG Compact domain module declarations</title>
+        <note>These declarations are not complete. Waiting to work out details
+          of how to declare equivalent of &lt;xs:any> in RNC syntax.</note>
+        <p>xmlDomainMod.rnc:<codeblock>datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# ============================================================= 
+# MODULE:    DITA XML Domain - RNC              
+# VERSION:   1.3                                                
+# DATE:      October 2012                                       
+# =============================================================
+
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+# Define the domain values of this module
+domains-atts-value |= "(topic xml-d)"
+# Define domain extension patterns
+xml-d-keyword =
+   numcharref.element |
+   parameterentity.element |
+   rngpattern.element |
+   textentity.element | 
+   xmlatt.element |
+   xmlelement.element | 
+   xmlnsname.element |
+   xsdattgroup.element | 
+   xsdcomplextype.element | 
+   xsdgroup.element | 
+   xsdsimpletype.element
+   
+# Extend the patterns with the domain contribution
+keyword |= xml-d-keyword
+# Define elements content and attributes
+
+# LONG NAME: Numeric character reference (&amp;#10;, &amp;#x0a;)
+numcharref.content =
+  (text | \text | tm)*
+numcharref.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+numcharref.element =
+  
+  element numcharref { 
+    numcharref.attlist, 
+    numcharref.content 
+   }
+numcharref.attlist &amp;= numcharref.attributes
+
+
+# LONG NAME: Parameter entity reference (%p.content;)
+parameterentity.content =
+  (text | \text | tm)*
+parameterentity.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+parameterentity.element =
+  
+  ## The parameterentity (&lt;parameterentity>) element is used to identify
+  ## mentions of XML DTD parameter entities.
+  ##         Category: Mention elements
+  element parameterentity { 
+    parameterentity.attlist, 
+    parameterentity.content 
+   }
+parameterentity.attlist &amp;= parameterentity.attributes
+
+
+# LONG NAME: Relax NG named pattern
+rngpattern.content =
+  (text | \text | tm)*
+rngpattern.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+rngpattern.element =
+  
+  ## The rngpattern (&lt;rngpattern>) element is used to 
+  ## identify mentions of named patterns.
+  ##         Category: Mention elements
+  element rngpattern { 
+    rngpattern.attlist, 
+    rngpattern.content 
+   }
+rngpattern.attlist &amp;= rngpattern.attributes
+
+
+# LONG NAME: Text entity (&amp;prodname;)
+textentity.content =
+  (text | \text | tm)*
+textentity.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+textentity.element =
+  
+  ## The textentity (&lt;textentity>) element is used to identify
+  ## mentions of XML text entities.
+  ##         Category: Mention elements
+  element textentity { 
+    textentity.attlist, 
+    textentity.content 
+   }
+textentity.attlist &amp;= textentity.attributes
+ 
+
+# LONG NAME: XML attribute
+xmlatt.content =
+  (text | \text | tm)*
+xmlatt.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xmlatt.element =
+  
+  ## The xmlatt (&lt;xmlatt>) element is used to identify
+  ## mentions of XML attributes.
+  ##         Category: Mention elements
+  element xmlatt { 
+    xmlatt.attlist, 
+    xmlatt.content 
+   }
+xmlatt.attlist &amp;= xmlatt.attributes
+
+
+# LONG NAME: XML element
+xmlelement.content =
+  (text | \text | tm)*
+xmlelement.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xmlelement.element =
+  
+  ## The xmlelement (&lt;xmlelement>) element is used to identity mentions
+  ## of XML element types.
+  ##         Category: Mention elements
+  element xmlelement { 
+    xmlelement.attlist, 
+    xmlelement.content 
+   }
+xmlelement.attlist &amp;= xmlelement.attributes
+ 
+
+# LONG NAME: XML namespace name (aka "namespace URI") 
+xmlnsname.content =
+  (text | \text | tm)*
+xmlnsname.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xmlnsname.element =
+  
+  ## The xmlnsname (&lt;xmlnsname>) element is used to identify
+  ## mentions of XML namespace names, e.g. the value used
+  ## in @xmlns attributes.
+  ##         Category: Mention elements
+  element xmlnsname { 
+    xmlnsname.attlist, 
+    xmlnsname.content 
+   }
+xmlnsname.attlist &amp;= xmlnsname.attributes
+
+
+# LONG NAME: XSD attribute group
+xsdattgroup.content =
+  (text | \text | tm)*
+xsdattgroup.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xsdattgroup.element =
+  
+  ## The xsdattgroup (&lt;xsdattgroup>) element is used to identify
+  ## mentions of XSD attribute groups.
+  ##         Category: Mention elements
+  element xsdattgroup { 
+    xsdattgroup.attlist, 
+    xsdattgroup.content 
+   }
+xsdattgroup.attlist &amp;= xsdattgroup.attributes
+ 
+
+# LONG NAME: XSD complex type
+xsdcomplextype.content =
+  (text | \text | tm)*
+xsdcomplextype.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xsdcomplextype.element =
+  
+  ## The xsdcomplextype (&lt;xsdcomplextype>) element is used to identify
+  ## mentions  of XSD complex types.
+  ##         Category: Mention elements
+  element xsdcomplextype { 
+    xsdcomplextype.attlist, 
+    xsdcomplextype.content 
+   }
+xsdcomplextype.attlist &amp;= xsdcomplextype.attributes
+ 
+
+# LONG NAME: XSD group
+xsdgroup.content =
+  (text | \text | tm)*
+xsdgroup.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xsdgroup.element =
+  
+  ## The xsdgroup (&lt;xsdgroup>) element is used to identify
+  ## mentions of XSD groups (element groups, as opposed to 
+  ## attribute groups).
+  ##         Category: Mention elements
+  element xsdgroup { 
+    xsdgroup.attlist, 
+    xsdgroup.content 
+   }
+xsdgroup.attlist &amp;= xsdgroup.attributes
+
+
+# LONG NAME: XSD simpletype
+xsdsimpletype.content =
+  (text | \text | tm)*
+xsdsimpletype.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xsdsimpletype.element =
+  
+  ## The xsdsimpletype (&lt;xsdsimpletype>) element is used to identify
+  ## mentions of XSD simple types ("data types").
+  ##         Category: Mention elements
+  element xsdsimpletype { 
+    xsdsimpletype.attlist, 
+    xsdsimpletype.content 
+   }
+xsdsimpletype.attlist &amp;= xsdsimpletype.attributes
+
+
+# Specialization attributes. Global attributes and class defaults
+numcharref.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/numcharref " ] attribute class { text }?
+parameterentity.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/parameterentity " ] attribute class { text }?
+rngpattern.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/rngpattern " ] attribute class { text }?
+textentity.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/textentity " ] attribute class { text }? 
+xmlatt.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xmlatt " ] attribute class { text }?
+xmlelement.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xmlelement " ] attribute class { text }? 
+xmlnsname.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xmlnsname " ] attribute class { text }?
+xsdattgroup.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xsdattgroup " ] attribute class { text }? 
+xsdcomplextype.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xsdcomplextype " ] attribute class { text }? 
+xsdgroup.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xsdgroup " ] attribute class { text }?
+xsdsimpletype.attlist &amp;=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xsdsimpletype " ] attribute class { text }?
+</codeblock></p>
+      </fig></section>
+<section><title>Examples</title>
+      <fig>
+        <p>Sample CSS style sheet for XML domain elements</p>
+        <codeblock>/*
+==============================
+    XML elements. [xml-d]
+==============================
+*/
+
+*[class~="xml-d/xmlelement"],
+*[class~="xml-d/xmlatt"],
+*[class~="xml-d/xmlnsname"],
+*[class~="xml-d/parameterentity"],
+*[class~="xml-d/textentity"],
+*[class~="xml-d/numcharref"]
+*[class~="xml-d/rngpattern"]
+*[class~="xml-d/xsdattgroup"]
+*[class~="xml-d/xsdcomplextype"]
+*[class~="xml-d/xsdgroup"]
+*[class~="xml-d/xsdsimpletype"]
+{
+    font-family:monospace;
+}
+*[class~="xml-d/xmlelement"]:before {
+    content: '&lt;';
+}
+*[class~="xml-d/xmlelement"]:after {
+    content: '>';
+}
+
+*[class~="xml-d/parameterentity"]:before {
+    content: '%';
+}
+
+*[class~="xml-d/textentity"]:before {
+    content: '&amp;';
+}
+
+*[class~="xml-d/numcharref"]:before {
+    content: '&amp;#';
+}
+
+*[class~="xml-d/parameterentity"]:after,
+*[class~="xml-d/textentity"]:after,
+*[class~="xml-d/numcharref"]:after
+{
+    content: ';';
+}
+
+*[class~="xml-d/xmlatt"]:before {
+    content: '@';
+}</codeblock>
+      </fig>
+      <fig>
+        <title>Sample topic with XML mention markup.</title>
+        <codeblock>&lt;topic id="mathml-test-topic-01">
+  &lt;title>XML Domain Test&lt;/title>
+  &lt;body>
+    &lt;dl>
+      &lt;dlentry>
+        &lt;dt>numcharref&lt;/dt>
+        &lt;dd>
+          &lt;p>&lt;numcharref>x0a&lt;/numcharref>.&lt;/p>
+        &lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>parameterentity&lt;/dt>
+        &lt;dd>
+          &lt;p>&lt;parameterentity>p.content&lt;/parameterentity>&lt;/p>
+        &lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>rngpattern&lt;/dt>
+        &lt;dd>&lt;rngpattern>p.content&lt;/rngpattern>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>textentity&lt;/dt>
+        &lt;dd>
+          &lt;p>&lt;textentity>hi-d-att&lt;/textentity>&lt;/p>
+        &lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xmlatt&lt;/dt>
+        &lt;dd>&lt;xmlatt>class&lt;/xmlatt>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xmlelement&lt;/dt>
+        &lt;dd>&lt;xmlelement>foreign&lt;/xmlelement>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xmlnsname&lt;/dt>
+        &lt;dd>&lt;xmlnsname>http://www.w3.org/2000/svg&lt;/xmlnsname>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xsdattgroup&lt;/dt>
+        &lt;dd>&lt;xsdattgroup>p.attributes&lt;/xsdattgroup>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xsdcomplextype&lt;/dt>
+        &lt;dd>&lt;xsdcomplextype>p.class&lt;/xsdcomplextype>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xsdgroup&lt;/dt>
+        &lt;dd>&lt;xsdgroup>p.content&lt;/xsdgroup>&lt;/dd>
+      &lt;/dlentry>
+      &lt;dlentry>
+        &lt;dt>xsdsimpletype&lt;/dt>
+        &lt;dd>&lt;xsdsimpletype>type-tmtype-att.class&lt;/xsdsimpletype>&lt;/dd>
+      &lt;/dlentry>
+    &lt;/dl>
+  &lt;/body>
+&lt;/topic></codeblock>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

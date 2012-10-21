@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DITA 1.3 proposed feature #13023"/>
+<meta name="abstract" content="Allow &lt;sectiondiv&gt; in all contexts where &lt;p&gt; is allowed."/>
+<meta name="description" content="Allow &lt;sectiondiv&gt; in all contexts where &lt;p&gt; is allowed."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="IssueNumber00"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>DITA 1.3 proposed feature #13023</title>
+</head>
+<body id="IssueNumber00">
+
+
+<h1 class="title topictitle1">DITA 1.3 proposed feature #13023 </h1>
+
+
+<div class="body refbody"><p class="shortdesc">Allow &lt;sectiondiv&gt; in all contexts where &lt;p&gt; is
+    allowed.</p>
+
+<div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">
+        <ul class="ul">
+          <li class="li">Completed: 25 Jan 2012</li>
+
+          <li class="li">Champion: W. Eliot Kimber</li>
+
+        </ul>
+
+      </div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Original requirement</h2><div class="p">Original requirement as posted to the DITA TC mailing list 26 May 2009 by W.
+        Eliot
+        Kimber:<pre class="pre codeblock">On Friday, in the context of designing a new specialization for a client, I
+noticed that section-div is not allowed within li.
+
+I'm not sure what the finally-approved proposal said but it was certainly my
+intent/assumption that section-div would be allowed essentially anywhere &lt;p&gt;
+is allowed.
+
+By that logic, I would be inclined to argue that the lack of section-div in
+li (and similar elements, e.g., dd, etc.) is a bug. Having forgotten the
+original discussion and thinking only of the base semantics of section-div,
+I found it surprising that it was not included in li.</pre>
+</div>
+
+      <p class="p">The general requirement is to have a generic, non-section-containing,
+        division element that can occur in any context, removing the need to
+        have different specializations for the same specialized semantic. The
+        &lt;section-div&gt; element, because it cannot contain &lt;section&gt;, is
+        appropriate for use in any block context and therefore satisfies the
+        requirement if it is allowed essentially wherever &lt;p&gt; is allowed.</p>
+
+      <p class="p">Another related requirement is the ability to have division elements in
+        topic abstracts, in particular, in glossary entries, as the base type
+        for the &lt;glossdef&gt; element is &lt;abstract&gt;, not &lt;body&gt;. Thus,
+        having defined a specialization of &lt;bodydiv&gt; or &lt;sectiondiv&gt;,
+        there is no way to use that specialization in glossary entries in DITA
+        1.2.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Use cases</h2><div class="p">The *-div elements are intended to enable the creation of specialized element
+        structures that may have arbitrarily complex structure and that are not
+        explicitly titled (meaning that there is no provision for authors to
+        specify titles). Primary use cases include:<ol class="ol" id="IssueNumber00__ol_fr4_mjq_bf">
+        <li class="li">Enabling replication of legacy markup structures in DITA documents
+          where the markup structures are not titled.</li>
+
+        <li class="li">As the base types for question markup as defined in the DITA 1.2
+          Learning and Training modules. If the bodydiv and sectiondiv elements
+          had been defined at the time the L&amp;T design was finalized, they
+          would have been used instead of &lt;fig&gt;, which was the closest DITA
+          1.1 provided to a generic container.</li>
+
+        <li class="li">Structures within topic bodies or sections that group several
+          block-level elements together for a common purpose. Examples include
+          the DITA for Publishers &lt;body-pullquote&gt; and &lt;section-pullquote&gt;
+          elements, which simply contain one or more block-level elements as a
+          quote that may be presented out of the main flow, as well as the
+          &lt;epigraph&gt; element, which binds one or more block elements with the
+          optional &lt;epigraph-attribution&gt; element.</li>
+
+        <li class="li">Complex data structures in technical documentation, such as
+          structured data values documented in reference information or in
+          descriptions of complex hardware components.</li>
+
+        </ol>
+</div>
+
+      <p class="p">Note that case (3) demonstrates the problem in the 1.2 design: the pull
+        quote semantic does not include the need for section elements within the
+        pull quote and therefore &lt;sectiondiv&gt; would serve as the base
+        specialization in all possible occurrence contexts, but because
+        &lt;sectiondiv&gt; is not allowed in &lt;body&gt;, it is necessary to have two
+        variants, &lt;body-pullquote&gt; and &lt;section-pullquote&gt; in order to
+        satisfy the requirement that only specializations of &lt;bodydiv&gt; can
+        occur in &lt;body&gt; and only specializations of &lt;sectiondiv&gt; can occur
+        in &lt;section&gt;.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Benefits</h2><div class="p">Address the following questions:<ul class="ul">
+     <li class="li">Who will benefit from this feature? Anyone who needs to create
+          specialized div-type structures for which &lt;section&gt; is not needed
+          (and therefore do not need to be limited &lt;body&gt;). Immediate and
+          obvious beneficiaries would be the L&amp;T vocabulary, which could
+          define new question elements specialized from &lt;sectiondiv&gt; rather
+          than &lt;fig&gt; and DITA for Publishers, removing the need for the
+          otherwise unnecessary &lt;body-pullquote&gt;/&lt;section-pullquote&gt;
+          distinction, allowing a generic &lt;pullquote&gt; element.</li>
+
+     <li class="li">What is the expected benefit? Specializations and their generation and
+          authoring would be easier by avoiding the need to have two
+          specializations only allowed in specific contexts when one would
+          suffice. It would be possible to include divs in abstracts, and
+          specifically glossary entries, where today they are not allowed.</li>
+
+     <li class="li">How many people probably will make use of this feature? All users of
+          the DITA for Publishers vocabulary, all users of a new-and-improved
+          L&amp;T vocabulary, anyone specializing from &lt;sectiondiv&gt;.</li>
+
+     <li class="li">How much of a positive impact is expected for the users who will make
+          use of the feature? This is a significant positive impact for users
+          that need it. It reduces definitional, authoring, and data conversion
+          complexity and, in the case of abstracts and other block contexts
+          where &lt;sectiondiv&gt; is not today allowed, makes the impossible
+          possible.</li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Costs</h2><div class="p">Outline the impact (time and effort) of the feature on the following groups:<ul class="ul">
+     <li class="li">Maintainers of the DTDs and XSDs:<ul class="ul" id="IssueNumber00__ul_yjv_jmq_bf">
+          <li class="li">Will need to update the affected content models to allow
+            &lt;sectiondiv&gt;</li>
+
+          </ul>
+</li>
+
+     <li class="li">Editors of the DITA specification:<ul class="ul">
+       <li class="li">How many new topics will be required?<ul class="ul" id="IssueNumber00__ul_hbn_nmq_bf">
+            <li class="li">Should require no new topics.</li>
+
+            </ul>
+</li>
+
+       <li class="li">How many existing topics will need to be edited?<ul class="ul" id="IssueNumber00__ul_c3k_4mq_bf">
+            <li class="li">17 topics will need to be updated: one for each element type
+              whose content model is updated to allow &lt;sectiondiv&gt; plus the
+              entry for &lt;sectiondiv&gt; itself.</li>
+
+            </ul>
+</li>
+
+       <li class="li">Will the feature require substantial changes to the information
+            architecture of the DITA specification? If so, what?<ul class="ul" id="IssueNumber00__ul_p1f_pmq_bf">
+            <li class="li">No change the information architecture. The semantic of
+              &lt;sectiondiv&gt; is not affected, only the places where it is
+              allowed.</li>
+
+            </ul>
+</li>
+
+      </ul>
+</li>
+
+     <li class="li">Vendors of tools: XML editors,component content management systems,
+          processsors, etc.<ul class="ul" id="IssueNumber00__ul_1hr_qmq_bf">
+          <li class="li">Tools that provide special processing for &lt;sectiondiv&gt; and for
+            some reason depend on it being only within &lt;section&gt; would need
+            to be updated. It seems unlikely that there are any such tools as
+            unspecialized &lt;sectiondiv&gt; has no semantic beyond containment and
+            has no default or expected presentation effect.</li>
+
+          </ul>
+</li>
+
+     <li class="li">DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to understand?<ul class="ul" id="IssueNumber00__ul_xc2_5mq_bf">
+          <li class="li">This feature should not add to the perceived complexity of DITA.
+            At worst it is neutral, at best it removes complexity by aligning
+            content rules with intuitive user expectation (that &lt;sectiondiv&gt;
+            is allowed in all block contexts).</li>
+
+          </ul>
+</li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2><div class="p">
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Changes to content models</dt>
+
+            <dd class="dd">
+              <div class="p">The following element types are updated to allow &lt;sectiondiv&gt;:<ul class="ul" id="IssueNumber00__ul_mbn_dnq_bf">
+                <li class="li">abstract</li>
+
+                <li class="li">body</li>
+
+                <li class="li">bodydiv </li>
+
+                <li class="li">dd</li>
+
+                <li class="li">desc</li>
+
+                <li class="li">draft-comment</li>
+
+                <li class="li">entry</li>
+
+                <li class="li">example</li>
+
+                <li class="li">fig</li>
+
+                <li class="li">figgroup</li>
+
+                <li class="li">fn</li>
+
+                <li class="li">itemgroup</li>
+
+                <li class="li">li</li>
+
+                <li class="li">linkinfo</li>
+
+                <li class="li">lq</li>
+
+                <li class="li">note</li>
+
+                <li class="li">stentry</li>
+
+                </ul>
+</div>
+
+            </dd>
+
+          
+          
+            <dt class="dt dlterm">Overall usability</dt>
+
+            <dd class="dd">This proposal improves the usability of &lt;sectiondiv&gt; by:<ol class="ol" id="IssueNumber00__ol_2mr_b4q_bf">
+              <li class="li">Allowing it to be used in all contexts where it would be
+                expected to be usable (that is, wherever &lt;p&gt; is
+                allowed).</li>
+
+              <li class="li">Removing the need for two specializations where one would
+                suffice because the specialization does not need to allow
+                &lt;section&gt; (which would require specializing from both
+                &lt;bodydiv&gt; and &lt;sectiondiv&gt;).</li>
+
+              </ol>
+</dd>
+
+          
+        </dl>
+
+      </div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Examples</h2><div class="p">DITA for Publishers &lt;body-pullquote&gt;/&lt;section-pullquote&gt; reworked as a
+        single specialization
+        &lt;pullquote&gt;:<pre class="pre codeblock">&lt;!ENTITY % pullquote.content
+  "(%sectiondiv.cnt;)*"
+&gt;
+&lt;!ENTITY % pullquote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+&gt;
+&lt;!ELEMENT pullquote    %pullquote.content;&gt;
+&lt;!ATTLIST pullquote    %pullquote.attributes;&gt;
+
+&lt;!ATTLIST pullquote      %global-atts;  class CDATA "+ topic/sectiondiv d4p-pubcontent-d/pullquote "&gt;</pre>
+</div>
+
+      <div class="p">Instances of &lt;pullquote&gt; could then be used in both &lt;body&gt; and
+        &lt;section&gt;
+        contexts:<pre class="pre codeblock">&lt;article id="article-01"&gt;
+  &lt;title&gt;My Article&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;Something pithy someone said&lt;/p&gt;
+    &lt;pullquote&gt;&lt;p&gt;Something Pithy&lt;/p&gt;&lt;/pullquote&gt;
+    ...
+    &lt;section spectitle="Deep Dive"&gt;
+      &lt;p&gt;This is really really pithy&lt;/p&gt;
+      &lt;pullquote&gt;&lt;p&gt;Really Pithy&lt;/p&gt;&lt;/pullquote&gt;
+      ...
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/article&gt;</pre>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>

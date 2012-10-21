@@ -1,0 +1,289 @@
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+<base href="http://www.oasis-open.org/login/" />
+
+				<title>OASIS: login</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		
+    <link rel="stylesheet" href="/uber.css?khash=0101c0ce7e9f1e976504001996e91659" type="text/css" media="screen,projection" />
+    <!--[if IE 8]>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/kstyles/ws-ie8.css?khash=c8dcfca01a0d785f1e2ce154dd22d41b" />
+    <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/kstyles/ws-ie7.css?khash=bb5922df8d187b4e707bd68a73bbb682" />
+    <![endif]-->
+    <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/kstyles/ws-ie6.css?khash=e10cd0c0e2a60030dde65e28280a8b67" />
+    <![endif]-->
+		<script type="text/javascript">
+			var isIE6 = false;
+			var isIE7 = false;
+			var isIE8 = false;
+		</script>
+		
+		<!--[if IE 6]>
+		<script type="text/javascript">
+			isIE6 = true;
+		</script>
+		<![endif]-->
+		
+		<!--[if IE 7]>
+		<script type="text/javascript">
+			isIE7 = true;
+		</script>
+		<![endif]-->
+		
+		<!--[if IE 8]>
+		<script type="text/javascript">
+			isIE8 = true;
+		</script>
+		<![endif]-->
+
+    <link rel="stylesheet" href="/styles/collab.css" type="text/css" />
+
+    <link rel="stylesheet" href="/kstyles/print.css?khash=8df0fe8f77c40151ae13db856c95ee6c" type="text/css"  media="print" />
+        
+    <!--[if lt IE 7]>
+        <script src="/ieHover.js?khash=85fbce59de62cc23b6ec330285c97e70" type="text/javascript"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+<!-- script for navigation rollovers-->
+<!-- /script for rollovers-->
+</script>
+<!--call site specific javascript-->
+<script language="Javascript" type="text/javascript">
+	function openWin(URL) {awindow=window.open(URL,'contact','toolbar=yes,width=500,height=600,status=no,scrollbars=yes,resizable=yes,menubar=no'); }
+      </script>
+ 
+
+  <script type="text/javascript" src="/kjavascript/dotorg/jquery.js?khash=9eb33df93b21325142088527103882d2"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/jquery.cookie.js?khash=384772142d1907d7d3aea3ac11fad9d0"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/functions.js?khash=4b4791b3cf2b0138466d9b262cc7f311"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/kwsGlobal.js?khash=9846c45d8c60888cc35d55a4e8bfefb3"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/has-ajax.js?khash=72a502097c6927b4e8d03e10001931bb"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/action_menu.js?khash=744bc66450a604d41dd312ce7dca8a68"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/jquery.form.js?khash=220681af3b8829dc9dc446cda87105c1"></script>
+<script type="text/javascript" src="/kjavascript/dotorg/add-doc-modal.js?khash=2cae6a4c8613f5a645200e8ca080dcbe"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+   $("#__ac_name").focus();
+
+   if($("input[name='openid_login_mode']").val()){
+     $('.korg_username,.korg_password,.korg_openid_login_link').hide();
+   } else {
+     $('.korg_openid_url,.korg_login_link,.oid_desc').hide();
+   }
+
+   $('a#openid_login_link').bind('click', function(){
+     $("input[name='__ac_name']").val('');
+     $("input[name='__ac_password']").val('');
+     $('.korg_openid_url,.korg_login_link,.oid_desc').fadeIn();
+     $('.korg_username,.korg_password,.korg_openid_login_link').hide();
+     $("input[name='openid_login_mode']").val('1');
+     return false
+   });
+
+   $('a#login_link').bind('click', function(){
+     $('.korg_openid_url,.korg_login_link,.oid_desc').hide();
+     $('.korg_username,.korg_password,.korg_openid_login_link').fadeIn();
+     $("input[name='openid_login_mode']").val('');
+     $("input#openid_url").val('');
+     return false
+   });
+});
+</script>
+<script type="text/javascript" src="/kjavascript/members/queued_email.js?khash=f63d3b96c0c06f0ca60a1dd06992f937"></script>
+
+<script type="text/javascript" src="/kjavascript/dotorg/floatbox.js?khash=1867e44c55d7096712dced781a086426"></script>
+                    
+
+	</head>
+	<body>
+    <div id="container">
+			<div id="nav-skip">
+				<ul>
+					<li><a href="#main">Skip to Main Content</a></li>
+					<li><a href="#nav-primary">Skip to Primary Navigation</a></li>
+				</ul>
+			</div><!-- #nav-skip -->
+			<div id="nav-tools">
+			<!-- logged in -->
+        					<div id="nav-utilities">
+												<ul class="utilities">
+							<li class="help last"><a href="/get_help">Help</a></li>
+						</ul>
+																		<ul class="user">
+							<li class="login"><a href="/login">Login</a></li>
+						</ul>
+											</div><!-- #nav-utilities -->
+					<!-- end logged in -->
+                            <!-- realm -->
+            <div id="nav-realm">
+                <ul>
+                                            <li>
+                            <a href="/kws">Workspace</a>
+                        </li>
+                                    </ul>
+            </div><!-- #nav-realm from Navigation.py -->
+            <!-- end realm -->
+
+        </div><!-- #nav-tools -->
+												<div id="header"><p><a href="http://oasis-open.org/"><img alt="OASIS-OPEN.ORG" src="/commonimages/headermain/oasis-banner.png" /></a></p></div><!-- #header -->
+												
+
+<div id="nav-primary">
+    <ul>
+                                                    </ul>
+        </div><!-- #nav-primary from Navigation.py -->
+
+				<div id="content">
+					<div id="main">
+								
+
+<div class="pwd_desc">
+<ul>
+<li class="join">
+<strong>Login to Workspace</strong>
+<br />
+You need an account to access Workspace. If you don't have an account yet, learn <a href="/kmembership_info/person_signup">how to join</a>.
+</li>
+<li class="help">
+<strong>Forgot your Username or Password?</strong>
+<br />
+Get password help <a href="/kmembership_info/request_password/">here</a>.
+</li>
+</ul>
+</div>
+
+<div class="korg_login_form">
+<form name="loginform" id="login_loginform"
+      accept-charset="iso-8859-1" action="/kws"
+      method="post" enctype="multipart/form-data">
+<h2>
+Login
+
+</h2>
+
+
+
+
+
+  
+  
+
+<ol class="korg_fields_list">
+    
+    
+    <li class="korg_username">
+
+
+<label for="__ac_name">Username</label>
+<div class="korg_field_container">
+ 
+ 
+ <input type="text" id="__ac_name" name="__ac_name"  size="30"   maxlength="255"  value=""/>
+</div>
+
+</li>
+    
+
+    
+    
+    <li class="korg_password">
+
+
+<label for="__ac_password">Password</label>
+<div class="korg_field_container">
+ 
+ 
+ <input type="password" id="__ac_password" name="__ac_password"  size="30"  value=""/>
+</div>
+
+</li>
+    
+
+    
+    
+    <li class="korg_remember">
+
+<fieldset class="korg_form_checks">
+
+    
+
+    <div class="korg_field_container">
+    
+<ul class=""><li> <label for="__ac_remember_1"> <input type="checkbox" name="__ac_remember:list" id="__ac_remember_1" value="1"  /> Remember me on this computer</label>  </li></ul>
+
+        </div>
+</fieldset>
+
+</li>
+    
+
+    
+    
+    <li>
+
+
+   
+      
+   
+  
+  
+  
+  <input  type="submit"  name="submit"  value="Login"  />
+
+  
+
+</li>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+</ol>
+
+
+  
+
+  <div>
+      <input type="hidden" name="openid_login_mode" value="" />
+  </div>
+  <div>
+      <input type="hidden" name="k_login_form" value="1" />
+  </div>
+  <div>
+      <input type="hidden" name="back" value="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/download.php/45625/compare_table_example.jpg" />
+  </div>    
+</form>
+</div>
+
+			</div><!-- #main from app_footer.dtml -->
+			 <div id="footer">
+   <p class="copyright">
+     Copyright ©2012 <a style="margin-left:0;" href="/">OASIS</a>. All rights reserved.
+     <a style="margin-left:0;" href="/policies-guidelines/trademark">Trademark,</a>
+     <a style="margin-left:0;" href="/policies-guidelines/ipr">IPR</a>, <a style="margin-left:0;" href="/policies-guidelines">and other Policies apply.</a>    
+     For help, contact <a style="margin-left:0;" href="mailto:webmaster@oasis-open.org">webmaster@oasis-open.org</a>
+    </p>
+   <p class="kavi">
+     <a href="http://www.kavi.com">Kavi</a>®
+   </p>
+ </div>
+
+			</div><!-- #container from app_footer.dtml -->
+		
+	<!-- this comment is directly BEFORE body from app_footer.dtml --></body><!-- this comment is directly AFTER body from app_footer.dtml -->
+<!-- this comment is directly BEFORE html from app_footer.dtml --></html><!-- this comment is directly AFTER html from app_footer.dtml -->
+

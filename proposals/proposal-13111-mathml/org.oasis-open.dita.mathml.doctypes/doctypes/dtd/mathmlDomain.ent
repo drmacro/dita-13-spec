@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA MathML Domain
+     
+     Defines a specialization of <foreign> that contains 
+     MathML markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012 OASIS Open
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % mathml-d-foreign
+   "mathml_container
+   "
+>
+
+
+
+<!ENTITY   mathml-d-att     
+  "(topic mathml-d)"
+>
+
+
+<!-- ================== End DITA MathML Domain Entities ============ -->

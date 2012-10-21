@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Topic MathML Test Prefixed//EN"
+    uri="topic-mathml-test-prefixed.dtd"
+  />
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Topic MathML Test Unprefixed//EN"
+    uri="topic-mathml-test-unprefixed.dtd"
+  />
+</catalog>  

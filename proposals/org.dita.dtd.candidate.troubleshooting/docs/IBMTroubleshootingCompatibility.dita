@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="tsCompatibility">
+<title>Compatibility with the IBM troubleshooting specialization</title>
+<shortdesc>This topic describes how the current IBM troubleshooting specialization could be
+derived from the candidate troubleshooting specialization.</shortdesc>
+<conbody>
+<section><title>Feasibility</title>
+<p>The current IBM troubleshooting specialization could easily be derived from the
+candidate troubleshooting topic. The next section shows the specialization sources
+used in the current implementation. The last section suggests alternative
+specialization sources from the candidate troubleshooting specialization.</p>
+</section>
+<section><title>Current specialization attribute sources</title>
+<p>The elements in the current IBM troubleshooting specialization are derived from a
+combination of the following sources:</p>
+<sl>
+<sli>topic/body</sli>
+<sli>topic/keyword</sli>
+<sli>topic/p</sli>
+<sli>topic/para*</sli>
+<sli>topic/section</sli>
+<sli>topic/topic</sli>
+</sl>
+<p>* topic/para is an implementation error in the tsResponseRoleAction specialization
+attribute. There is no &lt;para> element in base DITA.</p>
+</section>
+<section><title>New specialization attribute sources</title>
+<p>These specialization attribute sources would allow the IBM troubleshooting
+specialization to use the candidate troubleshooting specialization as a base.</p>
+<sl>
+<sli>topic/body troubleshooting/troublebody</sli>
+<sli>topic/keyword</sli>
+<sli>topic/p</sli>
+<sli>topic/para*</sli>
+<sli>topic/section troubleshooting/condition</sli>
+<sli>topic/topic troubleshooting/troubleshooting</sli>
+</sl>
+</section>
+</conbody>
+</concept>

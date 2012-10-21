@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13092</title>
+<shortdesc>Allow &lt;ph> within &lt;indexterm>.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the following information:<ul>
+     <li>Date completed: 2 Oct 2012</li>
+     <li>Champion: Eliot Kimber</li>
+     <li>Email: </li>
+    </ul></p></section>
+<section>
+      <title>Original requirement</title>
+      <p>Without &lt;ph> it is impossible to represent things like superscripts
+        and subscripts in index entries (because &lt;sub> and &lt;sup> are
+        specializations of &lt;ph>. There is no reason to disallow &lt;ph>
+        within indexterm.</p>
+    </section>
+<section><title>Use cases</title><p>Use cases include:<ul
+        id="ul_fyt_wm5_sh">
+        <li>Subscripts and subscripts within index entries</li>
+        <li>Any other typographic or semantic markup specialized from &lt;ph>
+          that might be need to be used in an index entry.</li>
+        </ul></p></section>
+<section><title>Benefits</title><p>This change ensures that the content model of &lt;indexterm> is not over
+        constrained, allowing representation of any phrase-level typographic or
+        semantic distinction that might be needed.</p></section>
+<section><title>Costs</title><p>
+        <ul>
+          <li>Maintainers of the DTDs and XSDs:<ul
+            id="ul_hh4_cvt_ng">
+            <li>Add &lt;ph> the content model of &lt;indexterm>, &lt;index-see>,
+              and &lt;index-see-also>.</li>
+            </ul></li>
+          <li>Editors of the DITA specification:<ul>
+            <li>How many new topics will be required?<ul
+              id="ul_g1q_jyt_ng">
+              <li>No new topics</li>
+              </ul></li>
+            <li>How many existing topics will need to be edited?<ul
+              id="ul_jkk_kyt_ng">
+              <li>The generated content model description for &lt;indexterm>,
+                &lt;index-see>, and &lt;index-see-also> will reflect the
+                addition of &lt;xref>.</li>
+              </ul></li>
+            <li>Will the feature require substantial changes to the information
+              architecture of the DITA specification?<ul
+              id="ul_ezr_ryt_ng">
+              <li>The feature does not represent a substantial change to the
+                architecture. </li>
+              </ul></li>
+            </ul></li>
+          <li>Vendors of tools:<ul
+            id="ul_g4z_vyt_ng">
+            <li>XML editors will need to allow editing of the updated content
+              models.</li>
+            <li>Processors may need to provide additional rules for handling
+              &lt;ph> within index terms. In particular, they cannot treat index
+              terms as simple strings. (But note that &lt;indexterm> already
+              allowed &lt;keyword> and &lt;term>, so there has always been this
+              requirement for index entries.)</li>
+            </ul></li>
+          <li>DITA community-at-large. Will this feature add to the perception
+            that DITA is becoming too complex? <ul
+            id="ul_lsq_yyt_ng">
+            <li>This change should not add to the perception of complexity for
+              authors.</li>
+            </ul></li>
+        </ul>
+      </p></section>
+<section><title>Technical requirements</title><p>Modify <filepath>commonElements.mod</filepath> to add "%ph;" to the content
+        model for
+        &lt;indexterm>:<codeblock>&lt;!--                    LONG NAME: Index Term                      -->
+&lt;!ENTITY % indexterm.content
+                       "(%words.cnt;|
+                         <b>%ph; |</b>
+                         %indexterm;|
+                         %index-base;)*"
+></codeblock></p>
+      <p>Modify <filepath>indexingDomain.dom</filepath> to add "%ph;" to the
+        content models for &lt;index-see> and
+        &lt;index-see-also>:<codeblock>&lt;!--                    LONG NAME: Index See                       -->
+&lt;!ENTITY % index-see.content
+                       "(%words.cnt; |
+                         <b>%ph; |</b>
+                         %indexterm;)*"
+>
+&lt;!ENTITY % index-see.attributes
+             "keyref 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;"
+>
+&lt;!ELEMENT index-see    %index-see.content;>
+&lt;!ATTLIST index-see    %index-see.attributes;>
+
+
+&lt;!--                    LONG NAME: Index See Also                  -->
+&lt;!ENTITY % index-see-also.content
+                       "(%words.cnt; |
+                         <b>%ph; |</b>
+                         %indexterm;)*"
+></codeblock></p></section>
+<section><title>Examples</title><p>Index term with various typographic elements:</p>
+      <codeblock>&lt;p>Many people consider Euler's identity, 
+&lt;i>e&lt;/i>&lt;sup>&lt;i>&amp;#x03c0;&lt;/i>&lt;i>i&lt;/i>&lt;/sup>+1=0,
+&lt;indexterm>&lt;i>e&lt;/i>&lt;sup>&lt;i>&amp;#x03c0;&lt;/i>&lt;i>i&lt;/i>&lt;/sup>+1=0 &lt;index-see>Euler's
+identity&lt;/index-see> &lt;/indexterm> &lt;indexterm>Euler's identity&lt;/indexterm>
+&lt;indexterm>2.71828
+  &lt;index-see>&lt;i>e&lt;/i> (Euler's number)&lt;/index-see>
+&lt;/indexterm>
+to be the most beautiful equation in mathematics.&lt;/p></codeblock></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

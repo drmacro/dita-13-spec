@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DITA 1.3 proposed feature #13010"/>
+<meta name="abstract" content="Provides an element that specifies the string on which its associated element should be sorted. Analogous to &lt;index-sort-as&gt;."/>
+<meta name="description" content="Provides an element that specifies the string on which its associated element should be sorted. Analogous to &lt;index-sort-as&gt;."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="IssueNumber00"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>DITA 1.3 proposed feature #13010</title>
+</head>
+<body id="IssueNumber00">
+
+
+<h1 class="title topictitle1">DITA 1.3 proposed feature #13010</h1>
+
+
+<div class="body refbody"><p class="shortdesc">Provides an element that specifies the string on which its associated
+    element should be sorted. Analogous to &lt;index-sort-as&gt;.</p>
+
+<div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">Include the following information:<ul class="ul">
+     <li class="li">Completion date: June 2012</li>
+
+        <li class="li">Change history:<ul class="ul" id="IssueNumber00__ul_msn_f2c_vh">
+          <li class="li">7 Oct 2012:<ul class="ul" id="IssueNumber00__ul_sky_f2c_vh">
+            <li class="li">Resolved TBD for affected topics</li>
+
+            <li class="li">Corrected a typo</li>
+
+            </ul>
+</li>
+
+          </ul>
+</li>
+
+     <li class="li">Champion: Eliot Kimber</li>
+
+     <li class="li">Email discussion: <a class="xref" href="https://lists.oasis-open.org/archives/dita/200903/msg00060.html" target="_blank">https://lists.oasis-open.org/archives/dita/200903/msg00060.html</a></li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Original requirement</h2><div class="p">From Su-Laine Yeo, 23 March 2009:<blockquote class="lq">A requirement that comes to our
+        attention from time to time is for glossary elements to include a
+        &lt;glossary-sort-as&gt; element, equivalent to the &lt;index-sort-as&gt;
+        element. It appears to be essential for making a glossary sort properly
+        in Japanese; one thing I’ve heard from multiple organizations using DITA
+        is that no existing tool does correct automatic sorting of Japanese
+        glossary and index entries.</blockquote>
+</div>
+
+      <p class="p">Subsequent discussion on the TC list led to agreement that the solution
+        must be more general than just glossary entries, as there is a general
+        requirement for authors to be able to control sorting of any element
+        that might be sorted.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Use cases</h2><p class="p">The glossary use case is the most obvious: when glossary lists are
+        automatically generated, it is often necessary to specify an alternative
+        sort key for the term. This is especially true in ideographic languages
+        such as Japanese and Simplified Chinese, where the collation order of
+        ideographs cannot be determined from the characters themselves in most
+        cases. In Japanese, a given sequence of ideographs may have different
+        pronunciations depending on the meaning intended by the author. In
+        Simplified Chinese, characters are sorted by their Pin-Yin
+        transliteration. The transliteration can only be known reliably through
+        dictionary lookup. Thus, in both cases it is often necessary to provide
+        the pronunciation or transliteration of the ideographs in order to
+        ensure correct sort order.</p>
+
+      <p class="p">Of course, Japanese and Simplified Chinese are only the most extreme
+        examples. Even in English there may be a need to specify sort keys, such
+        as having numeric terms sort by the spelling of the number or
+        visa-versa.</p>
+
+      <p class="p">Other elements may be sorted, including topic specializations that have
+        a sortable semantic, items in definition lists, or whatever. In short,
+        any DITA element might need to be sorted in some presentation, so it is
+        impossible to say with certainty that any given element type would never
+        be sorted.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Benefits</h2><div class="p">Address the following questions:<ul class="ul">
+     <li class="li">This feature benefits users that need to reliably sort content where
+          the content cannot be reliably sorted based only on the term value in
+          all cases. This include all users generating glossaries.</li>
+
+     <li class="li">Users will be able to automate sorting reliably, where such automation
+          is not today possible without the use of custom solutions.</li>
+
+     <li class="li">It is difficult to quantify the number of potential users, but glossary
+          sorting, in particular, seems like a common requirement.</li>
+
+     <li class="li">This feature will have a significant impact for users who need it, as
+          they will be able to produce their content in way that is not today
+          possible.</li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Costs</h2><div class="p">Outline the impact (time and effort) of the feature on the following groups:<ul class="ul">
+     <li class="li">Maintainers of the DTDs and XSDs:<ul class="ul" id="IssueNumber00__ul_wmx_21n_ng">
+          <li class="li">Adds one new element type, &lt;sort-as&gt;</li>
+
+          </ul>
+</li>
+
+     <li class="li">Editors of the DITA specification:<ul class="ul">
+       <li class="li">One new reference topic required. </li>
+
+          <li class="li">At least one topic in the architectural discussion of translation
+            and localization to discuss the &lt;index-sort-as&gt; and &lt;sort-as&gt;
+            elements and sorting and collation in general. Should mention the
+            fact that for many languages collation and grouping details are
+            implementation dependent and often depend on editorial rules or
+            practice.</li>
+
+       <li class="li">How many existing topics will need to be edited? <div class="p">I have identified
+            the following topics that need to be updated in the Architectural Specification:<ul class="ul" id="IssueNumber00__ul_bp4_5cc_vh">
+            <li class="li">"DITA Processing" mentions &lt;index-sort-as&gt; and therefore also
+              needs to mention &lt;sort-as&gt;</li>
+
+            <li class="li">"Translation and localization" mentions &lt;index-sort-as&gt; and
+              therefore also needs to mention &lt;sort-as&gt;</li>
+
+            </ul>
+</div>
+</li>
+
+       <li class="li">This feature does not change the core DITA architecture in any
+            way.</li>
+
+      </ul>
+</li>
+
+     <li class="li">Vendors of tools: <ul class="ul" id="IssueNumber00__ul_nw3_j1n_ng">
+          <li class="li">DITA transformers that do collation will need to be updated to
+            take sort keys into account when doing sorting.</li>
+
+          <li class="li">XML editors will need to allow authoring of the new element type.
+            The element type should not require any particular additional
+            support in the editor.</li>
+
+          </ul>
+</li>
+
+     <li class="li">DITA community-at-large:<ul class="ul" id="IssueNumber00__ul_j1j_n1n_ng">
+          <li class="li">This feature provides a natural facility that will be familiar to
+            anyone who has a sort control requirement. It is consistent with
+            similar markup features in other common XML applications. It is
+            consistent with the existing &lt;index-sort-as&gt; feature. It should
+            not add to the perception of complexity.</li>
+
+          </ul>
+</li>
+
+    </ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2><div class="p">Provide a detailed description of how the solution will work. Be sure to include the following details:<dl class="dl">
+        
+          <dt class="dt dlterm">Element</dt>
+
+          <dd class="dd">
+            <div class="p">Define a new element type, &lt;sort-as&gt;, specialized from
+              &lt;data&gt;,  to the utilities domain, declared like
+              so:<pre class="pre codeblock">&lt;!ENTITY % sort-as.content
+  (#PCDATA |
+   %text; |
+   %keyword;)*
+&gt;
+&lt;!ENTITY % sort-as.attributes
+  "%data-element-atts;
+  "
+&gt;
+&lt;!ELEMENT sort-as
+  %sort-as.content;
+&gt;
+&lt;!ATTLIST sort-as
+  %sort-as.attributes;
+&gt;
+
+&lt;!ATTLIST sort-as   %global-atts;  class CDATA "+ topic/data ut-d/sort-as "    &gt;
+</pre>
+</div>
+
+            <p class="p">The &lt;sort-as&gt; element defines the string ("sort key") by which
+              the containing element should be sorted or grouped (or the nearest
+              ancestor to which sorting or grouping will be applied). The sort
+              key may be specified in the @value attribute or in the content of
+              &lt;sort-as&gt;.</p>
+
+            <p class="p">The &lt;text&gt; and &lt;keyword&gt; elements are allowed in order to
+              enable content referencing for specifying the sort phrase. If
+              &lt;keyword&gt; is used within &lt;sort-as&gt;, it may get its effective
+              value via @keyref in order to set the sort phrase value. If a
+              &lt;keyword&gt; uses @keyref and would otherwise also act as a
+              navigation link, the link aspect of the &lt;keyword&gt; element is
+              ignored.</p>
+
+            <p class="p">For topics, the &lt;sort-as&gt; element may be included directly in
+              &lt;title&gt;, &lt;searchtitle&gt;, or &lt;navtitle&gt; when the different
+              forms of title need different sort phrases or, if the sort phrase
+              is common to all titles, within the topic's prolog. </p>
+
+            <p class="p">For &lt;glossentry&gt;, the &lt;sort-as&gt; element may be included
+              directly in &lt;glossterm&gt; or within &lt;prolog&gt; as for other
+              topics.</p>
+
+            <p class="p">For topic references, the &lt;sort-as&gt; element may be included
+              directly in the &lt;navtitle&gt; or &lt;title&gt; element within
+              &lt;topicmeta&gt; or as a child of &lt;topicmeta&gt;.</p>
+
+            <p class="p">For definition list items, the &lt;sort-as&gt; should be included in
+              the &lt;dt&gt; element.</p>
+
+            <p class="p">TBD: Other special cases we need to account for?</p>
+
+            <p class="p">For other elements, the &lt;sort-as&gt; element should be specified
+              as a child of the element that contains the &lt;title&gt; element (or
+              otherwise determines the presentation title, where there is no
+              literal title in the DITA source). </p>
+
+          </dd>
+
+        
+     
+      <dt class="dt dlterm">Processing</dt>
+
+          <dd class="dd">
+            <p class="p">Processors may choose to sort any elements for any reason. Common
+              sort processing include glossary entries sorted to produce
+              automatically-generated or automatically-sorted glossary lists,
+              lists of parameters or reference entries in custom navigation
+              structures, and so on.</p>
+
+            <p class="p">The details of sorting and grouping are necessarily
+              implementation specific. Processors may provide any mechanism for
+              defining or configuring collation and grouping details. Even where
+              &lt;sort-as&gt; has been specified two processors may produce
+              different sorted and grouped results because they may use
+              different collation and grouping rules. For example, one processor
+              may be configured to sort English terms before non-English terms,
+              another may be configured to sort them after.</p>
+
+            <p class="p">When sorting elements, each element to be sorted must have some
+              inherent text on which it will be sorted in the absence of a
+              &lt;sort-as&gt; value. This text may be literal content in the DITA
+              XML source or may be generated or constructed based on the
+              semantics of the element involved (for example, it may be
+              constructed from various attribute or metadata values). This text
+              is the "base sort key" for the element. For elements with explicit
+              or implicit titles, such as topics, figures, tables, and sections,
+              the base sort key would normally be the title. Processors that do
+              sorting should clearly document how the base sort key is
+              determined for a given element type for which sorting is provided
+              where the base sort key is not the title content (for elements
+              that have titles).</p>
+
+            <p class="p">When &lt;sort-as&gt; is specified, processors must construct the
+              effective sort key by prepending the &lt;sort-as&gt; sort key to the
+              base sort key. This ensures that two items with the same sort-as
+              key but different base sort keys will sort in the appropriate
+              order.</p>
+
+            <div class="note note"><span class="notetitle">Note:</span> For example, if the title of a topic is "24
+              Hour Support Hotline" and the value of the &lt;sort-as&gt; element is
+              "twenty-four hour", then the effective sort key would be
+              "twenty-four hour24 Hour Support Hotline".</div>
+
+          </dd>
+
+     
+     
+      <dt class="dt dlterm">Overall usability</dt>
+
+      <dd class="dd">This proposal allows users to include &lt;sort-as&gt; anywhere it might
+            be necessary in order to facilitate correct sorting and grouping of
+            content sorted for any purpose.</dd>
+
+     
+    </dl>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Examples</h2><div class="p">A glossary entry with a &lt;sort-as&gt; within the
+        &lt;glossterm&gt;:<pre class="pre codeblock">&lt;glossentry id="glossentry_rkr_xfn_ng"&gt;
+  &lt;glossterm&gt;&lt;sort-as value="dada"/&gt;&amp;#x5927;&amp;#x5927;&lt;/glossterm&gt;
+    &lt;glossdef&gt;Literally "big big".&lt;/glossdef&gt;
+&lt;/glossentry&gt;</pre>
+</div>
+
+      <div class="p">A glossary entry with a &lt;sort-as&gt; within
+        &lt;prolog&gt;:<pre class="pre codeblock">&lt;glossentry id="glossentry_rkr_xfn_ng"&gt;
+  &lt;glossterm&gt;&amp;#x5927;&amp;#x5927;&lt;/glossterm&gt;
+  &lt;prolog&gt;
+    &lt;sort-as value="dada"/&gt;
+  &lt;/prolog&gt;
+    &lt;glossdef&gt;Literally "big big".&lt;/glossdef&gt;
+&lt;/glossentry&gt;</pre>
+</div>
+</div>
+
+</div>
+
+
+</body>
+</html>
