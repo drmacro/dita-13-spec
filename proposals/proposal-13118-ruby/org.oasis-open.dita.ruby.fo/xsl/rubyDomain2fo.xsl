@@ -20,12 +20,6 @@
   </xsl:template>
 
   <xsl:template match="
-    *[contains(@class, ' ruby-d/rb ')]
-    " priority="10">
-    <fo:block line-height="1em"><xsl:apply-templates/></fo:block>  
-  </xsl:template>  
-
-  <xsl:template match="
     *[contains(@class, ' ruby-d/rt ')] 
     " priority="10">
     <fo:block font-size="0.4em" text-align="center" line-height="1.2em" space-before="-1.5em" space-before.conditionality="retain"><xsl:apply-templates/></fo:block>  

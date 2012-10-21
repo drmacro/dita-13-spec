@@ -60,7 +60,7 @@
   
   <xs:attributeGroup name="domains-att">
     <xs:attribute name="domains" type="xs:string" 
-                            default="(topic mathml-d)                                              
+                            default="(topic xml-d)                                              
                                     "/>
   </xs:attributeGroup>
 

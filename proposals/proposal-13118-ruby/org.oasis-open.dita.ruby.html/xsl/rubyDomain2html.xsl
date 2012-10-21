@@ -9,7 +9,6 @@
 
   <xsl:template match="
     *[contains(@class, ' ruby-d/ruby ')] |
-    *[contains(@class, ' ruby-d/rb ')]  |
     *[contains(@class, ' ruby-d/rp ')]  |
     *[contains(@class, ' ruby-d/rt ')] 
     " priority="10">
