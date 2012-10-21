@@ -11,7 +11,6 @@
      
  <!ENTITY % ruby           "ruby" >
 
- <!ENTITY % rb             "rb" >
  <!ENTITY % rp             "rp" >
  <!ENTITY % rt             "rt" >
 
@@ -36,7 +35,6 @@
 <!ENTITY % ruby.content
 "
   (%ph.cnt; |
-   %rb; |
    %rp; |
    %rt;)*
   " 
@@ -57,28 +55,8 @@
 <!ELEMENT ruby %ruby.content; >
 <!ATTLIST ruby %ruby.attributes; >
 
-<!ENTITY % rb.content
-"
-  (#PCDATA
-  )*
-  " 
->
-<!ENTITY % rb.attributes
- "
-   %id-atts;
-  %localization-atts;
-  base       
-    CDATA                            
-    #IMPLIED
-  %base-attribute-extensions;
-  outputclass 
-    CDATA                            
-    'rb'    
- "
-> 
-<!ELEMENT rb %rb.content; >
-<!ATTLIST rb %rb.attributes; >
 
+<!-- LONG NAME: Ruby parenthesis -->
 <!ENTITY % rp.content
 "
   (#PCDATA
@@ -100,6 +78,8 @@
 > 
 <!ELEMENT rp %rp.content; >
 <!ATTLIST rp %rp.attributes; >
+
+<!-- LONG NAME: Ruby Text -->
 
 <!ENTITY % rt.content
 "
@@ -130,7 +110,6 @@
 <!-- ============================================================= -->
 
 <!ATTLIST ruby              %global-atts;  class CDATA "+ topic/ph    ruby-d/ruby ">
-<!ATTLIST rb                %global-atts;  class CDATA "+ topic/ph    ruby-d/rb ">
 <!ATTLIST rp                %global-atts;  class CDATA "+ topic/ph    ruby-d/rp ">
 <!ATTLIST rt                %global-atts;  class CDATA "+ topic/ph    ruby-d/rt ">
 

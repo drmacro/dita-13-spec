@@ -11,10 +11,12 @@
           <li>Proposal Completed: 1 Oct 2012</li>
           <li>Change log:<ul
             id="ul_lk1_tjp_xh">
-            <li>nn Oct 2012: <ul
+            <li>21 Oct 2012: <ul
               id="ul_kk1_4kp_xh">
               <li>Completed TBD in costs</li>
               <li>Added RNC and XSD declarations</li>
+              <li>Removed &lt;rb> element—has been obsoleted in latest HTML5
+                draft (October 2012)</li>
               </ul></li>
             </ul></li>
           <li>Champion: Eliot Kimber,</li>
@@ -75,8 +77,8 @@
         element type with the same content as defined in HTML5.<dl>
         <dlentry>
           <dt>ruby</dt>
-          <dd>Contains the subelements &lt;rb>, &lt;rb>, and &lt;rt>. See the
-            HTML5 definition of the &lt;ruby> element.</dd>
+          <dd>Contains the subelements  &lt;rp> and &lt;rt>. See the HTML5
+            definition of the &lt;ruby> element.</dd>
         </dlentry>
         </dl></p>
       <fig>
@@ -124,7 +126,6 @@
      
  &lt;!ENTITY % ruby           "ruby" >
 
- &lt;!ENTITY % rb             "rb" >
  &lt;!ENTITY % rp             "rp" >
  &lt;!ENTITY % rt             "rt" >
 
@@ -149,7 +150,6 @@
 &lt;!ENTITY % ruby.content
 "
   (%ph.cnt; |
-   %rb; |
    %rp; |
    %rt;)*
   " 
@@ -170,27 +170,6 @@
 &lt;!ELEMENT ruby %ruby.content; >
 &lt;!ATTLIST ruby %ruby.attributes; >
 
-&lt;!ENTITY % rb.content
-"
-  (#PCDATA
-  )*
-  " 
->
-&lt;!ENTITY % rb.attributes
- "
-   %id-atts;
-  %localization-atts;
-  base       
-    CDATA                            
-    #IMPLIED
-  %base-attribute-extensions;
-  outputclass 
-    CDATA                            
-    'rb'    
- "
-> 
-&lt;!ELEMENT rb %rb.content; >
-&lt;!ATTLIST rb %rb.attributes; >
 
 &lt;!ENTITY % rp.content
 "
@@ -243,7 +222,6 @@
 &lt;!-- ============================================================= -->
 
 &lt;!ATTLIST ruby              %global-atts;  class CDATA "+ topic/ph    ruby-d/ruby ">
-&lt;!ATTLIST rb                %global-atts;  class CDATA "+ topic/ph    ruby-d/rb ">
 &lt;!ATTLIST rp                %global-atts;  class CDATA "+ topic/ph    ruby-d/rp ">
 &lt;!ATTLIST rt                %global-atts;  class CDATA "+ topic/ph    ruby-d/rt ">
 
@@ -268,7 +246,7 @@
   &lt;title>Ruby Domain Test&lt;/title>
   &lt;body>
     &lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の&lt;ruby>
-      &lt;rb>白熊&lt;/rb>
+      白熊
       &lt;rp>（&lt;/rp>
       &lt;rt>しろくま&lt;/rt>
       &lt;rp>）&lt;/rp>
