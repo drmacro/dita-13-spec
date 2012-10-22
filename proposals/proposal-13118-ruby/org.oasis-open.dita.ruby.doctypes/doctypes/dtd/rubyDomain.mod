@@ -34,7 +34,9 @@
   -->
 <!ENTITY % ruby.content
 "
-  (%ph.cnt; |
+  (#PCDATA |
+   %ruby; |
+   %text; |
    %rp; |
    %rt;)*
   " 

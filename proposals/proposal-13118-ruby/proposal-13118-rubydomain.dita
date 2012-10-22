@@ -17,6 +17,12 @@
               <li>Added RNC and XSD declarations</li>
               <li>Removed &lt;rb> element—has been obsoleted in latest HTML5
                 draft (October 2012)</li>
+              <li>Added statement about which package to include in.</li>
+              </ul></li>
+            <li>22 Oct 2012:<ul
+              id="ul_rsg_2tg_zh">
+              <li>Allow &lt;ruby> to nest per 10/2012 version of HTML5
+                specification.</li>
               </ul></li>
             </ul></li>
           <li>Champion: Eliot Kimber,</li>
@@ -77,10 +83,13 @@
         element type with the same content as defined in HTML5.<dl>
         <dlentry>
           <dt>ruby</dt>
-          <dd>Contains the subelements  &lt;rp> and &lt;rt>. See the HTML5
-            definition of the &lt;ruby> element.</dd>
+          <dd>Contains the subelements  &lt;rp> and &lt;rt> or nested &lt;ruby>.
+            See the HTML5 definition of the &lt;ruby> element.</dd>
         </dlentry>
         </dl></p>
+      <p>This module should be included in the base vocabulary package as it is
+        applicable to all documents that use languages for which ruby
+        annotations are needed.</p>
       <fig>
         <title>DTD Syntax domain module declarations</title>
         <p>rubyDomain.ent:</p>
@@ -435,7 +444,7 @@ rt.attlist &amp;=
 <section><title>Examples</title>
       <fig>
         <title>Sample topic with ruby markup.</title>
-        <codeblock>&lt;topic id="ruby-test-topic-01">
+        <codeblock>&lt;topic id="ruby-test-topic-01" xml:lang="jp-JP">
   &lt;title>Ruby Domain Test&lt;/title>
   &lt;body>
     &lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の&lt;ruby>
