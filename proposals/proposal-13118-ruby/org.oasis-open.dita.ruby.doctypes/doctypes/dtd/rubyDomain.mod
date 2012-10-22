@@ -61,7 +61,7 @@
 <!-- LONG NAME: Ruby parenthesis -->
 <!ENTITY % rp.content
 "
-  (#PCDATA
+  (#PCDATA 
   )*
   " 
 >
@@ -85,7 +85,8 @@
 
 <!ENTITY % rt.content
 "
-  (#PCDATA
+  (#PCDATA |
+   %text; 
   )*
   " 
 >

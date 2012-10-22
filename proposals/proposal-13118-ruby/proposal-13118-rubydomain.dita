@@ -158,7 +158,9 @@
   -->
 &lt;!ENTITY % ruby.content
 "
-  (%ph.cnt; |
+  (#PCDATA |
+   %ruby; |
+   %text; |
    %rp; |
    %rt;)*
   " 
@@ -180,9 +182,10 @@
 &lt;!ATTLIST ruby %ruby.attributes; >
 
 
+&lt;!-- LONG NAME: Ruby parenthesis -->
 &lt;!ENTITY % rp.content
 "
-  (#PCDATA
+  (#PCDATA 
   )*
   " 
 >
@@ -202,9 +205,12 @@
 &lt;!ELEMENT rp %rp.content; >
 &lt;!ATTLIST rp %rp.attributes; >
 
+&lt;!-- LONG NAME: Ruby Text -->
+
 &lt;!ENTITY % rt.content
 "
-  (#PCDATA
+  (#PCDATA |
+   %text; 
   )*
   " 
 >
@@ -262,11 +268,13 @@
     &lt;/xs:choice>
   &lt;/xs:group>
   
-
   &lt;xs:group name="ruby.content">
     &lt;xs:sequence>
+      &lt;xs:choice>
+        &lt;xs:element ref="text" minOccurs="0" maxOccurs="unbounded"/>
+        &lt;xs:element ref="ruby" minOccurs="0" maxOccurs="1"/>
+      &lt;/xs:choice>
       &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
-        &lt;xs:group ref="ph.content"/>
         &lt;xs:element ref="rp"/>
         &lt;xs:element ref="rt"/>
       &lt;/xs:choice>
@@ -326,6 +334,12 @@
     &lt;xs:attribute name="outputclass" type="xs:string"/>
   &lt;/xs:attributeGroup>
   
+  &lt;xs:group name="rt.content">
+    &lt;xs:choice>
+      &lt;xs:element ref="text" minOccurs="0" maxOccurs="unbounded"/>
+    &lt;/xs:choice>
+  &lt;/xs:group>
+  
   &lt;xs:element name="rt">
     &lt;xs:annotation>
       &lt;xs:documentation>
@@ -340,7 +354,11 @@
       &lt;/xs:complexContent>
     &lt;/xs:complexType>
   &lt;/xs:element>
+
   &lt;xs:complexType name="rt.class" mixed="true">
+    &lt;xs:sequence>
+      &lt;xs:group ref="rt.content"/>
+    &lt;/xs:sequence>
     &lt;xs:attributeGroup ref="rt.attributes"/>
   &lt;/xs:complexType>
   
@@ -349,15 +367,11 @@
     &lt;xs:attributeGroup ref="univ-atts"/>
     &lt;xs:attribute name="outputclass" type="xs:string"/>
   &lt;/xs:attributeGroup>
-  
-  
-  
+    
 &lt;/xs:schema></codeblock></p>
       </fig>
       <fig>
         <title>RelaxNG Compact domain module declarations</title>
-        <note>These declarations are not complete. Waiting to work out details
-          of how to declare equivalent of &lt;xs:any> in RNC syntax.</note>
         <p>rubyDomainMod.rnc:<codeblock>datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
 # ============================================================= 
@@ -385,9 +399,11 @@ rt = rt.element
 
 # LONG NAME: Ruby annotation
 ruby.content =
-  (text | 
-   rp |
-   rt)*
+  (((text | 
+     \text) | 
+    ruby), 
+    (rp |
+     rt)*)
 ruby.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -415,7 +431,8 @@ rp.attlist &amp;= rp.attributes
 
 # LONG NAME: Ruby text
 rt.content =
-  (text)*
+  (text |
+   \text)*
 rt.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -445,14 +462,26 @@ rt.attlist &amp;=
       <fig>
         <title>Sample topic with ruby markup.</title>
         <codeblock>&lt;topic id="ruby-test-topic-01" xml:lang="jp-JP">
-  &lt;title>Ruby Domain Test&lt;/title>
+  &lt;title>Ruby Domain Test (DTD)&lt;/title>
   &lt;body>
-    &lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の&lt;ruby>
+    &lt;p> Ruby with bare PCDATA first child: &lt;ruby>
       白熊
       &lt;rp>（&lt;/rp>
       &lt;rt>しろくま&lt;/rt>
       &lt;rp>）&lt;/rp>
-    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>    
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+    &lt;p> Ruby with &amp;lt;text&amp;gt; element first child: &lt;ruby>
+      &lt;text>白熊&lt;/text>
+      &lt;rp>（&lt;/rp>
+      &lt;rt>しろくま&lt;/rt>
+      &lt;rp>)&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+    &lt;p>Ruby with nested &amp;lt;ruby&amp;gt; element:&lt;ruby>
+      &lt;ruby>白熊&lt;rt>2342&lt;/rt>&lt;/ruby>
+      &lt;rp>（&lt;/rp>
+      &lt;rt>&lt;text>しろくま&lt;/text>&lt;/rt>      
+      &lt;rp>）&lt;/rp>
+    &lt;/ruby>&lt;/p>
   &lt;/body>
 &lt;/topic></codeblock>
       </fig>
