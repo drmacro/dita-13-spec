@@ -1,0 +1,141 @@
+Places where #PCDATA is allowed but %text is not: 
+
+* = uses %txt.incl;
+** = uses basic.ph.noxref
+*** = uses basic.ph;
+! = uses words.cnt;
+
+- alt.content !
+- basic.phandblock *** (only used by draft-comment)
+- data.cnt !
+- indexterm.content !
+- index-base.content !
+- listitem.cnt *, ***
+- itemgroup.cnt *, ***
+- navtitle.content !
+- title.cnt **
+- xreftext.cnt **
+- xrefph.cnt **
+- shortquote.cnt ***
+- para.cnt *, ***
+- note.cnt *, ***
+- longquote.cnt *, ***
+- tblcell.cnt *, ***
+- desc.cnt ***
+- ph.cnt *, ***
+- fn.cnt ***
+- term.cnt ***
+- defn.cnt *, ***
+- pre.cnt *, ***
+- figgroup.cnt *** (no #PCDATA)
+- words.cnt -> Add <text>
+- keyword.content -> allows <text>
+- draft-comment.content *** (through basic.phandblock)
+
+Hazard domain:
+
+- hazard.cnt ***
+- typeofhazard.content !
+- consequence.content !
+
+Highlight Domain:
+- highlight domain elements *** (but see 13027--should use ph.content) 
+
+Indexing domain:
+
+- index-see.content !
+- index-see-also.content !
+- index-sort-as !
+
+Map.mod:
+
+- linktext.content !
+- searchtitle.content !
+- source.content !
+- publisher.content !
+- copyrholder.content !
+- 
+
+
+MetaDecl.mod:
+
+- All leaf elements !
+
+Topic.mod:
+
+- abstract.cnt *, ***
+- bodydiv.cnt *, ***
+- example.cnt *, ***
+- section.cnt *, ***
+- section.notitle.cnt *, ***
+- sectiondiv.cnt *, ***
+- searchtitle.content !
+- linktext.content !
+
+
+bookmap.mod:
+
+These elements all have content model of (#PCDATA | %keyword;)*:
+
+- revisionid.content 
+- year.content
+- month.content
+- day.content
+- edition.content
+- isbn.content
+- volume.content
+- booklibrary.content
+- mainbooktitle.content
+- booktitlealt.content
+
+- elements that take %words.cnt use no other parments !
+
+Learning:
+
+- all lom* leaf elements are defined as (#PDATA)*
+- lcAreaCoords.content !
+
+Glossary entry:
+
+- glossAbbreviation.content
+- glossAcronym.content
+- glossShortForm.content
+- glossSynonym.content
+- glossSurfaceForm.content
+
+Programming domain:
+
+- codeph.content -> uses basic.ph.notm;
+- codeblock.content *
+- synnote.content ***
+
+- var.content !
+- oper.content !
+- delim.content !
+- sep.content !
+- repsep.content !
+
+Software domain:
+ 
+ none
+
+UI Domain:
+
+- screen.content *
+
+Utilities domain:
+
+- coords.content !
+- shape.content - allows <text>
+
+
+XNAL domain:
+
+- honorific.content
+- firstname.content
+- middlename.content
+- lastname.content
+- generationidentifier.content
+- postalcode.content
+- country.content
+- contactnumber.content

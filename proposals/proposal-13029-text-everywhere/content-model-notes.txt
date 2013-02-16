@@ -1,0 +1,93 @@
+Places where #PCDATA is allowed:
+
+- listitem.cnt
+- itemgroup.cnt
+- title.cnt
+- xreftext.cnt
+- xrefph.cnt
+- shortquote.cnt
+- para.cnt
+- note.cnt
+- longquote.cnt
+- tblcell.cnt
+- desc.cnt
+- ph.cnt
+- fn.cnt
+- term.cnt
+- defn.cnt
+- pre.cnt
+- words.cnt 
+- text.content
+- keyword.content
+- term.content
+- tm.content
+- draft-comment.content
+- hazard.cnt
+- highlight domain elements (but see 13027--should use ph.content)
+- abstract.cnt
+- bodydiv.cnt
+- example.cnt
+- section.cnt
+- section.notitle.cnt
+- sectiondiv.cnt
+- shape.content
+
+bookmap.mod:
+
+- revisionid.content 
+- year.content
+- month.content
+- day.content
+- edition.content
+- isbn.content
+- volume.content
+- booklibrary.content
+- mainbooktitle.content
+- booktitlealt.content
+
+Learning:
+
+- lcAreaShape.content
+- all lom* leaf elements are defined as (#PDATA)*
+
+Glossary entry:
+
+- glossAbbreviation.content
+- glossAcronym.content
+- glossShortForm.content
+- glossSynonym.content
+- glossSurfaceForm.content
+
+Programming domain:
+
+- codeph.content
+- codeblock.content
+- option.content
+- parmname.content
+- synph.content
+- apiname.content
+- synnote.content
+- kwd.content
+
+Software domain:
+
+- msgnum.content
+- cmdname.content
+- varname.content
+
+Programming domain:
+
+- wintitle.content
+- shortcut.content
+- screen.content
+
+XNAL domain:
+
+- honorific.content
+- firstname.content
+- middlename.content
+- lastname.content
+- generationidentifier.content
+- postalcode.content
+- country.content
+- contactnumber.content
