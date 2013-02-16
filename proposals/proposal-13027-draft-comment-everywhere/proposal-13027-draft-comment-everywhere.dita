@@ -6,11 +6,9 @@
 <shortdesc>Allow draft-comment and required-cleanup universally.</shortdesc>
 <refbody>
 <section><title>Date and version information</title><p>Include the following information:<ul>
-     <li>Date completed: 10 June 2012</li>
+     <li>Initial phase 2 proposal: 10 June 2012</li>
+        <li>Phase 2 proposal updated: 16 Feb 2013</li>
      <li>Champion: Eliot Kimber</li>
-     <li>Email: TBD (search on MarkMail did not reveal any relevant email
-          discussion in the 1.3 timeframe but I may have been looking for the
-          wrong thing)</li>
     </ul></p></section>
 <section>
       <title>Original requirement</title>
@@ -49,6 +47,14 @@
             it in 1.2:<ul
             id="ul_t1q_dvt_ng">
             <li>&lt;term></li>
+            <li>&lt;keyword></li>
+            <li>&lt;navtitle></li>
+            <li>&lt;searchtitle></li>
+            <li>&lt;alt></li>
+            <li>&lt;consequence>, &lt;howtoavoid>, &lt;typeofhazard> (hazard
+              domain)</li>
+            <li>&lt;msgph> (software domain)</li>
+            <li>%data.cnt; (&lt;data>, &lt;glossProperty>)</li>
             <li>%desc.cnt</li>
             <li>%fig.cnt</li>
             <li>%figgroup.cnt</li>
@@ -61,6 +67,18 @@
             <li>%xreftext.cnt</li>
             <li>%xrefph.cnt</li>
             </ul></li>
+          <li>
+            <note>While %word.cnt; would seem like an appropriate place to add
+              draft-comment and required-cleanup in order to make them available
+              everywhere, it would have the effect of allowing them where they
+              are almost certainly not appropriate, including index entries and
+              other very-constrained contexts.</note>
+          </li>
+          <li>Change definition of elements in highlighDomain.mod to
+            %ph.content; from current content models (ensures these elements
+            exactly match &lt;ph> content model).</li>
+          <li>Change codeph.content value to "%ph.content;" (programming
+            domain)</li>
           </ul></li>
      <li>Editors of the DITA specification:<ul>
        <li>How many new topics will be required?<ul

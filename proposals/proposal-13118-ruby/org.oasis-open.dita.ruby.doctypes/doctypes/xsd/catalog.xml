@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <system systemId="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd" uri="rubyDomainMod.xsd"/>
+  <system systemId="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd:1.x" uri="rubyDomainMod.xsd"/>
+  <system systemId="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd:1.3" uri="rubyDomainMod.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd" uri="rubyDomainMod.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd:1.x" uri="rubyDomainMod.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:rubyDomainMod.xsd:1.3" uri="rubyDomainMod.xsd"/>
+</catalog>  

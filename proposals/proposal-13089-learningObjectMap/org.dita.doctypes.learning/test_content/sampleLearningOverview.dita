@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningOverview PUBLIC "-//OASIS//DTD DITA Learning Overview//EN" "learningOverview.dtd">
+<learningOverview id="overview_5cp_zxw_yh">
+ <title>Sample Learning Overview</title>
+ <learningOverviewbody>
+   <lcIntro>
+     <title>Overview</title>
+     <p>Pellentesque id felis erat. Phasellus euismod feugiat mi ut iaculis. Duis eget sem molestie diam volutpat sollicitudin et vel eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel rutrum felis. Quisque congue velit eu lacus porta sodales. Nulla id dui tellus. Phasellus augue purus, varius non imperdiet et, hendrerit a magna. Etiam velit enim, consequat sed cursus non, rutrum nec lorem. Pellentesque in libero nec diam tincidunt pharetra.</p>
+   </lcIntro>
+ </learningOverviewbody>
+</learningOverview>

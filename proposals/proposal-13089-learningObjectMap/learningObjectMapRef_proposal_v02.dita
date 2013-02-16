@@ -154,7 +154,7 @@ a learningObject</title>    <p>The following example shows the learningObjectMap
           learningObjectMapRef in one or more maps. learningObjectMap could also support a child
           topicmeta which implementors could use to capture various information about the
           learningObjectMap. </p>
-        <p>Implement two new elements, learningGroupMapRef andlearningGroupMap.
+        <p>Implement two new elements, learningGroupMapRef and learningGroupMap.
           The learningGroupMapRef would be a topicref specialization that could
           be an optional child of a map such as a bookmap or learningMap.
           learningGroupMapRef would allow a reference to one learningGroupMap

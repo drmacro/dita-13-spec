@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  
+  <!-- DITA 1.3 XML Domain -->
+  
+    <xs:annotation>
+      <xs:appinfo>
+        <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic ruby-d)</dita:domainsModule>
+      </xs:appinfo>
+      <xs:documentation>
+      
+      </xs:documentation>
+    </xs:annotation>
+
+
+  <xs:group name="ruby-d-ph">
+    <xs:choice>
+      <xs:element ref="ruby"/>
+    </xs:choice>
+  </xs:group>
+  
+  <xs:group name="ruby.content">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="text" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="ruby" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="rp"/>
+        <xs:element ref="rt"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- Basic form: ruby -->
+  <xs:element name="ruby">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="ruby.class">
+          <xs:attribute ref="class" default="+ topic/ph ruby-d/ruby "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ruby.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="ruby.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="ruby.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="ruby.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+
+  <xs:element name="rp">
+    <xs:annotation>
+      <xs:documentation>
+        <p>Ruby parenthesis</p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="rp.class">
+          <xs:attribute ref="class" default="+ topic/ph ruby-d/rp "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="rp.class" mixed="true">
+    <xs:attributeGroup ref="rp.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="rp.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+  
+  <xs:group name="rt.content">
+    <xs:choice>
+      <xs:element ref="text" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:group>
+  
+  <xs:element name="rt">
+    <xs:annotation>
+      <xs:documentation>
+        <p>Ruby text</p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="rt.class">
+          <xs:attribute ref="class" default="+ topic/ph ruby-d/rt "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="rt.class" mixed="true">
+    <xs:sequence>
+      <xs:group ref="rt.content"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="rt.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="rt.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+  
+  
+  
+</xs:schema>

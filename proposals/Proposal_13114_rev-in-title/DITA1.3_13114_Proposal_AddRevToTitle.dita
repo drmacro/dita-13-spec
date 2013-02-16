@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13114</title>
+<shortdesc>Proposal to add the @rev attribute  to the &lt;title>.</shortdesc>
+  <prolog>
+    <critdates>
+      <revised
+        modified="2013-01-14"/>
+    </critdates>
+  </prolog>
+<refbody>
+<section><title>Date and version information</title><p>Include the
+following information:<ul>
+<li>First draft of proposal completed on 121312. </li>
+<li>Initial proposal approved on 081412.</li><?Pub Caret -1?>
+</ul></p></section>
+<section><title>Use cases</title><p>The @rev attribute should be added to &lt;title> so that changes to a title can be flagged for
+reviewers and regulatory agencies, especially in the medical device industry.</p></section>
+<section> <title>Proposed solution</title> <p>Add the @rev attribute to the &lt;title> for all topic types.</p> </section>
+<section><title>Benefits</title><ul>
+<li>This addition will benefit authors who require that a title be flagged for reviewers and
+regulatory agencies, especially in the medical device industry.</li>
+</ul></section>
+<section><title>Technical requirements</title> <p>Provide a detailed
+description of how the solution will work. Be sure to include the
+following details:<dl>
+<dlentry>
+<dt>DTD and Schema modifications</dt>
+<dd> <dl>
+<dlentry>
+<dt>Topic or map specialization</dt>
+<dd>None</dd>
+</dlentry>
+<dlentry>
+<dt>Domain</dt>
+<dd>None</dd>
+</dlentry>
+<dlentry>
+<dt>Element</dt>
+<dd>Add the @rev attribute to the attribute list for
+                  &lt;title>:<codeblock>&lt;!ENTITY % title.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              <b>rev</b> 
+                        <b>CDATA</b> 
+                                  <b>#IMPLIED</b>
+              outputclass
+                        CDATA 
+                                  #IMPLIED"
+>
+</codeblock></dd>
+</dlentry>
+<dlentry>
+<dt>Attributes</dt>
+<dd> None</dd>
+</dlentry>
+</dl> </dd>
+</dlentry>
+<dlentry>
+<dt>Processing impact</dt>
+<dd>Processors that explicitly ignore title elements for @rev processing would
+            need to now account for the possibility of @rev on &lt;title>. </dd>
+</dlentry>
+</dl><dl>
+<dlentry>
+<dt>Overall usability</dt>
+<dd><p>This proposal would improve the usability of the topic title in situations where the title has
+been changed and requires review.</p><dl>
+<dlentry>
+<dt>Pro</dt>
+<dd>The use of @rev attribute in &lt;title> will simplify authoring by providing a useful function
+to the authors and to organizations with stringent review requirements.</dd>
+</dlentry>
+<dlentry>
+<dt>Con</dt>
+<dd>None</dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+</dl></p></section>
+<section> <title>Costs</title><p>The impact would be as follows<ul>
+<li>A small costs to processors that support use of @rev for revision flagging
+          (e.g., change bar generation), depending on the details of how those
+          processors handle titles in different contexts.</li>
+<li>DITA community-at-large would perceive this change as a minor
+improvement in convenience.</li>
+</ul></p> </section>
+<section><title>Examples</title><codeblock>&lt;topic id="topicid">
+  &lt;title <b>rev="121212"</b>>Monitoring the patient following 
+    &lt;draft-comment>deleted the word "during" and added the word "following"&lt;/draft-comment> 
+the procedure.&lt;/title>
+  ...
+  &lt;fig id="fig-01">
+    &lt;title <b>rev="121212"</b>>Patient monitoring produre flow following procedures.
+&lt;draft-comment>deleted the word "during" and added 
+the word "following"&lt;/draft-comment>&lt;/title>
+   ...
+  &lt;/fig>
+  ...
+&lt;/topic></codeblock></section>
+</refbody>
+</reference>
+<?Pub *0000004532?>

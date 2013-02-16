@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningAssessment PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN" "learningAssessment.dtd">
+<learningAssessment id="assessment_nct_kyw_yh">
+ <title>Sample Learning Pre-Assessment</title>
+ <learningAssessmentbody>
+  <lcIntro>
+   <title>Pre-Assessment</title>
+   <p>Integer mauris nulla, lobortis id vestibulum ac, rhoncus sed leo. Vestibulum fermentum odio a magna sollicitudin in facilisis leo aliquet. Integer viverra leo quis sem vehicula scelerisque sodales nulla accumsan. Nulla facilisi. Suspendisse bibendum risus justo. Aliquam sit amet tellus urna. Sed mi risus, aliquet vel vulputate sodales, blandit quis purus. Praesent leo felis, malesuada ac luctus sit amet, tristique vel sapien. Aenean bibendum augue eu tellus ultricies feugiat. Suspendisse risus enim, aliquam et vestibulum vitae, lacinia sed massa. Praesent sodales odio ut sem fermentum ornare. Pellentesque quis mi sit amet dui pellentesque eleifend egestas in tellus. Nunc at nibh orci, eu tempus libero.</p>
+  </lcIntro>
+ </learningAssessmentbody>
+</learningAssessment>

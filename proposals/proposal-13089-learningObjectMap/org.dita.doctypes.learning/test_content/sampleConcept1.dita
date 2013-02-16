@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_5q2_1zw_yh">
+ <title>Sample Concept One</title>
+ <conbody>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies pellentesque nunc vitae porta. Vestibulum vel erat non felis fermentum cursus dapibus a massa. Duis sollicitudin auctor arcu, eget dignissim nisl porta lacinia. Nulla ornare, diam a euismod facilisis, odio est venenatis sapien, rhoncus mollis massa velit eu eros. Nulla facilisi. Nulla ultricies dapibus nulla quis vestibulum. Praesent hendrerit tincidunt consequat. Phasellus pharetra accumsan posuere.</p>
+  <p>Ut nibh lectus, viverra et interdum vel, commodo consectetur lectus. Phasellus ac dui ac quam ultricies adipiscing sed sit amet purus. Integer interdum tempus tellus, a rhoncus metus tincidunt quis. Donec porta auctor dolor iaculis gravida. Nullam ut sem in enim pretium dignissim in quis purus. Maecenas sed velit diam, in ullamcorper est. Mauris dolor lacus, consequat id rutrum sed, interdum ac metus. Morbi blandit vehicula urna, at bibendum nulla bibendum vel. Nam in libero lectus, at condimentum quam. Integer nec massa et orci tincidunt sollicitudin. Donec placerat lorem non nisi condimentum ac fermentum mauris commodo. Nunc tincidunt facilisis leo sit amet vulputate. Cras aliquet placerat nisl, vitae lobortis sapien condimentum quis.</p> 
+ </conbody>
+</concept>

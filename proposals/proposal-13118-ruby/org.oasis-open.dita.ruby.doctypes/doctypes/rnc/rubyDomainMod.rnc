@@ -1,0 +1,84 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# ============================================================= 
+# MODULE:    DITA Ruby Domain - RNC              
+# VERSION:   1.3                                                
+# DATE:      October 2012                                       
+# =============================================================
+
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+# Define the domain values of this module
+domains-atts-value |= "(topic ruby-d)"
+# Define domain extension patterns
+ruby-d-ph =
+   ruby.element
+   
+# Extend the patterns with the domain contribution
+ph |= ruby-d-ph
+# Define elements content and attributes
+
+ruby = ruby.element
+rp = rp.element
+rt = rt.element
+
+# LONG NAME: Ruby annotation
+ruby.content =
+  (((text | 
+     \text) | 
+    ruby), 
+    (rp |
+     rt)*)
+ruby.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+ruby.element =
+  
+  element ruby { 
+    ruby.attlist, 
+    ruby.content 
+   }
+ruby.attlist &= ruby.attributes
+
+# LONG NAME: Ruby parenthesis
+rp.content =
+  (text)*
+rp.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+rp.element =
+  
+  element rp { 
+    rp.attlist, 
+    rp.content 
+   }
+rp.attlist &= rp.attributes
+
+# LONG NAME: Ruby text
+rt.content =
+  (text |
+   \text)*
+rt.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+rt.element =
+  
+  element rt { 
+    rt.attlist, 
+    rt.content 
+   }
+rt.attlist &= rt.attributes
+
+
+
+# Specialization attributes. Global attributes and class defaults
+ruby.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph ruby-d/ruby " ] attribute class { text }?
+rp.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph ruby-d/rp " ] attribute class { text }?
+rt.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph ruby-d/rt " ] attribute class { text }?

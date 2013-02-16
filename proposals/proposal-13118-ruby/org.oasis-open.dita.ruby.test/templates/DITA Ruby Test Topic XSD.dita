@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../doctypes/xsd/topic-rubydomain-test.xsd"
+ id="ruby-test-topic-rnc"
+ xml:lang="jp-JP">
+  <title>Ruby Domain Test (XSD)</title>
+  <body>
+    <p> Ruby with bare PCDATA first child: <ruby>
+      白熊
+      <rp>（</rp>
+      <rt>しろくま</rt>
+      <rp>）</rp>
+    </ruby>を射殺し、その子を生け捕る光景が記録されている。</p>   
+    <p> Ruby with &lt;text&gt; element first child: <ruby>
+      <text>白熊</text>
+      <rp>（</rp>
+      <rt>しろくま</rt>
+      <rp>）</rp>
+    </ruby>を射殺し、その子を生け捕る光景が記録されている。</p>   
+    <p>Ruby with nested &lt;ruby&gt; element:<ruby>
+      <ruby>白熊<rt>2342</rt></ruby>
+      <rp>（</rp>
+      <rt><text>しろくま</text></rt>      
+      <rp>）</rp>
+    </ruby></p>
+  </body>
+</topic>

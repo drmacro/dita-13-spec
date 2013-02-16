@@ -277,8 +277,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!ENTITY % title.cnt 
   "#PCDATA | 
    %basic.ph.noxref; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl; | 
+   %data.elements.incl; |
+   %draft-comment; |
+   %foreign.unknown.incl; |
+   %required-cleanup; |
    %image;
   "
 >
@@ -286,22 +288,28 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.ph.noxref; | 
    %data.elements.incl; | 
+   %draft-comment; |
    %foreign.unknown.incl; | 
-   %image;
+   %image; |
+   %required-cleanup;
   "
 >
 <!ENTITY % xrefph.cnt 
   "#PCDATA | 
    %basic.ph.noxref; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % shortquote.cnt 
   "#PCDATA | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % para.cnt 
@@ -344,8 +352,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.block.notbfgobj; | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; |
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % ph.cnt 
@@ -361,16 +371,20 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.block.notbl; | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % term.cnt 
   "#PCDATA | 
    %basic.ph; | 
-   %data.elements.incl; | 
+   %data.elements.incl; |
+   %draft-comment; |
    %foreign.unknown.incl; | 
-   %image;
+   %image; |
+   %required-cleanup;
   "
 >
 <!ENTITY % defn.cnt 
@@ -394,8 +408,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!ENTITY % fig.cnt 
   "%basic.block.notbnofg; | 
    %data.elements.incl; | 
+   %draft-comment; |
    %fn;| 
-   %foreign.unknown.incl; | 
+   %foreign.unknown.incl; |
+   %required-cleanup; | 
    %simpletable; | 
    %xref;
   "
@@ -404,8 +420,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "%basic.block.notbnofg; | 
    %basic.ph; |
    %data.elements.incl; | 
+   %draft-comment; | 
    %fn; |
-   %foreign.unknown.incl; 
+   %foreign.unknown.incl; |
+   %required-cleanup; 
   "
 >
 <!ENTITY % words.cnt 
@@ -418,10 +436,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 >
 <!ENTITY % data.cnt 
   "%words.cnt; |
+   %draft-comment; |
    %image; |
    %object; |
    %ph; |
-   %title;
+   %required-cleanup; |
+   %title; 
   "
 >
 
@@ -644,8 +664,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <data-about> element identifies the subject of a property when the subject isn't associated with the context in which the property is specified. The property itself is expressed by the <data> element. The <data-about> element handles exception cases where a property must be expressed somewhere other than inside the actual subject of the property. The <data-about> element is particularly useful as a basis for specialization in combination with the <data> element.
-Category: Miscellaneous elements-->
 <!ELEMENT data-about    %data-about.content;>
 <!ATTLIST data-about    %data-about.attributes;>
 
@@ -691,8 +709,6 @@ Category: Miscellaneous elements-->
 <!ENTITY % data.attributes
              "%data-element-atts;"
 >
-<!--doc:The <data> element represents a property within a DITA topic or map. While the <data> element can be used directly to capture properties, it is particularly useful as a basis for specialization. Default processing treats the property values as an unknown kind of metadata, but custom processing can match the name attribute or specialized element to format properties as sidebars or other adornments or to harvest properties for automated processing.
-Category: Miscellaneous elements-->
 <!ELEMENT data    %data.content;>
 <!ATTLIST data    %data.attributes;>
 
@@ -707,8 +723,6 @@ Category: Miscellaneous elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <unknown> element is an open extension that allows information architects to incorporate xml fragments that do not necessarily fit into an existing DITA use case. The base processing for <unknown> is to suppress unless otherwise instructed.
-Category: Specialization elements-->
 <!ELEMENT unknown    %unknown.content;>
 <!ATTLIST unknown    %unknown.attributes;>
 
@@ -723,8 +737,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <foreign> element is an open extension that allows information architects to incorporate existing standard vocabularies for non-textual content. like MathML and SVG, as inline objects. If <foreign> contains more than one alternative content element, they will all be processed. Specialization of <foreign> should be implemented as a domain, but for those looking for more control over the content can implement foreign vocabulary as an element specialization.
-Category: Specialization elements-->
 <!ELEMENT foreign    %foreign.content;>
 <!ATTLIST foreign    %foreign.attributes;>
 
@@ -745,8 +757,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <title> element contains a heading or label for the main parts of a topic, including the topic as a whole, its sections and examples, and its labelled content, such as figures and tables. Beginning with DITA 1.1, the element may also be used to provide a title for a map.
-Category: Topic elements-->
 <!ELEMENT title    %title.content;>
 <!ATTLIST title    %title.attributes;>
 
@@ -754,21 +764,20 @@ Category: Topic elements-->
 <!--                    LONG NAME: Navigation Title                -->
 <!ENTITY % navtitle.content
                        "(%words.cnt; |
-                         %ph;)*"
+                         %ph; |
+                         %draft-comment; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % navtitle.attributes
              "%univ-atts;"
 >
-<!--doc:The navigation title (<navtitle>) element is one of a set of alternate titles that can be included inside the <titlealts> element. This navigation title may differ from the first level heading that shows in the main browser window. Use <navtitle> when the actual title of the topic isn't appropriate for use in navigation panes or online contents (for example, because the actual title is too long).
-Category: Topic elements-->
 <!ELEMENT navtitle    %navtitle.content;>
 <!ATTLIST navtitle    %navtitle.attributes;>
 
 
 <!--                    LONG NAME: Short Description               -->
 <!ENTITY % shortdesc.content
-                       "(%title.cnt; |
-                         %draft-comment;)*"
+                       "(%title.cnt;)*"
 >
 <!ENTITY % shortdesc.attributes
              "%univ-atts;
@@ -776,8 +785,6 @@ Category: Topic elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The short description (<shortdesc>) element occurs between the topic title and the topic body, as the initial paragraph-like content of a topic, or it can be embedded in an abstract element. The short description, which represents the purpose or theme of the topic, is also intended to be used as a link preview and for searching. When used within a DITA map, the short description of the <topicref> can be used to override the short description in the topic.
-Category: Topic elements-->
 <!ELEMENT shortdesc    %shortdesc.content;>
 <!ATTLIST shortdesc    %shortdesc.attributes;>
 
@@ -796,8 +803,6 @@ Category: Topic elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <desc> element contains the description of the current element. A description should provide more information than the title. This is its behavior in fig/table/linklist, for example. In xref/link, it provides a description of the target; processors that support it may choose to display this as hover help. In object, it contains alternate content for use when in contexts that cannot display the object.
-Category: Body elements-->
 <!ELEMENT desc    %desc.content;>
 <!ATTLIST desc    %desc.attributes;>
 
@@ -818,8 +823,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A paragraph element (<p>) is a block of text containing a single main idea.
-Category: Body elements-->
 <!ELEMENT p    %p.content;>
 <!ATTLIST p    %p.attributes;>
 
@@ -856,8 +859,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A <note> element contains information, differentiated from the main text, which expands on or calls attention to a particular point.
-Category: Body elements-->
 <!ELEMENT note    %note.content;>
 <!ATTLIST note    %note.attributes;>
 
@@ -890,7 +891,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <longquoteref> element provides a reference to the source of a long quote. The long quote (<lq>) element itself allows an href attribute to specify the source of a quote, but it does not allow other standard linking attributes such as keyref, scope, and format. The <longquoteref> element should be used for references that make use of these attributes.-->
 <!ELEMENT longquoteref    %longquoteref.content;>
 <!ATTLIST longquoteref    %longquoteref.attributes;>
 
@@ -925,8 +925,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The long quote (<lq>) element indicates content quoted from another source. Use the quote element <q> for short, inline quotations, and long quote <lq> for quotations that are too long for inline use, following normal guidelines for quoting other sources. You can store a URL to the source of the quotation in the href attribute; the href value may point to a DITA topic.
-Category: Body elements-->
 <!ELEMENT lq    %lq.content;>
 <!ATTLIST lq    %lq.attributes;>
 
@@ -942,8 +940,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A quotation element (<q>) indicates content quoted from another source. This element is used for short quotes which are displayed inline. Use the long quote element (<lq>) for quotations that should be set off from the surrounding text.
-Category: Body elements-->
 <!ELEMENT q    %q.content;>
 <!ATTLIST q    %q.attributes;>
 
@@ -967,8 +963,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The simple list (<sl>) element contains a simple list of items of short, phrase-like content, such as in documenting the materials in a kit or package.
-Category: Body elements-->
 <!ELEMENT sl    %sl.content;>
 <!ATTLIST sl    %sl.attributes;>
 
@@ -984,8 +978,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A simple list item (<sli>) is a single item in a simple list <sl>. Simple list items have phrase or text content, adequate for describing package contents, for example. When a DITA topic is formatted for output, the items of a simple list are placed each on its own line, with no other prefix such as a number (as in an ordered list) or bullet (as in an unordered list).
-Category: Body elements-->
 <!ELEMENT sli    %sli.content;>
 <!ATTLIST sli    %sli.attributes;>
 
@@ -1009,8 +1001,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:In an unordered list (<ul>), the order of the list items is not significant. List items are typically styled on output with a "bullet" character, depending on nesting level.
-Category: Body elements-->
 <!ELEMENT ul    %ul.content;>
 <!ATTLIST ul    %ul.attributes;>
 
@@ -1034,8 +1024,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:An ordered list (<ol>) is a list of items sorted by sequence or order of importance.
-Category: List elements-->
 <!ELEMENT ol    %ol.content;>
 <!ATTLIST ol    %ol.attributes;>
 
@@ -1051,8 +1039,6 @@ Category: List elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A list (<li>) item is a single item in an ordered <ol> or unordered <ul> list. When a DITA topic is formatted for output, numbers and alpha characters are usually output with list items in ordered lists, while bullets and dashes are usually output with list items in unordered lists.
-Category: Body elements-->
 <!ELEMENT li    %li.content;>
 <!ATTLIST li    %li.attributes;>
 
@@ -1068,8 +1054,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <itemgroup> element is reserved for use in specializations of DITA. As a container element, it can be used to sub-divide or organize elements that occur inside a list item, definition, or parameter definition.
-Category: Specialization elements-->
 <!ELEMENT itemgroup    %itemgroup.content;>
 <!ATTLIST itemgroup    %itemgroup.attributes;>
 
@@ -1094,8 +1078,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A definition list (<dl>) is a list of terms and corresponding definitions. The term (<dt>) is usually flush left. The description or definition (<dd>) is usually either indented and on the next line, or on the same line to the right of the term.
-Category: Body elements-->
 <!ELEMENT dl    %dl.content;>
 <!ATTLIST dl    %dl.attributes;>
 
@@ -1112,8 +1094,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <dlhead> element contains optional headings for the term and description columns in a definition list. The definition list heading contains a heading <dthd> for the column of terms and an optional heading <ddhd>for the column of descriptions.
-Category: Body elements-->
 <!ELEMENT dlhead    %dlhead.content;>
 <!ATTLIST dlhead    %dlhead.attributes;>
 
@@ -1129,8 +1109,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The definition term heading (<dthd>) element is contained in a definition list head (<dlhead>) and provides an optional heading for the column of terms in a description list.
-Category: Body elements-->
 <!ELEMENT dthd    %dthd.content;>
 <!ATTLIST dthd    %dthd.attributes;>
 
@@ -1146,8 +1124,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The definition descriptions heading (<ddhd>) element contains an optional heading or title for a column of descriptions or definitions in a definition list
-Category: Body elements-->
 <!ELEMENT ddhd    %ddhd.content;>
 <!ATTLIST ddhd    %ddhd.attributes;>
 
@@ -1164,8 +1140,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:In a definition list, each list item is defined by the definition list entry (<dlentry>) element. The definition list entry element includes a term <dt> and one or more definitions or descriptions <dd> of that term.
-Category: Body elements-->
 <!ELEMENT dlentry    %dlentry.content;>
 <!ATTLIST dlentry    %dlentry.attributes;>
 
@@ -1185,8 +1159,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The definition term <dt> element contains a term in a definition list entry.
-Category: Body elements-->
 <!ELEMENT dt    %dt.content;>
 <!ATTLIST dt    %dt.attributes;>
 
@@ -1202,8 +1174,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The definition description (<dd>) element contains the description of a term in a definition list entry.
-Category: Body elements-->
 <!ELEMENT dd    %dd.content;>
 <!ATTLIST dd    %dd.attributes;>
 
@@ -1225,8 +1195,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The figure (<fig>) element is a display context (sometimes called an exhibit) with an optional title for a wide variety of content. Most commonly, the figure element contains an image element (a graphic or artwork), but it can contain several kinds of text objects as well. A title is placed inside the figure element to provide a caption to describe the content.
-Category: Body elements-->
 <!ELEMENT fig    %fig.content;>
 <!ATTLIST fig    %fig.attributes;>
 
@@ -1244,8 +1212,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <figgroup> element is used only for specialization at this time. Figure groups can be used to contain multiple cross-references, footnotes or keywords, but not multipart images. Multipart images in DITA should be represented by a suitable media type displayed by the <object> element.
-Category: Body elements-->
 <!ELEMENT figgroup    %figgroup.content;>
 <!ATTLIST figgroup    %figgroup.attributes;>
 
@@ -1267,8 +1233,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The preformatted element (<pre>) preserves line breaks and spaces entered manually by the author in the content of the element, and also presents the content in a monospaced type font (depending on your output formatting processor). Do not use <pre> when a more semantically specific element is appropriate, such as <codeblock>.
-Category: Body elements-->
 <!ELEMENT pre    %pre.content;>
 <!ATTLIST pre    %pre.attributes;>
 
@@ -1290,8 +1254,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <lines> element may be used to represent dialogs, lists, text fragments, and so forth. The <lines> element is similar to <pre> in that hard line breaks are preserved, but the font style is not set to monospace, and extra spaces inside the lines are not preserved.
-Category: Body elements-->
 <!ELEMENT lines    %lines.content;>
 <!ATTLIST lines    %lines.attributes;>
 
@@ -1308,7 +1270,6 @@ Category: Body elements-->
 <!ENTITY % text.attributes
              "%univ-atts;
 ">
-<!--doc:The text element associates no semantics with its content. It exists to serve as a container for text where a container is needed (e.g., for conref, or for restricted content models in specializations). Unlike ph, text cannot contain images. Unlike keyword, text does not imply keyword-like semantics. The text element contains only text data, or nested text elements. All universal attributes are available on text.-->
 <!ELEMENT text    %text.content;>
 <!ATTLIST text    %text.attributes;>
 
@@ -1316,6 +1277,8 @@ Category: Body elements-->
 <!--                    LONG NAME: Keyword                         -->
 <!ENTITY % keyword.content
                        "(#PCDATA |
+                         %draft-comment; |
+                         %required-cleanup; |
                          %text; |
                          %tm;)*"
 >
@@ -1328,8 +1291,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <keyword> element identifies a keyword or token, such as a single value from an enumerated list, the name of a command or parameter, product name, or a lookup key for a message.
-Category: Body elements-->
 <!ELEMENT keyword    %keyword.content;>
 <!ATTLIST keyword    %keyword.attributes;>
 
@@ -1338,6 +1299,8 @@ Category: Body elements-->
 <!--                    LONG NAME: Term                            -->
 <!ENTITY % term.content
                        "(#PCDATA |
+                         %draft-comment; |
+                         %required-cleanup; |
                          %text; |
                          %tm;)*"
 >
@@ -1350,8 +1313,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <term> element identifies words that may have or require extended definitions or explanations. In future development of DITA, for example, terms might provide associative linking to matching glossary entries.
-Category: Specialization elements-->
 <!ELEMENT term    %term.content;>
 <!ATTLIST term    %term.attributes;>
 
@@ -1371,8 +1332,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The phrase (<ph>) element is used to organize content for reuse or conditional processing (for example, when part of a paragraph applies to a particular audience). It can be used by specializations of DITA to create semantic markup for content at the phrase level, which then allows (but does not require) specific processing or formatting.
-Category: Body elements-->
 <!ELEMENT ph    %ph.content;>
 <!ATTLIST ph    %ph.attributes;>
 
@@ -1402,8 +1361,6 @@ Category: Body elements-->
                                   #IMPLIED
               %univ-atts;
 ">
-<!--doc:The trademark (<tm>) element in DITA is used to markup and identify a term or phrase that is trademarked. Trademarks include registered trademarks, service marks, slogans and logos.
-Category: Miscellaneous elements-->
 <!ELEMENT tm    %tm.content;>
 <!ATTLIST tm    %tm.attributes;>
 
@@ -1424,8 +1381,6 @@ Category: Miscellaneous elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <boolean> element is used to express one of two opposite values, such as yes or no, on or off, true or false, high or low, and so forth. The element itself is empty; the value of the element is stored in its state attribute, and the semantic associated with the value is typically in a specialized name derived from this element.
-Category: Specialization elements-->
 <!ELEMENT boolean    %boolean.content;>
 <!ATTLIST boolean    %boolean.attributes;>
 
@@ -1449,8 +1404,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <state> element specifies a name/value pair whenever it is necessary to represent a named state that has a variable value. The element is primarily intended for use in specializations to represent specific states (like logic circuit states, chemical reaction states, airplane instrumentation states, and so forth).
-Category: Specialization elements-->
 <!ELEMENT state    %state.content;>
 <!ATTLIST state    %state.attributes;>
 
@@ -1507,8 +1460,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:Include artwork or images in a DITA topic by using the <image> element. The <image> element has optional attributes that indicate whether the placement of the included graphic or artwork should be inline (like a button or icon) or on a separate line for a larger image. There are also optional attributes that indicate the size to which the included graphic or artwork should be scaled. An href attribute is required on the image element, as this attribute creates a pointer to the image, and allows the output formatting processor to bring the image into the text flow. To make the intent of the image more accessible for users using screen readers or text-only readers, always include a description of the image's content in the alt element.
-Category: Body elements-->
 <!ELEMENT image    %image.content;>
 <!ATTLIST image    %image.attributes;>
 
@@ -1517,7 +1468,9 @@ Category: Body elements-->
 <!--                    LONG NAME: Alternate text                  -->
 <!ENTITY % alt.content
                        "(%words.cnt; |
-                         %ph;)*
+                         %ph; |
+                         %draft-comment; |
+                         %required-cleanup;)*
 ">
 <!ENTITY % alt.attributes
              "%univ-atts;
@@ -1525,8 +1478,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The alt element provides alternate text for an image. It is equivalent to the alt attribute on the image element; the attribute is deprecated, so the alt element should be used instead. As an element, alt provides direct text entry within an XML editor and is more easily accessed than an attribute for translation.
-Category: Body elements-->
 <!ELEMENT alt    %alt.content;>
 <!ATTLIST alt    %alt.attributes;>
 
@@ -1559,7 +1510,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A reference to a textual description of the graphic or object. This element is a replacement for the longdescref attribute on image and object elements.-->
 <!ELEMENT longdescref    %longdescref.content;>
 <!ATTLIST longdescref    %longdescref.attributes;>
 
@@ -1626,8 +1576,6 @@ Category: Body elements-->
                                   #IMPLIED 
               longdescre CDATA    #IMPLIED"
 >
-<!--doc:DITA's <object> element corresponds to the HTML <object> element.
-Category: Body elements-->
 <!ELEMENT object    %object.content;>
 <!ATTLIST object    %object.attributes;>
 
@@ -1655,8 +1603,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The parameter (<param>) element specifies a set of values that may be required by an <object> at runtime. Any number of <param> elements may appear in the content of an object in any order, but must be placed at the start of the content of the enclosing object. This element is comparable to the XHMTL <param> element.
-Category: Body elements-->
 <!ELEMENT param    %param.content;>
 <!ATTLIST param    %param.attributes;>
  
@@ -1686,8 +1632,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <simpletable> element is used for tables that are regular in structure and do not need a caption. Choose the simple table element when you want to show information in regular rows and columns. For example, multi-column tabular data such as phone directory listings or parts lists are good candidates for simpletable. Another good use of simpletable is for information that seems to beg for a "three-part definition list"—just use the keycol attribute to indicate which column represents the "key" or term-like column of your structure.
-Category: Table elements-->
 <!ELEMENT simpletable    %simpletable.content;>
 <!ATTLIST simpletable    %simpletable.attributes;>
 
@@ -1703,8 +1647,6 @@ Category: Table elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The simpletable header (<sthead>) element contains the table's header row. The header row is optional in a simple table.
-Category: Table elements-->
 <!ELEMENT sthead    %sthead.content;>
 <!ATTLIST sthead    %sthead.attributes;>
 
@@ -1720,8 +1662,6 @@ Category: Table elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <simpletable> row (<strow>) element specifies a row in a simple table.
-Category: Table elements-->
 <!ELEMENT strow    %strow.content;>
 <!ATTLIST strow    %strow.attributes;>
 
@@ -1740,8 +1680,6 @@ Category: Table elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The simpletable entry (<stentry>) element represents a single table cell, like <entry> in <table>. You can place any number of stentry cells in either an <sthead> element (for headings) or <strow> element (for rows of data).
-Category: Table elements-->
 <!ELEMENT stentry    %stentry.content;>
 <!ATTLIST stentry    %stentry.attributes;>
 
@@ -1771,8 +1709,6 @@ Category: Table elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <draft-comment> element allows simple review and discussion of topic contents within the marked-up content. Use the <draft-comment> element to ask a question or make a comment that you would like others to review. To indicate the source of the draft comment or the status of the comment, use the author, time or disposition attributes.
-Category: Miscellaneous elements-->
 <!ELEMENT draft-comment    %draft-comment.content;>
 <!ATTLIST draft-comment    %draft-comment.attributes;>
 
@@ -1789,8 +1725,6 @@ Category: Miscellaneous elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:A <required-cleanup> element is used as a placeholder for migrated elements that cannot be appropriately tagged without manual intervention. As the element name implies, the intent for authors is to clean up the contained material and eventually get rid of the <required-cleanup> element. Authors should not insert this element into documents.
-Category: Specialization elements-->
 <!ELEMENT required-cleanup    %required-cleanup.content;>
 <!ATTLIST required-cleanup    %required-cleanup.attributes;>
 
@@ -1809,8 +1743,6 @@ Category: Specialization elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:Use footnote (<fn>) to annotate text with notes that are not appropriate for inclusion in line or to indicate the source for facts or other material used in the text.
-Category: Miscellaneous elements-->
 <!ELEMENT fn    %fn.content;>
 <!ATTLIST fn    %fn.attributes;>
 
@@ -1833,8 +1765,6 @@ Category: Miscellaneous elements-->
                                   #IMPLIED
               %univ-atts;
 ">
-<!--doc:An <indexterm> element allows the author to indicate that a certain word or phrase should produce an index entry in the generated index.
-Category: Miscellaneous elements-->
 <!ELEMENT indexterm    %indexterm.content;>
 <!ATTLIST indexterm    %indexterm.attributes;>
 
@@ -1850,8 +1780,6 @@ Category: Miscellaneous elements-->
                                   #IMPLIED
               %univ-atts;"
 >
-<!--doc:The <index-base> element allows indexing extensions to be added by specializing off this element. It does not in itself have any meaning and should be ignored in processing.
-Category: Miscellaneous elements-->
 <!ELEMENT index-base    %index-base.content;>
 <!ATTLIST index-base    %index-base.attributes;>
 
@@ -1866,8 +1794,6 @@ Category: Miscellaneous elements-->
                                   #REQUIRED
               %univ-atts;
 ">
-<!--doc:This element is not completely defined, and is reserved for future use.
-Category: Miscellaneous elements-->
 <!ELEMENT indextermref    %indextermref.content;>
 <!ATTLIST indextermref    %indextermref.attributes;>
 
@@ -1885,8 +1811,6 @@ Category: Miscellaneous elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:The <cite> element is used when you need a bibliographic citation that refers to a book or article. It specifically identifies the title of the resource.
-Category: Body elements-->
 <!ELEMENT cite    %cite.content;>
 <!ATTLIST cite    %cite.attributes;>
 
@@ -1920,8 +1844,6 @@ Category: Body elements-->
                         CDATA 
                                   #IMPLIED"
 >
-<!--doc:Use the cross-reference (<xref>) element to link to a different location within the current topic, or a different topic within the same help system, or to external sources, such as Web pages, or to a location in another topic. The href attribute on the <xref> element provides the location of the target.
-Category: Body elements-->
 <!ELEMENT xref    %xref.content;>
 <!ATTLIST xref    %xref.attributes;>
 

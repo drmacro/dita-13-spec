@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA learning Object Map Entity                   -->
+<!--  VERSION:   0.9                                               -->
+<!--  DATE:      October 2012                                      -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+                                                                   -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the substitution context and domain     -->
+<!--             entity declarations for the Learning Map Domain   -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             October 2012                                      -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS Open 2012.                    -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!--    2012.10.18 DRB: Original creation                          -->
+<!--               Located with other learningObjectMap and        -->
+<!--               learningMapDomain components within the DITA-OT -->
+<!--               test plugin org.dita.doctypes.learning.         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--             LEARNING OBJECT MAP ENTITIES                      -->
+<!-- ============================================================= -->
+
+<!ENTITY learningGroupMap-att "(map learningGroupMap)">
+
+<!-- ============= End Learning Object Map Entities ============== -->

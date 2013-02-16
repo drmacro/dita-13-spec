@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "learningmap.dtd" "../dtd/learning/dtd/learningMap.dtd">
+<map id="map_24968302398430d0e31">
+    <topicmeta>
+        <metadata>
+            <prodinfo>
+                <prodname>DITA</prodname>
+                <vrmlist>
+                    <vrm version="1.3"/>
+                </vrmlist>
+            </prodinfo>
+        </metadata>
+        <lcLom>
+            <lomAggregationLevel value="3"/>
+        </lcLom>
+    </topicmeta>
+    <learningGroupMapRef href="sampleLearningGroupMap.ditamap"/>
+    <learningObjectMapRef href="sampleLearningObjectMap.ditamap"/>
+    <learningGroup navtitle="Top-Level Learning Group">
+        <learningObjectMapRef href="sampleLearningObjectMap.ditamap" />
+        <learningGroupMapRef href="sampleLearningGroupMap.ditamap"/>
+    </learningGroup>    
+</map>

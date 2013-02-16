@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_qgq_g3y_fj">
+  <title>Topic title<draft-comment>Draft comment in
+    title</draft-comment></title>
+  <titlealts>
+    <navtitle>Navigation title <draft-comment>draft comment in
+      navtitle</draft-comment></navtitle>
+    <searchtitle>Search title<draft-comment>Draft comment in search
+      title</draft-comment></searchtitle>
+  </titlealts>
+  <shortdesc>
+    <draft-comment>draft comment in &lt;shortdesc></draft-comment>
+  </shortdesc>
+  <body>
+    <p>Topic paragraph <draft-comment>draft comment in a
+      paragraph.</draft-comment> <xref>
+      <draft-comment>draft comment in an xref</draft-comment>
+      </xref></p>
+    <p>In a phrase: <ph>
+      <draft-comment>Draft comment in a phrase.</draft-comment>
+      </ph></p>
+    <p>In &lt;term>: <term>a term <draft-comment>Draft comment in a
+      term</draft-comment></term></p>
+    <p>In &lt;keyword>: <keyword>A keyword<draft-comment>Draft comment in a
+      keyword</draft-comment></keyword></p>
+    <dl>
+      <dlhead>
+        <dthd>
+          <draft-comment>draft comment in a dthd</draft-comment>
+        </dthd>
+        <ddhd>
+          <draft-comment>draft comment in a ddhd</draft-comment>
+        </ddhd>
+      </dlhead>
+      <dlentry>
+        <dt><draft-comment>Draft comment in a DT</draft-comment></dt>
+        <dd>
+          <draft-comment>Draft comment in a dd</draft-comment>
+        </dd>
+      </dlentry>
+    </dl>
+    <fig>
+      <title>Figure title</title>
+      <desc>Figure description: <draft-comment>Draft comment in
+        &lt;desc></draft-comment></desc>
+      <draft-comment>Draft comment within figure content.</draft-comment>
+      <figgroup>
+        <draft-comment>Draft comment within figure-group</draft-comment>
+        <p>Within &lt;ph>: <ph>
+          <draft-comment>Draft comment in &lt;ph></draft-comment>
+          </ph></p>
+        <p>Within &lt;alt>: <image
+          id="image_xdl_nsy_fj">
+          <alt>Alt text: <draft-comment>draft comment in
+            &lt;alt></draft-comment></alt>
+          </image></p>
+        <p>Simple list:<sl>
+          <sli>Simple list item <draft-comment>Draft comment within
+            &lt;sli></draft-comment></sli>
+          </sl></p>
+        <p>List item:<ul
+          id="ul_a5z_lty_fj">
+          <li>List item: <draft-comment>Draft comment in list
+            item.</draft-comment></li>
+          </ul></p>
+      </figgroup>
+    </fig>
+    <p>Within a footnote: <fn>Draft comment: <draft-comment>Draft comment within
+      a footnote.</draft-comment></fn></p>
+    <p>Within a short quote:<q>
+      <draft-comment>draft comment within &lt;q></draft-comment>
+      </q></p>
+    <p>In cite: <cite><draft-comment>Draft comment within
+      &lt;cite></draft-comment></cite></p>
+    <p>In &lt;data>: <data>
+      <draft-comment>draft comment in &lt;data></draft-comment>
+      </data></p>
+    <table
+      frame="all"
+      id="table_enk_vly_fj">
+      <title>Table with Draft Comment</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"
+          colwidth="1.0*"/>
+        <colspec
+          colname="c2"
+          colnum="2"
+          colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>
+              <draft-comment>draft comment in &lt;entry></draft-comment>
+            </entry>
+            <entry/>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>r1c1</entry>
+            <entry>r1c2</entry>
+          </row>
+          <row>
+            <entry>r2c1</entry>
+            <entry>r2c2</entry>
+          </row>
+          <row>
+            <entry>r3c1</entry>
+            <entry>r2c3</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <example>
+      <draft-comment>draft comment in example</draft-comment>
+    </example>
+    <bodydiv>
+      <draft-comment>draft comment in body-div</draft-comment>
+    </bodydiv>
+    <section>
+      <title>Highlight Domain</title>
+      <p>Bold: <b>
+        <draft-comment>Draft comment in &lt;b></draft-comment>
+        </b><i>
+        <draft-comment>draft comment in &lt;i></draft-comment>
+        </i><sup>
+        <draft-comment>draft comment in &lt;sup></draft-comment>
+        </sup><sub>
+        <draft-comment>draft comment in &lt;sub></draft-comment>
+        </sub><tt>
+        <draft-comment>draft comment in &lt;tt></draft-comment>
+        </tt><u>
+        <draft-comment>draft comment in &lt;u></draft-comment>
+        </u></p>
+    </section>
+    <section>
+      <title>Programming Domain</title>
+      <p>In codeph: <codeph><draft-comment>Draft comment in codeph.</draft-comment></codeph></p>
+    </section>
+    <section>
+      <title>Software Domain</title>
+      <p>In codeph: <codeph><draft-comment>Draft comment in codeph.</draft-comment></codeph></p>
+      <p>In msgph: <msgph><draft-comment>Draft comment in msgph.</draft-comment></msgph></p>
+    </section>
+    <section>
+      <title>Hazard Statement Domain</title>
+      <p>In typeofhazard: <hazardstatement><messagepanel>
+        <typeofhazard>type of hazard.<draft-comment>Draft comment in
+            &lt;typeofhazard>.</draft-comment></typeofhazard>
+          <consequence>Consequence: <draft-comment>draft comment in
+            &lt;consequence></draft-comment></consequence>
+        <howtoavoid>how to avoid: <draft-comment>draft comment in
+            &lt;howtoavoid></draft-comment></howtoavoid>
+      </messagepanel>
+        
+        </hazardstatement></p>
+    </section>
+  </body>
+</topic>
