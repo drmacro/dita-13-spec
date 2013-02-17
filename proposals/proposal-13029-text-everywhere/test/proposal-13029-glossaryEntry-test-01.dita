@@ -4,4 +4,7 @@
   id="glossentry_evf_wfh_gj">
   <glossterm>Glossary term <text>text item</text></glossterm>
   <glossdef>Glossary definition: <text>text item</text></glossdef>
+  <glossBody>
+    <glossSurfaceForm>surface form: <text>text item</text></glossSurfaceForm>
+  </glossBody>
 </glossentry>

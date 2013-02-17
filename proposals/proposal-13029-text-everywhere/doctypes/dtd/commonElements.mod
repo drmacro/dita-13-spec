@@ -81,6 +81,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
    %ph; | 
    %q; |
    %term; | 
+   %text; |
    %tm; | 
    %xref; | 
    %state;
@@ -122,6 +123,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
    %ph; | 
    %q; |
    %term; | 
+   %text; |
    %tm; | 
    %state;
   "
@@ -133,6 +135,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
    %ph; | 
    %q; |
    %term; | 
+   %text; |
    %xref; | 
    %state;
   "
@@ -288,22 +291,28 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.ph.noxref; | 
    %data.elements.incl; | 
+   %draft-comment; |
    %foreign.unknown.incl; | 
-   %image;
+   %image; |
+   %required-cleanup;
   "
 >
 <!ENTITY % xrefph.cnt 
   "#PCDATA | 
    %basic.ph.noxref; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % shortquote.cnt 
   "#PCDATA | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % para.cnt 
@@ -346,8 +355,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.block.notbfgobj; | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; |
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % ph.cnt 
@@ -363,16 +374,20 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "#PCDATA | 
    %basic.block.notbl; | 
    %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl;
+   %data.elements.incl; |
+   %draft-comment; | 
+   %foreign.unknown.incl; |
+   %required-cleanup;
   "
 >
 <!ENTITY % term.cnt 
   "#PCDATA | 
    %basic.ph; | 
-   %data.elements.incl; | 
+   %data.elements.incl; |
+   %draft-comment; |
    %foreign.unknown.incl; | 
-   %image;
+   %image; |
+   %required-cleanup;
   "
 >
 <!ENTITY % defn.cnt 
@@ -396,8 +411,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!ENTITY % fig.cnt 
   "%basic.block.notbnofg; | 
    %data.elements.incl; | 
+   %draft-comment; |
    %fn;| 
-   %foreign.unknown.incl; | 
+   %foreign.unknown.incl; |
+   %required-cleanup; | 
    %simpletable; | 
    %xref;
   "
@@ -406,8 +423,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
   "%basic.block.notbnofg; | 
    %basic.ph; |
    %data.elements.incl; | 
+   %draft-comment; | 
    %fn; |
-   %foreign.unknown.incl; 
+   %foreign.unknown.incl; |
+   %required-cleanup; 
   "
 >
 <!ENTITY % words.cnt 
@@ -415,15 +434,18 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
    %data.elements.incl; | 
    %foreign.unknown.incl; | 
    %keyword; | 
-   %term;
+   %term; |
+   %text;
   "
 >
 <!ENTITY % data.cnt 
   "%words.cnt; |
+   %draft-comment; |
    %image; |
    %object; |
    %ph; |
-   %title;
+   %required-cleanup; |
+   %title; 
   "
 >
 
@@ -746,7 +768,9 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!--                    LONG NAME: Navigation Title                -->
 <!ENTITY % navtitle.content
                        "(%words.cnt; |
-                         %ph;)*"
+                         %ph; |
+                         %draft-comment; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % navtitle.attributes
              "%univ-atts;"
@@ -757,8 +781,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 
 <!--                    LONG NAME: Short Description               -->
 <!ENTITY % shortdesc.content
-                       "(%title.cnt; |
-                         %draft-comment;)*"
+                       "(%title.cnt;)*"
 >
 <!ENTITY % shortdesc.attributes
              "%univ-atts;
@@ -1258,6 +1281,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!--                    LONG NAME: Keyword                         -->
 <!ENTITY % keyword.content
                        "(#PCDATA |
+                         %draft-comment; |
+                         %required-cleanup; |
                          %text; |
                          %tm;)*"
 >
@@ -1278,6 +1303,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!--                    LONG NAME: Term                            -->
 <!ENTITY % term.content
                        "(#PCDATA |
+                         %draft-comment; |
+                         %required-cleanup; |
                          %text; |
                          %tm;)*"
 >
@@ -1297,8 +1324,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 
 <!--                    LONG NAME: Phrase                          -->
 <!ENTITY % ph.content
-                       "(%ph.cnt; |
-                         %text;)*"
+                       "(%ph.cnt;)*"
 >
 <!ENTITY % ph.attributes
              "keyref 
@@ -1445,7 +1471,9 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!--                    LONG NAME: Alternate text                  -->
 <!ENTITY % alt.content
                        "(%words.cnt; |
-                         %ph;)*
+                         %ph; |
+                         %draft-comment; |
+                         %required-cleanup;)*
 ">
 <!ENTITY % alt.attributes
              "%univ-atts;

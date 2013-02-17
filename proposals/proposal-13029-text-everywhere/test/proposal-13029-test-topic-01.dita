@@ -91,25 +91,25 @@
       <p><tt>tt: <text>text item</text></tt></p>
       <p><u>u: <text>text item</text></u></p>
     </section>
-    <section>
-      <title>basic.ph.notm (programing and UI domains)</title>
-      <p>codeph: <codeph><text>text item</text></codeph> </p>
-      <p>codeblock: <codeblock><text>text item</text></codeblock></p>
-      <p>Syntx elements: <syntaxdiagram>
-        <fragment>
-          <groupseq>
-            <var>var: <text>text item</text></var>
-            <oper>oper: <text>text item</text></oper>
-            <delim>delim: <text>text item</text></delim>
-            <sep>sep: <text>text item</text></sep>
-            <groupchoice>
-              <repsep>repsep: <text>text item</text></repsep>
-            </groupchoice>
-          </groupseq>
-        </fragment>
-        <synnote>Syntax note: <text>text item</text></synnote>
-        </syntaxdiagram> </p>
-    </section>
+<section>
+  <title>basic.ph.notm (programing and UI domains)</title>
+  <p>codeph: <codeph><text>text item</text></codeph> </p>
+  <p>codeblock: <codeblock><text>text item</text></codeblock></p>
+  <p>Syntx elements: <syntaxdiagram>
+    <fragment>
+      <groupseq>
+        <var>var: <text>text item</text></var>
+        <oper>oper: <text>text item</text></oper>
+        <delim>delim: <text>text item</text></delim>
+        <sep>sep: <text>text item</text></sep>
+        <groupchoice>
+          <repsep>repsep: <text>text item</text></repsep>
+        </groupchoice>
+      </groupseq>
+    </fragment>
+    <synnote>Syntax note: <text>text item</text></synnote>
+    </syntaxdiagram> </p>
+</section>
     <section>
       <title>UI Domain</title>
       <p>Screen: <screen>Screen <text>text item</text></screen></p>

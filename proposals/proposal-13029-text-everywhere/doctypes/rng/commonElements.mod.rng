@@ -297,6 +297,7 @@
       <ref name="ph"/>
       <ref name="q"/>
       <ref name="term"/>
+      <ref name="text"/>
       <ref name="tm"/>
       <ref name="xref"/>
       <ref name="state"/>
@@ -336,6 +337,7 @@
       <ref name="ph"/>
       <ref name="q"/>
       <ref name="term"/>
+      <ref name="text"/>
       <ref name="tm"/>
       <ref name="state"/>
     </choice>
@@ -348,6 +350,7 @@
       <ref name="ph"/>
       <ref name="q"/>
       <ref name="term"/>
+      <ref name="text"/>
       <ref name="xref"/>
       <ref name="state"/>
     </choice>
@@ -653,6 +656,7 @@
       <ref name="foreign.unknown.incl"/>
       <ref name="keyword"/>
       <ref name="term"/>
+      <ref name="text"/>
     </choice>
   </define>
   <define name="data.cnt">
@@ -2041,7 +2045,6 @@
     <zeroOrMore>
       <choice>
         <ref name="ph.cnt"/>
-        <ref name="text"/>
       </choice>
     </zeroOrMore>
   </define>

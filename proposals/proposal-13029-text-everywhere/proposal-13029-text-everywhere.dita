@@ -73,14 +73,14 @@
         <li>Add to %basic.ph;  (and remove from %ph.content)</li>
         <li>Add to %basic.ph.noxref (all title-like elements)</li>
         <li>Add to %basic.ph.notm (programming and ui domains)</li>
-        <li>Add to elements that use %txt.incl but not %basic.ph</li>
         <li>Add to elements that only allow #PCDATA</li>
         <li>Add to %words.cnt; </li>
         <li>bookmap.mod: Add to elements that allow #PCDATA but no other
           parments.</li>
         <li>learningMetadataDomain.mod: Add to elements that allow #PCDATA but
           no other parments.</li>
-        <li>glossentry: Update specializations of title to use title.cnt, </li>
+        <li>glossentry: Add to elements that do not allow it by any other
+          means.</li>
         <li>xnalDomain: Add to elements that allow #PCDATA but no other
           parments.</li>
         </ul><note>While %txt.incl seems by its name to be an obvious place to
@@ -88,11 +88,40 @@
         that must include &lt;text> in order to get full
         coverage.</note><note>The figgroup element allows all phrases but does
         not allow #PCDATA. This makes it something of an outlier. Disallowing
-        &lt;text> within figgroup would require defining a new parameter group
+        &lt;text> within figgroup would require defining a new parameter entity
         specifically for use within figgroup. As &lt;figgroup> is intended
         primarily for specialization, this does not seem to be worth the
         cost.</note></p></section>
-<section><title>Examples</title><p/></section>
+<section><title>Examples</title><p>Highlight
+        domain:<codeblock>    &lt;section>
+      &lt;title>Highlight domain&lt;/title>
+      &lt;p>&lt;b>bold: &lt;text>text item&lt;/text>&lt;/b>&lt;/p>
+      &lt;p>&lt;i>italic: &lt;text>text item&lt;/text>&lt;/i>&lt;/p>
+      &lt;p>&lt;sub>sub: &lt;text>text item&lt;/text>&lt;/sub>&lt;/p>
+      &lt;p>&lt;sup>sup: &lt;text>text item&lt;/text>&lt;/sup>&lt;/p>
+      &lt;p>&lt;tt>tt: &lt;text>text item&lt;/text>&lt;/tt>&lt;/p>
+      &lt;p>&lt;u>u: &lt;text>text item&lt;/text>&lt;/u>&lt;/p>
+    &lt;/section></codeblock></p>
+      <p>Programing and UI
+        domains:<codeblock>&lt;section>
+  &lt;title>basic.ph.notm (programing and UI domains)&lt;/title>
+  &lt;p>codeph: &lt;codeph>&lt;text>text item&lt;/text>&lt;/codeph> &lt;/p>
+  &lt;p>codeblock: &lt;codeblock>&lt;text>text item&lt;/text>&lt;/codeblock>&lt;/p>
+  &lt;p>Syntx elements: &lt;syntaxdiagram>
+    &lt;fragment>
+      &lt;groupseq>
+        &lt;var>var: &lt;text>text item&lt;/text>&lt;/var>
+        &lt;oper>oper: &lt;text>text item&lt;/text>&lt;/oper>
+        &lt;delim>delim: &lt;text>text item&lt;/text>&lt;/delim>
+        &lt;sep>sep: &lt;text>text item&lt;/text>&lt;/sep>
+        &lt;groupchoice>
+          &lt;repsep>repsep: &lt;text>text item&lt;/text>&lt;/repsep>
+        &lt;/groupchoice>
+      &lt;/groupseq>
+    &lt;/fragment>
+    &lt;synnote>Syntax note: &lt;text>text item&lt;/text>&lt;/synnote>
+    &lt;/syntaxdiagram> &lt;/p>
+&lt;/section></codeblock></p></section>
 </refbody>
 </reference><?Pub Caret -3?>
 <?Pub *0000003625?>
