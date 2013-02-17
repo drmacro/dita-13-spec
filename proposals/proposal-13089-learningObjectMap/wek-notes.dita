@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_pk1_ljc_13">
+ <title>Learning Object Map/Learning Group Map Notes</title>
+ <shortdesc></shortdesc>
+ <conbody>
+  <p>Random notes:<ul
+      id="ul_m5f_mjc_13">
+      <li>On a mapref specifying a navigation title and locktitle has no effect
+        because the title of the submap is ignored for the purpose of
+        constructing the navigation hierarchy.</li>
+      <li>On reference to external resource must specify scope="external" and
+        the @format attribute.</li>
+      <li>Must have a per-element .attributes parameter entity, even if the
+        value is just a reference to another parameter entity.</li>
+      <li>Learning group map must declare its dependency on the learningMap
+        domain in its @domains attribute. Ditto learning object map.</li>
+      <li>Attribute declarations for learningGroupMap and learningObjectMap
+        don't follow the standard coding reqs: everything must be in the
+        *.attributes parameter entity declaration or in the @class attribute
+        declaration.</li>
+      <li>Need OASIS-style public ID for the simpleTopicrefConstraints
+        module</li>
+      <li>Need to allow optional &lt;reltable> in learningObjectMap and
+        learningGroupMap</li>
+      </ul></p>
+ </conbody>
+</concept>
