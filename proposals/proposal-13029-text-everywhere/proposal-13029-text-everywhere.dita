@@ -68,22 +68,25 @@
           of &lt;text> that have proven to be confusing.</li>
     </ul></p></section>
 <section><title>Technical requirements</title><p>Allowing &lt;text> everywhere #PCDATA is allowed requires the following
-        general updates to the existing vocabulary modules:<ul
+        updates to the existing vocabulary modules:<ul
         id="ul_xc2_r11_gj">
-          <li>DO NOT Add to %txt.incl--overlaps with basic.ph in all but a few element types. </li>
-          <li>add to %basic.ph; </li>
-          <li>Add to %basic.ph.noxref (all title-like elements)</li>
-          <li>Add to %basic.ph.notm (programming and ui domains)</li>
-          <li>Add to elements that use %txt.incl but not %basic.ph</li>
-          <li>Add to elements that only allow #PCDATA</li>
-          <li>Add to %words.cnt; </li>
-          <li>bookmap.mod: Add to elements that allow #PCDATA but no other parments.</li>
-          <li>learningMetadataDomain.mod: Add to elements that allow #PCDATA but no other parments.</li>
-          <li>glossentry: Update specializations of title to use title.cnt, </li>
-          <li>xnalDomain: Add to elements that allow #PCDATA but no other parments.</li>
-        </ul></p></section>
-<section><title>Examples</title><p>Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
-    to include edge cases, if known.</p></section>
+        <li>add to %basic.ph; </li>
+        <li>Add to %basic.ph.noxref (all title-like elements)</li>
+        <li>Add to %basic.ph.notm (programming and ui domains)</li>
+        <li>Add to elements that use %txt.incl but not %basic.ph</li>
+        <li>Add to elements that only allow #PCDATA</li>
+        <li>Add to %words.cnt; </li>
+        <li>bookmap.mod: Add to elements that allow #PCDATA but no other
+          parments.</li>
+        <li>learningMetadataDomain.mod: Add to elements that allow #PCDATA but
+          no other parments.</li>
+        <li>glossentry: Update specializations of title to use title.cnt, </li>
+        <li>xnalDomain: Add to elements that allow #PCDATA but no other
+          parments.</li>
+        </ul><note>While %txt.incl seems by its name to be an obvious place to
+        put &lt;text>, it has too much overlap with other parameter entities
+        that must include &lt;text> in order to get full coverage.</note></p></section>
+<section><title>Examples</title><p/></section>
 </refbody>
 </reference><?Pub Caret -3?>
 <?Pub *0000003625?>
