@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningAssessment PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN" "learningAssessment.dtd">
+<learningAssessment id="assessment_xj4_j2h_gj">
+ <title>Quiz</title>
+ <shortdesc/>
+  <prolog>
+    <lcLom>
+      <lomStructure value="atomic"><text>text item</text></lomStructure>
+      <lomAggregationLevel
+        value="1"><text>text item</text></lomAggregationLevel>
+      <lomInstallationRemarks><text>text item</text></lomInstallationRemarks>
+      <lomIntendedUserRole value="author"><text>text item</text></lomIntendedUserRole>
+      <lomContext value="highereducation"><text>text item</text></lomContext>
+      <lomTypicalAgeRange value="asd"><text>text item</text></lomTypicalAgeRange>
+      <lomDifficulty value="difficult"><text>text item</text></lomDifficulty>
+      <lomTypicalLearningTime><text>text item</text></lomTypicalLearningTime>
+    </lcLom>
+  </prolog>
+ <learningAssessmentbody>
+ </learningAssessmentbody>
+</learningAssessment>

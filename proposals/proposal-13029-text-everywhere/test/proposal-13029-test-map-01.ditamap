@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>DITA Topic Map</title>
+  <topicmeta>
+    <navtitle>Nav title: <text>text item</text></navtitle>
+    <searchtitle>Search title <text>text item</text></searchtitle>
+    <source>source: <text>text item</text></source>
+    <publisher>publisher: <text>text item</text></publisher>
+    <copyright>
+      <copyryear year="2013"/>
+      <copyrholder>copyright holder: <text>text item</text></copyrholder>
+    </copyright>
+    <category>category: <text>text item</text></category>
+  </topicmeta>
+</map>

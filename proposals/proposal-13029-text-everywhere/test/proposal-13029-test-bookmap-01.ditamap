@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+  <booktitle>
+    <mainbooktitle>Main book title <text>text item</text></mainbooktitle>
+  </booktitle>
+  <bookmeta>
+    <bookchangehistory>
+      <bookevent>
+        <revisionid>revision ID: <text>text item</text></revisionid>        
+      </bookevent>
+    </bookchangehistory>
+    <bookrights>
+      <bookowner></bookowner>
+    </bookrights>
+  </bookmeta>
+</bookmap>

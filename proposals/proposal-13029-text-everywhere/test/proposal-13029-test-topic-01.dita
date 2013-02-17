@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_q52_2wg_gj">
+  <title>Proposal 13029 Text Everywhere Test Document <text>text item</text></title>
+  <titlealts>
+    <navtitle>navtitle: <text>text item</text></navtitle>
+    <searchtitle>searchtitle: <text>text item</text></searchtitle>
+  </titlealts>
+  <body>
+    <p>Text in P content: <text>text item</text></p>
+    <p>Text in keyword: <keyword><text>text item</text></keyword></p>
+    <p>Text in ph: <ph>phrase <text>text item</text></ph></p>
+    <p>Footnote: <fn>Footnote: <text>text item</text></fn></p>
+    <p>Term: <term>term <text>text item</text></term></p>
+    <p>Text in list item:
+    <ul>
+      <li>List item: <text>text item</text></li>
+    </ul>      
+    </p>
+    <p>XRef: <xref>xref: <text>text item</text></xref></p>
+    <p>Short quote: <q>Short quote: <text>text item</text></q></p>
+    <p>Data: <data>data: <text>text item</text></data></p>
+    <p>Draft comment: <draft-comment>Draft comment: <text>text item</text></draft-comment></p>
+    <p>Note: <note>note: <text>text item</text></note></p>
+    <p>Long quote</p>
+    <lq>Long quote: <text>text item</text></lq>
+    <p>Pre:
+      <pre>Pre: <text>text item</text></pre>
+    </p>
+    <p>indexterm: <indexterm><index-sort-as>sort-as: <text>text item</text></index-sort-as>index term: <text>text item</text><index-see>index see: <text>text item</text></index-see></indexterm></p>    
+    <p><table
+      frame="all"
+      id="table_up4_zzg_gj">
+      <title>Table with Text</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"
+          colwidth="1.0*"/>
+        <colspec
+          colname="c2"
+          colnum="2"
+          colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>Table entry: <text>text item</text></entry>
+            <entry/>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>Table entry: <text>text item</text></entry>
+            <entry/>
+          </row>
+        </tbody>
+      </tgroup>
+      </table>In dthd, etc.: <dl>
+      <dlhead>
+        <dthd><text>text item</text></dthd>
+        <ddhd><text>text item</text></ddhd>
+      </dlhead>
+      <dlentry>
+        <dt><text>text item</text></dt>
+        <dd><text>text item</text></dd>
+      </dlentry>
+      </dl> </p>
+    <p>Figure:</p>
+    <fig>
+      <desc>Desc: <text>text item</text></desc>
+      <figgroup><text>text item</text>        
+      </figgroup>
+    </fig>
+    <section>
+      <title>Hazard Domain</title>
+      <p>Hazard statement: 
+        <hazardstatement>
+        <messagepanel>
+          <typeofhazard>type of hazard: <text>text item</text></typeofhazard>
+          <consequence>consequence: <text>text item</text></consequence>
+          <howtoavoid>how to avoid: <text>text item</text></howtoavoid>
+        </messagepanel>
+      </hazardstatement></p>
+    </section>
+    <section>
+      <title>Highlight domain</title>
+      <p><b>bold: <text>text item</text></b></p>
+      <p><i>italic: <text>text item</text></i></p>
+      <p><sub>sub: <text>text item</text></sub></p>
+      <p><sup>sup: <text>text item</text></sup></p>
+      <p><tt>tt: <text>text item</text></tt></p>
+      <p><u>u: <text>text item</text></u></p>
+    </section>
+    <section>
+      <title>basic.ph.notm (programing and UI domains)</title>
+      <p>codeph: <codeph><text>text item</text></codeph> </p>
+      <p>codeblock: <codeblock><text>text item</text></codeblock></p>
+      <p>Syntx elements: <syntaxdiagram>
+        <fragment>
+          <groupseq>
+            <var>var: <text>text item</text></var>
+            <oper>oper: <text>text item</text></oper>
+            <delim>delim: <text>text item</text></delim>
+            <sep>sep: <text>text item</text></sep>
+            <groupchoice>
+              <repsep>repsep: <text>text item</text></repsep>
+            </groupchoice>
+          </groupseq>
+        </fragment>
+        <synnote>Syntax note: <text>text item</text></synnote>
+        </syntaxdiagram> </p>
+    </section>
+    <section>
+      <title>UI Domain</title>
+      <p>Screen: <screen>Screen <text>text item</text></screen></p>
+    </section>
+    <section>
+      <title>Utilities domain</title>
+      <p>Image map:
+        <imagemap>
+          <image></image>
+          <area>
+            <shape><text>text item</text></shape>
+            <coords><text>text item</text></coords>
+            <xref></xref>
+          </area>
+        </imagemap>
+      </p>
+    </section>
+  </body>
+</topic>

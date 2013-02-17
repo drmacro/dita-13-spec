@@ -7,7 +7,7 @@
     allowed.</shortdesc>
 <refbody>
 <section><title>Date and version information</title><p>Include the following information:<ul>
-     <li>Completed 16 Feb 2013</li>
+     <li>Phase 2 submission Completed 17 Feb 2013</li>
      <li>Champion: Eliot Kimber</li>
     </ul></p></section>
 <section><title>Original requirement</title><p>Presented 7/12/2011: text should be allowed just about everywhere. Feature
@@ -70,7 +70,7 @@
 <section><title>Technical requirements</title><p>Allowing &lt;text> everywhere #PCDATA is allowed requires the following
         updates to the existing vocabulary modules:<ul
         id="ul_xc2_r11_gj">
-        <li>add to %basic.ph; </li>
+        <li>Add to %basic.ph;  (and remove from %ph.content)</li>
         <li>Add to %basic.ph.noxref (all title-like elements)</li>
         <li>Add to %basic.ph.notm (programming and ui domains)</li>
         <li>Add to elements that use %txt.incl but not %basic.ph</li>
@@ -85,7 +85,13 @@
           parments.</li>
         </ul><note>While %txt.incl seems by its name to be an obvious place to
         put &lt;text>, it has too much overlap with other parameter entities
-        that must include &lt;text> in order to get full coverage.</note></p></section>
+        that must include &lt;text> in order to get full
+        coverage.</note><note>The figgroup element allows all phrases but does
+        not allow #PCDATA. This makes it something of an outlier. Disallowing
+        &lt;text> within figgroup would require defining a new parameter group
+        specifically for use within figgroup. As &lt;figgroup> is intended
+        primarily for specialization, this does not seem to be worth the
+        cost.</note></p></section>
 <section><title>Examples</title><p/></section>
 </refbody>
 </reference><?Pub Caret -3?>
