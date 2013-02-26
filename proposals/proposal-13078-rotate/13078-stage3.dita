@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature #13078</title>
+    <shortdesc>Adding rotation attributes to tables and cells.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Championed by Chris Nitchie at all phases.</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>October 11, 2011</stentry>
+            <stentry>Minutes missing.</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>June 26, 2012</stentry>
+            <stentry>
+              <ul id="ul_wcv_4bj_v3">
+                <li><xref scope="external"
+                    href="https://www.oasis-open.org/committees/document.php?document_id=46352"
+                    >HTML</xref></li>
+                <li><xref scope="external"
+                    href="https://www.oasis-open.org/committees/document.php?document_id=46353"
+                    >Source</xref></li>
+              </ul>
+            </stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>July 3, 2012</stentry>
+            <stentry><xref scope="external"
+                href="https://www.oasis-open.org/committees/document.php?document_id=46444"
+                >Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>July 10, 2012</stentry>
+            <stentry><xref scope="external"
+                href="https://www.oasis-open.org/committees/document.php?document_id=46457"
+                >Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>December 2, 2012</stentry>
+            <stentry>Reviewed by David Helfinstine and Nancy Harrison</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry>January 7, 2013</stentry>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Include the <codeph>@rotate</codeph> and <codeph>@orient</codeph> attributes from the
+          CALS table model in the DITA table model.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No interrelated proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>The only DTD file that must be modified is <filepath>tblDecl.mod</filepath> to add
+            <codeph>@rotate</codeph> to <codeph>&lt;entry></codeph> and <codeph>@orient</codeph> to
+            <codeph>&lt;table></codeph>.</p>
+        <codeblock>&lt;!ENTITY % dita.table.attributes
+       "rowheader   (firstcol | norowheader | 
+                         -dita-use-conref-target) #IMPLIED
+        scale (50|60|70|80|90|100|110|120|140|160|180|200| 
+                         -dita-use-conref-target) #IMPLIED
+        orient      (port|land|-dita-use-conref-target) #IMPLIED
+        %univ-atts;
+        outputclass CDATA #IMPLIED"></codeblock>
+        <codeblock>&lt;!ENTITY % dita.entry.attributes
+       "rotate      (0|1|-dita-use-conref-target) #IMPLIED
+        %id-atts;
+        %localization-atts;
+        rev CDATA #IMPLIED
+        outputclass CDATA #IMPLIED"></codeblock>
+        <note>The attributes in the <codeph>dita.*.attributes</codeph> entities appear to be those
+          present in DITA but not in the Exchange table model upon which the DITA model is based,
+          which is why these attributes are not added to the main attlist entities for these
+          elements.</note>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>The only affected specification language will be in the topics for
+            <codeph>&lt;table></codeph> and <codeph>&lt;entry></codeph> in the language spec. The
+          only changes to those topics will be new rows in their respective attributes tables. Both
+          rows are represented below, though they will appear  independent of each other in separate
+          topics.</p>
+        <simpletable id="simpletable_xpt_fnj_v3">
+          <strow>
+            <stentry>orient</stentry>
+            <stentry>Specifies the orientation of the table in page-based outputs. <ph>This
+                attribute is primarily useful for print-oriented display.</ph> Allowable values are:<dl>
+                <dlentry>
+                  <dt>port</dt>
+                  <dd>The same orientation as the text flow.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt>land</dt>
+                  <dd>90 degrees counterclockwise from the text flow.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt>-dita-use-​conref-​target </dt>
+                  <dd>See <xref href="ditauseconreftarget.dita"/> for more information. </dd>
+                </dlentry>
+              </dl> In situations where a stylesheet or other formatting mechanism specifies table
+              orientation based on other criteria, or for non-paginated outputs, the orient
+              attribute may be ignored.<indexterm>orient attribute</indexterm></stentry>
+            <stentry>(land | port | <xref href="ditauseconreftarget.dita"
+                >-dita-use-​conref-​target</xref>)</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>rotate</stentry>
+            <stentry>Indicates whether the contents of the entry should be rotated. Allowable values are:<dl>
+                <dlentry>
+                  <dt>1</dt>
+                  <dd>The contents of the cell are to be rotated 90 degrees counterclockwise.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt>0</dt>
+                  <dd>No rotation should occur.</dd>
+                </dlentry>
+                <dlentry>
+                  <dt>-dita-use-conref-target</dt>
+                  <dd>See <xref href="ditauseconreftarget.dita"/> for more information. </dd>
+                </dlentry>
+              </dl>If this attribute is not specified, no rotation should occur. In situations where
+              a stylesheet or other formatting mechanism specifies table cell orientation based on
+              other criteria, the rotate attribute may be ignored.<indexterm>rotate
+                attribute</indexterm></stentry>
+            <?Pub Caret 400?>
+            <stentry>CDATA</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+        </simpletable>
+      </section>
+    </body>
+  </topic>
+</dita>

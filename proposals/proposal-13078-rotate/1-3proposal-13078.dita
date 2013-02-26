@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber13078" xml:lang="en-us">
+<title>DITA 1.3 proposed feature #13078</title>
+<shortdesc>A proposal for markup to specify the orientation of tables
+and the contents of table cells.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the
+following information:</p><ul>
+<li>Feature proposal completed June 26, 2012</li>
+<li>Champion by Chris Nitchie</li>
+<li>Phase 1 approval on October 11, 2011 (minutes missing)</li>
+</ul></section>
+<section><title>Original requirement or use case</title><p>Consider
+adding the @rotate attribute from the CALS table model to the version
+of the OASIS Exchange table model used in DITA topics.</p><p>10/11:
+@rotate applies only to entry element. Will also try to pick up @orient
+at the table level. Will require careful wording related to style
+(landscape table in middle of 2-col, or in HTML, etc).</p></section>
+<section><title>Use cases</title><p><b>Vertical Column Headers.</b
+> A table containing numerical data whose column headers should be
+oriented vertically to avoid taking up too much horizontal space.</p
+><p><b>Grouped Rows.</b> A user wishes to group a series of rows according
+to a single spanning cell at the beginning of the row. To avoid that
+cell taking up too much space, the user wants to orient the text in
+that cell vertically.</p><p><b>Wide Tables.</b> A table is expected
+to be wider than can be comfortably accommodated by an upright page,
+so needs to be printed with a landscape orientation.</p></section>
+<section>    <title>Proposed solution</title><p>Incorporate the CALS
+attributes for supporting these behaviors into the DITA table model,
+specifically <codeph>orient</codeph> on <codeph>table</codeph> and <codeph
+>rotate</codeph> on <codeph>entry</codeph>.</p>   </section>
+<section><title>Benefits</title><p>This feature will benefit users
+of complex tables who need greater control over the way the tabular
+data is presented. A solution could be built using custom stylesheets
+with the <codeph>outputclass</codeph> attribute, but such solutions
+would not be as portable as having these attributes built into the
+standard.</p></section>
+<section><title>Technical requirements</title><dl>
+<dlentry>
+<dt>DTD and Schema modifications</dt>
+<dd><dl>
+<dlentry>
+<dt>Topic or map specialization</dt>
+<dd>These changes will go into the <filepath>tblDecl.mod</filepath
+> DTD module and <filepath>tblDeclMod.xsd</filepath> schema.</dd>
+</dlentry>
+<dlentry>
+<dt>Domain</dt>
+<dd>No new domain.</dd>
+</dlentry>
+<dlentry>
+<dt>Element</dt>
+<dd>No new elements.</dd>
+</dlentry>
+<dlentry>
+<dt>Attributes</dt>
+<dd><ul>
+<li><codeph>orient</codeph><ul>
+<li>Applies to <codeph>table</codeph>.</li>
+<li>Specifies the orientation of the resulting table in printed outputs,
+or outputs that emulate printed output, such as PDF. A value of <codeph
+>"port"</codeph> is “upright”, the same orientation as the rest of
+the text flow. &nbsp;An orientation of&nbsp;<codeph>"land"</codeph
+>&nbsp;causes the table to be rotated 90° counter–clockwise from the
+upright orientation. In situations where a stylesheet or other formatting
+mechanism specifies table orientation based on other criteria, or
+for non-paginated outputs, the <codeph>orient</codeph> attribute may
+be ignored.</li>
+<li>Not translated.</li>
+</ul></li>
+<li><codeph>rotate</codeph><ul>
+<li>Applies to <codeph>entry</codeph>.</li>
+<li>Users can specify any value other than <codeph>"0"</codeph> for
+the <codeph>rotate</codeph> attribute to cause the contents of the
+table cell to be rotated 90° counter-clockwise.</li>
+<li>Not translated.</li>
+</ul></li>
+</ul></dd>
+</dlentry>
+</dl></dd>
+</dlentry>
+<dlentry>
+<dt>Processing impact</dt>
+<dd><ul>
+<li>Print engines will need to be able to orient cells and tables
+properly.</li>
+<li>These changes will not interact with existing DITA features.</li>
+</ul></dd>
+</dlentry>
+</dl></section>
+<section>    <title>Costs</title><p>Spec update costs will be minimal.
+The topics in the language reference covering the <codeph>entry</codeph
+> and <codeph>table</codeph> elements will need to list the appropriate
+new attribute. The DTD/Schema updates will be trivial.</p><p>Tools
+that generate paginated output will need to be able to handle the
+orientation of tables and text within table cells. XSL-FO stylesheets
+will need to be updated to process these attributes and generate the
+appropriate markup to rotate tables and cell contents, e.g. <codeph
+>&lt;fo:block-container reference-orientation="-90"></codeph>. Other
+print engines will have their own mechanisms for implementing text
+rotation.  Any print engine that supports these attributes in the
+CALS table model should be able to easily support these changes.</p
+></section>
+<section><title>Examples</title><p>The following markup creates a
+narrow table with vertical columns in the header and in multi-row
+cells in the first column, and specifies (for no particular reason)
+that it be printed in landscape orientation.</p><codeblock>&lt;table <u
+>orient="land"</u>>
+  &lt;title>Vertical Cells Example&lt;/title>
+  &lt;tgroup cols="3">
+    &lt;colspec colname="col1" colwidth="22.00pt"/>
+    &lt;colspec colname="col2" colwidth="22.00pt"/>
+    &lt;colspec colname="col3" colwidth="22.00pt"/>
+    &lt;thead>
+      &lt;row>
+        &lt;entry valign="top">&lt;/entry>
+        &lt;entry <u>rotate="1"</u> valign="top">Width&lt;/entry>
+        &lt;entry <u>rotate="1"</u> valign="top">Height&lt;/entry>
+      &lt;/row>
+    &lt;/thead>
+    &lt;tbody>
+      &lt;row>
+        &lt;entry morerows="1" <u>rotate="1"</u>>Small&lt;/entry>
+        &lt;entry>2&lt;/entry>
+        &lt;entry>4&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry>3&lt;/entry>
+        &lt;entry>6&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry morerows="2" <u>rotate="1"</u>>Medium&lt;/entry>
+        &lt;entry>6&lt;/entry>
+        &lt;entry>12&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry>8&lt;/entry>
+        &lt;entry>16&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry>10&lt;/entry>
+        &lt;entry>20&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry morerows="1" <u>rotate="1"</u>>Large&lt;/entry>
+        &lt;entry>12&lt;/entry>
+        &lt;entry>24&lt;/entry>
+      &lt;/row>
+      &lt;row>
+        &lt;entry>15&lt;/entry>
+        &lt;entry>30&lt;/entry>
+      &lt;/row>
+    &lt;/tbody>
+  &lt;/tgroup>
+&lt;/table></codeblock><?Pub Caret -2?></section>
+</refbody>
+</reference>
