@@ -85,10 +85,10 @@
      <dt><codeph>@type</codeph></dt>
      <dd>If the effective <codeph>@format</codeph> is <codeph>"dita"</codeph> and there is no
       fragment identifier, or the fragment identifier does not contain <codeph>'/'</codeph>, then
-      the effective value is <codeph>"dita"</codeph>. Otherwise, there is no effective default
-      value. If the effective <codeph>@scope</codeph> is <codeph>"local"</codeph> and the effective
-       <codeph>@type</codeph> is <codeph>"dita"</codeph>, then processors should determine the
-      effective value by examining the link target.</dd>
+      the effective value is <codeph>"topic"</codeph>. Otherwise, there is no effective default
+      value. In such cases, if the effective <codeph>@scope</codeph> is <codeph>"local"</codeph>,
+      processors should determine the effective value by examining the link target, per the current
+      rules.</dd>
     </dlentry>
     <dlentry>
      <dt>Link Text</dt>

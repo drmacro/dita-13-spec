@@ -127,10 +127,10 @@
 
      <dd class="dd">If the effective <samp class="ph codeph">@format</samp> is <samp class="ph codeph">"dita"</samp> and there is no
       fragment identifier, or the fragment identifier does not contain <samp class="ph codeph">'/'</samp>, then
-      the effective value is <samp class="ph codeph">"dita"</samp>. Otherwise, there is no effective default
-      value. If the effective <samp class="ph codeph">@scope</samp> is <samp class="ph codeph">"local"</samp> and the effective
-       <samp class="ph codeph">@type</samp> is <samp class="ph codeph">"dita"</samp>, then processors should determine the
-      effective value by examining the link target.</dd>
+      the effective value is <samp class="ph codeph">"topic"</samp>. Otherwise, there is no effective default
+      value. In such cases, if the effective <samp class="ph codeph">@scope</samp> is <samp class="ph codeph">"local"</samp>,
+      processors should determine the effective value by examining the link target, per the current
+      rules.</dd>
 
     
     
