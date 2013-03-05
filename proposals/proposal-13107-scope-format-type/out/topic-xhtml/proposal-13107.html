@@ -14,212 +14,174 @@
 <meta name="DC.Identifier" content="IssueNumber13107"/>
 <meta name="DC.Language" content="en-us"/>
 <link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="oberon-otk.css"/>
 <title>DITA 1.3 proposed feature #13107</title>
 </head>
 <body id="IssueNumber13107">
 
 
- <h1 class="title topictitle1">DITA 1.3 proposed feature #13107</h1>
+<h1 class="title topictitle1">DITA 1.3 proposed feature #13107</h1>
 
- 
- <div class="body refbody"><p class="shortdesc">Refine the effective default values for <samp class="ph codeph">@scope</samp>,
-   <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> using hints from the <samp class="ph codeph">@href</samp>
-  value.</p>
 
-  <div class="section"><h2 class="title sectiontitle">Date and version information</h2>
-   
-   <div class="p">
-    <ul class="ul">
-     <li class="li">Date that this feature proposal was completed: 2013-03-01</li>
+<div class="body refbody"><p class="shortdesc">Refine the effective default values for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> using hints
+from the <samp class="ph codeph">@href</samp> value.</p>
 
-     <li class="li">Champion of the proposal: Chris Nitchie</li>
+<div class="section"><h2 class="title sectiontitle">Date and version information</h2>  <div class="p"> <ul class="ul">
+<li class="li">Date that this feature proposal was completed: 2013-03-01</li>
 
-     <li class="li">E-Mail Discussion: <a class="xref" href="https://lists.oasis-open.org/archives/dita/201203/msg00034.html" target="_blank">https://lists.oasis-open.org/archives/dita/201203/msg00034.html</a></li>
+<li class="li">Champion of the proposal: Chris Nitchie</li>
 
-    </ul>
+<li class="li">E-Mail Discussion: <a class="xref" href="https://lists.oasis-open.org/archives/dita/201203/msg00034.html" target="_blank">https://lists.oasis-open.org/archives/dita/201203/msg00034.html</a></li>
 
-   </div>
+</ul>
+ </div>
+ </div>
 
-  </div>
+<div class="section"><h2 class="title sectiontitle">Original requirement or use case</h2>  <p class="p">The processor
+default values for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> make sense for local DITA topic references.
+However, for some common links, especially those to external HTTP
+URLs, the processor defaults can cause problems in some processors,
+resulting in a need to set those attributes explicitly. The default
+values should be informed by value of the <samp class="ph codeph">@href</samp> attribute.</p>
+ </div>
 
-  <div class="section"><h2 class="title sectiontitle">Original requirement or use case</h2>
-   
-   <p class="p">The processor default values for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and
-     <samp class="ph codeph">@type</samp> make sense for local DITA topic references. However, for some common
-    links, especially those to external HTTP URLs, the processor defaults can cause problems in some
-    processors, resulting in a need to set those attributes explicitly. The default values should be
-    informed by value of the <samp class="ph codeph">@href</samp> attribute.</p>
+<div class="section"><h2 class="title sectiontitle">Use cases</h2>  <p class="p">An author creates a link to
+a web URL using simply an <samp class="ph codeph">@href</samp>, but without any
+value for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, or <samp class="ph codeph">@type</samp>. When that link is published, it is effectively treated
+as an external HTML link, and the content is not copied to the output
+location.</p>
+ </div>
 
-  </div>
+<div class="section"><h2 class="title sectiontitle">Proposed solution</h2>  <p class="p">When determining the
+effective value for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp>:</p>
+ <ol class="ol" id="IssueNumber13107__ol_gxc_nls_jj">
+<li class="li">If the attribute is explicitly specified, that value is used.</li>
 
-  <div class="section"><h2 class="title sectiontitle">Use cases</h2>
-   
-   <p class="p">An author creates a link to a web URL using simply an <samp class="ph codeph">@href</samp>, but without any
-    value for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, or <samp class="ph codeph">@type</samp>. When
-    that link is published, it is effectively treated as an external HTML link, and the content is
-    not copied to the output location.</p>
+<li class="li">If the attribute exists on an ancestor element such that its value
+will cascade into this element, that value is used.</li>
 
-  </div>
+<li class="li">Otherwise, the effective default is determined by examining the
+value of the <samp class="ph codeph">@href</samp> attribute.</li>
 
-  <div class="section"><h2 class="title sectiontitle">Proposed solution</h2>
-   
-   <p class="p">When determining the effective value for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>,
-    and <samp class="ph codeph">@type</samp>:</p>
+</ol>
+ <p class="p">The rules for specific attributes would be as follows.</p>
+ <dl class="dl">
 
-   <ol class="ol" id="IssueNumber13107__ol_gxc_nls_jj">
-    <li class="li">If the attribute is explicitly specified, that value is used.</li>
+<dt class="dt dlterm"><samp class="ph codeph">@scope</samp></dt>
 
-    <li class="li">If the attribute exists on an ancestor element such that its value will cascade into this
-     element, that value is used.</li>
-
-    <li class="li">Otherwise, the effective default is determined by examining the value of the
-      <samp class="ph codeph">@href</samp> attribute.</li>
-
-   </ol>
-
-   <p class="p">The rules for specific attributes would be as follows.</p>
-
-   <dl class="dl">
-    
-     <dt class="dt dlterm"><samp class="ph codeph">@scope</samp></dt>
-
-     <dd class="dd">If the <samp class="ph codeph">@href</samp> attribute specifies an absolute URI whose scheme is
-       <samp class="ph codeph">http:</samp> or <samp class="ph codeph">https:</samp>, then the effective value is
-       <samp class="ph codeph">"external"</samp>. Otherwise, the effective value is
-       <samp class="ph codeph">"local"</samp>.<div class="note note"><span class="notetitle">Note:</span>  If the <samp class="ph codeph">@href</samp> attribute specifies a relative
-       URI, then scope is always <samp class="ph codeph">"local"</samp> regardless of what the resolved absolute
-       URI would be. For example, if a map is stored on a WebDAV server at
-        <span class="ph filepath">"http://example.com/docs/myMap.ditamap"</span>, and it contains
-        <samp class="ph codeph">&lt;topicref href="topics/topic1.dita"/&gt;</samp>, then the scope of that topicref
-       is <samp class="ph codeph">"local"</samp> even though the resolved absolute URI of the referenced topic has
-       a scheme of "http".</div>
+<dd class="dd">If the <samp class="ph codeph">@href</samp> attribute specifies an absolute
+URI whose scheme is <samp class="ph codeph">http:</samp>, <samp class="ph codeph">https:</samp>, or <samp class="ph codeph">mailto:</samp>, then the effective value is <samp class="ph codeph">"external"</samp>. Otherwise, the effective value is <samp class="ph codeph">"local"</samp>.<div class="note note"><span class="notetitle">Note:</span>  If the <samp class="ph codeph">@href</samp> attribute specifies a relative
+URI, then scope is always <samp class="ph codeph">"local"</samp> regardless of what
+the resolved absolute URI would be. For example, if a map is stored
+on a WebDAV server at <span class="ph filepath">"http://example.com/docs/myMap.ditamap"</span>, and it contains <samp class="ph codeph">&lt;topicref href="topics/topic1.dita"/&gt;</samp>, then the scope of that topicref is <samp class="ph codeph">"local"</samp> even
+though the resolved absolute URI of the referenced topic has a scheme
+of "http".</div>
 </dd>
 
-    
-    
-     <dt class="dt dlterm"><samp class="ph codeph">@format</samp></dt>
 
-     <dd class="dd">
-      <ul class="ul" id="IssueNumber13107__ul_rsf_5ms_jj">
-       <li class="li">Generally, if the <samp class="ph codeph">@href</samp> attribute specifies a file extension, the
-        effective <samp class="ph codeph">@format</samp> will be that extension, after conversion to lower-case,
-        and with no leading period.</li>
 
-       <li class="li">The only exception to this is if the extension is <samp class="ph codeph">"xml"</samp>, in which case
-        the effective <samp class="ph codeph">@format</samp> will be <samp class="ph codeph">"dita"</samp>. </li>
+<dt class="dt dlterm"><samp class="ph codeph">@format</samp></dt>
 
-       <li class="li">If there is no extension, but the <samp class="ph codeph">@href</samp> value is an absolute URI whose
-        scheme is <samp class="ph codeph">http:</samp> or <samp class="ph codeph">https:</samp>, then the effective value is
-         <samp class="ph codeph">"html"</samp>.</li>
+<dd class="dd"> <ul class="ul" id="IssueNumber13107__ul_rsf_5ms_jj">
+<li class="li">Generally, if the <samp class="ph codeph">@href</samp> attribute specifies a
+file extension, the effective <samp class="ph codeph">@format</samp> will be that
+extension, after conversion to lower-case, and with no leading period.</li>
 
-       <li class="li">Processors may, but need not, provide a mechanism by which other URI patterns can be
-        mapped to effective <samp class="ph codeph">@format</samp> values. </li>
+<li class="li">The only exception to this is if the extension is <samp class="ph codeph">"xml"</samp>, in which case the effective <samp class="ph codeph">@format</samp> will be <samp class="ph codeph">"dita"</samp>. </li>
 
-       <li class="li">Otherwise, the effective format is <samp class="ph codeph">"dita"</samp>.</li>
+<li class="li">If there is no extension, but the <samp class="ph codeph">@href</samp> value
+is an absolute URI whose scheme is <samp class="ph codeph">http:</samp> or <samp class="ph codeph">https:</samp>, then the effective value is <samp class="ph codeph">"html"</samp>.</li>
 
-      </ul>
+<li class="li">Otherwise, the effective format is <samp class="ph codeph">"dita"</samp>.</li>
 
-     </dd>
+</ul>
+ </dd>
 
-    
-    
-     <dt class="dt dlterm"><samp class="ph codeph">@type</samp></dt>
 
-     <dd class="dd">If the effective <samp class="ph codeph">@format</samp> is <samp class="ph codeph">"dita"</samp> and there is no
-      fragment identifier, or the fragment identifier does not contain <samp class="ph codeph">'/'</samp>, then
-      the effective value is <samp class="ph codeph">"topic"</samp>. Otherwise, there is no effective default
-      value. In such cases, if the effective <samp class="ph codeph">@scope</samp> is <samp class="ph codeph">"local"</samp>,
-      processors should determine the effective value by examining the link target, per the current
-      rules.</dd>
 
-    
-    
-     <dt class="dt dlterm">Link Text</dt>
+<dt class="dt dlterm"><samp class="ph codeph">@type</samp></dt>
 
-     <dd class="dd">If an <samp class="ph codeph">"external"</samp> link does not contain any content, and no content visible
-      content can be determined through conref or keyref resolution, then processors should use the
-       <samp class="ph codeph">@href</samp> value as the visible link text.</dd>
+<dd class="dd">If the effective <samp class="ph codeph">@format</samp> is <samp class="ph codeph">"dita"</samp> and there is no fragment identifier, or the fragment identifier
+does not contain <samp class="ph codeph">'/'</samp>, then the effective value is <samp class="ph codeph">"topic"</samp>. Otherwise, there is no effective default value.
+In such cases, if the effective <samp class="ph codeph">@scope</samp> is <samp class="ph codeph">"local"</samp>, processors should determine the effective value
+by examining the link target, per the current rules.</dd>
 
-    
-   </dl>
 
-  </div>
 
-  <div class="section"><h2 class="title sectiontitle">Benefits</h2>
-   
-   <p class="p">This will simplify the requirements on link authors to specify correct values for the linking
-    attributes that go along with <samp class="ph codeph">@href</samp>, leading to simpler authoring.</p>
+<dt class="dt dlterm">Link Text</dt>
 
-  </div>
+<dd class="dd">If an <samp class="ph codeph">"external"</samp> link does not contain any content,
+and no visible content can be determined through conref or keyref
+resolution, then processors should use the <samp class="ph codeph">@href</samp> value
+as the visible link text.</dd>
 
-  <div class="section"><h2 class="title sectiontitle">Technical requirements</h2>
-   
-   <div class="p">
-    <dl class="dl">
-     
-      <dt class="dt dlterm">DTD and Schema modifications</dt>
 
-      <dd class="dd">None.</dd>
-
-     
-     
-      <dt class="dt dlterm">Processing impact</dt>
-
-      <dd class="dd">Some processors may have to update their link handling code according to the rules
-       outlined above.</dd>
-
-     
-    </dl>
-
-    <dl class="dl">
-     
-      <dt class="dt dlterm">Overall usability</dt>
-
-      <dd class="dd">This will simplify the link authoring process for DITA authors.</dd>
-
-     
-    </dl>
-
-   </div>
-
-  </div>
-
-  <div class="section"><h2 class="title sectiontitle">Costs</h2>
-   
-   <p class="p">The specification topics covering the <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and
-     <samp class="ph codeph">@type</samp> attributes will need to be updated to reflect the new processor
-    defaults. Also, the above rules should be collected in some single topic, probably the topic,
-     <strong class="ph b">URI-based (direct) addressing</strong>, or to a new topic somewhere in the language
-    specification.</p>
-
-   <p class="p">Authoring tools may need to update the logic that determines whether linking attributes need
-    to be explicitly specified when inserting links. However, there will be no harm if authoring
-    tools continue to insert explicit attributes that match these new processor defaults. When a
-    link is activated in an authoring tool without explicit values, that logic will also need to be
-    updated to determine the appropriate behavior when activating the link.</p>
-
-   <p class="p">These rules may lead to greater <em class="ph i">percieved</em> complexity. However, it will actually make
-    the authoring of non-local, non-dita links considrably simpler. In the vast majority of cases,
-    only an <samp class="ph codeph">@href</samp> will be required, and the other attributes will take care of
-    themselves.</p>
-
-  </div>
-
-  <div class="section"><h2 class="title sectiontitle">Examples</h2>
-   
-   <p class="p">Take the following link:</p>
-
-   <pre class="pre codeblock">&lt;xref href="http://www.oasis-open.org"/&gt;</pre>
-
-   <p class="p">To a novice author (and maybe some not-so-novice authors), this looks like a perfectly viable
-    link. However, strictly going by the DITA 1.2 specificaton, this will be treated as a local dita
-    link. Most processors, including the DITA Open Toolkit, will issue warnings and produce bad
-    output based on this link. With the changes outlined in this proposal, however, the link will
-    behave as most people would expect.</p>
-
-  </div>
-
+</dl>
+<p class="p">Processors may, but need not, provide mechanisms by which
+other URI patterns can be mapped to effective <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> values.</p>
  </div>
+
+<div class="section"><h2 class="title sectiontitle">Benefits</h2> <p class="p">This will simplify the requirements
+on link authors to specify correct values for the linking attributes
+that go along with <samp class="ph codeph">@href</samp>, leading to simpler authoring.</p>
+ </div>
+
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2>  <div class="p"> <dl class="dl">
+
+<dt class="dt dlterm">DTD and Schema modifications</dt>
+
+<dd class="dd">None.</dd>
+
+
+
+<dt class="dt dlterm">Processing impact</dt>
+
+<dd class="dd">Some processors may have to update their link handling code according
+to the rules outlined above.</dd>
+
+
+</dl>
+ <dl class="dl">
+
+<dt class="dt dlterm">Overall usability</dt>
+
+<dd class="dd">This will simplify the link authoring process for DITA authors.</dd>
+
+
+</dl>
+ </div>
+ </div>
+
+<div class="section"><h2 class="title sectiontitle">Costs</h2>  <p class="p">The specification topics covering
+the <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> attributes will need to be updated to reflect the
+new processor defaults. Also, the above rules should be collected
+in some single topic, probably the topic, <strong class="ph b">URI-based (direct) addressing</strong>, or to a new topic somewhere in the language specification.</p>
+ <p class="p">Authoring tools may need to update the logic that determines whether
+linking attributes need to be explicitly specified when inserting
+links. However, there will be no harm if authoring tools continue
+to insert explicit attributes that match these new processor defaults.
+When a link is activated in an authoring tool without explicit values,
+that logic will also need to be updated to determine the appropriate
+behavior when activating the link.</p>
+ <p class="p">These rules may lead to
+greater <em class="ph i">percieved</em> complexity. However, it will actually make
+the authoring of non-local, non-dita links considrably simpler. In
+the vast majority of cases, only an <samp class="ph codeph">@href</samp> will be
+required, and the other attributes will take care of themselves.</p>
+ </div>
+
+<div class="section"><h2 class="title sectiontitle">Examples</h2>  <p class="p">Take the following link:</p>
+ <pre class="pre codeblock">&lt;xref href="http://www.oasis-open.org"/&gt;</pre>
+ <p class="p">To a novice
+author (and maybe some not-so-novice authors), this looks like a perfectly
+viable link. However, strictly going by the DITA 1.2 specificaton,
+this will be treated as a local dita link. Most processors, including
+the DITA Open Toolkit, will issue warnings and produce bad output
+based on this link. With the changes outlined in this proposal, however,
+the link will behave as most people would expect.</p>
+ </div>
+
+</div>
 
 
 </body>

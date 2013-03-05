@@ -1,157 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
  "reference.dtd">
 <reference id="IssueNumber13107" xml:lang="en-us">
- <title>DITA 1.3 proposed feature #13107</title>
- <shortdesc>Refine the effective default values for <codeph>@scope</codeph>,
-   <codeph>@format</codeph>, and <codeph>@type</codeph> using hints from the <codeph>@href</codeph>
-  value.</shortdesc>
- <refbody>
-  <section>
-   <title>Date and version information</title>
-   <p>
-    <ul>
-     <li>Date that this feature proposal was completed: 2013-03-01</li>
-     <li>Champion of the proposal: Chris Nitchie</li>
-     <li>E-Mail Discussion: <xref
-       href="https://lists.oasis-open.org/archives/dita/201203/msg00034.html" scope="external"
-       format="html">https://lists.oasis-open.org/archives/dita/201203/msg00034.html</xref></li>
-    </ul>
-   </p>
-  </section>
-  <section>
-   <title>Original requirement or use case</title>
-   <p>The processor default values for <codeph>@scope</codeph>, <codeph>@format</codeph>, and
-     <codeph>@type</codeph> make sense for local DITA topic references. However, for some common
-    links, especially those to external HTTP URLs, the processor defaults can cause problems in some
-    processors, resulting in a need to set those attributes explicitly. The default values should be
-    informed by value of the <codeph>@href</codeph> attribute.</p>
-  </section>
-  <section>
-   <title>Use cases</title>
-   <p>An author creates a link to a web URL using simply an <codeph>@href</codeph>, but without any
-    value for <codeph>@scope</codeph>, <codeph>@format</codeph>, or <codeph>@type</codeph>. When
-    that link is published, it is effectively treated as an external HTML link, and the content is
-    not copied to the output location.</p>
-  </section>
-  <section>
-   <title>Proposed solution</title>
-   <p>When determining the effective value for <codeph>@scope</codeph>, <codeph>@format</codeph>,
-    and <codeph>@type</codeph>:</p>
-   <ol id="ol_gxc_nls_jj">
-    <li>If the attribute is explicitly specified, that value is used.</li>
-    <li>If the attribute exists on an ancestor element such that its value will cascade into this
-     element, that value is used.</li>
-    <li>Otherwise, the effective default is determined by examining the value of the
-      <codeph>@href</codeph> attribute.</li>
-   </ol>
-   <p>The rules for specific attributes would be as follows.</p>
-   <dl>
-    <dlentry>
-     <dt><codeph>@scope</codeph></dt>
-     <dd>If the <codeph>@href</codeph> attribute specifies an absolute URI whose scheme is
-       <codeph>http:</codeph> or <codeph>https:</codeph>, then the effective value is
-       <codeph>"external"</codeph>. Otherwise, the effective value is
-       <codeph>"local"</codeph>.<note> If the <codeph>@href</codeph> attribute specifies a relative
-       URI, then scope is always <codeph>"local"</codeph> regardless of what the resolved absolute
-       URI would be. For example, if a map is stored on a WebDAV server at
-        <filepath>"http://example.com/docs/myMap.ditamap"</filepath>, and it contains
-        <codeph>&lt;topicref href="topics/topic1.dita"/></codeph>, then the scope of that topicref
-       is <codeph>"local"</codeph> even though the resolved absolute URI of the referenced topic has
-       a scheme of "http".</note></dd>
-    </dlentry>
-    <dlentry>
-     <dt><codeph>@format</codeph></dt>
-     <dd>
-      <ul id="ul_rsf_5ms_jj">
-       <li>Generally, if the <codeph>@href</codeph> attribute specifies a file extension, the
-        effective <codeph>@format</codeph> will be that extension, after conversion to lower-case,
-        and with no leading period.</li>
-       <li>The only exception to this is if the extension is <codeph>"xml"</codeph>, in which case
-        the effective <codeph>@format</codeph> will be <codeph>"dita"</codeph>. </li>
-       <li>If there is no extension, but the <codeph>@href</codeph> value is an absolute URI whose
-        scheme is <codeph>http:</codeph> or <codeph>https:</codeph>, then the effective value is
-         <codeph>"html"</codeph>.</li>
-       <li>Processors may, but need not, provide a mechanism by which other URI patterns can be
-        mapped to effective <codeph>@format</codeph> values. <draft-comment author="Chris Nitchie"
-         >This could cause interoperability problems without a standard way of providing custom
-         mappings, and as such, I'm not married to this provision. However, whether we say it or
-         not, vendors are liable to do it.</draft-comment></li>
-       <li>Otherwise, the effective format is <codeph>"dita"</codeph>.</li>
-      </ul>
-     </dd>
-    </dlentry>
-    <dlentry>
-     <dt><codeph>@type</codeph></dt>
-     <dd>If the effective <codeph>@format</codeph> is <codeph>"dita"</codeph> and there is no
-      fragment identifier, or the fragment identifier does not contain <codeph>'/'</codeph>, then
-      the effective value is <codeph>"topic"</codeph>. Otherwise, there is no effective default
-      value. In such cases, if the effective <codeph>@scope</codeph> is <codeph>"local"</codeph>,
-      processors should determine the effective value by examining the link target, per the current
-      rules.</dd>
-    </dlentry>
-    <dlentry>
-     <dt>Link Text</dt>
-     <dd>If an <codeph>"external"</codeph> link does not contain any content, and no content visible
-      content can be determined through conref or keyref resolution, then processors should use the
-       <codeph>@href</codeph> value as the visible link text.</dd>
-    </dlentry>
-   </dl>
-  </section>
-  <section>
-   <title>Benefits</title>
-   <p>This will simplify the requirements on link authors to specify correct values for the linking
-    attributes that go along with <codeph>@href</codeph>, leading to simpler authoring.</p>
-  </section>
-  <section>
-   <title>Technical requirements</title>
-   <p>
-    <dl>
-     <dlentry>
-      <dt>DTD and Schema modifications</dt>
-      <dd>None.</dd>
-     </dlentry>
-     <dlentry>
-      <dt>Processing impact</dt>
-      <dd>Some processors may have to update their link handling code according to the rules
-       outlined above.</dd>
-     </dlentry>
-    </dl>
-    <dl>
-     <dlentry>
-      <dt>Overall usability</dt>
-      <dd>This will simplify the link authoring process for DITA authors.</dd>
-     </dlentry>
-    </dl>
-   </p>
-  </section>
-  <section>
-   <title>Costs</title>
-   <p>The specification topics covering the <codeph>@scope</codeph>, <codeph>@format</codeph>, and
-     <codeph>@type</codeph> attributes will need to be updated to reflect the new processor
-    defaults. Also, the above rules should be collected in some single topic, probably the topic,
-     <b>URI-based (direct) addressing</b>, or to a new topic somewhere in the language
-    specification.</p>
-   <p>Authoring tools may need to update the logic that determines whether linking attributes need
-    to be explicitly specified when inserting links. However, there will be no harm if authoring
-    tools continue to insert explicit attributes that match these new processor defaults. When a
-    link is activated in an authoring tool without explicit values, that logic will also need to be
-    updated to determine the appropriate behavior when activating the link.</p>
-   <p>These rules may lead to greater <i>percieved</i> complexity. However, it will actually make
-    the authoring of non-local, non-dita links considrably simpler. In the vast majority of cases,
-    only an <codeph>@href</codeph> will be required, and the other attributes will take care of
-    themselves.</p>
-  </section>
-  <section>
-   <title>Examples</title>
-   <p>Take the following link:</p>
-   <codeblock>&lt;xref href="http://www.oasis-open.org"/></codeblock>
-   <p>To a novice author (and maybe some not-so-novice authors), this looks like a perfectly viable
-    link. However, strictly going by the DITA 1.2 specificaton, this will be treated as a local dita
-    link. Most processors, including the DITA Open Toolkit, will issue warnings and produce bad
-    output based on this link. With the changes outlined in this proposal, however, the link will
-    behave as most people would expect.</p>
-  </section>
- </refbody>
-</reference><?Pub Caret -3?>
-<?Pub *0000003625?>
+<title>DITA 1.3 proposed feature #13107</title>
+<shortdesc>Refine the effective default values for <codeph>@scope</codeph
+>, <codeph>@format</codeph>, and <codeph>@type</codeph> using hints
+from the <codeph>@href</codeph> value.</shortdesc>
+<refbody>
+<section> <title>Date and version information</title> <p> <ul>
+<li>Date that this feature proposal was completed: 2013-03-01</li>
+<li>Champion of the proposal: Chris Nitchie</li>
+<li>E-Mail Discussion: <xref format="html"
+href="https://lists.oasis-open.org/archives/dita/201203/msg00034.html"
+scope="external">https://lists.oasis-open.org/archives/dita/201203/msg00034.html</xref
+></li>
+</ul> </p> </section>
+<section> <title>Original requirement or use case</title> <p>The processor
+default values for <codeph>@scope</codeph>, <codeph>@format</codeph
+>, and <codeph>@type</codeph> make sense for local DITA topic references.
+However, for some common links, especially those to external HTTP
+URLs, the processor defaults can cause problems in some processors,
+resulting in a need to set those attributes explicitly. The default
+values should be informed by value of the <codeph>@href</codeph> attribute.</p
+> </section>
+<section> <title>Use cases</title> <p>An author creates a link to
+a web URL using simply an <codeph>@href</codeph>, but without any
+value for <codeph>@scope</codeph>, <codeph>@format</codeph>, or <codeph
+>@type</codeph>. When that link is published, it is effectively treated
+as an external HTML link, and the content is not copied to the output
+location.</p> </section>
+<section> <title>Proposed solution</title> <p>When determining the
+effective value for <codeph>@scope</codeph>, <codeph>@format</codeph
+>, and <codeph>@type</codeph>:</p> <ol id="ol_gxc_nls_jj">
+<li>If the attribute is explicitly specified, that value is used.</li>
+<li>If the attribute exists on an ancestor element such that its value
+will cascade into this element, that value is used.</li>
+<li>Otherwise, the effective default is determined by examining the
+value of the <codeph>@href</codeph> attribute.</li>
+</ol> <p>The rules for specific attributes would be as follows.</p
+> <dl>
+<dlentry>
+<dt><codeph>@scope</codeph></dt>
+<dd>If the <codeph>@href</codeph> attribute specifies an absolute
+URI whose scheme is <codeph>http:</codeph>, <codeph>https:</codeph
+>, or <codeph>mailto:</codeph>, then the effective value is <codeph
+>"external"</codeph>. Otherwise, the effective value is <codeph>"local"</codeph
+>.<note> If the <codeph>@href</codeph> attribute specifies a relative
+URI, then scope is always <codeph>"local"</codeph> regardless of what
+the resolved absolute URI would be. For example, if a map is stored
+on a WebDAV server at <filepath>"http://example.com/docs/myMap.ditamap"</filepath
+>, and it contains <codeph>&lt;topicref href="topics/topic1.dita"/></codeph
+>, then the scope of that topicref is <codeph>"local"</codeph> even
+though the resolved absolute URI of the referenced topic has a scheme
+of "http".</note></dd><?Pub Caret 100?>
+</dlentry>
+<dlentry>
+<dt><codeph>@format</codeph></dt>
+<dd> <ul id="ul_rsf_5ms_jj">
+<li>Generally, if the <codeph>@href</codeph> attribute specifies a
+file extension, the effective <codeph>@format</codeph> will be that
+extension, after conversion to lower-case, and with no leading period.</li>
+<li>The only exception to this is if the extension is <codeph>"xml"</codeph
+>, in which case the effective <codeph>@format</codeph> will be <codeph
+>"dita"</codeph>. </li>
+<li>If there is no extension, but the <codeph>@href</codeph> value
+is an absolute URI whose scheme is <codeph>http:</codeph> or <codeph
+>https:</codeph>, then the effective value is <codeph>"html"</codeph
+>.</li>
+<li>Otherwise, the effective format is <codeph>"dita"</codeph>.</li>
+</ul> </dd>
+</dlentry>
+<dlentry>
+<dt><codeph>@type</codeph></dt>
+<dd>If the effective <codeph>@format</codeph> is <codeph>"dita"</codeph
+> and there is no fragment identifier, or the fragment identifier
+does not contain <codeph>'/'</codeph>, then the effective value is <codeph
+>"topic"</codeph>. Otherwise, there is no effective default value.
+In such cases, if the effective <codeph>@scope</codeph> is <codeph
+>"local"</codeph>, processors should determine the effective value
+by examining the link target, per the current rules.</dd>
+</dlentry>
+<dlentry>
+<dt>Link Text</dt>
+<dd>If an <codeph>"external"</codeph> link does not contain any content,
+and no visible content can be determined through conref or keyref
+resolution, then processors should use the <codeph>@href</codeph> value
+as the visible link text.</dd>
+</dlentry>
+</dl><p>Processors may, but need not, provide mechanisms by which
+other URI patterns can be mapped to effective <codeph>@scope</codeph
+>, <codeph>@format</codeph>, and <codeph>@type</codeph> values.</p
+> </section>
+<section> <title>Benefits</title><p>This will simplify the requirements
+on link authors to specify correct values for the linking attributes
+that go along with <codeph>@href</codeph>, leading to simpler authoring.</p
+> </section>
+<section> <title>Technical requirements</title> <p> <dl>
+<dlentry>
+<dt>DTD and Schema modifications</dt>
+<dd>None.</dd>
+</dlentry>
+<dlentry>
+<dt>Processing impact</dt>
+<dd>Some processors may have to update their link handling code according
+to the rules outlined above.</dd>
+</dlentry>
+</dl> <dl>
+<dlentry>
+<dt>Overall usability</dt>
+<dd>This will simplify the link authoring process for DITA authors.</dd>
+</dlentry>
+</dl> </p> </section>
+<section> <title>Costs</title> <p>The specification topics covering
+the <codeph>@scope</codeph>, <codeph>@format</codeph>, and <codeph
+>@type</codeph> attributes will need to be updated to reflect the
+new processor defaults. Also, the above rules should be collected
+in some single topic, probably the topic, <b>URI-based (direct) addressing</b
+>, or to a new topic somewhere in the language specification.</p> <p
+>Authoring tools may need to update the logic that determines whether
+linking attributes need to be explicitly specified when inserting
+links. However, there will be no harm if authoring tools continue
+to insert explicit attributes that match these new processor defaults.
+When a link is activated in an authoring tool without explicit values,
+that logic will also need to be updated to determine the appropriate
+behavior when activating the link.</p> <p>These rules may lead to
+greater <i>percieved</i> complexity. However, it will actually make
+the authoring of non-local, non-dita links considrably simpler. In
+the vast majority of cases, only an <codeph>@href</codeph> will be
+required, and the other attributes will take care of themselves.</p
+> </section>
+<section> <title>Examples</title> <p>Take the following link:</p> <codeblock
+>&lt;xref href="http://www.oasis-open.org"/></codeblock> <p>To a novice
+author (and maybe some not-so-novice authors), this looks like a perfectly
+viable link. However, strictly going by the DITA 1.2 specificaton,
+this will be treated as a local dita link. Most processors, including
+the DITA Open Toolkit, will issue warnings and produce bad output
+based on this link. With the changes outlined in this proposal, however,
+the link will behave as most people would expect.</p> </section>
+</refbody>
+</reference>
