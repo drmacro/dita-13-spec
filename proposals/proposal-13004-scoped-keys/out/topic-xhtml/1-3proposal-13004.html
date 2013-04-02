@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DITA 1.3 proposed feature #13004"/>
+<meta name="abstract" content="Proposal to provide a mechanism for different effective key definitions at different locations within a map structure."/>
+<meta name="description" content="Proposal to provide a mechanism for different effective key definitions at different locations within a map structure."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="IssueNumber13004"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>DITA 1.3 proposed feature #13004</title>
+</head>
+<body id="IssueNumber13004">
+
+
+<h1 class="title topictitle1">DITA 1.3 proposed feature #13004</h1>
+
+
+<div class="body refbody"><p class="shortdesc">Proposal to provide a mechanism for different effective
+key definitions at different locations within a map structure.</p>
+
+<div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">Include the
+following information:<ul class="ul">
+<li class="li">The latest revision date for this proposal is 2012 January 18</li>
+
+<li class="li">This proposal was introduced by Jeff Ogden before being passed
+to Chris Nitchie.</li>
+
+<li class="li">This proposal was initially accepted for inclusion into DITA 1.3
+on 2011 June 21: <a class="xref" href="http://lists.oasis-open.org/archives/dita/201106/msg00036.html" target="_blank">Minutes from 2011 June 21</a>.</li>
+
+<li class="li">Additional discussions of this proposal as a partial mechanism
+for variable text in topics <a class="xref" href="http://lists.oasis-open.org/archives/dita/201110/msg00023.html" target="_blank">here</a>.</li>
+
+</ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Original requirement or use case</h2><p class="p">Future
+post DITA 1.2 work from Issue #12007: Item 2: Consider adding a scoping
+mechanism for use with key definitions and possibly other aspects
+of DITA based on the map hierarchy or the combined element hierarchy
+within a set of maps. Related topic: Consider allowing subsequent
+key definitions within the same map or within peer maps to override
+previous key definitions, probably as part of some hierarchal scope,
+and probably in a fashion that is the same as or similar to override
+mechanisms to be developed for other features such as ditaval.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Use cases</h2><div class="p">The DITA 1.2 specification dictates
+that there be exactly one effective definition for a given key for
+all key references within a map structure (see “Effective key definitions” <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/overview_of_keys.html" target="_blank">here</a>). This is a severe limitation that prohibits
+some common use-cases, such as:<ul class="ul">
+<li class="li"><p class="p">Omnibus publications that combine multiple standalone maps,
+each with their own set of key definitions.</p>
+</li>
+
+<li class="li"><p class="p">Cases where a topic is reused at multiple locations in a map
+structure, but the behavior of links and/or text replacement for each
+use context must be different.</p>
+</li>
+
+</ul>
+</div>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Proposed solution</h2>
+      
+      <p class="p">Add an optional <samp class="ph codeph">@keyscope</samp> attribute to the <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/common/topicref-atts.html#topicref-atts" target="_blank"><samp class="ph codeph">topicref-atts</samp></a> attribute group and its variants,
+        so that it appears on most map and topicref specializations. The presence of this attribute
+        indicates that the element represents the boundaries of a <span class="keyword">key scope</span>. Key
+        definitions within a scope are called <span class="keyword">scoped key definitions</span>.</p>
+
+      <p class="p">The implications for key reference processing in a map containing key scopes are as
+        follows.</p>
+
+      <ul class="ul" id="IssueNumber13004__ul_qxj_ygp_sj">
+        <li class="li">A key scope inherits all of the key definitions from its parent scope. If a key is
+          defined in both the parent scope and the child scope, the parent scope's definition takes
+          precedence.</li>
+
+        <li class="li">Key references within a key scope are resolved using the effective key definitions for
+          that scope.</li>
+
+        <li class="li">New key names defined within a scope do not become part of the parent scope's effective
+          key space. This allows sibling scopes to have different definitions for the same key
+          name.</li>
+
+        <li class="li">However, <span class="keyword">scope-qualified key names</span>
+          <em class="ph i">are</em> added to the parent scope. A scope-qualified key name consists of the
+            <samp class="ph codeph">@keyscope</samp> value of the containing scope, followed by a period, followed
+          by the key name as specified by the <samp class="ph codeph">@keys</samp> attribute on the defining
+          element.</li>
+
+        <li class="li">If a parent scope specifies an explicit key definition for a scope-qualified key name
+          that would otherwise be implicitly defined from a child scope, the explicit definition
+          takes precedence.</li>
+
+        <li class="li">If an unqualified key name defined in a scope is overridden by a definition in the
+          parent scope, the scoped definition can still be referenced via it's implicitly-defined
+          qualified name, unless that name is also explicitly defined within the parent scope. See
+          the examples below.</li>
+
+        <li class="li">Implicit scope-qualified key names are additive up the scope hierarchy. For example, a
+          key within a "grandchild" scope could be referenced via
+            "<samp class="ph codeph">childScope.granchildScope.keyName</samp>".</li>
+
+        <li class="li">The rules for key definition precedence within a key scope are identical to those in
+          DITA 1.2.</li>
+
+      </ul>
+
+      <div class="note note"><span class="notetitle">Note:</span> 
+        <p class="p">The decision to have definitions in parent scopes take precedence over definitions in
+          child scopes is based on the existing DITA 1.2 practice where a key definition in a parent
+          map takes precedence over a definitions for the same key from child maps. That said, there
+          are good arguments for having key definitions in child scopes override those from parent
+          scopes for references within that scope. I'd appreciate some feedback on this topic.</p>
+
+      </div>
+
+      <p class="p">The content considered to be part of a key scope is as follows:</p>
+
+      <ul class="ul">
+        <li class="li">
+          <p class="p">The key scope-defining element itself. This means that any key definitions specified by
+            the element are part of the scope, and any key reference on the element is evaluated
+            against the effective key definitions for the scope.</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">The key scope-defining element’s contents after conref resolution.</p>
+
+        </li>
+
+        <li class="li">
+          <p class="p">Any locally-scoped content referenced from within the key scope via
+              <samp class="ph codeph">@href</samp> on a <samp class="ph codeph">topicref</samp> (or specialization).</p>
+
+        </li>
+
+      </ul>
+
+      <p class="p">The root element of the root map in a map structure always defines an implicit root key
+        scope. <strong class="ph b">There are no other implicit key scopes.</strong> For example, no key scope is
+        introduced by referencing a child DITA map; the content brought in by such a reference is
+        part of the same scope as the map reference.</p>
+
+      <p class="p">The value of the <samp class="ph codeph">@keyscope</samp> attribute is used when generating implicit
+        scope-qualified key names for the parent scope. As such, it must also be a legal key name.
+        Scope names should be unique within a given parent scope. If there are duplicates,
+        conflicting qualified key names may - and likely will - result. However, unqualified
+        references within those scopes will function as expected, resolving to the definition in the
+        local scope. For purposes of implicit qualified key names, the first key scope within a
+        given parent scope with a given name takes precedence.</p>
+
+    </div>
+
+<div class="section"><h2 class="title sectiontitle">Benefits</h2><ul class="ul">
+<li class="li"><p class="p">This change is fully backwards-compatible with DITA 1.2. Existing
+maps will continue to function exactly as before, since they do not
+contain any <samp class="ph codeph">@keyscope</samp> attributes.</p>
+</li>
+
+<li class="li"><p class="p">It will now be possible to combine standalone maps with their
+own set of key definitions intact.</p>
+</li>
+
+<li class="li"><p class="p">It will now be possible for map authors to specify context-dependent
+link behavior and text insertion for topics and sub-maps.</p>
+</li>
+
+<li class="li"><p class="p">This feature allows for use cases which would not otherwise be possible.</p>
+</li>
+
+</ul>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2><dl class="dl">
+
+<dt class="dt dlterm">DTD and Schema modifications</dt>
+
+<dd class="dd"><dl class="dl">
+
+<dt class="dt dlterm">Topic or map specialization</dt>
+
+<dd class="dd">None.</dd>
+
+
+
+<dt class="dt dlterm">Domain</dt>
+
+<dd class="dd">None.</dd>
+
+
+
+<dt class="dt dlterm">Element</dt>
+
+<dd class="dd">No new elements.</dd>
+
+
+
+<dt class="dt dlterm">Attributes</dt>
+
+<dd class="dd"><ul class="ul">
+<li class="li"><p class="p"><samp class="ph codeph">keyscope</samp></p>
+<ul class="ul">
+<li class="li"><p class="p">New NMTOKEN attribute for <samp class="ph codeph">topicref-atts</samp> group and its variants.</p>
+</li>
+
+<li class="li"><p class="p">Processors will be required to process key definitions and
+key references within elements marked with this attribute according
+to the behavior described above.</p>
+</li>
+
+<li class="li"><p class="p">Does not contain translatable text.</p>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</dd>
+
+
+</dl>
+</dd>
+
+
+
+<dt class="dt dlterm">Processing impact</dt>
+
+<dd class="dd">See above.</dd>
+
+
+
+<dt class="dt dlterm">Usability impact</dt>
+
+<dd class="dd">Key scopes are simple to specify. However, when a map utilizes
+this feature, the effective definition for a given key reference will
+now depend not only on the map that contains the reference, but the
+location within that map where the reference occurs. So identifying
+the applicable definition for a given key reference may be considerably
+more difficult in some cases, both for users and for tools.</dd>
+
+
+</dl>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">Costs</h2>    <ul class="ul">
+<li class="li"><p class="p">The cost to updating and maintaining the changes to the DTD
+and schema files for this change is trivial.</p>
+</li>
+
+<li class="li"><p class="p">The spec topic “<a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/overview_of_keys.html" target="_blank">Overview of keys</a>” would need to be extensively
+updated to discuss key scopes and their implications. I suggest that
+this topic be split into two topics, “Key Definitions,” and “Determining
+the Effective Key Definition for a Key Reference.”</p>
+</li>
+
+<li class="li"><p class="p">The <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/common/topicref-atts.html" target="_blank">topicref-atts</a> topic would obviously need to
+be updated, and a new topic created for the <samp class="ph codeph">@keyscope</samp> attribute.</p>
+</li>
+
+<li class="li"><p class="p">DITA processing applications will have to update key reference
+processing.</p>
+<ul class="ul">
+<li class="li"><p class="p">The algorithm and data structures used to construct key spaces
+will need to be updated to account for key scopes.</p>
+</li>
+
+<li class="li"><p class="p">Key reference resolution algorithms will need to be made aware
+of the effective context that applies for each key reference.</p>
+</li>
+
+</ul>
+</li>
+
+<li class="li"><p class="p">Tools that provide keyref-aware auditing and reporting tools
+will need to be updated to take key scopes into account.</p>
+</li>
+
+<li class="li"><p class="p">Authoring tools may need to be updated to allow authors to
+specify the effective scope within a map structure to use to resolve
+key references during authoring.</p>
+</li>
+
+<li class="li"><p class="p">For users who already understand the key reference mechanism,
+this change should be relatively straightforward. That said, the key
+reference mechanism is already very complex and not well understood,
+and this proposal does add to that complexity.</p>
+</li>
+
+</ul>
+</div>
+
+</div>
+
+  <div class="topic reference nested1" id="examples">
+    <h2 class="title topictitle2">Examples</h2>
+
+    <div class="body refbody">
+      <div class="example"><h3 class="title sectiontitle">Combination of Standalone Maps</h3>
+        
+        <p class="p">This map combines three standalone course maps, each with its own set of keys. Each of
+          the <samp class="ph codeph">mapref</samp> elements is marked with a <samp class="ph codeph">keyscope</samp> attribute,
+          meaning that the key definitions within the referenced map sub-structures will be confined
+          to those sub-structures.</p>
+
+        <p class="p">Since the <samp class="ph codeph">summary</samp> key is defined in this map as part of the implicit
+          root scope, and keys defined in parent scopes override those in child scopes, its
+          definition overrides any conflicting definition of <samp class="ph codeph">summary</samp> in any of the
+          referenced maps.</p>
+
+        <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Training Courses&lt;/title&gt;
+  &lt;mapref href="course-1.ditamap" keyscope="course-1"/&gt;
+  &lt;mapref href="course-2.ditamap" keyscope="course-2"/&gt;
+  &lt;mapref href="course-3.ditamap" keyscope="course-3"/&gt;
+  &lt;topicref keys="summary" href="omnibus-summary.dita"/&gt;
+&lt;/map&gt;</pre>
+
+        <p class="p">Without key scopes, the key names that have definitions for all three maps, like
+            <samp class="ph codeph">introduction</samp> or <samp class="ph codeph">prerequisites</samp>, would take their
+          effective definition from <span class="ph filepath">course-1.ditamap</span>, resulting in incorrect
+          behavior in the output.</p>
+
+      </div>
+
+      <div class="example"><h3 class="title sectiontitle">Reuse of the Same Topic with Different Key Behavior</h3>
+        
+        <p class="p">In this example, the “oil change” procedures for Tractor X and Tractor Y are similar
+          enough to reuse the same topic for both, but the name of the product is included in the
+          title via <samp class="ph codeph">keyref</samp>. In the map below, the topic
+            <span class="ph filepath">common/oilchange.dita</span> is referenced twice. Each reference is
+          wrapped within a <samp class="ph codeph">topicgroup</samp> that defines a key scope, and each scope has
+          its own definition of the <samp class="ph codeph">ProductName</samp> key.</p>
+
+        <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Equipment Oil Change Procedures&lt;/title&gt;
+
+  &lt;topicgroup keyscope="Tractor-X"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor X&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+    &lt;topicref href="common/oilchange.dita"/&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;topicgroup keyscope="Tractor-Y"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor Y&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+    &lt;topicref href="common/oilchange.dita"/&gt;
+  &lt;/topicgroup&gt;
+
+&lt;/map&gt;</pre>
+
+        <pre class="pre codeblock">&lt;task id="oilchange" xml:lang="en"&gt;
+  &lt;title&gt;Changing the Oil on the &lt;ph keyref="ProductName"/&gt;&lt;/title&gt;
+  &lt;!-- etc. --&gt;
+&lt;/task&gt;</pre>
+
+        <p class="p">An alternative way to code the above map would be to specify <samp class="ph codeph">@keyscope</samp>
+          on each of the <samp class="ph codeph">topicref</samp> elements, and next the <samp class="ph codeph">keydef</samp>
+          elements within them. This is a somewhat less intuitive but equally valid formulation.</p>
+
+        <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Equipment Oil Change Procedures&lt;/title&gt;
+
+  &lt;topicref href="common/oilchange.dita" keyscope="Tractor-X"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor X&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+  &lt;/topicref&gt;
+
+  &lt;topicref href="common/oilchange.dita" keyscope="Tractor-Y"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor Y&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+  &lt;/topicref&gt;
+
+&lt;/map&gt;</pre>
+
+        <p class="p">Without key scopes, the effective text for both references would be “Tractor X,” making
+          this an impossible scenario in DITA 1.2.</p>
+
+      </div>
+
+      <div class="example"><h3 class="title sectiontitle">Key Definition Containment</h3>
+        
+        <p class="p">This example illustrates how key definitions within a scope do not apply outside that
+          scope. Here, <samp class="ph codeph">key-1</samp> is defined within the key scope
+            <samp class="ph codeph">scope-1</samp>. Since the reference to <samp class="ph codeph">key-1</samp> is outside that
+          scope, the reference is treated as an undefined key.</p>
+
+        <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Key Definition Containment Example&lt;/title&gt;
+
+  &lt;topicgroup keyscope="scope-1"&gt;
+    &lt;keydef keys="key-1" href="someTopic.dita" /&gt;
+  &lt;/topicgroup&gt;
+  
+  &lt;!-- Processors should issue a warning for an undefined key
+       since the reference occurs in the root scope, and the
+       root scope does not contain a definition for key-1. --&gt;
+  &lt;topicref keyref="key-1" /&gt;
+
+  &lt;!-- However, this reference is OK. --&gt;
+  &lt;topicref keyref="scope-1.key-1" /&gt;
+&lt;/map&gt;</pre>
+
+      </div>
+
+      <div class="example"><h3 class="title sectiontitle">Precedence Within a Scope and Qualified Key Names</h3>
+        
+        <p class="p">In the following map, the <samp class="ph codeph">mapref</samp> specifies a <samp class="ph codeph">keyscope</samp>,
+          and then contains several key definitions. Since key precedence in a scope follows DITA
+          1.2 rules, the key definitions in this map take precedence over key definitions in the
+          sub-map, and earlier key definitions within the scope take precedence over later ones.</p>
+
+        <pre class="pre codeblock">&lt;map id="map-1" xml:lang="en"&gt;
+  &lt;title&gt;Outer Map&lt;/title&gt;
+  &lt;topicref format="ditamap" href="submap.ditamap" keyscope="scope-1"&gt;
+    &lt;keydef id="keydef-1" keys="key-1"/&gt;
+    &lt;keydef id="keydef-2" keys="key-2"/&gt;
+  &lt;/topicref&gt;
+  &lt;keydef id="keydef-3" keys="key-1"/&gt;
+&lt;/map&gt;</pre>
+
+        <pre class="pre codeblock">&lt;map id="submap" xml:lang="en"&gt;
+  &lt;title&gt;Sub-Map&lt;/title&gt;
+  &lt;keydef id="keydef-4" keys="key-1"/&gt;
+  &lt;keydef id="keydef-5" keys="key-2"/&gt;
+&lt;/map&gt;</pre>
+
+        <p class="p">Here are the effective key definitions for the scopes in this map structure.</p>
+
+        <ul class="ul" id="examples__ul_yy4_t5p_sj">
+          <li class="li">
+            <p class="p">Implicit root scope</p>
+
+            <dl class="dl">
+              
+                <dt class="dt dlterm">key-1</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-3</samp>, since the other definitions are confined within
+                    <samp class="ph codeph">scope-1</samp>.</dd>
+
+              
+              
+                <dt class="dt dlterm">key-2</dt>
+
+                <dd class="dd">Undefined, since all definitions for this key occur within the boundaries of
+                    <samp class="ph codeph">scope-1</samp></dd>
+
+              
+              
+                <dt class="dt dlterm">scope-1.key-1</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-1</samp>. Since key definition precedence within a scope occurs
+                  according to the same rules used in DITA 1.2, and <samp class="ph codeph">keydef-1</samp>
+                  happens shallower in the map structure of <samp class="ph codeph">scope-1</samp> than
+                    <samp class="ph codeph">keydef-4</samp>, <samp class="ph codeph">keydef-1</samp> takes precedence.</dd>
+
+              
+              
+                <dt class="dt dlterm">scope-1.key-2</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-2</samp>, which overrides <samp class="ph codeph">keydef-5</samp> for the
+                  same reason.</dd>
+
+              
+            </dl>
+
+          </li>
+
+          <li class="li">
+            <p class="p"><samp class="ph codeph">scope-1</samp></p>
+
+            <dl class="dl">
+              
+                <dt class="dt dlterm">key-1</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-3</samp>, since this key definition is in the root scope, and
+                  thus takes precedence over any definitions in child scopes.</dd>
+
+              
+              
+                <dt class="dt dlterm">key-2</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-2</samp>. </dd>
+
+              
+              
+                <dt class="dt dlterm">scope-1.key-1</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-1</samp>, inherited from the parent scope.</dd>
+
+              
+              
+                <dt class="dt dlterm">scope-1.key-2</dt>
+
+                <dd class="dd"><samp class="ph codeph">keydef-2</samp>, inherited from the parent scope.</dd>
+
+              
+            </dl>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="example" id="examples__explicitlyDefiningQualifiedNames"><h3 class="title sectiontitle">Explicitly Defining Qualified Names</h3>
+        
+        <p class="p">If a parent scope explicitly defines a qualified key name that would otherwise be
+          implictly defined by virtue of a child scope, the explicit definition takes
+          precedence.</p>
+
+        <pre class="pre codeblock">&lt;map&gt;
+  &lt;title&gt;Explicit Key Definition Example&lt;/title&gt;
+
+  &lt;keydef keys="child.keyName" id="keydef1" /&gt;
+
+  &lt;topicgroup keyscope="child"&gt;
+    &lt;keydef id="keydef2" keys="keyName" /&gt;
+
+    &lt;topicref id="topicref1" keyref="keyName" /&gt;
+    &lt;topicref id="topicref2" keyref="child.keyName" /&gt;
+  &lt;/topcgroup&gt;
+
+  &lt;topicref id="topicref3" keyref="keyName" /&gt;
+  &lt;topicref id="topicref4" keyref="child.keyName" /&gt;
+&lt;/map&gt;
+</pre>
+
+        <p class="p">The effective definition for the different topicrefs are:</p>
+
+        <dl class="dl">
+          
+            <dt class="dt dlterm">topicref1</dt>
+
+            <dd class="dd"><samp class="ph codeph">keydef2</samp>, because it is an unqualified reference to the
+              locally-scoped key.</dd>
+
+          
+          
+            <dt class="dt dlterm">topicref2</dt>
+
+            <dd class="dd"><samp class="ph codeph">keydef1</samp>, because that definition is inherited from the parent
+              scope, and the parent scope's explicit definition takes precedence over the implicit
+              definition derived from the scope.</dd>
+
+          
+          
+            <dt class="dt dlterm">topicref3</dt>
+
+            <dd class="dd">Undefined, because the unqualified definition for <samp class="ph codeph">keyName</samp> is
+              contained within the scope.</dd>
+
+          
+          
+            <dt class="dt dlterm">topicref4</dt>
+
+            <dd class="dd"><samp class="ph codeph">keydef1</samp>, since the explicit definition overrides the implicit
+              definition derived from the scope.</dd>
+
+          
+        </dl>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

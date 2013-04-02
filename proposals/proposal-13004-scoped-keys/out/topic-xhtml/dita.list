@@ -1,13 +1,13 @@
-#Tue Apr 02 11:55:15 EDT 2013
+#Tue Apr 02 14:29:49 EDT 2013
 copytosourcelist=
-hreftargetslist=proposal-13090-phase2.xml
+hreftargetslist=1-3proposal-13004.xml
 fullditatopicfile=fullditatopic.list
 fullditamapandtopicfile=fullditamapandtopic.list
-fullditatopiclist=proposal-13090-phase2.xml
-fullditamapandtopiclist=proposal-13090-phase2.xml
+fullditatopiclist=1-3proposal-13004.xml
+fullditamapandtopiclist=1-3proposal-13004.xml
 hrefditatopicfile=hrefditatopic.list
-hrefditatopiclist=proposal-13090-phase2.xml
-user.input.file=proposal-13090-phase2.xml
+hrefditatopiclist=1-3proposal-13004.xml
+user.input.file=1-3proposal-13004.xml
 subtargetsfile=subtargets.list
 fullditamapfile=fullditamap.list
 copytotarget2sourcemapfile=copytotarget2sourcemap.list
@@ -37,7 +37,7 @@ codereffile=coderef.list
 keylist=
 codereflist=
 user.input.file.listfile=usr.input.file.list
-user.input.dir=/Users/chris.nitchie/Dev/dita-13-spec/proposals/proposal-13090-ditaval-style
+user.input.dir=/Users/chris.nitchie/Dev/dita-13-spec/proposals/proposal-13004-scoped-keys
 uplevels=
 tempdirToinputmapdir.relative.value=
 conrefpushfile=conrefpush.list

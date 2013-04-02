@@ -14,17 +14,19 @@
     </ul></p>
   </section>
   <section><title>Original requirement</title><p>As stated on the 1.3 proposals wiki
-    page:</p><q>Consider changing the @style attribute in DITAVAL files to NMTOKENS instead of a
-    DTD-specified list of choices. Document the minimum required supported styles (bold, italics,
-    underline, double-underline, overline) but allow processors to support non-standard styles as
-    well (e.g. strikethrough, smallcaps). This would allow &lt;prop action="flag" att="otherprops"
-    val="eyesonly" style="bold underline strikethough"/></q></section>
+        page:</p><q>Consider changing the @style attribute in DITAVAL files to NMTOKENS instead of a
+        DTD-specified list of choices. Document the minimum required supported styles (bold,
+        italics, underline, double-underline, overline) but allow processors to support non-standard
+        styles as well (e.g. smallcaps). This would allow &lt;prop action="flag" att="otherprops"
+        val="eyesonly" style="bold underline strike-through"/></q></section>
   <section>
    <title>Use cases</title>
    <p>A user authoring a <codeph>flag</codeph> rule in a DITAVAL file wants to specify more than one
     type of styling for matched elements.</p>
    <p>An industry-specific Open Toolkit plug-in needs to allow for custom highlighting using DITAVAL
     filtering.</p>
+      <p>A DITAVAL author wishes to mark certain content as obsolete by highlighting it with a line
+        through the text.</p>
   </section>
   <section>
    <title>Benefits</title>
@@ -50,62 +52,49 @@
   </section>
   <section>
    <title>Technical requirements</title>
-   <p>Provide a detailed description of how the solution will work. Be sure to include the following details:<dl>
-     <dlentry>
-      <dt>Processing feature</dt>
-      <dd>DITAVAL flagging will work the same as it always has, except that multiple style types can
-       be applied, e.g. bold and italic. The list of values a processor <i>must</i> support will
-        include:<ul id="ul_oy1_fgp_qj">
-        <li>The currently allowed <codeph>@style</codeph> values.<ul id="ul_lns_fgp_qj">
-          <li><codeph>underline</codeph></li>
-          <li><codeph>double-underline</codeph></li>
-          <li><codeph>italics</codeph></li>
-          <li><codeph>overline</codeph></li>
-          <li><codeph>bold</codeph></li>
-         </ul></li>
-        <li>All of the elements from the highlighting domain (<codeph>hi-d</codeph>).<ul
-          id="ul_b1c_mgp_qj">
-          <li><codeph>b</codeph></li>
-          <li><codeph>i</codeph></li>
-          <li><codeph>u</codeph></li>
-          <li><codeph>sup</codeph></li>
-          <li><codeph>sub</codeph></li>
-          <li><codeph>tt</codeph></li>
-         </ul>Whenever new tags are added to the <codeph>hi-d</codeph> domain, those tag names also
-         become legal DITAVAL flagging tokens. Those values that specify the same output styling,
-         e.g. <codeph>b</codeph> and <codeph>bold</codeph>, should be considered equivalent. If a
-          <codeph>@style</codeph> attribute contains both the legacy value and the highlighting
-         domain value for a type of style, e.g. <codeph>style="b bold"</codeph>, all but the first
-         instance of the token are ignored.</li>
-        <li>A processor <i>may</i> provide additional token values supported by tools provided by
-         that vendor. Such custom tokens <i>should</i> start with a vendor-specific prefix, e.g.
-          <codeph>myco-strikethrough</codeph>.</li>
-       </ul></dd>
-     </dlentry>
-     <dlentry>
-      <dt>Topic or map specialization</dt>
-      <dd>No new specializations.</dd>
-     </dlentry>
-     <dlentry>
-      <dt>Domain</dt>
-      <dd>No new domains.</dd>
-     </dlentry>
-     <dlentry>
-      <dt>Element</dt>
-      <dd>No new elements.</dd>
-     </dlentry>
-     <dlentry>
-      <dt>Attributes</dt>
-      <dd>New definition and processing rules for the <codeph>@style</codeph> attribute on
-        <codeph>&lt;prop></codeph> as described above.</dd>
-     </dlentry>
-     <dlentry>
-      <dt>Overall usability</dt>
-      <dd>Customers that author DITAVAL files using tools that provide a dropdown or pick list for
-       NAMEGROUP attributes will lose those hints. Authoring tools may provide additional tools for
-       specifying styling, alleviating this concern.</dd>
-     </dlentry>
-    </dl></p>
+      <dl>
+        <dlentry>
+          <dt>Processing feature</dt>
+          <dd>DITAVAL flagging will work the same as it always has, except that multiple style types
+            can be applied, e.g. bold and italic. The list of values a processor <i>must</i> support
+            will include:<ul id="ul_oy1_fgp_qj">
+              <li>The currently allowed <codeph>@style</codeph> values.<ul id="ul_lns_fgp_qj">
+                  <li><codeph>underline</codeph></li>
+                  <li><codeph>double-underline</codeph></li>
+                  <li><codeph>italics</codeph></li>
+                  <li><codeph>overline</codeph></li>
+                  <li><codeph>bold</codeph></li>
+                </ul></li>
+              <li>In addition, the <codeph>line-through</codeph> token must also be supported.</li>
+              <li>A processor <i>may</i> provide additional token values supported by tools provided
+                by that vendor. Such custom tokens <i>should</i> start with a vendor-specific
+                prefix, e.g. <codeph>myco-blink</codeph>.</li>
+            </ul></dd>
+        </dlentry>
+        <dlentry>
+          <dt>Topic or map specialization</dt>
+          <dd>No new specializations.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Domain</dt>
+          <dd>No new domains.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Element</dt>
+          <dd>No new elements.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Attributes</dt>
+          <dd>New definition and processing rules for the <codeph>@style</codeph> attribute on
+              <codeph>&lt;prop></codeph> as described above.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Overall usability</dt>
+          <dd>Customers that author DITAVAL files using tools that provide a dropdown or pick list
+            for NAMEGROUP attributes will lose those hints. Authoring tools may provide additional
+            tools for specifying styling, alleviating this concern.</dd>
+        </dlentry>
+      </dl>
   </section>
   <section>
    <title>Examples</title>
