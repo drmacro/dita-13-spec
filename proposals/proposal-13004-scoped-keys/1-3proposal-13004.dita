@@ -39,21 +39,39 @@ href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/overview_of_keys.htm
 scope="external">here</xref>). This is a severe limitation that prohibits
 some common use-cases, such as:<ul>
 <li><p>Omnibus publications that combine multiple standalone maps,
-each with their own set of key definitions.</p></li>
+each with their own set of key definitions.</p>
+            <ul id="ul_rnr_mlm_yj">
+              <li>In some cases, it will be necessary for one 'sub-publication' in an omnibus
+                publication to refer to a location in another 'sub-publication.' Thus, there must be
+                some way to reference a key that is defined in another location's key space.</li>
+            </ul></li>
 <li><p>Cases where a topic is reused at multiple locations in a map
 structure, but the behavior of links and/or text replacement for each
 use context must be different.</p></li>
 </ul></p></section>
 <section>
       <title>Proposed solution</title>
-      <p>Add an optional <codeph>@keyscope</codeph> attribute to the <xref format="html"
-          href="http://docs.oasis-open.org/dita/v1.2/os/spec/common/topicref-atts.html#topicref-atts"
-          scope="external"><codeph>topicref-atts</codeph></xref> attribute group and its variants,
-        so that it appears on most map and topicref specializations. The presence of this attribute
-        indicates that the element represents the boundaries of a <keyword>key scope</keyword>. Key
-        definitions within a scope are called <keyword>scoped key definitions</keyword>.</p>
-      <p>The implications for key reference processing in a map containing key scopes are as
-        follows.</p>
+      <p>In DITA 1.2, a given root map in a map structure defines a single key space, with exactly
+        one effective definition for every key name. This poposal would allow a map author to place
+        a virtual "fence" around a section of the map, and say, essentially, "keys defined in this
+        section of the map structure, stay in (can only be referenced from) this section of the map
+        structure." Thus for a given key, there could be different effective definitions at
+        different locations - inside different "fences" - within the map structure. These "fences"
+        are called <keyword>key scopes</keyword>, and they are defined by putting a
+          <codeph>@keyscope</codeph> attribute on a map or topicref element. Key definitions within
+        a scope are called <keyword>scoped key definitions</keyword>.</p>
+      <p>There are cases where a topic or map in one scope needs to reference a piece of content
+        from a different scope. For example, an omnibus piece of technical documentation where each
+        section applies to a single component of the product, and is mostly self-contained, but
+        occasionally needs to link to something in another section. For this reason, the
+          <codeph>@keyscope</codeph> attribute specifies a name that can be prepended to key
+        references to address keys within that scope. For example, you could reference a key "k" in
+        a scope "s" from outside that scope via the key reference, "s.k". This is called a
+          <keyword>scope-qualified key name</keyword>. If a given definition is within multiple
+        layers of scopes - a fence within a fence - you would specify the full "scope path" to the
+        key, e.g. <codeph>keyref="outerScope.innerScope.keyName"</codeph>.</p>
+      <p>The detailed requirements for key reference processing in a map containing key scopes are
+        as follows.</p>
       <ul id="ul_qxj_ygp_sj">
         <li>A key scope inherits all of the key definitions from its parent scope. If a key is
           defined in both the parent scope and the child scope, the parent scope's definition takes
@@ -79,15 +97,18 @@ use context must be different.</p></li>
           key within a "grandchild" scope could be referenced via
             "<codeph>childScope.granchildScope.keyName</codeph>".</li>
         <li>The rules for key definition precedence within a key scope are identical to those in
-          DITA 1.2.</li>
+          DITA 1.2, i.e. breadth-first traversal of the map structure contained by the
+          scope-defining element.</li>
+        <li>Just as a key definition can define multiple key names, a key scope-defining element can
+          specify multiple scope names, separated by whitespace. The key definitions within a scope
+          with multiple names can be addressed via qualified key names derived from any of the scope
+          names.</li>
+        <li>If a <codeph>@keyscope</codeph> attribute is specified on both a
+            <codeph>&lt;map></codeph> element and a <codeph>&lt;topicref></codeph> element that
+          references the map, only one scope is defined, not two nested scopes. The scope's names
+          will be the union of unique scope names from both <codeph>@keyscope</codeph>
+          attributes.</li>
       </ul>
-      <note>
-        <p>The decision to have definitions in parent scopes take precedence over definitions in
-          child scopes is based on the existing DITA 1.2 practice where a key definition in a parent
-          map takes precedence over a definitions for the same key from child maps. That said, there
-          are good arguments for having key definitions in child scopes override those from parent
-          scopes for references within that scope. I'd appreciate some feedback on this topic.</p>
-      </note>
       <p>The content considered to be part of a key scope is as follows:</p>
       <ul>
         <li>
@@ -309,6 +330,22 @@ and this proposal does add to that complexity.</p></li>
 &lt;/map></codeblock>
       </example>
       <example>
+        <title>Cross-Scope Linking</title>
+        <p>Take the following map:</p>
+        <codeblock>&lt;map>
+  &lt;topicgroup keyscope="scope-1">
+    &lt;topicref keys="scope-1-key-1" href="Topic1.dita"/>
+  &lt;/topicgroup>
+  &lt;topicgroup keyscope="scope-2">
+    &lt;topicref keys="scope-2-key-1" href="Topic2.dita"/>
+  &lt;/topicgroup>
+&lt;/map></codeblock>
+        <p>This map contains two scopes, each with one topic. If you wanted to author a link from
+          Topic 1 to Topic 2, you could do so by creating a reference to the qualified key for Topic
+          2.</p>
+        <codeblock>&lt;p>Link to &lt;xref keyref="scope-2.scope-2-key-1">Topic 2&lt;/xref>.&lt;/p></codeblock>
+      </example>
+      <example>
         <title>Precedence Within a Scope and Qualified Key Names</title>
         <p>In the following map, the <codeph>mapref</codeph> specifies a <codeph>keyscope</codeph>,
           and then contains several key definitions. Since key precedence in a scope follows DITA
@@ -400,8 +437,8 @@ and this proposal does add to that complexity.</p></li>
   &lt;topicref id="topicref3" keyref="keyName" />
   &lt;topicref id="topicref4" keyref="child.keyName" />
 &lt;/map>
-</codeblock>
-        <p>The effective definition for the different topicrefs are:</p>
+ </codeblock>
+        <p>The effective definition for the different topicrefs are: </p>
         <dl>
           <dlentry>
             <dt>topicref1</dt>
@@ -425,6 +462,24 @@ and this proposal does add to that complexity.</p></li>
               definition derived from the scope.</dd>
           </dlentry>
         </dl>
+      </example>
+      <example>
+        <title>Multiple Key Scope Names</title>
+        <p>Take child map, <codeph>child.ditamap</codeph>:</p>
+        <codeblock>&lt;map keyscope="mapScopeName1 mapScopeName2">
+  &lt;keydef keys="key-1" />
+&lt;/map></codeblock>
+        <p>And this <codeph>parent.ditamap</codeph>:</p>
+        <codeblock>&lt;map>
+  &lt;title>Publication Title&lt;/title>
+  &lt;mapref keyscope="maprefScopeName1 maprefScopeName2"
+          href="child.ditamap" />
+  &lt;topicref keyref="mapScopeName1.key-1" />
+  &lt;topicref keyref="mapScopeName2.key-1" />
+  &lt;topicref keyref="maprefScopeName1.key-1" />
+  &lt;topicref keyref="maprefScopeName2.key-1" />
+&lt;/map></codeblock>
+        <p>All references will resolve because the child scope has four names.</p>
       </example>
     </refbody>
   </reference>
