@@ -1,0 +1,31 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Shadow Inherit attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.shadowInherit.attrib'>
+    <optional>
+      <attribute name='shadowInherit' a:defaultValue='onDefine'>
+        <choice>
+          <value>onDefine</value>
+          <value>onUse</value>
+          <value>dynamic</value>
+          <value>none</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.ShadowInherit.attrib' combine='interleave'>
+    <ref name='SVG.shadowInherit.attrib'/>
+  </define>
+
+</grammar>

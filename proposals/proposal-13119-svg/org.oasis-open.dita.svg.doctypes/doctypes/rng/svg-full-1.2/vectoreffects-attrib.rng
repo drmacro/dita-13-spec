@@ -1,0 +1,26 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Vector Effects attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <include href='../Tiny-1.2/tiny-vectoreffects-attrib.rng'/>
+
+  <define name='VectorEffectAttrib.datatype' combine='choice'>
+    <choice>
+      <value>inherit</value>
+      <data type='string'/>
+    </choice>
+  </define>
+
+
+</grammar>
+
+

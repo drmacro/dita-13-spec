@@ -1,0 +1,34 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Viewport attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.overflow.attrib'>
+    <optional>
+      <attribute name='overflow' svg:animatable='false' svg:inheritable='false'>
+        <ref name='SVG.overflow.values'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <!--define name='SVG.overflow.values' combine='interleave'-->
+   <define name='SVG.overflow.values' combine='choice'>
+    <choice>
+      <value>visible</value>
+    </choice>
+  </define>
+
+  <define name='SVG.Viewport.attrib' combine='interleave'>
+    <ref name='SVG.overflow.attrib'/>
+  </define>
+
+</grammar>
+

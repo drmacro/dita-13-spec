@@ -1,0 +1,122 @@
+
+<!-- ==============================================================
+      SVG12-RNG | XML Events
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2001/xml-events'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.XMLEvents.class' combine='interleave'>
+    <choice>
+      <ref name='listener'/>
+    </choice>
+  </define>
+
+  <define name='SVG.XMLEvents.attrib' combine='interleave'>
+    <ref name='SVG.event.attrib'/>
+    <ref name='SVG.phase.attrib'/>
+    <ref name='SVG.propagate.attrib'/>
+    <ref name='SVG.defaultAction.attrib'/>
+    <ref name='SVG.observer.attrib'/>
+    <ref name='SVG.target.attrib'/>
+    <ref name='SVG.handler.attrib'/>
+  </define>
+
+
+  <define name='SVG.event.attrib'>
+    <optional>
+      <attribute name='event'>
+        <choice>
+          <data type='NMTOKEN'/>
+          <data type='QName'/>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.phase.attrib' a:defaultValue='default'>
+    <optional>
+      <attribute name='phase'>
+        <choice>
+          <value>default</value>
+          <value>capture</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.propagate.attrib' a:defaultValue='continue'>
+    <optional>
+      <attribute name='propagate'>
+        <choice>
+          <value>continue</value>
+          <value>stop</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.defaultAction.attrib'>
+    <optional>
+      <attribute name='defaultAction' a:defaultValue='perform'>
+        <choice>
+          <value>perform</value>
+          <value>cancel</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.observer.attrib'>
+    <optional>
+      <attribute name='observer'>
+        <ref name='URI.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.target.attrib'>
+    <optional>
+      <attribute name='target'>
+        <ref name='URI.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.handler.attrib'>
+    <optional>
+      <attribute name='handler'>
+        <ref name='URI.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+
+
+  <define name='listener'>
+    <element name='listener'>
+      <ref name='attlist.listener'/>
+      <ref name='SVG.listener.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.listener' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XMLEvents.attrib'/>
+    <ref name='SVG.listener.content'/>
+  </define>
+
+  <define name='SVG.listener.content'>
+    <empty/>
+  </define>
+
+</grammar>

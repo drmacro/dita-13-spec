@@ -1,0 +1,468 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Basic Font
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Font.class' combine='choice'>
+    <choice>
+      <ref name='font'/>
+      <ref name='font-face'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.font.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <ref name='font-face'/>
+    <ref name='missing-glyph'/>
+    <zeroOrMore>
+      <choice>
+        <ref name='glyph'/>
+        <ref name='hkern'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='font'>
+    <element name='font'>
+      <ref name='attlist.font'/>
+      <ref name='SVG.font.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.font' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <optional>
+      <attribute name='horiz-origin-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='horiz-origin-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <attribute name='horiz-adv-x' svg:animatable='false' svg:inheritable='false'>
+      <ref name='Number.datatype'/>
+    </attribute>
+    <optional>
+      <attribute name='vert-origin-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-origin-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-adv-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.font-face.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <optional>
+      <ref name='font-face-src'/>
+    </optional>
+  </define>
+
+
+  <define name='font-face'>
+    <element name='font-face'>
+      <ref name='attlist.font-face'/>
+      <ref name='SVG.font-face.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.font-face' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <optional><attribute name='font-family' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='font-style' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='font-variant' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='font-weight' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='font-stretch' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='font-size' svg:animatable='false' svg:inheritable='true'/>
+    </optional>
+    <optional><attribute name='unicode-range' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='panose-1' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='widths' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='bbox' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='units-per-em' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='stemv' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='stemh' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='slope' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='cap-height' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='x-height' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='accent-height' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='ascent' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='descent' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='ideographic' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='alphabetic' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='mathematical' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='hanging' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='v-ideographic' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='v-alphabetic' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='v-mathematical' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='v-hanging' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='underline-position' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='underline-thickness' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='strikethrough-position' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='strikethrough-thickness' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='overline-position' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='overline-thickness' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+
+  <define name='SVG.glyph.class'>
+    <notAllowed/>
+  </define>
+
+  <define name='SVG.glyph.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name='SVG.glyph.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='glyph'>
+    <element name='glyph'>
+      <ref name='attlist.glyph'/>
+      <ref name='SVG.glyph.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.glyph' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <optional><attribute name='unicode' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='glyph-name' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='orientation' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional><attribute name='arabic-form' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='d' svg:animatable='false' svg:inheritable='false'>
+        <ref name='PathData.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='lang' svg:animatable='false' svg:inheritable='false'>
+        <ref name='LanguageCodes.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='horiz-adv-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-origin-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-origin-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-adv-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+
+  <define name='SVG.missing-glyph.class'>
+    <notAllowed/>
+  </define>
+
+  <define name='SVG.missing-glyph.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name='SVG.missing-glyph.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='missing-glyph'>
+    <element name='missing-glyph'>
+      <ref name='attlist.missing-glyph'/>
+      <ref name='SVG.missing-glyph.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.missing-glyph' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <optional>
+      <attribute name='d' svg:animatable='false' svg:inheritable='false'>
+        <ref name='PathData.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='horiz-adv-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-origin-x' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-origin-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='vert-adv-y' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Number.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.hkern.content'>
+    <empty/>
+  </define>
+
+  <define name='hkern'>
+    <element name='hkern'>
+      <ref name='attlist.hkern'/>
+      <ref name='SVG.hkern.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.hkern' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <optional>
+      <attribute name='u1' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='g1' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='u2' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='g2' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <attribute name='k' svg:animatable='false' svg:inheritable='false'>
+      <ref name='Number.datatype'/>
+    </attribute>
+  </define>
+
+
+
+
+
+
+
+  <define name='SVG.font-face-src.content'>
+    <oneOrMore>
+      <choice>
+        <ref name='font-face-uri'/>
+        <ref name='font-face-name'/>
+      </choice>
+    </oneOrMore>
+  </define>
+
+  <define name='font-face-src'>
+    <element name='font-face-src'>
+      <ref name='attlist.font-face-src'/>
+      <ref name='SVG.font-face-src.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.font-face-src' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+  </define>
+
+
+
+
+
+
+  <define name='SVG.font-face-uri.content'>
+    <empty/>
+  </define>
+
+  <define name='font-face-uri'>
+    <element name='font-face-uri'>
+      <ref name='attlist.font-face-uri'/>
+      <ref name='SVG.font-face-uri.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.font-face-uri' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+  </define>
+
+
+
+
+
+
+  <define name='SVG.font-face-name.content'>
+    <empty/>
+  </define>
+
+  <define name='font-face-name'>
+    <element name='font-face-name'>
+      <ref name='attlist.font-face-name'/>
+      <ref name='SVG.font-face-name.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.font-face-name' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <optional>
+      <attribute name='name' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+  </define>
+
+</grammar>

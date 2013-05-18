@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:dita-ng:dita:rng:topic.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="urn:dita-ng:dita:rng:topic.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<topic id="topic_mlp_kkn_zj">
+  <title><sort-as class="+ topic/data ut-d/sort-as ">123</sort-as>Topic title</title>
+  <body>
+    <p>Topic paragraph</p>
+    <simpletable>
+      <strow>
+        <stentry><sort-as>A</sort-as>The Apple</stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

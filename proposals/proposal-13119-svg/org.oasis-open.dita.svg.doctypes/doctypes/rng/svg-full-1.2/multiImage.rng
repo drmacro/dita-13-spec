@@ -1,0 +1,202 @@
+<!-- ==============================================================
+      SVG12-RNG | multiImages
+     ============================================================== -->
+<grammar ns="http://www.w3.org/2000/svg" xml:lang="en" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:svg="http://www.w3.org/2000/svg" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="SVG.MultiImage.class" combine="choice">
+    <choice>
+      <ref name="multiImage"/>
+    </choice>
+  </define>
+  <define name="SVG.multiImage.content">
+    <zeroOrMore>
+      <ref name="SVG.Description.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="SVG.Animation.class"/>
+        <ref name="SVG.Handler.class"/>
+      </choice>
+    </zeroOrMore>
+    <!-- well its pointless without at least one, so lets be strict here -->
+    <oneOrMore>
+      <choice>
+        <ref name="SVG.subImageRef.class"/>
+        <ref name="SVG.subImage.class"/>
+      </choice>
+    </oneOrMore>
+  </define>
+  <define name="multiImage">
+    <element name="multiImage">
+      <ref name="attlist.multiImage"/>
+      <ref name="SVG.multiImage.content"/>
+    </element>
+  </define>
+  <define name="attlist.multiImage" combine="interleave">
+    <ref name="SVG.Core.attrib"/>
+    <ref name="SVG.Conditional.attrib"/>
+    <ref name="SVG.Style.attrib"/>
+    <ref name="SVG.Viewport.attrib"/>
+    <ref name="SVG.Color.attrib"/>
+    <ref name="SVG.Opacity.attrib"/>
+    <ref name="SVG.Graphics.attrib"/>
+    <ref name="SVG.Focusable.attrib"/>
+    <ref name="SVG.Profile.attrib"/>
+    <ref name="SVG.Clip.attrib"/>
+    <ref name="SVG.Mask.attrib"/>
+    <ref name="SVG.Compositing.attrib"/>
+    <ref name="SVG.Filter.attrib"/>
+    <ref name="SVG.Tooltip.attrib"/>
+    <ref name="SVG.GraphicalEvents.attrib"/>
+    <ref name="SVG.Cursor.attrib"/>
+    <!-- compared with image, does not have its own links - only children have links
+    <ref name="SVG.XLinkEmbed.attrib"/>
+    -->
+    <ref name="SVG.External.attrib"/>
+    <ref name="SVG.Transition.attrib"/>
+    <ref name="SVG.BackgroundFill.attrib"/>
+    <ref name="SVG.ShadowInherit.attrib"/>
+    <optional>
+      <attribute name="begin" svg:animatable="true" svg:inheritable="false"/>
+    </optional>
+    <optional>
+      <attribute name="end" svg:animatable="true" svg:inheritable="false"/>
+    </optional>
+    <optional>
+      <attribute name="x" svg:animatable="true" svg:inheritable="false">
+        <ref name="Coordinate.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="y" svg:animatable="true" svg:inheritable="false">
+        <ref name="Coordinate.datatype"/>
+      </attribute>
+    </optional>
+    <attribute name="width" svg:animatable="true" svg:inheritable="false">
+      <ref name="Length.datatype"/>
+    </attribute>
+    <attribute name="height" svg:animatable="true" svg:inheritable="false">
+      <ref name="Length.datatype"/>
+    </attribute>
+    <!-- no ref so no content type
+    <optional>
+      <attribute name="type" svg:animatable="false" svg:inheritable="false">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    -->
+    <optional>
+      <attribute name="preserveAspectRatio" a:defaultValue="xMidYMid meet" svg:animatable="false" svg:inheritable="false">
+        <ref name="PreserveAspectRatioSpec.datatype"/>
+      </attribute>
+    </optional>
+    <ref name="SVG.transform.attrib"/>
+  </define>
+  <!--
+    subImageRef
+-->
+  <define name="SVG.subImageRef.class" combine="choice">
+    <choice>
+      <ref name="subImageRef"/>
+    </choice>
+  </define>
+  <define name="SVG.subImageRef.content">
+    <zeroOrMore>
+      <ref name="SVG.Description.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="SVG.Animation.class"/>
+        <ref name="SVG.Handler.class"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="subImageRef">
+    <element name="subImageRef">
+      <ref name="attlist.subImageRef"/>
+      <ref name="SVG.subImageRef.content"/>
+    </element>
+  </define>
+  <define name="attlist.subImageRef" combine="interleave">
+    <ref name="SVG.Core.attrib"/>
+    <ref name="SVG.Conditional.attrib"/>
+    <ref name="SVG.Style.attrib"/>
+    <!--  subImageRef does not establish a viewport
+    <ref name="SVG.Viewport.attrib"/>
+    -->
+    <ref name="SVG.Color.attrib"/>
+    <ref name="SVG.Opacity.attrib"/>
+    <ref name="SVG.Graphics.attrib"/>
+    <ref name="SVG.Focusable.attrib"/>
+    <ref name="SVG.Profile.attrib"/>
+    <ref name="SVG.Clip.attrib"/>
+    <ref name="SVG.Mask.attrib"/>
+    <ref name="SVG.Compositing.attrib"/>
+    <ref name="SVG.Filter.attrib"/>
+    <ref name="SVG.Tooltip.attrib"/>
+    <ref name="SVG.GraphicalEvents.attrib"/>
+    <ref name="SVG.Cursor.attrib"/>
+    <ref name="SVG.XLinkEmbed.attrib"/>
+    <ref name="SVG.External.attrib"/>
+    <ref name="SVG.Transition.attrib"/>
+    <ref name="SVG.BackgroundFill.attrib"/>
+    <ref name="SVG.ShadowInherit.attrib"/>
+    <!-- added the two attributes that control which subImageRef is used -->
+    <optional>
+      <attribute name="min-pixel-size" svg:animatable="true" svg:inheritable="false">
+        <ref name="Numbers.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="max-pixel-size" svg:animatable="true" svg:inheritable="false">
+        <ref name="Numbers.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="begin" svg:animatable="true" svg:inheritable="false"/>
+    </optional>
+    <optional>
+      <attribute name="end" svg:animatable="true" svg:inheritable="false"/>
+    </optional>
+    <optional>
+      <attribute name="type" svg:animatable="false" svg:inheritable="false">
+        <ref name="ContentType.datatype"/>
+      </attribute>
+    </optional>
+    <!-- removed x y width height -->
+    <!-- no transform
+    <ref name="SVG.transform.attrib"/>
+    -->
+  </define>
+  <!--
+  subImage
+  -->
+  <define name="SVG.subImage.class" combine="choice">
+    <choice>
+      <ref name="subImage"/>
+    </choice>
+  </define>
+  <define name="subImage">
+    <!-- subImage is basically a group but with min- and max-pixel-size-->
+    <element name="subImage">
+      <ref name="SVG.g.content"/>
+      <ref name="attlist.g"/>
+      <!-- added the two attributes that control which subImage is used -->
+      <optional>
+        <attribute name="min-pixel-size" svg:animatable="true" svg:inheritable="false">
+          <ref name="Numbers.datatype"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="max-pixel-size" svg:animatable="true" svg:inheritable="false">
+          <ref name="Numbers.datatype"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+  <!-- should probably do min-pixel-size and max-pixel-size here instead -->
+  <!--
+  <define name="SVG.minmaxpix.class">
+   stuff
+  </define>
+  -->
+</grammar>

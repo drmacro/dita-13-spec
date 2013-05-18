@@ -1,0 +1,498 @@
+<!-- ==============================================================
+      SVG12-RNG | Basic Structure
+     ============================================================== -->
+<grammar ns='http://www.w3.org/2000/svg' xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'>
+
+  <start>
+    <!-- <ref name='svg-rootMost'/> -->
+    <ref name='svg'/>
+  </start>
+
+  <define name='SVG.Profile.class'        ><notAllowed/></define>
+  <define name='SVG.Pattern.class'        ><notAllowed/></define>
+  <define name='SVG.Clip.class'           ><notAllowed/></define>
+  <define name='SVG.Mask.class'           ><notAllowed/></define>
+  <define name='SVG.Filter.class'         ><notAllowed/></define>
+  <define name='SVG.VectorEffect.class'   ><notAllowed/></define>
+  <define name='SVG.Cursor.class'         ><notAllowed/></define>
+  <define name='SVG.Marker.class'         ><notAllowed/></define>
+  <define name='SVG.View.class'           ><notAllowed/></define>
+  <define name='SVG.Script.class'         ><notAllowed/></define>
+  <define name='SVG.XMLEvents.class'      ><notAllowed/></define>
+  <define name='SVG.Font.class'           ><notAllowed/></define>
+  <define name='SVG.Extensibility.class'  ><notAllowed/></define>
+  <define name='SVG.Conditional.class'    ><notAllowed/></define>
+  <define name='SVG.Image.class'          ><notAllowed/></define>
+  <define name='SVG.MultiImage.class'     ><notAllowed/></define>
+  <define name='SVG.Style.class'          ><notAllowed/></define>
+  <define name='SVG.Shape.class'          ><notAllowed/></define>
+  <define name='SVG.Text.class'           ><notAllowed/></define>
+  <define name='SVG.Hyperlink.class'      ><notAllowed/></define>
+  <define name='SVG.Animation.class'      ><notAllowed/></define>
+  <define name='SVG.Transition.class'     ><notAllowed/></define>
+  <define name='SVG.DeviceColor.class'    ><notAllowed/></define>
+
+  <define name='SVG.Viewport.attrib'        ><empty/></define>
+  <define name='SVG.Text.attrib'            ><empty/></define>
+  <define name='SVG.TextContent.attrib'     ><empty/></define>
+  <define name='SVG.Opacity.attrib'         ><empty/></define>
+  <define name='SVG.Marker.attrib'          ><empty/></define>
+  <define name='SVG.Profile.attrib'         ><empty/></define>
+  <define name='SVG.Gradient.attrib'        ><empty/></define>
+  <define name='SVG.Clip.attrib'            ><empty/></define>
+  <define name='SVG.Mask.attrib'            ><empty/></define>
+  <define name='SVG.Filter.attrib'          ><empty/></define>
+  <define name='SVG.Compositing.attrib'     ><empty/></define>
+  <define name='SVG.FilterColor.attrib'     ><empty/></define>
+  <define name='SVG.Cursor.attrib'          ><empty/></define>
+  <define name='SVG.External.attrib'        ><empty/></define>
+  <define name='SVG.Conditional.attrib'     ><empty/></define>
+  <define name='SVG.Color.attrib'           ><empty/></define>
+  <define name='SVG.Paint.attrib'           ><empty/></define>
+  <define name='SVG.Graphics.attrib'        ><empty/></define>
+  <define name='SVG.DocumentEvents.attrib'  ><empty/></define>
+  <define name='SVG.GraphicalEvents.attrib' ><empty/></define>
+  <define name='SVG.onload.attrib'          ><empty/></define>
+  <define name='SVG.AnimationEvents.attrib' ><empty/></define>
+  <define name='SVG.XLink.attrib'           ><empty/></define>
+  <define name='SVG.XLinkRequired.attrib'   ><empty/></define>
+  <define name='SVG.XLinkEmbed.attrib'      ><empty/></define>
+  <define name='SVG.XLinkReplace.attrib'    ><empty/></define>
+  <define name='SVG.Style.attrib'           ><empty/></define>
+  <define name='SVG.Font.attrib'            ><empty/></define>
+  <define name='SVG.Transition.attrib'      ><empty/></define>
+  <define name='SVG.ShadowInherit.attrib'   ><empty/></define>
+  <define name='SVG.Tooltip.attrib'         ><empty/></define>
+
+
+  <define name='SVG.Description.class'>
+    <choice>
+      <ref name='desc'/>
+      <ref name='title'/>
+      <ref name='metadata'/>
+    </choice>
+  </define>
+
+  <define name='SVG.Use.class'>
+    <choice>
+      <ref name='use'/>
+    </choice>
+  </define>
+
+  <define name='SVG.Structure.class'>
+    <choice>
+      <ref name='svg'/>
+      <ref name='g'/>
+      <ref name='defs'/>
+      <ref name='SVG.Use.class'/>
+    </choice>
+  </define>
+
+  <define name='SVG.Presentation.attrib'>
+    <ref name='SVG.Text.attrib'/>
+    <ref name='SVG.TextContent.attrib'/>
+    <ref name='SVG.Font.attrib'/>
+    <ref name='SVG.Paint.attrib'/>
+    <ref name='SVG.VectorEffect.attrib'/>
+    <ref name='SVG.Color.attrib'/>
+    <ref name='SVG.Opacity.attrib'/>
+    <ref name='SVG.Graphics.attrib'/>
+    <ref name='SVG.Marker.attrib'/>
+    <ref name='SVG.Profile.attrib'/>
+    <ref name='SVG.Gradient.attrib'/>
+    <ref name='SVG.Clip.attrib'/>
+    <ref name='SVG.Compositing.attrib'/>
+    <ref name='SVG.Mask.attrib'/>
+    <ref name='SVG.Filter.attrib'/>
+    <ref name='SVG.FilterColor.attrib'/>
+    <ref name='SVG.Cursor.attrib'/>
+  </define>
+
+  <define name='SVG.svg.content'>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Description.class'/>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+        <ref name='SVG.Structure.class'/>
+        <ref name='SVG.Conditional.class'/>
+        <ref name='SVG.Image.class'/>
+        <ref name='SVG.MultiImage.class'/>
+        <ref name='SVG.Audio.class'/>
+        <ref name='SVG.Video.class'/>
+        <ref name='SVG.Style.class'/>
+        <ref name='SVG.Shape.class'/>
+        <ref name='SVG.Text.class'/>
+        <ref name='SVG.FlowText.class'/>
+        <ref name='SVG.Marker.class'/>
+        <ref name='SVG.Profile.class'/>
+        <ref name='SVG.Gradient.class'/>
+        <ref name='SVG.Transition.class'/>
+        <ref name='SVG.SolidColor.class'/>
+        <ref name='SVG.DeviceColor.class'/>
+        <ref name='SVG.Pattern.class'/>
+        <ref name='SVG.Clip.class'/>
+        <ref name='SVG.Mask.class'/>
+        <ref name='SVG.Filter.class'/>
+        <ref name='SVG.VectorEffect.class'/>
+        <ref name='SVG.Cursor.class'/>
+        <ref name='SVG.Hyperlink.class'/>
+        <ref name='SVG.View.class'/>
+        <ref name='SVG.Script.class'/>
+        <ref name='SVG.XMLEvents.class'/>
+        <ref name='SVG.Font.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='svg'>
+    <element name='svg'>
+      <ref name='attlist.svg'/>
+      <ref name='SVG.svg.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.svg' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Viewport.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.DocumentEvents.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.BackgroundFill.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <optional>
+      <attribute name='x' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='width' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Length.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='height' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Length.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='viewBox' svg:animatable='true' svg:inheritable='false'>
+        <ref name='ViewBoxSpec.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='preserveAspectRatio' a:defaultValue='xMidYMid meet' svg:animatable='true' svg:inheritable='false'>
+        <ref name='PreserveAspectRatioSpec.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='zoomAndPan' a:defaultValue='magnify' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>disable</value>
+          <value>magnify</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='version' a:defaultValue='1.2' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value type='string'>1.0</value>
+          <value type='string'>1.1</value>
+          <value type='string'>1.2</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='baseProfile' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Text.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='contentScriptType' a:defaultValue='text/ecmascript' svg:animatable='false' svg:inheritable='false'>
+        <ref name='ContentType.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+  <define name='svg-rootMost'>
+    <element name='svg'>
+      <ref name='attlist.svg'/>
+      <optional>
+        <attribute name='snapShotTime' svg:animatable='false' svg:inheritable='false'/>
+      </optional>
+      <choice>
+        <ref name='SVG.svg.content'/>
+        <group>
+          <!-- if we have a pageSet, then we can't have random content -->
+          <zeroOrMore>
+            <choice>
+              <ref name='SVG.PageSet.class'/>
+              <ref name='SVG.Description.class'/>
+              <ref name='SVG.Animation.class'/>
+              <ref name='SVG.Handler.class'/>
+              <ref name='defs'/>
+              <ref name='SVG.Conditional.class'/>
+              <ref name='SVG.Style.class'/>
+              <ref name='SVG.Marker.class'/>
+              <ref name='SVG.Transition.class'/>
+              <ref name='SVG.Gradient.class'/>
+              <ref name='SVG.SolidColor.class'/>
+              <ref name='SVG.DeviceColor.class'/>
+              <ref name='SVG.Pattern.class'/>
+              <ref name='SVG.Clip.class'/>
+              <ref name='SVG.Mask.class'/>
+              <ref name='SVG.Filter.class'/>
+              <ref name='SVG.VectorEffect.class'/>
+              <ref name='SVG.Cursor.class'/>
+              <ref name='SVG.XMLEvents.class'/>
+              <ref name='SVG.View.class'/>
+              <ref name='SVG.Script.class'/>
+              <ref name='SVG.Font.class'/>
+            </choice>
+          </zeroOrMore>
+        </group>
+      </choice>
+    </element>
+  </define>
+
+
+  <define name='SVG.g.content'>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Description.class'/>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+        <ref name='SVG.Structure.class'/>
+        <ref name='SVG.Conditional.class'/>
+        <ref name='SVG.Image.class'/>
+        <ref name='SVG.MultiImage.class'/>
+        <ref name='SVG.Audio.class'/>
+        <ref name='SVG.Video.class'/>
+        <ref name='SVG.Style.class'/>
+        <ref name='SVG.Shape.class'/>
+        <ref name='SVG.Text.class'/>
+        <ref name='SVG.FlowText.class'/>
+        <ref name='SVG.Marker.class'/>
+        <ref name='SVG.Profile.class'/>
+        <ref name='SVG.Gradient.class'/>
+        <ref name='SVG.Transition.class'/>
+        <ref name='SVG.SolidColor.class'/>
+        <ref name='SVG.DeviceColor.class'/>
+        <ref name='SVG.Pattern.class'/>
+        <ref name='SVG.Clip.class'/>
+        <ref name='SVG.Mask.class'/>
+        <ref name='SVG.Filter.class'/>
+        <ref name='SVG.VectorEffect.class'/>
+        <ref name='SVG.Cursor.class'/>
+        <ref name='SVG.Hyperlink.class'/>
+        <ref name='SVG.View.class'/>
+        <ref name='SVG.Script.class'/>
+        <ref name='SVG.XMLEvents.class'/>
+        <ref name='SVG.Font.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+
+  <define name='g'>
+    <element name='g'>
+      <ref name='attlist.g'/>
+      <ref name='SVG.g.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.g' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+  </define>
+
+  <define name='SVG.defs.content'>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Description.class'/>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+        <ref name='SVG.Structure.class'/>
+        <ref name='SVG.Conditional.class'/>
+        <ref name='SVG.Image.class'/>
+        <ref name='SVG.MultiImage.class'/>
+        <ref name='SVG.Audio.class'/>
+        <ref name='SVG.Video.class'/>
+        <ref name='SVG.Style.class'/>
+        <ref name='SVG.Shape.class'/>
+        <ref name='SVG.Text.class'/>
+        <ref name='SVG.FlowText.class'/>
+        <ref name='SVG.Marker.class'/>
+        <ref name='SVG.Profile.class'/>
+        <ref name='SVG.Gradient.class'/>
+        <ref name='SVG.Transition.class'/>
+        <ref name='SVG.SolidColor.class'/>
+        <ref name='SVG.DeviceColor.class'/>
+        <ref name='SVG.Pattern.class'/>
+        <ref name='SVG.Clip.class'/>
+        <ref name='SVG.Mask.class'/>
+        <ref name='SVG.Filter.class'/>
+        <ref name='SVG.VectorEffect.class'/>
+        <ref name='SVG.Cursor.class'/>
+        <ref name='SVG.Hyperlink.class'/>
+        <ref name='SVG.View.class'/>
+        <ref name='SVG.Script.class'/>
+        <ref name='SVG.XMLEvents.class'/>
+        <ref name='SVG.Font.class'/>
+        <ref name='SVG.Prefetch.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='defs'>
+    <element name='defs'>
+      <ref name='attlist.defs'/>
+      <ref name='SVG.defs.content'/>
+    </element>
+  </define>
+
+
+  <define name='attlist.defs' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+  </define>
+
+  <define name='desc'>
+    <element name='desc'>
+      <ref name='attlist.desc'/>
+      <ref name='SVG.desc.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.desc' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+  </define>
+
+  <define name='SVG.desc.content'>
+    <choice>
+      <ref name='SVG.XLinkEmbed.attrib'/>
+      <text/>
+    </choice>
+  </define>
+
+  <define name='title'>
+    <element name='title'>
+      <ref name='attlist.title'/>
+      <ref name='SVG.title.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.title' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+  </define>
+
+  <define name='SVG.title.content'>
+    <choice>
+      <ref name='SVG.XLinkEmbed.attrib'/>
+      <text/>
+    </choice>
+  </define>
+
+  <define name='metadata'>
+    <element name='metadata'>
+      <ref name='attlist.metadata'/>
+      <ref name='SVG.metadata.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.metadata' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+  </define>
+
+  <define name='SVG.metadata.content'>
+    <choice>
+      <ref name='SVG.XLinkEmbed.attrib'/>
+      <text/>
+    </choice>
+  </define>
+
+  <define name='SVG.use.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='use'>
+    <element name='use'>
+      <ref name='attlist.use'/>
+      <ref name='SVG.use.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.use' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.XLinkEmbed.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Transition.attrib'/>
+    <ref name='SVG.ShadowInherit.attrib'/>
+    <optional>
+      <attribute name='x' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='width' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Length.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='height' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Length.datatype'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+  </define>
+</grammar>

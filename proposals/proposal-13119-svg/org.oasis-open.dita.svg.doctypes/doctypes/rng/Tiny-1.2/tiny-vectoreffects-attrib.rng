@@ -1,0 +1,31 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Vector Effects attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='VectorEffectAttrib.datatype'>
+    <choice>
+      <value>default</value>
+      <value>non-scaling-stroke</value>
+    </choice>
+  </define>
+
+  <define name='SVG.VectorEffect.attrib'>
+    <optional>
+      <attribute name='vector-effect' svg:animatable='true' svg:inheritable='false'>
+        <ref name='VectorEffectAttrib.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+</grammar>
+
+

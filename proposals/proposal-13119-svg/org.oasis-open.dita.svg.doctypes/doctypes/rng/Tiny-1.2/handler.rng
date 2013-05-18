@@ -1,0 +1,52 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Handler
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:ev='http://www.w3.org/2001/xml-events'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Handler.class'>
+    <choice>
+      <ref name='handler'/>
+    </choice>
+  </define>
+
+
+  <define name='handler'>
+    <element name='handler'>
+      <ref name='attlist.handler'/>
+      <ref name='SVG.handler.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.handler' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <attribute name='ev:event' svg:animatable='false' svg:inheritable='false'>
+      <choice>
+        <data type='NMTOKEN'/>
+        <data type='QName'/>
+      </choice>
+    </attribute>
+    <attribute name='type' svg:animatable='false' svg:inheritable='false'>
+      <ref name='ContentType.datatype'/>
+    </attribute>
+  </define>
+
+  <define name='SVG.handler.content'>
+    <choice>
+      <group>
+        <ref name='SVG.XLinkRequired.attrib'/>
+      </group>
+      <text/>
+    </choice>
+  </define>
+
+</grammar>

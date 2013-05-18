@@ -1,0 +1,87 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Style
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='ClassList.datatype'>
+    <data type='NMTOKENS'/>
+  </define>
+
+  <define name='StyleSheet.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='MediaDesc.datatype'>
+    <data type='string'/>
+  </define>
+
+
+
+
+
+  <define name='SVG.Style.attrib' combine='interleave'>
+    <optional>
+      <attribute name='style'>
+        <ref name='StyleSheet.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='class'>
+        <ref name='ClassList.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.Style.class' combine='choice'>
+    <choice>
+      <ref name='style'/>
+    </choice>
+  </define>
+
+
+
+
+  <define name='style'>
+    <element name='style'>
+      <ref name='attlist.style'/>
+      <ref name='SVG.style.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.style' combine='interleave'>
+    <ref name='SVG.CorePreserve.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <attribute name='type'>
+      <ref name='ContentType.datatype'/>
+    </attribute>
+    <optional>
+      <attribute name='media'>
+        <ref name='MediaDesc.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='title'>
+        <ref name='Text.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.style.content'>
+    <choice>
+      <ref name='SVG.XLinkRequired.attrib'/>
+      <text/>
+    </choice>
+  </define>
+
+</grammar>

@@ -6,9 +6,12 @@
 <shortdesc>Allow &lt;ph> within &lt;indexterm>.</shortdesc>
 <refbody>
 <section><title>Date and version information</title><p>Include the following information:<ul>
-     <li>Date completed: 2 Oct 2012</li>
+     <li>Date completed: 6 May 2013</li>
      <li>Champion: Eliot Kimber</li>
-     <li>Email: </li>
+     <li>Email: <xref
+          href="https://lists.oasis-open.org/archives/dita/201108/msg00010.html"
+          format="html"
+          scope="external">https://lists.oasis-open.org/archives/dita/201108/msg00010.html</xref></li>
     </ul></p></section>
 <section>
       <title>Original requirement</title>
@@ -69,7 +72,8 @@
             </ul></li>
         </ul>
       </p></section>
-<section><title>Technical requirements</title><p>Modify <filepath>commonElements.mod</filepath> to add "%ph;" to the content
+<section><title>Technical requirements</title>
+      <p><b>DTD declarations</b></p><p>Modify <filepath>commonElements.mod</filepath> to add "%ph;" to the content
         model for
         &lt;indexterm>:<codeblock>&lt;!--                    LONG NAME: Index Term                      -->
 &lt;!ENTITY % indexterm.content
@@ -101,7 +105,81 @@
                        "(%words.cnt; |
                          <b>%ph; |</b>
                          %indexterm;)*"
-></codeblock></p></section>
+></codeblock></p>
+      <p><b>RNG declarations</b></p>
+      <p>Modify commonElements.mod.rng to add "ph" to the content model for
+        &lt;indexterm>:<codeblock>  ...
+  &lt;define name="indexterm.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="words.cnt"/>
+        <b>&lt;ref name="ph"/></b>
+        &lt;ref name="indexterm"/>
+        &lt;ref name="index-base"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  ...</codeblock></p>
+      <p>Modify indexingDomain.mod.rng to add &lt;ph> to the content models for
+        &lt;index-see> and
+        &lt;index-see-also>:<codeblock>  ...  
+  &lt;define name="index-see.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="words.cnt"/>
+        <b>&lt;ref name="ph"/></b>
+        &lt;ref name="indexterm"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  ...
+  &lt;define name="index-see-also.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="words.cnt"/>
+        <b>&lt;ref name="ph"/></b>
+        &lt;ref name="indexterm"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  ...</codeblock></p>
+      <p><b>XSD Declarations</b></p>
+      <p>Modify commonElementMod.xsd to add &lt;ph> to the content model for
+        &lt;indexterm>:<codeblock>    ...
+	&lt;xs:group name="indexterm.content">
+		&lt;xs:sequence>
+			&lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+			  &lt;xs:group ref="words.cnt" minOccurs="0"/>
+			  <b>&lt;xs:group ref="ph" minOccurs="0"/></b>
+			  &lt;xs:group ref="indexterm" minOccurs="0"/>
+		      &lt;xs:group ref="index-base" minOccurs="0"/>
+			&lt;/xs:choice>
+		&lt;/xs:sequence>
+	&lt;/xs:group>
+    ...</codeblock></p>
+      <p>Modify indexingDomain.xsd to add &lt;ph> to the content models for
+        &lt;index-see> and
+        &lt;index-see-also>:<codeblock>  ...
+  &lt;xs:group name="index-see.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="words.cnt"/>
+        <b>&lt;xs:group ref="ph" minOccurs="0"/></b>
+        &lt;xs:group ref="indexterm"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  ...
+  &lt;xs:group name="index-sort-also.content">
+    &lt;xs:sequence>
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
+        &lt;xs:group ref="words.cnt"/>
+        <b>&lt;xs:group ref="ph" minOccurs="0"/></b>
+        &lt;xs:group ref="indexterm"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  ...</codeblock></p></section>
 <section><title>Examples</title><p>Index term with various typographic elements:</p>
       <codeblock>&lt;p>Many people consider Euler's identity, 
 &lt;i>e&lt;/i>&lt;sup>&lt;i>&amp;#x03c0;&lt;/i>&lt;i>i&lt;/i>&lt;/sup>+1=0,

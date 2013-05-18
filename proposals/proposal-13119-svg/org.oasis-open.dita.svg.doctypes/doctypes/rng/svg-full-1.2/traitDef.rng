@@ -1,0 +1,43 @@
+
+<!-- ==============================================================
+      SVG12-RNG | traitDef
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg' xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'>
+
+  <define name='SVG.TraitDef.class' combine='choice'>
+    <choice>
+      <ref name='traitDef'/>
+    </choice>
+  </define>
+
+  <define name='traitDef'>
+    <element name='traitDef'>
+      <ref name='attlist.traitDef'/>
+    </element>
+  </define>
+
+  <define name='attlist.traitDef' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <attribute name='name' svg:animatable='false' svg:inheritable='false'/>
+    <attribute name='namespace' svg:animatable='false' svg:inheritable='false'>
+      <ref name='URI.datatype'/>
+    </attribute>
+    <attribute name='valueType' svg:animatable='false' svg:inheritable='false'>
+      <choice>
+        <value>http://www.w3.org/2001/XMLSchema#string</value>
+        <value>http://www.w3.org/2001/XMLSchema#float</value>
+        <value>http://www.w3.org/2000/svg#SVGLength</value>
+        <value>http://www.w3.org/2000/svg#SVGMatrix</value>
+        <value>http://www.w3.org/2000/svg#SVGPath</value>
+        <value>http://www.w3.org/2000/svg#SVGRect</value>
+        <value>http://www.w3.org/2000/svg#SVGRGBColor</value>
+      </choice>
+    </attribute>
+  </define>
+
+</grammar>

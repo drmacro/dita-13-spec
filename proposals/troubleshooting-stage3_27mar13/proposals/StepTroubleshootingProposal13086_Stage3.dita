@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+"reference.dtd">
+<reference id="Feature13086_Stage3" xml:lang="en-us">
+<title>Stage 3 proposal: Feature 13086</title>
+<shortdesc>Proposal to add a new element to support a
+troubleshooting statement after the &lt;stepresult> element
+in a &lt;step> element in a task topic.</shortdesc>
+<refbody>
+<section><title>Champion</title><p>DITA Technical Communications
+Subcommittee.</p></section>
+<section><title>Tracking information</title>    
+<simpletable frame="all" relcolwidth="1.03* 1.0* 1.78*">
+<sthead>
+<stentry>Event</stentry>
+<stentry>Date</stentry>
+<stentry>Links</stentry>
+</sthead>
+<strow>
+<stentry>Stage 1 proposal accepted</stentry>
+<stentry>17 January 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal submitted</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46340/StepTroubleshootingProposal13086.html">https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46340/StepTroubleshootingProposal13086.html</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal discussed</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal approved</stentry>
+<stentry>26 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal submitted to reviewers</stentry>
+<stentry/>
+  <stentry>Thilo Buchholtz, Stan Doherty, Kris Eberlein, JoAnn Hackos, Eliot Kimber</stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal (this document) submitted</stentry>
+<stentry/>
+<stentry/>
+</strow>
+</simpletable></section>
+<section><title>Approved technical requirements</title><p>Add troubleshooting element
+to a step: There is often a need to include a troubleshooting statement
+in a task step, following the &lt;stepresult> element. The purpose of this
+"trouble" statement is to help the reader resolve any problems that may
+arise should their step result not match the result stated in the
+&lt;stepresult> section of the step.</p></section>
+<section><title>Use cases</title><p>There is often a need to include a
+troubleshooting statement in a task step, following the &lt;stepresult> element.
+The purpose of this "trouble" statement is to help the reader resolve
+any problems that may arise should their step result not match the
+result stated in the &lt;stepresult> section of the step. This use case
+helps the reader resolve a problem encountered while performing a
+specific step.</p></section>
+<section><title>Benefits</title><ul>
+<li>This addition will benefit writers who want to provide important
+troubleshooting information within a step right that the point of need
+by the users</li>
+<li>This enhancement will have a significant impact because key
+troubleshooting information will be called out and not be missed by
+users</li>
+<li>Many people will probably benefit from this feature</li>
+<li>This feature&#x2019;s utility will be comparable to that realized by
+the other semantic sub-elements available under step</li>
+</ul></section>
+<section><title>Dependencies or interrelated proposals</title><p>This change to &lt;step> does not depend
+on, or interact with, any other submitted proposals.
+However, three other proposals relating to troubleshooting semantics are also being
+considered. The Technical Communication Subcommittee will provide the text explaining the
+interrelationships of these elements and attributes with the set of three proposals.</p><dl
+compact="no">
+<dlentry>
+<dt>13096</dt>
+<dd>Troubleshooting section within &lt;taskbody>. Status: phase 3</dd>
+</dlentry>
+<dlentry>
+<dt>13097</dt>
+<dd>Troubleshooting topic. Status: phase 2</dd>
+</dlentry>
+<dlentry>
+<dt>13098</dt>
+<dd>Add an attribute value to the &lt;note> element's type attribute
+to distinguish troubleshooting information. Status: phase 3</dd>
+</dlentry>
+</dl></section>
+<section><title>Modified DTDs</title>
+<p>A new element named &lt;steptroubleshooting> will follow the %lt;stepresult> element as the optional last child of the &lt;step> element.
+The &lt;steptroubleshooting> element will not be availble in any other context. For example, the &lt;steptroubleshooting> will
+not be available in the &lt;substep> element or in the &lt;stepxmp> element. 
+The only DTD file affected is dtd.mod under technicalContent/dtd.</p>
+<p>See 
+<xref href="../Common/RevisedTaskModToImplement13086and13096.dita#RevisedTaskModToImplement13086and13096"
+>Modifications to task.mod</xref> for all necessary DTD changes.</p></section>
+<section><title>Modified specification documentation</title>
+<p>The specification impact is small.</p><simpletable
+relcolwidth="20* 40* 40*">
+<sthead>
+<stentry>Location</stentry>
+<stentry>Text in 1.2</stentry>
+<stentry>Proposed changes for 1.3</stentry>
+</sthead>
+<strow>
+<stentry>3.2.2.8 ditabase, task, machineryTask</stentry>
+<stentry>( (note or hazardstatement) (any number) then cmd then (choices or choicetable or info or itemgroup or stepxmp or substeps or tutorialinfo) (any number) then (stepresult) (optional) )</stentry>
+<stentry>( (note or hazardstatement) (any number) then cmd then (choices or choicetable or info or itemgroup or stepxmp or substeps or tutorialinfo) (any number) then (stepresult) (optional)<b> then (steptroubleshooting) (optional)</b> )</stentry>
+</strow>
+<strow>
+<stentry>3.2.2.8 learningContent</stentry>
+<stentry>( (note or lcInstructornote) (any number) then cmd then (choices or choicetable or info or itemgroup or stepxmp or substeps or tutorialinfo) (any number) then (stepresult) (optional)) </stentry>
+<stentry>( (note or lcInstructornote) (any number) then cmd then (choices or choicetable or info or itemgroup or stepxmp or substeps or tutorialinfo) (any number) then (stepresult) (optional)<b> then (steptroubleshoot) (optional)</b> ) </stentry>
+</strow>
+<strow>
+<stentry>3.2.2.13 ditabase, task, machineryTask</stentry>
+<stentry>( (note or hazardstatement) (any number) then cmd then (info or itemgroup or stepxmp or tutorialinfo) (any number) then (stepresult) (optional) )</stentry>
+<stentry>( (note or hazardstatement) (any number) then cmd then (info or itemgroup or stepxmp or tutorialinfo) (any number) then (stepresult) (optional)<b> then (steptroubleshooting) (optional)</b> )</stentry>
+</strow>
+<strow>
+<stentry>3.2.2.13 learningContent</stentry>
+<stentry>( (note or lcInstructornote) (any number) then cmd then (info or itemgroup or stepxmp or tutorialinfo) (any number) then (stepresult) (optional) ) </stentry>
+<stentry>( (note or lcInstructornote) (any number) then cmd then (info or itemgroup or stepxmp or tutorialinfo) (any number) then (stepresult) (optional)<b> then (steptroubleshoot) (optional)</b> ) </stentry>
+</strow>
+<strow><stentry>3.2.2.24.5 (new topic)</stentry>
+<stentry>N/A</stentry>
+<stentry>Add new topic <xref href="../langref/steptroubleshooting.dita#steptroubleshooting"/></stentry>
+</strow>
+<strow><stentry>commonNavLibraryTable.dita</stentry>
+<stentry>N/A</stentry>
+<stentry>Add new reference topic "contentmodel-steptroubleshooting"</stentry></strow>
+</simpletable></section>
+</refbody>
+</reference>

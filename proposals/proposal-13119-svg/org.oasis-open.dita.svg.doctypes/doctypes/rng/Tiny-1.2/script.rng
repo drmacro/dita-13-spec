@@ -1,0 +1,44 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Script
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Script.class' combine='choice'>
+    <choice>
+      <ref name='script'/>
+    </choice>
+  </define>
+
+
+  <define name='script'>
+    <element name='script'>
+      <ref name='attlist.script'/>
+      <ref name='SVG.script.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.script' combine='interleave'>
+    <ref name='SVG.CorePreserve.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <attribute name='type' svg:animatable='false' svg:inheritable='false'>
+      <ref name='ContentType.datatype'/>
+    </attribute>
+  </define>
+
+  <define name='SVG.script.content'>
+    <choice>
+      <ref name='SVG.XLinkRequired.attrib'/>
+      <text/>
+    </choice>
+  </define>
+
+</grammar>

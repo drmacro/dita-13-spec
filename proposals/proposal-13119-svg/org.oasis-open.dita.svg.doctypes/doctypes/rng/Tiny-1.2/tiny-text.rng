@@ -1,0 +1,195 @@
+<!-- ==============================================================
+      SVG12-RNG | Basic Text
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='FontFamilyValue.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='FontSizeValue.datatype'>
+    <data type='string'/>
+  </define>
+
+
+
+
+
+  <define name='SVG.Font.attrib' combine='interleave'>
+    <optional>
+      <attribute name='font-family' svg:animatable='false' svg:inheritable='true'>
+        <ref name='FontFamilyValue.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='font-size' svg:animatable='false' svg:inheritable='true'>
+        <ref name='FontSizeValue.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='font-style' svg:animatable='false' svg:inheritable='true'>
+        <choice>
+          <value>normal</value>
+          <value>italic</value>
+          <value>oblique</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='font-weight' svg:animatable='false' svg:inheritable='true'>
+        <choice>
+          <value>normal</value>
+          <value>bold</value>
+          <value>bolder</value>
+          <value>lighter</value>
+          <value>100</value>
+          <value>200</value>
+          <value>300</value>
+          <value>400</value>
+          <value>500</value>
+          <value>600</value>
+          <value>700</value>
+          <value>800</value>
+          <value>900</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+  <define name='SVG.Text.class' combine='choice'>
+    <choice>
+      <ref name='text'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.TextContent.class' combine='choice'>
+    <choice>
+      <ref name='tspan'/>
+      <ref name='SVG.Description.class'/>
+      <ref name='SVG.Animation.class'/>
+      <ref name='SVG.Handler.class'/>
+      <ref name='SVG.Hyperlink.class'/>
+      <text/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.text.content'>
+    <zeroOrMore>
+      <ref name='SVG.TextContent.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='text'>
+    <element name='text'>
+      <ref name='attlist.text'/>
+      <ref name='SVG.text.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.text' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.Editable.attrib'/>
+    <ref name='SVG.Font.attrib'/>
+    <ref name='SVG.Paint.attrib'/>
+    <ref name='SVG.VectorEffect.attrib'/>
+    <ref name='SVG.Color.attrib'/>
+    <ref name='SVG.Opacity.attrib'/>
+    <ref name='SVG.Graphics.attrib'/>
+    <ref name='SVG.Clip.attrib'/>
+    <ref name='SVG.Mask.attrib'/>
+    <ref name='SVG.Compositing.attrib'/>
+    <ref name='SVG.Filter.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.Cursor.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <optional>
+      <attribute name='x' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinates.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinates.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='rotate' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Numbers.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='text-anchor'>
+        <choice>
+          <value>start</value>
+          <value>middle</value>
+          <value>end</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+  </define>
+
+
+
+
+
+
+
+
+
+  <define name='SVG.tspan.content'>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name='tspan'/>
+        <ref name='animate'/>
+        <ref name='set'/>
+        <ref name='animateColor'/>
+        <ref name='SVG.Description.class'/>
+        <ref name='SVG.Hyperlink.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='tspan'>
+    <element name='tspan'>
+      <ref name='attlist.tspan'/>
+      <ref name='SVG.tspan.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.tspan' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Font.attrib'/>
+    <ref name='SVG.Paint.attrib'/>
+    <ref name='SVG.VectorEffect.attrib'/>
+    <ref name='SVG.Color.attrib'/>
+    <ref name='SVG.Opacity.attrib'/>
+    <ref name='SVG.Graphics.attrib'/>
+    <ref name='SVG.Cursor.attrib'/>
+  </define>
+
+
+
+</grammar>

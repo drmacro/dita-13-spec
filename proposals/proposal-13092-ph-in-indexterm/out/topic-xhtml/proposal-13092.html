@@ -25,11 +25,11 @@
 <div class="body refbody"><p class="shortdesc">Allow &lt;ph&gt; within &lt;indexterm&gt;.</p>
 
 <div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">Include the following information:<ul class="ul">
-     <li class="li">Date completed: 2 Oct 2012</li>
+     <li class="li">Date completed: 6 May 2013</li>
 
      <li class="li">Champion: Eliot Kimber</li>
 
-     <li class="li">Email: </li>
+     <li class="li">Email: <a class="xref" href="https://lists.oasis-open.org/archives/dita/201108/msg00010.html" target="_blank">https://lists.oasis-open.org/archives/dita/201108/msg00010.html</a></li>
 
     </ul>
 </div>
@@ -120,7 +120,9 @@
       </div>
 </div>
 
-<div class="section"><h2 class="title sectiontitle">Technical requirements</h2><div class="p">Modify <span class="ph filepath">commonElements.mod</span> to add "%ph;" to the content
+<div class="section"><h2 class="title sectiontitle">Technical requirements</h2>
+      <p class="p"><strong class="ph b">DTD declarations</strong></p>
+<div class="p">Modify <code class="filepath">commonElements.mod</code> to add "%ph;" to the content
         model for
         &lt;indexterm&gt;:<pre class="pre codeblock">&lt;!--                    LONG NAME: Index Term                      --&gt;
 &lt;!ENTITY % indexterm.content
@@ -131,7 +133,7 @@
 &gt;</pre>
 </div>
 
-      <div class="p">Modify <span class="ph filepath">indexingDomain.dom</span> to add "%ph;" to the
+      <div class="p">Modify <code class="filepath">indexingDomain.dom</code> to add "%ph;" to the
         content models for &lt;index-see&gt; and
         &lt;index-see-also&gt;:<pre class="pre codeblock">&lt;!--                    LONG NAME: Index See                       --&gt;
 &lt;!ENTITY % index-see.content
@@ -155,6 +157,90 @@
                          <strong class="ph b">%ph; |</strong>
                          %indexterm;)*"
 &gt;</pre>
+</div>
+
+      <p class="p"><strong class="ph b">RNG declarations</strong></p>
+
+      <div class="p">Modify commonElements.mod.rng to add "ph" to the content model for
+        &lt;indexterm&gt;:<pre class="pre codeblock">  ...
+  &lt;define name="indexterm.content"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;ref name="words.cnt"/&gt;
+        <strong class="ph b">&lt;ref name="ph"/&gt;</strong>
+        &lt;ref name="indexterm"/&gt;
+        &lt;ref name="index-base"/&gt;
+      &lt;/choice&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  ...</pre>
+</div>
+
+      <div class="p">Modify indexingDomain.mod.rng to add &lt;ph&gt; to the content models for
+        &lt;index-see&gt; and
+        &lt;index-see-also&gt;:<pre class="pre codeblock">  ...  
+  &lt;define name="index-see.content"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;ref name="words.cnt"/&gt;
+        <strong class="ph b">&lt;ref name="ph"/&gt;</strong>
+        &lt;ref name="indexterm"/&gt;
+      &lt;/choice&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  ...
+  &lt;define name="index-see-also.content"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;ref name="words.cnt"/&gt;
+        <strong class="ph b">&lt;ref name="ph"/&gt;</strong>
+        &lt;ref name="indexterm"/&gt;
+      &lt;/choice&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  ...</pre>
+</div>
+
+      <p class="p"><strong class="ph b">XSD Declarations</strong></p>
+
+      <div class="p">Modify commonElementMod.xsd to add &lt;ph&gt; to the content model for
+        &lt;indexterm&gt;:<pre class="pre codeblock">    ...
+	&lt;xs:group name="indexterm.content"&gt;
+		&lt;xs:sequence&gt;
+			&lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+			  &lt;xs:group ref="words.cnt" minOccurs="0"/&gt;
+			  <strong class="ph b">&lt;xs:group ref="ph" minOccurs="0"/&gt;</strong>
+			  &lt;xs:group ref="indexterm" minOccurs="0"/&gt;
+		      &lt;xs:group ref="index-base" minOccurs="0"/&gt;
+			&lt;/xs:choice&gt;
+		&lt;/xs:sequence&gt;
+	&lt;/xs:group&gt;
+    ...</pre>
+</div>
+
+      <div class="p">Modify indexingDomain.xsd to add &lt;ph&gt; to the content models for
+        &lt;index-see&gt; and
+        &lt;index-see-also&gt;:<pre class="pre codeblock">  ...
+  &lt;xs:group name="index-see.content"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+        &lt;xs:group ref="words.cnt"/&gt;
+        <strong class="ph b">&lt;xs:group ref="ph" minOccurs="0"/&gt;</strong>
+        &lt;xs:group ref="indexterm"/&gt;
+      &lt;/xs:choice&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:group&gt;
+  ...
+  &lt;xs:group name="index-sort-also.content"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+        &lt;xs:group ref="words.cnt"/&gt;
+        <strong class="ph b">&lt;xs:group ref="ph" minOccurs="0"/&gt;</strong>
+        &lt;xs:group ref="indexterm"/&gt;
+      &lt;/xs:choice&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:group&gt;
+  ...</pre>
 </div>
 </div>
 

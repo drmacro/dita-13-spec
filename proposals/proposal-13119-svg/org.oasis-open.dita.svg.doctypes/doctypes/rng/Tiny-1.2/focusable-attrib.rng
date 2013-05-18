@@ -1,0 +1,42 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Focusable attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.focusable.attrib'>
+    <optional>
+      <attribute name='focusable' a:defaultValue='auto' svg:animatable='true' svg:inheritable='false'>
+        <choice>
+          <ref name='Boolean.datatype'/>
+          <value>auto</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.nav-index.attrib'>
+    <optional>
+      <attribute name='nav-index' a:defaultValue='auto' svg:animatable='true' svg:inheritable='explicit'>
+        <choice>
+          <ref name='Integer.datatype'/>
+          <value>auto</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Focusable.attrib' combine='interleave'>
+    <ref name='SVG.focusable.attrib'/>
+    <ref name='SVG.nav-index.attrib'/>
+  </define>
+
+</grammar>

@@ -1,0 +1,119 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Datatypes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='Boolean.datatype'>
+    <choice>
+      <value>false</value>
+      <value>true</value>
+    </choice>
+  </define>
+
+  <define name='ClipFillRule.datatype'>
+    <choice>
+      <value>nonzero</value>
+      <value>evenodd</value>
+      <value>inherit</value>
+    </choice>
+  </define>
+
+  <define name='ContentType.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Coordinate.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Coordinates.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Color.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Integer.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='LanguageCode.datatype'>
+    <data type='language'/>
+  </define>
+
+  <define name='LanguageCodes.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Length.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Lengths.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Number.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Numbers.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='NumberOrPercentage.datatype'>
+    <data type='string'/>
+  </define>
+
+
+  <define name='OpacityValue.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='PathData.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='PreserveAspectRatioSpec.datatype'>
+    <data type='string'>
+      <!--
+      <param name='pattern'>\s*(none|xMidYMid)\s*(meet)?\s*</param>
+      -->
+      <param name='pattern'>\s*(none|xMinYMin|xMidYMin|xMaxYMin|xMinYMid|xMidYMid|xMaxYMid|xMinYMax|xMidYMax|xMaxYMax)\s*(meet|slice)?\s*</param>
+    </data>
+  </define>
+
+  <define name='Script.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='SVGColor.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='Text.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='TransformList.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='URI.datatype'>
+    <data type='anyURI'/>
+  </define>
+
+  <define name='ViewBoxSpec.datatype'>
+    <data type='string'/>
+  </define>
+
+</grammar>

@@ -1,0 +1,149 @@
+<!-- ==============================================================
+      SVG12-RNG | Tiny Flow
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.FlowText.class'>
+    <choice>
+      <ref name='flowRoot'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.flowalign.attlist' combine='interleave'>
+    <optional>
+      <attribute name='text-align' svg:animatable='true' svg:inheritable='true'/>
+      <attribute name='display-align' svg:animatable='true' svg:inheritable='true'/>
+    </optional>
+  </define>
+
+
+  <define name='flowRoot'>
+    <element name='flowRoot'>
+      <ref name='attlist.flowRoot'/>
+      <ref name='SVG.flowRoot.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowRoot' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.flowalign.attlist'/>
+  </define>
+
+  <define name='SVG.flowRoot.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <ref name='SVG.flowRoot.class'/>
+  </define>
+
+  <define name='SVG.flowRoot.class'>
+    <ref name='flowRegion'/>
+    <zeroOrMore>
+      <ref name='SVG.moreFlowRegions.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name='flowPara'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='SVG.moreFlowRegions.class'>
+    <notAllowed/>
+  </define>
+
+
+
+
+  <define name='flowRegion'>
+    <element name='flowRegion'>
+      <ref name='attlist.flowRegion'/>
+      <ref name='SVG.flowRegion.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowRegion' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+  </define>
+
+  <define name='SVG.flowRegion.content'>
+    <ref name='SVG.flowRegion.class'/>
+  </define>
+
+  <define name='SVG.flowRegion.class'>
+    <ref name='rect'/>
+  </define>
+
+
+
+
+
+  <define name='flowPara'>
+    <element name='flowPara'>
+      <ref name='attlist.flowPara'/>
+      <ref name='SVG.flowPara.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowPara' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.Editable.attrib'/>
+    <ref name='SVG.flowalign.attlist'/>
+  </define>
+
+  <define name='SVG.flowPara.content'>
+    <zeroOrMore>
+      <ref name='SVG.flowPara.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='SVG.flowPara.class'>
+    <choice>
+      <ref name='flowSpan'/>
+      <text/>
+    </choice>
+  </define>
+
+
+
+
+
+  <define name='flowSpan'>
+    <element name='flowSpan'>
+      <ref name='attlist.flowSpan'/>
+      <ref name='SVG.flowSpan.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowSpan' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+  </define>
+
+  <define name='SVG.flowSpan.content'>
+    <zeroOrMore>
+      <ref name='SVG.flowSpan.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='SVG.flowSpan.class'>
+    <choice>
+      <ref name='flowSpan'/>
+      <text/>
+    </choice>
+  </define>
+
+
+</grammar>

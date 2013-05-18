@@ -3,8 +3,9 @@
  "reference.dtd">
 <reference id="IssueNumber00" xml:lang="en-us">
 <title>DITA 1.3 proposed feature #13010</title>
-<shortdesc>Provides an element that specifies the string on which its associated
-    element should be sorted. Analogous to &lt;index-sort-as>.</shortdesc>
+<shortdesc>Provides an element that specifies the string ("sort phrase") on
+    which its associated element should be sorted. Analogous to
+    &lt;index-sort-as>.</shortdesc>
 <refbody>
 <section><title>Date and version information</title><p>Include the following information:<ul>
      <li>Completion date: June 2012</li>
@@ -14,6 +15,15 @@
             id="ul_sky_f2c_vh">
             <li>Resolved TBD for affected topics</li>
             <li>Corrected a typo</li>
+            </ul></li>
+          <li>27 April 2013:<ul
+            id="ul_f35_kqn_zj">
+            <li>Added RelaxNG declarations</li>
+            <li>Refined discussion of specific element types to which
+              &lt;sort-as> applies</li>
+            <li>Refined discussion of when &lt;sort-as> applies</li>
+            <li>Use term "sort phrase" rather than "sort key" to be consistent
+              with existing &lt;index-sort-as> terminology.</li>
             </ul></li>
           </ul></li>
      <li>Champion: Eliot Kimber</li>
@@ -96,7 +106,9 @@
             take sort keys into account when doing sorting.</li>
           <li>XML editors will need to allow authoring of the new element type.
             The element type should not require any particular additional
-            support in the editor.</li>
+            support in the editor.<p>XML editors may choose to reflect or enable
+            sorting within the editor, e.g., for tables or definition
+            lists.</p></li>
           </ul></li>
      <li>DITA community-at-large:<ul
           id="ul_j1j_n1n_ng">
@@ -107,20 +119,27 @@
             not add to the perception of complexity.</li>
           </ul></li>
     </ul></p></section>
-<section><title>Technical requirements</title><p>Provide a detailed description of how the solution will work. Be sure to include the following details:<dl>
-        <dlentry>
-          <dt>Element</dt>
-          <dd>
-            <p>Define a new element type, &lt;sort-as>, specialized from
-              &lt;data>,  to the utilities domain, declared like
-              so:<codeblock>&lt;!ENTITY % sort-as.content
+<section><title>Technical requirements</title><p>
+        <dl>
+          <dlentry>
+            <dt>Element</dt>
+            <dd>
+              <p>Define a new element type, &lt;sort-as>, specialized from
+                &lt;data>, to the utilities domain, declared like so:<fig>
+                <title>DTD Declarations</title>
+                <codeblock>&lt;!ENTITY % sort-as.content
   (#PCDATA |
    %text; |
    %keyword;)*
 >
 &lt;!ENTITY % sort-as.attributes
-  "%data-element-atts;
-  "
+             "%univ-atts;
+              name 
+                        CDATA 
+                                  #IMPLIED
+              value 
+                        CDATA 
+                                  #IMPLIED"
 >
 &lt;!ELEMENT sort-as
   %sort-as.content;
@@ -130,86 +149,164 @@
 >
 
 &lt;!ATTLIST sort-as   %global-atts;  class CDATA "+ topic/data ut-d/sort-as "    >
-</codeblock></p>
-            <p>The &lt;sort-as> element defines the string ("sort key") by which
-              the containing element should be sorted or grouped (or the nearest
-              ancestor to which sorting or grouping will be applied). The sort
-              key may be specified in the @value attribute or in the content of
-              &lt;sort-as>.</p>
-            <p>The &lt;text> and &lt;keyword> elements are allowed in order to
-              enable content referencing for specifying the sort phrase. If
-              &lt;keyword> is used within &lt;sort-as>, it may get its effective
-              value via @keyref in order to set the sort phrase value. If a
-              &lt;keyword> uses @keyref and would otherwise also act as a
-              navigation link, the link aspect of the &lt;keyword> element is
-              ignored.</p>
-            <p>For topics, the &lt;sort-as> element may be included directly in
-              &lt;title>, &lt;searchtitle>, or &lt;navtitle> when the different
-              forms of title need different sort phrases or, if the sort phrase
-              is common to all titles, within the topic's prolog. </p>
-            <p>For &lt;glossentry>, the &lt;sort-as> element may be included
-              directly in &lt;glossterm> or within &lt;prolog> as for other
-              topics.</p>
-            <p>For topic references, the &lt;sort-as> element may be included
-              directly in the &lt;navtitle> or &lt;title> element within
-              &lt;topicmeta> or as a child of &lt;topicmeta>.</p>
-            <p>For definition list items, the &lt;sort-as> should be included in
-              the &lt;dt> element.</p>
-            <p>TBD: Other special cases we need to account for?</p>
-            <p>For other elements, the &lt;sort-as> element should be specified
-              as a child of the element that contains the &lt;title> element (or
-              otherwise determines the presentation title, where there is no
-              literal title in the DITA source). </p>
-          </dd>
-        </dlentry>
-     <dlentry>
-      <dt>Processing</dt>
-          <dd>
-            <p>Processors may choose to sort any elements for any reason. Common
-              sort processing include glossary entries sorted to produce
-              automatically-generated or automatically-sorted glossary lists,
-              lists of parameters or reference entries in custom navigation
-              structures, and so on.</p>
-            <p>The details of sorting and grouping are necessarily
-              implementation specific. Processors may provide any mechanism for
-              defining or configuring collation and grouping details. Even where
-              &lt;sort-as> has been specified two processors may produce
-              different sorted and grouped results because they may use
-              different collation and grouping rules. For example, one processor
-              may be configured to sort English terms before non-English terms,
-              another may be configured to sort them after.</p>
-            <p>When sorting elements, each element to be sorted must have some
-              inherent text on which it will be sorted in the absence of a
-              &lt;sort-as> value. This text may be literal content in the DITA
-              XML source or may be generated or constructed based on the
-              semantics of the element involved (for example, it may be
-              constructed from various attribute or metadata values). This text
-              is the "base sort key" for the element. For elements with explicit
-              or implicit titles, such as topics, figures, tables, and sections,
-              the base sort key would normally be the title. Processors that do
-              sorting should clearly document how the base sort key is
-              determined for a given element type for which sorting is provided
-              where the base sort key is not the title content (for elements
-              that have titles).</p>
-            <p>When &lt;sort-as> is specified, processors must construct the
-              effective sort key by prepending the &lt;sort-as> sort key to the
-              base sort key. This ensures that two items with the same sort-as
-              key but different base sort keys will sort in the appropriate
-              order.</p>
-            <note
-              othertype="example">For example, if the title of a topic is "24
-              Hour Support Hotline" and the value of the &lt;sort-as> element is
-              "twenty-four hour", then the effective sort key would be
-              "twenty-four hour24 Hour Support Hotline".</note>
-          </dd>
-     </dlentry>
-     <dlentry>
-      <dt>Overall usability</dt>
-      <dd>This proposal allows users to include &lt;sort-as> anywhere it might
-            be necessary in order to facilitate correct sorting and grouping of
-            content sorted for any purpose.</dd>
-     </dlentry>
-    </dl></p></section>
+</codeblock>
+                </fig><fig>
+                <title>RelaxNG Declarations</title>
+                <codeblock>  &lt;!-- LONG NAME: Sort Key -->
+  &lt;define name="sort-as.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;text/>
+        &lt;ref name="keyword"/>
+        &lt;ref name="text"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="sort-as.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="value"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data ut-d/sort-as "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="sort-as.element">
+    &lt;element name="sort-as">
+      &lt;a:documentation>The sort-as element provides the sort phrase to
+use when sorting and grouping the element in some way.
+The sort-as value is prepended to whatever text value would
+otherwise be used for sorting the containing element in order
+to form a complete sort phrase.&lt;/a:documentation>
+      &lt;ref name="sort-as.attlist"/>
+      &lt;ref name="sort-as.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="sort-as.attlist" combine="interleave">
+    &lt;ref name="sort-as.attributes"/>
+  &lt;/define></codeblock>
+                </fig></p>
+              <p>The &lt;sort-as> element defines the string ("sort phrase") by
+                which the containing element should be sorted or grouped (or the
+                nearest ancestor to which sorting or grouping will be applied).
+                The sort phrase may be specified in the @value attribute or in
+                the content of &lt;sort-as>.</p>
+              <p>The &lt;text> and &lt;keyword> elements are allowed in order to
+                enable content referencing for specifying the sort phrase. If
+                &lt;keyword> is used within &lt;sort-as>, it may get its
+                effective value via @keyref in order to set the sort phrase
+                value. If a &lt;keyword> uses @keyref and would otherwise also
+                act as a navigation link, the link aspect of the &lt;keyword>
+                element is ignored.</p>
+              <p><b>Allowed Contexts</b></p>
+              <p>As a specialization of &lt;data>, the &lt;sort-as> element is
+                nominally allowed in any context where &lt;data> is allowed.
+                However, the presence of &lt;sort-as> within an element does
+                not, by itself, indicate that the containing element should be
+                sorted. Processors may choose to sort any DITA elements for any
+                reason. Likewise, processors are not required to sort any
+                elements.</p>
+              <p>Some elements in the base DITA vocabulary are natural
+                candidates for sorting, including topics, definition list
+                entries, and rows in tables and simple tables.  For those
+                elements, processors should apply &lt;sort-as> as follows:<ul
+                id="ul_ush_jnn_zj">
+                <li>
+                  <p>For topics, the &lt;sort-as> element may be included
+                    directly in &lt;title>, &lt;searchtitle>, or &lt;navtitle>
+                    when the different forms of title need different sort
+                    phrases. If the sort phrase is common to all the titles for
+                    a topic, the &lt;sort-as> element may be included in the
+                    topic's prolog anywhere &lt;data> is allowed. The title's
+                    sort-as value should be used as the sort-as for any search
+                    title or navigation title when those elements do not specify
+                    their own sort-as values.  </p>
+                </li>
+                <li>
+                  <p>For &lt;glossentry>, the &lt;sort-as> element may be
+                    included directly in &lt;glossterm> or within &lt;prolog> as
+                    for other topics.</p>
+                </li>
+                <li>
+                  <p>For topic references, the &lt;sort-as> element may be
+                    included directly in the &lt;navtitle> or &lt;title> element
+                    within &lt;topicmeta> or as a child of &lt;topicmeta>.</p>
+                </li>
+                <li>
+                  <p>For definition list items, the &lt;sort-as> element should
+                    be included in the &lt;dt> element.</p>
+                </li>
+                <li>
+                  <p>For tables and simple tables, each &lt;entry> or
+                    &lt;stentry> element may contain a &lt;sort-as> element in
+                    order to define the sort key for that element relative to
+                    other entries in the same table column.</p>
+                </li>
+                <li>
+                  <p>Except as stated above, processors should only apply
+                    &lt;sort-as> elements that are either a direct child of the
+                    element to be sorted or a direct child of the title- or
+                    label-defining element of the element to be sorted.</p>
+                </li>
+                </ul></p>
+              <p>When multiple &lt;sort-as> elements occur within a topic's
+                titles or prolog or as direct children of non-topic elements,
+                the first &lt;sort-as> in document order is used as the sort
+                phrase. </p>
+              <p>Sort phrases are determined after filtering and content
+                reference resolution is applied.</p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>Processing</dt>
+            <dd>
+              <p>Processors may choose to sort any elements for any reason.
+                Common sort processing include glossary entries sorted to
+                produce automatically-generated or automatically-sorted glossary
+                lists, lists of parameters or reference entries in custom
+                navigation structures, and so on.</p>
+              <p>The details of sorting and grouping are necessarily
+                implementation specific. Processors may provide any mechanism
+                for defining or configuring collation and grouping details. Even
+                where &lt;sort-as> has been specified, two processors may
+                produce different sorted and grouped results because they may
+                use different collation and grouping rules. For example, one
+                processor may be configured to sort English terms before
+                non-English terms, another may be configured to sort them
+                after.</p>
+              <p>When sorting elements, each element to be sorted must have some
+                inherent text on which it will be sorted in the absence of a
+                &lt;sort-as> value. This text may be literal content in the DITA
+                XML source or may be generated or constructed based on the
+                semantics of the element involved (for example, it may be
+                constructed from various attribute or metadata values). This
+                text is the "base sort phrase" for the element. For elements
+                with explicit or implicit titles, such as topics, figures,
+                tables, and sections, the base sort phrase would normally be the
+                title. Processors that do sorting should clearly document how
+                the base sort phrase is determined for a given element type for
+                which sorting is provided where the base sort phrase is not the
+                title content (for elements that have titles).</p>
+              <p>When &lt;sort-as> is specified, processors must construct the
+                effective sort phrase by prepending the &lt;sort-as> sort phrase
+                to the base sort phrase. This ensures that two items with the
+                same sort-as phrase but different base sort phrases will sort in
+                the appropriate order.</p>
+              <note
+                othertype="example">For example, if the title of a topic is "24
+                Hour Support Hotline" and the value of the &lt;sort-as> element
+                is "twenty-four hour", then the effective sort phrase would be
+                "twenty-four hour24 Hour Support Hotline".</note>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>Overall usability</dt>
+            <dd>This proposal allows users to include &lt;sort-as> anywhere it
+              might be necessary in order to facilitate correct sorting and
+              grouping of content sorted for any purpose.</dd>
+          </dlentry>
+        </dl>
+      </p></section>
 <section><title>Examples</title><p>A glossary entry with a &lt;sort-as> within the
         &lt;glossterm>:<codeblock>&lt;glossentry id="glossentry_rkr_xfn_ng">
   &lt;glossterm>&lt;sort-as value="dada"/>&amp;#x5927;&amp;#x5927;&lt;/glossterm>

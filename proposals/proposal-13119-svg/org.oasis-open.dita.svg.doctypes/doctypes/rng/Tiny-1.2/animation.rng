@@ -1,0 +1,357 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Animation
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.Animation.class' combine='choice'>
+    <choice>
+      <ref name='animate'/>
+      <ref name='set'/>
+      <ref name='animateMotion'/>
+      <ref name='animateColor'/>
+      <ref name='animateTransform'/>
+    </choice>
+  </define>
+
+
+
+  <define name='SVG.Animation.attrib'>
+    <ref name='SVG.XLink.attrib'/>
+  </define>
+
+
+
+  <define name='SVG.AnimationAttribute.attrib'>
+    <attribute name='attributeName'  svg:animatable='false' svg:inheritable='false'/>
+    <optional>
+      <attribute name='attributeType' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+  </define>
+
+
+
+  <define name='SVG.AnimationTiming.attrib'>
+    <ref name='SVG.AnimationTimingNoFillNoMinMax.attrib'/>
+    <optional><attribute name='min' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='max' svg:animatable='false' svg:inheritable='false'/></optional>
+  </define>
+
+
+  <define name='SVG.AnimationTimingNoMinMax.attrib'>
+    <ref name='SVG.AnimationTimingNoFillNoMinMax.attrib'/>
+    <optional>
+      <attribute name='fill' a:defaultValue='remove' svg:animatable='true' svg:inheritable='false'>
+        <choice>
+          <value>remove</value>
+          <value>freeze</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+  <define name='SVG.AnimationTimingNoFillNoMinMax.attrib'>
+    <optional><attribute name='begin' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='dur' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='end' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='repeatCount' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='repeatDur' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional>
+      <attribute name='restart' a:defaultValue='always' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>always</value>
+          <value>never</value>
+          <value>whenNotActive</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+  <define name='SVG.AnimationValue.attrib'>
+    <optional>
+      <attribute name='calcMode' a:defaultValue='linear' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>discrete</value>
+          <value>linear</value>
+          <value>paced</value>
+          <value>spline</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional><attribute name='values' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='keyTimes' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='keySplines' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='from' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='to' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='by' svg:animatable='false' svg:inheritable='false'/></optional>
+  </define>
+
+
+
+  <define name='SVG.AnimationAddition.attrib'>
+    <optional>
+      <attribute name='additive' a:defaultValue='replace' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>replace</value>
+          <value>sum</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='accumulate' a:defaultValue='none' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>none</value>
+          <value>sum</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+  <define name='SVG.AnimationSync.attrib'>
+    <optional>
+      <attribute name='syncBehavior'>
+        <choice>
+          <value>canSlip</value>
+          <value>locked</value>
+          <value>independent</value>
+          <value>default</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='syncBehaviorDefault'>
+        <choice>
+          <value>canSlip</value>
+          <value>locked</value>
+          <value>independent</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='syncTolerance'>
+        <choice>
+          <value>Clock-value</value>
+          <value>default</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='syncToleranceDefault'>
+        <choice>
+          <value>Clock-value</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+  <define name='SVG.animate.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='animate'>
+    <element name='animate'>
+      <ref name='attlist.animate'/>
+      <ref name='SVG.animate.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.animate' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.AnimationEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Animation.attrib'/>
+    <ref name='SVG.AnimationAttribute.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <ref name='SVG.AnimationValue.attrib'/>
+    <ref name='SVG.AnimationAddition.attrib'/>
+  </define>
+
+
+
+
+
+  <define name='SVG.set.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='set'>
+    <element name='set'>
+      <ref name='attlist.set'/>
+      <ref name='SVG.set.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.set' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.AnimationEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Animation.attrib'/>
+    <ref name='SVG.AnimationAttribute.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <optional>
+      <attribute name='to' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.animateMotion.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <optional>
+      <ref name='mpath'/>
+    </optional>
+  </define>
+
+  <define name='animateMotion'>
+    <element name='animateMotion'>
+      <ref name='attlist.animateMotion'/>
+      <ref name='SVG.animateMotion.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.animateMotion' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.AnimationEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Animation.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <ref name='SVG.AnimationAddition.attrib'/>
+    <optional>
+      <attribute name='calcMode' a:defaultValue='paced' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>discrete</value>
+          <value>linear</value>
+          <value>paced</value>
+          <value>spline</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional><attribute name='values' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='keyTimes' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='keySplines' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='from' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='to' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='by' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='path' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='keyPoints' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='rotate' svg:animatable='false' svg:inheritable='false'/></optional>
+    <optional><attribute name='origin' svg:animatable='false' svg:inheritable='false'/></optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.animateColor.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='animateColor'>
+    <element name='animateColor'>
+      <ref name='attlist.animateColor'/>
+      <ref name='SVG.animateColor.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.animateColor' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.AnimationEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Animation.attrib'/>
+    <ref name='SVG.AnimationAttribute.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <ref name='SVG.AnimationValue.attrib'/>
+    <ref name='SVG.AnimationAddition.attrib'/>
+  </define>
+
+
+
+  <define name='SVG.animateTransform.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='animateTransform'>
+    <element name='animateTransform'>
+      <ref name='attlist.animateTransform'/>
+      <ref name='SVG.animateTransform.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.animateTransform' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.AnimationEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.Animation.attrib'/>
+    <ref name='SVG.AnimationAttribute.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <ref name='SVG.AnimationValue.attrib'/>
+    <ref name='SVG.AnimationAddition.attrib'/>
+    <optional>
+      <attribute name='type' a:defaultValue='translate' svg:animatable='false' svg:inheritable='false'>
+        <choice>
+          <value>translate</value>
+          <value>scale</value>
+          <value>rotate</value>
+          <value>skewX</value>
+          <value>skewY</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+
+  <define name='SVG.mpath.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='mpath'>
+    <element name='mpath'>
+      <ref name='attlist.mpath'/>
+      <ref name='SVG.mpath.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.mpath' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+    <ref name='SVG.External.attrib'/>
+  </define>
+
+</grammar>

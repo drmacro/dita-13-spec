@@ -1,0 +1,84 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Compositing attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.clip-to-self.attrib'>
+    <optional>
+      <attribute name='clip-to-self' a:defaultValue='false'>
+        <choice>
+          <ref name='Boolean.datatype'/>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.knock-out.attrib'>
+    <optional>
+      <attribute name='knock-out' a:defaultValue='false'>
+        <choice>
+          <ref name='Boolean.datatype'/>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.comp-op.attrib'>
+    <optional>
+      <attribute name='comp-op' a:defaultValue='false'>
+        <choice>
+          <value>clear</value>
+          <value>src</value>
+          <value>dst</value>
+          <value>src_over</value>
+          <value>dst_over</value>
+          <value>src_in</value>
+          <value>dst_in</value>
+          <value>src_out</value>
+          <value>dst_out</value>
+          <value>src_atop</value>
+          <value>dst_atop</value>
+          <value>xor</value>
+          <value>plus</value>
+          <value>multiply</value>
+          <value>screen</value>
+          <value>overlay</value>
+          <value>darken</value>
+          <value>lighten</value>
+          <value>color_dodge</value>
+          <value>color_burn</value>
+          <value>hard_light</value>
+          <value>soft_light</value>
+          <value>difference</value>
+          <value>exclusion</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.enable-background.attrib'>
+    <optional>
+      <attribute name='enable-background'>
+        <data type='string'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Compositing.attrib' combine='interleave'>
+    <ref name='SVG.clip-to-self.attrib'/>
+    <ref name='SVG.enable-background.attrib'/>
+    <ref name='SVG.knock-out.attrib'/>
+    <ref name='SVG.comp-op.attrib'/>
+  </define>
+
+</grammar>

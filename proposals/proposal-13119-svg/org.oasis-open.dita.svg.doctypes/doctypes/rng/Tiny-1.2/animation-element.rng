@@ -1,0 +1,82 @@
+<!-- ==============================================================
+      SVG12-RNG | Animation element
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.AnimationElement.class' combine='choice'>
+    <choice>
+      <ref name='animation'/>
+    </choice>
+  </define>
+
+  <define name='SVG.animation.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='animation'>
+    <element name='animation'>
+      <ref name='attlist.animation'/>
+      <ref name='SVG.animation.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.animation' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Opacity.attrib'/>
+    <ref name='SVG.Graphics.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.Clip.attrib'/>
+    <ref name='SVG.Mask.attrib'/>
+    <ref name='SVG.Filter.attrib'/>
+    <ref name='SVG.Compositing.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.Cursor.attrib'/>
+    <ref name='SVG.XLinkEmbed.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.AnimationTiming.attrib'/>
+    <ref name='SVG.Media.attrib'/>
+    <ref name='SVG.BackgroundFill.attrib'/>
+    <ref name='SVG.AnimationTimingNoMinMax.attrib'/>
+    <ref name='SVG.AnimationSync.attrib'/>
+    <optional>
+      <attribute name='x' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <attribute name='width' svg:animatable='true' svg:inheritable='false'>
+      <ref name='Length.datatype'/>
+    </attribute>
+    <attribute name='height' svg:animatable='true' svg:inheritable='false'>
+      <ref name='Length.datatype'/>
+    </attribute>
+    <optional>
+      <attribute name='preserveAspectRatio' a:defaultValue='xMidYMid meet' svg:animatable='yes' svg:inheritable='false'>
+        <ref name='PreserveAspectRatioSpec.datatype'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.transform.attrib'/>
+  </define>
+
+</grammar>

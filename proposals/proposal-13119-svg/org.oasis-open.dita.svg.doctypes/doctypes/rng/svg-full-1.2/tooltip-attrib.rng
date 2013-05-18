@@ -1,0 +1,29 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Tooltips attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.tooltip.attrib'>
+    <optional>
+      <attribute name='tooltip' a:defaultValue='enable'>
+        <choice>
+          <value>enable</value>
+          <value>disable</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Tooltip.attrib' combine='interleave'>
+    <ref name='SVG.tooltip.attrib'/>
+  </define>
+
+</grammar>

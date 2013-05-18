@@ -1,0 +1,80 @@
+<!-- ==============================================================
+      SVG12-RNG | Conditional
+     ============================================================== -->
+<grammar ns="http://www.w3.org/2000/svg" xml:lang="en" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:svg="http://www.w3.org/2000/svg" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="ExtensionList.datatype">
+    <data type="string"/>
+  </define>
+  <define name="FeatureList.datatype">
+    <data type="string"/>
+  </define>
+  <define name="FormatList.datatype">
+    <data type="string"/>
+  </define>
+  <define name="SVG.Conditional.attrib" combine="interleave">
+    <optional>
+      <attribute name="requiredFeatures" svg:animatable="false" svg:inheritable="false">
+        <ref name="FeatureList.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="requiredExtensions" svg:animatable="false" svg:inheritable="false">
+        <ref name="ExtensionList.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="requiredFormats" svg:animatable="false" svg:inheritable="false">
+        <ref name="FormatList.datatype"/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="systemLanguage" svg:animatable="false" svg:inheritable="false">
+        <ref name="LanguageCodes.datatype"/>
+      </attribute>
+    </optional>
+  </define>
+  <define name="SVG.Conditional.class" combine="choice">
+    <choice>
+      <ref name="switch"/>
+    </choice>
+  </define>
+  <define name="SVG.switch.content">
+    <zeroOrMore>
+      <ref name="SVG.Description.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="svg"/>
+        <ref name="g"/>
+        <ref name="use"/>
+        <ref name="text"/>
+        <ref name="SVG.Animation.class"/>
+        <ref name="SVG.Handler.class"/>
+        <ref name="SVG.Conditional.class"/>
+        <ref name="SVG.Image.class"/>
+        <ref name="SVG.MultiImage.class"/>
+        <ref name="SVG.Audio.class"/>
+        <ref name="SVG.Video.class"/>
+        <ref name="SVG.Shape.class"/>
+        <ref name="SVG.Hyperlink.class"/>
+        <ref name="SVG.Extensibility.class"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="switch">
+    <element name="switch">
+      <ref name="attlist.switch"/>
+      <ref name="SVG.switch.content"/>
+    </element>
+  </define>
+  <define name="attlist.switch" combine="interleave">
+    <ref name="SVG.Core.attrib"/>
+    <ref name="SVG.Conditional.attrib"/>
+    <ref name="SVG.Style.attrib"/>
+    <ref name="SVG.Presentation.attrib"/>
+    <ref name="SVG.GraphicalEvents.attrib"/>
+    <ref name="SVG.External.attrib"/>
+    <ref name="SVG.transform.attrib"/>
+    <ref name="SVG.transform-host.attrib"/>
+  </define>
+</grammar>

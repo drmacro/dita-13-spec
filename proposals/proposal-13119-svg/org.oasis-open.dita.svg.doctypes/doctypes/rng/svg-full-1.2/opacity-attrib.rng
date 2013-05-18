@@ -1,0 +1,28 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Opacity attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <include href='../Tiny-1.2/tiny-opacity-attrib.rng'/>
+
+  <define name='SVG.opacity.attrib'>
+    <optional>
+      <attribute name='opacity'>
+        <ref name='OpacityValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Opacity.attrib' combine='interleave'>
+    <ref name='SVG.opacity.attrib'/>
+  </define>
+
+</grammar>

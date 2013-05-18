@@ -1,0 +1,26 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Editable attribute
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.editable.attrib'>
+    <optional>
+      <attribute name='editable' a:defaultValue='false' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Boolean.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Editable.attrib' combine='interleave'>
+    <ref name='SVG.editable.attrib'/>
+  </define>
+
+</grammar>

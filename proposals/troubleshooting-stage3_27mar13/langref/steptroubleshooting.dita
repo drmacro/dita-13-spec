@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2009, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+"reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="steptroubleshooting" xml:lang="en-us">
+<title>steptroubleshooting</title>
+<shortdesc>The &lt;<keyword>steptroubleshooting</keyword>&gt; element provides a place for a troubleshooting statement
+in a task step or substep, following the stepresult. This troubleshooting statement is to help the reader resolve any problems that may
+arise should their step result not match the result stated in the
+&lt;stepresult> section of the step.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>steptroubleshooting</indexterm><indexterm>Task elements<indexterm>steptroubleshooting</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section
+conref="../common/commonNavLibraryTable.dita#contentmodel-steptroubleshooting/contains"
+id="contains" otherprops="contains"><title>Contains</title><p>The
+content model of this element may differ based on where it is used.
+Content model information is located here: <xref
+keyref="steptroubleshooting-contains"></xref></p></section>
+<section
+conref="../common/commonNavLibraryTable.dita#contentmodel-steptroubleshooting/containedby"
+id="containedby" otherprops="containedby"><title>Contained By</title><p>The
+parents of this element may differ based on where it is used. Content
+model information is located here: <xref keyref="steptroubleshooting-contained-by"></xref></p></section>
+<section id="inheritance" otherprops="inheritance"><title>Inheritance</title><p>-
+topic/itemgroup task/steptroubleshooting </p></section>
+<example id="example"><title>Example</title><pre xml:space="preserve"><![CDATA[
+  <step>
+    <cmd>Select <uicontrol>Perform system backup</uicontrol></cmd>
+    <stepresult>The message <systemoutput>Backup successfully completed</systemoutput> displays.</stepresult>
+    <steptroubleshooting>If an eror message displays during the system backup, locate
+    the error ID in the <cite>Troubleshooting Guide</cite> and follow the instructions there.</steptroubleshooting>
+  </step>]]>
+</pre></example>
+<section id="attributes"><title>Attributes</title><simpletable
+id="steptroubleshooting_attr" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable></section>
+</refbody>
+</reference>

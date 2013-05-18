@@ -1,0 +1,51 @@
+<!-- ==============================================================
+      SVG12-RNG | Audio
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Audio.class' combine='choice'>
+    <choice>
+      <ref name='audio'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.audio.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Handler.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='audio'>
+    <element name='audio'>
+      <ref name='attlist.audio'/>
+      <ref name='SVG.audio.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.audio' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.XLinkEmbed.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.AnimationTimingNoFillNoMinMax.attrib'/>
+    <ref name='SVG.AnimationSync.attrib'/>
+    <ref name='SVG.Media.attrib'/>
+  </define>
+
+</grammar>

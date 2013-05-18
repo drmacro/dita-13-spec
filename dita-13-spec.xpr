@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="14.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized version="14.2" xml:space="preserve">
+                <map>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>validation.scenarios</String>
+                        <validationScenario-array/>
+                    </entry>
+                </map>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="dita-13-spec.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
+            <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
+            <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>
+            <file name="proposals/proposal-13111-mathml/test/rng/topic-with-mathml.rng"/>
+            <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
+            <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
+            <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
+        </folder>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
+        <folder path="../../git/dita-ot/"/>
+        <folder path="."/>
+        <folder path="../dita-ot-drmacro-github/dtd/"/>
+        <folder path="../../workspace_37/dita-ng/"/>
+        <folder path="../../workspace_37/dita13-xpub-linking/"/>
+        <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
+        <file name="../oup-metadata-hub/sample_data/EK-merge-test.zip"/>
+        <file name="../../../../Applications/oxygen-14.1.zip"/>
+    </projectTree>
+</project>

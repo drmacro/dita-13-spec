@@ -1,0 +1,351 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Vector Effects
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.VectorEffect.class' combine='choice'>
+    <choice>
+      <ref name='vectorEffect'/>
+    </choice>
+  </define>
+
+
+
+
+  <define name='vectorEffect'>
+    <element name='vectorEffect'>
+      <ref name='attlist.vectorEffect'/>
+      <ref name='SVG.vectorEffect.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.vectorEffect' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <optional>
+      <attribute name='vectorEffectUnits' a:defaultValue='userSpaceOnUse'>
+        <choice>
+          <value>userSpaceOnUse</value>
+          <value>objectBoundingBox</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='clipout' a:defaultValue='normal'>
+        <choice>
+          <value>normal</value>
+          <value>clip</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.vectorEffect.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='animate'/>
+        <ref name='set'/>
+        <ref name='vePath'/>
+        <ref name='veSetback'/>
+        <ref name='veStrokePath'/>
+        <ref name='veAffine'/>
+        <ref name='veJoin'/>
+        <ref name='veReverse'/>
+        <ref name='veUnion'/>
+        <ref name='veIntersect'/>
+        <ref name='veExclude'/>
+        <ref name='veFill'/>
+        <ref name='veStroke'/>
+        <ref name='veMarker'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+
+
+
+  <define name='SVG.VECommon.attrib' combine='interleave'>
+    <optional>
+      <attribute name='in'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='result'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.VECommon-2.attrib' combine='interleave'>
+    <ref name='SVG.VECommon.attrib'/>
+    <optional>
+      <attribute name='in2'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='VEtransform.attrib' combine='interleave'>
+    <optional>
+      <attribute name='transform'/>
+    </optional>
+  </define>
+
+  <define name='VEtransformPath.attrib' combine='interleave'>
+    <optional>
+      <attribute name='transformPath'/>
+    </optional>
+  </define>
+
+  <define name='VEPrimitive.content'>
+    <empty/>
+  </define>
+
+
+
+
+
+
+  <define name='veStrokePath'>
+    <element name='veStrokePath'>
+      <ref name='attlist.veStrokePath'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veStrokePath' combine='interleave'>
+    <ref name='SVG.VECommon.attrib'/>
+    <ref name='VEtransform.attrib'/>
+    <ref name='SVG.stroke-dasharray.attrib'/>
+    <ref name='SVG.stroke-dashoffset.attrib'/>
+    <ref name='SVG.stroke-linecap.attrib'/>
+    <ref name='SVG.stroke-linejoin.attrib'/>
+    <ref name='SVG.stroke-miterlimit.attrib'/>
+    <ref name='SVG.stroke-width.attrib'/>
+  </define>
+
+
+
+
+  <define name='veSetback'>
+    <element name='veSetback'>
+      <ref name='attlist.veSetback'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veSetback' combine='interleave'>
+    <ref name='SVG.VECommon.attrib'/>
+    <ref name='VEtransform.attrib'/>
+    <optional>
+      <attribute name='setback-offset'/>
+    </optional>
+  </define>
+
+
+
+  <define name='veAffine'>
+    <element name='veAffine'>
+      <ref name='attlist.veAffine'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veAffine' combine='interleave'>
+    <ref name='SVG.VECommon.attrib'/>
+    <ref name='VEtransformPath.attrib'/>
+  </define>
+
+
+
+  <define name='veReverse'>
+    <element name='veReverse'>
+      <ref name='attlist.veReverse'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veReverse' combine='interleave'>
+    <ref name='SVG.VECommon.attrib'/>
+  </define>
+
+
+
+  <define name='veJoin'>
+    <element name='veJoin'>
+      <ref name='attlist.veJoin'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veJoin' combine='interleave'>
+    <ref name='SVG.VECommon-2.attrib'/>
+    <optional>
+      <attribute name='connect'>
+        <choice>
+          <value>none</value>
+          <value>line</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+  <define name='veUnion'>
+    <element name='veUnion'>
+      <ref name='attlist.veUnion'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veUnion' combine='interleave'>
+    <ref name='SVG.VECommon-2.attrib'/>
+  </define>
+
+
+
+
+
+  <define name='veIntersect'>
+    <element name='veIntersect'>
+      <ref name='attlist.veIntersect'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veIntersect' combine='interleave'>
+    <ref name='SVG.VECommon-2.attrib'/>
+  </define>
+
+
+
+
+
+  <define name='veExclude'>
+    <element name='veExclude'>
+      <ref name='attlist.veExclude'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veExclude' combine='interleave'>
+    <ref name='SVG.VECommon-2.attrib'/>
+  </define>
+
+
+
+
+  <define name='veFill'>
+    <element name='veFill'>
+      <ref name='attlist.veFill'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veFill' combine='interleave'>
+    <optional>
+      <attribute name='in'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.fill.attrib'/>
+    <ref name='VEtransform.attrib'/>
+  </define>
+
+
+
+
+  <define name='veStroke'>
+    <element name='veStroke'>
+      <ref name='attlist.veStroke'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veStroke' combine='interleave'>
+    <optional>
+      <attribute name='in'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.fill.attrib'/>
+    <ref name='VEtransform.attrib'/>
+  </define>
+
+
+
+
+  <define name='veMarker'>
+    <element name='veMarker'>
+      <ref name='attlist.veMarker'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.veMarker' combine='interleave'>
+    <optional>
+      <attribute name='in'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.Marker.attrib'/>
+  </define>
+
+
+
+
+  <define name='vePath'>
+    <element name='vePath'>
+      <ref name='attlist.vePath'/>
+      <ref name='SVG.vePath.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.vePath' combine='interleave'>
+    <optional>
+      <attribute name='result'>
+        <data type='NMTOKEN'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.vePath.content'>
+    <oneOrMore>
+      <ref name='vePathRef'/>
+    </oneOrMore>
+  </define>
+
+
+
+
+  <define name='vePathRef'>
+    <element name='vePathRef'>
+      <ref name='attlist.vePathRef'/>
+      <ref name='VEPrimitive.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.vePathRef' combine='interleave'>
+    <ref name='SVG.XLinkRequired.attrib'/>
+    <ref name='VEtransform.attrib'/>
+    <optional>
+      <attribute name='connect'/>
+    </optional>
+    <optional>
+      <attribute name='reverse'/>
+    </optional>
+  </define>
+
+</grammar>

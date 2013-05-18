@@ -1,0 +1,35 @@
+
+<!-- ==============================================================
+      SVG12-RNG | deviceColor
+     ============================================================== -->
+<grammar ns='http://www.w3.org/2000/svg' xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'>
+
+  <define name='SVG.DeviceColor.class' combine='choice'>
+    <choice>
+      <ref name='deviceColor'/>
+    </choice>
+  </define>
+
+  <define name='deviceColor'>
+    <element name='deviceColor'>
+      <ref name='attlist.deviceColor'/>
+      <ref name='SVG.deviceColor.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.deviceColor' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <attribute name='name' svg:animatable='false' svg:inheritable='false'/>
+    <attribute name='uri' svg:animatable='false' svg:inheritable='false'>
+      <ref name='URI.datatype'/>
+    </attribute>
+  </define>
+
+  <define name='SVG.deviceColor.content'>
+    <empty/>
+  </define>
+</grammar>

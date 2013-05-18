@@ -1,0 +1,53 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Gradients
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <include href='../Tiny-1.2/tiny-gradient.rng'/>
+
+  <define name='SVG.GradientCommon.attrib' combine='interleave'>
+    <optional>
+      <attribute name='spreadMethod'>
+        <choice>
+          <value>pad</value>
+          <value>reflect</value>
+          <value>repeat</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='gradientTransform'>
+        <ref name='TransformList.datatype'/>
+      </attribute>
+    </optional>
+    <ref name='SVG.XLink.attrib'/>
+  </define>
+
+
+  <define name='attlist.radialGradient' combine='interleave'>
+    <optional>
+      <attribute name='fx'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='fy'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+  <define name='GradientOffset.datatype' combine='choice'>
+    <ref name='NumberOrPercentage.datatype'/>
+  </define>
+
+</grammar>

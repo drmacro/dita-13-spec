@@ -1,0 +1,69 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Solid Color
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+
+  <define name='SVG.SolidColor.attrib' combine='interleave'>
+    <optional>
+      <attribute name='solid-color' svg:animatable='true' svg:inheritable='false'>
+        <ref name='SVGColor.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='solid-opacity' svg:animatable='true' svg:inheritable='false'>
+        <ref name='OpacityValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+
+
+  <define name='SVG.SolidColor.class' combine='choice'>
+    <choice>
+      <ref name='solidColor'/>
+    </choice>
+  </define>
+
+
+
+  <define name='SVG.solidColor.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='stop'/>
+        <ref name='animate'/>
+        <ref name='set'/>
+        <ref name='animateTransform'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='solidColor'>
+    <element name='solidColor'>
+      <ref name='attlist.solidColor'/>
+      <ref name='SVG.solidColor.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.solidColor' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Color.attrib'/>
+    <ref name='SVG.SolidColor.attrib'/>
+    <ref name='SVG.External.attrib'/>
+  </define>
+
+</grammar>

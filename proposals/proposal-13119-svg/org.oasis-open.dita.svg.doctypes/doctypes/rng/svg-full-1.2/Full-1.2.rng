@@ -1,0 +1,77 @@
+
+<!-- ==============================================================
+      SVG12-RNG | SVG 1.2 Full Driver
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg' xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:xlink='http://www.w3.org/1999/xlink'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'>
+
+
+
+  <!-- ... common libraries and attributes ........................ -->
+  <include href='../Tiny-1.2/datatypes.rng'/>
+  <include href='../Tiny-1.2/core-attrib.rng'/>
+  <include href='../Tiny-1.2/tiny-paint-attrib.rng'/>
+  <include href='../Tiny-1.2/graphics-attrib.rng'/>
+  <include href='../Tiny-1.2/transform-attrib.rng'/>
+  <include href='../Tiny-1.2/xlink-attrib.rng'/>
+  <include href='../Tiny-1.2/extresources-attrib.rng'/>
+  <include href='../Tiny-1.2/media-attrib.rng'/>
+  <include href='../Tiny-1.2/focusable-attrib.rng'/>
+  <include href='../Tiny-1.2/editable-attrib.rng'/>
+  <include href='../Tiny-1.2/backgroundfill-attrib.rng'/>
+  <include href='opacity-attrib.rng'/>
+  <include href='vectoreffects-attrib.rng'/>
+  <include href='viewport-attrib.rng'/>
+
+
+  <!-- ... element definitions .................................... -->
+  <include href='structure.rng'/>
+  <include href='../Tiny-1.2/conditional.rng'/>
+  <include href='../Tiny-1.2/image.rng'/>
+  <include href='../Tiny-1.2/shape.rng'/>
+  <include href='text.rng'/>
+  <include href='../Tiny-1.2/hyperlink.rng'/>
+  <include href='../Tiny-1.2/script.rng'/>
+  <include href='../Tiny-1.2/animation.rng'/>
+  <include href='font.rng'/>
+  <include href='../Tiny-1.2/extensibility.rng'/>
+  <include href='gradient.rng'/>
+  <include href='../Tiny-1.2/solidcolor.rng'/>
+  <include href='../Tiny-1.2/audio.rng'/>
+  <include href='../Tiny-1.2/video.rng'/>
+  <include href='../Tiny-1.2/animation-element.rng'/>
+  <include href='../Tiny-1.2/page.rng'/>
+  <include href='flow.rng'/>
+  <include href='../Tiny-1.2/handler.rng'/>
+  <include href='../Tiny-1.2/prefetch.rng'/>
+
+  <!-- ... only available in Full ................................. -->
+  <include href='animevents-attrib.rng'/>
+  <include href='docevents-attrib.rng'/>
+  <include href='graphevents-attrib.rng'/>
+  <include href='clip.rng'/>
+  <include href='filter.rng'/>
+  <include href='mask.rng'/>
+  <include href='pattern.rng'/>
+  <include href='style.rng'/>
+  <include href='transition.rng'/>
+  <include href='vectoreffects.rng'/>
+  <include href='extendedlink.rng'/>
+  <include href='cursor.rng'/>
+  <include href='compositing-attrib.rng'/>
+  <include href='marker.rng'/>
+  <include href='profile.rng'/>
+  <include href='shadow-attrib.rng'/>
+  <include href='tooltip-attrib.rng'/>
+  <include href='view.rng'/>
+  <include href='xmlevents.rng'/>
+  <include href='multiImage.rng'/>
+  <include href='deviceColor.rng'/>
+  <include href='traitDef.rng'/>
+
+</grammar>

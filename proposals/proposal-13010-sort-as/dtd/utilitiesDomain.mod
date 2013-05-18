@@ -151,7 +151,13 @@ Category: Utilities elements-->
    %keyword;)*"
 >
 <!ENTITY % sort-as.attributes
-             "%data-element-atts;"
+             "%univ-atts;
+              name 
+                        CDATA 
+                                  #IMPLIED
+              value 
+                        CDATA 
+                                  #IMPLIED"
 >
 <!ELEMENT sort-as    %sort-as.content;>
 <!ATTLIST sort-as    %sort-as.attributes;>

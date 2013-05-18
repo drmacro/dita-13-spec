@@ -1,0 +1,25 @@
+<!-- ==============================================================
+      SVG12-RNG | External Resources attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.externalResourcesRequired.attrib'>
+    <optional>
+      <attribute name='externalResourcesRequired' svg:animatable='false' svg:inheritable='false'>
+        <ref name='Boolean.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.External.attrib' combine='interleave'>
+    <ref name='SVG.externalResourcesRequired.attrib'/>
+  </define>
+
+</grammar>

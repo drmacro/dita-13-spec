@@ -1,0 +1,53 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Prefetch
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Prefetch.class'>
+    <choice>
+      <ref name='prefetch'/>
+    </choice>
+  </define>
+
+
+  <define name='prefetch'>
+    <element name='prefetch'>
+      <ref name='attlist.prefetch'/>
+    </element>
+  </define>
+
+  <define name='attlist.prefetch' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+    <optional>
+      <attribute name='mediaSize' svg:animatable='false' svg:inheritable='false'>
+        <ref name='NumberOrPercentage.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='mediaTime' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='mediaCharacterEncoding' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='mediaContentEncodings' svg:animatable='false' svg:inheritable='false'/>
+    </optional>
+    <optional>
+      <attribute name='bandwidth' svg:animatable='false' svg:inheritable='false'>
+        <ref name='NumberOrPercentage.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+</grammar>

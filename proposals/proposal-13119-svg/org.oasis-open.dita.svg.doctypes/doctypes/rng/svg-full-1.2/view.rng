@@ -1,0 +1,61 @@
+
+<!-- ==============================================================
+      SVG12-RNG | View
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.View.class' combine='choice'>
+    <choice>
+      <ref name='view'/>
+    </choice>
+  </define>
+
+
+
+
+  <define name='SVG.view.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='view'>
+    <element name='view'>
+      <ref name='attlist.view'/>
+      <ref name='SVG.view.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.view' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <optional>
+      <attribute name='viewBox'>
+        <ref name='ViewBoxSpec.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='preserveAspectRatio' a:defaultValue='xMidYMid meet'>
+        <ref name='PreserveAspectRatioSpec.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='zoomAndPan' a:defaultValue='magnify'>
+        <choice>
+          <value>disable</value>
+          <value>magnify</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='viewTarget'/>
+    </optional>
+  </define>
+
+</grammar>

@@ -1,0 +1,71 @@
+<!-- ==============================================================
+      SVG12-RNG | Extensibility
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.Extensibility.class' combine='choice'>
+    <choice>
+      <ref name='foreignObject'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.foreignObject.content'>
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name='foreignElement'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='foreignObject'>
+    <element name='foreignObject'>
+      <ref name='attlist.foreignObject'/>
+      <ref name='SVG.foreignObject.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.foreignObject' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.Tooltip.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.Focusable.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.BackgroundFill.attrib'/>
+    <ref name='SVG.XLinkEmbed.attrib'/>
+    <optional>
+      <attribute name='x' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y' svg:animatable='true' svg:inheritable='false'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <attribute name='width' svg:animatable='true' svg:inheritable='false'>
+      <ref name='Length.datatype'/>
+    </attribute>
+    <attribute name='height' svg:animatable='true' svg:inheritable='false'>
+      <ref name='Length.datatype'/>
+    </attribute>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+  </define>
+
+  <define name='foreignElement'>
+    <empty/>
+  </define>
+
+</grammar>

@@ -1,0 +1,86 @@
+<!-- ==============================================================
+      SVG12-RNG | Pages
+     ============================================================== -->
+<grammar ns="http://www.w3.org/2000/svg" xml:lang="en" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:svg="http://www.w3.org/2000/svg" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <define name="SVG.PageSet.class">
+    <choice>
+      <ref name="pageSet"/>
+    </choice>
+  </define>
+  <define name="pageSet">
+    <element name="pageSet">
+      <ref name="attlist.pageSet"/>
+      <ref name="SVG.pageSet.content"/>
+    </element>
+  </define>
+  <define name="attlist.pageSet" combine="interleave">
+    <ref name="SVG.Core.attrib"/>
+    <ref name="SVG.Style.attrib"/>
+    <ref name="SVG.Presentation.attrib"/>
+    <ref name="SVG.GraphicalEvents.attrib"/>
+  </define>
+  <define name="SVG.pageSet.content">
+    <zeroOrMore>
+      <ref name="SVG.Description.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="defs"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="page"/>
+    </zeroOrMore>
+  </define>
+  <define name="page">
+    <element name="page">
+      <ref name="attlist.page"/>
+      <ref name="SVG.page.content"/>
+    </element>
+  </define>
+  <define name="attlist.page" combine="interleave">
+    <ref name="SVG.Core.attrib"/>
+    <ref name="SVG.Style.attrib"/>
+    <ref name="SVG.Presentation.attrib"/>
+    <ref name="SVG.Focusable.attrib"/>
+    <ref name="SVG.Transition.attrib"/>
+    <!-- <ref name='SVG.AnimationTiming.attrib'/> -->
+    <optional>
+      <attribute name="page-orientation" a:defaultValue="0" svg:animatable="true" svg:inheritable="false">
+        <choice>
+          <value>-270</value>
+          <value>-180</value>
+          <value>-90</value>
+          <value>0</value>
+          <value>90</value>
+          <value>180</value>
+          <value>270</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <define name="SVG.page.content">
+    <zeroOrMore>
+      <ref name="SVG.Description.class"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name="SVG.Structure.class"/>
+        <ref name="SVG.Description.class"/>
+        <ref name="SVG.Animation.class"/>
+        <ref name="SVG.Handler.class"/>
+        <ref name="SVG.Structure.class"/>
+        <ref name="SVG.Conditional.class"/>
+        <ref name="SVG.Image.class"/>
+        <ref name="SVG.MultiImage.class"/>
+        <ref name="SVG.Audio.class"/>
+        <ref name="SVG.Video.class"/>
+        <ref name="SVG.Shape.class"/>
+        <ref name="SVG.Text.class"/>
+        <ref name="SVG.FlowText.class"/>
+        <ref name="SVG.Hyperlink.class"/>
+        <ref name="SVG.View.class"/>
+        <ref name="SVG.Script.class"/>
+        <ref name="SVG.XMLEvents.class"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>

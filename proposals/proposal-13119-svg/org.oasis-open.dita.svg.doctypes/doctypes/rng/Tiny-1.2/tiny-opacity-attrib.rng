@@ -1,0 +1,35 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Opacity attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.fill-opacity.attrib'>
+    <optional>
+      <attribute name='fill-opacity' svg:animatable='true' svg:inheritable='true'>
+        <ref name='OpacityValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-opacity.attrib'>
+    <optional>
+      <attribute name='stroke-opacity' svg:animatable='true' svg:inheritable='true'>
+        <ref name='OpacityValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Opacity.attrib' combine='interleave'>
+    <ref name='SVG.fill-opacity.attrib'/>
+    <ref name='SVG.stroke-opacity.attrib'/>
+  </define>
+
+</grammar>

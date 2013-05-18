@@ -9,6 +9,12 @@
      <li>Proposal Submitted: 1 October 2012</li>
         <li>Change History:<ul
           id="ul_qht_k5b_vh">
+          <li>18 May 2013: <ul
+            id="ul_qkr_rsm_fk">
+            <li>Added equation domain per TC discussion.</li>
+            <li>Added &lt;mathmlref> element for using MathML elements by
+              reference from external documents per TC discussion.</li>
+            </ul></li>
           <li>9 Oct 2012: Changed name of &lt;mathml_container> to &lt;mathml>
             per TC discussion.</li>
           <li>7 Oct 2012: <ul
@@ -55,7 +61,15 @@
         <li>Math and science textbooks</li>
         <li>Scientific, mathematics, engineering, and mathematics (STEM)
           scholarly publishing.</li>
-        </ul></p></section>
+        </ul></p>
+      <p>In addition to simply containing MathML content, there is a related
+        requirement to be able to semantically identify equations, irrespective
+        of the form the equation content takes, which could be MathML, an image
+        or vector graphic of the rendered equation, T<sub>e</sub>X markup, or
+        any other way that mathematical equations might be represented.
+        Equations may be rendered inline, as a block, or as a "display equation"
+        that acts as a figure, with a possible title (caption), description, and
+        generated number. </p></section>
 <section><title>Benefits</title><p>Address the following questions:<ul>
      <li>Who benefits: DITA users who need to include MathML in their
           content</li>
@@ -74,33 +88,40 @@
           module, which must be integrated into the appropriate shell document
           types.</li>
         <li>Editors of the DITA specification:<ul>
-          <li>How many new topics will be required? One new topic for new
-            element type &lt;mathml></li>
+          <li>How many new topics will be required? five new topics for new
+            element types &lt;mathml> and &lt;mathmlref> from the MathML domain
+            and the three element types from the equation domain.</li>
           <li>How many existing topics will need to be edited? None. Only change
             to existing topics is generated content model descriptions.</li>
           <li>Will the feature require substantial changes to the information
             architecture of the DITA specification? No architectural
             change.</li>
           </ul></li>
-        <li>Vendors of tools: Tool vendors may decide to support the new module
+        <li>Vendors of tools: Tool vendors may decide to support the new domains
           directly. The nature of this support will depend on the type of
           processor. Many DITA-aware editors and output processors already
-          support MathML to one degree or another.</li>
+          support MathML to one degree or another. The equation domain does not
+          require specialized processing, although processors may choose to
+          offer the ability to number display equations separately from
+          figures.</li>
         <li>DITA community-at-large. Will this feature add to the perception
           that DITA is becoming too complex? Will it be simple for end users to
-          understand?<p>This feature adds a new optional vocabulary module.
-          Users who need it will appreciate having it readily available. Users
-          who do not need it may safely ignore it. The general architecture and
+          understand?<p>This feature adds two new optional vocabulary modules
+          with a total of four new element types. Users who need equations will
+          appreciate having these modules readily available. Users who do not
+          need them may safely ignore them. The general architecture and
           semantics of DITA are not affected by this proposal.</p></li>
         </ul></p></section>
 <section>
       <title>Technical requirements</title>
-      <p>Define a new vocabulary module,  mathmlDomain, that defines the
-        following element type:<ul
+      <p>Define a new vocabulary module, mathmlDomain, that defines the
+        following element types:<ul
         id="ul_oqh_qp5_sh">
         <li>&lt;mathml><p>Specializes topic/foreign. Allows as content the
           &lt;math> element from the MathML 3 vocabulary, &lt;data>, or
           &lt;data-about>, as a repeating OR group.</p></li>
+        <li>&lt;mathmlref><p>Specializes topic/xref. Allows for use-by-reference
+          of &lt;m:math> elements from non-DITA XML documents.</p></li>
         <li>Include the MathML 3 declarations. See <xref
           href="http://www.w3.org/TR/MathML3/"
           format="html"
@@ -128,7 +149,7 @@
           <li>The commercial XSL-FO engines Antenna House XSL Formatter and
             RenderX XEP both support rendering of MathML to PDF.</li>
           <li>Generate EPS, SVG, or images using open-source or commercial
-            tools</li>
+            tools.</li>
           </ul></li>
         </ul></p>
       <fig>
@@ -291,80 +312,175 @@
 &lt;/xs:schema></codeblock></p>
       </fig>
       <fig>
-        <title>RNC-Syntax Vocabulary Module</title>
-        <p>mathmlDomainMod.rnc:<codeblock># ===============================================================
-# MathML Domain Module
-#
-#    Defines a specialization of &lt;foreign> that contains 
-#    MathML markup.
-#     
-#     DITA 1.3
-#     
-#     Copyright (c) 2012 OASIS Open
-# ===============================================================
-
-namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
-namespace m = "http://www.w3.org/1998/Math/MathML"
-
-# Define the domain values of this module
-
-domains-atts-value |= "(topic mathml-d)"
-
-# Define domain extension patterns
-
-mathml-d-foreign =
-  mathml.element
+        <title>RNG-Syntax Vocabulary Module</title>
+        <p>mathmlDomainMod.rng:<codeblock>&lt;!-- ============================================================= 
+     MODULE:    DITA MathML Domain - RNG              
+     VERSION:   1.3                                                
+     DATE:      May 2013                                       
+     ============================================================= -->
+&lt;!--
+     Refer to the latest version of this file by the following URI:
+     urn:dita-ng:dita:rng:mathmlDomain.mod.rng
+     To refer to this specific version, you may use this value:
+     urn:dita-ng:dita:rng:mathmlDomain.mod.rng:1.3
+-->
+&lt;!-- ============================================================= 
+     SYSTEM:     Darwin Information Typing Architecture (DITA)     
+     PURPOSE:    Provides elements for including MathML Markup
+                 in DITA documents.
+     ORIGINAL CREATION DATE:  
+     ??? 2013                                                
+     (C) Copyright OASIS Open 2013                                
+     All Rights Reserved.                                          
+     ============================================================= -->
+&lt;grammar   xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
   
-# Extend the patterns with the domain contribution
-foreign |= mathml-d-foreign
-
-# Define elements content and attributes
-
-# LONG NAME: MathML Container
-mathml.content =
-  (
-   external "mathml3.rnc" | 
-   data |
-   data-about
-   )*
-mathml.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-mathml.element =
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic mathml-d)&lt;/value>
+  &lt;/define>
   
-  ## The bold (&lt;b>) element is used to apply bold highlighting to the content
-  ##         of the element. Use this element only when there is not some other more proper element. For
-  ##         example, for specific items such as GUI controls, use the &lt;uicontrol> element. This
-  ##         element is part of the DITA highlighting domain. 
-  ##         Category: Typographic elements
-  element mathml { 
-    mathml.attlist, 
-    mathml.content 
-  }
-mathml.attlist &amp;= mathml.attributes
+  &lt;define name="mathml-d-foreign">
+    &lt;ref name="mathml.element"/> 
+  &lt;/define>
 
-#
-# End of module
-#
-</codeblock></p>
+  &lt;define name="foreign" combine="choice">
+    &lt;ref name="mathml-d-foreign"/>
+  &lt;/define>
+  
+  &lt;define name="mathmlref.content">
+    &lt;empty/>
+  &lt;/define>
+  
+  &lt;define name="mathmlref.attributes">
+    &lt;ref name="xref.attributes"/>
+  &lt;/define>
+  
+  &lt;define name="mathmlref.element">
+    &lt;element name="mathmlref">
+      &lt;a:documentation>&lt;p>The MathML reference (&amp;lt;mathmlref>) element is used to
+        refer to a non-DITA XML document containing MathML markup in order to use the
+        markup by reference. The reference must be to a MathML &amp;lt;math&amp;gt; element.
+        The reference may be a URI that addresses an XML document whose root element
+        is a MathML &amp;lt;math&amp;gt; element or a URI that addresses and XML document
+        and a fragment identifier that is
+        the XML ID of a &amp;lt;math&amp;gt; element within the document.&lt;/p>
+        &lt;p>NOTE: To reuse MathML markup stored within a DITA topic, use a normal content reference
+        from the &amp;lt;mathml&amp;gt; element.&lt;/p>
+        &lt;p>The reference may
+        be direct, via the @href attribute, or indirect, via the @keyref attribute.
+        For key references, only the key name should be specified. Any fragment identifier
+        for specifying the ID of the &amp;lt;mathml&amp;gt; element to use must be specified
+        as part of the key definition's @href value.&lt;/p>
+        &lt;note type="othertype" othertype="example">For example, to refer
+        to the &amp;lt;math&amp;gt; element with the @id value "equation-02" within 
+        a larger document using a key reference,
+        you would define the key like so:&lt;codeblock>
+          &lt;keydef keys="mathml-equation-02"
+            href="math/mathml-equations.xml#equation-02"
+            format="mathml"
+           />
+        &lt;/codeblock>
+          &lt;p>You would refer to this key using just the key name:
+            &lt;codeblock>
+              &lt;mathml>
+                &lt;mathmlref keyref="mathml-equation-02"/>
+              &lt;/mathml>
+            &lt;/codeblock>
+          &lt;/p>
+        &lt;/note>
+        &lt;p>The MathML should be processed and rendered as though
+        the &amp;lt;m:math&amp;gt; element had occurred directly in the content of the containing
+        &amp;lt;mathml&amp;gt; element.&lt;/p> 
+        &lt;p>This
+        element is part of the DITA MathML domain. 
+        Category: Foreign elements&lt;/p>
+      &lt;/a:documentation>
+      &lt;ref name="mathmlref.attributes"/>
+      &lt;ref name="mathmlref.content"/>
+    &lt;/element>
+  &lt;/define>
+  
+  &lt;define name="mathml.content">
+    &lt;a:documentation>
+      &lt;p>The MathML (&amp;lt;mathml>) element contains inline MathML markup or
+      references to MathML elements stored in a separate non-DITA XML document.&lt;/p>
+      &lt;p>The purpose of this element is simply to contain MathML markup. It is not intended,
+      by itself, to convey the semantic of "equation". Rather, it simply serves to hold one of many
+      possible ways that the content of an equation may be represented. The companion equation
+      domain provides elements for representing equations semantically, independent of the format
+      of the equation content.&lt;/p>
+      &lt;p>The MathML markup must have a root element of "math" within the MathML
+        namespace "http://www.w3.org/1998/Math/MathML".&lt;/p>
+      &lt;p>This
+        element is part of the DITA MathML domain. 
+        Category: Foreign elements&lt;/p>    
+    &lt;/a:documentation>
+    &lt;zeroOrMore>
+      &lt;externalRef href="mathml3.rng"/>
+      &lt;ref name="mathmlref.element"/>
+      &lt;ref name="data.element"/>      
+      &lt;ref name="data-about.element"/>      
+    &lt;/zeroOrMore>
+  &lt;/define>
+  
+  &lt;define name="mathml.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+
+  &lt;define name="mathml.element">
+    &lt;element name="mathml">
+      &lt;ref name="mathml.attributes"/>
+      &lt;ref name="mathml.content"/>
+    &lt;/element>
+  &lt;/define>
+  
+&lt;/grammar></codeblock></p>
       </fig>
       <fig>
-        <title>mathml3.rnc</title>
-        <desc>This RNC module is required in order to correctly configure the
+        <title>mathml3.rng</title>
+        <desc>This RNG module is required in order to correctly configure the
           base MathML declarations for use with no-namespace DITA
           elements.</desc>
-        <codeblock>default namespace m = "http://www.w3.org/1998/Math/MathML"
-namespace local = ""
-
-# redefine the anyElement to exclude elements in no namespace, that is DITA elements
-include "mathml3/mathml3.rnc" {
-    anyElement =
-        element * - (m:* | local:*) {
-            (attribute * { text }
-             | text
-             | anyElement)*
-        }
-}
+        <codeblock>&lt;grammar
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  &lt;include
+    href="mathml3/mathml3.rng">
+    &lt;define
+      name="anyElement">
+      &lt;element>
+        &lt;anyName>
+          &lt;except>
+            &lt;nsName
+              ns="m"/>
+            &lt;nsName
+              ns=""/>
+          &lt;/except>
+        &lt;/anyName>
+        &lt;oneOrMore>
+          &lt;attribute>
+            &lt;anyName/>
+            &lt;text/>
+          &lt;/attribute>
+        &lt;/oneOrMore>
+        &lt;zeroOrMore>
+          &lt;text/>
+          &lt;ref
+            name="anyElement"/>
+        &lt;/zeroOrMore>
+      &lt;/element>
+    &lt;/define>
+  &lt;/include>
+&lt;/grammar>
 </codeblock>
       </fig>
     </section>

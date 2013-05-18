@@ -3,14 +3,13 @@
  "reference.dtd">
 <reference id="IssueNumber13106" xml:lang="en-us">
  <title>DITA 1.3 proposed feature #13106</title>
- <shortdesc>Change the base type for elements that current extend &lt;p> so that
-    they extend &lt;div>. This then allows both text and phrase-level elements
-    as well as block-level elements within questions, feedback, and other
-    contexts that currently do not allow blocks.</shortdesc>
+ <shortdesc>Provide a new interaction (assessment) domain that allows both text
+    and phrase-level elements as well as block-level elements within questions,
+    feedback, and other contexts that currently do not allow blocks.</shortdesc>
  <refbody>
   <section>
    <title>Date and version information</title><p>Include the following information:<ul>
-     <li>Date that this feature proposal was completed</li>
+     <li>Date completed: 6 May 2013</li>
      <li>Champions: Eliot Kimber, Amber Swope, JoAnn Hackos, Dawn Stephens</li>
     </ul>
    </p>
@@ -128,9 +127,9 @@
        <title>Costs</title>
        <p>Outline the impact (time and effort) of the feature.
      <ul>
-     <li>Requires updates to the learningInteractionBase and learningDomain
-          vocabulary modules, both DTD and XSD, and integrate them with the rest of the DITA modules for 1.3.
-          <note>SC member Eliot Kimber has completed draft updates for the DTD modules as part of this proposal.</note></li>
+     <li>Requires updates to the learningInteractionBase vocabulary module and a
+            new learning2Domain vocabulary module, and integration of them with
+            the rest of the DITA modules for 1.3. </li>
      <li>Editors of the DITA specification:<ul>
        <li>Will require update to the prose of the existing lcInteractionBase
               element type.</li>

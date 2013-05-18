@@ -1,0 +1,604 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Transitions
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Transition.class' combine='interleave'>
+    <choice>
+      <ref name='transition'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.Transition.attrib' combine='interleave'>
+    <ref name='transIn.attrib'/>
+    <ref name='transOut.attrib'/>
+  </define>
+
+  <define name='transIn.attrib'>
+    <optional>
+      <attribute name='transIn'/>
+    </optional>
+  </define>
+
+  <define name='transOut.attrib'>
+    <optional>
+      <attribute name='transOut'/>
+    </optional>
+  </define>
+
+
+
+  <define name='transition'>
+    <element name='transition'>
+      <ref name='attlist.transition'/>
+      <ref name='SVG.transition.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.transition' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <optional>
+      <attribute name='dur'/>
+    </optional>
+    <optional>
+      <attribute name='startProgress'>
+        <data type='float'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='endProgress'>
+        <data type='float'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='direction' a:defaultValue='forward'>
+        <choice>
+          <value>forward</value>
+          <value>reverse</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='fadeColor' a:defaultValue='black'/>
+    </optional>
+    <ref name='attlist.transition-types'/>
+  </define>
+
+  <define name='SVG.transition.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+
+  <!-- the following correctly constrains all SMIL type/subtype cooccurences -->
+  <define name='attlist.transition-types'>
+    <choice>
+      <group>
+        <attribute name='type'><value>barWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='leftToRight'>
+            <choice>
+              <value>leftToRight</value>
+              <value>topToBottom</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>boxWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='topLeft'>
+            <choice>
+              <value>topLeft</value>
+              <value>topRight</value>
+              <value>bottomRight</value>
+              <value>bottomLeft</value>
+              <value>topCenter</value>
+              <value>rightCenter</value>
+              <value>bottomCenter</value>
+              <value>leftCenter</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>fourBoxWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='cornersIn'>
+            <choice>
+              <value>cornersIn</value>
+              <value>cornersOut</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>barnDoorWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='vertical'>
+            <choice>
+              <value>vertical</value>
+              <value>horizontal</value>
+              <value>diagonalBottomLeft</value>
+              <value>diagonalTopLeft</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>diagonalWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='topLeft'>
+            <choice>
+              <value>topLeft</value>
+              <value>topRight</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>bowTieWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='vertical'>
+            <choice>
+              <value>vertical</value>
+              <value>horizontal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>miscDiagonalWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='doubleBarnDoor'>
+            <choice>
+              <value>doubleBarnDoor</value>
+              <value>doubleDiamond</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>veeWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='down'>
+            <choice>
+              <value>down</value>
+              <value>left</value>
+              <value>up</value>
+              <value>right</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>barnVeeWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='down'>
+            <choice>
+              <value>down</value>
+              <value>left</value>
+              <value>up</value>
+              <value>right</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>zigZagWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='leftToRight'>
+            <choice>
+              <value>leftToRight</value>
+              <value>topToBottom</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>barnZigZagWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='vertical'>
+            <choice>
+              <value>vertical</value>
+              <value>horizontal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>irisWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='rectangle'>
+            <choice>
+              <value>rectangle</value>
+              <value>diamond</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>triangleWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='up'>
+            <choice>
+              <value>up</value>
+              <value>right</value>
+              <value>down</value>
+              <value>left</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>arrowHeadWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='up'>
+            <choice>
+              <value>up</value>
+              <value>right</value>
+              <value>down</value>
+              <value>left</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>pentagonWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='up'>
+            <choice>
+              <value>up</value>
+              <value>down</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>hexagonWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='horizontal'>
+            <choice>
+              <value>horizontal</value>
+              <value>vertical</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>ellipseWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='circle'>
+            <choice>
+              <value>circle</value>
+              <value>horizontal</value>
+              <value>vertical</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>eyeWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='horizontal'>
+            <choice>
+              <value>horizontal</value>
+              <value>vertical</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>roundRectWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='horizontal'>
+            <choice>
+              <value>horizontal</value>
+              <value>vertical</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>starWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='fourPoint'>
+            <choice>
+              <value>fourPoint</value>
+              <value>fivePoint</value>
+              <value>sixPoint</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>miscShapeWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='heart'>
+            <choice>
+              <value>heart</value>
+              <value>keyhole</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>clockWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='clockwiseTwelve'>
+            <choice>
+              <value>clockwiseTwelve</value>
+              <value>clockwiseThree</value>
+              <value>clockwiseSix</value>
+              <value>clockwiseNine</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>pinWheelWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='twoBladeVertical'>
+            <choice>
+              <value>twoBladeVertical</value>
+              <value>twoBladeHorizontal</value>
+              <value>fourBlade</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>singleSweepWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='clockwiseTop'>
+            <choice>
+              <value>clockwiseTop</value>
+              <value>clockwiseRight</value>
+              <value>clockwiseBottom</value>
+              <value>clockwiseLeft</value>
+              <value>clockwiseTopLeft</value>
+              <value>counterClockwiseBottomLeft</value>
+              <value>clockwiseBottomRight</value>
+              <value>counterClockwiseTopRight</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>fanWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='centerTop'>
+            <choice>
+              <value>centerTop</value>
+              <value>centerRight</value>
+              <value>top</value>
+              <value>right</value>
+              <value>bottom</value>
+              <value>left</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>doubleFanWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='fanOutVertical'>
+            <choice>
+              <value>fanOutVertical</value>
+              <value>fanOutHorizontal</value>
+              <value>fanInVertical</value>
+              <value>fanInHorizontal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>doubleSweepWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='parallelVertical'>
+            <choice>
+              <value>parallelVertical</value>
+              <value>parallelDiagonal</value>
+              <value>oppositeVertical</value>
+              <value>oppositeHorizontal</value>
+              <value>parallelDiagonalTopLeft</value>
+              <value>parallelDiagonalBottomLeft</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>saloonDoorWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='top'>
+            <choice>
+              <value>top</value>
+              <value>left</value>
+              <value>bottom</value>
+              <value>right</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>windshieldWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='right'>
+            <choice>
+              <value>right</value>
+              <value>up</value>
+              <value>vertical</value>
+              <value>horizontal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>snakeWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='topLeftHorizontal'>
+            <choice>
+              <value>topLeftHorizontal</value>
+              <value>topLeftVertical</value>
+              <value>topLeftDiagonal</value>
+              <value>topRightDiagonal</value>
+              <value>bottomRightDiagonal</value>
+              <value>bottomLeftDiagonal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>spiralWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='topLeftClockwise'>
+            <choice>
+              <value>topLeftClockwise</value>
+              <value>topRightClockwise</value>
+              <value>bottomRightClockwise</value>
+              <value>bottomLeftClockwise</value>
+              <value>topLeftCounterClockwise</value>
+              <value>topRightCounterClockwise</value>
+              <value>bottomRightCounterClockwise</value>
+              <value>bottomLeftCounterClockwise</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>parallelSnakesWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='verticalTopSame'>
+            <choice>
+              <value>verticalTopSame</value>
+              <value>verticalBottomSame</value>
+              <value>verticalTopLeftOpposite</value>
+              <value>verticalBottomLeftOpposite</value>
+              <value>horizontalLeftSame</value>
+              <value>horizontalRightSame</value>
+              <value>horizontalTopLeftOpposite</value>
+              <value>horizontalTopRightOpposite</value>
+              <value>diagonalBottomLeftOpposite</value>
+              <value>diagonalTopLeftOpposite</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>boxSnakesWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='twoBoxTop'>
+            <choice>
+              <value>twoBoxTop</value>
+              <value>twoBoxBottom</value>
+              <value>twoBoxLeft</value>
+              <value>twoBoxRight</value>
+              <value>fourBoxVertical</value>
+              <value>fourBoxHorizontal</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>waterfallWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='verticalLeft'>
+            <choice>
+              <value>verticalLeft</value>
+              <value>verticalRight</value>
+              <value>horizontalLeft</value>
+              <value>horizontalRight</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>pushWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='fromLeft'>
+            <choice>
+              <value>fromLeft</value>
+              <value>fromTop</value>
+              <value>fromRight</value>
+              <value>fromBottom</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>slideWipe</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='fromLeft'>
+            <choice>
+              <value>fromLeft</value>
+              <value>fromTop</value>
+              <value>fromRight</value>
+              <value>fromBottom</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+      <group>
+        <attribute name='type'><value>fade</value></attribute>
+        <optional>
+          <attribute name='subtype' a:defaultValue='crossfade'>
+            <choice>
+              <value>crossfade</value>
+              <value>fadeToColor</value>
+              <value>fadeFromColor</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+    </choice>
+  </define>
+
+</grammar>
+
+

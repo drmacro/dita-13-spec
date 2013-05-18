@@ -1,0 +1,101 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Extended Links
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='SVG.Hyperlink.class' combine='choice'>
+    <choice>
+      <ref name='xa'/>
+    </choice>
+  </define>
+
+
+  <define name='xa'>
+    <element name='xa'>
+      <ref name='attlist.xa'/>
+      <ref name='SVG.xa.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.xa' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <ref name='SVG.transform.attrib'/>
+    <ref name='SVG.transform-host.attrib'/>
+    <optional>
+      <attribute name='target'>
+        <ref name='LinkTarget.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.xa.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name='loc'/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <choice>
+        <ref name='SVG.Animation.class'/>
+        <ref name='SVG.Structure.class'/>
+        <ref name='SVG.Conditional.class'/>
+        <ref name='SVG.Image.class'/>
+        <ref name='SVG.Style.class'/>
+        <ref name='SVG.Shape.class'/>
+        <ref name='SVG.Text.class'/>
+        <ref name='SVG.Marker.class'/>
+        <ref name='SVG.Profile.class'/>
+        <ref name='SVG.Gradient.class'/>
+        <ref name='SVG.Pattern.class'/>
+        <ref name='SVG.Clip.class'/>
+        <ref name='SVG.Mask.class'/>
+        <ref name='SVG.Filter.class'/>
+        <ref name='SVG.Cursor.class'/>
+        <ref name='SVG.Hyperlink.class'/>
+        <ref name='SVG.View.class'/>
+        <ref name='SVG.Script.class'/>
+        <ref name='SVG.Font.class'/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+
+
+
+  <define name='loc'>
+    <element name='loc'>
+      <ref name='attlist.loc'/>
+      <ref name='SVG.loc.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.loc' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XLinkReplace.attrib'/>
+    <optional>
+      <attribute name='target'>
+        <ref name='LinkTarget.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.loc.content'>
+    <ref name='title'/>
+  </define>
+
+
+</grammar>

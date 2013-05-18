@@ -1,0 +1,63 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Color Profile
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.Profile.attrib' combine='interleave'>
+    <optional>
+      <attribute name='color-profile'/>
+    </optional>
+  </define>
+
+
+
+
+  <define name='SVG.Profile.class' combine='choice'>
+    <choice>
+      <ref name='color-profile'/>
+    </choice>
+  </define>
+
+
+
+  <define name='SVG.color-profile.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='color-profile'>
+    <element name='color-profile'>
+      <ref name='attlist.color-profile'/>
+      <ref name='SVG.color-profile.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.color-profile' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.XLink.attrib'/>
+    <optional>
+      <attribute name='local'/>
+    </optional>
+    <attribute name='name'/>
+    <optional>
+      <attribute name='rendering-intent' a:defaultValue='auto'>
+        <choice>
+          <value>auto</value>
+          <value>perceptual</value>
+          <value>relative-colorimetric</value>
+          <value>saturation</value>
+          <value>absolute-colorimetric</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+</grammar>

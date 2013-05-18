@@ -1,0 +1,43 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Viewport attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <include href='../Tiny-1.2/tiny-viewport-attrib.rng'/>
+
+
+  <define name='SVG.overflow.values' combine='choice'>
+    <choice>
+      <value>hidden</value>
+      <value>scroll</value>
+      <value>auto</value>
+      <value>inherit</value>
+    </choice>
+  </define>
+
+  <define name='ClipValue.datatype'>
+    <data type='string'/>
+  </define>
+
+  <define name='SVG.clip.attrib'>
+    <optional>
+      <attribute name='clip'>
+        <ref name='ClipValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Viewport.attrib' combine='interleave'>
+    <ref name='SVG.clip.attrib'/>
+  </define>
+
+</grammar>
+

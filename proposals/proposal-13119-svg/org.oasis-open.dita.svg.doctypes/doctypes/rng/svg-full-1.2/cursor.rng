@@ -1,0 +1,65 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Cursor
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='CursorValue.datatype'>
+    <data type='string'/>
+  </define>
+
+
+  <define name='SVG.Cursor.attrib' combine='interleave'>
+    <optional>
+      <attribute name='cursor'>
+        <ref name='CursorValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+
+  <define name='SVG.Cursor.class' combine='choice'>
+    <choice>
+      <ref name='cursor'/>
+    </choice>
+  </define>
+
+
+
+  <define name='SVG.cursor.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+  <define name='cursor'>
+    <element name='cursor'>
+      <ref name='attlist.cursor'/>
+      <ref name='SVG.cursor.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.cursor' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Conditional.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+    <ref name='SVG.External.attrib'/>
+    <optional>
+      <attribute name='x'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name='y'>
+        <ref name='Coordinate.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+</grammar>

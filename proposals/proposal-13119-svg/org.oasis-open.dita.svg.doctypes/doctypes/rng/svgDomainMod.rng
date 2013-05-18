@@ -5,6 +5,8 @@
   xmlns:svg = "http://www.w3.org/2000/svg"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
+  <include href="svg-full-1.2/Full-1.2.rng"/>
+  
   <define name="domains-atts-value" combine="choice">
     <value>(topic svg-d)</value>
   </define>

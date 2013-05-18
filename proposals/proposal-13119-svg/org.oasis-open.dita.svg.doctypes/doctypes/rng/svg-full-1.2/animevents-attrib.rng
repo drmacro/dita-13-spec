@@ -1,0 +1,44 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Animation Events attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='SVG.onbegin.attrib'>
+    <optional>
+      <attribute name='onbegin'>
+        <ref name='Script.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.onend.attrib'>
+    <optional>
+      <attribute name='onend'>
+        <ref name='Script.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.onrepeat.attrib'>
+    <optional>
+      <attribute name='onrepeat'>
+        <ref name='Script.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.AnimationEvents.attrib' combine='interleave'>
+    <ref name='SVG.onbegin.attrib'/>
+    <ref name='SVG.onend.attrib'/>
+    <ref name='SVG.onrepeat.attrib'/>
+    <ref name='SVG.onload.attrib'/>
+  </define>
+
+</grammar>

@@ -1,0 +1,88 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Arbitrary elements in other NS
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+
+  <define name='ANY.wildcard.class'>
+    <zeroOrMore>
+      <choice>
+        <element>
+          <anyName>
+            <except>
+              <nsName ns='http://www.w3.org/2000/svg'/>
+            </except>
+          </anyName>
+          <ref name='ANY.wildcard.class'/>
+        </element>
+        <attribute>
+          <anyName/>
+        </attribute>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='ANY.wildcardElement.class'>
+    <zeroOrMore>
+      <choice>
+        <element>
+          <anyName>
+            <except>
+              <nsName ns='http://www.w3.org/2000/svg'/>
+            </except>
+          </anyName>
+          <ref name='ANY.wildcard.class'/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+
+  <define name='ANY.wildcardOrSVG.class'>
+    <zeroOrMore>
+      <choice>
+        <element>
+          <anyName>
+            <except>
+              <nsName ns='http://www.w3.org/2000/svg'/>
+            </except>
+          </anyName>
+          <ref name='ANY.wildcard.class'/>
+        </element>
+        <ref name='svg'/>
+        <attribute>
+          <anyName/>
+        </attribute>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+  <define name='ANY.wildcardElementOrSVG.class'>
+    <zeroOrMore>
+      <choice>
+        <element>
+          <anyName>
+            <except>
+              <nsName ns='http://www.w3.org/2000/svg'/>
+            </except>
+          </anyName>
+          <ref name='ANY.wildcardOrSVG.class'/>
+        </element>
+        <ref name='svg'/>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+</grammar>

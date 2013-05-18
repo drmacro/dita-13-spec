@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>Stage 3 troubleshooting proposals</title>
+  <topichead navtitle="Stage 3 troubleshooting proposals">
+    <topicref href="TroubleshootingElements.dita"/>
+    <topicref href="proposals/StepTroubleshootingProposal13086_Stage3.dita">
+      <topicref href="langref/steptroubleshooting.dita"/>
+    </topicref>
+    <topicref
+      href="proposals/TaskTroubleshootingSectionProposal13096_Stage3.dita">
+      <topicref href="langref/tasktroubleshooting.dita"/>
+    </topicref>
+    <topicref
+      href="proposals/NoteAttributeTroubleValueProposal13098_Stage3.dita"/>
+    <topicref href="common/RevisedTaskModToImplement13086and13096.dita"/>
+  </topichead>
+</map>

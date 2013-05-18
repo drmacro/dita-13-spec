@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="topic-with-mathml.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="rng-math-topic" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <title>Topic with RNG-Based MathML Domain</title>
+  <body>
+    <fig>
+      <title>Inline Equation markup</title>
+      <mathml>
+        
+      </mathml>
+    </fig>   
+  </body>  
+</topic>

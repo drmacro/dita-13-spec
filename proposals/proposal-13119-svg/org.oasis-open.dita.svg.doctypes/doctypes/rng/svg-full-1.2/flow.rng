@@ -1,0 +1,212 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Basic Flow
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <include href='../Tiny-1.2/tiny-flow.rng'/>
+
+
+  <define name='SVG.FlowText.class' combine='choice'>
+    <choice>
+      <ref name='flowRef'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.flowRoot.class' combine='interleave'>
+    <interleave>
+      <ref name='flowRegionExclude'/>
+      <zeroOrMore>
+        <ref name='flowDiv'/>
+      </zeroOrMore>
+    </interleave>
+  </define>
+
+  <define name='SVG.moreFlowRegions.class' combine='interleave'>
+    <ref name='flowRegion'/>
+  </define>
+
+  <define name='SVG.flowPara.class' combine='choice'>
+    <choice>
+      <ref name='flowRegionBreak'/>
+      <ref name='flowLine'/>
+      <ref name='flowTref'/>
+      <ref name='flowImage'/>
+    </choice>
+  </define>
+
+  <define name='SVG.flowSpan.class' combine='choice'>
+    <choice>
+      <ref name='flowRegionBreak'/>
+      <ref name='flowLine'/>
+      <ref name='flowTref'/>
+      <ref name='flowImage'/>
+    </choice>
+  </define>
+
+
+  <define name='SVG.flowRegion.class' combine='choice'>
+    <choice>
+      <zeroOrMore>
+        <ref name='g'/>
+        <ref name='use'/>
+        <ref name='SVG.Shape.class'/>
+        <ref name='SVG.Text.class'/>
+        <ref name='flowRegionExclude'/>
+      </zeroOrMore>
+    </choice>
+  </define>
+
+
+  <define name='flowRegionExclude'>
+    <element name='flowRegionExclude'>
+      <ref name='attlist.flowRegion'/>
+      <ref name='SVG.flowRegion.content'/>
+    </element>
+  </define>
+
+
+  <define name='flowRef'>
+    <element name='flowRef'>
+      <ref name='attlist.flowRef'/>
+      <ref name='SVG.flowRef.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowRef' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+  </define>
+
+  <define name='SVG.flowRef.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+    </zeroOrMore>
+  </define>
+
+
+  <define name='flowTref'>
+    <element name='flowTref'>
+      <ref name='attlist.flowTref'/>
+      <ref name='SVG.flowTref.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowTref' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+    <ref name='SVG.XLinkRequired.attrib'/>
+  </define>
+
+  <define name='SVG.flowTref.content'><empty/></define>
+
+
+
+  <define name='flowDiv'>
+    <element name='flowDiv'>
+      <ref name='attlist.flowDiv'/>
+      <ref name='SVG.flowDiv.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowDiv' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+  </define>
+
+  <define name='SVG.flowDiv.content'>
+    <zeroOrMore>
+      <ref name='SVG.Description.class'/>
+      <ref name='flowPara'/>
+      <ref name='flowRegionBreak'/>
+    </zeroOrMore>
+  </define>
+
+
+
+  <define name='flowRegionBreak'>
+    <element name='flowRegionBreak'>
+      <ref name='attlist.flowRegionBreak'/>
+      <ref name='SVG.flowRegionBreak.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowRegionBreak' combine='interleave'>
+    <empty/>
+  </define>
+
+  <define name='SVG.flowRegionBreak.content'>
+    <empty/>
+  </define>
+
+
+
+  <define name='flowLine'>
+    <element name='flowLine'>
+      <ref name='attlist.flowLine'/>
+      <ref name='SVG.flowLine.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowLine' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+  </define>
+
+  <define name='SVG.flowLine.content'>
+    <zeroOrMore>
+      <ref name='flowSpan'/>
+      <ref name='flowImage'/>
+      <ref name='flowRegionBreak'/>
+    </zeroOrMore>
+  </define>
+
+
+
+  <define name='flowImage'>
+    <element name='flowImage'>
+      <ref name='attlist.flowImage'/>
+      <ref name='SVG.flowImage.content'/>
+    </element>
+  </define>
+
+  <define name='attlist.flowImage' combine='interleave'>
+    <ref name='SVG.Core.attrib'/>
+    <ref name='SVG.Style.attrib'/>
+    <ref name='SVG.Presentation.attrib'/>
+    <ref name='SVG.GraphicalEvents.attrib'/>
+  </define>
+
+  <define name='SVG.flowImage.content'>
+    <zeroOrMore>
+      <ref name='g'/>
+      <ref name='use'/>
+      <ref name='text'/>
+      <ref name='image'/>
+      <ref name='video'/>
+      <ref name='flowRoot'/>
+      <ref name='flowRef'/>
+      <ref name='SVG.Shape.class'/>
+      <ref name='SVG.Text.class'/>
+    </zeroOrMore>
+  </define>
+
+
+</grammar>
+

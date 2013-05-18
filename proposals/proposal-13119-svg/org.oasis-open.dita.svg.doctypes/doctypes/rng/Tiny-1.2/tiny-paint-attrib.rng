@@ -1,0 +1,140 @@
+
+<!-- ==============================================================
+      SVG12-RNG | Paint attributes
+     ============================================================== -->
+
+<grammar ns='http://www.w3.org/2000/svg'
+         xml:lang='en'
+         xmlns='http://relaxng.org/ns/structure/1.0'
+         xmlns:a='http://relaxng.org/ns/compatibility/annotations/1.0'
+         xmlns:svg='http://www.w3.org/2000/svg'
+         datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'
+         >
+
+  <define name='Paint.datatype'                 ><data type='string'/></define>
+  <define name='StrokeDashArrayValue.datatype'  ><data type='string'/></define>
+  <define name='StrokeDashOffsetValue.datatype' ><data type='string'/></define>
+  <define name='StrokeMiterLimitValue.datatype' ><data type='string'/></define>
+  <define name='StrokeWidthValue.datatype'      ><data type='string'/></define>
+
+  <define name='SVG.fill.attrib'>
+    <optional>
+      <attribute name='fill' svg:animatable='true' svg:inheritable='true'>
+        <ref name='Paint.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.fill-rule.attrib'>
+    <optional>
+      <attribute name='fill-rule' svg:animatable='true' svg:inheritable='true'>
+        <ref name='ClipFillRule.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke.attrib'>
+    <optional>
+      <attribute name='stroke' svg:animatable='true' svg:inheritable='true'>
+        <ref name='Paint.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-dasharray.attrib'>
+    <optional>
+      <attribute name='stroke-dasharray' svg:animatable='true' svg:inheritable='true'>
+        <ref name='StrokeDashArrayValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-dashoffset.attrib'>
+    <optional>
+      <attribute name='stroke-dashoffset' svg:animatable='true' svg:inheritable='true'>
+        <ref name='StrokeDashOffsetValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-linecap.attrib'>
+    <optional>
+      <attribute name='stroke-linecap' svg:animatable='true' svg:inheritable='true'>
+        <choice>
+          <value>butt</value>
+          <value>round</value>
+          <value>square</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-linejoin.attrib'>
+    <optional>
+      <attribute name='stroke-linejoin' svg:animatable='true' svg:inheritable='true'>
+        <choice>
+          <value>miter</value>
+          <value>round</value>
+          <value>bevel</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-miterlimit.attrib'>
+    <optional>
+      <attribute name='stroke-miterlimit' svg:animatable='true' svg:inheritable='true'>
+        <ref name='StrokeMiterLimitValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.stroke-width.attrib'>
+    <optional>
+      <attribute name='stroke-width' svg:animatable='true' svg:inheritable='true'>
+        <ref name='StrokeWidthValue.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Paint.attrib' combine='interleave'>
+    <ref name='SVG.fill.attrib'/>
+    <ref name='SVG.fill-rule.attrib'/>
+    <ref name='SVG.stroke.attrib'/>
+    <ref name='SVG.stroke-dasharray.attrib'/>
+    <ref name='SVG.stroke-dashoffset.attrib'/>
+    <ref name='SVG.stroke-linecap.attrib'/>
+    <ref name='SVG.stroke-linejoin.attrib'/>
+    <ref name='SVG.stroke-miterlimit.attrib'/>
+    <ref name='SVG.stroke-width.attrib'/>
+  </define>
+
+  <define name='SVG.color.attrib'>
+    <optional>
+      <attribute name='color' svg:animatable='true' svg:inheritable='true'>
+        <ref name='Color.datatype'/>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.color-rendering.attrib'>
+    <optional>
+      <attribute name='color-rendering' svg:animatable='true' svg:inheritable='true'>
+        <choice>
+          <value>auto</value>
+          <value>optimizeSpeed</value>
+          <value>optimizeQuality</value>
+          <value>inherit</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name='SVG.Color.attrib' combine='interleave'>
+    <ref name='SVG.color.attrib'/>
+    <ref name='SVG.color-rendering.attrib'/>
+  </define>
+
+</grammar>
