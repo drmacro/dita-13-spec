@@ -51,19 +51,12 @@
 
   <define
     name="equation.cnt">
-    <text/>
-    <ref
-      name="data.element"/>
-    <ref
-      name="data-about.element"/>
-    <ref
-      name="foreign.element"/>
-    <ref
-      name="image.element"/>
-    <ref
-      name="ph.element"/>
-    <ref
-      name="text.element"/>
+    <zeroOrMore>
+      <choice>
+        <ref name="ph.cnt"/>
+        <ref name="text"/>
+      </choice>
+    </zeroOrMore>
   </define>
 
   <define

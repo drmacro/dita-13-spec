@@ -10,4 +10,12 @@
     uri="mathmlDomain.mod"
   />
   
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Equation Domain//EN"
+    uri="equationDomain.ent"
+  />
+  
+  <public publicId="-//OASIS//ELEMENTS DITA 1.3 Equation Domain//EN"
+    uri="equationDomain.mod"
+  />
+  
 </catalog>  

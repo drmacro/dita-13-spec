@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA Equation Domain
+     
+     Defines element types that represent equations semantically,
+     irrespective of the representation of the equation content.
+     
+     DITA 1.3
+     
+     Copyright (c) 2013 OASIS Open
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Equation DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % equation-d-ph
+   "equation-inline
+   "
+>
+
+<!ENTITY % equation-d-p
+   "equation-block
+   "
+>
+
+<!ENTITY % equation-d-fig
+   "equation-display
+   "
+>
+
+
+
+<!ENTITY   equation-d-att     
+  "(topic equation-d)"
+>
+
+
+<!-- ================== End DITA Equation Domain Entities ============ -->

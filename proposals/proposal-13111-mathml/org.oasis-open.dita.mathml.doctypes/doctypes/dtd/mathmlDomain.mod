@@ -7,11 +7,12 @@
      
      DITA 1.3
      
-     Copyright (c) 2012 OASIS Open
+     Copyright (c) 2013 OASIS Open
      
      ============================================================= -->
      
- <!ENTITY % mathml_container        "mathml_container" >
+ <!ENTITY % mathml        "mathml" >
+ <!ENTITY % mathmlref     "mathmlref" >
 
 <!ENTITY % MATHML.prefixed "INCLUDE">
 <!ENTITY % MATHML.prefix "m">
@@ -29,14 +30,48 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ENTITY % mathml_container.content
+<!ENTITY % mathmlref.content
+"
+  EMPTY
+"
+>
+<!ENTITY % mathmlref.attributes
+             "href 
+                        CDATA 
+                                  #IMPLIED
+              keyref 
+                        CDATA 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+> 
+<!ELEMENT mathmlref %mathmlref.content; >
+<!ATTLIST mathmlref %mathmlref.attributes; >
+
+
+<!ENTITY % mathml.content
 "
   (%MATHML.pfx;math |
+   %mathmlref; |
    %data; |
    %data-about;)*
 "
 >
-<!ENTITY % mathml_container.attributes
+<!ENTITY % mathml.attributes
  "
    %id-atts;
   %localization-atts;
@@ -50,8 +85,8 @@
 
  "
 > 
-<!ELEMENT mathml_container %mathml_container.content; >
-<!ATTLIST mathml_container %mathml_container.attributes; >
+<!ELEMENT mathml %mathml.content; >
+<!ATTLIST mathml %mathml.attributes; >
 
 
 
@@ -59,7 +94,8 @@
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST mathml_container           %global-atts;  class CDATA "+ topic/foreign mathml-d/mathml_container ">
+<!ATTLIST mathml           %global-atts;  class CDATA "+ topic/foreign mathml-d/mathml ">
+<!ATTLIST mathmlref        %global-atts;  class CDATA "+ topic/xref mathml-d/mathmlref ">
 
 
 <!-- ================== End MathML Domain ==================== -->
