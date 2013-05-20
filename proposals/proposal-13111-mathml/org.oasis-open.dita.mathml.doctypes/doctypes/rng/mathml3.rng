@@ -12,7 +12,7 @@
         <anyName>
           <except>
             <nsName
-              ns="m"/>
+              ns="http://www.w3.org/1998/Math/MathML"/>
             <nsName
               ns=""/>
           </except>

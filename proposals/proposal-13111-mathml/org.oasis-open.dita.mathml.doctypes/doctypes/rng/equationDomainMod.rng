@@ -53,8 +53,10 @@
     name="equation.cnt">
     <zeroOrMore>
       <choice>
-        <ref name="ph.cnt"/>
-        <ref name="text"/>
+        <ref
+          name="ph.cnt"/>
+        <ref
+          name="text"/>
       </choice>
     </zeroOrMore>
   </define>
@@ -88,12 +90,18 @@
       <p>The equation may include alternative forms, such as both a MathML
         version and an image.</p>
     </a:documentation>
-    <ref
-      name="equation-inline.content"/>
-    <ref
-      name="equation-inline.attributes"/>
+    <element
+      name="equation-inline">
+      <ref
+        name="equation-inline.content"/>
+      <ref
+        name="equation-inline.attlist"/>
+    </element>
   </define>
-
+  <define name="equation-inline.attlist" combine="interleave">
+    <ref name="equation-inline.attributes"/>
+  </define>
+  
 
   <define
     name="equation-block.content">
@@ -126,12 +134,18 @@
       <p>The equation may include alternative forms, such as both a MathML
         version and an image.</p>
     </a:documentation>
-    <ref
-      name="equation-block.content"/>
-    <ref
-      name="equation-block.attributes"/>
+    <element
+      name="equation-block">
+      <ref
+        name="equation-block.content"/>
+      <ref
+        name="equation-block.attlist"/>
+    </element>
   </define>
-
+  <define name="equation-block.attlist" combine="interleave">
+    <ref name="equation-block.attributes"/>
+  </define>
+  
   <define
     name="equation-display.content">
     <optional>
@@ -186,10 +200,37 @@
       <p>The equation may include alternative forms, such as both a MathML
         version and an image.</p>
     </a:documentation>
-    <ref
-      name="equation-display.content"/>
-    <ref
-      name="equation-display.attributes"/>
+    <element
+      name="equation-display">
+      <ref
+        name="equation-display.content"/>
+      <ref
+        name="equation-display.attlist"/>
+    </element>
   </define>
-
+  <define name="equation-display.attlist" combine="interleave">
+    <ref name="equation-display.attributes"/>
+  </define>
+  
+  <define name="equation-inline.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph equation-d/equation-inline "/>
+    </optional>
+  </define>
+  
+  <define name="equation-block.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/p equation-d/equation-block "/>
+    </optional>
+  </define>
+  
+  <define name="equation-display.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-display "/>
+    </optional>
+  </define>
+  
 </grammar>

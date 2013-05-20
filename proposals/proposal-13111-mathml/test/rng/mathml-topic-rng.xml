@@ -5,9 +5,138 @@
   <body>
     <fig>
       <title>Inline Equation markup</title>
+      <p>Text before the equation <equation-inline> <mathml>
+        <m:math>
+          <m:semantics>
+            <m:mrow>
+              <m:msqrt>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>a</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:msup>
+                    <m:mi>b</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:msqrt>
+            </m:mrow>
+          </m:semantics>
+        </m:math>
+        </mathml> </equation-inline> text after the equation.</p>
+    </fig>
+    <fig>
+      <title>Block Equation markup</title>
+      <p>Para before the equation</p>
+      <equation-block> <mathml>
+        <m:math>
+          <m:semantics>
+            <m:mrow>
+              <m:msqrt>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>a</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:msup>
+                    <m:mi>b</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:msqrt>
+            </m:mrow>
+          </m:semantics>
+        </m:math>
+        </mathml> </equation-block>
+      <p>Para after the equation.</p>
+    </fig>
+    <p>Display equation with directly-referenced &lt;mathml&gt; element:</p>
+    <equation-display>
+      <title>Equation Title</title>
+      <desc>Equation description</desc>
       <mathml>
-        
+        <m:math
+          display="block">
+          <m:semantics>
+            <m:mrow>
+              <m:msqrt>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>a</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:msup>
+                    <m:mi>b</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:msqrt>
+            </m:mrow>
+          </m:semantics>
+        </m:math>
       </mathml>
-    </fig>   
+    </equation-display>
+    <p>Display equation with nested equation elements:</p>
+    <equation-display>
+      <title>Equation Title</title>
+      <desc>Equation description</desc>
+      <equation-block> <mathml>
+        <m:math>
+          <m:semantics>
+            <m:mrow>
+              <m:msqrt>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>a</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:msup>
+                    <m:mi>b</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:msqrt>
+            </m:mrow>
+          </m:semantics>
+        </m:math>
+        </mathml> </equation-block>
+      <p>And here is that equation again:</p>
+      <equation-block> <mathml>
+        <mathmlref/>
+        <m:math>
+          <m:semantics>
+            <m:mrow>
+              <m:msqrt>
+                <m:mrow>
+                  <m:msup>
+                    <m:mi>a</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                  <m:mo>+</m:mo>
+                  <m:msup>
+                    <m:mi>b</m:mi>
+                    <m:mn>2</m:mn>
+                  </m:msup>
+                </m:mrow>
+              </m:msqrt>
+            </m:mrow>
+          </m:semantics>
+        </m:math>
+        </mathml> </equation-block>
+    </equation-display>
+    <fig>
+      <title>Equation with non-MathML Content</title>
+      <p>Suppose a x^2+b x+c=0 and a!=0. We first divide by \a to get x^2+b/a
+        x+c/a=0.</p>
+      <p>See <xref
+        href="http://www.wjagray.co.uk/maths/ASCIIMathMLinfo.html"
+        format="html"
+        scope="external">http://www.wjagray.co.uk/maths/ASCIIMathMLinfo.html</xref>.</p>
+    </fig>
   </body>  
 </topic>

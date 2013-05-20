@@ -47,7 +47,7 @@
     </define>
   </include>
   <include href="../../org.oasis-open.dita.mathml.doctypes/doctypes/rng/mathmlDomainMod.rng"/>
-<!--  <include href="../../org.oasis-open.dita.mathml.doctypes/doctypes/rng/equationDomainMod.rng"/>-->
+  <include href="../../org.oasis-open.dita.mathml.doctypes/doctypes/rng/equationDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->
@@ -58,6 +58,7 @@
         <element>
           <anyName>
             <except>
+              <nsName ns="http://www.w3.org/1998/Math/MathML"/>
               <name>topic</name>
             </except>
           </anyName>
