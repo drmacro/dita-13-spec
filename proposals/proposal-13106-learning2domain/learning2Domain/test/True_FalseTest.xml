@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_yf3_2n2_hk">
+  <title>True/False DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This True/False question tests the following:<ul id="ul_ehh_pr2_hk">
+        <li>Question contains multiple paragraphs.</li>
+        <li>Incorrect feedback contains multiple paragraphs.</li>
+        <li>Correct feedback contains multiple paragraphs, one of which is conref'd.</li>
+      </ul></lcIntro>
+    <lcInteraction>
+      <lcTrueFalse2>
+        <lcQuestion2>This code sample conforms to DITA code standards:<p><tt>&lt;step>Type your
+              name.&lt;/step></tt></p></lcQuestion2>
+        <lcAnswerOptionGroup2 id="lcAnswerOptionGroup2_qz1_fn2_hk">
+          <lcAnswerOption2>
+            <lcAnswerContent2>True</lcAnswerContent2>
+            <lcFeedback2>No. The &lt;step> element requires that you nest a &lt;cmd> element before
+              entering the step content.<p id="p_mkf_f42_hk"><tt>&lt;step>&lt;cmd>Type your
+                  name.&lt;/cmd>&lt;/step></tt></p></lcFeedback2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>False</lcAnswerContent2>
+            <lcCorrectResponse/>
+            <lcFeedback2>You're right. The correct way to code this information is as follows:<p
+                conref="#learningAssessment_yf3_2n2_hk/p_mkf_f42_hk"/></lcFeedback2>
+          </lcAnswerOption2>
+        </lcAnswerOptionGroup2>
+      </lcTrueFalse2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

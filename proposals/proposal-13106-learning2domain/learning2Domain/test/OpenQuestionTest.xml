@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_skt_ym2_hk">
+  <title>Open Question DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This open question tests the following:<ul id="ul_rcz_sr2_hk">
+        <li>Question contains multiple paragraphs.</li>
+        <li>Incorrect feedback contains multiple block elements, including &lt;p>, &lt;ol>, and
+          nested &lt;ol></li>
+      </ul></lcIntro>
+    
+    <lcInteraction>
+      <lcOpenQuestion2>
+        <lcQuestion2>
+          <p>The Level Landscaping Company sends a three member team whenever there's a big job to
+            do. The team assigned to today's landscaping job has an interesting way of dividing up
+            the work. Nicky has only nine months of experience and has to take care of 1/4 of the
+            yard. Karen has worked for the company longer and is assigned 1/3 of the yard. Peter has
+            been with the company the longest and must care for the remaining 600 square feet.</p>
+          <p>What is the area of the yard in square feet?</p>
+        </lcQuestion2>
+        <lcOpenAnswer2>1440</lcOpenAnswer2>
+        <lcFeedbackIncorrect2>
+          <p>I'm sorry, you are wrong. To solve this word problem, follow these steps:<ol
+              id="ol_dyq_bq2_hk">
+              <li>Determine what fraction of the yard Peter is caring for.<ol id="ol_dhc_fq2_hk">
+                  <li>Peter's fraction = 1-(Nicky's fraction)-(Karen's fraction)<p>Peter's fraction
+                      = 1 - 1/4 - 1/3</p></li>
+                  <li>Convert all fractions to a common denominator:<p>1 = 12/12</p><p>1/4 =
+                      3/12</p><p>1/3 = 4/12</p></li>
+                  <li>Solve<p>12/12-3/12-4/12 = 5/12</p></li>
+                </ol></li>
+              <li>Determine the size of the yard.<ol id="ol_imy_kq2_hk">
+                  <li>600 = 5/12 of x</li>
+                  <li>7200 = 5x</li>
+                  <li>x = 1440</li>
+                </ol></li>
+            </ol></p>
+        </lcFeedbackIncorrect2>
+        <lcFeedbackCorrect2>Good job! You're right.</lcFeedbackCorrect2>
+      </lcOpenQuestion2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

@@ -65,11 +65,11 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!--<!ENTITY % lcSequence               "lcSequence">
 -->
 <!ENTITY % lcMatchTable2             "lcMatchTable2">
-<!ENTITY % lcMatchingHeader2         "lcMatchingHeader">
-<!ENTITY % lcMatchingPair2           "lcMatchingPair">
-<!ENTITY % lcItem2                   "lcItem">
-<!ENTITY % lcMatchingItem2           "lcMatchingItem">
-<!ENTITY % lcMatchingItemFeedback2   "lcMatchingItemFeedback">
+<!ENTITY % lcMatchingHeader2         "lcMatchingHeader2">
+<!ENTITY % lcMatchingPair2           "lcMatchingPair2">
+<!ENTITY % lcItem2                   "lcItem2">
+<!ENTITY % lcMatchingItem2           "lcMatchingItem2">
+<!ENTITY % lcMatchingItemFeedback2   "lcMatchingItemFeedback2">
 
 <!ENTITY % lcFeedback2               "lcFeedback2">
 
@@ -148,7 +148,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
                          (%lcAsset;)*,
-                         (%lcAnswerOptionGroup2;),
                          (%lcSequenceOptionGroup2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -171,7 +170,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
                          (%lcAsset;)*,
-                         (%lcMatchTable;),
+                         (%lcMatchTable2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
                          (%data;)*)"
@@ -187,6 +186,79 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 >
 <!ELEMENT lcMatching2    %lcMatching2.content;>
 <!ATTLIST lcMatching2    %lcMatching2.attributes;>
+
+<!ENTITY % lcMatchTable2.content
+                       "((%lcMatchingHeader2;)?,
+                         (%lcMatchingPair2;)+)"
+>
+<!ENTITY % lcMatchTable2.attributes
+             "%univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcMatchTable2    %lcMatchTable2.content;>
+<!ATTLIST lcMatchTable2    %lcMatchTable2.attributes;>
+
+
+<!ENTITY % lcMatchingHeader2.content
+                       "((%lcItem2;),
+                         (%lcMatchingItem2;))"
+>
+<!ENTITY % lcMatchingHeader2.attributes
+             "%univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcMatchingHeader2    %lcMatchingHeader2.content;>
+<!ATTLIST lcMatchingHeader2    %lcMatchingHeader2.attributes;>
+
+
+<!ENTITY % lcMatchingPair2.content
+                       "((%lcItem2;),
+                         (%lcMatchingItem2;),
+                         (%lcMatchingItemFeedback2;)?)">
+<!ENTITY % lcMatchingPair2.attributes
+             "%univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcMatchingPair2    %lcMatchingPair2.content;>
+<!ATTLIST lcMatchingPair2    %lcMatchingPair2.attributes;>
+
+
+<!ENTITY % lcMatchingItem2.content
+ "(#PCDATA | 
+   %basic.block; | 
+   %basic.ph; | 
+   %data.elements.incl; | 
+   %foreign.unknown.incl; | 
+   %txt.incl;)*"
+>
+<!ENTITY % lcMatchingItem2.attributes
+             "%univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcMatchingItem2    %lcMatchingItem2.content;>
+<!ATTLIST lcMatchingItem2    %lcMatchingItem2.attributes;>
+
+<!ENTITY % lcMatchingItemFeedback2.content
+                       "((%lcFeedback2;) |
+                         (%lcFeedbackCorrect2;) |
+                         (%lcFeedbackIncorrect2;))*"
+>
+<!ENTITY % lcMatchingItemFeedback2.attributes
+             "%univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcMatchingItemFeedback2    %lcMatchingItemFeedback2.content;>
+<!ATTLIST lcMatchingItemFeedback2    %lcMatchingItemFeedback2.attributes;>
 
 
 <!ENTITY % lcHotspot2.content
@@ -393,52 +465,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ELEMENT lcAnswerContent2    %lcAnswerContent2.content;>
 <!ATTLIST lcAnswerContent2    %lcAnswerContent2.attributes;>
 
-
-<!ENTITY % lcMatchTable2.content
-                       "((%lcMatchingHeader;)?,
-                         (%lcMatchingPair2;)+)"
->
-<!ENTITY % lcMatchTable2.attributes
-"
-              %univ-atts;
-              outputclass
-                        CDATA
-                                  #IMPLIED"
->
-<!ELEMENT lcMatchTable2    %lcMatchTable2.content;>
-<!ATTLIST lcMatchTable2    %lcMatchTable2.attributes;>
-
-
-<!ENTITY % lcMatchingHeader2.content
-                       "((%lcItem2;),
-                         (%lcMatchingItem2;))"
->
-<!ENTITY % lcMatchingHeader2.attributes
-"
-              %univ-atts;
-              outputclass
-                        CDATA
-                                  #IMPLIED"
->
-<!ELEMENT lcMatchingHeader2    %lcMatchingHeader2.content;>
-<!ATTLIST lcMatchingHeader2    %lcMatchingHeader2.attributes;>
-
-
-<!ENTITY % lcMatchingPair2.content
-                       "((%lcItem2;),
-                         (%lcMatchingItem2;),
-                         (%lcMatchingItemFeedback2;)?)">
-<!ENTITY % lcMatchingPair2.attributes
-"
-              %univ-atts;
-              outputclass
-                        CDATA
-                                  #IMPLIED"
->
-<!ELEMENT lcMatchingPair2    %lcMatchingPair2.content;>
-<!ATTLIST lcMatchingPair2    %lcMatchingPair2.attributes;>
-
-
 <!ENTITY % lcItem2.content
  "(#PCDATA | 
    %basic.block; | 
@@ -457,41 +483,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 >
 <!ELEMENT lcItem2    %lcItem2.content;>
 <!ATTLIST lcItem2    %lcItem2.attributes;>
-
-
-<!ENTITY % lcMatchingItem2.content
- "(#PCDATA | 
-   %basic.block; | 
-   %basic.ph; | 
-   %data.elements.incl; | 
-   %foreign.unknown.incl; | 
-   %txt.incl;)*
- "
->
-<!ENTITY % lcMatchingItem2.attributes
-"
-              %univ-atts;
-              outputclass
-                        CDATA
-                                  #IMPLIED"
->
-<!ELEMENT lcMatchingItem2    %lcMatchingItem2.content;>
-<!ATTLIST lcMatchingItem2    %lcMatchingItem2.attributes;>
-
-<!ENTITY % lcMatchingItemFeedback2.content
-                       "((%lcFeedback2;) |
-                         (%lcFeedbackCorrect2;) |
-                         (%lcFeedbackIncorrect2;))*"
->
-<!ENTITY % lcMatchingItemFeedback2.attributes
-"
-              %univ-atts;
-              outputclass
-                        CDATA
-                                  #IMPLIED"
->
-<!ELEMENT lcMatchingItemFeedback2    %lcMatchingItemFeedback2.content;>
-<!ATTLIST lcMatchingItemFeedback2    %lcMatchingItemFeedback2.attributes;>
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

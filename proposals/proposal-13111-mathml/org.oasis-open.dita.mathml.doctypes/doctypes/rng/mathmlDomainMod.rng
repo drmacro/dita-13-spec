@@ -107,19 +107,19 @@
   <define
     name="mathml.content">
     <a:documentation>
-      <p>The MathML (&lt;mathml>) element contains inline MathML markup or
+      The MathML (&lt;mathml>) element contains inline MathML markup or
         references to MathML elements stored in a separate non-DITA XML
-        document.</p>
-      <p>The purpose of this element is simply to contain MathML markup. It is
+        document.
+      The purpose of this element is simply to contain MathML markup. It is
         not intended, by itself, to convey the semantic of "equation". Rather,
         it simply serves to hold one of many possible ways that the content of
         an equation may be represented. The companion equation domain provides
         elements for representing equations semantically, independent of the
-        format of the equation content.</p>
-      <p>The MathML markup must have a root element of "math" within the MathML
-        namespace "http://www.w3.org/1998/Math/MathML".</p>
-      <p>This element is part of the DITA MathML domain. Category: Foreign
-        elements</p>
+        format of the equation content.
+      The MathML markup must have a root element of "math" within the MathML
+        namespace "http://www.w3.org/1998/Math/MathML".
+      This element is part of the DITA MathML domain. Category: Foreign
+        elements
     </a:documentation>
     <zeroOrMore>
       <choice>

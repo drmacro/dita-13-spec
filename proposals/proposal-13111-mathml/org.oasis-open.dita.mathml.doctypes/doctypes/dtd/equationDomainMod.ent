@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:     Entities                   -->
+<!--  VERSION:                                                  -->
+<!--  DATE:                                           -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES //EN"
+      Delivered as file "equationDomainMod.ent"               -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the substitution context and domain     -->
+<!--             entity declarations for the     -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             February 2008                                     -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS Open 2008, 2009.              -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!--     : generated from Relax NG implementation      -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--            ELEMENT EXTENSION ENTITY DECLARATIONS              -->
+<!-- ============================================================= -->
+<!ENTITY % equation-d-ph "equation-inline" >
+
+<!ENTITY % equation-d-p "equation-block" >
+
+<!ENTITY % equation-d-fig "equation-display" >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITIES                            -->
+<!-- ============================================================= -->
+<!ENTITY equation-d-att    "(topic equation-d)">
+

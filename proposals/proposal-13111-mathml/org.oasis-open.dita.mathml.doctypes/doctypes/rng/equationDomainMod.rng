@@ -80,15 +80,17 @@
   <define
     name="equation-inline.element">
     <a:documentation>
-      <p>The Inline Equation element (&lt;equation-inline&gt;) represents an
-        equation that is intended to be rendered inline with its surrounding
-        content.</p>
-      <p>The equation content may be represented in any number of ways,
-        including embedded MathML using the &lt;mathml&gt; specialization of
-        &lt;foreign&gt;, a reference to an image, inline T<sub>e</sub>X markup,
-        or any other way that an equation might be defined.</p>
-      <p>The equation may include alternative forms, such as both a MathML
-        version and an image.</p>
+The Inline Equation element (&lt;equation-inline&gt;) represents an
+equation that is intended to be rendered inline with its surrounding
+content.
+
+The equation content may be represented in any number of ways,
+including embedded MathML using the &lt;mathml&gt; specialization of
+&lt;foreign&gt;, a reference to an image, inline TeX markup,
+or any other way that an equation might be defined.
+
+The equation may include alternative forms, such as both a MathML
+version and an image.
     </a:documentation>
     <element
       name="equation-inline">
@@ -123,16 +125,18 @@
   <define
     name="equation-block.element">
     <a:documentation>
-      <p>The Block Equation element (&lt;equation-block&gt;) represents an
-        equation that is intended to be rendered as a block element. Block
-        equations are not intended to be numbered (see
-        &lt;equation-display&gt;).</p>
-      <p>The equation content may be represented in any number of ways,
-        including embedded MathML using the &lt;mathml&gt; specialization of
-        &lt;foreign&gt;, a reference to an image, inline T<sub>e</sub>X markup,
-        or any other way that an equation might be defined.</p>
-      <p>The equation may include alternative forms, such as both a MathML
-        version and an image.</p>
+The Block Equation element (&lt;equation-block&gt;) represents an
+equation that is intended to be rendered as a block element. Block
+equations are not intended to be numbered (see
+&lt;equation-display&gt;).
+
+The equation content may be represented in any number of ways,
+including embedded MathML using the &lt;mathml&gt; specialization of
+&lt;foreign&gt;, a reference to an image, inline TeX markup,
+or any other way that an equation might be defined.
+
+The equation may include alternative forms, such as both a MathML
+version and an image.
     </a:documentation>
     <element
       name="equation-block">

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_bx3_wm2_hk">
+  <title>Multiple Correct DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This Multiple Correct question tests the following:<ul id="ul_d3s_rv2_hk">
+        <li>Question stem has multiple block elements (&lt;p> and &lt;fig>)</li>
+        <li>Question incorrect feedback has multiple block elements (&lt;p> and
+          &lt;simpletable>)</li>
+      </ul></lcIntro>
+        <lcInteraction>
+      <lcMultipleSelect2>
+        <lcQuestion2> The following chart plots the per-share prices of EcoCorp and TeleCorp stock
+          at the beginning of each of the first seven months during year  <i>X</i> . <p>
+            <fig>
+              <image href="chart.jpg" id="image_bkl_lv2_hk"/>
+            </fig>
+          </p><p> Based on the chart, over the course of which months did the per-share price of
+            EcoCorp stock either increase or decrease by more than two dollars?</p><p> Indicate 
+              <u>all</u>  such months.  </p></lcQuestion2>
+        <lcAnswerOptionGroup2 id="lcAnswerOptionGroup2_cfm_n52_hk">
+          <lcAnswerOption2>
+            <lcAnswerContent2>January</lcAnswerContent2>
+            <lcCorrectResponse/>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>February</lcAnswerContent2>
+            <lcCorrectResponse/>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>March</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>April</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>May</lcAnswerContent2>
+            <lcCorrectResponse/>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>June</lcAnswerContent2>
+            <lcCorrectResponse/>
+          </lcAnswerOption2>
+        </lcAnswerOptionGroup2>
+        <lcFeedbackIncorrect2>EcoCorp stock either increased or decreased by more than two dollars
+          in January, February, May, and June, as follows:<simpletable frame="all"
+            relcolwidth="1.0* 1.0*" id="simpletable_ngz_fw2_hk">
+            <sthead>
+              <stentry>Month</stentry>
+              <stentry>Change</stentry>
+            </sthead>
+            <strow>
+              <stentry>January</stentry>
+              <stentry>-4</stentry>
+            </strow>
+            <strow>
+              <stentry>February</stentry>
+              <stentry>+3.5</stentry>
+            </strow>
+            <strow>
+              <stentry>May</stentry>
+              <stentry>-4</stentry>
+            </strow>
+            <strow>
+              <stentry>June</stentry>
+              <stentry>-2.5</stentry>
+            </strow>
+          </simpletable><p>In March, the stock increased by about one dollar, while in April, the
+            increase was about one and a half dollars. </p><p>Telecorp stock had changes of more
+            than two dollars in January and May only.</p></lcFeedbackIncorrect2>
+      </lcMultipleSelect2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_rsf_bn2_hk">
+  <title>Sequence DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This Sequence question tests the following:<ul id="ul_kjm_ybf_hk">
+        <li>Sequence groups can contain multiple block elements.</li>
+      </ul></lcIntro>
+    <lcInteraction>
+      <lcSequencing2>
+        <lcQuestion2>Put the following sections of the Old Testament in order</lcQuestion2>
+        <lcSequenceOptionGroup2 id="lcSequenceOptionGroup2_at2_cn2_hk">
+          <lcSequenceOption2>
+            <lcAnswerContent2>Major Prophets<ul id="ul_jxp_sbf_hk">
+                <li>Isaiah</li>
+                <li>Jeremiah</li>
+                <li>Lamentations</li>
+                <li>Ezekial</li>
+                <li>Daniel</li>
+              </ul></lcAnswerContent2>
+            <lcSequence value="4"/>
+          </lcSequenceOption2>
+          <lcSequenceOption2>
+            <lcAnswerContent2>Books of the Law<ul id="ul_vwt_dbf_hk">
+                <li>Genesis</li>
+                <li>Exodus</li>
+                <li>Leviticus</li>
+                <li>Numbers</li>
+                <li>Deuteronomy</li>
+              </ul></lcAnswerContent2>
+            <lcSequence value="1"/>
+          </lcSequenceOption2>
+          <lcSequenceOption2>
+            <lcAnswerContent2>Minor Prophets<ul id="ul_w4w_5bf_hk">
+                <li>Hosea</li>
+                <li>Joel</li>
+                <li>Amos</li>
+                <li>Obadiah</li>
+                <li>Jonah</li>
+                <li>Micah</li>
+                <li>Nahum</li>
+                <li>Hababbuk</li>
+                <li>Zephaniah</li>
+                <li>Haggai</li>
+                <li>Zechariah</li>
+                <li>Malachi</li>
+              </ul></lcAnswerContent2>
+            <lcSequence value="5"/>
+          </lcSequenceOption2>
+          <lcSequenceOption2>
+            <lcAnswerContent2>Poetry Books<ul id="ul_ycj_4bf_hk">
+                <li>Job</li>
+                <li>Psalms</li>
+                <li>Proverbs</li>
+                <li>Ecclesiastes</li>
+                <li>Song of Solomon</li>
+              </ul></lcAnswerContent2>
+            <lcSequence value=""/>
+          </lcSequenceOption2>
+          <lcSequenceOption2>
+            <lcAnswerContent2>History Books<ul id="ul_mrs_jbf_hk">
+                <li>Joshua</li>
+                <li>Judges</li>
+                <li>Ruth</li>
+                <li>1&amp;2 Samuel</li>
+                <li>1&amp;2 Kings</li>
+                <li>1&amp;2 Chronicles</li>
+                <li>Esther</li>
+              </ul></lcAnswerContent2>
+            <lcSequence value="2"/>
+          </lcSequenceOption2>
+        </lcSequenceOptionGroup2>
+      </lcSequencing2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

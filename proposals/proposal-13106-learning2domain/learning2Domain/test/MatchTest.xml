@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_lgp_sm2_hk">
+  <title>Match DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This Match question attempted to test the support for mulitple lines in a Matching
+      pair.</lcIntro>
+    <lcInteraction>
+      <lcMatching2>
+        <lcQuestion2>Match the following animals to the appropriate Kingdom, Phylum, Class, Order,
+          Family, Genus, and Species.</lcQuestion2>
+        <lcMatchTable2 id="lcMatchTable_umb_qy2_hk">
+          <lcMatchingPair2>
+            <lcItem2>Dog</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Mammalia Order: Carnivora
+              Family: Canidae Genus: Canis Species: Familiaris</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Eagle</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Aves Order: Accipitriformes
+              Family: Accipitridae Genus: Aquila Species: Chrysaetos</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Frog</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Amphibia Order: Anura
+              Family: Ranidae Genus: Rana Species: Temporaria</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Turtle</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Reptilia Order: Testudines
+              Family: Cheloniidae Genus: Lepidochelys Species: Olivacea</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Shark</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Chondrichthyes Order:
+              Lamniformes Family: Lamnidae Genus: Carcharodon Species: Carcharias</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Orangutan</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Mammalia Order: Primates
+              Family: Hominidae Genus: Pongo Species: Pongo pygmaeus</lcMatchingItem2>
+          </lcMatchingPair2>
+          <lcMatchingPair2>
+            <lcItem2>Lion</lcItem2>
+            <lcMatchingItem2>Kingdom: Animalia Phylum: Vertibrata Class: Mammalia Order: Carnivora
+              Family: Felidae Genus: Panthera Species: Leo</lcMatchingItem2>
+          </lcMatchingPair2>
+        </lcMatchTable2>
+      </lcMatching2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>

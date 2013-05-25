@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment.dtd">
+<learningAssessment id="learningAssessment_dhy_cn2_hk">
+  <title>Single Correct DITA 1.3 Test</title>
+  <learningAssessmentbody>
+    <lcIntro>This Single Correct question tests the following:<ul id="ul_cb4_2s2_hk">
+        <li>Question stem includes multiple paragraphs.</li>
+        <li>Incorrect Question feedback includes multiple paragraphs.</li>
+      </ul></lcIntro>
+    <lcInteraction>
+      <lcSingleSelect2>
+        <lcQuestion2>Read the selection and answer the question.<p>Amelia Earhart, born in Atchison,
+            Kansas, on July 24, 1897, recorded many ﬁrsts in aviation history before attempting her
+            greatest feat of all—the ﬁrst round-the-world ﬂight via the equator. Earhart carefully
+            mapped her route, originally heading west from Oakland, California, only to crash in
+            Hawaii. </p><p>She survived, but her Lockheed Electra 10E plane was shipped back and
+            repaired. On May 21, 1937, Earhart set off again, this time heading east. The trip was
+            going well, with all America watching and waiting to hear news of her progress. But, on
+            one of the last legs of her 30,000-mile trip, 20 hours after leaving New Guinea with her
+            navigator, Fred Noonan, Earhart was lost. </p><p>On July 2, 1937, the U.S. Coast Guard
+            cutter Itasca intercepted brief, desperate transmissions for help. But the ship couldn’t
+            home in on her navigational position and problems with Earhart’s radio left her unable
+            to receive messages. </p><p>Over sixty years after her disappearance, and over 100 years
+            after her birth, no one knows what really happened. No trace of her plane was ever
+            found. Stories about her tragic end are still being talked about and investigated. The
+            most widely accepted theory is that she ran out of gas, crashed and drowned. Other
+            accounts have Earhart and her navigator straying off course on purpose to go on a secret
+            spy mission for President Franklin Roosevelt.</p><p> Currently, a group of researchers
+            is combing a desolate island in the Paciﬁc Ocean called Nikumaroro. They have found
+            intriguing clues: the heel of a woman’s shoe that matches Earhart’s size, and pieces of
+            aluminum and parts that may have come from her plane.</p><p>What problem made it almost
+            impossible for the Coast Guard to locate Amelia Earhart?</p></lcQuestion2>
+        <lcAnswerOptionGroup2 id="lcAnswerOptionGroup2_vyr_xm2_hk">
+          <lcAnswerOption2>
+            <lcAnswerContent2>The Coast Guard never heard from Amelia Earhart.</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>Amelia Earhart had lost her navigator, Fred Noonan.</lcAnswerContent2>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>Amelia Earhart was unable to hear the Coast Guard’s
+              communications</lcAnswerContent2>
+            <lcCorrectResponse/>
+          </lcAnswerOption2>
+          <lcAnswerOption2>
+            <lcAnswerContent2>The Coast Guard was too far away from Amelia
+              Earhart.</lcAnswerContent2>
+          </lcAnswerOption2>
+        </lcAnswerOptionGroup2>
+        <lcFeedbackIncorrect2>
+          <p>Answer C is correct. The article states that the problems with Earhart's radio left her
+            unable to receive messages.</p>
+          <p>Answer A is incorrect because in Paragraph 3, we read that the Coast Guard cutter
+            Itasca intercepted brief, desperate transmissions for help.</p>
+          <p>Answer B is incorrect because her navigator was on board the plane with her. </p>
+          <p>Answer D is incorrect because we are told that the ship did not know where Earhart was;
+            the distance from Earhart is unknown. </p>
+        </lcFeedbackIncorrect2>
+      </lcSingleSelect2>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>
