@@ -8,8 +8,8 @@
 <meta name="DC.rights.owner" content="(C) Copyright 2005"/>
 <meta name="DC.Type" content="reference"/>
 <meta name="DC.Title" content="DITA 1.3 proposed feature #13111"/>
-<meta name="abstract" content="Official domain for MathML"/>
-<meta name="description" content="Official domain for MathML"/>
+<meta name="abstract" content="Official domain for MathML and a separate domain for semantic equations independent of the data format of the equation content."/>
+<meta name="description" content="Official domain for MathML and a separate domain for semantic equations independent of the data format of the equation content."/>
 <meta name="DC.Format" content="XHTML"/>
 <meta name="DC.Identifier" content="IssueNumber00"/>
 <meta name="DC.Language" content="en-us"/>
@@ -22,12 +22,26 @@
 <h1 class="title topictitle1">DITA 1.3 proposed feature #13111</h1>
 
 
-<div class="body refbody"><p class="shortdesc">Official domain for MathML</p>
+<div class="body refbody"><p class="shortdesc">Official domain for MathML and a separate domain for semantic
+    equations independent of the data format of the equation
+    content.</p>
 
 <div class="section"><h2 class="title sectiontitle">Date and version information</h2><div class="p">Include the following information:<ul class="ul">
      <li class="li">Proposal Submitted: 1 October 2012</li>
 
         <li class="li">Change History:<ul class="ul" id="IssueNumber00__ul_qht_k5b_vh">
+          <li class="li">28 May 2013: <ul class="ul" id="IssueNumber00__ul_qkr_rsm_fk">
+            <li class="li">Added equation domain per TC discussion.</li>
+
+            <li class="li">Added &lt;mathmlref&gt; element for using MathML elements by
+              reference from external documents per TC discussion.</li>
+
+            </ul>
+</li>
+
+          <li class="li">9 Oct 2012: Changed name of &lt;mathml_container&gt; to &lt;mathml&gt;
+            per TC discussion.</li>
+
           <li class="li">7 Oct 2012: <ul class="ul" id="IssueNumber00__ul_lps_n5b_vh">
             <li class="li">Updated RNC declarations to correct issue with handling of
               no-namespace elements</li>
@@ -35,8 +49,8 @@
             <li class="li">Updated DTD declarations to correctly configure namespace prefix
               declarations</li>
 
-            <li class="li">Corrected <span class="ph filepath">doctypes/rng</span> to
-              <span class="ph filepath">doctypes/rnc</span> in the implementation
+            <li class="li">Corrected <code class="filepath">doctypes/rng</code> to
+              <code class="filepath">doctypes/rnc</code> in the implementation
               materials.</li>
 
             </ul>
@@ -89,15 +103,30 @@
 
         </ul>
 </div>
+
+      <p class="p">In addition to simply containing MathML content, there is a related
+        requirement to be able to semantically identify equations, irrespective
+        of the form the equation content takes, which could be MathML, an image
+        or vector graphic of the rendered equation, T<sub class="ph sub">e</sub>X markup, or
+        any other way that mathematical equations might be represented.
+        Equations may be rendered inline,as a block, or as a "display equation"
+        that acts as a figure, with a possible title (caption), description, and
+        generated number. </p>
 </div>
 
 <div class="section"><h2 class="title sectiontitle">Benefits</h2><div class="p">Address the following questions:<ul class="ul">
      <li class="li">Who benefits: DITA users who need to include MathML in their
           content</li>
 
-     <li class="li">Expected benefit: Easy use of MathML without the need to define a
-          custom MathML vocabulary domain. Out-of-the-box support for MathML
-          delivery by common DITA processing tools.</li>
+     <li class="li">Expected benefit: <ul class="ul" id="IssueNumber00__ul_txs_qpg_hk">
+          <li class="li">Easy use of MathML without the need to define a custom MathML
+            vocabulary domain. Out-of-the-box support for MathML delivery by
+            common DITA processing tools.</li>
+
+          <li class="li">Out-of-the-box markup for identifying equations.</li>
+
+          </ul>
+</li>
 
      <li class="li">Potential users: Difficult to quantify, but many learning publications
           require it (almost all math and science-related publications),
@@ -112,13 +141,14 @@
 </div>
 
 <div class="section"><h2 class="title sectiontitle">Costs</h2><div class="p">Costs:<ul class="ul">
-        <li class="li">Maintainers of the DTDs, XSDs, and RNGs: Adds a new vocabulary
-          module, which must be integrated into the appropriate shell document
+        <li class="li">Maintainers of the DTDs, XSDs, and RNGs: Adds two new vocabulary
+          modules, which must be integrated into the appropriate shell document
           types.</li>
 
         <li class="li">Editors of the DITA specification:<ul class="ul">
-          <li class="li">How many new topics will be required? One new topic for new
-            element type &lt;mathml_container&gt;</li>
+          <li class="li">How many new topics will be required? five new topics for new
+            element types &lt;mathml&gt; and &lt;mathmlref&gt; from the MathML domain
+            and the three element types from the equation domain.</li>
 
           <li class="li">How many existing topics will need to be edited? None. Only change
             to existing topics is generated content model descriptions.</li>
@@ -130,16 +160,20 @@
           </ul>
 </li>
 
-        <li class="li">Vendors of tools: Tool vendors may decide to support the new module
+        <li class="li">Vendors of tools: Tool vendors may decide to support the new domains
           directly. The nature of this support will depend on the type of
           processor. Many DITA-aware editors and output processors already
-          support MathML to one degree or another.</li>
+          support MathML to one degree or another. The equation domain does not
+          require specialized processing, although processors may choose to
+          offer the ability to number display equations separately from
+          figures.</li>
 
         <li class="li">DITA community-at-large. Will this feature add to the perception
           that DITA is becoming too complex? Will it be simple for end users to
-          understand?<p class="p">This feature adds a new optional vocabulary module.
-          Users who need it will appreciate having it readily available. Users
-          who do not need it may safely ignore it. The general architecture and
+          understand?<p class="p">This feature adds two new optional vocabulary modules
+          with a total of five new element types. Users who need equations will
+          appreciate having these modules readily available. Users who do not
+          need them may safely ignore them. The general architecture and
           semantics of DITA are not affected by this proposal.</p>
 </li>
 
@@ -147,13 +181,17 @@
 </div>
 </div>
 
-<div class="section"><h2 class="title sectiontitle">Technical requirements</h2>
+<div class="section"><h2 class="title sectiontitle">Technical requirements: MathML Domain</h2>
       
-      <div class="p">Define a new vocabulary module,  mathmlDomain, that defines the
-        following element type:<ul class="ul" id="IssueNumber00__ul_oqh_qp5_sh">
-        <li class="li">&lt;mathml_container&gt;<p class="p">Specializes topic/foreign. Allows as content
-          the &lt;math&gt; element from the MathML 3 vocabulary, &lt;data&gt;, or
+      <div class="p">Define a new vocabulary module, mathmlDomain, that defines the
+        following element types:<ul class="ul" id="IssueNumber00__ul_oqh_qp5_sh">
+        <li class="li">&lt;mathml&gt;<p class="p">Specializes topic/foreign. Allows as content the
+          &lt;math&gt; element from the MathML 3 vocabulary, &lt;data&gt;, or
           &lt;data-about&gt;, as a repeating OR group.</p>
+</li>
+
+        <li class="li">&lt;mathmlref&gt;<p class="p">Specializes topic/xref. Allows for use-by-reference
+          of &lt;m:math&gt; elements from non-DITA XML documents.</p>
 </li>
 
         <li class="li">Include the MathML 3 declarations. See <a class="xref" href="http://www.w3.org/TR/MathML3/" target="_blank">http://www.w3.org/TR/MathML3/</a>.</li>
@@ -180,7 +218,7 @@
             RenderX XEP both support rendering of MathML to PDF.</li>
 
           <li class="li">Generate EPS, SVG, or images using open-source or commercial
-            tools</li>
+            tools.</li>
 
           </ul>
 </li>
@@ -209,7 +247,7 @@
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % mathml-d-foreign
-   "mathml_container
+   "mathml
    "
 &gt;
 
@@ -236,7 +274,7 @@
      
      ============================================================= --&gt;
      
- &lt;!ENTITY % mathml_container        "mathml_container" &gt;
+ &lt;!ENTITY % mathml        "mathml" &gt;
 
 &lt;!ENTITY % MATHML.prefixed "INCLUDE"&gt;
 &lt;!ENTITY % MATHML.prefix "m"&gt;
@@ -254,14 +292,14 @@
 &lt;!--                    ELEMENT DECLARATIONS                       --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % mathml_container.content
+&lt;!ENTITY % mathml.content
 "
   (%MATHML.pfx;math |
    %data; |
    %data-about;)*
 "
 &gt;
-&lt;!ENTITY % mathml_container.attributes
+&lt;!ENTITY % mathml.attributes
  "
    %id-atts;
   %localization-atts;
@@ -275,8 +313,8 @@
 
  "
 &gt; 
-&lt;!ELEMENT mathml_container %mathml_container.content; &gt;
-&lt;!ATTLIST mathml_container %mathml_container.attributes; &gt;
+&lt;!ELEMENT mathml %mathml.content; &gt;
+&lt;!ATTLIST mathml %mathml.attributes; &gt;
 
 
 
@@ -284,7 +322,7 @@
 &lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ATTLIST mathml_container           %global-atts;  class CDATA "+ topic/foreign mathml-d/mathml_container "&gt;
+&lt;!ATTLIST mathml           %global-atts;  class CDATA "+ topic/foreign mathml-d/mathml "&gt;
 
 
 &lt;!-- ================== End MathML Domain ==================== --&gt;</pre>
@@ -304,38 +342,38 @@
     namespace="http://www.w3.org/1998/Math/MathML"
   /&gt;
   
-  &lt;xs:group name="mathml_container"&gt;
+  &lt;xs:group name="mathml"&gt;
     &lt;xs:sequence&gt;
       &lt;xs:choice&gt;
-        &lt;xs:element ref="mathml_container"/&gt;
+        &lt;xs:element ref="mathml"/&gt;
       &lt;/xs:choice&gt;
     &lt;/xs:sequence&gt;
   &lt;/xs:group&gt;
   
-  &lt;xs:group name="mathml_container.content"&gt;
+  &lt;xs:group name="mathml.content"&gt;
     &lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
       &lt;xs:element ref="m:math"/&gt;
       &lt;xs:group ref="data.elements.incl" minOccurs="0"/&gt;
     &lt;/xs:choice&gt;
   &lt;/xs:group&gt;
   
-  &lt;xs:attributeGroup name="mathml_container.attributes"&gt;
+  &lt;xs:attributeGroup name="mathml.attributes"&gt;
     &lt;xs:attribute name="outputclass" type="xs:string"/&gt;
     &lt;xs:attributeGroup ref="global-atts"/&gt;
     &lt;xs:attributeGroup ref="univ-atts"/&gt;
   &lt;/xs:attributeGroup&gt;
   
-  &lt;xs:complexType name="mathml_container.class" mixed="false"&gt;
+  &lt;xs:complexType name="mathml.class" mixed="false"&gt;
     &lt;xs:sequence&gt;  
-      &lt;xs:group ref="mathml_container.content"/&gt;
+      &lt;xs:group ref="mathml.content"/&gt;
     &lt;/xs:sequence&gt;        
-    &lt;xs:attributeGroup ref="mathml_container.attributes"/&gt;
+    &lt;xs:attributeGroup ref="mathml.attributes"/&gt;
   &lt;/xs:complexType&gt;
   
-  &lt;xs:element name="mathml_container"&gt;
+  &lt;xs:element name="mathml"&gt;
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;
-        The mathml_container (&amp;lt;&lt;keyword&gt;mathml_container&lt;/keyword&gt;&amp;gt;) element 
+        The mathml (&amp;lt;&lt;keyword&gt;mathml&lt;/keyword&gt;&amp;gt;) element 
         contains zero or more MathML equations, along with optional &amp;lt;&lt;keyword&gt;data&lt;/keyword&gt;&amp;gt;
         or &amp;lt;&lt;keyword&gt;data-about&lt;/keyword&gt;&amp;gt; elements, which act as metadata for the
         equations.
@@ -343,8 +381,8 @@
     &lt;/xs:annotation&gt;
     &lt;xs:complexType mixed="false"&gt;
       &lt;xs:complexContent&gt;
-        &lt;xs:extension base="mathml_container.class"&gt;
-          &lt;xs:attribute ref="class" default="+ topic/foreign mathml-d/mathml_container "/&gt;
+        &lt;xs:extension base="mathml.class"&gt;
+          &lt;xs:attribute ref="class" default="+ topic/foreign mathml-d/mathml "/&gt;
         &lt;/xs:extension&gt;
       &lt;/xs:complexContent&gt;
     &lt;/xs:complexType&gt;
@@ -355,95 +393,192 @@
 
       </div>
 
-      <div class="fig fignone"><span class="figcap">Figure 3. RNC-Syntax Vocabulary Module</span>
+      <div class="fig fignone"><span class="figcap">Figure 3. RNG-Syntax Vocabulary Module</span>
         
-        <div class="p">mathmlDomainMod.rnc:<pre class="pre codeblock"># ===============================================================
-# MathML Domain Module
-#
-#    Defines a specialization of &lt;foreign&gt; that contains 
-#    MathML markup.
-#     
-#     DITA 1.3
-#     
-#     Copyright (c) 2012 OASIS Open
-# ===============================================================
-
-namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
-namespace m = "http://www.w3.org/1998/Math/MathML"
-
-# Define the domain values of this module
-
-domains-atts-value |= "(topic mathml-d)"
-
-# Define domain extension patterns
-
-mathml-d-foreign =
-  mathml_container.element
+        <div class="p">mathmlDomainMod.rng:<pre class="pre codeblock">&lt;!-- ============================================================= 
+     MODULE:    DITA MathML Domain - RNG              
+     VERSION:   1.3                                                
+     DATE:      May 2013                                       
+     ============================================================= --&gt;
+&lt;!--
+     Refer to the latest version of this file by the following URI:
+     urn:dita-ng:dita:rng:mathmlDomain.mod.rng
+     To refer to this specific version, you may use this value:
+     urn:dita-ng:dita:rng:mathmlDomain.mod.rng:1.3
+--&gt;
+&lt;!-- ============================================================= 
+     SYSTEM:     Darwin Information Typing Architecture (DITA)     
+     PURPOSE:    Provides elements for including MathML Markup
+                 in DITA documents.
+     ORIGINAL CREATION DATE:  
+     ??? 2013                                                
+     (C) Copyright OASIS Open 2013                                
+     All Rights Reserved.                                          
+     ============================================================= --&gt;
+&lt;grammar   xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  &gt;
   
-# Extend the patterns with the domain contribution
-foreign |= mathml-d-foreign
-
-# Define elements content and attributes
-
-# LONG NAME: MathML Container
-mathml_container.content =
-  (
-   external "mathml3.rnc" | 
-   data |
-   data-about
-   )*
-mathml_container.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-mathml_container.element =
+  &lt;define name="domains-atts-value" combine="choice"&gt;
+    &lt;value&gt;(topic mathml-d)&lt;/value&gt;
+  &lt;/define&gt;
   
-  ## The bold (&lt;b&gt;) element is used to apply bold highlighting to the content
-  ##         of the element. Use this element only when there is not some other more proper element. For
-  ##         example, for specific items such as GUI controls, use the &lt;uicontrol&gt; element. This
-  ##         element is part of the DITA highlighting domain. 
-  ##         Category: Typographic elements
-  element mathml_container { 
-    mathml_container.attlist, 
-    mathml_container.content 
-  }
-mathml_container.attlist &amp;= mathml_container.attributes
+  &lt;define name="mathml-d-foreign"&gt;
+    &lt;ref name="mathml.element"/&gt; 
+  &lt;/define&gt;
 
-#
-# End of module
-#
-</pre>
+  &lt;define name="foreign" combine="choice"&gt;
+    &lt;ref name="mathml-d-foreign"/&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="mathmlref.content"&gt;
+    &lt;empty/&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="mathmlref.attributes"&gt;
+    &lt;ref name="xref.attributes"/&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="mathmlref.element"&gt;
+    &lt;element name="mathmlref"&gt;
+      &lt;a:documentation&gt;&lt;p&gt;The MathML reference (&amp;lt;mathmlref&gt;) element is used to
+        refer to a non-DITA XML document containing MathML markup in order to use the
+        markup by reference. The reference must be to a MathML &amp;lt;math&amp;gt; element.
+        The reference may be a URI that addresses an XML document whose root element
+        is a MathML &amp;lt;math&amp;gt; element or a URI that addresses and XML document
+        and a fragment identifier that is
+        the XML ID of a &amp;lt;math&amp;gt; element within the document.&lt;/p&gt;
+        &lt;p&gt;NOTE: To reuse MathML markup stored within a DITA topic, use a normal content reference
+        from the &amp;lt;mathml&amp;gt; element.&lt;/p&gt;
+        &lt;p&gt;The reference may
+        be direct, via the @href attribute, or indirect, via the @keyref attribute.
+        For key references, only the key name should be specified. Any fragment identifier
+        for specifying the ID of the &amp;lt;mathml&amp;gt; element to use must be specified
+        as part of the key definition's @href value.&lt;/p&gt;
+        &lt;note type="othertype" othertype="example"&gt;For example, to refer
+        to the &amp;lt;math&amp;gt; element with the @id value "equation-02" within 
+        a larger document using a key reference,
+        you would define the key like so:&lt;codeblock&gt;
+          &lt;keydef keys="mathml-equation-02"
+            href="math/mathml-equations.xml#equation-02"
+            format="mathml"
+           /&gt;
+        &lt;/codeblock&gt;
+          &lt;p&gt;You would refer to this key using just the key name:
+            &lt;codeblock&gt;
+              &lt;mathml&gt;
+                &lt;mathmlref keyref="mathml-equation-02"/&gt;
+              &lt;/mathml&gt;
+            &lt;/codeblock&gt;
+          &lt;/p&gt;
+        &lt;/note&gt;
+        &lt;p&gt;The MathML should be processed and rendered as though
+        the &amp;lt;m:math&amp;gt; element had occurred directly in the content of the containing
+        &amp;lt;mathml&amp;gt; element.&lt;/p&gt; 
+        &lt;p&gt;This
+        element is part of the DITA MathML domain. 
+        Category: Foreign elements&lt;/p&gt;
+      &lt;/a:documentation&gt;
+      &lt;ref name="mathmlref.attributes"/&gt;
+      &lt;ref name="mathmlref.content"/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="mathml.content"&gt;
+    &lt;a:documentation&gt;
+      &lt;p&gt;The MathML (&amp;lt;mathml&gt;) element contains inline MathML markup or
+      references to MathML elements stored in a separate non-DITA XML document.&lt;/p&gt;
+      &lt;p&gt;The purpose of this element is simply to contain MathML markup. It is not intended,
+      by itself, to convey the semantic of "equation". Rather, it simply serves to hold one of many
+      possible ways that the content of an equation may be represented. The companion equation
+      domain provides elements for representing equations semantically, independent of the format
+      of the equation content.&lt;/p&gt;
+      &lt;p&gt;The MathML markup must have a root element of "math" within the MathML
+        namespace "http://www.w3.org/1998/Math/MathML".&lt;/p&gt;
+      &lt;p&gt;This
+        element is part of the DITA MathML domain. 
+        Category: Foreign elements&lt;/p&gt;    
+    &lt;/a:documentation&gt;
+    &lt;zeroOrMore&gt;
+      &lt;externalRef href="mathml3.rng"/&gt;
+      &lt;ref name="mathmlref.element"/&gt;
+      &lt;ref name="data.element"/&gt;      
+      &lt;ref name="data-about.element"/&gt;      
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="mathml.attributes"&gt;
+    &lt;ref name="univ-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute name="outputclass"/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+
+  &lt;define name="mathml.element"&gt;
+    &lt;element name="mathml"&gt;
+      &lt;ref name="mathml.attributes"/&gt;
+      &lt;ref name="mathml.content"/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+  
+&lt;/grammar&gt;</pre>
 </div>
 
       </div>
 
-      <div class="fig fignone"><span class="figcap">Figure 4. mathml3.rnc</span>. <span class="desc figdesc">This RNC module is required in order to correctly configure the
+      <div class="fig fignone"><span class="figcap">Figure 4. mathml3.rng</span>. <span class="desc figdesc">This RNG module is required in order to correctly configure the
           base MathML declarations for use with no-namespace DITA
           elements.</span>
         
         
-        <pre class="pre codeblock">default namespace m = "http://www.w3.org/1998/Math/MathML"
-namespace local = ""
-
-# redefine the anyElement to exclude elements in no namespace, that is DITA elements
-include "mathml3/mathml3.rnc" {
-    anyElement =
-        element * - (m:* | local:*) {
-            (attribute * { text }
-             | text
-             | anyElement)*
-        }
-}
+        <pre class="pre codeblock">&lt;grammar
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
+  &lt;include
+    href="mathml3/mathml3.rng"&gt;
+    &lt;define
+      name="anyElement"&gt;
+      &lt;element&gt;
+        &lt;anyName&gt;
+          &lt;except&gt;
+            &lt;nsName
+              ns="m"/&gt;
+            &lt;nsName
+              ns=""/&gt;
+          &lt;/except&gt;
+        &lt;/anyName&gt;
+        &lt;oneOrMore&gt;
+          &lt;attribute&gt;
+            &lt;anyName/&gt;
+            &lt;text/&gt;
+          &lt;/attribute&gt;
+        &lt;/oneOrMore&gt;
+        &lt;zeroOrMore&gt;
+          &lt;text/&gt;
+          &lt;ref
+            name="anyElement"/&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/element&gt;
+    &lt;/define&gt;
+  &lt;/include&gt;
+&lt;/grammar&gt;
 </pre>
 
       </div>
 
     </div>
 
-<div class="section"><h2 class="title sectiontitle">Examples</h2><p class="p">Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
-    to include edge cases, if known.</p>
+    <div class="section"><h2 class="title sectiontitle">Examples: MathML</h2>
+      
+      <p class="p">Provide examples of the proposed feature. Include an example for each
+        of the use cases. Be sure to include edge cases, if known.</p>
 
       <div class="p">Equation inline within a
-        paragraph:<pre class="pre codeblock">&lt;p&gt;MathML Inline: &lt;mathml_container&gt;
+        paragraph:<pre class="pre codeblock">&lt;p&gt;MathML Inline: &lt;mathml&gt;
   &lt;m:math display='inline'&gt;
     &lt;m:semantics&gt;
       &lt;m:mrow&gt;
@@ -464,14 +599,14 @@ include "mathml3/mathml3.rnc" {
       &lt;/m:mrow&gt;
     &lt;/m:semantics&gt;
   &lt;/m:math&gt;
-&lt;/mathml_container&gt;&lt;/p&gt;
+&lt;/mathml&gt;&lt;/p&gt;
 </pre>
 </div>
 
       <div class="p">Display equation within a figure
         element:<pre class="pre codeblock">&lt;fig&gt;
   &lt;title&gt;Figure With MathML Container&lt;/title&gt;
-  &lt;mathml_container&gt;
+  &lt;mathml&gt;
     &lt;m:math display='block'&gt;
       &lt;m:semantics&gt;
         &lt;m:mrow&gt;
@@ -491,7 +626,7 @@ include "mathml3/mathml3.rnc" {
         &lt;/m:mrow&gt;
       &lt;/m:semantics&gt;
     &lt;/m:math&gt;
-  &lt;/mathml_container&gt;
+  &lt;/mathml&gt;
 &lt;/fig&gt;</pre>
 </div>
 
@@ -503,7 +638,482 @@ include "mathml3/mathml3.rnc" {
         
         <img class="image" id="IssueNumber00__image_zj5_n3v_sh" src="math-rendered-html.png" width="576" alt="Screen capture of MathML samples rendered to HTML and viewed in a browser using the MathJax JavaScript library."/>
       </div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Technical Requirments: Equation Domain</h2>
+      
+      <p class="p">Define a new vocabulary module, equationDomain, that provides elements
+        for representing equations semantically, independent of any particular
+        form of equation content, such as &lt;mathml&gt;, images, text-based
+        equation markup, T<sub class="ph sub">e</sub>X, and so on. The domain provides three
+        forms of equation: inline, block, and display. Display equations are
+        specializations of &lt;fig&gt; and therefore may have titles, descriptions,
+        and other figure components. Display equations are intended to be
+        numbered. Inline and block equations allow text content and phrase
+        content, which includes the &lt;mathml&gt; element when the MathML domain
+        is integrated. Display equations allow the same content as &lt;fig&gt;.</p>
+
+      <div class="p">The equation domain defines the following element types:<ul class="ul" id="IssueNumber00__ul_zym_klg_hk">
+        <li class="li">&lt;equation-inline&gt;.<div class="p">Represents an equation that is rendered
+          inline with surrounding text, such as within a paragraph. Specializes
+          topic/ph. The content of element may be one or more representations of
+          the equation, such as a &lt;mathml&gt; element, an &lt;image&gt;, text
+          describing or defining the equation, and so on. Direct-child elements
+          of &lt;equation-inline&gt; are taken to be alternative representations of
+          the same semantic equation.<div class="note note"><span class="notetitle">example:</span> You might use both a &lt;mathml&gt; element and an
+          image element that points to a pre-rendered version of the
+          equation:<pre class="pre codeblock">&lt;equation-inline&gt;
+  &lt;mathml&gt;&lt;m:math&gt;...&lt;/m:math&gt;&lt;/mathml&gt;
+  &lt;image keyref="equation-01-image"/&gt;
+&lt;/equation-inline&gt;</pre>
 </div>
+</div>
+</li>
+
+        <li class="li">&lt;equation-block&gt;<p class="p">Represents an equation that is rendered as a
+          separate block. Block equations are not normally numbered. Specializes
+          topic/p.</p>
+The content of element may be one or more representations
+          of the equation, such as a &lt;mathml&gt; element, an &lt;image&gt;, text
+          describing or defining the equation, and so on. Direct-child elements
+          of &lt;equation-block&gt; are taken to be alternative representations of
+          the same semantic equation.<div class="note note"><span class="notetitle">example:</span> You might use both a &lt;mathml&gt; element and an
+          image element that points to a pre-rendered version of the
+          equation:<pre class="pre codeblock">&lt;equation-inline&gt;
+  &lt;mathml&gt;&lt;m:math&gt;...&lt;/m:math&gt;&lt;/mathml&gt;
+  &lt;image keyref="equation-02-image"/&gt;
+&lt;/equation-inline&gt;</pre>
+</div>
+</li>
+
+        <li class="li">&lt;equation-display&gt;<p class="p">Represents a display equation. Specializes
+          topic/fig. Allows the same content as &lt;fig&gt;, which, when the MathML
+          domain is also integrated, allows both &lt;mathml&gt; and
+          &lt;equation-block&gt; elements, as well as the normal &lt;fig&gt; elements,
+          such as &lt;title&gt;, &lt;desc&gt;, &lt;image&gt;, and so on. Display
+          equations are expected to be numbered, typically with numbers distinct
+          from the numbers used for other &lt;fig&gt; elements and specializations
+          of &lt;fig&gt;.</p>
+<p class="p">If only a single form of the equation is required,
+          then the content of the &lt;equation-display&gt; may be just that
+          representation, e.g., a &lt;mathml&gt; element or
+          &lt;image&gt;.</p>
+<p class="p">However, if there need to be multiple
+          representations of the same equation or multiple separate equations
+          within the same display, &lt;equation-block&gt; should be used within
+          &lt;equation-display&gt; to contain the equations.</p>
+<p class="p">The display
+          equation may also include non-equation content, such as commentary or
+          prose explanations of the equations as well as &lt;fig-group&gt; to
+          organize subequations within a larger display equation.</p>
+</li>
+
+        </ul>
+</div>
+
+      <div class="fig fignone"><span class="figcap">Figure 6. Equation Domain DTD-Syntax module</span>
+        
+        <p class="p">equationDomain.ent:</p>
+
+        <pre class="pre codeblock">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- =============================================================
+     DITA Equation Domain
+     
+     Defines element types that represent equations semantically,
+     irrespective of the representation of the equation content.
+     
+     DITA 1.3
+     
+     Copyright (c) 2013 OASIS Open
+     
+     ============================================================= --&gt;
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                   Equation DOMAIN ENTITIES                  --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % equation-d-ph
+   "equation-inline
+   "
+&gt;
+
+&lt;!ENTITY % equation-d-p
+   "equation-block
+   "
+&gt;
+
+&lt;!ENTITY % equation-d-fig
+   "equation-display
+   "
+&gt;
+
+
+
+&lt;!ENTITY   equation-d-att     
+  "(topic equation-d)"
+&gt;
+
+
+&lt;!-- ================== End DITA Equation Domain Entities ============ --&gt;</pre>
+
+        <p class="p">equationDomain.mod:</p>
+
+        <pre class="pre codeblock">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- =============================================================
+     DITA Equation Domain
+     
+     Defines element types that represent equations semantically,
+     irrespective of the representation of the equation content.
+     
+     DITA 1.3
+     
+     Copyright (c) 2013 OASIS Open
+     
+     ============================================================= --&gt;
+     
+ &lt;!ENTITY % equation-inline        "equation-inline" &gt;
+ &lt;!ENTITY % equation-block         "equation-block" &gt;
+ &lt;!ENTITY % equation-display       "equation-display" &gt;
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                   ELEMENT NAME ENTITIES                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % equation.cnt
+          "(#PCDATA | 
+           %basic.ph; | 
+           %data.elements.incl; | 
+           %foreign.unknown.incl; | 
+           %image; | 
+           %txt.incl;)*
+          "
+&gt;
+
+&lt;!ENTITY % equation-inline.content
+"%equation.cnt;
+"&gt;
+&lt;!ENTITY % equation-inline.attributes
+              "keyref 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+ &gt; 
+&lt;!ELEMENT equation-inline %equation-inline.content; &gt;
+&lt;!ATTLIST equation-inline %equation-inline.attributes; &gt;
+
+&lt;!ENTITY % equation-block.content
+"%equation.cnt;
+"&gt;
+&lt;!ENTITY % equation-block.attributes
+              "
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+ &gt; 
+&lt;!ELEMENT equation-block %equation-block.content; &gt;
+&lt;!ATTLIST equation-block %equation-block.attributes; &gt;
+
+&lt;!ENTITY % equation-display.content
+                       "((%title;)?, 
+                         (%desc;)?, 
+                         (%figgroup; | 
+                          %fig.cnt;)* )"
+&gt;
+&lt;!ENTITY % equation-display.attributes
+             "%display-atts;
+              spectitle 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+ &gt; 
+&lt;!ELEMENT equation-display %equation-display.content; &gt;
+&lt;!ATTLIST equation-display %equation-display.attributes; &gt;
+
+
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ATTLIST equation-inline    %global-atts;  class CDATA "+ topic/ph  equation-d/equation-inline "&gt;
+&lt;!ATTLIST equation-block     %global-atts;  class CDATA "+ topic/p   equation-d/equation-block "&gt;
+&lt;!ATTLIST equation-display   %global-atts;  class CDATA "+ topic/fig equation-d/equation-display "&gt;
+
+
+&lt;!-- ================== End MathML Domain ==================== --&gt;</pre>
+
+      </div>
+
+      <div class="fig fignone"><span class="figcap">Figure 7. Equation Domain RNG-Syntax module</span>
+        
+        <pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;grammar
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
+
+  &lt;define
+    name="domains-atts-value"
+    combine="choice"&gt;
+    &lt;value&gt;(topic equation-d)&lt;/value&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="equation-d-ph"&gt;
+    &lt;ref
+      name="equation-inline.element"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="equation-d-p"&gt;
+    &lt;ref
+      name="equation-block.element"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="equation-d-fig"&gt;
+    &lt;ref
+      name="equation-display.element"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="ph"
+    combine="choice"&gt;
+    &lt;ref
+      name="equation-d-ph"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="p"
+    combine="choice"&gt;
+    &lt;ref
+      name="equation-d-p"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="fig"
+    combine="choice"&gt;
+    &lt;ref
+      name="equation-d-fig"/&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="equation.cnt"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;ref
+          name="ph.cnt"/&gt;
+        &lt;ref
+          name="text"/&gt;
+      &lt;/choice&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+
+  &lt;define
+    name="equation-inline.content"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;ref
+        name="equation.cnt"/&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-inline.attributes"&gt;
+    &lt;ref
+      name="univ-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute
+        name="outputclass"/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-inline.element"&gt;
+    &lt;element
+      name="equation-inline"&gt;
+      &lt;a:documentation&gt;
+        The Inline Equation element (&amp;lt;equation-inline&amp;gt;) represents an
+        equation that is intended to be rendered inline with its surrounding
+        content.
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &amp;lt;mathml&amp;gt; specialization of
+        &amp;lt;foreign&amp;gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      &lt;/a:documentation&gt;
+      &lt;ref
+        name="equation-inline.content"/&gt;
+      &lt;ref
+        name="equation-inline.attlist"/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+  &lt;define name="equation-inline.attlist" combine="interleave"&gt;
+    &lt;ref name="equation-inline.attributes"/&gt;
+  &lt;/define&gt;
+  
+
+  &lt;define
+    name="equation-block.content"&gt;
+    &lt;zeroOrMore&gt;
+      &lt;text/&gt;
+      &lt;ref
+        name="equation.cnt"/&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-block.attributes"&gt;
+    &lt;ref
+      name="univ-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute
+        name="outputclass"/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-block.element"&gt;
+    &lt;element
+      name="equation-block"&gt;
+      &lt;a:documentation&gt;
+        The Block Equation element (&amp;lt;equation-block&amp;gt;) represents an
+        equation that is intended to be rendered as a block element. Block
+        equations are not intended to be numbered (see
+        &amp;lt;equation-display&amp;gt;).
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &amp;lt;mathml&amp;gt; specialization of
+        &amp;lt;foreign&amp;gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      &lt;/a:documentation&gt;
+      &lt;ref
+        name="equation-block.content"/&gt;
+      &lt;ref
+        name="equation-block.attlist"/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+  &lt;define name="equation-block.attlist" combine="interleave"&gt;
+    &lt;ref name="equation-block.attributes"/&gt;
+  &lt;/define&gt;
+  
+  &lt;define
+    name="equation-display.content"&gt;
+    &lt;optional&gt;
+      &lt;ref
+        name="title"/&gt;
+    &lt;/optional&gt;
+    &lt;optional&gt;
+      &lt;ref
+        name="desc"/&gt;
+    &lt;/optional&gt;
+    &lt;zeroOrMore&gt;
+      &lt;choice&gt;
+        &lt;ref
+          name="figgroup"/&gt;
+        &lt;ref
+          name="fig.cnt"/&gt;
+      &lt;/choice&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-display.attributes"&gt;
+    &lt;ref
+      name="display-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute
+        name="spectitle"/&gt;
+    &lt;/optional&gt;
+    &lt;ref
+      name="univ-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute
+        name="outputclass"/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  &lt;define
+    name="equation-display.element"&gt;
+    &lt;element
+      name="equation-display"&gt;
+      &lt;a:documentation&gt;
+        The Display Equation element (&amp;lt;equation-display&amp;gt;) represents an
+        equation that may have a title or a description and that may be
+        numbered. When equations are numbered they are often numbered separately
+        from figures.
+        
+        Display equations that are simply a single equation plus, optionally, a
+        title or description, may use the &amp;lt;mathml&amp;gt; element directly. When
+        the display equation content is more complicated, it should use
+        &amp;gt;equation-block&amp;gt; to clearly distinguish
+        the equation content from non-equation content, such as paragraphs that
+        provide commentary on the equations within the display equation.
+        
+        The equation content may be represented in any number of ways,
+        including embedded MathML using the &amp;lt;mathml&amp;gt; specialization of
+        &amp;lt;foreign&amp;gt;, a reference to an image, inline TeX markup,
+        or any other way that an equation might be defined.
+        
+        The equation may include alternative forms, such as both a MathML
+        version and an image.
+      &lt;/a:documentation&gt;
+      &lt;ref
+        name="equation-display.content"/&gt;
+      &lt;ref
+        name="equation-display.attlist"/&gt;
+    &lt;/element&gt;
+  &lt;/define&gt;
+  &lt;define name="equation-display.attlist" combine="interleave"&gt;
+    &lt;ref name="equation-display.attributes"/&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="equation-inline.attlist" combine="interleave"&gt;
+    &lt;ref name="global-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute name="class" a:defaultValue="+ topic/ph equation-d/equation-inline "/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="equation-block.attlist" combine="interleave"&gt;
+    &lt;ref name="global-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute name="class" a:defaultValue="+ topic/p equation-d/equation-block "/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  
+  &lt;define name="equation-display.attlist" combine="interleave"&gt;
+    &lt;ref name="global-atts"/&gt;
+    &lt;optional&gt;
+      &lt;attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-display "/&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+  
+&lt;/grammar&gt;</pre>
+
+      </div>
+
+      <div class="fig fignone"><span class="figcap">Figure 8. Equation Domain XSD-Syntax module</span>
+        
+        <p class="p">TBD: Will be generated from RNG once that transform is
+          implemented.</p>
+
+      </div>
+
+    </div>
 
 </div>
 
