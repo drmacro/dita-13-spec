@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <part>
+    <math
+      id="timeinday"
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>x</mi>
+    </math>
+    <math
+      id="mathfrag-02"
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      <math>
+        <mrow>
+          <mi>y</mi>
+          <mo>=</mo>
+          <mn>5</mn>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mn>2</mn>
+        </mrow>
+      </math>
+    </math>
+  </part>
+  <part>
+    <math
+      id="mathfrag-03"
+      display="inline"
+      overflow="scroll">
+      <m:mi>y</m:mi>
+      <m:mo>=</m:mo>
+      <m:mi>m</m:mi>
+      <m:mi>x</m:mi>
+      <m:mo>+</m:mo>
+      <m:mi>b</m:mi>
+    </math>
+  </part>
+</root>
