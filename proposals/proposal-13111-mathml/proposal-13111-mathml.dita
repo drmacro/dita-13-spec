@@ -738,6 +738,83 @@ elements
 &lt;equation-inline>&lt;mathml>&lt;m:math>&lt;m:mi>r&lt;/m:mi>&lt;/m:math>&lt;/mathml>&lt;/equation-inline>
 is greater than 1.<b>&lt;/p></b>
 <b>&lt;/equation-display></b></codeblock></p>
+      <p>Samples of &lt;mathmlref>:</p>
+      <fig>
+        <title>MathML Ref to document with root math element</title>
+        <codeblock> &lt;equation-block>
+   &lt;mathml>
+     <b>&lt;mathmlref</b>
+       <b>href="../mathml-source/mathml-root-mathml.mml"</b>
+     <b>/></b>
+   &lt;/mathml>
+&lt;/equation-block></codeblock>
+        <p><filepath>mathml-root-mathml.mml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?xml-model href="http://www.w3.org/Math/RelaxNG/mathml3/mathml3.rnc" type="application/relax-ng-compact-syntax"?>
+<b>&lt;math</b> xmlns="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+    &lt;mstyle displaystyle="false" scriptlevel="0">
+        &lt;mrow>
+            &lt;mfrac>
+                &lt;mrow>
+                    &lt;mi mathcolor="gray">sin&lt;/mi>
+                    &lt;mo rspace="verythinmathspace">⁡&lt;/mo>                    
+                    &lt;mi>θ&lt;/mi>
+                &lt;/mrow>
+                &lt;mi>π&lt;/mi>
+            &lt;/mfrac>
+        &lt;/mrow>
+    &lt;/mstyle>
+<b>&lt;/math></b></codeblock></p>
+      </fig>
+      <fig>
+        <title>MathML Ref to element within a larger document</title>
+        <codeblock>&lt;equation-block>
+  &lt;mathml>
+    <b>&lt;mathmlref</b>
+       <b>href="../mathml-source/mathml-equation-library.xml#mathfrag-02"</b>
+    <b>/></b>
+  &lt;/mathml>
+&lt;/equation-block></codeblock>
+        <p><filepath>mathml-equation-library.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;root
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:m="http://www.w3.org/1998/Math/MathML">
+  &lt;part>
+    &lt;math
+      id="timeinday"
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;mi>x&lt;/mi>
+    &lt;/math>
+    <b>&lt;math</b>
+      <b>id="mathfrag-02"</b>
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;math>
+        &lt;mrow>
+          &lt;mi>y&lt;/mi>
+          &lt;mo>=&lt;/mo>
+          &lt;mn>5&lt;/mn>
+          &lt;mi>x&lt;/mi>
+          &lt;mo>+&lt;/mo>
+          &lt;mn>2&lt;/mn>
+        &lt;/mrow>
+      &lt;/math>
+    &lt;/math>
+  &lt;/part>
+  &lt;part>
+    &lt;math
+      id="mathfrag-03"
+      display="inline"
+      overflow="scroll">
+      &lt;m:mi>y&lt;/m:mi>
+      &lt;m:mo>=&lt;/m:mo>
+      &lt;m:mi>m&lt;/m:mi>
+      &lt;m:mi>x&lt;/m:mi>
+      &lt;m:mo>+&lt;/m:mo>
+      &lt;m:mi>b&lt;/m:mi>
+    &lt;/math>
+  &lt;/part>
+&lt;/root>
+</codeblock></p>
+      </fig>
       <fig>
         <title>MathML samples as rendered to HTML with MathJax for
           rendering</title>

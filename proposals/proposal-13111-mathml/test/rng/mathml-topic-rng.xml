@@ -441,7 +441,7 @@
         </mathml></equation-block>
     </fig>
     <fig>
-      <title>MathML Ref to element within a larger document.</title>
+      <title>MathML Ref to element within a larger document</title>
       <equation-block><mathml>
         <mathmlref
           href="../mathml-source/mathml-equation-library.xml#mathfrag-02"
