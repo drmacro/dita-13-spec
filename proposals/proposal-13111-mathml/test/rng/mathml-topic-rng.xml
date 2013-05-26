@@ -136,7 +136,6 @@
         </mathml> </equation-block>
       <p>And here is that equation again:</p>
       <equation-block> <mathml>
-        <mathmlref/>
         <m:math>
           <m:semantics>
             <m:mrow>
@@ -432,5 +431,22 @@
           </mathml></equation-block>
       </figgroup>
     </equation-display>
+    <p>Tests of &lt;mathmlref>:</p>
+    <fig>
+      <title>MathML Ref to document with root math element</title>
+      <equation-block><mathml>
+        <mathmlref
+          href="../mathml-source/mathml-root-mathml.mml"
+          />
+        </mathml></equation-block>
+    </fig>
+    <fig>
+      <title>MathML Ref to element within a larger document.</title>
+      <equation-block><mathml>
+        <mathmlref
+          href="../mathml-source/mathml-equation-library.xml#mathfrag-02"
+          />
+        </mathml></equation-block>
+    </fig>
   </body>  
 </topic>

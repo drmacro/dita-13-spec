@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic SYSTEM "topic-with-mathml.dtd">
+<!DOCTYPE topic SYSTEM "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/topic-with-mathml.dtd">
 <topic
   id="dtd-math-topic">
   <title>Topic with DTD-Based MathML Domain</title>

@@ -39,14 +39,14 @@ PUBLIC "-//OASIS//DTD DITA Topic RNG//EN"
 <!-- ============================================================= -->
 
 <!ENTITY % mathml-d-dec
-  PUBLIC "-//OASIS//ENTITIES DITA MathML Domain - RNG//EN" 
-         "mathmlDomainMod.ent"
+  PUBLIC "-//OASIS//ENTITIES DITA MathML Domain//EN" 
+         "mathmlDomain.ent"
 >
 %mathml-d-dec;
 
 <!ENTITY % equation-d-dec
-  PUBLIC "-//OASIS//ENTITIES //EN" 
-         "equationDomainMod.ent"
+  PUBLIC "-//OASIS//ENTITIES DITA Equation Domain//EN" 
+         "equationDomain.ent"
 >
 %equation-d-dec;
 
@@ -92,13 +92,13 @@ PUBLIC "-//OASIS//DTD DITA Topic RNG//EN"
 <!-- ============================================================= -->
 
 <!ENTITY % mathml-d-def
-  PUBLIC "-//OASIS//ELEMENTS DITA MathML Domain - RNG//EN" 
-  "mathmlDomainMod.mod"
+  PUBLIC "-//OASIS//ELEMENTS DITA MathML Domain//EN" 
+  "mathmlDomain.mod"
 >
 %mathml-d-def;
 
 <!ENTITY % equation-d-def
-  PUBLIC "-//OASIS//ELEMENTS //EN" 
-  "equationDomainMod.mod"
+  PUBLIC "-//OASIS//ELEMENTS DITA Equation Domain//EN" 
+  "equationDomain.mod"
 >
 %equation-d-def;

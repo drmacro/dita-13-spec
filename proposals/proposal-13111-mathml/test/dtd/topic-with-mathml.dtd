@@ -39,14 +39,14 @@ PUBLIC "-//OASIS//DTD DITA Topic RNG//EN"
 <!-- ============================================================= -->
 
 <!ENTITY % mathml-d-dec
-  PUBLIC "-//OASIS//ENTITIES DITA MathML Domain - RNG//EN" 
-         "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/mathmlDomainMod.ent"
+  PUBLIC "-//OASIS//ENTITIES DITA MathML Domain//EN" 
+         "../../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/mathmlDomain.ent"
 >
 %mathml-d-dec;
 
 <!ENTITY % equation-d-dec
-  PUBLIC "-//OASIS//ENTITIES //EN" 
-         "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/equationDomainMod.ent"
+  PUBLIC "-//OASIS//ENTITIES DITA Equation Domain//EN" 
+         "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/equationDomain.ent"
 >
 %equation-d-dec;
 
@@ -92,13 +92,13 @@ PUBLIC "-//OASIS//DTD DITA Topic RNG//EN"
 <!-- ============================================================= -->
 
 <!ENTITY % mathml-d-def
-  PUBLIC "-//OASIS//ELEMENTS DITA MathML Domain - RNG//EN" 
-  "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/mathmlDomainMod.mod"
+  PUBLIC "-//OASIS//ELEMENTS DITA MathML Domain//EN" 
+  "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/mathmlDomain.mod"
 >
 %mathml-d-def;
 
 <!ENTITY % equation-d-def
-  PUBLIC "-//OASIS//ELEMENTS //EN" 
-  "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/equationDomainMod.mod"
+  PUBLIC "-//OASIS//ELEMENTS DITA Equation Domain//EN" 
+  "../../org.oasis-open.dita.mathml.doctypes/doctypes/dtd/equationDomain.mod"
 >
 %equation-d-def;

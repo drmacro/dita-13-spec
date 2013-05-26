@@ -50,8 +50,33 @@
 
   <define
     name="mathmlref.attributes">
-    <ref
-      name="xref.attributes"/>
+    <optional>
+      <attribute name="href"/>
+    </optional>
+    <optional>
+      <attribute name="keyref"/>
+    </optional>
+    <optional>
+      <attribute name="type"/>
+    </optional>
+    <optional>
+      <attribute name="format"  
+        a:defaultValue="xml"/>
+    </optional>
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>external</value>
+          <value>local</value>
+          <value>peer</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
   </define>
 
   <define
