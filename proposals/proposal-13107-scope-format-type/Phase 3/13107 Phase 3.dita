@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="prop13107_phase3">
+    <title>Stage 3 proposal: Feature #13107</title>
+    <shortdesc>Refine the effective default values for <codeph>@scope</codeph>,
+        <codeph>@format</codeph>, and <codeph>@type</codeph> using hints from the
+        <codeph>@href</codeph> value.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Chris Nitchie, Oberon Technologies, <xref href="mailto:chris.nitchie@oberontech.com"
+            scope="external">chris.nitchie@oberontech.com</xref></p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>April 10, 2012</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/committees/download.php/45762/minutes20120410.txt"
+                scope="external">Meeting Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>March 1, 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/committees/download.php/48449/proposal-13107.dita"
+                scope="external">DITA</xref>, <xref
+                href="https://www.oasis-open.org/committees/download.php/48450/proposal-13107.html"
+                scope="external">HTML</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>March 5, 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48453/minutes20130305.txt"
+                scope="external">Meeting Minues</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>March 12, 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48586/12March2013Minutes.txt"
+                scope="external">Meeting Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>May 29, 2013</stentry>
+            <stentry>David Helfinstine, Robert Anderson</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>The processor default values for <codeph>@scope</codeph>, <codeph>@format</codeph>, and
+            <codeph>@type</codeph> make sense for local DITA topic references. However, for some
+          common links, especially those to external HTTP URLs, the processor defaults can cause
+          problems in some processors, resulting in a need to set those attributes explicitly. The
+          default values should be informed by value of the <codeph>@href</codeph> attribute.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>None.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>None.</p>
+      </section>
+      <section>
+        <title>Modified Topic: The scope attribute</title>
+        <p>The text in the topic <filepath>common/thescopeattribute.dita</filepath> that describes
+          the default value for the attribute will be modified.</p>
+        <table frame="all" id="table_ijk_4pg_3k">
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Current Content</entry>
+                <entry>New Content</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p><ph id="may-inherit">If no value is specified, but the attribute is specified
+                      on an ancestor within a map or within the related-links section, the value
+                      will cascade from the closest ancestor.</ph> The processing default is
+                    local.</p>
+                </entry>
+                <entry>
+                  <p><ph>If no value is specified, but the attribute is specified on an ancestor
+                      within a map or within the related-links section, the value will cascade from
+                      the closest ancestor.</ph> The processing default is determined by the value
+                    of the href attribute. If the href attribute specifies an absolute URI whose
+                    scheme is <q>http</q>, <q>https</q>, <q>ftp</q>, or <q>mailto</q>, then the
+                    processing default is <q>external</q>.  In all other cases, the processing
+                    default is <q>local</q>.</p>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section>
+        <title>Modified Topic: The format attribute</title>
+        <p>As currently constructed, the topic describing the format attribute
+            (<filepath>common/theformatattrribute.dita</filepath>) specifies its normative
+          information in its <codeph>shortdesc</codeph> element, so some minor restructuring is
+          required.</p>
+        <table frame="all" id="table_hft_prg_3k">
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Current Content</entry>
+                <entry>New Content</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <p><b><i>(Short Description)</i></b></p>
+                  <p>The format attribute identifies the format of the resource being cross
+                    referenced. The processing default for format is <q>dita</q>. <ph>If no value is
+                      specified, but the attribute is specified on an ancestor within a map or
+                      within the related-links section, the value will cascade from the closest
+                      ancestor.</ph></p>
+                </entry>
+                <entry>The format attribute identifies the format of the resource being cross
+                  referenced.  If no value is specified, but the attribute is specified on an
+                  ancestor within a map or within the related-links section, the value will cascade
+                  from the closest ancestor. </entry>
+              </row>
+              <row>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>(no value)</dt>
+                      <dd>Processors default to &quot;dita&quot;</dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>(no value)</dt>
+                      <dd>The processing default, as described below, is used.</dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry><b><i>(New Section: Processing default)</i></b></entry>
+                <entry>
+                  <p>The processing default for the format attribute is determined by inspecting the
+                    value of the href attribute. Generally, if the href attribute specifies a file
+                    extension, the processing default for the format attribute will be that
+                    extension, after conversion to lower-case, and with no leading period. The only
+                    exception to this is if the extension is <q>xml</q>, in which case the default
+                    format is <q>dita</q>.  If there is no extension, but the href value is an
+                    absolute URI whose scheme is <q>http</q> or <q>https</q>, then the processing
+                    default is <q>html</q>. In all other cases where no extension is available, the
+                    processing default is <q>dita</q>.</p>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section>
+        <title>The type attribute</title>
+        <p>The topic describing the <codeph>@type</codeph> attribute will <i>not</i> be modified for
+          this feature. The Phase 2 proposal stated that when an <codeph>&lt;xref></codeph> element
+          where <codeph>@scope=<q>local</q></codeph> and <codeph>@format=<q>dita</q></codeph>
+          specifies an <codeph>@href</codeph> with a slash in the fragment identifier, but no
+          explicit or inherited <codeph>@type</codeph> attribute, then, <q>there is no effective
+            default value. In such cases, if the effective <codeph>@scope</codeph> is
+              <codeph>"local"</codeph>, processors should determine the effective value by examining
+            the link target, per the current rules.</q> In reviewing the current spec language as
+          well as the e-mail discussion that led to proposal #13024 (<xref
+            href="https://lists.oasis-open.org/archives/dita/200907/msg00100.html" scope="external"
+            >https://lists.oasis-open.org/archives/dita/200907/msg00100.html</xref>), I don't think
+          a processing default that requires the inspection of the actual target is appropriate. So
+          the default value for <codeph>@type</codeph> will continue to be <q>topic</q>, and
+          processors continue to have maximum flexibility in how, when, and whether to validate that
+          value.</p>
+      </section>
+    </body>
+  </topic>
+</dita>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Stage 3 proposal: Feature #13107"/>
+<meta name="abstract" content="Refine the effective default values for @scope, @format, and @type using hints from the @href value."/>
+<meta name="description" content="Refine the effective default values for @scope, @format, and @type using hints from the @href value."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="prop13107_phase3"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Stage 3 proposal: Feature #13107</title>
+</head>
+<body>
+
+
+  <div class="nested0" id="prop13107_phase3">
+    <h1 class="title topictitle1">Stage 3 proposal: Feature #13107</h1>
+
+    
+    <div class="body"><p class="shortdesc">Refine the effective default values for <samp class="ph codeph">@scope</samp>,
+        <samp class="ph codeph">@format</samp>, and <samp class="ph codeph">@type</samp> using hints from the
+        <samp class="ph codeph">@href</samp> value.</p>
+
+      <div class="section"><h2 class="title sectiontitle">Champion</h2>
+        
+        <p class="p">Chris Nitchie, Oberon Technologies, <a class="xref" href="mailto:chris.nitchie@oberontech.com" target="_blank">chris.nitchie@oberontech.com</a></p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Tracking information</h2>
+        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead">
+            <th valign="bottom" align="left" id="d26e49" class="stentry" width="33.333333333333336%">Event</th>
+
+            <th valign="bottom" align="left" id="d26e52" class="stentry" width="33.333333333333336%">Date</th>
+
+            <th valign="bottom" align="left" id="d26e55" class="stentry" width="33.333333333333336%">Links</th>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 1 proposal accepted</td>
+
+            <td valign="top" headers="d26e52" class="stentry">April 10, 2012</td>
+
+            <td valign="top" headers="d26e55" class="stentry"><a class="xref" href="https://www.oasis-open.org/committees/download.php/45762/minutes20120410.txt" target="_blank">Meeting Minutes</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 2 proposal submitted</td>
+
+            <td valign="top" headers="d26e52" class="stentry">March 1, 2013</td>
+
+            <td valign="top" headers="d26e55" class="stentry"><a class="xref" href="https://www.oasis-open.org/committees/download.php/48449/proposal-13107.dita" target="_blank">DITA</a>, <a class="xref" href="https://www.oasis-open.org/committees/download.php/48450/proposal-13107.html" target="_blank">HTML</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 2 proposal discussed</td>
+
+            <td valign="top" headers="d26e52" class="stentry">March 5, 2013</td>
+
+            <td valign="top" headers="d26e55" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48453/minutes20130305.txt" target="_blank">Meeting Minues</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 2 proposal approved</td>
+
+            <td valign="top" headers="d26e52" class="stentry">March 12, 2013</td>
+
+            <td valign="top" headers="d26e55" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48586/12March2013Minutes.txt" target="_blank">Meeting Minutes</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 3 proposal submitted to reviewers</td>
+
+            <td valign="top" headers="d26e52" class="stentry">May 29, 2013</td>
+
+            <td valign="top" headers="d26e55" class="stentry">David Helfinstine, Robert Anderson</td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e49" class="stentry">Stage 3 proposal (this document) submitted</td>
+
+            <td valign="top" headers="d26e52" class="stentry"> </td>
+
+            <td valign="top" headers="d26e55" class="stentry"> </td>
+
+          </tr>
+</table>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>
+        
+        <p class="p">The processor default values for <samp class="ph codeph">@scope</samp>, <samp class="ph codeph">@format</samp>, and
+            <samp class="ph codeph">@type</samp> make sense for local DITA topic references. However, for some
+          common links, especially those to external HTTP URLs, the processor defaults can cause
+          problems in some processors, resulting in a need to set those attributes explicitly. The
+          default values should be informed by value of the <samp class="ph codeph">@href</samp> attribute.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>
+        
+        <p class="p">None.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>
+        
+        <p class="p">None.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified Topic: The scope attribute</h2>
+        
+        <p class="p">The text in the topic <span class="ph filepath">common/thescopeattribute.dita</span> that describes
+          the default value for the attribute will be modified.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="prop13107_phase3__table_ijk_4pg_3k" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e207">Current Content</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e210">New Content</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e207 ">
+                  <p class="p"><span class="ph" id="prop13107_phase3__may-inherit">If no value is specified, but the attribute is specified
+                      on an ancestor within a map or within the related-links section, the value
+                      will cascade from the closest ancestor.</span> The processing default is
+                    local.</p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e210 ">
+                  <p class="p"><span class="ph">If no value is specified, but the attribute is specified on an ancestor
+                      within a map or within the related-links section, the value will cascade from
+                      the closest ancestor.</span> The processing default is determined by the value
+                    of the href attribute. If the href attribute specifies an absolute URI whose
+                    scheme is <span class="q">"http"</span>, <span class="q">"https"</span>, <span class="q">"ftp"</span>, or <span class="q">"mailto"</span>, then the
+                    processing default is <span class="q">"external"</span>.  In all other cases, the processing
+                    default is <span class="q">"local"</span>.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified Topic: The format attribute</h2>
+        
+        <p class="p">As currently constructed, the topic describing the format attribute
+            (<span class="ph filepath">common/theformatattrribute.dita</span>) specifies its normative
+          information in its <samp class="ph codeph">shortdesc</samp> element, so some minor restructuring is
+          required.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="prop13107_phase3__table_hft_prg_3k" class="table" frame="border" border="1" rules="all">
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e285">Current Content</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e288">New Content</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e285 ">
+                  <p class="p"><strong class="ph b"><em class="ph i">(Short Description)</em></strong></p>
+
+                  <p class="p">The format attribute identifies the format of the resource being cross
+                    referenced. The processing default for format is <span class="q">"dita"</span>. <span class="ph">If no value is
+                      specified, but the attribute is specified on an ancestor within a map or
+                      within the related-links section, the value will cascade from the closest
+                      ancestor.</span></p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e288 ">The format attribute identifies the format of the resource being cross
+                  referenced.  If no value is specified, but the attribute is specified on an
+                  ancestor within a map or within the related-links section, the value will cascade
+                  from the closest ancestor. </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e285 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">(no value)</dt>
+
+                      <dd class="dd">Processors default to "dita"</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e288 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">(no value)</dt>
+
+                      <dd class="dd">The processing default, as described below, is used.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e285 "><strong class="ph b"><em class="ph i">(New Section: Processing default)</em></strong></td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e288 ">
+                  <p class="p">The processing default for the format attribute is determined by inspecting the
+                    value of the href attribute. Generally, if the href attribute specifies a file
+                    extension, the processing default for the format attribute will be that
+                    extension, after conversion to lower-case, and with no leading period. The only
+                    exception to this is if the extension is <span class="q">"xml"</span>, in which case the default
+                    format is <span class="q">"dita"</span>.  If there is no extension, but the href value is an
+                    absolute URI whose scheme is <span class="q">"http"</span> or <span class="q">"https"</span>, then the processing
+                    default is <span class="q">"html"</span>. In all other cases where no extension is available, the
+                    processing default is <span class="q">"dita"</span>.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">The type attribute</h2>
+        
+        <p class="p">The topic describing the <samp class="ph codeph">@type</samp> attribute will <em class="ph i">not</em> be modified for
+          this feature. The Phase 2 proposal stated that when an <samp class="ph codeph">&lt;xref&gt;</samp> element
+          where <samp class="ph codeph">@scope=<span class="q">"local"</span></samp> and <samp class="ph codeph">@format=<span class="q">"dita"</span></samp>
+          specifies an <samp class="ph codeph">@href</samp> with a slash in the fragment identifier, but no
+          explicit or inherited <samp class="ph codeph">@type</samp> attribute, then, <span class="q">"there is no effective
+            default value. In such cases, if the effective <samp class="ph codeph">@scope</samp> is
+              <samp class="ph codeph">"local"</samp>, processors should determine the effective value by examining
+            the link target, per the current rules."</span> In reviewing the current spec language as
+          well as the e-mail discussion that led to proposal #13024 (<a class="xref" href="https://lists.oasis-open.org/archives/dita/200907/msg00100.html" target="_blank">https://lists.oasis-open.org/archives/dita/200907/msg00100.html</a>), I don't think
+          a processing default that requires the inspection of the actual target is appropriate. So
+          the default value for <samp class="ph codeph">@type</samp> will continue to be <span class="q">"topic"</span>, and
+          processors continue to have maximum flexibility in how, when, and whether to validate that
+          value.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>
