@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature #13090</title>
+    <shortdesc>Enhancements to the <codeph>@style</codeph> attribute in DITAVAL files.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Chris Nitchie, Oberon Technologies, <xref href="mailto:chris.nitchie@oberontech.com"
+            scope="external">chris.nitchie@oberontech.com</xref></p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>October 25, 2011</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/committees/download.php/44183/minutes20111025.txt"
+                scope="external">Meeting Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>March 26, 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/committees/download.php/48650/proposal-13090-phase2.html"
+                scope="external">HTML</xref>, <xref scope="external"
+                href="https://www.oasis-open.org/committees/download.php/48651/proposal-13090-phase2.dita"
+                >DITA</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>April 2, 2013</stentry>
+            <stentry><xref scope="external"
+                href="https://www.oasis-open.org/committees/download.php/48719/minutes20130402.txt"
+                >Meeting Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>April 9, 2013</stentry>
+            <stentry><xref scope="external"
+                href="https://www.oasis-open.org/committees/download.php/48894/minutes20130409.txt"
+                >Meeting Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>May 29, 2013</stentry>
+            <stentry>David Helfinstine, </stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Change the @style attribute in DITAVAL files to NMTOKENS instead of a DTD-specified list
+          of choices. Document the minimum required supported styles (bold, italics, underline,
+          double-underline, overline) but allow processors to support non-standard styles as well
+          (e.g. smallcaps). This would allow &lt;prop action="flag" att="otherprops" val="eyesonly"
+          style="bold underline strike-through"/></p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>None.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <fig>
+          <title>Current <filepath>ditaval.dtd</filepath></title>
+          <codeblock>&lt;!ATTLIST prop
+  att       CDATA	    #IMPLIED
+  val       CDATA       #IMPLIED
+  action    (flag|include|exclude|passthrough)  #REQUIRED
+  color     CDATA       #IMPLIED
+  backcolor CDATA       #IMPLIED
+  style     <b>(underline|double-underline|italics|overline|bold)</b>       #IMPLIED
+  >
+
+&lt;!-- ... -->
+
+&lt;!ATTLIST revprop
+  val		CDATA		#IMPLIED
+  action	(include|passthrough|flag)  #REQUIRED
+  changebar CDATA       #IMPLIED
+  color     CDATA       #IMPLIED
+  backcolor CDATA       #IMPLIED
+  style     <b>(underline|double-underline|italics|overline|bold)</b>       #IMPLIED
+  ></codeblock>
+        </fig>
+        <fig>
+          <title>Updated <filepath>ditaval.dtd</filepath></title>
+          <codeblock>&lt;!ATTLIST prop
+  att       CDATA	    #IMPLIED
+  val       CDATA       #IMPLIED
+  action    (flag|include|exclude|passthrough)  #REQUIRED
+  color     CDATA       #IMPLIED
+  backcolor CDATA       #IMPLIED
+  style     <b>CDATA</b>       #IMPLIED
+  >
+
+&lt;!-- ... -->
+
+&lt;!ATTLIST revprop
+  val		CDATA		#IMPLIED
+  action	(include|passthrough|flag)  #REQUIRED
+  changebar CDATA       #IMPLIED
+  color     CDATA       #IMPLIED
+  backcolor CDATA       #IMPLIED
+  style     <b>CDATA</b>       #IMPLIED
+  ></codeblock>
+        </fig>
+        <fig>
+          <title>Current <filepath>ditaval.xsd</filepath></title>
+          <codeblock>  &lt;xs:attributeGroup name="prop.attributes">
+    &lt;xs:attribute name="att" type="xs:string"/>
+    &lt;xs:attribute name="val" type="xs:string"/>
+    &lt;xs:attribute name="action" use="required">
+      &lt;xs:simpleType>
+        &lt;xs:restriction base="xs:string">
+          &lt;xs:enumeration value="include"/>
+          &lt;xs:enumeration value="exclude"/>
+          &lt;xs:enumeration value="passthrough"/>
+          &lt;xs:enumeration value="flag"/>
+        &lt;/xs:restriction>
+      &lt;/xs:simpleType>
+    &lt;/xs:attribute>
+    &lt;xs:attribute name="color" type="xs:string"/>
+    &lt;xs:attribute name="backcolor" type="xs:string"/>
+    &lt;xs:attribute name="style" <b>type="style-atts.class"</b>/>
+  &lt;/xs:attributeGroup>
+
+  &lt;!-- ... -->
+
+  &lt;xs:attributeGroup name="revprop.attributes">
+    &lt;xs:attribute name="val" type="xs:string"/>
+    &lt;xs:attribute name="action" use="required">
+      &lt;xs:simpleType>
+        &lt;xs:restriction base="xs:string">
+          &lt;xs:enumeration value="include"/>
+          &lt;xs:enumeration value="passthrough"/>
+          &lt;xs:enumeration value="flag"/>
+        &lt;/xs:restriction>
+      &lt;/xs:simpleType>
+    &lt;/xs:attribute>
+    &lt;xs:attribute name="color" type="xs:string"/>
+    &lt;xs:attribute name="changebar" type="xs:string"/>
+    &lt;xs:attribute name="backcolor" type="xs:string"/>
+    &lt;xs:attribute name="style" <b>type="style-atts.class"</b>/>
+  &lt;/xs:attributeGroup>
+
+  &lt;!-- ... -->
+
+   <b>&lt;xs:simpleType name="style-atts.class">
+    &lt;xs:restriction base="xs:string">
+      &lt;xs:enumeration value="underline"/>
+      &lt;xs:enumeration value="double-underline"/>
+      &lt;xs:enumeration value="italics"/>
+      &lt;xs:enumeration value="overline"/>
+      &lt;xs:enumeration value="bold"/>
+    &lt;/xs:restriction>
+  &lt;/xs:simpleType></b></codeblock>
+        </fig>
+        <fig>
+          <title>Updated <filepath>ditaval.xsd</filepath></title>
+          <codeblock>  &lt;xs:attributeGroup name="prop.attributes">
+    &lt;xs:attribute name="att" type="xs:string"/>
+    &lt;xs:attribute name="val" type="xs:string"/>
+    &lt;xs:attribute name="action" use="required">
+      &lt;xs:simpleType>
+        &lt;xs:restriction base="xs:string">
+          &lt;xs:enumeration value="include"/>
+          &lt;xs:enumeration value="exclude"/>
+          &lt;xs:enumeration value="passthrough"/>
+          &lt;xs:enumeration value="flag"/>
+        &lt;/xs:restriction>
+      &lt;/xs:simpleType>
+    &lt;/xs:attribute>
+    &lt;xs:attribute name="color" type="xs:string"/>
+    &lt;xs:attribute name="backcolor" type="xs:string"/>
+    &lt;xs:attribute name="style" <b>type="xs:string"</b>/>
+  &lt;/xs:attributeGroup>
+
+  &lt;!-- ... -->
+
+  &lt;xs:attributeGroup name="revprop.attributes">
+    &lt;xs:attribute name="val" type="xs:string"/>
+    &lt;xs:attribute name="action" use="required">
+      &lt;xs:simpleType>
+        &lt;xs:restriction base="xs:string">
+          &lt;xs:enumeration value="include"/>
+          &lt;xs:enumeration value="passthrough"/>
+          &lt;xs:enumeration value="flag"/>
+        &lt;/xs:restriction>
+      &lt;/xs:simpleType>
+    &lt;/xs:attribute>
+    &lt;xs:attribute name="color" type="xs:string"/>
+    &lt;xs:attribute name="changebar" type="xs:string"/>
+    &lt;xs:attribute name="backcolor" type="xs:string"/>
+    &lt;xs:attribute name="style" <b>type="xs:string"</b>/>
+  &lt;/xs:attributeGroup>
+
+   <b>&lt;!-- style-atts.class removed --></b></codeblock>
+        </fig>
+      </section>
+      <section>
+        <title>Language Reference Topics on <codeph>&lt;prop></codeph> and
+            <codeph>&lt;revprop></codeph></title>
+        <p>Both of these topics contain identical language describing the <codeph>@style</codeph>
+          attribute. The change to both is as as follows.</p>
+        <table frame="all" id="table_u25_bxn_3k">
+          <tgroup cols="2">
+            <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+            <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Current Content</entry>
+                <entry>Updated Content</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>If flag has been set, the text style to use for flagged text. The following
+                  values are enumerated:<ul id="ul_ntl_cxn_3k">
+                    <li>underline</li>
+                    <li>double-underline</li>
+                    <li>italics</li>
+                    <li>overline</li>
+                    <li>bold</li>
+                  </ul> If flag has not been set, this attribute is ignored.</entry>
+                <entry>
+                  <p>If flag has been set, the text styles to use for flagged text. This attribute
+                    may contain multiple space-delimited tokens. The following tokens should be
+                    processed by all DITAVAL processors:</p>
+                  <ul id="ul_m1x_cxn_3k">
+                    <li>underline</li>
+                    <li>double-underline</li>
+                    <li>italics</li>
+                    <li>overline</li>
+                    <li>bold</li>
+                  </ul>
+                  <p>In addition, processors may support other proprietary tokens for different
+                    types of styling. Such tokens should have a processor-specific prefix to
+                    identify them as proprietary.</p>
+                  <p>If flag has not been set, this attribute is ignored.</p>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <p>In addition, the <q>Data Type</q> column for the <codeph>@style</codeph> attribute in
+          both topics will change from the list of valid values to <q>CDATA</q>.</p>
+      </section>
+    </body>
+  </topic>
+</dita>
