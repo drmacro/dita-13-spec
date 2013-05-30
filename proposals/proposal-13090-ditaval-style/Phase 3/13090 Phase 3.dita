@@ -249,7 +249,9 @@
                   </ul>
                   <p>In addition, processors may support other proprietary tokens for different
                     types of styling. Such tokens should have a processor-specific prefix to
-                    identify them as proprietary.</p>
+                    identify them as proprietary. If a processor encounters an unsupported style
+                    token, it may (but need not) issue a warning, and may (but need not) render
+                    content flagged with such a style token using some default formatting.</p>
                   <p>If flag has not been set, this attribute is ignored.</p>
                 </entry>
               </row>
