@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+  MODULE:    DITA Learning Group Map - RNG              
+  VERSION:   1.3                                                
+  DATE:      June 2013                                       
+  ============================================================= -->
+<!--
+  Refer to the latest version of this file by the following URI:
+  urn:dita-ng:dita:rng:subjectScheme.mod.rng
+  To refer to this specific version, you may use this value:
+  urn:dita-ng:dita:rng:subjectScheme.mod.rng:1.2
+-->
+<!-- ============================================================= 
+  SYSTEM:     Darwin Information Typing Architecture (DITA)     
+  PURPOSE:    Provides a map type for representing a single learning group. 
+  ORIGINAL CREATION DATE:  
+  September 2013
+  (C) Copyright OASIS Open, 2013                                
+  All Rights Reserved.                                          
+  ============================================================= -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <!-- Define the domain values of this module -->
+  <define name="domains-atts-value" combine="choice">
+    <value>(map learningObjectMap) (map mapgroup-d)</value>
+  </define>
+
+  <!-- ELEMENT DECLARATIONS -->
+  
+  <!--
+    This differs from topicref-atts-no-toc only by providing a
+    default for @processing-role
+  -->
+  <define name="topicref-atts-for-learningObjectMap">
+    <optional>
+      <attribute name="collection-type">
+        <choice>
+          <value>choice</value>
+          <value>family</value>
+          <value>sequence</value>
+          <value>unordered</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="type"/>
+    </optional>
+    <optional>
+      <attribute name="processing-role" a:defaultValue="resource-only">
+        <choice>
+          <value>normal</value>
+          <value>resource-only</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="scope">
+        <choice>
+          <value>external</value>
+          <value>local</value>
+          <value>peer</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="locktitle">
+        <choice>
+          <value>no</value>
+          <value>yes</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="format"/>
+    </optional>
+    <optional>
+      <attribute name="linking">
+        <choice>
+          <value>none</value>
+          <value>normal</value>
+          <value>sourceonly</value>
+          <value>targetonly</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="toc" a:defaultValue="no">
+        <choice>
+          <value>no</value>
+          <value>yes</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="print">
+        <choice>
+          <value>no</value>
+          <value>printonly</value>
+          <value>yes</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="search">
+        <choice>
+          <value>no</value>
+          <value>yes</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="chunk"/>
+    </optional>
+  </define>
+ 
+  <!-- LONG NAME: Learning Object Map -->
+  <define name="learningObjectMap.content">
+    <optional>
+      <ref name="title"/>
+    </optional>
+    <optional>
+      <ref name="topicmeta"/>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <ref name="keydef"/>
+        <ref name="anchorref"/>
+      </choice>
+    </zeroOrMore>
+    <ref name="learningObject"/>
+    <zeroOrMore>
+      <ref name="reltable"/>
+    </zeroOrMore>
+  </define>
+  <define name="learningObjectMap.attributes">
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <ref name="conref-atts"/>
+    <optional>
+      <attribute name="anchorref"/>
+    </optional>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+    <ref name="localization-atts"/>
+    <ref name="topicref-atts-for-learningObjectMap"/>
+    <ref name="select-atts"/>
+  </define>
+  <define name="learningObjectMap.element">
+    <element name="learningObjectMap">
+      <ref name="learningObjectMap.attlist"/>
+      <ref name="learningObjectMap.content"/>
+    </element>
+  </define>
+  <define name="learningObjectMap.attlist" combine="interleave">
+    <ref name="learningObjectMap.attributes"/>
+    <ref name="arch-atts"/>
+    <ref name="domains-atts"/>
+  </define>
+  
+  <!-- SPECIALIZATION ATTRIBUTE DECLARATIONS -->
+  
+  <define name="learningObjectMap.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- map/map learningObjectMap/learningObjectMap "/>
+    </optional>
+  </define>
+</grammar>

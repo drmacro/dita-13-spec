@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../relaxng/learning/rng/learningGroupMap.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningGroupMap id="sampleMap" xml:lang="en-US">
+  <topicmeta>
+    <metadata>
+      <prodinfo>
+        <prodname>DITA</prodname>
+        <vrmlist>
+          <vrm version="1.3"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+    <lcLom>
+      <lomAggregationLevel value="3"/>
+    </lcLom>
+  </topicmeta>
+  <keydef keys="Support Helpdesk" href="http://www.some_help_site.com/en-US" scope="external" format="html"/>
+  <learningGroup>
+    <topicmeta>
+      <navtitle>Sample Learning Group</navtitle>
+    </topicmeta>
+    <learningObject>
+      <learningContentRef href="sampleLearningContent.dita" scope="local"/>
+    </learningObject>
+    <learningObject>
+      <learningContentRef format="dita" navtitle="Learning Content Aggregation">
+        <topicmeta>
+          <othermeta name="meta" content="here"/>
+        </topicmeta>
+        <learningContentComponentRef href="sampleConcept1.dita" scope="local"/>
+        <learningContentComponentRef href="sampleConcept2.dita" scope="local"/>
+      </learningContentRef>
+    </learningObject>
+  </learningGroup>
+</learningGroupMap>

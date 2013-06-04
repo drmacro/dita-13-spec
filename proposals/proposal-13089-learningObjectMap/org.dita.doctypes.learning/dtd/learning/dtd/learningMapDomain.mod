@@ -279,16 +279,20 @@ Modified to support learningObjectMapRef and learningGroupMapRef -->
 Added to support learningObjectMapRef and learningGroupMapRef  -->
 <!ENTITY % learningGroupMapRef.content
                        "((%topicmeta;)?)">
+<!ENTITY % learningGroupMapRef.attributes
+                       "%learningDomain-mapref-attributes;">
 
 <!ELEMENT learningGroupMapRef %learningGroupMapRef.content;>
-<!ATTLIST learningGroupMapRef %learningDomain-mapref-attributes;>
+<!ATTLIST learningGroupMapRef %learningGroupMapRef.attributes;>
 
 
 <!ENTITY % learningObjectMapRef.content
                         "((%topicmeta;)?)">
+<!ENTITY % learningObjectMapRef.attributes
+                       "%learningDomain-mapref-attributes;">
 
 <!ELEMENT learningObjectMapRef %learningObjectMapRef.content;>
-<!ATTLIST learningObjectMapRef %learningDomain-mapref-attributes;>
+<!ATTLIST learningObjectMapRef %learningObjectMapRef.attributes;>
 
 <!-- ============================================================= -->
 
@@ -448,9 +452,9 @@ Added to support learningObjectMapRef and learningGroupMapRef  -->
 <!-- DRB: 2012-10-22
 Added to support learningObjectMap and learningGroupMap -->    
 <!ATTLIST learningObjectMapRef %global-atts;
-    class CDATA "+ map/topicref mapgroup-d/mapref learningmap-d/learningObjectMapRef ">    
+    class CDATA "+ map/topicref learningmap-d/learningObjectMapRef ">    
 <!ATTLIST learningGroupMapRef %global-atts;
-    class CDATA "+ map/topicref mapgroup-d/mapref learningmap-d/learningGroupMapRef ">
+    class CDATA "+ map/topicref learningmap-d/learningGroupMapRef ">
     
 <!-- ============================================================= -->
 

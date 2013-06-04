@@ -20,6 +20,9 @@
     <projectTree name="dita-13-spec.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
+            <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningGroupMap.rng"/>
+            <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningMap.rng"/>
+            <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningObjectMap.rng"/>
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>

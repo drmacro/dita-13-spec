@@ -47,7 +47,7 @@
                                   #IMPLIED
               format 
                         CDATA 
-                                  #IMPLIED
+                                  'xml'
               scope 
                         (external | 
                          local | 

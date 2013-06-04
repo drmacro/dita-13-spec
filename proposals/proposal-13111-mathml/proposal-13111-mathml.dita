@@ -243,7 +243,7 @@
                                   #IMPLIED
               format 
                         CDATA 
-                                  #IMPLIED
+                                  'xml'
               scope 
                         (external | 
                          local | 
@@ -298,63 +298,7 @@
       </fig>
       <fig>
         <title>XSD-Syntax Vocabulary Module</title>
-        <p>mathmlDomainMod.xsd:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;xs:schema
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:m="http://www.w3.org/1998/Math/MathML"  
-  elementFormDefault="qualified">
-  
-  &lt;xs:import schemaLocation="mathml3/mathml3.xsd"
-    namespace="http://www.w3.org/1998/Math/MathML"
-  />
-  
-  &lt;xs:group name="mathml">
-    &lt;xs:sequence>
-      &lt;xs:choice>
-        &lt;xs:element ref="mathml"/>
-      &lt;/xs:choice>
-    &lt;/xs:sequence>
-  &lt;/xs:group>
-  
-  &lt;xs:group name="mathml.content">
-    &lt;xs:choice minOccurs="0" maxOccurs="unbounded">
-      &lt;xs:element ref="m:math"/>
-      &lt;xs:group ref="data.elements.incl" minOccurs="0"/>
-    &lt;/xs:choice>
-  &lt;/xs:group>
-  
-  &lt;xs:attributeGroup name="mathml.attributes">
-    &lt;xs:attribute name="outputclass" type="xs:string"/>
-    &lt;xs:attributeGroup ref="global-atts"/>
-    &lt;xs:attributeGroup ref="univ-atts"/>
-  &lt;/xs:attributeGroup>
-  
-  &lt;xs:complexType name="mathml.class" mixed="false">
-    &lt;xs:sequence>  
-      &lt;xs:group ref="mathml.content"/>
-    &lt;/xs:sequence>        
-    &lt;xs:attributeGroup ref="mathml.attributes"/>
-  &lt;/xs:complexType>
-  
-  &lt;xs:element name="mathml">
-    &lt;xs:annotation>
-      &lt;xs:documentation>
-        The mathml (&amp;lt;&lt;keyword>mathml&lt;/keyword>&amp;gt;) element 
-        contains zero or more MathML equations, along with optional &amp;lt;&lt;keyword>data&lt;/keyword>&amp;gt;
-        or &amp;lt;&lt;keyword>data-about&lt;/keyword>&amp;gt; elements, which act as metadata for the
-        equations.
-      &lt;/xs:documentation>
-    &lt;/xs:annotation>
-    &lt;xs:complexType mixed="false">
-      &lt;xs:complexContent>
-        &lt;xs:extension base="mathml.class">
-          &lt;xs:attribute ref="class" default="+ topic/foreign mathml-d/mathml "/>
-        &lt;/xs:extension>
-      &lt;/xs:complexContent>
-    &lt;/xs:complexType>
-  &lt;/xs:element>
-  
-&lt;/xs:schema></codeblock></p>
+        <p>mathmlDomainMod.xsd:<codeblock>TBD: Will be generated from the RNG once that generation process is implemented.</codeblock></p>
       </fig>
       <fig>
         <title>RNG-Syntax Vocabulary Module</title>
@@ -410,8 +354,33 @@
 
   &lt;define
     name="mathmlref.attributes">
-    &lt;ref
-      name="xref.attributes"/>
+    &lt;optional>
+      &lt;attribute name="href"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="keyref"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="type"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="format"  
+        a:defaultValue="xml"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="scope">
+        &lt;choice>
+          &lt;value>external&lt;/value>
+          &lt;value>local&lt;/value>
+          &lt;value>peer&lt;/value>
+          &lt;value>-dita-use-conref-target&lt;/value>
+        &lt;/choice>
+      &lt;/attribute>
+    &lt;/optional>
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
   &lt;/define>
 
   &lt;define
