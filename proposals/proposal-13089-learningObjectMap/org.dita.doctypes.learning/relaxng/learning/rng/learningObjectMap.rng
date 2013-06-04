@@ -37,12 +37,16 @@
         (topic delay-d)
         (topic hi-d) 
         (topic ut-d) 
-        (topic hazard-d)"/>
+        (topic hazard-d)
+        (map learningSimpleTopicref-c)
+        "/>
     </optional>
   </define>
   
+  <!-- NOTE: this constraint includes map.mod.rng -->
+  <include href="learningSimpleTopicrefConstraint.mod.rng"/>
+    
   <!-- Include modules -->
-  <include href="../../base/rng/map.mod.rng"/>
   <include href="../../base/rng/mapGroup.mod.rng"/>
   <include href="../../base/rng/indexingDomain.mod.rng"/>
   <include href="../../base/rng/delayResolutionDomain.mod.rng"/>

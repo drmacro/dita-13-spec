@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <!-- ============================================================= 
-  MODULE:    DITA Learning Map - RNG              
-  VERSION:   1.2                                                
-  DATE:      November 2010                                       
+  MODULE:    DITA Group Learning Map - RNG              
+  VERSION:   1.3                                         
+  DATE:      June 2013                                       
   ============================================================= -->
 <!--
   Refer to the latest version of this file by the following URI:
@@ -13,10 +13,10 @@
 -->
 <!-- ============================================================= 
   SYSTEM:     Darwin Information Typing Architecture (DITA)     
-  PURPOSE:    RNG to describe DITA Learning Map
+  PURPOSE:    Represents a 
   ORIGINAL CREATION DATE:  
-  September 2010                                                
-  (C) Copyright Syncro Soft 2010-2011                                
+  June 2013                                                
+  (C) Copyright OASIS Open
   All Rights Reserved.                                          
   ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
@@ -33,6 +33,7 @@
         a:defaultValue="
         (topic learningmeta-d) 
         (map learningmap-d)
+        (map learningSimpleTopicref-c)
         (topic indexing-d) 
         (topic delay-d)
         (topic hi-d) 

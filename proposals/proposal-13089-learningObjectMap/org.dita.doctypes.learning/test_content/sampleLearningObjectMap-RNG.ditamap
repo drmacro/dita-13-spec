@@ -14,8 +14,10 @@
             <lomAggregationLevel value="2"/>
         </lcLom>
     </topicmeta>
-    <keydef keys="Support Helpdesk" href="http://www.some_help_site.com/en-US" scope="external" format="html"/>
-    <learningObject>
+    <topicgroup>
+      <keydef keys="Support Helpdesk" href="http://www.some_help_site.com/en-US" scope="external" format="html"/>
+    </topicgroup>    
+  <learningObject>
         <learningPlanRef href="sampleLearningPlan.dita" scope="local"/>
         <learningOverviewRef href="sampleLearningOverview.dita" scope="local"/>
         <learningPreAssessmentRef href="sampleLearningPreAssessment.dita" scope="local"/>

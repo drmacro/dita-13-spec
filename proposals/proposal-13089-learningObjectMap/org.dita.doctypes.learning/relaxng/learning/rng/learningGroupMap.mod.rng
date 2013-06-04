@@ -133,8 +133,7 @@
     </optional>
     <zeroOrMore>
       <choice>
-        <ref name="keydef"/>
-        <ref name="anchorref"/>
+        <ref name="topicref"/>
       </choice>
     </zeroOrMore>
     <ref name="learningGroup"/>

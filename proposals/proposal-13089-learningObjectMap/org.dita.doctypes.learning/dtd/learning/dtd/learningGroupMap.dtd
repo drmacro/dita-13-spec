@@ -144,7 +144,7 @@
                          &hi-d-att; 
                          &ut-d-att; 
                          &hazard-d-att;
-                         &simpleTopicref-c-att;
+                         &learningSimpleTopicref-c-att; 
                          ">
 
                          
@@ -153,10 +153,10 @@
 <!--                    CONTENT CONSTRAINT INTEGRATION             -->
 <!-- ============================================================= -->
 
-<!ENTITY % simpleTopicref-c-def  
-  PUBLIC "SimpleTopicrefConstraints.mod" 
-  "SimpleTopicrefConstraints.mod"
->%simpleTopicref-c-def;
+<!ENTITY % learningSimpleTopicref-c-def  
+  PUBLIC "learningSimpleTopicrefConstraints-mod" 
+  "learningSimpleTopicrefConstraints.mod"
+>%learningSimpleTopicref-c-def;
 
 <!-- ============================================================= -->
 <!--                    MAP ELEMENT INTEGRATION                    -->

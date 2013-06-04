@@ -137,6 +137,7 @@
 
 <!ENTITY included-domains 
                         "&learningObjectMap-att; 
+                         &learningSimpleTopicref-c-att; 
                          &delay-d-att;
                          &mapgroup-d-att; 
                          &indexing-d-att;
@@ -152,10 +153,10 @@
 <!--                    CONTENT CONSTRAINT INTEGRATION             -->
 <!-- ============================================================= -->
 
-<!ENTITY % simpleTopicref-c-def  
-  PUBLIC "SimpleTopicrefConstraints-mod" 
-  "SimpleTopicrefConstraints.mod"
->%simpleTopicref-c-def;
+<!ENTITY % learningSimpleTopicref-c-def  
+  PUBLIC "learningSimpleTopicrefConstraints-mod" 
+  "learningSimpleTopicrefConstraints.mod"
+>%learningSimpleTopicref-c-def;
 
 <!-- ============================================================= -->
 <!--                    MAP ELEMENT INTEGRATION                    -->

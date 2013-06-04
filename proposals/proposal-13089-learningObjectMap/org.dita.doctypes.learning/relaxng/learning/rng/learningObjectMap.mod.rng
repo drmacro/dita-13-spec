@@ -132,10 +132,7 @@
       <ref name="topicmeta"/>
     </optional>
     <zeroOrMore>
-      <choice>
-        <ref name="keydef"/>
-        <ref name="anchorref"/>
-      </choice>
+      <ref name="topicref"/>
     </zeroOrMore>
     <ref name="learningObject"/>
     <zeroOrMore>
