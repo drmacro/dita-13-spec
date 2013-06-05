@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningAssessment PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN" "learningAssessment.dtd">
+<learningAssessment id="assessment_zb4_4zw_yh">
+ <title>Sample Learning Post-Assessment</title>
+ <learningAssessmentbody>
+  <lcIntro>
+   <title>Post-Assessment</title>
+   <p>Duis in tortor quis arcu pharetra tempus. Curabitur velit lorem, sodales sed porta nec, malesuada quis erat. Duis ligula tortor, aliquam at suscipit ac, tempor nec sapien. Morbi elementum, ipsum sed dignissim ultricies, eros ipsum tincidunt nunc, eu scelerisque nunc justo ac velit. Proin ac massa ac nunc pellentesque blandit. Etiam nisi ligula, tincidunt a sodales ut, tincidunt vel risus. Etiam lacinia purus sit amet lectus fermentum vel faucibus ligula sodales. Mauris id metus mauris. Aliquam erat volutpat.</p> 
+  </lcIntro>
+ </learningAssessmentbody>
+</learningAssessment>

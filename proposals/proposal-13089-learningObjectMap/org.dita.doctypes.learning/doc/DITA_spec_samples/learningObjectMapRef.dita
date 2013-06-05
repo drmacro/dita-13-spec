@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="learningObjectMapRef" xml:lang="en-us">
+	<title>learningObjectMapRef</title>
+	<shortdesc>Use a <keyword>learningObjectMapRef</keyword> element to include a map reference to a
+		learning object map as part of a DITA learningMap, learningBookMap or
+		learningGroupMap.</shortdesc>
+	<prolog>
+		<metadata>
+			<keywords>
+				<indexterm>learningObjectMapRef</indexterm>
+				<indexterm>learning and training elements
+					<indexterm>learningMap</indexterm>
+					<indexterm>learningObjectMap</indexterm>
+				</indexterm>
+			</keywords>
+		</metadata>
+	</prolog>
+	<refbody>
+		<section>
+			<title>Description and Semantics</title>
+			<p>The learningObjectMapRef is a mapref specialization included in the DITA Learning and
+				Training Map domain. It is used to reference a single learningObjectMap, either from a
+				learningMap, learningBookMap, learningGroupMap or learningGroup.The hierarchy of the
+				referenced learningObjectMap is merged into the container map or learningGroup at the
+				position of the reference, and the relationship tables of the child map are added to the
+				parent map. <draft-comment author="Doug Burgess">This is from mapref. Need to confirm
+					expected behaviour.</draft-comment></p>
+		</section>
+		<section id="contains" otherprops="contains">
+			<title>Contains</title>
+			<p/>
+		</section>
+		<section id="containedby" otherprops="containedby">
+			<title>Contained By</title>
+			<p/>
+		</section>
+		<section id="inheritance" otherprops="inheritance">
+			<title>Inheritance</title>
+			<p>+ map/topicref mapgroup-d/mapref learningmap-d/learningObjectMapRef</p>
+		</section>
+		<example id="example">
+			<title>Example</title>
+			<p/>
+		</example>
+		<section id="attributes">
+			<title>Attributes</title>
+			<p/>
+		</section>
+	</refbody>
+</reference>

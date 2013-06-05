@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+	<topic id="topic_aqh_5zt_3h">
+		<title>Stage 3 proposal: Feature #13089</title>
+		<shortdesc>The DITA Learning and Training Specialization should support a standarized approach
+			enabling the storage of learning objects and learning groups as separate files on a file
+			system or repository. Currently, it only supports the storage of the components within a
+			learning object (such as a learningOverview or learningContent) as separate files.</shortdesc>
+		<body>
+			<section>
+				<title>Champions</title>
+				<p>Mark Myers (champion contact) and Doug Burgess from SAP.</p>
+			</section>
+			<section>
+				<title>Tracking information</title>
+				<simpletable frame="all" relcolwidth="1.45* 1.0* 1.9*">
+					<sthead>
+						<stentry>Event</stentry>
+						<stentry>Date</stentry>
+						<stentry>Links</stentry>
+					</sthead>
+					<strow>
+						<stentry>Stage 1 proposal accepted</stentry>
+						<stentry>October 25, 2011</stentry>
+						<stentry>
+							<p><xref
+									href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44183/minutes20111025.txt"
+								/></p>
+						</stentry>
+					</strow>
+					<strow>
+						<stentry>Stage 2 proposal submitted</stentry>
+						<stentry>October 26th, 2012</stentry>
+						<stentry>
+							<p>HTML: <xref
+									href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48310/learningObjectMapRef_proposal-13089_v03.html"
+								/></p>
+							<p>DITA: <xref
+									href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47321/learningObjectMapRef_proposal-13089_v03.dita"
+								/></p>
+						</stentry>
+					</strow>
+					<strow>
+						<stentry>Stage 2 proposal discussed</stentry>
+						<stentry>October 30th, 2012</stentry>
+						<stentry>
+							<p><xref
+									href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47353/minutes20121030.txt"
+								/></p>
+						</stentry>
+					</strow>
+					<strow>
+						<stentry>Stage 2 proposal approved</stentry>
+						<stentry>November 6th, 2012</stentry>
+						<stentry>
+							<p><xref
+									href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47406/minutes20121106.txt"
+								/></p>
+						</stentry>
+					</strow>
+					<strow>
+						<stentry>Stage 3 proposal submitted to reviewers</stentry>
+						<stentry/>
+						<stentry>Include names of reviewers</stentry>
+					</strow>
+					<strow>
+						<stentry>Stage 3 proposal (this document) submitted</stentry>
+						<stentry/>
+						<stentry/>
+					</strow>
+				</simpletable>
+			</section>
+			<section>
+				<title>Approved technical requirements</title>
+				<p>Implement two new elements, learningObjectMapRef and learningObjectMap. The
+					learningObjectMapRef would be a topicref specialization that could be an optional child of
+					a map such as a bookmap, learningMap, or learningGroup. learningObjectMapRef would allow a
+					reference to one learningObjectMap which could be a map specialization that would function
+					as a wrapper element around one and only one learningObject element. This would enable the
+					learningObjectMap to be stored as a separate file and referenced by the
+					learningObjectMapRef in one or more maps. learningObjectMap could also support a child
+					topicmeta which implementors could use to capture various information about the
+					learningObjectMap. </p>
+				<p>Implement two new elements, learningGroupMapRef and learningGroupMap. The
+					learningGroupMapRef would be a topicref specialization that could be an optional child of
+					a map such as a bookmap or learningMap. learningGroupMapRef would allow a reference to one
+					learningGroupMap which could be a map specialization that would function as a wrapper
+					element around one and only one learningGroup element. This would enable the
+					learningGroupMap to be stored as a separate file and referenced by the learningGroupMapRef
+					in one or more maps. learningGroupMap could also support a child topicmeta which
+					implementors could use to capture various information about the learningGroupMap.</p>
+			</section>
+			<section>
+				<title>Dependencies or interrelated proposals</title>
+				<p>No interrelated proposals.</p>
+			</section>
+			<section>
+				<title>Modified DTDs, Modules and Entity Files</title>
+				<dl>
+					<dlentry>
+						<dt>learningMapDomain.ent</dt>
+						<dd>
+							<p>Two new elements added to <codeph>% learningmap-d-topicref</codeph></p>
+							<ul id="ul_z5p_mpg_fj">
+								<li>learningObjectMapRef</li>
+								<li>learningGroupMapRef</li>
+							</ul>
+							<codeblock>&lt;!ENTITY % learningmap-d-topicref 
+                        "learningObject |
+                         learningGroup  |
+                         learningObjectMapRef |
+                         learningGroupMapRef"
+></codeblock>
+						</dd>
+					</dlentry>
+					<dlentry>
+						<dt>learningMapDomain.mod</dt>
+						<dd>
+							<p>Two new element entities declared:</p>
+							<codeblock>&lt;!ENTITY % learningObjectMapRef	"learningObjectMapRef">
+&lt;!ENTITY % learningGroupMapRef	 "learningGroupMapRef"></codeblock>
+							<p>Two corresponding attribute entities declared, which reference the existing
+								learningDomain mapref attribute entities:</p>
+							<codeblock>&lt;!ENTITY % learningGroupMapRef-attributes
+						"%learningDomain-mapref-attributes;"
+>
+&lt;!ENTITY % learningObjectMapRef-attributes
+						"%learningDomain-mapref-attributes;"
+></codeblock>
+							<p>learningGroup.content entity modified to include the new element entities</p>
+							<codeblock>&lt;!ENTITY % learningGroup.content
+   "((%topicmeta;)?, 
+    (%learningPlanRef;)?, 
+    ((%learningOverviewRef;) |
+    (%learningPreAssessmentRef;))*,
+    ((%learningObject;) |
+    (%learningObjectMapRef;) |
+    (%learningGroup;) |
+    (%learningGroupMapRef;))*,
+    ((%learningPostAssessmentRef;) |
+    (%learningSummaryRef;))* )"
+></codeblock>
+							<p>Class attributes created for each new element:</p>
+							<codeblock>&lt;!ATTLIST learningObjectMapRef %global-atts;
+    class CDATA "+ map/topicref mapgroup-d/mapref learningmap-d/learningObjectMapRef ">    
+&lt;!ATTLIST learningGroupMapRef %global-atts;
+    class CDATA "+ map/topicref mapgroup-d/mapref learningmap-d/learningGroupMapRef "></codeblock>
+						</dd>
+					</dlentry>
+					<dlentry>
+						<dt>learningMap.dtd</dt>
+						<dd>
+							<p>New public identifiers added for the modified
+									<filepath>learningMapDomain.ent</filepath> and
+									<filepath>learningMapDomain.mod</filepath> files:</p>
+							<codeblock>&lt;!ENTITY % learningmap-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Learning Map Domain//EN" 
+         "learningMapdomain.ent">
+  %learningmap-d-dec;</codeblock>
+							<codeblock>&lt;!ENTITY % learningmap-d-def 
+		PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Learning Map Domain//EN" 
+		"learningMapdomain.mod"
+>%learningmap-d-def;</codeblock>
+						</dd>
+					</dlentry>
+				</dl>
+			</section>
+			<section>
+				<title>New DTDs, Modules and Entity Files</title>
+				<dl>
+					<dlentry>
+						<dt><xref format="dtd" scope="external"
+								href="../doctypes/dtd/learning/dtd/learningGroupMap.dtd"
+							>learningGroupMap.dtd</xref></dt>
+						<dd>New DTD</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref href="../doctypes/dtd/learning/dtd/learningGroupMap.mod" scope="external"
+								format="mod">learningGroupMap.mod</xref></dt>
+						<dd>Element module to support the learningGroupMap DTD.</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref format="ent" href="../doctypes/dtd/learning/dtd/learningGroupMap.ent"
+								scope="external">learningGroupMap.ent</xref></dt>
+						<dd>Domain entity to support the learningGroupMap DTD</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref format="dtd" href="../doctypes/dtd/learning/dtd/learningobjectMap.dtd"
+								scope="external">learningObjectMap.dtd</xref></dt>
+						<dd>New DTD</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref format="mod" scope="external"
+								href="../doctypes/dtd/learning/dtd/learningobjectMap.mod"
+								>learningObjectMap.mod</xref></dt>
+						<dd>Element module to support the learningObjectMap DTD</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref format="ent" href="../doctypes/dtd/learning/dtd/learningobjectMap.ent"
+								scope="external">learningObjectMap.ent</xref></dt>
+						<dd>Domain entity to support the learningObjectMap DTD</dd>
+					</dlentry>
+					<dlentry>
+						<dt><xref format="mod" scope="external"
+								href="../doctypes/dtd/learning/dtd/LearningAggregationsTopicrefConstraints.mod"
+								>LearningAggregationsTopicrefConstraints.mod</xref></dt>
+						<dd>
+							<p>New constraint module for the topicref parameter entity within the
+								learningObjectMap DTD and the learningGroupMap DTDs. The content model is specified
+								in the <xref scope="external" format="html"
+									href="https://www.oasis-open.org/apps/org/workgroup/dita-learningspec/email/archives/201210/msg00006.html?referring_url=%2Fkws"
+									>DITA Learning/Training Subcommmittee meeting, 2012-10-25</xref>. </p>
+							<p>This constraint module restricts %topicref; to non-navigational elements: </p>
+							<codeblock>&lt;!ENTITY % learningAggregationsTopicref-c-topicref 
+									"data | 
+									 data-about | 
+									 keydef | 
+									 mapref | 
+									 navref | 
+									 topicgroup"
+></codeblock>
+						</dd>
+					</dlentry>
+				</dl>
+			</section>
+			<section>
+				<title>Modified specification documentation</title>
+				<p>Provide a listing of new or modified topics. For existing topics, provide the location of
+					the DITA 1.2 topic; for new topics, suggest where you think the topic should be located in
+					the TOC.</p>
+				<p>List the exact language suggested for the topics. For existing topics, you can use a
+					table to compare the DITA 1.2 text and the proposed text for DITA 1.3. For new topics, use
+					the templates nested within this topic. </p>
+			</section>
+			<section>
+				<title>Modified architectural specification topics</title>
+				<dl>
+					<dlentry>
+						<dt><filepath>DITA1.2-spec/archSpec/lc_spec_Overview_objectives.dita</filepath></dt>
+						<dd>The list under objective one needs to mention the new map types at the same point it
+							mentions the learningMap Domain.<table frame="all" id="table_xyp_3cp_gj">
+								<title/>
+								<tgroup cols="2">
+									<colspec colname="c1" colnum="1" colwidth="1.0*"/>
+									<colspec colname="c2" colnum="2" colwidth="1.0*"/>
+									<thead>
+										<row>
+											<entry>Existing 1.2 Documentation</entry>
+											<entry>New Proposed 1.3 Documentation</entry>
+										</row>
+									</thead>
+									<tbody>
+										<row>
+											<entry>provides a map domain for structuring the specialized learning topics
+												as reusable learning objects, and for managing the linking and relationships
+												among them</entry>
+											<entry>provides a map domain for structuring and storing the specialized
+												learning topics as reusable learning objects, and for managing the linking
+												and relationships among them</entry>
+										</row>
+									</tbody>
+								</tgroup>
+							</table></dd>
+					</dlentry>
+					<dlentry>
+						<dt><filepath>DITA1.2-spec/archSpec/lc_spec_Overview_assumptions.dita</filepath></dt>
+						<dd>Needs to be refactored to make specific reference to the new map types.<table>
+								<tgroup cols="cols_bbx_fdp_gj">
+									<thead>
+										<row>
+											<entry>Existing 1.2 Documentation</entry>
+											<entry>New Proposed 1.3 Documentation</entry>
+										</row>
+									</thead>
+									<tbody>
+										<row>
+											<entry/>
+											<entry>No changes necessary. I think what we are proposing is more technical
+												in nature that what is covered in this section. Gnerally, what we are doing
+												just better enables the assumptions they describe. </entry>
+										</row>
+									</tbody>
+								</tgroup>
+							</table></dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/archSpec/lc_spec_Overview_usecases.dita</dt>
+						<dd>These use-cases are high-level. Can we add any that make specific reference to
+							learningObjectMap or learningGroupMap? <table>
+								<tgroup cols="cols_qdp_kdp_gj">
+									<thead>
+										<row>
+											<entry>Existing 1.2 Documentation</entry>
+											<entry>New Proposed 1.3 Documentation</entry>
+										</row>
+									</thead>
+									<tbody>
+										<row>
+											<entry/>
+											<entry>No changes necessary. I think what we are proposing simply better
+												enables the existing use cases. </entry>
+										</row>
+									</tbody>
+								</tgroup>
+							</table></dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/archSpec/lc_spec_Summary_of_landt_designs.dita</dt>
+						<dd>The section on the learning map domain needs to mention the two new reference types:
+							learningObjectMapRef and learningGroupMapRef. We need a new section which introduces
+							the two new map types: learningObjectMap and learningGroupMap.<table>
+								<tgroup cols="cols_wgp_4dp_gj">
+									<thead>
+										<row>
+											<entry>Existing 1.2 Documentation</entry>
+											<entry>New Proposed 1.3 Documentation</entry>
+										</row>
+									</thead>
+									<tbody>
+										<row>
+											<entry/>
+											<entry>learningGroupMap: A map container to enable learningGroup elements to
+												be stored as separate objects in a repository.</entry>
+										</row>
+										<row>
+											<entry/>
+											<entry>learningObjectMap: A map container to enable learningObject elements to
+												be stored as separate objects in a repository.</entry>
+										</row>
+									</tbody>
+								</tgroup>
+							</table></dd>
+					</dlentry>
+				</dl>
+			</section>
+			<section>
+				<title>Modified Language Reference Topics and Maps</title>
+				<dl>
+					<dlentry>
+						<dt>DITA1.2-spec/learningTraining_elements.ditamap</dt>
+						<dd>
+							<p>Requires a new top-level topicref, entitled <cite>Learning and training map
+									types</cite>. That topicref points to a new overview topic,
+									<filepath>lc_spec_maps.dita</filepath>, with a shortdesc describing the map types.
+								It also contains topicrefs to <filepath>learningGroupMap.dita</filepath> and
+									<filepath>learningObjectMap.dita</filepath>.</p>
+							<p>The existing topicref entitled <cite>Learning and training map domain
+									elements</cite> requires additional topicrefs to the new topics
+									<filepath>learningObjectMapRef.dita</filepath> and
+									<filepath>learningGroupMapRef.dita</filepath>.</p>
+							<p>It may be helpful to rename that topic, since it describes the learning map domain. It's
+								currently located here:
+									<filepath>DITA1.2-spec/common/lc_spec_learning_map.dita</filepath>. It's hard to
+								distinguish its filename from the proposed topic which describes the new map
+								types.</p>
+						</dd>
+					</dlentry>
+				</dl>
+			</section>
+			<section>
+				<title>New Language Reference Topics</title>
+				<dl>
+					<dlentry>
+						<dt>DITA1.2-spec/common/lc_spec_maps.dita</dt>
+						<dd>Overview topic referenced by the root topicref of <cite>Learning and training map
+								types</cite>.</dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/langref/learningGroupMapRef.dita</dt>
+						<dd>Syntax and semantics of the learingGroupMapRef element.</dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/langref/learningObjectMapRef.dita</dt>
+						<dd>Syntax and semantics of the learningObjectMapRef element.</dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/langref/learningGroupMap.dita</dt>
+						<dd>Syntax and semantics of the learningGroupMap type.</dd>
+					</dlentry>
+					<dlentry>
+						<dt>DITA1.2-spec/langref/learningObjectMap.dita</dt>
+						<dd>Syntax and semantics of the learningObjectMap type.</dd>
+					</dlentry>
+				</dl>
+			</section>
+		</body>
+		<concept id="concept_aqh_5zt_3h">
+			<title>New architectural specification topics</title>
+			<shortdesc/>
+			<conbody>
+				<p>Contents TBD</p>
+			</conbody>
+		</concept>
+		<reference id="reference_aqh_5zt_3h">
+			<title>New language reference topics</title>
+			<shortdesc>Contents TBD</shortdesc>
+		</reference>
+	</topic>
+</dita>

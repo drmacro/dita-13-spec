@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningContent PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="content_cng_qyw_yh">
+<title>Sample Learning Content</title>
+<learningContentbody>
+    <lcIntro>
+        <title>Introduction</title>
+        <p>Proin pharetra convallis dignissim. Proin ac augue leo, eget eleifend quam. Phasellus in nulla at velit pharetra commodo. Nullam id neque et elit porttitor tempor vitae eget tellus. Vivamus pretium vehicula imperdiet. Nullam volutpat massa non velit eleifend eleifend. Quisque massa magna, dignissim vitae porttitor porttitor, vestibulum in tortor. Praesent mollis dolor fermentum lectus volutpat convallis. Nam placerat porttitor nunc et ultricies. Etiam augue diam, feugiat vitae adipiscing vitae, aliquet ut erat.</p>        
+    </lcIntro>
+</learningContentbody>
+</learningContent>

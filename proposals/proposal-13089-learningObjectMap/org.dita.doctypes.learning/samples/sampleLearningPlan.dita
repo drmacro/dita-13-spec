@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningPlan PUBLIC "-//OASIS//DTD DITA Learning Plan//EN" "learningPlan.dtd">
+<learningPlan id="learningPlan_230984" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Sample Learning Plan</title>
+    <learningPlanbody>
+        <section>
+            <title>The Plan</title>
+            <p>Aenean tristique metus eu elit aliquam vehicula. Mauris vitae quam at quam scelerisque semper eget in lorem. Curabitur eleifend sollicitudin eleifend. Integer consectetur facilisis tortor vitae consequat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec interdum luctus velit sit amet elementum. Donec tincidunt urna vitae justo lobortis vehicula. Aliquam accumsan pharetra ipsum, at hendrerit ante ultricies hendrerit. Morbi a turpis sed tortor placerat consequat in non nunc. Vestibulum faucibus mattis dui, et dictum arcu blandit a.</p>
+        </section>
+    </learningPlanbody>  
+</learningPlan>
