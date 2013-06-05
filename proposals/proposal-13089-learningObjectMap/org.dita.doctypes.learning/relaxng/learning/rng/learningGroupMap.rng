@@ -33,7 +33,7 @@
         a:defaultValue="
         (topic learningmeta-d) 
         (map learningmap-d)
-        (map learningSimpleTopicref-c)
+        (map learningAggregationsTopicref-c)
         (topic indexing-d) 
         (topic delay-d)
         (topic hi-d) 
@@ -42,8 +42,10 @@
     </optional>
   </define>
   
+  <!-- NOTE: this constraint includes map.mod.rng -->
+  <include href="learningAggregationsTopicrefConstraints.mod.rng"/>
+
   <!-- Include modules -->
-  <include href="../../base/rng/map.mod.rng"/>
   <include href="../../base/rng/mapGroup.mod.rng"/>
   <include href="../../base/rng/indexingDomain.mod.rng"/>
   <include href="../../base/rng/delayResolutionDomain.mod.rng"/>

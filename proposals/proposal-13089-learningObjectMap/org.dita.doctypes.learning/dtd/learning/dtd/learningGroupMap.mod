@@ -2,8 +2,8 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
-<!--  MODULE:    DITA Learning Object Map Type Module              -->
-<!--  VERSION:   0.9                                               -->
+<!--  MODULE:    DITA LearningGroupMap Type Module                 -->
+<!--  VERSION:   1.3a                                              -->
 <!--  DATE:      October 2012                                      -->
 <!--                                                               -->
 <!-- ============================================================= -->
@@ -14,13 +14,15 @@
 <!--                                                               -->
 <!--  Refer to this file by the following public identfier or an 
       appropriate system identifier
-      TBD                                              -->
-
+      PUBLIC "-//OASIS//ELEMENTS DITA Learning Group Map//EN"
+      Delivered as file "learningGroupMap.mod"
+      
+                                                                   -->
 <!-- ============================================================= -->
 <!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
 <!--                                                               -->
 <!-- PURPOSE:    Declaring the elements and specialization         -->
-<!--             attributes for Learning Map Domain                -->
+<!--             attributes for Learning Group Map                 -->
 <!--                                                               -->
 <!-- ORIGINAL CREATION DATE:                                       -->
 <!--             October 2012                                      -->
@@ -35,6 +37,8 @@
 <!--               learningMapDomain components within the DITA-OT -->
 <!--               test plugin org.dita.doctypes.learning.         -->
 <!--                                                               -->
+<!--   2012.11.13  DRB: Specialization attributes moved to         -->
+<!--               separate attlist                                -->
 <!--                                                               -->
 <!-- ============================================================= -->
 
@@ -54,23 +58,15 @@
             (%topicmeta;)?, 
             (%topicref;)*,
             (%learningGroup;),
-            (%reltable;)*)"
+            (%reltable;)?)"
 >
 
 <!ENTITY % learningGroupMap.attributes
-             "title 
-                        CDATA 
-                                  #IMPLIED
-              id 
-                        ID 
-                                  #IMPLIED
-              %conref-atts;
-              anchorref 
-                        CDATA 
-                                  #IMPLIED
-              outputclass 
-                        CDATA 
-                                  #IMPLIED
+             "title  		  CDATA		#IMPLIED
+              id 					ID			#IMPLIED
+              anchorref		CDATA		#IMPLIED
+              outputclass CDATA		#IMPLIED
+							%conref-atts;
               %localization-atts;
               %topicref-atts;
               %select-atts;"
@@ -82,16 +78,24 @@
 <!-- ============================================================= -->
 
 <!--      LONG NAME: learningGroupMap                             -->
-<!ELEMENT learningGroupMap   %learningGroupMap.content;>
+<!ELEMENT learningGroupMap   %learningGroupMap.content; >
+
 
 <!ATTLIST learningGroupMap    
               %learningGroupMap.attributes;
               %arch-atts;
-              %global-atts;
-    domains CDATA           "(&included-domains;)"
-    class CDATA "- map/map learningGroupMap/learningGroupMap "    
+    					domains CDATA           "&included-domains;"   
 >
 
+
+<!-- ============================================================= -->
+<!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+<!-- ============================================================= -->
+
+ <!ATTLIST learningGroupMap  
+ 						%global-atts;  
+ 						class CDATA "- map/map learningGroupMap/learningGroupMap "
+>
  
 
 

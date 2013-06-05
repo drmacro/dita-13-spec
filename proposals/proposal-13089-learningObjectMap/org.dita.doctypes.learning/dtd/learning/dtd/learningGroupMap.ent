@@ -2,25 +2,17 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
-<!--  MODULE:    DITA learning Object Map Entity                   -->
-<!--  VERSION:   0.9                                               -->
+<!--  MODULE:    DITA learningGroupMap Entity                   	 -->
+<!--  VERSION:   1.3a                                              -->
 <!--  DATE:      October 2012                                      -->
 <!--                                                               -->
 <!-- ============================================================= -->
 
 <!-- ============================================================= -->
-<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-<!--                    TYPICAL INVOCATION                         -->
-<!--                                                               -->
-<!--  Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-                                                                   -->
-
-<!-- ============================================================= -->
 <!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
 <!--                                                               -->
-<!-- PURPOSE:    Declaring the substitution context and domain     -->
-<!--             entity declarations for the Learning Map Domain   -->
+<!-- PURPOSE:    Declaring the domain entity for the               -->
+<!--             Learning Group Map                                -->
 <!--                                                               -->
 <!-- ORIGINAL CREATION DATE:                                       -->
 <!--             October 2012                                      -->
@@ -37,7 +29,17 @@
 <!-- ============================================================= -->
 
 <!-- ============================================================= -->
-<!--             LEARNING OBJECT MAP ENTITIES                      -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier
+      PUBLIC "-//OASIS//ENTITIES DITA Learning Group Map//EN"
+      Delivered as file "learningGroupMap.ent"
+      
+                                                                   -->
+<!-- ============================================================= -->
+<!--             LEARNING GROUP MAP ENTITIES                       -->
 <!-- ============================================================= -->
 
 <!ENTITY learningGroupMap-att "(map learningGroupMap)">

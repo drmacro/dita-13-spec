@@ -3,24 +3,15 @@
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
 <!--  MODULE:    DITA Learning Object Map Type Module              -->
-<!--  VERSION:   0.9                                               -->
+<!--  VERSION:   1.3a                                               -->
 <!--  DATE:      October 2012                                      -->
 <!--                                                               -->
 <!-- ============================================================= -->
-
-<!-- ============================================================= -->
-<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-<!--                    TYPICAL INVOCATION                         -->
-<!--                                                               -->
-<!--  Refer to this file by the following public identfier or an 
-      appropriate system identifier
-      TBD                                              -->
-
 <!-- ============================================================= -->
 <!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
 <!--                                                               -->
 <!-- PURPOSE:    Declaring the elements and specialization         -->
-<!--             attributes for Learning Map Domain                -->
+<!--             attributes for the Learning Object Map            -->
 <!--                                                               -->
 <!-- ORIGINAL CREATION DATE:                                       -->
 <!--             October 2012                                      -->
@@ -36,7 +27,15 @@
 <!--               test plugin org.dita.doctypes.learning.         -->
 <!--                                                               -->
 <!-- ============================================================= -->
-
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identfier or an 
+      appropriate system identifier:
+      PUBLIC "-//OASIS//ELEMENTS DITA Learning Object Map//EN"
+      Delivered as file "learningObjectMap.mod"                          
+                                                                   -->
 <!-- ============================================================= -->
 <!--                   SPECIALIZATION OF DECLARED ELEMENTS         -->
 <!-- ============================================================= -->
@@ -53,27 +52,19 @@
                        (%topicmeta;)?, 
                        (%topicref;)*, 
                        (%learningObject;),
-                       (%reltable;)*)"
+                       (%reltable;)?)"
 >
 
 <!ENTITY % learningObjectMap.attributes
-             "title 
-                        CDATA 
-                                  #IMPLIED
-              id 
-                        ID 
-                                  #IMPLIED
-              %conref-atts;
-              anchorref 
-                        CDATA 
-                                  #IMPLIED
-              outputclass 
-                        CDATA 
-                                  #IMPLIED
-              %localization-atts;
-              %topicref-atts;
-              %select-atts;"
->
+             "title  		  CDATA		#IMPLIED            
+              id 				  ID 			#IMPLIED
+             	anchorref   CDATA 	#IMPLIED             
+             	outputclass CDATA 	#IMPLIED                
+             	%conref-atts;                        
+             	%localization-atts;
+							%topicref-atts;              
+              %select-atts;              
+">
 
 
 <!-- ============================================================= -->
@@ -83,16 +74,19 @@
 <!--      LONG NAME: learningObjectMap                             -->
 <!ELEMENT learningObjectMap   %learningObjectMap.content;>
 
+
 <!ATTLIST learningObjectMap    
-              %learningObjectMap.attributes;
-              %arch-atts;
-              %global-atts;
-    domains CDATA           "(&included-domains;)"
-    class CDATA "- map/map learningObjectMap/learningObjectMap "    
+              %learningObjectMap.attributes;              
+              %arch-atts;    					
+    					domains CDATA  "&included-domains;"   
 >
 
- 
 
+<!-- ============================================================= -->
+<!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+<!-- ============================================================= -->
 
-
-
+ <!ATTLIST learningObjectMap  
+ 						%global-atts;  
+ 						class CDATA "- map/map learningObjectMap/learningObjectMap "
+>

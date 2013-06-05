@@ -24,7 +24,7 @@
 
   <!-- Define the domain values of this module -->
   <define name="domains-atts-value" combine="choice">
-    <value>(map learningGroupMap) (map mapgroup-d)</value>
+    <value>(map learningGroupMap)</value>
   </define>
 
   <!-- ELEMENT DECLARATIONS -->

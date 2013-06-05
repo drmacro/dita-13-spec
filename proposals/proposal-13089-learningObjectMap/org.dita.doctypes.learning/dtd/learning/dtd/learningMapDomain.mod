@@ -3,7 +3,7 @@
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
 <!--  MODULE:    DITA Learning Map Domain                          -->
-<!--  VERSION:   1.2                                               -->
+<!--  VERSION:   1.3a                                               -->
 <!--  DATE:      October 2012                                      -->
 <!--                                                               -->
 <!-- ============================================================= -->
@@ -14,7 +14,7 @@
 <!--                                                               -->
 <!--  Refer to this file by the following public identfier or an 
       appropriate system identifier 
-PUBLIC "-//OASIS//ELEMENTS DITA Learning Map Domain//EN"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Learning Map Domain//EN"
       Delivered as file "learningMapDomain.mod"                    -->
 
 <!-- ============================================================= -->
@@ -40,6 +40,13 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Map Domain//EN"
 <!--               Relocated with other learningMapDomain          -->
 <!--               components within the DITA-OT test plugin       -->
 <!--               org.dita.doctypes.learning                      -->
+<!-- 																															 -->
+<!-- 	13 Nov 2012	 DRB: Modified to include per-element attribute  -->
+<!-- 							 entities for learningObjectMapRef and           -->
+<!-- 							 learningGroupMapRef as recommended by the OASIS -->
+<!-- 							 DITA Learning and Training Content              -->
+<!--               Specialization SC. Specialization attributes    -->
+<!--               moved into separate attlists. 									 -->
 <!--                                                               -->
 <!-- ============================================================= -->
 
@@ -55,9 +62,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Map Domain//EN"
 <!ENTITY % learningSummaryRef          "learningSummaryRef">
 <!ENTITY % learningPreAssessmentRef    "learningPreAssessmentRef">
 <!ENTITY % learningPostAssessmentRef   "learningPostAssessmentRef">
-
 <!ENTITY % learningGroup               "learningGroup">
-
 
 <!-- ============================================================= -->
 <!-- DRB: 2012-10-22
@@ -152,6 +157,11 @@ Added to support learningObjectMapRef and learningGroupMapRef  -->
 >
 
 <!-- ============================================================= -->
+<!-- DRB: 2012-10-22
+Added to support learningObjectMapRef and learningGroupMapRef  -->  
+
+
+<!-- ============================================================= -->
 
 
 <!-- Attributes that are common to each topicref specialization in this domain -->
@@ -236,7 +246,8 @@ Added to support learningObjectMapRef and learningGroupMapRef  -->
 
 <!-- ============================================================= -->
 <!-- DRB: 2012-10-22
-Modified to support learningObjectMapRef and learningGroupMapRef --> 
+Modified to support learningObjectMapRef and learningGroupMapRef -->
+
 <!ENTITY % learningGroup.content
    "((%topicmeta;)?, 
     (%learningPlanRef;)?, 
@@ -277,11 +288,12 @@ Modified to support learningObjectMapRef and learningGroupMapRef -->
 <!-- ============================================================= -->
 <!-- DRB: 2012-10-22
 Added to support learningObjectMapRef and learningGroupMapRef  -->
+
 <!ENTITY % learningGroupMapRef.content
                        "((%topicmeta;)?)">
 <!ENTITY % learningGroupMapRef.attributes
-                       "%learningDomain-mapref-attributes;">
-
+						"%learningDomain-mapref-attributes;"
+>
 <!ELEMENT learningGroupMapRef %learningGroupMapRef.content;>
 <!ATTLIST learningGroupMapRef %learningGroupMapRef.attributes;>
 
@@ -289,8 +301,8 @@ Added to support learningObjectMapRef and learningGroupMapRef  -->
 <!ENTITY % learningObjectMapRef.content
                         "((%topicmeta;)?)">
 <!ENTITY % learningObjectMapRef.attributes
-                       "%learningDomain-mapref-attributes;">
-
+						"%learningDomain-mapref-attributes;"
+>
 <!ELEMENT learningObjectMapRef %learningObjectMapRef.content;>
 <!ATTLIST learningObjectMapRef %learningObjectMapRef.attributes;>
 
@@ -446,15 +458,7 @@ Added to support learningObjectMapRef and learningGroupMapRef  -->
     class CDATA "+ map/topicref learningmap-d/learningObject ">
 <!ATTLIST learningGroup %global-atts;
     class CDATA "+ map/topicref learningmap-d/learningGroup ">
-
-
-<!-- ============================================================= -->
-<!-- DRB: 2012-10-22
-Added to support learningObjectMap and learningGroupMap -->    
-<!ATTLIST learningObjectMapRef %global-atts;
-    class CDATA "+ map/topicref learningmap-d/learningObjectMapRef ">    
-<!ATTLIST learningGroupMapRef %global-atts;
-    class CDATA "+ map/topicref learningmap-d/learningGroupMapRef ">
+    
     
 <!-- ============================================================= -->
 
@@ -474,3 +478,13 @@ Added to support learningObjectMap and learningGroupMap -->
 <!ATTLIST learningPostAssessmentRef %global-atts;
     class CDATA "+ map/topicref learningmap-d/learningPostAssessmentRef ">
 
+<!-- ============================================================= -->
+<!-- DRB: 2012-10-22
+Added to support learningObjectMap and learningGroupMap -->
+
+<!ATTLIST learningObjectMapRef %global-atts;
+    class CDATA "+ map/topicref learningmap-d/learningObjectMapRef ">    
+<!ATTLIST learningGroupMapRef %global-atts;
+    class CDATA "+ map/topicref learningmap-d/learningGroupMapRef ">
+    
+<!-- =======================End of learning map domain module =============================== -->

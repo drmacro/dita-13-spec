@@ -38,13 +38,13 @@
         (topic hi-d) 
         (topic ut-d) 
         (topic hazard-d)
-        (map learningSimpleTopicref-c)
+        (map learningAggregationsTopicref-c)
         "/>
     </optional>
   </define>
   
   <!-- NOTE: this constraint includes map.mod.rng -->
-  <include href="learningSimpleTopicrefConstraint.mod.rng"/>
+  <include href="learningAggregationsTopicrefConstraints.mod.rng"/>
     
   <!-- Include modules -->
   <include href="../../base/rng/mapGroup.mod.rng"/>
