@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <define name="deliveryTargetAtt-d-attribute">
+    <optional>
+      <attribute name="deliveryTarget"/>
+    </optional>    
+  </define>
+  
+  <define name="props-attribute-extensions" combine="interleave">
+    <ref name="deliveryTargetAtt-d-attribute"/>
+  </define>
+  
+</grammar>

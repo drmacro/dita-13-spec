@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
+<subjectScheme>
+  <subjectHead>
+    <subjectHeadMeta>
+      <navtitle>Typical Values for the @deliveryTarget attribute</navtitle>
+      <shortdesc>Provides a set of typical values for use with the
+        @deliveryTarget conditional processing attribute. This set of values is
+        illustrative only, it is not normative. You may use any values with the
+        @deliveryTarget attribute.</shortdesc>      
+    </subjectHeadMeta>
+  </subjectHead>
+  <subjectdef
+    keys="deliveryTargetValues">
+    <topicmeta>
+      <navtitle>Values for @deliveryTarget Attributes</navtitle>
+    </topicmeta>
+    <!-- A tree of related values -->
+    <subjectdef
+      keys="print">
+      <topicmeta>
+        <navtitle>Print-primary deliverables</navtitle>
+      </topicmeta>
+
+      <subjectdef
+        keys="pdf">
+        <topicmeta>
+          <navtitle>PDF</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="css-print">
+        <topicmeta>
+          <navtitle>CSS for print</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="xsl-fo">
+        <topicmeta>
+          <navtitle>XSL-FO</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="afp">
+        <topicmeta>
+          <navtitle>Advanced Function Printing</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="ms-word">
+        <topicmeta>
+          <navtitle>Microsoft Word</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="indesign">
+        <topicmeta>
+          <navtitle>Adobe InDesign</navtitle>
+        </topicmeta>
+      </subjectdef>
+      <subjectdef
+        keys="open-office">
+        <topicmeta>
+          <navtitle>Open Office</navtitle>
+        </topicmeta>
+      </subjectdef>
+    </subjectdef>
+    <subjectdef
+      keys="online">
+      <topicmeta>
+        <navtitle>Online Deliverables</navtitle>
+      </topicmeta>
+      <subjectdef
+        keys="html-based">
+        <topicmeta>
+          <navtitle>HTML-based Deliverables</navtitle>
+        </topicmeta>
+        <subjectdef
+          keys="html">
+          <topicmeta>
+            <navtitle>HTML</navtitle>
+          </topicmeta>
+          <subjectdef
+            keys="html5">
+            <topicmeta>
+              <navtitle>HTML5</navtitle>
+            </topicmeta>
+          </subjectdef>
+        </subjectdef>
+        <subjectdef
+          keys="help">
+          <topicmeta>
+            <navtitle>Contextual Help</navtitle>
+          </topicmeta>
+          <subjectdef
+            keys="htmlhelp">
+            <topicmeta>
+              <navtitle>HTML Help</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="webhelp">
+            <topicmeta>
+              <navtitle>Web Help</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="javahelp">
+            <topicmeta>
+              <navtitle>Java Help</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="eclipseinfocenter">
+            <topicmeta>
+              <navtitle>Eclipse InfoCenter</navtitle>
+            </topicmeta>
+          </subjectdef>
+        </subjectdef>
+        <subjectdef
+          keys="epub">
+          <topicmeta>
+            <navtitle>EPUB</navtitle>
+          </topicmeta>
+          <subjectdef
+            keys="epub2">
+            <topicmeta>
+              <navtitle>EPUB2</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="epub3">
+            <topicmeta>
+              <navtitle>EPUB3</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="ibooks">
+            <topicmeta>
+              <navtitle>iBooks</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="ibooks">
+            <topicmeta>
+              <navtitle>iBooks</navtitle>
+            </topicmeta>
+          </subjectdef>
+          <subjectdef
+            keys="nook">
+            <topicmeta>
+              <navtitle>nook</navtitle>
+            </topicmeta>
+          </subjectdef>
+        </subjectdef>
+        <subjectdef
+          keys="kindle">
+          <topicmeta>
+            <navtitle>Amazon Kindle</navtitle>
+          </topicmeta>
+          <subjectdef
+            keys="kindle8">
+            <topicmeta>
+              <navtitle>Kindle Version 8</navtitle>
+            </topicmeta>
+          </subjectdef>
+        </subjectdef>
+      </subjectdef>
+    </subjectdef>
+  </subjectdef>
+  <enumerationdef>
+    <attributedef
+      name="deliveryTarget"/>
+    <subjectdef
+      keyref="deliveryTargetValues"/>
+  </enumerationdef>
+</subjectScheme>
