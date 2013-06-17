@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="topic-test-deliveryTargetAttDomain.xsd"
+ id="topic_ips_rsv_nk">
+  <title>Topic title</title>
+  <body>
+    <p deliveryTarget="print">For print</p>
+    <p deliveryTarget="epub">For EPUB</p>
+    <p deliveryTarget="epub3">For EPUB3</p>
+    <p deliveryTarget="indesign">For InDesign</p>
+  </body>
+</topic>

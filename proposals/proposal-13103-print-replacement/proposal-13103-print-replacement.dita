@@ -99,24 +99,161 @@
           <dt>Overall usability</dt>
           <dd>This proposal adds a new conditional attribute that may be
             integrated into existing document types as needed. The proposal
-            includes a suggested set of values that users may modify or
-            extend.</dd>
+            includes a suggested set of values that users may modify or extend,
+            defined as a subject scheme map.</dd>
         </dlentry>
         </dl></p>
       <fig
         id="fig_sdh_jl5_nk">
         <title>RelaxNG Declarations for deliveryTarget attribute domain</title>
-        <codeblock>TBD</codeblock>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  &lt;define name="deliveryTargetAtt-d-attribute">
+    &lt;optional>
+      &lt;attribute name="deliveryTarget"/>
+    &lt;/optional>    
+  &lt;/define>
+  
+  &lt;define name="props-attribute-extensions" combine="interleave">
+    &lt;ref name="deliveryTargetAtt-d-attribute"/>
+  &lt;/define>
+  
+&lt;/grammar>&lt;grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  &lt;define name="deliveryTargetAtt-d-attribute">
+    &lt;optional>
+      &lt;attribute name="deliveryTarget"/>
+    &lt;/optional>    
+  &lt;/define>
+  
+  &lt;define name="props-attribute-extensions" combine="interleave">
+    &lt;ref name="deliveryTargetAtt-d-attribute"/>
+  &lt;/define>
+  
+&lt;/grammar></codeblock>
       </fig>
       <fig
         id="fig_w2c_ml5_nk">
         <title>DTD Declarations for deliveryTarget attribute domain</title>
-        <codeblock>To be generated</codeblock>
+        <codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;!ENTITY % deliveryTargetAtt-d-attribute "deliveryTarget CDATA #IMPLIED">
+
+&lt;!ENTITY deliveryTargetAtt-d-att "a(props deliveryTarget)" >
+
+&lt;!-- ===== End of Delivery Target Attribute Module ==== --></codeblock>
       </fig>
       <fig
         id="fig_cxv_kl5_nk">
         <title>XSD Declarations for deliveryTarget attribute domain</title>
-        <codeblock>To be generated</codeblock>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  &lt;xs:attributeGroup name="deliveryTargetAtt-d-attribute">
+    &lt;xs:attribute name="deliveryTarget" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+&lt;/xs:schema></codeblock>
       </fig></section>
 <section><title>Examples</title>
       <fig
