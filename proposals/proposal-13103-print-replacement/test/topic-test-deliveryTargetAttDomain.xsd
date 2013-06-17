@@ -24,7 +24,7 @@
   
   <!-- Add the domains to the base topic XML Schema -->
   <!--  ================ TOPIC DOMAINS =====================  -->
-  <xs:include schemaLocation="deliveryTargetAttDomain.xsd"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd"/>
   
   
   <!--  ================ GROUP DEFINITIONS =====================  -->

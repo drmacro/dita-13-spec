@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd" uri="deliveryTargetAttDomain.xsd"/>
+  <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.x" uri="deliveryTargetAttDomain.xsd"/>
+  <system systemId="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3" uri="deliveryTargetAttDomain.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd" uri="deliveryTargetAttDomain.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.x" uri="deliveryTargetAttDomain.xsd"/>
+  <uri name="urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd:1.3" uri="deliveryTargetAttDomain.xsd"/>
+</catalog>  

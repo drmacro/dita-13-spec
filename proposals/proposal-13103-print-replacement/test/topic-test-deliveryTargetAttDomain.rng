@@ -56,7 +56,7 @@
   
   <!-- Include modules -->
   <include href="urn:dita-ng:dita:rng:topic.mod.rng"/>
-  <include href="deliveryTargetAttDomain.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng"/>
 
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

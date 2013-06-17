@@ -28,30 +28,32 @@
         different graphic formats for the same logical graphic depending on
         delivery target, different content or navigation structures, and so
         on.</p></section>
-<section><title>Benefits</title><p>Address the following questions:<ul>
-     <li>Who will benefit from this feature?<p>Authors of publications and
-          content who need to have content specific to different delivery
-          targets.</p></li>
-     <li>What is the expected benefit?<p>The benefits include:<ul
-          id="ul_psv_b35_nk">
-          <li>Provides a facility that is not otherwise provided in base
-            DITA</li>
-          <li>Avoids the need to create an attribute specialization in order to
-            satisfy the requirement (e.g., the DITA for Publishers
-            @d4p_renditionTarget attribute domain)</li>
-          <li>Allows a single map or topic to apply to multiple delivery
-            targets.</li>
-          </ul></p></li>
-     <li>How many people probably will make use of this feature?<p>Difficult to
-          quantify, but certainly anyone producing different output formats from
-          the same source, and in particular, from the same maps. This is
-          typically the case for print and EPUB, for example. Certainly includes
-          all Publishers using DITA.</p></li>
-     <li>How much of a positive impact is expected for the users who will make
-          use of the feature? <p>For users who need it the impact is significant
-          because it makes the impossible (without specialization)
-          possible.</p></li>
-    </ul></p></section>
+<section><title>Benefits</title><p>
+        <ul>
+          <li>Who will benefit from this feature?<p>Authors of publications and
+            content who need to have content specific to different delivery
+            targets.</p></li>
+          <li>What is the expected benefit?<p>The benefits include:<ul
+            id="ul_psv_b35_nk">
+            <li>Provides a facility that is not otherwise provided in base
+              DITA</li>
+            <li>Avoids the need to create an attribute specialization in order
+              to satisfy the requirement (e.g., the DITA for Publishers
+              @d4p_renditionTarget attribute domain)</li>
+            <li>Allows a single map or topic to apply to multiple delivery
+              targets.</li>
+            </ul></p></li>
+          <li>How many people probably will make use of this
+            feature?<p>Difficult to quantify, but certainly anyone producing
+            different output formats from the same source, and in particular,
+            from the same maps. This is typically the case for print and EPUB,
+            for example. Certainly includes all Publishers using DITA.</p></li>
+          <li>How much of a positive impact is expected for the users who will
+            make use of the feature? <p>For users who need it the impact is
+            significant because it makes the impossible (without specialization)
+            possible.</p></li>
+        </ul>
+      </p></section>
 <section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
      <li>Maintainers of the DTDs and XSDs<p>Adds a new attribute domain to the
           base set of DITA domains. Requires integrating the domain in those
@@ -70,10 +72,10 @@
             processing attribute.</p></li>
       </ul></li>
      <li>Vendors of tools:<p>Tools that support @props specializations directly
-          are unaffected to degree that no additional configuration is required
-          for this specific attribute.</p><p>Tools that only support the
-          built-in conditional processing attributes as conditions will need to
-          be updated to reflect this new attribute.</p></li>
+          are unaffected to the degree that no additional configuration is
+          required for this specific attribute.</p><p>Tools that only support
+          the built-in conditional processing attributes as conditions will need
+          to be updated to reflect this new attribute.</p></li>
      <li>DITA community-at-large. Will this feature add to the perception that
           DITA is becoming too complex? Will it be simple for end users to
           understand?<p>This feature should not be perceived as adding
@@ -254,6 +256,186 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
     &lt;xs:attribute name="deliveryTarget" type="xs:string"/>
   &lt;/xs:attributeGroup>
 &lt;/xs:schema></codeblock>
+      </fig>
+      <fig
+        id="fig_cbh_xbw_nk">
+        <title>Subject Scheme for Suggested Values for @deliveryTarget</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
+&lt;subjectScheme>
+  &lt;subjectHead>
+    &lt;subjectHeadMeta>
+      &lt;navtitle>Typical Values for the @deliveryTarget attribute&lt;/navtitle>
+      &lt;shortdesc>Provides a set of typical values for use with the
+        @deliveryTarget conditional processing attribute. This set of values is
+        illustrative only, it is not normative. You may use any values with the
+        @deliveryTarget attribute.&lt;/shortdesc>      
+    &lt;/subjectHeadMeta>
+  &lt;/subjectHead>
+  &lt;subjectdef
+    keys="deliveryTargetValues">
+    &lt;topicmeta>
+      &lt;navtitle>Values for @deliveryTarget Attributes&lt;/navtitle>
+    &lt;/topicmeta>
+    &lt;!-- A tree of related values -->
+    &lt;subjectdef
+      keys="print">
+      &lt;topicmeta>
+        &lt;navtitle>Print-primary deliverables&lt;/navtitle>
+      &lt;/topicmeta>
+      &lt;subjectdef
+        keys="pdf">
+        &lt;topicmeta>
+          &lt;navtitle>PDF&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="css-print">
+        &lt;topicmeta>
+          &lt;navtitle>CSS for print&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="xsl-fo">
+        &lt;topicmeta>
+          &lt;navtitle>XSL-FO&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="afp">
+        &lt;topicmeta>
+          &lt;navtitle>Advanced Function Printing&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="ms-word">
+        &lt;topicmeta>
+          &lt;navtitle>Microsoft Word&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="indesign">
+        &lt;topicmeta>
+          &lt;navtitle>Adobe InDesign&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="open-office">
+        &lt;topicmeta>
+          &lt;navtitle>Open Office&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+    &lt;/subjectdef>
+    &lt;subjectdef
+      keys="online">
+      &lt;topicmeta>
+        &lt;navtitle>Online Deliverables&lt;/navtitle>
+      &lt;/topicmeta>
+      &lt;subjectdef
+        keys="html-based">
+        &lt;topicmeta>
+          &lt;navtitle>HTML-based Deliverables&lt;/navtitle>
+        &lt;/topicmeta>
+        &lt;subjectdef
+          keys="html">
+          &lt;topicmeta>
+            &lt;navtitle>HTML&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="html5">
+            &lt;topicmeta>
+              &lt;navtitle>HTML5&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="help">
+          &lt;topicmeta>
+            &lt;navtitle>Contextual Help&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="htmlhelp">
+            &lt;topicmeta>
+              &lt;navtitle>HTML Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="webhelp">
+            &lt;topicmeta>
+              &lt;navtitle>Web Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="javahelp">
+            &lt;topicmeta>
+              &lt;navtitle>Java Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="eclipseinfocenter">
+            &lt;topicmeta>
+              &lt;navtitle>Eclipse InfoCenter&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="epub">
+          &lt;topicmeta>
+            &lt;navtitle>EPUB&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="epub2">
+            &lt;topicmeta>
+              &lt;navtitle>EPUB2&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="epub3">
+            &lt;topicmeta>
+              &lt;navtitle>EPUB3&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="ibooks">
+            &lt;topicmeta>
+              &lt;navtitle>iBooks&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="ibooks">
+            &lt;topicmeta>
+              &lt;navtitle>iBooks&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="nook">
+            &lt;topicmeta>
+              &lt;navtitle>nook&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="kindle">
+          &lt;topicmeta>
+            &lt;navtitle>Amazon Kindle&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="kindle8">
+            &lt;topicmeta>
+              &lt;navtitle>Kindle Version 8&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+      &lt;/subjectdef>
+    &lt;/subjectdef>
+  &lt;/subjectdef>
+  &lt;enumerationdef>
+    &lt;attributedef
+      name="deliveryTarget"/>
+    &lt;subjectdef
+      keyref="deliveryTargetValues"/>
+  &lt;/enumerationdef>
+&lt;/subjectScheme></codeblock>
       </fig></section>
 <section><title>Examples</title>
       <fig
