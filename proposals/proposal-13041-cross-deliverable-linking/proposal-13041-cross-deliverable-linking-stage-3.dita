@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13041 Cross-Deliverable Linking</title>
+    <shortdesc>Defines the meaning and addressing implications for peer-scope
+      map references that specify a key scope for the map reference: keys
+      defined in peer maps that are bound to a key scope in the referencing map
+      may be addressed as scope-qualified keys.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Provide information about the champion. If the proposal is submitted by a subcommittee,
+          include the name of the point person. He or she should have prepared this proposal and
+          thoroughly understand all of the content. The point person must be present at the TC calls
+          when this proposal is discussed.</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Provide a synopsis of the technical requirements as presented in the stage 2
+          proposal.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>List any proposals that are interrelated.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>List the files that must be modified and provide the exact code modifications. </p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>Provide a listing of new or modified topics. For existing topics, provide the location of
+          the DITA 1.2 topic; for new topics, suggest where you think the topic should be located in
+          the TOC.</p>
+        <p>List the exact language suggested for the topics. For existing topics, you can use a
+          table to compare the DITA 1.2 text and the proposed text for DITA 1.3. For new topics, use
+          the templates nested within this topic. </p>
+        <ul
+          id="ul_mqb_fxt_nk">
+          <li>common/thetypeattribute.dita: change "scope is not local" to
+            "scope is external" as shown (emphasis not part of the
+            change):<p>During output processing for references to non-DITA
+            objects (i.e., either <b>scope is not “local”</b> or format is
+            neither “dita” nor “ditamap”)</p><p>to</p><p> During output
+            processing for references to non-DITA objects (i.e., either <b>scope
+            is "external"</b> or format is neither “dita” nor
+            “ditamap”)</p></li>
+        </ul>
+      </section>
+    </body>
+    <concept id="concept_aqh_5zt_3h">
+      <title>New architectural specification topic</title>
+      <shortdesc/>
+      <conbody/>
+    </concept>
+    <reference id="reference_aqh_5zt_3h">
+      <title>New language reference topic</title>
+      <shortdesc/>
+      <refbody>
+        <section>
+          <title>Inheritance</title>
+        </section>
+        <section>
+          <title>Example</title>
+        </section>
+        <section>
+          <title>Attributes</title>
+        </section>
+      </refbody>
+    </reference>
+  </topic>
+</dita>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13103 replace @print attribute</title>
+<shortdesc>Provides a new select attribute @deliveryTarget that is more generate
+    than @print.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the following information:<ul>
+     <li>Completed: 17 June 2013</li>
+     <li>Champion: Eliot Kimber</li>
+     <li>Links to e-mail discussion: <xref
+          href="https://lists.oasis-open.org/archives/dita/201112/msg00023.html"
+          format="html"
+          scope="external">https://lists.oasis-open.org/archives/dita/201112/msg00023.html</xref></li>
+    </ul></p></section>
+<section><title>Original requirement</title><p>The general requirement is to have content that is conditional on the
+        specific delivery target or rendition type being produced. This
+        generalizes the @print attribute to any arbitrary set of potential
+        rendition types, of which "print" is just one.</p></section>
+<section><title>Use cases</title><p>The use case is having content that is specific to a specific delivery
+        target, such as PDF, EPUB, HTML, etc. While DITA strives to enable
+        complete separation between content and delivery, that is not possible
+        in all cases. For example, publications with ISBN numbers always have
+        different numbers for the print and EPUB versions of those publications,
+        even if all other content is exactly the same. There are many ways in
+        which content may be different for different deliverables, including
+        different graphic formats for the same logical graphic depending on
+        delivery target, different content or navigation structures, and so
+        on.</p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?<p>Authors of publications and
+          content who need to have content specific to different delivery
+          targets.</p></li>
+     <li>What is the expected benefit?<p>The benefits include:<ul
+          id="ul_psv_b35_nk">
+          <li>Provides a facility that is not otherwise provided in base
+            DITA</li>
+          <li>Avoids the need to create an attribute specialization in order to
+            satisfy the requirement (e.g., the DITA for Publishers
+            @d4p_renditionTarget attribute domain)</li>
+          <li>Allows a single map or topic to apply to multiple delivery
+            targets.</li>
+          </ul></p></li>
+     <li>How many people probably will make use of this feature?<p>Difficult to
+          quantify, but certainly anyone producing different output formats from
+          the same source, and in particular, from the same maps. This is
+          typically the case for print and EPUB, for example. Certainly includes
+          all Publishers using DITA.</p></li>
+     <li>How much of a positive impact is expected for the users who will make
+          use of the feature? <p>For users who need it the impact is significant
+          because it makes the impossible (without specialization)
+          possible.</p></li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs<p>Adds a new attribute domain to the
+          base set of DITA domains. Requires integrating the domain in those
+          TC-supplied shells for which it is appropriate.</p></li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?<p>Requires one new reference
+            topic for the new attribute.</p></li>
+       <li>How many existing topics will need to be edited?<p>The "select-atts
+            attribute group", "Conditional processing attributes", and
+            "Conditional processing (profiling)" topics will need to be updated
+            to reflect the new attribute.</p></li>
+       <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification?<p>The new attribute is a
+            conforming attribute specialization, so it does not change the DITA
+            architecture in any way, other than to add a new conditional
+            processing attribute.</p></li>
+      </ul></li>
+     <li>Vendors of tools:<p>Tools that support @props specializations directly
+          are unaffected to degree that no additional configuration is required
+          for this specific attribute.</p><p>Tools that only support the
+          built-in conditional processing attributes as conditions will need to
+          be updated to reflect this new attribute.</p></li>
+     <li>DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature should not be perceived as adding
+          complexity. It is a natural addition to the existing set of
+          conditional processing attributes.</p></li>
+    </ul></p></section>
+<section><title>Technical requirements</title><p>Provide a detailed description of how the solution will work. Be sure to
+        include the following details:<dl>
+        <dlentry>
+          <dt>Attributes</dt>
+          <dd>
+            <ul>
+              <li>Attribute name: deliveryTarget</li>
+              <li>Applies to the %props-attribute-extensions when integrated,
+                effectively extending the %select-atts entity.</li>
+              <li>As a @props specialization, normal filtering and flagging
+                behaviors are applied.</li>
+              <li>Does the attribute contain translatable text? No.</li>
+            </ul>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Overall usability</dt>
+          <dd>This proposal adds a new conditional attribute that may be
+            integrated into existing document types as needed. The proposal
+            includes a suggested set of values that users may modify or
+            extend.</dd>
+        </dlentry>
+        </dl></p>
+      <fig
+        id="fig_sdh_jl5_nk">
+        <title>RelaxNG Declarations for deliveryTarget attribute domain</title>
+        <codeblock>TBD</codeblock>
+      </fig>
+      <fig
+        id="fig_w2c_ml5_nk">
+        <title>DTD Declarations for deliveryTarget attribute domain</title>
+        <codeblock>To be generated</codeblock>
+      </fig>
+      <fig
+        id="fig_cxv_kl5_nk">
+        <title>XSD Declarations for deliveryTarget attribute domain</title>
+        <codeblock>To be generated</codeblock>
+      </fig></section>
+<section><title>Examples</title>
+      <fig
+        id="fig_msq_zj5_nk">
+        <title>Conditional keydefs for delivery-specific images</title>
+        <codeblock>&lt;map>
+  &lt;keydef keys="image-01
+     <b>deliveryTarget="print"</b>
+     href="images/high-res/image-01.tif"
+     format="tif"
+  />
+  &lt;keydef keys="image-01
+     <b>deliveryTarget="epub"</b>
+     href="images/low-res/image-01.png"
+     format="png"
+  />
+  &lt;keydef keys="image-01
+     href="images/html/image-01.jpg"
+     format="png"
+  />
+  ...
+&lt;/map></codeblock>
+        <p>Here there are specific image versions for print and EPUB output. The
+          final key definition is unconditional so that it acts as a fallback if
+          both of the other key definitions are filtered out.</p>
+      </fig>
+      <fig
+        id="fig_frm_nk5_nk">
+        <title>Conditional ISBN Number</title>
+        <codeblock>&lt;topic id="copyright">
+  &lt;title>Copyright&lt;/title>
+  &lt;body>
+    ...
+    &lt;p>ISBN: 
+<b>&lt;ph deliveryTarget="print">967-123345-87-0&lt;/ph></b>
+<b>&lt;ph deliveryTarget="epub">967-123345-89-4&lt;/ph></b>
+   ...
+&lt;/topic></codeblock>
+      </fig>
+      <fig
+        id="fig_adt_5k5_nk">
+        <title>Figure with Delivery-Specific Media</title>
+        <codeblock>&lt;fig>
+  &lt;title>Installation Process&lt;/title>
+  &lt;p <b>deliveryTarget="print"</b>>Use this QR code
+to access the installation video:
+&lt;image keyref="install-vid-01">
+  &lt;alt>QR code for link to video&lt;/alt>
+&lt;/image>
+  &lt;/p>
+  &lt;p <b>deliveryTarget="video-capable"</b>>
+    &lt;object ...>&lt;/object>
+  &lt;/p>
+&lt;/fig></codeblock>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>
