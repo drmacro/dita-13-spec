@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13105 allow &lt;data> in lists</title>
+<shortdesc>This proposal allows &lt;data> and &lt;data-about> to occur as direct
+    children of the list elements &lt;ul>, &lt;ol>, &lt;sl>, and &lt;dl> and
+    their specializations.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the following information:<ul>
+     <li>Completed: 18 June 2013</li>
+     <li>Champion: Eliot Kimber</li>
+     <li>Email discussion: <xref
+          href="http://lists.oasis-open.org/archives/dita/201202/msg00069.html"
+          format="html"
+          scope="external">http://lists.oasis-open.org/archives/dita/201202/msg00069.html</xref></li>
+    </ul></p></section>
+<section><title>Original requirement</title>
+      <p>From the referenced email:</p>
+      <lq>
+        <p>The immediate use case is capturing metadata that reflects details of
+          a list from legacy content, such as the numbering or bullet style
+          details and the initial number. I can think of other list-specific
+          metadata that might be useful, such as subject classification or
+          whatever. </p>
+        <p>I think that we should be following a general principle of allowing
+          &lt;data> anywhere that it isn't clearly inappropriate, and I can't
+          think of any obvious reason why it would be inappropriate in a
+          list..</p>
+      </lq></section>
+<section><title>Use cases</title><p>The potential metadata that might be useful for capturing on lists is
+        unbounded, but an obvious use case is capturing details about a legacy
+        list, such as the numbering type and initial
+        number:<codeblock>&lt;ol>
+ <b>&lt;data name="number-format" value="a)"/></b>
+ <b>&lt;data name="initial-number" value="6"/></b>
+ &lt;li>...&lt;/li>
+ ...
+&lt;/ol></codeblock>Another
+        use case would be subject classification for the list as a
+        whole:<codeblock>&lt;dl>
+  <b>&lt;data name="subject" value="DITA terminology"/></b>
+  &lt;dlentry>...&lt;/dlentry>
+  ...
+&lt;/dl></codeblock> </p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?<p>This feature benefits anyone who
+          needs to capture metadata for lists. The most obvious use case is
+          legacy data capture for documents where preservation of original
+          formatting details is required.</p></li>
+     <li>What is the expected benefit?<p>Authors will be able to associate
+          metadata with lists without the need for "tricks" like complex
+          @outputclass values, putting &lt;data> within the first list item or
+          definition list entry, using processing instructions, and so
+          on.</p><p>It also makes the overall DITA markup design more consistent
+          with the general rule that &lt;data> is allowed almost
+          everywhere.</p></li>
+     <li>How many people probably will make use of this feature? <p>Would expect
+          this feature to be used most heavily by Publishers who are using
+          DITA-based markup for capturing legacy documents. Because this is a
+          new feature, difficult to predict who else might find it
+          useful.</p></li>
+     <li>How much of a positive impact is expected for the users who will make
+          use of the feature? <p>For users who need it, this feature makes
+          something that would otherwise be very awkward at best, impossible at
+          worst, possible in a direct and natural way.</p></li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs<p>Requires updates to the content
+          models for all the list elements:<ul
+          id="ul_am5_pd1_4k">
+          <li>dl</li>
+          <li>hazard-d/messagepanel</li>
+          <li>learningBase/lcObjectivesGroup</li>
+          <li>learning-d/lcAnswerOptionGroup</li>
+          <li>learning-d/lcSequenceOptionGroup</li>
+          <li>ol</li>
+          <li>parml</li>
+          <li>sl</li>
+          <li>task/choices</li>
+          <li>task/steps</li>
+          <li>task/steps-unordered</li>
+          <li>task/substeps</li>
+          <li>taskreq-d/reqconds</li>
+          <li>taskreq-d/reqpers</li>
+          <li>taskreq-d/safety</li>
+          <li>taskreq-d/supeqli</li>
+          <li>taskreq-d/sparesli</li>
+          <li>taskreq-d/supplyli</li>
+          <li>ul</li>
+          </ul></p></li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?<p>No new topics will be
+            required</p></li>
+       <li>How many existing topics will need to be edited?<p>No topics will
+            need to be modified except indirectly through the generated contains
+            and contained-by tables.</p></li>
+       <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification?<p>There is no architectural
+            change, only a change to content models that makes those content
+            models more consistent with general DITA content models (allowing
+            &lt;data>).</p></li>
+      </ul></li>
+     <li>Vendors of tools: <p>Tools that show lists visually may need to update
+          their presentation style sheets to account for the possibility of
+          &lt;data> as an initial child of list elements. But to the degree that
+          tools are not affected by the presence of &lt;data> in that position,
+          no change to the tools is required.</p></li>
+     <li>DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>The main risk of perceived complexity is that users may
+          now see &lt;data> and &lt;data-about> as options in addition to the
+          list items allowed as children of whatever list they are creating, but
+          only as the initial children of the list. For any list that already
+          has at least one list item or definition list entry, &lt;data> will no
+          longer be allowed and therefore should not be shown as an
+          option.</p><p>By eliminating what is effectively a special case for
+          &lt;data>, this proposal can be seen as making DITA less complex by
+          making the rules &lt;data> occurrence more consistent.</p></li>
+    </ul></p></section>
+<section><title>Technical requirements</title><p>
+        <dl>
+          <dlentry>
+            <dt>Content Model Changes</dt>
+            <dd>To implement this proposal, modify the following content models
+              to add &lt;data> and &lt;data-about> as optional and repeatable
+              first children of each list element, as indicated in bold:<dl>
+              <dlentry>
+                <dt>choices</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % choices.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%choice;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>dl</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % dl.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%dlhead;)?, 
+                         (%dlentry;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>lcAnswerOptionGroup</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % lcAnswerOptionGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcAnswerOption;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>lcObjectivesGroup</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % lcObjectivesGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcObjective;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>lcSequenceOptionGroup</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % lcSequenceOptionGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcSequenceOption;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>messagepanel</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % messagepanel.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%typeofhazard;),
+                         (%consequence;)*,
+                         (%howtoavoid;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>ol</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % ol.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%li;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>parml</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % parml.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%plentry;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>reqconds</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % reqconds.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%noconds;) |
+						 ((%reqcond;) |
+                          (%reqcontp;))+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>reqpers</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % reqpers.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%personnel;),
+						 ((%perscat;)?,
+                          (%perskill;)?,
+                          (%esttime;)?)?)+
+"></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>safety</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % safety.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%nosafety;) |
+                         (%safecond;)+)"></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>sl</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % sl.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%sli;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>sparesli</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % sparesli.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%spare;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>steps</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % steps.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%stepsection;)?,
+                         (%step;))+"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>steps-unordered</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % steps-unordered.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%stepsection;)?,
+                         (%step;))+"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>substeps</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % substeps.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%substep;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>supeqli</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % supeqli.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%supequi;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>supplyli</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % supplyli.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%supply;)+)"
+>
+</codeblock>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>ul</dt>
+                <dd>
+                  <codeblock>&lt;!ENTITY % ul.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%li;)+)"
+></codeblock>
+                </dd>
+              </dlentry>
+              </dl></dd>
+          </dlentry>
+          <dlentry>
+            <dt>Overall usability</dt>
+            <dd>Current DITA users will see &lt;data> and &lt;data-about> as
+              options for first children within lists.<p>For groups that wish to
+              retain the DITA 1.2 forms of list, they can use constraint modules
+              to restore the original DITA 1.2 content models.</p></dd>
+          </dlentry>
+        </dl>
+      </p></section>
+<section><title>Examples</title>
+      <fig
+        id="fig_l3p_j31_4k">
+        <title>Ordered list with original numbering details preserved</title>
+        <codeblock>&lt;ol>
+ <b>&lt;data name="number-format" value="a)"/></b>
+ <b>&lt;data name="initial-number" value="6"/></b>
+ &lt;li>...&lt;/li>
+ ...
+&lt;/ol></codeblock>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>
