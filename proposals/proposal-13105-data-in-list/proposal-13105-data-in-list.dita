@@ -7,14 +7,16 @@
     children of the list elements &lt;ul>, &lt;ol>, &lt;sl>, and &lt;dl> and
     their specializations.</shortdesc>
 <refbody>
-<section><title>Date and version information</title><p>Include the following information:<ul>
-     <li>Completed: 18 June 2013</li>
-     <li>Champion: Eliot Kimber</li>
-     <li>Email discussion: <xref
-          href="http://lists.oasis-open.org/archives/dita/201202/msg00069.html"
-          format="html"
-          scope="external">http://lists.oasis-open.org/archives/dita/201202/msg00069.html</xref></li>
-    </ul></p></section>
+<section><title>Date and version information</title><p>
+        <ul>
+          <li>Completed: 18 June 2013</li>
+          <li>Champion: Eliot Kimber</li>
+          <li>Email discussion: <xref
+            href="http://lists.oasis-open.org/archives/dita/201202/msg00069.html"
+            format="html"
+            scope="external">http://lists.oasis-open.org/archives/dita/201202/msg00069.html</xref></li>
+        </ul>
+      </p></section>
 <section><title>Original requirement</title>
       <p>From the referenced email:</p>
       <lq>
@@ -67,7 +69,8 @@
     </ul></p></section>
 <section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
      <li>Maintainers of the DTDs and XSDs<p>Requires updates to the content
-          models for all the list elements:<ul
+          models for all the list elements to allow &lt;data> and
+          &lt;data-about> as optional and repeatable initial children:<ul
           id="ul_am5_pd1_4k">
           <li>dl</li>
           <li>hazard-d/messagepanel</li>
@@ -99,24 +102,26 @@
             architecture of the DITA specification?<p>There is no architectural
             change, only a change to content models that makes those content
             models more consistent with general DITA content models (allowing
-            &lt;data>).</p></li>
+            &lt;data> and &lt;data-about>).</p></li>
       </ul></li>
      <li>Vendors of tools: <p>Tools that show lists visually may need to update
           their presentation style sheets to account for the possibility of
-          &lt;data> as an initial child of list elements. But to the degree that
-          tools are not affected by the presence of &lt;data> in that position,
-          no change to the tools is required.</p></li>
+          &lt;data>  and &lt;data-about> as initial children of list elements.
+          But to the degree that tools are not affected by the presence of
+          &lt;data> or &lt;data-about> in that position, no change to the tools
+          is required.</p></li>
      <li>DITA community-at-large. Will this feature add to the perception that
           DITA is becoming too complex? Will it be simple for end users to
           understand?<p>The main risk of perceived complexity is that users may
           now see &lt;data> and &lt;data-about> as options in addition to the
           list items allowed as children of whatever list they are creating, but
           only as the initial children of the list. For any list that already
-          has at least one list item or definition list entry, &lt;data> will no
-          longer be allowed and therefore should not be shown as an
-          option.</p><p>By eliminating what is effectively a special case for
-          &lt;data>, this proposal can be seen as making DITA less complex by
-          making the rules &lt;data> occurrence more consistent.</p></li>
+          has at least one list item or definition list entry, &lt;data> and
+          &lt;data-about> will no longer be allowed and therefore should not be
+          shown as an option.</p><p>By eliminating what is effectively a special
+          case for &lt;data>, this proposal can be seen as making DITA less
+          complex by making the rules for &lt;data> occurrence more
+          consistent.</p></li>
     </ul></p></section>
 <section><title>Technical requirements</title><p>
         <dl>
