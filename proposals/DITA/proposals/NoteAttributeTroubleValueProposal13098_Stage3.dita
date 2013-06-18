@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="Feature13098_Stage3" xml:lang="en-us">
+<title>Stage 3 proposal: Feature 13098</title>
+<shortdesc>Add an attribute value to the note element's type attribute
+to distinguish troubleshooting information.</shortdesc>
+<refbody>
+<section><title>Champion</title><p>DITA Technical Communications
+Subcommittee.</p></section>
+<section><title>Tracking information</title>
+<simpletable frame="all" relcolwidth="1.03* 1.0* 1.78*">
+<sthead>
+<stentry>Event</stentry>
+<stentry>Date</stentry>
+<stentry>Links</stentry>
+</sthead>
+<strow>
+<stentry>Stage 1 proposal accepted</stentry>
+<stentry>17 January 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal submitted</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46338/NoteAttributeTroubleValue13098.html">https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46338/NoteAttributeTroubleValue13098.html</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal discussed</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal approved</stentry>
+<stentry>26 June 2012</stentry>
+<stentry><xref scope="external" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal submitted to reviewers</stentry>
+<stentry/>
+  <stentry>Thilo Buchholtz, Stan Doherty, Kris Eberlein, JoAnn Hackos, Eliot Kimber</stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal (this document) submitted</stentry>
+<stentry/>
+<stentry/>
+</strow>
+</simpletable></section>
+<section><title>Approved technical requirements</title><p>Add trouble admonition (note type): Use cases for a new note type, to be used for troubleshooting
+information in any topic. This is likely useful in topics developed for online help and
+some reference and conceptual topics where it makes sense to provide additional
+information about what may go wrong and how to address such situations.</p></section>
+<section><title>Dependencies or interrelated proposals</title><p>This change to note@type does not depend on, or interact with, any other submitted proposals.
+However, three other proposals relating to troubleshooting semantics are also being
+considered. The Technical Communication Subcommittee will provide the text explaining the
+interrelationships of these elements and attributes with the set of three proposals.</p><dl
+compact="no">
+<dlentry>
+<dt>13086</dt>
+<dd>Troubleshooting element within &lt;step>. Status: phase 3</dd>
+</dlentry>
+<dlentry>
+<dt>13096</dt>
+<dd>Troubleshooting section within &lt;taskbody>. Status: phase 3</dd>
+</dlentry>
+<dlentry>
+<dt>13097</dt>
+<dd>Troubleshooting topic. Status: phase 2</dd>
+</dlentry>
+</dl></section>
+<section><title>Modified DTDs</title><p>Changes impact base/dtd/commonElements.mod
+as follows (changes are in <b>bold</b>):</p><codeblock>  &lt;!ENTITY % note.attributes
+"type 
+(attention|
+caution | 
+danger | 
+fastpath | 
+important | 
+note |
+notice |
+other | 
+remember | 
+restriction |
+tip |
+<b>trouble |</b>
+warning |
+-dita-use-conref-target) 
+#IMPLIED 
+spectitle 
+CDATA 
+#IMPLIED
+othertype 
+CDATA 
+#IMPLIED
+%univ-atts;
+outputclass
+CDATA 
+#IMPLIED"
+>
+</codeblock></section>
+<section><title>Modified specification documentation</title><p>The specification impact is small. Only topic common/thetypeattribute.dita, in the Language
+Reference, is affected.</p><simpletable
+relcolwidth="20* 40* 40*">
+<sthead>
+<stentry>Location</stentry>
+<stentry>Text in 1.2</stentry>
+<stentry>Proposed changes for 1.3</stentry>
+</sthead>
+<strow>
+<stentry>3.1.1.2.24 note</stentry>
+<stentry>type
+(note|tip|fastpath|restriction|important|remember|attention|caution|notice|danger|warning|other|-
+dita-use-conref-target)</stentry>
+<stentry>type
+(note|tip|fastpath|restriction|important|remember|attention|caution|notice|danger|warning|trouble|other|-
+dita-use-conref-target)</stentry>
+</strow>
+<strow>
+<stentry>3.4.2.8 The type attribute</stentry>
+<stentry>
+<p><b><i>Using type in a note element</i></b></p>
+<p>In a note element, this defines the type of note. For example, if the note is a
+tip, the word <b>Tip</b> may be used to draw the reader's attention to it. The
+values danger, warning, and notice have new or additional meanings with DITA 1.2
+that are based on ANSI Z535 and ISO 3864 regulations.</p>
+<p>If type is set to other, the value of the othertype attribute may be used. If you
+use othertype, many processors will require additional information on how to process
+the value. Allowable values for the type attribute are:</p>
+</stentry>
+<stentry>
+<p><b><i>Using type in a note element</i></b></p>   <p>In a note element, this defines
+the type of note. For example, if the note is a tip, the word <b>Tip</b> may be used
+to draw the reader's attention to it. The values danger, warning, and notice have
+new or additional meanings with DITA 1.2 that are based on ANSI Z535 and ISO 3864
+regulations.</p>   <p>If type is set to other, the value of the othertype attribute
+may be used. If you use othertype, many processors will require additional
+information on how to process the value. Allowable values for the type attribute
+are:<draft-comment>add after "warning"</draft-comment></p><dl>
+<dlentry>
+<dt>trouble</dt>
+<dd>If the unit is not working, verify that it has been plugged in. Provides
+corrective actions.</dd>
+</dlentry>
+</dl>
+</stentry>
+</strow>
+</simpletable></section>
+</refbody>
+</reference>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_dr5_htt_hj">
+ <title>Troubleshooting information</title>
+ <shortdesc>Troubleshooting information is invaluable to technical content users because it provides advice to correct problems with task performance. </shortdesc>
+ <conbody>
+  <p>User studies have indicated that users find troubleshooting information invaluable because they
+   frequently access technical information only when they have encountered a problem in performing a
+   task.</p>
+  <p>The DITA troubleshooting elements added in DITA 1.3 encourage authors to provide
+   troubleshooting information directly within a task, at the point of need, and to label the
+   troubleshooting information appropriately. Minimalism research indicates that users are most
+   likely to read troubleshooting information if it is visibly labeled. We recommend that
+   implementations use stylesheets that add symbols or text to draw attention to the troubleshooting
+   elements in the topics. </p>
+  <p>Troubleshooting information may be added to an individual step in a DITA Task and may be added
+   after the steps are completed. Troubleshooting information may also be added in any topic type as
+   an attribute on the &lt;note> element. However, it is strongly recommended that users select
+   either &lt;steptroubleshooting> or &lt;tasktroubleshooting> when working on a task topic, rather
+   than selecting the note attribute for trouble. </p>
+  <p>The examples below illustrate the three options.</p>
+  <section>
+   <title>Step troubleshooting</title>
+   <p>Troubleshooting information may be added following a step in a procedure if it is likely that
+    the user will encounter a problem in performing the step. </p>
+   <p>The &lt;steptroubleshooting> element may occur alone following the &lt;cmd> element in the
+    &lt;step> element. The &lt;steptroubleshooting> element ends the &lt;step> element. Another
+    element, such as &lt;info> or &lt;stepxmp>, may not be added after the &lt;steptroubleshooting>
+    element. </p>
+   <p>The &lt;steptroubleshooting> element may not be inserted in the &lt;substeps> element or in
+    other subelements of the &lt;step> element.</p>
+   <p>The first example shows troubleshooting information added to a step. The second example shows
+    the troubleshooting information following a step result.</p>
+   <codeblock><![CDATA[    
+  <task>
+    . . .
+    <steps>
+      <step>
+        <cmd>Select <uicontrol>Shut Down</uicontrol> from the
+          <uicontrol>File</uicontrol> Menu.</cmd>
+        <steptroubleshooting>
+          <p>[symbol or words here]If a problem with the
+            computer prevents you from choosing Shut Down—for example, if
+            the computer “freezes” so that the pointer does not respond to
+            the trackpad—you can turn off the computer by holding down the
+            Control, Option, Command, and Power On keys at the same
+            time.</p>
+        </steptroubleshooting>
+      </step>
+    </steps>
+    . . .
+  </task>]]></codeblock>
+   <codeblock><![CDATA[
+  <task>
+    . . .
+    <steps>
+      . . .
+      <step>
+        <cmd>Select the element for which you want to assign a conditional-
+          processing attribute, and, in the <wintitle>Attributes</wintitle>
+          window, select the conditional-processing attribute.</cmd>
+        <stepresult>
+          <p>The permissible values for the attribute are displayed in a
+            drop-down list.</p>
+        </stepresult>
+        <steptroubleshooting>
+          <p>If the list of controlled values is not displayed, ensure
+            that the root map map is opened in the
+            <wintitle>DITA Maps Manager</wintitle> window.</p>
+        </steptroubleshooting>
+      </step>
+    </steps>
+    . . .
+  </task>]]></codeblock>
+  </section>
+  <section>
+   <title>Task troubleshooting</title>
+   <p>Troubleshooting information may be added after the completion of a task to assist the user in
+    correcting a problem in completing the task. The &lt;tasktroubleshooting> element may follow the
+    &lt;result> element and precede &lt;example> element as an optional element, or it may stand
+    alone following the end of the steps. </p>
+   <p>The &lt;tasktroubleshooting> element may occur alone following the end of the &lt;steps> but
+    if it is placed in combination with other elements following &lt;steps>, it must follow
+    &lt;example> and precede &lt;postreq>.</p>
+   <codeblock><![CDATA[
+  <task>
+    . . .
+    <steps>
+    . . .
+      <step>
+        <cmd>When the fast blinking stops, press
+          <uicontrol>small espresso</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <tasktroubleshooting>
+      <p>[symbol or words here] If the <uicontrol>small espresso</uicontrol>
+        button is not lit, recycle the unit by turning the external
+        <uicontrol>Power</uicontrol> off and on.</p>
+    </tasktroubleshooting>
+  </task>]]></codeblock>
+  </section>
+  <section>
+   <title>Troubleshooting note</title>
+   <p>A &lt;note> may include the attribute @trouble to add a word or a symbol informing the user
+    that the note deals with a potential problem that the user might encounter in understanding a
+    concept, executing a task, or referring to factual information. The @trouble attribute is
+    available on any &lt;note> element in any DITA topic type.</p>
+   <p>It is strongly recommended that the troubleshooting note type not be used in lieu of
+    &lt;steptroubleshooting> or &lt;tasktroubleshooting> in a task topic.</p>
+   <codeblock><![CDATA[
+  <concept>
+    . . .
+    <p>If you expose your camera to sudden changes in temperature or
+      humidity, you may experience some condensation in the camera.
+      You should avoid the possibility of condensation because it may
+      result in soil on the lens or the monitor, cause mold, or damage
+      the camera.</p>
+    <note type="trouble">
+      <p>If you do get condensation, turn off the camera and wait about
+        two hours before using it. Once the camera adjusts to the
+        surrounding temperature, the fogging will clear naturally.</p>
+    </note>
+    . . .
+  </concept>]]></codeblock>
+  </section>
+ </conbody>
+</concept>

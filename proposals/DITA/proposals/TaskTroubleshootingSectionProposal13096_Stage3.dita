@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>Stage 3 proposal: Feature 13096</title>
+<shortdesc>Proposal to add a new element to support a troubleshooting
+section between the &lt;result> element and either the &lt;example>
+or the &lt;postreq> element in a task topic</shortdesc>
+<refbody>
+<section><title>Champion</title><p>DITA Technical Communications Subcommittee.</p
+></section>
+<section><title>Tracking information</title> <simpletable frame="all"
+relcolwidth="1.03* 1.0* 1.78*">
+<sthead>
+<stentry>Event</stentry>
+<stentry>Date</stentry>
+<stentry>Links</stentry>
+</sthead>
+<strow>
+<stentry>Stage 1 proposal accepted</stentry>
+<stentry>17 January 2012</stentry>
+<stentry><xref
+href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt"
+scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44896/minutes20120117.txt</xref
+></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal submitted</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref
+href="https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46396/TaskTroubleshootingSectionProposal13096.html"
+scope="external">https://www.oasis-open.org/apps/org/workgroup/dita-techcomm/download.php/46396/TaskTroubleshootingSectionProposal13096.html</xref
+></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal discussed</stentry>
+<stentry>19 June 2012</stentry>
+<stentry><xref
+href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt"
+scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46335/minutes20120619.txt</xref
+></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal approved</stentry>
+<stentry>26 June 2012</stentry>
+<stentry><xref
+href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt"
+scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46405/minutes-2012jun26.txt</xref
+></stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal submitted to reviewers</stentry>
+<stentry/>
+<stentry>Thilo Buchholtz, Stan Doherty, Kris Eberlein, JoAnn Hackos,
+Eliot Kimber</stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal (this document) submitted</stentry>
+<stentry/>
+<stentry/>
+</strow>
+</simpletable></section>
+<section><title>Approved technical requirements</title><p>Add troubleshooting
+section with a task: There is often a need to include a troubleshooting
+section in a task, specifically between the &lt;result> element and
+either the &lt;example> or the &lt;postreq> element in a task topic.
+The purpose of this section is to help the reader resolve any problems
+that may arise should their result not match the result stated in
+the &lt;result> section of the task. It is expected the reader would
+need this problem-solving information before reading the &lt;postreq>
+section, since there would be no sense in moving forward if the expected
+result were not achieved.</p></section>
+<section><title>Use cases</title>There is often a need to include
+a troubleshooting section in a task, between the &lt;result> and &lt;example>.
+The purpose of this section is to help the reader resolve any problems
+that may arise should their result not match the result stated in
+the &lt;result> section of the task. It is expected the reader would
+need this problem-solving information after reading the &lt;result>
+section, since there would be no sense in moving forward if the expected
+result were not achieved.</section>
+<section><title>Benefits</title> <ul>
+<li>This addition will benefit writers who want to provide important
+troubleshooting information within the task topic to aid users and
+have it clearly identified as troubleshooting information</li>
+<li>This enhancement will have a significant impact because key troubleshooting
+information will be provided at the end of the topic if the desired
+result is not achieved and will allow the user to take the proper
+corrective action before moving on</li>
+<li>Many people will probably benefit from this feature</li>
+<li>This feature&#x2019;s utility will be comparable to that realized
+by the other semantic sections following the steps element.</li>
+</ul></section>
+<section><title>Dependencies or interrelated proposals</title><p>This
+change to &lt;taskbody> does not depend on, or interact with, any
+other submitted proposals. However, three other proposals relating
+to troubleshooting semantics are also being considered. The Technical
+Communication Subcommittee will provide the text explaining the interrelationships
+of these elements and attributes with the set of three proposals.</p
+><dl compact="no">
+<dlentry>
+<dt>13086</dt>
+<dd>Troubleshooting element within &lt;step>. Status: phase 3</dd>
+</dlentry>
+<dlentry>
+<dt>13097</dt>
+<dd>Troubleshooting topic. Status: phase 2</dd>
+</dlentry>
+<dlentry>
+<dt>13098</dt>
+<dd>Add an attribute value to the &lt;note> element's type attribute
+to distinguish troubleshooting information. Status: phase 3</dd>
+</dlentry>
+</dl></section>
+<section><title>Modified DTDs</title><p>A new element named &lt;tasktroubleshooting>
+will follow &lt;result> element and and precede either the &lt;example>
+or the &lt;stepreq> element as an optional element. The only DTD file
+affected is dtd.mod under technicalContent/dtd.</p><p>See  <xref
+href="../Common/RevisedTaskModToImplement13086and13096.dita#RevisedTaskModToImplement13086and13096"
+>Modifications to task.mod</xref> for all necessary DTD changes.</p
+></section>
+<section><title>Modified language reference specification documentation</title>
+<p>The
+specification impact is small.</p><simpletable relcolwidth="20* 40* 40*">
+<sthead>
+<stentry>Location</stentry>
+<stentry>Text in 1.2</stentry>
+<stentry>Proposed changes for 1.3</stentry>
+</sthead>
+<strow>
+<stentry>3.2.2.2 ditabase, task (strict)</stentry>
+<stentry>( (prereq) (optional) then (context) (optional) then (steps
+or steps-unordered) (optional) then (result) (optional) then (example)
+(optional) then (postreq) (optional) )</stentry>
+<stentry>( (prereq) (optional) then (context) (optional) then (steps
+or steps-unordered) (optional) then (result) (optional) <b>then (tasktroubleshooting)
+(optional)</b> then (example) (optional) then (postreq) (optional)
+)</stentry>
+</strow>
+<strow>
+<stentry>3.2.2.2 task (general), learningContent</stentry>
+<stentry>( ( (prereq) or (context) or (section) ) (any number) then
+( (steps or steps-unordered or steps-informal) ) (optional) then (result)
+(optional) then (example) (any number) then (postreq) (any number)
+)</stentry>
+<stentry>( ( (prereq) or (context) or (section) ) (any number) then
+( (steps or steps-unordered or steps-informal) ) (optional) then (result) <b
+>then (tasktroubleshooting) (optional)</b> (optional) then (example)
+(any number) then (postreq) (any number) )</stentry>
+</strow>
+<strow>
+<stentry>3.2.2.2 machineryTask</stentry>
+<stentry>( ( (prelreqs) or (context) or (section) ) (any number) then
+( (steps or steps-unordered or steps-informal) ) (optional) then (result)
+(optional) then (example) (any number) then (closereqs) (optional)
+)</stentry>
+<stentry>( ( (prelreqs) or (context) or (section) ) (any number) then
+( (steps or steps-unordered or steps-informal) ) (optional) then (result) <b
+>then (tasktroubleshooting) (optional)</b> (optional) then (example)
+(any number) then (closereqs) (optional) )</stentry>
+</strow>
+<strow>
+<stentry>3.2.2.2.5 (new topic)</stentry>
+<stentry>N/A</stentry>
+<stentry>Add new topic <!--<xref
+href="../../DITA1.2spec/langref/tasktroubleshooting.dita#tasktroubleshooting"></xref
+>--></stentry>
+</strow>
+<strow>
+<stentry>commonNavLibraryTable.dita</stentry>
+<stentry>N/A</stentry>
+<stentry>Add new reference topic "contentmodel-tasktroubleshooting"</stentry>
+</strow>
+</simpletable></section>
+<section>
+            <title>Modified architecture reference specification documentation</title>
+            <note>Modifications have been drafted for 2.2.2.3 General Task topic, 2.2.2.4 Task topic
+                (strict task), and 2.2.2.5 Machinery Task. The new Troubleshooting Elements topic
+                should follow the new Troubleshooting Task topic (recommended as 2.2.2.6). Thus, the
+                Troubleshooting Elements topic will become the new 2.2.2.7. </note>
+        </section>
+</refbody>
+</reference>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13104 Allow @keyref on &lt;object></title>
+<shortdesc>Adds key references to &lt;object> and &lt;param> as alternatives to
+    direct URI references from &lt;object> and &lt;param> elements.</shortdesc>
+<refbody>
+<section><title>Date and version information</title>
+      <ul
+        id="ul_e5g_2db_4k">
+        <li>Completed: 18 June 2013</li>
+        <li>Champion: Eliot Kimber</li>
+        <li>Email discussion: <xref
+          href="https://lists.oasis-open.org/archives/dita/201201/msg00021.html"
+          format="html"
+          scope="external">https://lists.oasis-open.org/archives/dita/201201/msg00021.html</xref></li>
+      </ul></section>
+<section><title>Original requirement</title><p>From the referenced email:<lq>
+        <p>The &lt;object> and &lt;param> elements may make references to
+          resources, &lt;object> via the @data attribute, &lt;param> via the
+          @value attribute when @valuetype is "ref". </p>
+        <p>In both cases the value is a URI. </p>
+        <p>It needs to be possible to use keys in place of these URI
+          references.</p>
+        </lq></p></section>
+<section><title>Use cases</title><p>This ability to use keys for objects provides the same benefits as other uses
+        of keys: allows the same source element to be bound to different
+        resources in different map contexts or even, with scoped keys, different
+        parts of the same map. For example, you would be able to have the same
+        &lt;object> element bind to different versions of a video or audio file,
+        whether to reflect the product context or to reflect the delivery
+        target.</p>
+      <p>As a general DITA design practice, any URI reference should also be
+        doable using keys.</p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?<p>Anyone who uses &lt;object>
+          elements to include things like interactive and streaming media into
+          their content.</p></li>
+     <li>What is the expected benefit?<p>Decouples &lt;object> elements from the
+          details of the objects they reference, removing the need, for example,
+          for multiple copies of &lt;object> elements in order to get different
+          media content.</p></li>
+     <li>How many people probably will make use of this feature? For example,
+          everyone, many, or few.<p>Would expect that anyone who uses
+          &lt;object> would very likely prefer to refer to specific object
+          resources using keys, as use of keys is best practice generally. For
+          example, anyone using keys for images would also want to use keys for
+          video and audio content. As the use of interactive media increases the
+          number of users of this feature should increase
+          significantly.</p></li>
+     <li>How much of a positive impact is expected for the users who will make
+          use of the feature? For example, significant or minor.<p>This is a
+          significant positive impact for users of the &lt;object> element,
+          allowing them to use the same key-based resource management they are
+          likely to be using for images and other dependencies. Avoids the need
+          to for conditional elements within topic content.</p></li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs<ul
+          id="ul_c4y_12b_4k">
+          <li>Requires four additional attributes on the &lt;object> element </li>
+          <li>Requires one additional attribute on &lt;param></li>
+          </ul></li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?<p>No new topics</p></li>
+       <li>How many existing topics will need to be edited?<p>The reference
+            entries for &lt;object> and &lt;param> will need to be updated to
+            reflect the processing rules for the new attributes.</p></li>
+       <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? If so, what?<p>This change
+            does not affect the general DITA architecture. It adds processing
+            consistent with existing key-based processing to the &lt;object> and
+            &lt;param> elements.</p></li>
+      </ul></li>
+     <li>Vendors of tools: XML editors,component content management systems,
+          processsors, etc.<p>Vendors who implement processing of &lt;object>
+          elements will need to provide appropriate handling of the new key
+          reference attributes. Assuming these tools already have general
+          key-based processing support, this additional processing should not be
+          difficult to implement.</p></li>
+     <li>DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature should not contribute to the perception of
+          complexity since it adds an existing general facility (key references)
+          to an existing element.</p></li>
+    </ul></p></section>
+<section><title>Technical requirements</title><p>Provide a detailed description of how the solution will work. Be sure to include the following details:<dl>
+        <dlentry>
+          <dt>Change to Existing Elements</dt>
+          <dd>
+            <p>For &lt;object>:<ul
+              id="ul_lgy_42b_4k">
+              <li>Add a new attribute @classidkeyref. When specified, and the
+                key is resolvable, the key-provided class ID URI is used. If
+                @classid is specified, it is used as a fallback in the case
+                where the key cannot be resolved to a URI.</li>
+              <li>Add a new attribute @codebasekeyref. When specified, and the
+                key is resolvable, the key-provided code base URI is used. If
+                @codebase is specified, it is used as a fallback in the case
+                where the key cannot be resolved to a URI. If no URI results
+                from processing @codebasekeyref and @codebase is not specified,
+                the default is the base URL of the current document.</li>
+              <li>Add new attribute @datakeyref. When specified and the key is
+                resolvable, the key-provided URI is used. If @data is specified,
+                it is used as a fallback in the case where the key cannot be
+                resolved to a resource. A key that has no associated resource,
+                only link text, is considered to be unresolved for the purpose
+                of the @datakeyref element.</li>
+              <li>Add a new attribute @archivekeyrefs. @archivekeyrefs contains
+                a space-separated list of key names. Each resolvable key
+                reference is treated as a URI as though it had been specified on
+                the @archive attribute. If @archivekeyrefs is specified and at
+                least one key listed in the @archivekeyrefs value is resolved to
+                a URI, then @archive is ignored if specified. If none of the
+                keys specified in @archivekeyrefs can be resolved to a URI then
+                the value of @archive is used if present.</li>
+              <li>Modify the description of @type as follows:<ul
+                id="ul_mnr_zgb_4k">
+                <li>If @type is not specified, any @type value specified for the
+                  key named by the @datakeyref attribute is used as the data's
+                  type value.</li>
+                </ul></li>
+              <li>Modify the description of @codetype as follows:<ul
+                id="ul_kjw_thb_4k">
+                <li>If @codetype is not specified, any @type value specified for
+                  the key named by the @classidkeyref attribute is used as the
+                  class's type value.</li>
+                </ul></li>
+              </ul></p>
+            <p>For &lt;param><ul
+              id="ul_kzm_52b_4k">
+              <li>Add new attribute @keyref. When @keyref is specified, it
+                implies a value of "ref" for @valuetype if @valuetype is not
+                specified. If @valuetype is specified with a value other than
+                "ref", @keyref is ignored. <p>When the effective value of
+                @valuetype is "ref" and @keyref is specified, the @value
+                attribute value, if specified, is used as the fallback URI when
+                the key reference cannot be resolved. A key that has no
+                associated resource, only link text, is considered to be
+                unresolved for the purpose of the @datakeyref element.</p></li>
+              <li>Modify the description of @type as follows:<ul
+                id="ul_wgy_rkb_4k">
+                <li>If @type is not specified, any @type value specified for the
+                  key named by the @keyref attribute is used as the parameter's
+                  type value.</li>
+                </ul></li>
+              </ul></p>
+          </dd>
+        </dlentry>
+     <dlentry>
+      <dt>Overall usability</dt>
+      <dd>This facility will only affect users who use &lt;object>. It provides
+            the ability to take advantage of key-based addressing for objects.
+            Users who do not use &lt;object> will be unaffected.</dd>
+     </dlentry>
+    </dl></p></section>
+<section><title>Examples</title>
+      <fig
+        id="fig_o2l_bfb_4k">
+        <title>Object with reference to video via key reference on &lt;param>
+          elements</title>
+        <codeblock>&lt;object
+  id="E5123_026.mp4"
+  width="300"
+  height="300">
+  &lt;param name="poster:
+     <b>keyref="E5123_026_poster"</b>
+  />
+  &lt;param name="source"
+     <b>keyref="E5123_026_video"</b>
+  />
+&lt;/object></codeblock>
+        <p>Where the keys could
+          be:<codeblock>&lt;map>
+  ...
+  &lt;keydef keys="E5123_026_poster"
+      href="../images/E5123_026_poster.png"
+      type="video/mp4"
+  />
+  &lt;keydef keys="E5123_026_video"
+      href="../media/E5123_026_poster.mp4"
+      type="video/mp4"
+  />
+  ...
+&lt;/map></codeblock></p>
+      </fig>
+      <fig
+        id="fig_ukm_bgb_4k">
+        <title>Object with indirect reference to a flash file and fallback @data
+          value</title>
+        <codeblock>&lt;object 
+ <b>classidkeyref="video_classid"</b>
+ <b>codebasekeyref="video_codebase"</b>
+ <b>datakeyref="cutkey370"</b>
+ height="280"
+ width="370"
+ id="cutkey370">
+ &lt;desc>A description of the task&lt;/desc>
+ &lt;param name="movie" <b>keyref="cutkey370"</b>/>
+ &lt;param name="quality" value="high"/>
+ &lt;param name="bgcolor" value="#FFFFFF"/>
+&lt;/object></codeblock>
+        <p>Where the key could
+          be:<codeblock>&lt;map>
+  ...
+  &lt;!-- NOTE: Using @scope="external" because
+       the class ID is a URI that is not intended to
+       be directly resolved.
+    -->
+  &lt;keydef keys="video_classid"
+    href="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+    scope="external"
+  />
+  &lt;!-- NOTE: Using @scope="external" to avoid systems trying to
+             download this file when they don't need to.
+    -->
+  &lt;keydef keys="video_codebase"
+    href="http://download.macromedia.com/pub/shockwave/cabs/
+flash/swflash.cab#version=6,0,0,0"
+    format="shockwave"
+    scope="external"
+  />
+  &lt;!-- Using @scope="external" here because the referenced URL
+       is not intended to be resolved in isolation but relative
+       to the codebase URI.
+    -->
+  &lt;keydef keys="cutkey370"
+      href="cutkey370.swf"
+      type="application/x-shockwave-flash"
+      scope="external"
+  />
+  ...
+&lt;/map></codeblock></p>
+      </fig></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>
