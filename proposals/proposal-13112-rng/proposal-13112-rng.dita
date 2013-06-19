@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13112 RelaxNG for DITA Vocabulary</title>
+<shortdesc>This proposal adds RelaxNG XML and compact syntaxes as not only
+    recognized and codified schema languages for DITA vocabulary and constraint
+    modules, but the primary format from which all other normative forms are
+    generated.</shortdesc>
+<refbody>
+<section><title>Date and version information</title>
+      <ul
+        id="ul_l4p_k22_4k">
+        <li>Completed: 19 June 2013</li>
+        <li>Champion: Eliot Kimber</li>
+        <li>Email: <xref
+          href="https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201205/msg00034.html"
+          format="html"
+          scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201205/msg00034.html</xref></li>
+      </ul></section>
+<section><title>Original requirement</title><p>The requirement is to use RelaxNG as a recognized and codified schema
+        language for DITA vocabulary and constraint definitions. As a schema
+        syntax, RelaxNG offers a number of significant advantages over both DTD
+        and XSD, advantages that make RelaxNG ideally suited to DITA's modular
+        vocabulary architecture. The syntax features of RelaxNG make defining
+        vocabulary modules and the document shells that use them about as easy
+        as it can be, avoiding both the syntactic complexity and unfamiliarity
+        of DTDs and the verbosity of XSD along with XSD's challenges with the
+        redefine feature. </p>
+      <p>An additional requirement is to use RelaxNG as the master form for all
+        vocabulary definitions from which all other schema formats can be
+        generated, reducing the effort required to maintain multiple forms of
+        DITA modules and document type shells. In short, the requirement is "let
+        the creators and maintainers of DITA modules and shells use the best
+        available tools for the task." </p>
+      <p>Any schema language used for DITA vocabulary must support defaulted
+        attributes and must support the integration and configuration of
+        vocabulary and constraint modules into working document type shells.</p></section>
+<section><title>Use cases</title><p>The use cases are:<ul
+        id="ul_rln_lf2_4k">
+        <li>Definition of DITA vocabulary modules (structural types and
+          domains)</li>
+        <li>Definition of constraint modules</li>
+        <li>Definition of document type shells</li>
+        </ul></p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?<p>Anyone who must create or
+          maintain a document type shell, anyone who must create or maintain a
+          vocabulary module, anyone who must create or maintain a constraint
+          module. </p><p>Because RelaxNG makes the syntax about as easy as it's
+          possible for it to be, people who create and maintain DITA markup
+          declarations will be able to create and maintain their declarations
+          faster and with less intellectual effort. Because it will be possible
+          to generate both DTD and XSD modules from the RelaxNG modules, this
+          proposal saves time and reduces opportunities for error inherent in
+          the manual maintenance of two parallel forms of the same vocabulary
+          (DTD and XSD).</p><p>Authors will benefit indirectly because RelaxNG
+          makes it easier to define sophisticated constraints, such as
+          disallowing a specific element from a specific element's content model
+          when that element is in a specific context.</p></li>
+     <li>What is the expected benefit?<p>The task of creating document type
+          shells will be significantly easier.</p><p>The task of creating
+          vocabulary is somewhat easier (RelaxNG XML syntax is less verbose than
+          XSD, the RelaxNG compact syntax is comparable to DTD syntax but avoids
+          some of the syntactic oddities of DTD). Defining new vocabulary using
+          RelaxNG XML or compact syntax is roughly equivalent to defining the
+          same vocabulary using DTD syntax for someone versed in both syntaxes.
+          Because the RelaxNG XML syntax is reasonably clear and obvious, it
+          should be easier for people to successfully learn it by example from
+          existing vocabulary modules. In addition, as an XML vocabulary, XML
+          editing tools may provide additional editing support for creating
+          RelaxNG modules.</p><p>The task of creating constraint modules should
+          be significantly easier because RelaxNG's pattern-based approach to
+          schema definition makes it easier to selectively modify and augment
+          existing patterns for both element content and attribute lists and
+          values. This both makes constraint modules easier to define and
+          overall more powerful (meaning there are more constraints that can be
+          expressed using RelaxNG than can be expressed with either DTD or XSD,
+          including context-specific rules). In particular, disallowing elements
+          from a context where they are allowed by the base pattern is very
+          easy. Replacing existing content models with new models, such as in
+          the strict-task constraint module, is about the same level of effort
+          as for DTDs.</p></li>
+     <li>How many people probably will make use of this feature? For example,
+          everyone, many, or few.<p>At a minimum the DITA TC will use RelaxNG as
+          the master definition of all vocabulary, from which the DTD and XSD
+          versions are generated. I would expect any other practitioners who
+          maintain document type shells, local specializations, or constraints
+          to use RelaxNG as soon as they are able because of its obvious
+          advantages. Because RelaxNG makes document type shells and constraint
+          modules easier and more powerful, I would expect more people to choose
+          to create them where they would not have attempted DTD- or XSD-based
+          shells or constraints.</p></li>
+     <li>How much of a positive impact is expected for the users who will make
+          use of the feature? For example, significant or minor.<p>For those of
+          us to define and maintain DITA vocabulary the benefit is
+          immense.</p></li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs<p>The existing TC-defined modules,
+          shells, and constraints will need to implemented in RelaxNG syntax and
+          verified. This work is under way and largely complete at the time of
+          submission of this Stage 2 proposal. This is one-time task, after
+          which the DTD and XSD versions will no longer need to be maintained
+          but can be generated from the RelaxNG master.</p><p>Vocabulary
+          maintainers will need to learn RelaxNG, but anyone who already
+          understands DTD or XSD should be able to learn RelaxNG quickly. The
+          RelaxNG XML syntax can be learned by example for the most part,
+          especially since the DITA coding patterns are well defined and
+          consistently applied and the more esoteric features of RelaxNG must be
+          avoided anyway because we are limited by the lowest-common-denominator
+          schema language (DTD).</p></li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?<p>Roughly four new topics will
+            be required in the specialization module coding requirements section
+            to document rules for RelaxNG. If we document RelaxNG XML and
+            compact syntax separately, then roughly 8 new topics.</p><p>One or
+            two topics to document RelaxNG constraint module coding
+            requirements.</p></li>
+       <li>How many existing topics will need to be edited?<p>The "Recognized
+            XML document constraint mechanisms" topic will need to be updated to
+            reflect RelaxNG as a recognized topic.</p><p>The "Configuration
+            (Document type shells)" topic will need to be updated to reflect
+            RelaxNG as an option along with DTD and XSD.</p><p>The "Element type
+            specialization hierarchy declaration (the @class attribute)" topic
+            mentions XSD and DTD and shows a DTD-syntax example. </p><p>The
+            "Specializing foreign or unknown content" topic will need a RelaxNG
+            foreign specialization example.</p><p>The "Examples of constraint
+            declaration modules" topic will need a RelaxNG constraint module
+            example.</p></li>
+       <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? If so, what?<p>The feature
+            requires no change to the DITA architecture, since it is not
+            changing any aspect of how DITA vocabularies work or how DITA
+            documents are processed. It is only change how they may be
+            <i>validated</i>.</p></li>
+      </ul></li>
+     <li>Vendors of tools: XML editors, component content management systems,
+          processsors, etc.<p>Because DTD and XSD modules and shells will be
+          generatible from RelaxNG modules and shells, it will always be
+          possible to provide tools that do not support RelaxNG with the DTD or
+          XSD declarations they require. No processor will be required to
+          support the use of RelaxNG with DITA documents.</p></li>
+     <li>DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>While this feature adds a third schema syntax to the set
+          allowed for use with DITA, the overall effect will be to make things
+          related to creating vocabulary, constraints, and shells simpler rather
+          than harder. This should be seen as a net reduction in
+          complexity.</p></li>
+    </ul></p></section>
+<section><title>Technical requirements</title>
+      <p><b>Brief overview of RelaxNG terminology</b></p>
+      <p>RelaxNG is a pattern language, meaning that it defines patterns
+        consisting of elements, attributes, and text. Content model and
+        attribute list declarations are both types of pattern. Thus, rather than
+        saying that a RelaxNG schema defines a content model for an element, you
+        say that it defines a pattern, where the pattern may refer to anything
+        that may occur within the scope of the element: attributes, attribute
+        values, subelements, and CDATA.</p>
+      <p>The RelaxNG standard defines two syntaxes: RelaxNG XML syntax and
+        RelaxNG compact syntax. The compact syntax is functionally equivalent to
+        the XML syntax and each syntax may be reliably converted to the other.
+        For the purposes of defining the master DITA vocabulary, the RelaxNG XML
+        syntax will be used, as that makes it directly processible using normal
+        XML processing tools (e.g., XSLT). The compact syntax version can then
+        be generated along with the DTD and XSD versions.</p>
+      <p>Patterns may be named. A named pattern is roughly equivalent to a DTD
+        parameter entity and serves roughly the same purpose by allowing a
+        larger pattern to be built up from named patterns.</p>
+      <p>RelaxNG patterns may be unilaterally augmented such that the base
+        pattern is extended, constrained, or replaced. This allows, for example,
+        RelaxNG domain modules to directly name the base patterns they extend,
+        removing the need to separately integrate the patterns from the domain
+        module as is required in DTDs. Likewise, constraint modules can directly
+        modify the base patterns they constrain without the need for separate
+        integration components.</p>
+      <p>RelaxNG modules are combined together using the RelaxNG &lt;include>
+        element to specify the URI of the module to be included.</p>
+      <p>Complete RelaxNG grammars must define the starting tokens for the
+        overall pattern, meaning the element types that are allowed to be
+        document roots. This allows a document type shell to explicitly require
+        the use of a particular root element.</p>
+      <p>The base RelaxNG specification does not provide for attribute value
+        defaulting. However, a companion specification, <xref
+        href="http://relaxng.org/compatibility-20011203.html"
+        format="html"
+        scope="external">RELAX NG DTD Compatibility</xref>, does provide for
+        attribute value defaults. DITA's use of RelaxNG depends on this DTD
+        compatibility feature.</p>
+      <p><b>RelaxNG for DITA overview</b></p><p>RelaxNG is used to represent DITA vocabulary and constraints as follows:</p>
+      <ul
+        id="ul_t2w_rj2_4k">
+        <li>In general, the RelaxNG declaration structures and patterns mirror
+          the DTD syntax patterns, including pattern names, order of
+          declarations, and so on. There is a fairly close correspondence
+          between DTD parameter entity declarations and names and RelaxNG
+          pattern definitions and names. </li>
+        <li>Each vocabulary module is represented by a single RelaxNG module
+          containing all the element or attribute declarations for the
+          modules.</li>
+        <li>Each constraint module is likewise represented by a single RelaxNG
+          module that contains whatever pattern modifications are required.</li>
+        <li>Structural modules define all the element types and attributes for
+          the structural type.</li>
+        <li>Domain modules define the patterns for each of the element types or
+          the attribute provided by the domain. The domain module uses the
+          RelaxNG "combine" feature for patterns to integrate the element types
+          or attribute it provides into the appropriate base pattern. This makes
+          domain modules self-integrating, requiring only inclusion into
+          document type shells. For
+          example:<codeblock>  &lt;define name="ph" combine="choice">
+    &lt;ref name="hi-d-ph"/>
+  &lt;/define></codeblock><p>This
+          pattern definition augements the base pattern named "ph" by adding the
+          pattern named "hi-d-ph" (which is the normal OR group of element types
+          defined by the domain) to the base pattern as a choice. This is the
+          functional equivalent of the domain integration parameter entities
+          used in DTD-syntax document type shells.</p></li>
+        <li>Document type shells contain two types of things:<ul
+          id="ul_emd_lmh_4k">
+          <li>Includes of each vocabulary and constraint module</li>
+          <li>A definition of the pattern "any" that addresses an issue with @id
+            attributes. The details of the pattern reflect the topic or map type
+            but the structure of the pattern is always the same.</li>
+          </ul><p>Because domain modules are self-integrating, the document type
+          shell becomes literally just a list of module inclusions, plus the
+          essentially-invariant "any" pattern. This makes document type shells
+          as simple as they could possibly be. They require no direct knowledge
+          of RelaxNG syntax or semantics. The markup is clear and obvious and
+          anyone should be able to successfully create or modify a new shell by
+          example.</p></li>
+      </ul></section>
+<section><title>Examples</title>
+      <p>The following sections describe the RelaxNG coding patterns in general
+        terms. The formal specification language for inclusion in the
+        Specialization module coding requirements section of the specification
+        will be defined in the Stage 3 version of this proposal.</p>
+      <p><b>Structural Module Coding Patterns</b></p>
+      <p>The general organization of a topic structural domain module
+        is:<codeblock>&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic concept)&lt;/value>
+  &lt;/define>
+
+  &lt;define name="concept-info-types">
+    &lt;ref name="info-types"/>
+  &lt;/define>
+  
+  &lt;!-- Define patterns -->
+  &lt;define name="concept">
+    &lt;ref name="concept.element"/>
+  &lt;/define>
+  ... (one pattern for each distinct element type in the module)
+
+  &lt;!-- LONG NAME: Concept -->
+  &lt;define name="concept.content">
+    &lt;ref name="title"/>
+    &lt;optional>
+      &lt;ref name="titlealts"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;choice>
+        &lt;ref name="abstract"/>
+        &lt;ref name="shortdesc"/>
+      &lt;/choice>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="prolog"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="conbody"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="related-links"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="concept-info-types"/>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="concept.attributes">
+    &lt;attribute name="id">
+      &lt;data type="ID"/>
+    &lt;/attribute>
+    &lt;ref name="conref-atts"/>
+    &lt;ref name="select-atts"/>
+    &lt;ref name="localization-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="concept.element">
+    &lt;element name="concept">
+      &lt;a:documentation>The &amp;lt;concept> element is the top-level element for a topic that answers
+        the question what is? Concepts provide background information that users must know before
+        they can successfully work with a product or interface. Often, a concept is an extended
+        definition of a major abstraction such as a process or function. It might also have an
+        example or a graphic, but generally the structure of a concept is fairly simple. 
+        Category: Concept elements&lt;/a:documentation>
+      &lt;ref name="concept.attlist"/>
+      &lt;ref name="concept.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="concept.attlist" combine="interleave">
+    &lt;ref name="concept.attributes"/>
+    &lt;ref name="arch-atts"/>
+    &lt;ref name="domains-atts"/>
+  &lt;/define>
+
+  ... (one set of definitions for each element type in the module)
+
+  &lt;!-- Specialization attributes. Global attributes and class defaults -->
+
+  &lt;define name="concept.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="- topic/topic concept/concept "/>
+    &lt;/optional>
+  &lt;/define>
+
+  ... (One @class attribute declaration for each element type in the module)
+
+&lt;/grammar></codeblock></p>
+      <p><b>Element Domain Module Coding Patterns</b></p>
+      <p>The general organization of an element domain module
+        is:<codeblock>&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic hi-d)&lt;/value>
+  &lt;/define>
+  
+  &lt;!-- Define domain extension patterns -->
+  &lt;define name="hi-d-ph">
+    &lt;choice>
+      &lt;ref name="b.element"/>
+      &lt;ref name="i.element"/>
+      &lt;ref name="sup.element"/>
+      &lt;ref name="sub.element"/>
+      &lt;ref name="tt.element"/>
+      &lt;ref name="u.element"/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;!-- Extend the patterns with the domain contribution -->
+  &lt;define name="ph" combine="choice">
+    &lt;ref name="hi-d-ph"/>
+  &lt;/define>
+  
+  &lt;!-- Define elements content and attributes -->
+  
+  &lt;!-- LONG NAME: Bold -->
+  &lt;define name="b.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;text/>
+        &lt;ref name="basic.ph"/>
+        &lt;ref name="data.elements.incl"/>
+        &lt;ref name="foreign.unknown.incl"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="b.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="b.element">
+    &lt;element name="b">
+      &lt;a:documentation>The bold (&amp;lt;b>) element is used to apply bold highlighting to the content
+        of the element. Use this element only when there is not some other more proper element. For
+        example, for specific items such as GUI controls, use the &amp;lt;uicontrol> element. This
+        element is part of the DITA highlighting domain. 
+        Category: Typographic elements&lt;/a:documentation>
+      &lt;ref name="b.attlist"/>
+      &lt;ref name="b.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="b.attlist" combine="interleave">
+    &lt;ref name="b.attributes"/>
+  &lt;/define>
+
+  ... (one set of declarations for each element type in the domain)
+
+  &lt;!-- Specialization attributes. Global attributes and class defaults -->
+
+  &lt;define name="b.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/ph hi-d/b "/>
+    &lt;/optional>
+  &lt;/define>
+
+  ... (one attribute declaration for each element type in the domain)
+
+&lt;/grammar></codeblock></p>
+      <p><b>Attribute Domain Module Coding Patterns</b></p>
+      <p>Attribute domains are very
+        simple:<codeblock>&lt;grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  &lt;define name="deliveryTargetAtt-d-attribute">
+    &lt;optional>
+      &lt;attribute name="deliveryTarget"/>
+    &lt;/optional>    
+  &lt;/define>
+  
+  &lt;define name="props-attribute-extensions" combine="interleave">
+    &lt;ref name="deliveryTargetAtt-d-attribute"/>
+  &lt;/define>
+  
+&lt;/grammar></codeblock></p>
+      <p><b>Document Type Shell Coding Patterns</b></p>
+      <p>Document type shells are also very
+        simple:<codeblock>&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  &lt;!-- Define the root elements -->
+  &lt;start>
+    &lt;ref name="concept.element"/>
+  &lt;/start>
+  
+  &lt;!-- The DITA domains attribute -->
+  &lt;define name="domains-atts" combine="interleave">
+    &lt;optional>
+      &lt;attribute name="domains" 
+        a:defaultValue="(topic concept) (topic hi-d) (topic ut-d) 
+        (topic indexing-d) (topic hazard-d) (topic abbrev-d) 
+        (topic ui-d) (topic pr-d) (topic sw-d)"/>
+    &lt;/optional>    
+  &lt;/define>
+  
+  &lt;!-- Include modules -->
+  &lt;include href="../../base/rng/topic.rng"/>
+  &lt;include href="concept.rng">
+    &lt;!--
+      Redefine the infotype to exclude 
+      other topic types
+    -->
+    &lt;define name="concept-info-types">
+      &lt;ref name="concept.element"/>
+    &lt;/define>
+  &lt;/include>
+  &lt;include href="urn:oasis:names:tc:dita:rng:highlightDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:indexingDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:hazardstatementDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:abbreviateDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:uiDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:programmingDomain.rng"/>
+  &lt;include href="urn:oasis:names:tc:dita:rng:softwareDomain.rng"/>
+
+  &lt;!-- Define the any pattern to exclude elements with ID attributes
+    from the wildcard and refer them expliceitely  -->
+  &lt;define name="any">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="concept.element"/>
+        &lt;element>
+          &lt;anyName>
+            &lt;except>
+              &lt;name>concept&lt;/name>
+            &lt;/except>
+          &lt;/anyName>
+          &lt;zeroOrMore>
+            &lt;attribute>
+              &lt;anyName/>
+            &lt;/attribute>
+          &lt;/zeroOrMore>
+          &lt;ref name="any"/>
+        &lt;/element>
+        &lt;text/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+&lt;/grammar></codeblock></p>
+      <p><b>Constraint Module Coding Patterns</b></p>
+      <p>Constraint modules simply contain patterns that modify or replace base
+        patterns:<codeblock>&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic task strictTaskbody-c)&lt;/value>
+    &lt;value>(topic task)&lt;/value>
+  &lt;/define>
+  
+  &lt;include href="../../base/rng/topic.mod.rng">
+    &lt;define name="example">
+      &lt;ref name="example.element"/>
+    &lt;/define>
+  &lt;/include>
+  &lt;include href="task.mod.rng">
+    &lt;define name="taskbody.content">
+      &lt;optional>
+        &lt;ref name="prereq"/>
+      &lt;/optional>
+      &lt;optional>
+        &lt;ref name="context"/>
+      &lt;/optional>
+      &lt;optional>
+        &lt;choice>
+          &lt;ref name="steps"/>
+          &lt;ref name="steps-unordered"/>
+        &lt;/choice>
+      &lt;/optional>
+      &lt;optional>
+        &lt;ref name="result"/>
+      &lt;/optional>
+      &lt;optional>
+        &lt;ref name="example"/>
+      &lt;/optional>
+      &lt;optional>
+        &lt;ref name="postreq"/>
+      &lt;/optional>
+    &lt;/define>
+    &lt;define name="context">
+      &lt;ref name="context.element"/>
+    &lt;/define>
+    &lt;define name="postreq">
+      &lt;ref name="postreq.element"/>
+    &lt;/define>
+    &lt;define name="result">
+      &lt;ref name="result.element"/>
+    &lt;/define>
+    &lt;define name="prereq">
+      &lt;ref name="prereq.element"/>
+    &lt;/define>
+    &lt;define name="steps-unordered">
+      &lt;ref name="steps-unordered.element"/>
+    &lt;/define>
+    &lt;define name="steps">
+      &lt;ref name="steps.element"/>
+    &lt;/define>
+  &lt;/include>
+  
+&lt;/grammar></codeblock></p></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>
