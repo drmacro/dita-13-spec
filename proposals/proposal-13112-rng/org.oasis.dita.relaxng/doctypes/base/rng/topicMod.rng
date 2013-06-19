@@ -6,9 +6,9 @@
      ============================================================= -->
 <!--
      Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:topic.mod.rng
+     urn:dita-ng:dita:rng:topicMod.rng
      To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:topic.mod.rng:1.2
+     urn:dita-ng:dita:rng:topicMod.rng:1.2
 -->
 <!-- ============================================================= 
      SYSTEM:     Darwin Information Typing Architecture (DITA)     
@@ -96,9 +96,9 @@
   
   
   <!-- Content elements common to map and topic -->
-  <include href="commonElements.mod.rng"/>
+  <include href="commonElementsMod.rng"/>
   <!-- MetaData Elements, plus indexterm -->
-  <include href="metaDecl.mod.rng"/>
+  <include href="metaDeclMod.rng"/>
   
   <!-- COMMON ATTLIST SETS -->
   <define name="abstract.cnt">
@@ -299,7 +299,7 @@
     <ref name="titlealts.attributes"/>
   </define>
   
-  <!-- navtitle moved to commonElements.mod.rng for DITA 1.2 -->
+  <!-- navtitle moved to commonElementsMod.rng for DITA 1.2 -->
   
   <!-- LONG NAME: Search Title -->
   <define name="searchtitle.content">

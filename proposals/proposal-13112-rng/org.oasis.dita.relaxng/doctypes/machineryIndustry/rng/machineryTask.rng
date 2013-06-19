@@ -38,7 +38,7 @@
   
   <!-- CONTENT CONSTRAINT INTEGRATION -->
   
-  <include href="machineryTaskbodyConstraint.mod.rng">
+  <include href="machineryTaskbodyConstraintMod.rng">
     <!--
       Redefine the infotype entity to exclude 
       other topic types and disallow nesting
@@ -50,12 +50,12 @@
   
   <!-- DOMAIN ELEMENT INTEGRATION -->
   
-  <include href="../../technicalContent/rng/taskreqDomain.mod.rng"/>
-  <include href="../../base/rng/hazardstatementDomain.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="../../technicalContent/rng/uiDomain.mod.rng"/>
+  <include href="../../technicalContent/rng/taskreqDomainMod.rng"/>
+  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="../../technicalContent/rng/uiDomainMod.rng"/>
 
   <define name="any">
     <zeroOrMore>

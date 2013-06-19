@@ -6,9 +6,9 @@
   ============================================================= -->
 <!--
   Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:strictTaskbodyConstraint.mod.rng
+  urn:dita-ng:dita:rng:strictTaskbodyConstraintMod.rng
   To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:strictTaskbodyConstraint.mod.rng:1.2
+  urn:dita-ng:dita:rng:strictTaskbodyConstraintMod.rng:1.2
 -->
 <!-- ============================================================= 
   SYSTEM:     Darwin Information Typing Architecture (DITA)     
@@ -26,12 +26,12 @@
     <value>(topic task)</value>
   </define>
   
-  <include href="../../base/rng/topic.mod.rng">
+  <include href="../../base/rng/topicMod.rng">
     <define name="example">
       <ref name="example.element"/>
     </define>
   </include>
-  <include href="task.mod.rng">
+  <include href="taskMod.rng">
     <define name="taskbody.content">
       <optional>
         <ref name="prereq"/>

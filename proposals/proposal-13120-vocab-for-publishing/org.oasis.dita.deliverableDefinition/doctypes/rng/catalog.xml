@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--XML Catalog for DITA-NG Relax NG schemas-->
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="urn:oasis:names:tc:dita:rng:deliverableDefinitionMod" uri="deliverableDefinitionMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:deliverableDefinitionMod.rng" 
+    uri="deliverableDefinitionMod.rng"/>
 </catalog>

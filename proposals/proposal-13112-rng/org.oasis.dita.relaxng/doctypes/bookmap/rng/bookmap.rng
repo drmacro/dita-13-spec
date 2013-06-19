@@ -36,19 +36,19 @@
   </define>
   
   <!-- Include modules -->
-  <include href="bookmap.mod.rng"/>
-  <include href="../../base/rng/map.mod.rng"/>
-  <include href="../../base/rng/delayResolutionDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="../../base/rng/mapGroup.mod.rng"/>
-  <include href="../../xnal/rng/xnalDomain.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/hazardstatementDomain.mod.rng"/>
-  <include href="../../technicalContent/rng/abbreviateDomain.mod.rng"/>
-  <include href="../../technicalContent/rng/uiDomain.mod.rng"/>
-  <include href="../../technicalContent/rng/programmingDomain.mod.rng"/>
-  <include href="../../technicalContent/rng/softwareDomain.mod.rng"/>
+  <include href="bookmapMod.rng"/>
+  <include href="../../base/rng/mapMod.rng"/>
+  <include href="../../base/rng/delayResolutionDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="../../base/rng/mapGroupMod.rng"/>
+  <include href="../../xnal/rng/xnalDomainMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+  <include href="../../technicalContent/rng/abbreviateDomainMod.rng"/>
+  <include href="../../technicalContent/rng/uiDomainMod.rng"/>
+  <include href="../../technicalContent/rng/programmingDomainMod.rng"/>
+  <include href="../../technicalContent/rng/softwareDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

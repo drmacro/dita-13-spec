@@ -47,15 +47,15 @@
   </define>
   
   <!-- Include modules -->
-  <include href="../../base/rng/topic.mod.rng"/>
-  <include href="learningBase.mod.rng"/>
-  <include href="learningOverview.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="learningInteractionBaseDomain.mod.rng"/>
-  <include href="learningDomain.mod.rng"/>
-  <include href="learningMetadataDomain.mod.rng"/>
+  <include href="../../base/rng/topicMod.rng"/>
+  <include href="learningBaseMod.rng"/>
+  <include href="learningOverviewMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="learningInteractionBaseDomainMod.rng"/>
+  <include href="learningDomainMod.rng"/>
+  <include href="learningMetadataDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

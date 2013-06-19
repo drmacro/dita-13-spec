@@ -35,11 +35,11 @@
   </define>
   
   <!-- Include modules -->
-  <include href="topic.mod.rng"/>
-  <include href="highlightDomain.mod.rng"/>
-  <include href="utilitiesDomain.mod.rng"/>
-  <include href="indexingDomain.mod.rng"/>
-  <include href="hazardstatementDomain.mod.rng"/>
+  <include href="topicMod.rng"/>
+  <include href="highlightDomainMod.rng"/>
+  <include href="utilitiesDomainMod.rng"/>
+  <include href="indexingDomainMod.rng"/>
+  <include href="hazardstatementDomainMod.rng"/>
 
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

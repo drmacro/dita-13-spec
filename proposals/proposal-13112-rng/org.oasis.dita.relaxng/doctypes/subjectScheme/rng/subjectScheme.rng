@@ -36,12 +36,12 @@
   </define>
   
   <!-- Include modules -->
-  <include href="../../base/rng/map.mod.rng"/>
-  <include href="subjectScheme.mod.rng"/>
-  <include href="../../base/rng/mapGroup.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/hazardstatementDomain.mod.rng"/>
+  <include href="../../base/rng/mapMod.rng"/>
+  <include href="subjectSchemeMod.rng"/>
+  <include href="../../base/rng/mapGroupMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

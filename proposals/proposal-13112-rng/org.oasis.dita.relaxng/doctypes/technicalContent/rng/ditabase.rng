@@ -47,7 +47,7 @@
     <ref name="no-topic-nesting.element"/>
   </define>
     
-  <include href="strictTaskbodyConstraint.mod.rng">
+  <include href="strictTaskbodyConstraintMod.rng">
     <define name="info-types">
       <choice>
         <ref name="topic.element"/>
@@ -61,18 +61,18 @@
   </include>
 
   <!-- Include modules -->
-  <include href="concept.mod.rng"/>
-  <include href="reference.mod.rng"/>
-  <include href="glossentry.mod.rng"/>
-  <include href="glossgroup.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="../../base/rng/hazardstatementDomain.mod.rng"/>
-  <include href="abbreviateDomain.mod.rng"/>
-  <include href="uiDomain.mod.rng"/>
-  <include href="programmingDomain.mod.rng"/>
-  <include href="softwareDomain.mod.rng"/>
+  <include href="conceptMod.rng"/>
+  <include href="referenceMod.rng"/>
+  <include href="glossentryMod.rng"/>
+  <include href="glossgroupMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+  <include href="abbreviateDomainMod.rng"/>
+  <include href="uiDomainMod.rng"/>
+  <include href="programmingDomainMod.rng"/>
+  <include href="softwareDomainMod.rng"/>
   
   
   <!-- Define a containment for topics for editor support -->

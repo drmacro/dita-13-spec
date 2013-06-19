@@ -6,9 +6,9 @@
      ============================================================= -->
 <!--
      Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:map.mod.rng
+     urn:dita-ng:dita:rng:mapMod.rng
      To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:map.mod.rng:1.2
+     urn:dita-ng:dita:rng:mapMod.rng:1.2
 -->
 <!-- ============================================================= 
      SYSTEM:     Darwin Information Typing Architecture (DITA)     
@@ -30,9 +30,9 @@
   </define>
   
   <!-- Content elements common to map and topic -->
-  <include href="commonElements.mod.rng"/>
+  <include href="commonElementsMod.rng"/>
   <!-- MetaData Elements -->
-  <include href="metaDecl.mod.rng"/>
+  <include href="metaDeclMod.rng"/>
   
   <!-- The DITA architecture version attribute -->
   <define name="arch-atts">

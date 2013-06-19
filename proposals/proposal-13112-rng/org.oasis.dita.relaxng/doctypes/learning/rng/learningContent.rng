@@ -77,7 +77,7 @@
   </define>
     
   <!-- Include modules -->
-  <include href="../../base/rng/topic.mod.rng">
+  <include href="../../base/rng/topicMod.rng">
     <!-- Redefine the infotype entity to disallow nesting -->
     <define name="topic-info-types">
       <optional>
@@ -85,8 +85,8 @@
       </optional>
     </define>
   </include>
-  <include href="learningBase.mod.rng"/>
-  <include href="../../technicalContent/rng/task.mod.rng">
+  <include href="learningBaseMod.rng"/>
+  <include href="../../technicalContent/rng/taskMod.rng">
     <!-- Redefine the infotype entity to disallow nesting -->
     <define name="task-info-types">
       <optional>
@@ -94,7 +94,7 @@
       </optional>
     </define>
   </include>
-  <include href="../../technicalContent/rng/concept.mod.rng">
+  <include href="../../technicalContent/rng/conceptMod.rng">
     <!-- Redefine the infotype entity to disallow nesting -->
     <define name="concept-info-types">
       <optional>
@@ -102,7 +102,7 @@
       </optional>
     </define>
   </include>
-  <include href="../../technicalContent/rng/reference.mod.rng">
+  <include href="../../technicalContent/rng/referenceMod.rng">
     <!-- Redefine the infotype entity to disallow nesting -->
     <define name="reference-info-types">
       <optional>
@@ -110,15 +110,15 @@
       </optional>
     </define>
   </include>
-  <include href="learningSummary.mod.rng"/>
-  <include href="learningAssessment.mod.rng"/>
-  <include href="learningContent.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="learningInteractionBaseDomain.mod.rng"/>
-  <include href="learningDomain.mod.rng"/>
-  <include href="learningMetadataDomain.mod.rng"/>
+  <include href="learningSummaryMod.rng"/>
+  <include href="learningAssessmentMod.rng"/>
+  <include href="learningContentMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="learningInteractionBaseDomainMod.rng"/>
+  <include href="learningDomainMod.rng"/>
+  <include href="learningMetadataDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

@@ -36,16 +36,16 @@
   </define>
 
   <!-- Include modules -->
-  <include href="../../base/rng/map.mod.rng"/>
-  <include href="../../base/rng/delayResolutionDomain.mod.rng"/>
-  <include href="glossrefDomain.mod.rng"/>
-  <include href="../../base/rng/indexingDomain.mod.rng"/>
-  <include href="../../base/rng/mapGroup.mod.rng"/>
-  <include href="../../base/rng/highlightDomain.mod.rng"/>
-  <include href="../../base/rng/utilitiesDomain.mod.rng"/>
-  <include href="../../base/rng/hazardstatementDomain.mod.rng"/>
-  <include href="abbreviateDomain.mod.rng"/>
-  <include href="programmingDomain.mod.rng"/>
+  <include href="../../base/rng/mapMod.rng"/>
+  <include href="../../base/rng/delayResolutionDomainMod.rng"/>
+  <include href="glossrefDomainMod.rng"/>
+  <include href="../../base/rng/indexingDomainMod.rng"/>
+  <include href="../../base/rng/mapGroupMod.rng"/>
+  <include href="../../base/rng/highlightDomainMod.rng"/>
+  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+  <include href="abbreviateDomainMod.rng"/>
+  <include href="programmingDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->
