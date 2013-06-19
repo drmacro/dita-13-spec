@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13120 Vocabulary for Publishing Process
+    Definitions</title>
+<shortdesc>Provides a vocabulary for capturing the details of deliverable
+    production processes in order to facilitate interchange of production
+    processes, both within the same publishing system and among disparate
+    publishing systems.</shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>
+        <ul>
+          <li>Completed: 19 June 2013</li>
+          <li>Champion: Eliot Kimber</li>
+          <li>Original email: <xref
+            href="https://lists.oasis-open.org/archives/dita/201210/msg00057.html"
+            format="html"
+            scope="external">https://lists.oasis-open.org/archives/dita/201210/msg00057.html</xref></li>
+        </ul>
+      </p></section>
+<section><title>Original requirement</title>From the email referenced above:<lq>
+      <p>Given that sets of keydefs can be used to define peer reference
+        as-published locations, it follows that we should standardize, or at
+        least define clear conventions for, capturing the information needed
+        make these keydef sets work for this processing use, just as we have
+        with DITAVAL and SubjectScheme for filtering. </p>
+      <p>I don't think it will be that hard to define an appropriate vocabulary
+        and we can start testing such a vocabulary with the Open Toolkit and,
+        hopefully, other DITA processors, as soon as we have something drafted. </p>
+      <p>Thus I would like to propose that we define for DITA 1.3 new vocabulary
+        that supports the use of keydef sets in processing that results in
+        deliverables with resolved peer cross references.</p>
+      <p>[...] a given deliverable instance is identified by its
+        publication/publication specification pair, meaning that, for a given
+        processor, a given publication processed with a given publication
+        specification will always produce the same deliverable instance. </p>
+      <p>It also means that two deliverable instances for a given publication
+        are distinguished by their publication specifications. </p>
+      <p>This is important because you need to have a well-defined and reliable
+        way to communicate *which* deliverable you want when configuring the
+        as-published result of a given peer cross reference. </p>
+      <p>By formally defining the notion of "publication specification" it
+        follows that publication specifications are objects, which means they
+        have identity, with means they must have identifiers, which means we can
+        use their identifiers to clearly and concisely talk about them. The only
+        open question is what form the identifier takes and what space of names
+        it exists in--this is likely to be processor specific.</p>
+      </lq></section>
+<section><title>Use cases</title>
+      <p>The use case supported is ultimately the requirement to have a
+        navigable link, such as a cross reference, from a point in one
+        deliverable to a point another, separate, deliverable. </p>
+      <p>In order to support this use case, processors must be able to
+        communicate between production process instances for different
+        deliverables the data needed to produce correct cross-deliverable links.
+        The minimum data items required are the same regardless of the
+        processing implementation details.</p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?<p>Anyone who needs to produce
+          deliverables with links to other deliverables.</p></li>
+     <li>What is the expected benefit?<p>This proposal standardizes something
+          that would otherwise require non-standard solutions. By being a
+          standard it enables interoperation of otherwise uncoordinated
+          deliverable-producing processors.</p></li>
+     <li>How many people probably will make use of this feature? For example,
+          everyone, many, or few.<p>For content that is organized and published
+          primarily as books or book-like things, rather than as monolithic Web
+          sites or similar packages, there is almost always a requirement for
+          cross-deliverable links. Because DITA through 1.2 has not had a
+          standard way to do cross-deliverable links, users have largely avoided
+          using them. But it seems likely that there is a large fraction of DITA
+          users who would create cross-deliverable links if there was a standard
+          and manageable way to author and produce them.</p></li>
+     <li>How much of a positive impact is expected for the users who will make
+          use of the feature? For example, significant or minor.<p>The impact
+          for users that need it is imense as it makes the currently-impossible
+          possible.</p></li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs<p>Will need to define the new
+          vocabulary modules.</p></li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?<p>One or two new topics in the
+            Architecture specification to discuss the general subject of
+            cross-deliverable linking and multi-pass processing.</p><p>One new
+            reference topic for each new element type defined in this proposal,
+            roughly 10-to-15 new reference topics.</p></li>
+       <li>How many existing topics will need to be edited?<p>Probably necessary
+            to edit one or two topics to reflect this new facility.</p></li>
+       <li>Will the feature require substantial changes to the information
+            architecture of the DITA specification? If so, what?<p>The feature
+            does not change the DITA architecture in any way. It simply codifies
+            a mechanism that takes advantage of existing DITA facilities
+            (keys).</p></li>
+      </ul></li>
+     <li>Vendors of tools: XML editors,component content management systems,
+          processsors, etc.<p>As for DITAVAL, vendors are not required to
+          support this two-pass process or standard production specifications.
+          However, processors that do want to enable the use of this process
+          will almost certainly need to be updated or modified in order to
+          produce intermediate as-published keydef sets. It is unlikely that any
+          existing processor has been implemented so as to make generation of
+          intermedaite as-published keydef sets either possible or easy, because
+          it requires a level of record keeping that is not generally required
+          for single-pass processes. </p></li>
+     <li>DITA community-at-large. Will this feature add to the perception that
+          DITA is becoming too complex? Will it be simple for end users to
+          understand?<p>This feature should not add to the perception of
+          increased complexity as it enables an otherwise impossible feature,
+          cross-deliverable addressing. Anyone who currently has a
+          cross-deliverable addressing requirement either has already done
+          something at least as complex (but non-standard) or understands the
+          requirements and implementation challenges but has chosen not to
+          implement support for it. Users that do not have such a requirement do
+          not need to be aware of this feature. </p></li>
+    </ul></p></section>
+<section><title>Technical requirements</title>
+      <p><b>Terminology</b></p><p>
+        <dl>
+          <dlentry>
+            <dt>publication</dt>
+            <dd>the thing to be delivered as represented by a root DITA
+              map.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>deliverable</dt>
+            <dd>The result of processing a <term>publication</term> to produce
+              an output reflecting a unique set of input parameters including
+              the deliverable data type (HTML, PDF, EPUB, etc.), the filtering
+              specs (DITAVAL files), the delivered location (e.g., URL of where
+              the deliverable will be published), and any other process-specific
+              parameters what would result in a different deliverable (in
+              particular, parameters that determine processor behavior where the
+              DITA spec allows different behaviors, such as filtering before or
+              after conref resolution).</dd>
+          </dlentry>
+          <dlentry>
+            <dt>deliverable definition</dt>
+            <dd>The set of parameters used to produce a <term>deliverable
+              instance</term>.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>as-published keydef set</dt>
+            <dd>A set of key definitions reflecting the key names as used by a
+              specific <term>publication</term> and the locations of the
+              referenced resources as published in a specific <term>deliverable
+              instance</term>. These keydef sets are used in the processing of
+              the referencing <term>publication</term> to produce the final
+              deliverable with correct peer resource references.</dd>
+          </dlentry>
+        </dl>
+      </p>
+      <p><b>Abstract Production Process</b></p>
+      <p>In general, a DITA root map can be processed to produce some form of
+        <term>deliverable</term>. For the purposes of this proposal a
+        <term>deliverable</term> is an artifact that reflects the structure and
+        content of the root map and is intended for delivery to and consumption
+        by some agent, such as a human reader. This proposal is only interested
+        in deliverables that will be published (made available) in such a way
+        that there may be navigable hyperlinks from one deliverable to another,
+        that is, cross-deliverable links.</p>
+      <p>When maps are published in isolation, without regard to
+        cross-deliverable links, then the production process can be a single
+        pass such that the immediate output of the production process is the
+        final deliverable. </p>
+      <p>However, when may be cross-deliverable links, the production process
+        must necessarily be a two-pass process in order to resolve reflexive
+        dependencies among the deliverables involved. That is, if deliverable A
+        links to deliverable B and deliverable B links to deliverable A, both A
+        and B must be produced once, producing mappings of the addresses in A
+        and B as authored to those same things in A and B as delivered. Those
+        mappings are then inputs to the second-pass processing of maps A and B,
+        with B's mapping being an input to A's second pass and A's mapping an
+        input to B's second pass. (And in fact, more than two passes may be
+        required if the result using deliverable-specific addresses in the
+        second pass would change the addressing details in the deliverable, for
+        example, changing the page numbers on which a given potential target
+        element fell. However, for deliverables where addressing is by some form
+        of ID not dependent on things like pagination, two passes should always
+        be sufficient.)</p>
+      <p>The details of the processing are of course processor specific, but the
+        general algorithm for the two-pass process is independent of
+        implementation details. In particular, the processing can be defined
+        entirely in terms of simple one-pass processes plus manual manipulation
+        of the original input maps between pass one and pass two. Of course,
+        processing tools would likely automate these intermediate steps, but
+        such automation is a not prerequisite for applying this process.</p>
+      <p>Also, note that per proposal 13041, Cross-deliverable Linking, from a
+        given root map, you know which other root maps it has links to. This
+        means that processors can treat the processing of a root map and its
+        cross-deliverable link dependencies as a single production action if
+        necessary.</p>
+      <p>The two pass production process can be summarized as:<ol
+        id="ol_axq_5kj_4k">
+        <li>Pass 1: The initial root map is processed to produce a specific
+          deliverable, as described by a <term>deliverable definition</term>.
+          The deliverable definition must include the following details:<ul
+          id="ul_nxq_5kj_4k">
+          <li>The deliverable details, which must include:<ul
+            id="ul_gwz_qlj_4k">
+            <li>The data type of the deliverable (HTML, PDF, EPUB, etc.)</li>
+            <li>The location of the deliverable as delivered.</li>
+            </ul></li>
+          <li>Any DITAVAL specifications.</li>
+          <li>Any processor-specific parameters that could affect the details of
+            deliverable in a way that would affect addressing of the
+            deliverable.</li>
+          </ul><p>Note that a root map/deliverable definition pair uniquely
+          identifies a deliverable instance. </p><p>The output of pass one is
+          four things:<ol
+          id="ol_kw4_3pj_4k">
+          <li>The first-pass version of the deliverable</li>
+          <li>An <term>as-delivered</term> key definition set that reflects for
+            each key defined in the original input map, the location of the
+            referenced resource in the deliverable produced. Each key in the
+            definition set as a @scope of "external" and a @format value
+            reflecting the data type of the deliverable, e.g. "html", "pdf",
+            etc., e.g. The @href value reflects the location of deliverable,
+            usually (but not necessarily) as an absolute
+            URL:<codeblock>    &lt;keydef keys="key-01" 
+      href="http://foo/bar.html" 
+      format="html" 
+      scope="external"
+    />
+</codeblock></li>
+          <li>A copy of the original input map to be used as the input to pass
+            two in place of the original input map. This copy of the map can
+            reflect any merging of sub maps or propagation of attributes
+            performed in the first pass, as the processing parameters that could
+            affect the details of the merged map and propagated attributes will
+            not change between pass 1 and pass 2.</li>
+          </ol></p></li>
+        <li>For each root map to which the initial root map links, all required
+          deliverables are produced and the as-delivered key definitions for
+          each map are made available to the person or automated system managing
+          the processing of the initial root map. Note that different processing
+          systems may process the other maps. The only thing that is
+          interchanged is the as-delivered key definition sets, one for each
+          unique deliverable (map/deliverable definition pair). Note also that
+          this requires that the agent managing the production of the initial
+          root map know which deliverable forms of each target map it needs or
+          may need. This could be the result of a decision made at production
+          time or it could be the result of a business rule, such as "we always
+          produce HTML, PDF, and EPUB for each publication".</li>
+        <li>The agent managing the processing of the initial map decides, for
+          each target peer map, which deliverables it needs to link to and then
+          choose or edits as necessary the peer map's as-delivered keydef sets
+          until they have a set of keys that reflects their required links from
+          the deliverable for the initial root map to the deliverables for the
+          target peer map. <p>This editing process can be as simple as replacing
+          the original peer map reference with a reference to the key definition
+          set for a specific deliverable or it can involve manual combination of
+          key definitions from different deliverable sets, including adding key
+          scopes to enable simultaneous linking to different deliverable forms
+          of the same target root map.</p><p>In practice, it is expected that
+          this manipulation of key definition sets would either be entirely
+          automatic (e.g., HTML always links to HTML, PDF always links to PDF,
+          etc.) or assisted in some way by tools. However, the process can be
+          performed by unaided authors editing normal maps containing sets of
+          key definitions, however tedious that process might be.</p><p>Note
+          that every target peer root map will be represented by one or more
+          peer-scope key definitions per proposal 13041. Those key definitions
+          are easy to find because they have a scope value of "peer", name a key
+          scope, and have a format of "ditamap". Those keys serve as a manifest
+          of the key definitions that need to be replaced with references to
+          as-delivered key definition sets.</p></li>
+        <li>Pass 2: Process the map copy prepared in step 3 of Pass 1 to produce
+          the final deliverable for the original input map.</li>
+        </ol></p>
+      <p>Each as-delivered key definition set should reflect the deliverable it
+        reflects, that is the root map/deliverable definition pair that resulted
+        from it. Thus there should be standard metadata in the key definition
+        set that contains that information, making the key definition set
+        discoverable regardless of what processing system produced it.</p>
+      <p><b>Markup Design</b></p>
+      <p>The markup design consists to two components:<ul
+        id="ul_alf_2wj_4k">
+        <li>A deliverable details metadata domain that provides elements for
+          capturing all the details about a deliverable.</li>
+        <li>A specialized deliverable-definition topic type used to represent
+          deliverable definitions. It uses the deliverable details metadata
+          domain for all deliverable-specific metadata.</li>
+        </ul></p></section>
+<section><title>Examples</title><p>Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
+    to include edge cases, if known.</p></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

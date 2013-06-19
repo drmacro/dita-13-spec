@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA 1.3 proposed feature 13088 Variables Facility</title>
+<shortdesc>Provides a facility for true variables that provide several features
+    not possible with key-based text replacement, including normal nested
+    scopes, definitions within topics, and default or fallback values defined in
+    topics. </shortdesc>
+<refbody>
+<section><title>Date and version information</title><p>Include the following information:<ul>
+     <li>Date that this feature proposal was completed</li>
+     <li>Champion of the proposal</li>
+     <li>Links to any previous versions of the proposal</li>
+     <li>Links to e-mail discussion that resulted in new versions of the proposal</li>
+    </ul></p></section>
+<section><title>Original requirement</title><p>Include a literal copy of the original requirement or use case that was presented to the TC; be
+    sure to include the date that it was presented to the TC.</p></section>
+<section><title>Use cases</title><p>Describe how the feature will be used, if ideally implemented. Include any presentation or
+    processing expectations. </p></section>
+<section><title>Benefits</title><p>Address the following questions:<ul>
+     <li>Who will benefit from this feature?</li>
+     <li>What is the expected benefit?</li>
+     <li>How many people probably will make use of this feature? For example, everyone, many, or
+      few.</li>
+     <li>How much of a positive impact is expected for the users who will make use of the feature?
+      For example, significant or minor.</li>
+    </ul></p></section>
+<section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the following groups:<ul>
+     <li>Maintainers of the DTDs and XSDs</li>
+     <li>Editors of the DITA specification:<ul>
+       <li>How many new topics will be required?</li>
+       <li>How many existing topics will need to be edited?</li>
+       <li>Will the feature require substantial changes to the information architecture of the DITA
+        specification? If so, what?</li>
+      </ul></li>
+     <li>Vendors of tools: XML editors,component content management systems, processsors, etc.</li>
+     <li>DITA community-at-large. Will this feature add to the perception that DITA is becoming too
+      complex? Will it be simple for end users to understand?</li>
+    </ul></p></section>
+<section><title>Technical requirements</title>
+   <note type="important">This section must be complete in order for the proposal to be
+    approved.</note><p>Provide a detailed description of how the solution will work. Be sure to include the following details:<dl>
+     <dlentry>
+      <dt>Processing feature</dt>
+      <dd>
+       <ul>
+        <li>How, in general, will the feature work?</li>
+        <li>How will authors take advantage of the new feature?</li>
+        <li>Will the feature have an impact on other processing features? For example, will the
+         proposed feature have an impact on key resolution?</li>
+        <li>What edge cases need to be considered?</li>
+       </ul>
+      </dd>
+     </dlentry>
+     <dlentry>
+      <dt>Topic or map specialization</dt>
+      <dd>Name of the new module, for example, <term>Glossary</term> or <term>Subject
+       scheme</term></dd>
+     </dlentry>
+     <dlentry>
+      <dt>Domain</dt>
+      <dd>List of topic or map types that will include the domain</dd>
+     </dlentry>
+     <dlentry>
+      <dt>Element</dt>
+      <dd>
+       <ul>
+        <li>Element name and attributes</li>
+        <li>Description of the element, including any processing requirements</li>
+        <li>Description of where the element will be permissable</li>
+        <li>Is the element translatable? If yes, is it a block or phrase (subflow) element?</li>
+       </ul>
+      </dd>
+     </dlentry>
+     <dlentry>
+      <dt>Attributes</dt>
+      <dd>
+       <ul>
+        <li>Name of the attribute</li>
+        <li>Elements for which the attributes will apply, for example, "new global attribute for
+         conref-atts group" or "new specialized attribute for learning topics"</li>
+        <li>Processing expectations that are  associated with the new attribute</li>
+        <li>Does the attribute contain translatable text? This should be avoided, so if the answer
+         is "yes," you must explain why.</li>
+       </ul>
+      </dd>
+     </dlentry>
+     <dlentry>
+      <dt>Overall usability</dt>
+      <dd>Discuss the impact to current DITA users.</dd>
+     </dlentry>
+    </dl></p></section>
+<section><title>Examples</title><p>Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
+    to include edge cases, if known.</p></section>
+</refbody>
+</reference><?Pub Caret -3?>
+<?Pub *0000003625?>

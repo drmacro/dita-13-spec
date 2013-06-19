@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deliverableDefinition id="deliverable-def">
+  <title>Deliverable Definition XYZ</title>
+  <shortdesc>Parameters for HTML output filtered for ...</shortdesc>
+  <prolog/>
+  <deliverableDefinitionBody>    
+    <deliverableProcessMetadata>
+      <transformType>html</transformType>
+      <deliverableDatatype>HTML</deliverableDatatype>
+      <ditavals>
+        <ditavalref>file://home/user/ditavals/ditaval-01.ditaval</ditavalref>
+        <ditavalref>file://home/user/ditavals/ditaval-02.ditaval</ditavalref>
+      </ditavals>
+      <processParameters>
+        <processParam name="param1" value="value1"/>
+        <processParam name="param2" value="value2"/>
+      </processParameters>
+    </deliverableProcessMetadata>    
+    <p>Whatever additional information you want here.</p>
+  </deliverableDefinitionBody>
+</deliverableDefinition>
