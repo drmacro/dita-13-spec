@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../org.oasis.dita.deliverableDefinition/test/keyset-as-delivered-map.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<map class="- map/map " domains="(map map)" ditaarch:DITAArchVersion="1.3" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+<?xml-model href="../doctypes/rng/deliverableAsDeliveredKeydefSet.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<deliverableAsDeliveredKeydefSet class="- map/map " domains="(map map)" ditaarch:DITAArchVersion="1.3" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   <title class="- topic/title ">Publication Map A As-Delivered Keydef set for Deliverable XYZ</title>
   <deliverableKeydefsetMetadata class="+ map/topicmeta deliverableMetadata-d/deliverableKeydefsetMetadata ">
     <deliverableInstanceMetadata class="+ topic/data " >
@@ -27,4 +27,4 @@
       class="+ map/topicref mapgroup-d/keydef "
     />
   </topicgroup>
-</map>
+</deliverableAsDeliveredKeydefSet>

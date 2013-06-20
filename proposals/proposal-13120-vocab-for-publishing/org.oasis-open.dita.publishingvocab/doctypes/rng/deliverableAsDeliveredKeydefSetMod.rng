@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+     MODULE:    DITA Deliverable Metadata Domain - RNG              
+     VERSION:   1.3                                           
+     DATE:      October 2013                                       
+     ============================================================= -->
+<!--
+     Refer to the latest version of this file by the following URI:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod
+     To refer to this specific version, you may use this value:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod:1.3
+-->
+<!-- ============================================================= 
+     SYSTEM:     Darwin Information Typing Architecture (DITA)     
+     PURPOSE:    Define elements and specialization attributes
+                 for Highlight Domain             
+     ORIGINAL CREATION DATE:  
+     September 2010                                                
+     (C) Copyright Syncro Soft 2010-2011                                
+     All Rights Reserved.                                          
+     ============================================================= -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
+  
+  <!-- Define the domain values of this module -->
+  <define name="domains-atts-value" combine="choice">
+    <value>(map deliverableAsDeliveredKeydefSet deliveryMetadata-d)</value>
+  </define>
+  
+  <!-- Define patterns -->
+  <define name="deliverableAsDeliveredKeydefSet">
+    <ref name="deliverableAsDeliveredKeydefSet.element"/>
+  </define>
+  <define name="deliverableKeydefsetMetadata">
+    <ref name="deliverableKeydefsetMetadata.element"/>
+  </define>
+  
+  
+  <!-- LONG NAME: Deliverable-As-Delivered Key Definition Set -->
+  <define name="deliverableAsDeliveredKeydefSet.content">
+    <optional>
+      <ref name="title"/>
+    </optional>
+    <optional>
+      <ref name="deliverableKeydefsetMetadata"/>
+    </optional>
+    <zeroOrMore>
+      <choice>
+        <ref name="data.elements.incl"/>
+        <ref name="topicref"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="deliverableAsDeliveredKeydefSet.attributes">
+    <optional>
+      <attribute name="title"/>
+    </optional>
+    <optional>
+      <attribute name="id">
+        <data type="ID"/>
+      </attribute>
+    </optional>
+    <ref name="conref-atts"/>
+    <optional>
+      <attribute name="anchorref"/>
+    </optional>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+    <ref name="localization-atts"/>
+    <ref name="topicref-atts"/>
+    <ref name="select-atts"/>
+  </define>
+  <define name="deliverableAsDeliveredKeydefSet.element">
+    <a:documentation>The &lt;map> element is used to define a map which describes the relationships
+      among a set of resources, such as DITA topics. Maps consist of references to topics and other
+      resources organized into hierarchies, groups, and tables. Maps provide a way to express these
+      relationships in a single common format that can be used for different outputs. 
+      Category: Map elements</a:documentation>
+    <element name="deliverableAsDeliveredKeydefSet">
+      <ref name="deliverableAsDeliveredKeydefSet.attlist"/>
+      <ref name="deliverableAsDeliveredKeydefSet.content"/>
+    </element>
+  </define>
+  <define name="deliverableAsDeliveredKeydefSet.attlist" combine="interleave">
+    <ref name="deliverableAsDeliveredKeydefSet.attributes"/>
+    <ref name="arch-atts"/>
+    <ref name="domains-atts"/>
+  </define>
+  
+  <!-- LONG NAME: deliverableKeydefsetMetadata -->
+  <define name="deliverableKeydefsetMetadata.content">
+    <optional>
+      <ref name="navtitle"/>
+    </optional>
+    <optional>
+      <ref name="searchtitle"/>
+    </optional>
+    <optional>
+      <ref name="shortdesc"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="author"/>
+    </zeroOrMore>
+    <optional>
+      <ref name="source"/>
+    </optional>
+    <optional>
+      <ref name="publisher"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="copyright"/>
+    </zeroOrMore>
+    <optional>
+      <ref name="critdates"/>
+    </optional>
+    <optional>
+      <ref name="permissions"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="metadata"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="audience"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="category"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="keywords"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="prodinfo"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="othermeta"/>
+    </zeroOrMore>
+    <zeroOrMore>
+      <ref name="resourceid"/>
+    </zeroOrMore>
+    <ref name="deliverableInstanceMetadata"/>
+    <ref name="deliverableProcessMetadata"/>
+    <zeroOrMore>
+      <choice>
+        <ref name="data.elements.incl"/>
+        <ref name="foreign.unknown.incl"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="deliverableKeydefsetMetadata.attributes">
+    <optional>
+      <attribute name="lockmeta">
+        <choice>
+          <value>no</value>
+          <value>yes</value>
+          <value>-dita-use-conref-target</value>
+        </choice>
+      </attribute>
+    </optional>
+    <ref name="univ-atts"/>
+  </define>
+  <define name="deliverableKeydefsetMetadata.element">
+    <a:documentation>Holds the metadata that describes the deliverable instance this key definition set reflects.</a:documentation>
+    <element name="deliverableKeydefsetMetadata">
+      <ref name="deliverableKeydefsetMetadata.attlist"/>
+      <ref name="deliverableKeydefsetMetadata.content"/>
+    </element>
+  </define>
+  <define name="deliverableKeydefsetMetadata.attlist" combine="interleave">
+    <ref name="deliverableKeydefsetMetadata.attributes"/>
+  </define>
+  
+  <!-- Specialization attributes. Global attributes and class defaults -->
+
+  <define name="deliverableAsDeliveredKeydefSet.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ map/map deliverableAsDeliveredKeydefSet/deliverableAsDeliveredKeydefSet "/>
+    </optional>
+  </define>
+  <define name="deliverableKeydefsetMetadata.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- map/topicmeta  deliverableAsDeliveredKeydefSet/deliverableKeydefsetMetadata "/>
+    </optional>
+  </define>
+</grammar>

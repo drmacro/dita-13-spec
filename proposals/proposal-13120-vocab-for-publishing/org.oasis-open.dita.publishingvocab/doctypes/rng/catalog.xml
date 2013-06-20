@@ -12,4 +12,18 @@
   <system systemId="urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod.rng:1.3" 
     uri="deliverableMetadataDomainMod.rng"
   />
+  
+  <system systemId="urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod.rng" 
+    uri="deliverableAsDeliveredKeydefSetMod.rng"
+  />
+  <system systemId="urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod.rng:1.3" 
+    uri="deliverableAsDeliveredKeydefSetMod.rng"
+  />
+
+  <system systemId="urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMap.rng" 
+    uri="deliverableAsDeliveredKeydefSetMap.rng"
+  />
+  <system systemId="urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMap.rng:1.3" 
+    uri="deliverableAsDeliveredKeydefSetMap.rng"
+  />
 </catalog>

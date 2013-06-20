@@ -9,19 +9,25 @@
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <!-- Define the root elements -->
   <start>
-    <ref name="map.element"/>
+    <ref name="deliverableAsDeliveredKeydefSet.element"/>
   </start>
 
   <!-- The DITA domains attribute -->
   <define name="domains-atts" combine="interleave">
     <optional>
       <attribute name="domains" 
-        a:defaultValue="(topic delay-d) (topic indexing-d) (map mapgroup-d)
-        (topic hi-d) (topic ut-d) (topic hazard-d)"/>
+        a:defaultValue="
+        (topic delay-d) 
+        (topic indexing-d) 
+        (map mapgroup-d)
+        (topic hi-d) 
+        (topic ut-d) 
+        (topic hazard-d)"/>
     </optional>    
   </define>
 
   <!-- Include modules -->
+  <include href="deliverableAsDeliveredKeydefSetMod.rng"/>
   <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
   <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomainMod.rng"/>
   <include href="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng"/>
@@ -29,19 +35,19 @@
   <include href="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"/>
   <include href="urn:oasis:names:tc:dita:rng:utilitiesDomainMod.rng"/>
   <include href="urn:oasis:names:tc:dita:rng:hazardstatementDomainMod.rng"/>
-  <include href="../../org.oasis.dita.deliverableMetadataDomain/doctypes/rng/deliverableMetadataDomainMod.rng"/>
+  <include href="deliverableMetadataDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
        from the wildcard and refer them expliceitely  -->
   <define name="any">
     <zeroOrMore>
       <choice>
-        <ref name="map.element"/>
+        <ref name="deliverableAsDeliveredKeydefSet.element"/>
         <ref name="anchor.element"/>
         <element>
           <anyName>
             <except>
-              <name>map</name>
+              <name>deliverableAsDeliveredKeydefSet</name>
               <name>anchor</name>
             </except>
           </anyName>

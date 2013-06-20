@@ -24,6 +24,7 @@
     <projectTree name="dita-13-spec.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
+            <file name="proposals/proposal-13120-vocab-for-publishing/org.oasis-open.dita.publishingvocab/doctypes/rng/deliverableAsDeliveredKeydefSet.rng"/>
             <file name="proposals/proposal-13120-vocab-for-publishing/org.oasis.dita.deliverableDefinition/doctypes/rng/deliverableDefinition.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningGroupMap.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/dtd/learning/dtd/learningMap.dtd"/>
