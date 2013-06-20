@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!-- ============================================================= 
+     MODULE:    Map type for as-delivered key sets
+     VERSION:   1.3
+     DATE:      June 2013
+     ============================================================= -->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <!-- Define the root elements -->
+  <start>
+    <ref name="map.element"/>
+  </start>
+
+  <!-- The DITA domains attribute -->
+  <define name="domains-atts" combine="interleave">
+    <optional>
+      <attribute name="domains" 
+        a:defaultValue="(topic delay-d) (topic indexing-d) (map mapgroup-d)
+        (topic hi-d) (topic ut-d) (topic hazard-d)"/>
+    </optional>    
+  </define>
+
+  <!-- Include modules -->
+  <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:utilitiesDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:hazardstatementDomainMod.rng"/>
+  <include href="../../org.oasis.dita.deliverableMetadataDomain/doctypes/rng/deliverableMetadataDomainMod.rng"/>
+  
+  <!-- Define the any pattern to exclude elements with ID attributes
+       from the wildcard and refer them expliceitely  -->
+  <define name="any">
+    <zeroOrMore>
+      <choice>
+        <ref name="map.element"/>
+        <ref name="anchor.element"/>
+        <element>
+          <anyName>
+            <except>
+              <name>map</name>
+              <name>anchor</name>
+            </except>
+          </anyName>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+     MODULE:    DITA Deliverable Metadata Domain - RNG              
+     VERSION:   1.3                                           
+     DATE:      October 2013                                       
+     ============================================================= -->
+<!--
+     Refer to the latest version of this file by the following URI:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod
+     To refer to this specific version, you may use this value:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod:1.3
+-->
+<!-- ============================================================= 
+     SYSTEM:     Darwin Information Typing Architecture (DITA)     
+     PURPOSE:    Define elements and specialization attributes
+                 for Highlight Domain             
+     ORIGINAL CREATION DATE:  
+     September 2010                                                
+     (C) Copyright Syncro Soft 2010-2011                                
+     All Rights Reserved.                                          
+     ============================================================= -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  
+  <!-- Define the domain values of this module -->
+  <define name="domains-atts-value" combine="choice">
+    <value>(topic deliveryMetadata-d)</value>
+  </define>
+  
+  <!-- Define domain extension patterns -->
+  <define name="deliveryMetadata-d-data">
+    <choice>
+      <ref name="deliverableInstanceMetadata.element"/>
+    </choice>
+  </define>
+  <!-- Extend the patterns with the domain contribution -->
+  <define name="data" combine="choice">
+    <ref name="deliveryMetadata-d-data"/>
+  </define>
+  
+  <define name="deliverableInstanceMetadata">
+    <ref name="deliverableInstanceMetadata.element"/>
+  </define>
+  <define name="rootMap">
+    <ref name="rootMap.element"/>
+  </define>
+  <define name="finalDeliveryLocation">
+    <ref name="finalDeliveryLocation.element"/>
+  </define>
+  <define name="deliverableProcessMetadata">
+    <ref name="deliverableProcessMetadata.element"/>
+  </define>
+  <define name="transformType">
+    <ref name="transformType.element"/>
+  </define>
+  <define name="deliverableDatatype">
+    <ref name="deliverableDatatype.element"/>
+  </define>
+  <define name="ditavals">
+    <ref name="ditavals.element"/>
+  </define>
+  <define name="ditavalref">
+    <ref name="ditavalref.element"/>
+  </define>
+  <define name="processParameters">
+    <ref name="processParameters.element"/>
+  </define>
+  <define name="processParam">
+    <ref name="processParam.element"/>
+  </define>
+  
+  <!-- Define elements content and attributes -->
+  
+  <!-- 
+    <deliverableInstanceMetadata class="+ topic/data " >
+      <rootMap  class="+ topic/data " >file://home/user/maps/map-a.ditamap</rootMap>
+      <finalDeliveryLocation class="+ topic/data " >http://example.com/publications/pub-a/index.html</finalDeliveryLocation>
+    </deliverableInstanceMetadata>
+
+  -->
+  
+  <!-- LONG NAME: Deliverable instance metadata -->
+  <define name="deliverableInstanceMetadata.content">
+    <group>
+      <ref name="rootMap"/>
+      <ref name="finalDeliveryLocation"/>
+    </group>
+  </define>
+  <define name="deliverableInstanceMetadata.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="deliverableInstanceMetadata.element">
+    <element name="deliverableInstanceMetadata">
+      <a:documentation>Contains the metadata describing an instance of a deliverable for a 
+      specific root map.</a:documentation>
+      <ref name="deliverableInstanceMetadata.attlist"/>
+      <ref name="deliverableInstanceMetadata.content"/>
+    </element>
+  </define>
+  <define name="deliverableInstanceMetadata.attlist" combine="interleave">
+    <ref name="deliverableInstanceMetadata.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: Root Map -->
+  <define name="rootMap.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="rootMap.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="rootMap.element">
+    <element name="rootMap">
+      <a:documentation>Specifies the URI of the root map from which the deliverable was produced.</a:documentation>
+      <ref name="rootMap.attlist"/>
+      <ref name="rootMap.content"/>
+    </element>
+  </define>
+  <define name="rootMap.attlist" combine="interleave">
+    <ref name="rootMap.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: Final Delivery Location -->
+  <define name="finalDeliveryLocation.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="finalDeliveryLocation.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="finalDeliveryLocation.element">
+    <element name="finalDeliveryLocation">
+      <a:documentation>Specifies the URI of the location where the deliverable will be published.</a:documentation>
+      <ref name="finalDeliveryLocation.attlist"/>
+      <ref name="finalDeliveryLocation.content"/>
+    </element>
+  </define>
+  <define name="finalDeliveryLocation.attlist" combine="interleave">
+    <ref name="finalDeliveryLocation.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: Deliverable Process Metadata -->
+  <define name="deliverableProcessMetadata.content">
+    <group>
+      <ref name="transformType"/>
+      <ref name="deliverableDatatype"/>
+      <choice>
+        <ref name="ditavals"/>
+      </choice>
+      <choice>
+        <ref name="processParameters"/>
+      </choice>
+    </group>
+  </define>
+  <define name="deliverableProcessMetadata.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="deliverableProcessMetadata.element">
+    <element name="deliverableProcessMetadata">
+      <a:documentation>Defines a deliverable process.</a:documentation>
+      <ref name="deliverableProcessMetadata.attlist"/>
+      <ref name="deliverableProcessMetadata.content"/>
+    </element>
+  </define>
+  <define name="deliverableProcessMetadata.attlist" combine="interleave">
+    <ref name="deliverableProcessMetadata.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: transformType -->
+  <define name="transformType.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="transformType.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="transformType.element">
+    <element name="transformType">
+      <a:documentation>The "transformation type", as for the DITA Open Toolkit.
+      More generally, the transformation type represents a class of processes
+      that produce a specific type of output, such as HTML, PDF, EPUB, etc.
+      The exact meaning of transformation type names is processor-specific.</a:documentation>
+      <ref name="transformType.attlist"/>
+      <ref name="transformType.content"/>
+    </element>
+  </define>
+  <define name="transformType.attlist" combine="interleave">
+    <ref name="transformType.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: Deliverable Datatype -->
+  <define name="deliverableDatatype.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="deliverableDatatype.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="deliverableDatatype.element">
+    <element name="deliverableDatatype">
+      <a:documentation>The datatype of the deliverable produced, such as
+      "HTML", "XHTML", "PDF", "EPUB2", "EPUB3", etc. The same transformation
+      type may result in different deliverable datatypes.</a:documentation>
+      <ref name="deliverableDatatype.attlist"/>
+      <ref name="deliverableDatatype.content"/>
+    </element>
+  </define>
+  <define name="deliverableDatatype.attlist" combine="interleave">
+    <ref name="deliverableDatatype.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: ditavals -->
+  <define name="ditavals.content">
+    <zeroOrMore>
+      <choice>
+        <ref name="ditavalref"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="ditavals.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="ditavals.element">
+    <element name="ditavals">
+      <a:documentation>Contains references to the DITAVAL specifications
+      used as input to the deliverable production process.</a:documentation>
+      <ref name="ditavals.attlist"/>
+      <ref name="ditavals.content"/>
+    </element>
+  </define>
+  <define name="ditavals.attlist" combine="interleave">
+    <ref name="ditavals.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: ditavalref -->
+  <define name="ditavalref.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="ditavalref.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="ditavalref.element">
+    <element name="ditavalref">
+      <a:documentation>The URI of a DITAVAL document.</a:documentation>
+      <ref name="ditavalref.attlist"/>
+      <ref name="ditavalref.content"/>
+    </element>
+  </define>
+  <define name="ditavalref.attlist" combine="interleave">
+    <ref name="ditavalref.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: processParameters -->
+  <define name="processParameters.content">
+    <zeroOrMore>
+      <choice>
+        <ref name="processParam"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="processParameters.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="processParameters.element">
+    <element name="processParameters">
+      <a:documentation>Contains references to the DITAVAL specifications
+        used as input to the deliverable production process.</a:documentation>
+      <ref name="processParameters.attlist"/>
+      <ref name="processParameters.content"/>
+    </element>
+  </define>
+  <define name="processParameters.attlist" combine="interleave">
+    <ref name="processParameters.attributes"/>
+  </define>
+  
+  <!-- LONG NAME: processParam -->
+  <define name="processParam.content">
+    <choice>
+      <text/>
+    </choice>
+  </define>
+  <define name="processParam.attributes">
+    <attribute name="name"/>
+    <attribute name="value"/>
+    <ref name="univ-atts"/>    
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="processParam.element">
+    <element name="processParam">
+      <a:documentation>Represents a parameter to the production process. The @name attribute
+      specifies the parameter name, the @value attribute specifies the parameter value.</a:documentation>
+      <ref name="processParam.attlist"/>
+      <ref name="processParam.content"/>
+    </element>
+  </define>
+  <define name="processParam.attlist" combine="interleave">
+    <ref name="processParam.attributes"/>
+  </define>
+  
+  <!--  
+  <deliverableProcessMetadata>
+    <transformType>html</transformType>
+    <deliverableDatatype>HTML</deliverableDatatype>
+    <ditavals>
+      <ditavalref>file://home/user/ditavals/ditaval-01.ditaval</ditavalref>
+      <ditavalref>file://home/user/ditavals/ditaval-02.ditaval</ditavalref>
+    </ditavals>
+    <processParameters>
+      <processParam name="param1" value="value1"/>
+      <processParam name="param2" value="value2"/>
+    </processParameters>
+  </deliverableProcessMetadata>    
+  
+-->  
+  
+  <!-- Specialization attributes. Global attributes and class defaults -->
+
+  <define name="deliverableInstanceMetadata.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableInstanceMetadata "/>
+    </optional>
+  </define>
+  <define name="rootMap.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/rootMap "/>
+    </optional>
+  </define>
+  <define name="finalDeliveryLocation.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/finalDeliveryLocation "/>
+    </optional>
+  </define>
+  <define name="deliverableProcessMetadata.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableProcessMetadata "/>
+    </optional>
+  </define>
+  <define name="transformType.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/transformType "/>
+    </optional>
+  </define>
+  <define name="deliverableDatatype.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableDatatype "/>
+    </optional>
+  </define>
+  <define name="ditavals.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/ditavals "/>
+    </optional>
+  </define>
+  <define name="ditavalref.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/ditavalref "/>
+    </optional>
+  </define>
+  <define name="processParameters.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/processParameters "/>
+    </optional>
+  </define>
+  <define name="processParam.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/processParam "/>
+    </optional>
+  </define>
+</grammar>

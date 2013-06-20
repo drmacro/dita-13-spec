@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../doctypes/rng/deliverableDefinition.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <deliverableDefinition id="deliverable-def">
   <title>Deliverable Definition XYZ</title>
   <shortdesc>Parameters for HTML output filtered for ...</shortdesc>
-  <prolog/>
   <deliverableDefinitionBody>    
     <deliverableProcessMetadata>
       <transformType>html</transformType>

@@ -1,9 +1,9 @@
 <!-- 
-  Plugin descriptor for the Deliverable Metadata domain
+  Plugin descriptor for the Deliverable Definition topic type
   
   Copyright (c) 2013 OASIS Open
   
   -->
-<plugin id="org.oasis-open.dita.deliverableMetadataDomain.doctypes">
+<plugin id="org.oasis-open.dita.publishingvocab.doctypes">
   <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
 </plugin>
