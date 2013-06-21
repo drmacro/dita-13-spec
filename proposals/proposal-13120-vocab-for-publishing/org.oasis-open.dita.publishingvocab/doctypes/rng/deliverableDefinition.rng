@@ -33,7 +33,7 @@
   <include href="urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod.rng"/>
 -->  
   <include href="deliverableDefinitionMod.rng"/>
-  <include href="../../../org.oasis.dita.deliverableMetadataDomain/doctypes/rng/deliverableMetadataDomainMod.rng"/>
+  <include href="deliverableMetadataDomainMod.rng"/>
 
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->

@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ============================================================= 
-     MODULE:    DITA Deliverable Metadata Domain - RNG              
+     MODULE:    DITA Deliverable As-Delivered Key Definition Set - RNG              
      VERSION:   1.3                                           
-     DATE:      October 2013                                       
+     DATE:      June 2013                                       
      ============================================================= -->
 <!--
      Refer to the latest version of this file by the following URI:
-     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod
+     urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod
      To refer to this specific version, you may use this value:
-     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod:1.3
+     urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod:1.3
 -->
-<!-- ============================================================= 
-     SYSTEM:     Darwin Information Typing Architecture (DITA)     
-     PURPOSE:    Define elements and specialization attributes
-                 for Highlight Domain             
-     ORIGINAL CREATION DATE:  
-     September 2010                                                
-     (C) Copyright Syncro Soft 2010-2011                                
-     All Rights Reserved.                                          
-     ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"

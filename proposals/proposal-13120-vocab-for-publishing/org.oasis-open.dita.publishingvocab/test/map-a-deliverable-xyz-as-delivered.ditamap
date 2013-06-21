@@ -21,7 +21,7 @@
     </deliverableProcessMetadata>        
   </deliverableKeydefsetMetadata>
   <topicgroup class="+ map/topicref mapgroup-d/topicgroup ">
-    <keydef keys="key-01" href="http://foo/bar.html" 
+    <keydef keys="key-01" href="http://example.com/publications/pub-a/topic-01.html" 
       format="html" 
       scope="external"
       class="+ map/topicref mapgroup-d/keydef "

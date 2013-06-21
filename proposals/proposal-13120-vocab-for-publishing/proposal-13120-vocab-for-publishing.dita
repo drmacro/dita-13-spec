@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
  "reference.dtd">
-<reference id="IssueNumber00" xml:lang="en-us">
+<reference id="IssueNumber13120" xml:lang="en-us">
 <title>DITA 1.3 proposed feature 13120 Vocabulary for Publishing Process
     Definitions</title>
 <shortdesc>Provides a vocabulary for capturing the details of deliverable
@@ -55,10 +55,17 @@
         communicate between production process instances for different
         deliverables the data needed to produce correct cross-deliverable links.
         The minimum data items required are the same regardless of the
-        processing implementation details.</p></section>
+        processing implementation details.</p>
+      <p>See <xref
+        href="#IssueNumber13120/technical-requirements"
+        format="dita"/> for details on the processing involved in
+        cross-deliverable addressing.</p></section>
 <section><title>Benefits</title><p>Address the following questions:<ul>
      <li>Who will benefit from this feature?<p>Anyone who needs to produce
-          deliverables with links to other deliverables.</p></li>
+          deliverables with links to other deliverables.</p><p>Implementors of
+          tools will benefit from having a standard for communicating
+          processing-specific information, removing the need to for each tool to
+          invent such a mechanism for itself.</p></li>
      <li>What is the expected benefit?<p>This proposal standardizes something
           that would otherwise require non-standard solutions. By being a
           standard it enables interoperation of otherwise uncoordinated
@@ -115,8 +122,11 @@
           implement support for it. Users that do not have such a requirement do
           not need to be aware of this feature. </p></li>
     </ul></p></section>
-<section><title>Technical requirements</title>
-      <p><b>Terminology</b></p><p>
+<section
+      id="technical-requirements">
+      <title>Technical requirements</title>
+      <p><b>Terminology</b></p>
+      <p>
         <dl>
           <dlentry>
             <dt>publication</dt>
@@ -137,17 +147,18 @@
           </dlentry>
           <dlentry>
             <dt>deliverable definition</dt>
-            <dd>The set of parameters used to produce a <term>deliverable
-              instance</term>.</dd>
+            <dd>The set of parameters used to produce a
+              <term>deliverable</term>.</dd>
           </dlentry>
           <dlentry>
-            <dt>as-published keydef set</dt>
+            <dt>as-published key definition set</dt>
             <dd>A set of key definitions reflecting the key names as used by a
               specific <term>publication</term> and the locations of the
-              referenced resources as published in a specific <term>deliverable
-              instance</term>. These keydef sets are used in the processing of
-              the referencing <term>publication</term> to produce the final
-              deliverable with correct peer resource references.</dd>
+              referenced resources as published in a specific
+              <term>deliverable</term>. These key definition sets are used in
+              the processing of the referencing <term>publication</term> to
+              produce the final deliverable with correct peer resource
+              references.</dd>
           </dlentry>
         </dl>
       </p>
@@ -164,73 +175,155 @@
         cross-deliverable links, then the production process can be a single
         pass such that the immediate output of the production process is the
         final deliverable. </p>
-      <p>However, when may be cross-deliverable links, the production process
-        must necessarily be a two-pass process in order to resolve reflexive
-        dependencies among the deliverables involved. That is, if deliverable A
-        links to deliverable B and deliverable B links to deliverable A, both A
-        and B must be produced once, producing mappings of the addresses in A
-        and B as authored to those same things in A and B as delivered. Those
-        mappings are then inputs to the second-pass processing of maps A and B,
-        with B's mapping being an input to A's second pass and A's mapping an
-        input to B's second pass. (And in fact, more than two passes may be
-        required if the result using deliverable-specific addresses in the
-        second pass would change the addressing details in the deliverable, for
-        example, changing the page numbers on which a given potential target
-        element fell. However, for deliverables where addressing is by some form
-        of ID not dependent on things like pagination, two passes should always
-        be sufficient.)</p>
+      <p>However, when there may be cross-deliverable links, the production
+        process must necessarily be a two-pass process in order to resolve
+        reflexive dependencies among the deliverables involved. That is, if
+        deliverable A links to deliverable B and deliverable B links to
+        deliverable A, both A and B must be produced once, producing mappings of
+        the addresses in A and B as authored to those same things in A and B as
+        delivered. Those mappings are then inputs to the second-pass processing
+        of maps A and B, with B's mapping being an input to A's second pass and
+        A's mapping an input to B's second pass. (And in fact, more than two
+        passes may be required if the result of using deliverable-specific
+        addresses in the second pass would change the addressing details in the
+        deliverable, for example, changing the page numbers on which a given
+        potential target element fell. However, for deliverables where
+        addressing is by some form of ID not dependent on things like
+        pagination, two passes should always be sufficient.)</p>
       <p>The details of the processing are of course processor specific, but the
         general algorithm for the two-pass process is independent of
         implementation details. In particular, the processing can be defined
         entirely in terms of simple one-pass processes plus manual manipulation
         of the original input maps between pass one and pass two. Of course,
         processing tools would likely automate these intermediate steps, but
-        such automation is a not prerequisite for applying this process.</p>
+        such automation is not a prerequisite for applying this process.</p>
       <p>Also, note that per proposal 13041, Cross-deliverable Linking, from a
         given root map, you know which other root maps it has links to. This
-        means that processors can treat the processing of a root map and its
-        cross-deliverable link dependencies as a single production action if
-        necessary.</p>
+        means that the two-pass process can be fully automated when the business
+        rules for selecting the target deliverables to use are also automatable
+        (for example, "like links to like"). It is automatable because the
+        system knows which key references are to peer maps and therefore can
+        replace those key references with the appropriate as-delivered maps for
+        the target deliverables produced from those peer maps in the
+        intermediate maps produced out of pass 1, as described below.</p>
+      <p>Another challenge with cross-deliverable addressing is key-based
+        addressing of elements within topics. Because keys can only address
+        topics, key-based references to elements within topics always consist of
+        a key/element-id pair specified at the point of reference. This means
+        that in the DITA content as authored, there is not a single indirector
+        for each element referenced, there is only the indirector to the
+        containing topic. For example, consider the case where a topic has two
+        addressible elements, "fig-01" and "fig-02" and that topic is bound to
+        the key "topic-02". The key definition will
+        be:<codeblock>&lt;map>
+  ...
+  &lt;keydef keys="topic-02"
+       href="topics/topic-02.dita"
+  />
+  ...
+  &lt;topicref href="topics/topic-01.dita"/>
+  &lt;topicref href="topics/topic-02.dita"/>
+&lt;/map></codeblock></p>
+      <p>Within topic 2 there are then two cross references, one to each
+        figure:<codeblock>&lt;topic id="topic-02">
+  &lt;title>Topic Two&lt;/title>
+  &lt;body>
+   &lt;p>See <b>&lt;xref keyref="topic-02/fig-01"/></b> ...&lt;/p>
+   &lt;p>See <b>&lt;xref keyref="topic-02/fig-02"/></b> ...&lt;/p>
+  &lt;/body>
+&lt;/topic></codeblock></p>
+      <p>In the as-delivered key definition set, each figure needs to have its
+        own key because there must be a separate URI for each thing to be
+        addressed in the deliverable. Thus both the generated keys and the
+        references to them will be different from the source as authored. </p>
+      <p>The as-delivered keys will be something
+        like:<codeblock>&lt;deliverableAsDeliveredKeydefSet>
+  ...
+  &lt;keydef keys="topic-02"
+       href="http://example.com/pubs/map-b/topics/topic-02.html"
+       format="html"
+       scope="external"
+  />
+  &lt;keydef keys="topic-02_fig-01"
+       href="http://example.com/pubs/topics/topic-02.html#fig-01"
+       format="html"
+       scope="external"
+  />
+  &lt;keydef keys="topic-02_fig-02"
+       href="http://example.com/pubs/topics/topic-02.html#fig-02"
+       format="html"
+       scope="external"
+  />
+&lt;/deliverableAsDeliveredKeydefSet></codeblock></p>
+      <p>Likewise, the copy of topic 2 generated out of pass 1 must reflect
+        these new
+        keys:<codeblock>&lt;topic id="topic-02">
+  &lt;title>Topic Two&lt;/title>
+  &lt;body>
+   &lt;p>See <b>&lt;xref keyref="topic-02_fig-01"/></b> ...&lt;/p>
+   &lt;p>See <b>&lt;xref keyref="topic-02_fig-02"/></b> ...&lt;/p>
+  &lt;/body>
+&lt;/topic></codeblock></p>
+      <p>Note that now the @keyref values are just key references, not
+        key/element-id pairs.</p>
+      <p>The implication of this is that the as-delivered key definition set
+        must include a key definition for each element within a topic when the
+        topic is also bound to a key (topics for which there is no key binding
+        cannot be addressed across deliverables and thus their elements are not
+        relevant for cross-deliverable addressing). Because in the general case
+        you cannot predict what other documents may want to link to what
+        addressible elements in the document you are producing, the only option
+        is to generate key bindings for all of them. In the case where a
+        processor is processing a set of interrelated documents together as a
+        unit it can optimize the key definition set by determining the set of
+        things that are actually addressed from other documents and generating
+        only the key definitions that are required.</p>
       <p>The two pass production process can be summarized as:<ol
         id="ol_axq_5kj_4k">
         <li>Pass 1: The initial root map is processed to produce a specific
           deliverable, as described by a <term>deliverable definition</term>.
-          The deliverable definition must include the following details:<ul
+          The deliverable definition must include the following information:<ul
           id="ul_nxq_5kj_4k">
-          <li>The deliverable details, which must include:<ul
-            id="ul_gwz_qlj_4k">
-            <li>The data type of the deliverable (HTML, PDF, EPUB, etc.)</li>
-            <li>The location of the deliverable as delivered.</li>
-            </ul></li>
+          <li>The deliverable details, which must include the data type of the
+            deliverable (HTML, PDF, EPUB, etc.)</li>
           <li>Any DITAVAL specifications.</li>
           <li>Any processor-specific parameters that could affect the details of
-            deliverable in a way that would affect addressing of the
+            the deliverable in a way that would affect addressing of the
             deliverable.</li>
           </ul><p>Note that a root map/deliverable definition pair uniquely
-          identifies a deliverable instance. </p><p>The output of pass one is
-          four things:<ol
+          identifies a deliverable instance. </p><p>The output of pass one
+          includes the following artifacts:<ul
           id="ol_kw4_3pj_4k">
-          <li>The first-pass version of the deliverable</li>
           <li>An <term>as-delivered</term> key definition set that reflects for
-            each key defined in the original input map, the location of the
+            each key defined in the original input map and each element with an
+            ID in each topic to which a key is bound, the location of the
             referenced resource in the deliverable produced. Each key in the
-            definition set as a @scope of "external" and a @format value
+            definition set has a @scope of "external" and a @format value
             reflecting the data type of the deliverable, e.g. "html", "pdf",
-            etc., e.g. The @href value reflects the location of deliverable,
+            etc., e.g. The @href value reflects the location of the deliverable,
             usually (but not necessarily) as an absolute
             URL:<codeblock>    &lt;keydef keys="key-01" 
-      href="http://foo/bar.html" 
+      href="http://example.com/foo/bar.html" 
       format="html" 
       scope="external"
     />
 </codeblock></li>
-          <li>A copy of the original input map to be used as the input to pass
-            two in place of the original input map. This copy of the map can
-            reflect any merging of sub maps or propagation of attributes
-            performed in the first pass, as the processing parameters that could
-            affect the details of the merged map and propagated attributes will
-            not change between pass 1 and pass 2.</li>
-          </ol></p></li>
+          <li>A copy of the original input map to be used as the input to pass 2
+            in place of the original input map. This copy of the map can reflect
+            any merging of sub maps or propagation of attributes performed in
+            the first pass, as the processing parameters that could affect the
+            details of the merged map and propagated attributes will not change
+            between pass 1 and pass 2.</li>
+          <li>A copy of each topic where each key reference is rewritten as
+            necessary to replace key/element-id pairs with single keys bound to
+            direct URI references to the target element as delivered.</li>
+          </ul></p><p>Note that it is not necessary actually produce the
+          deliverable in pass 1, it is only necessary to determine what the
+          location as delivered for each key is. That determination may require
+          actually generating the deliverable or it may be the application of a
+          simple algorithm, depending on the nature of the deliverable format
+          and the business rules for generating addresses in the result
+          deliverable.</p></li>
         <li>For each root map to which the initial root map links, all required
           deliverables are produced and the as-delivered key definitions for
           each map are made available to the person or automated system managing
@@ -245,7 +338,7 @@
           produce HTML, PDF, and EPUB for each publication".</li>
         <li>The agent managing the processing of the initial map decides, for
           each target peer map, which deliverables it needs to link to and then
-          choose or edits as necessary the peer map's as-delivered keydef sets
+          chooses or edits as necessary the peer map's as-delivered keydef sets
           until they have a set of keys that reflects their required links from
           the deliverable for the initial root map to the deliverables for the
           target peer map. <p>This editing process can be as simple as replacing
@@ -274,16 +367,808 @@
         set that contains that information, making the key definition set
         discoverable regardless of what processing system produced it.</p>
       <p><b>Markup Design</b></p>
-      <p>The markup design consists to two components:<ul
+      <p>The markup design consists to three modules:<ul
         id="ul_alf_2wj_4k">
-        <li>A deliverable details metadata domain that provides elements for
-          capturing all the details about a deliverable.</li>
+        <li>A deliverable definition metadata domain that provides elements for
+          capturing all the relevant details about a deliverable production
+          process or a deliverable instance.</li>
         <li>A specialized deliverable-definition topic type used to represent
           deliverable definitions. It uses the deliverable details metadata
           domain for all deliverable-specific metadata.</li>
-        </ul></p></section>
-<section><title>Examples</title><p>Provide examples of the proposed feature. Include an example for each of the use cases. Be sure
-    to include edge cases, if known.</p></section>
+        <li>A deliverable as-delivered key definition set map type that
+          integrates the deliverable metadata domain.</li>
+        </ul><fig
+        id="fig_nfn_22p_4k">
+        <title>Deliverable metadata domain declarations (RelaxNG)</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= 
+     MODULE:    DITA Deliverable Metadata Domain - RNG              
+     VERSION:   1.3                                           
+     DATE:      October 2013                                       
+     ============================================================= -->
+&lt;!--
+     Refer to the latest version of this file by the following URI:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod
+     To refer to this specific version, you may use this value:
+     urn:oasis:names:tc:dita:rng:deliverableMetadataDomainMod:1.3
+-->
+&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic deliveryMetadata-d)&lt;/value>
+  &lt;/define>
+  
+  &lt;!-- Define domain extension patterns -->
+  &lt;define name="deliveryMetadata-d-data">
+    &lt;choice>
+      &lt;ref name="deliverableInstanceMetadata.element"/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;!-- Extend the patterns with the domain contribution -->
+  &lt;define name="data" combine="choice">
+    &lt;ref name="deliveryMetadata-d-data"/>
+  &lt;/define>
+  
+  &lt;define name="deliverableInstanceMetadata">
+    &lt;ref name="deliverableInstanceMetadata.element"/>
+  &lt;/define>
+  &lt;define name="rootMap">
+    &lt;ref name="rootMap.element"/>
+  &lt;/define>
+  &lt;define name="finalDeliveryLocation">
+    &lt;ref name="finalDeliveryLocation.element"/>
+  &lt;/define>
+  &lt;define name="deliverableProcessMetadata">
+    &lt;ref name="deliverableProcessMetadata.element"/>
+  &lt;/define>
+  &lt;define name="transformType">
+    &lt;ref name="transformType.element"/>
+  &lt;/define>
+  &lt;define name="deliverableDatatype">
+    &lt;ref name="deliverableDatatype.element"/>
+  &lt;/define>
+  &lt;define name="ditavals">
+    &lt;ref name="ditavals.element"/>
+  &lt;/define>
+  &lt;define name="ditavalref">
+    &lt;ref name="ditavalref.element"/>
+  &lt;/define>
+  &lt;define name="processParameters">
+    &lt;ref name="processParameters.element"/>
+  &lt;/define>
+  &lt;define name="processParam">
+    &lt;ref name="processParam.element"/>
+  &lt;/define>
+  
+  &lt;!-- Define elements content and attributes -->
+  
+  &lt;!-- 
+    &lt;deliverableInstanceMetadata class="+ topic/data " >
+      &lt;rootMap  class="+ topic/data " >file://home/user/maps/map-a.ditamap&lt;/rootMap>
+      &lt;finalDeliveryLocation class="+ topic/data " >http://example.com/publications/pub-a/index.html&lt;/finalDeliveryLocation>
+    &lt;/deliverableInstanceMetadata>
+
+  -->
+  
+  &lt;!-- LONG NAME: Deliverable instance metadata -->
+  &lt;define name="deliverableInstanceMetadata.content">
+    &lt;group>
+      &lt;ref name="rootMap"/>
+      &lt;ref name="finalDeliveryLocation"/>
+    &lt;/group>
+  &lt;/define>
+  &lt;define name="deliverableInstanceMetadata.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableInstanceMetadata.element">
+    &lt;element name="deliverableInstanceMetadata">
+      &lt;a:documentation>Contains the metadata describing an instance of a deliverable for a 
+      specific root map.&lt;/a:documentation>
+      &lt;ref name="deliverableInstanceMetadata.attlist"/>
+      &lt;ref name="deliverableInstanceMetadata.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableInstanceMetadata.attlist" combine="interleave">
+    &lt;ref name="deliverableInstanceMetadata.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: Root Map -->
+  &lt;define name="rootMap.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="rootMap.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="rootMap.element">
+    &lt;element name="rootMap">
+      &lt;a:documentation>Specifies the URI of the root map from which the deliverable was produced.&lt;/a:documentation>
+      &lt;ref name="rootMap.attlist"/>
+      &lt;ref name="rootMap.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="rootMap.attlist" combine="interleave">
+    &lt;ref name="rootMap.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: Final Delivery Location -->
+  &lt;define name="finalDeliveryLocation.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="finalDeliveryLocation.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="finalDeliveryLocation.element">
+    &lt;element name="finalDeliveryLocation">
+      &lt;a:documentation>Specifies the URI of the location where the deliverable will be published.&lt;/a:documentation>
+      &lt;ref name="finalDeliveryLocation.attlist"/>
+      &lt;ref name="finalDeliveryLocation.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="finalDeliveryLocation.attlist" combine="interleave">
+    &lt;ref name="finalDeliveryLocation.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: Deliverable Process Metadata -->
+  &lt;define name="deliverableProcessMetadata.content">
+    &lt;group>
+      &lt;ref name="transformType"/>
+      &lt;ref name="deliverableDatatype"/>
+      &lt;choice>
+        &lt;ref name="ditavals"/>
+      &lt;/choice>
+      &lt;choice>
+        &lt;ref name="processParameters"/>
+      &lt;/choice>
+    &lt;/group>
+  &lt;/define>
+  &lt;define name="deliverableProcessMetadata.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableProcessMetadata.element">
+    &lt;element name="deliverableProcessMetadata">
+      &lt;a:documentation>Defines a deliverable process.&lt;/a:documentation>
+      &lt;ref name="deliverableProcessMetadata.attlist"/>
+      &lt;ref name="deliverableProcessMetadata.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableProcessMetadata.attlist" combine="interleave">
+    &lt;ref name="deliverableProcessMetadata.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: transformType -->
+  &lt;define name="transformType.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="transformType.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="transformType.element">
+    &lt;element name="transformType">
+      &lt;a:documentation>The "transformation type", as for the DITA Open Toolkit.
+      More generally, the transformation type represents a class of processes
+      that produce a specific type of output, such as HTML, PDF, EPUB, etc.
+      The exact meaning of transformation type names is processor-specific.&lt;/a:documentation>
+      &lt;ref name="transformType.attlist"/>
+      &lt;ref name="transformType.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="transformType.attlist" combine="interleave">
+    &lt;ref name="transformType.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: Deliverable Datatype -->
+  &lt;define name="deliverableDatatype.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="deliverableDatatype.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableDatatype.element">
+    &lt;element name="deliverableDatatype">
+      &lt;a:documentation>The datatype of the deliverable produced, such as
+      "HTML", "XHTML", "PDF", "EPUB2", "EPUB3", etc. The same transformation
+      type may result in different deliverable datatypes.&lt;/a:documentation>
+      &lt;ref name="deliverableDatatype.attlist"/>
+      &lt;ref name="deliverableDatatype.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableDatatype.attlist" combine="interleave">
+    &lt;ref name="deliverableDatatype.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: ditavals -->
+  &lt;define name="ditavals.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="ditavalref"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="ditavals.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="ditavals.element">
+    &lt;element name="ditavals">
+      &lt;a:documentation>Contains references to the DITAVAL specifications
+      used as input to the deliverable production process.&lt;/a:documentation>
+      &lt;ref name="ditavals.attlist"/>
+      &lt;ref name="ditavals.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="ditavals.attlist" combine="interleave">
+    &lt;ref name="ditavals.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: ditavalref -->
+  &lt;define name="ditavalref.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="ditavalref.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="ditavalref.element">
+    &lt;element name="ditavalref">
+      &lt;a:documentation>The URI of a DITAVAL document.&lt;/a:documentation>
+      &lt;ref name="ditavalref.attlist"/>
+      &lt;ref name="ditavalref.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="ditavalref.attlist" combine="interleave">
+    &lt;ref name="ditavalref.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: processParameters -->
+  &lt;define name="processParameters.content">
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="processParam"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="processParameters.attributes">
+    &lt;ref name="univ-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="processParameters.element">
+    &lt;element name="processParameters">
+      &lt;a:documentation>Contains references to the DITAVAL specifications
+        used as input to the deliverable production process.&lt;/a:documentation>
+      &lt;ref name="processParameters.attlist"/>
+      &lt;ref name="processParameters.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="processParameters.attlist" combine="interleave">
+    &lt;ref name="processParameters.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: processParam -->
+  &lt;define name="processParam.content">
+    &lt;choice>
+      &lt;text/>
+    &lt;/choice>
+  &lt;/define>
+  &lt;define name="processParam.attributes">
+    &lt;attribute name="name"/>
+    &lt;attribute name="value"/>
+    &lt;ref name="univ-atts"/>    
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="processParam.element">
+    &lt;element name="processParam">
+      &lt;a:documentation>Represents a parameter to the production process. The @name attribute
+      specifies the parameter name, the @value attribute specifies the parameter value.&lt;/a:documentation>
+      &lt;ref name="processParam.attlist"/>
+      &lt;ref name="processParam.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="processParam.attlist" combine="interleave">
+    &lt;ref name="processParam.attributes"/>
+  &lt;/define>
+  
+  &lt;!--  
+  &lt;deliverableProcessMetadata>
+    &lt;transformType>html&lt;/transformType>
+    &lt;deliverableDatatype>HTML&lt;/deliverableDatatype>
+    &lt;ditavals>
+      &lt;ditavalref>file://home/user/ditavals/ditaval-01.ditaval&lt;/ditavalref>
+      &lt;ditavalref>file://home/user/ditavals/ditaval-02.ditaval&lt;/ditavalref>
+    &lt;/ditavals>
+    &lt;processParameters>
+      &lt;processParam name="param1" value="value1"/>
+      &lt;processParam name="param2" value="value2"/>
+    &lt;/processParameters>
+  &lt;/deliverableProcessMetadata>    
+  
+-->  
+  
+  &lt;!-- Specialization attributes. Global attributes and class defaults -->
+
+  &lt;define name="deliverableInstanceMetadata.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableInstanceMetadata "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="rootMap.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/rootMap "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="finalDeliveryLocation.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/finalDeliveryLocation "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableProcessMetadata.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableProcessMetadata "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="transformType.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/transformType "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableDatatype.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/deliverableDatatype "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="ditavals.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/ditavals "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="ditavalref.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/ditavalref "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="processParameters.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/processParameters "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="processParam.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/data deliverableMetadata-d/processParam "/>
+    &lt;/optional>
+  &lt;/define>
+&lt;/grammar></codeblock>
+        </fig><fig
+        id="fig_n2c_32p_4k">
+        <title>Deliverable definition topic type (RelaxNG)</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= 
+  MODULE:    DITA Deliverable Definition - RNG              
+  VERSION:   1.3                                                
+  DATE:      June 2013                                       
+  ============================================================= -->
+&lt;!--
+  Refer to the latest version of this file by the following URI:
+  urn:oasis:names:tc:dita:rng:deliverableDefinition.mod.rng
+  To refer to this specific version, you may use this value:
+  urn:oasis:names:tc:dita:deliverableDefinition.mod.rng:1.3
+-->
+&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(topic deliverableDefinition)&lt;/value>
+  &lt;/define>
+  
+  &lt;!-- Topic nesting -->
+  &lt;define name="deliverableDefinition-info-types">
+    &lt;notAllowed/>
+  &lt;/define>
+  
+  &lt;!-- Define patterns -->
+  &lt;define name="deliverableDefinition">
+    &lt;ref name="deliverableDefinition.element"/>
+  &lt;/define>
+  &lt;define name="deliverableDefinitionBody">
+    &lt;ref name="deliverableDefinitionBody.element"/>
+  &lt;/define>
+  
+  &lt;!-- Define elements content and attributes -->
+  
+  &lt;!-- LONG NAME: Concept -->
+  &lt;define name="deliverableDefinition.content">
+    &lt;ref name="title"/>
+    &lt;optional>
+      &lt;ref name="titlealts"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;choice>
+        &lt;ref name="abstract"/>
+        &lt;ref name="shortdesc"/>
+      &lt;/choice>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="prolog"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="deliverableDefinitionBody"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="related-links"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="deliverableDefinition-info-types"/>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="deliverableDefinition.attributes">
+    &lt;attribute name="id">
+      &lt;data type="ID"/>
+    &lt;/attribute>
+    &lt;ref name="conref-atts"/>
+    &lt;ref name="select-atts"/>
+    &lt;ref name="localization-atts"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableDefinition.element">
+    &lt;element name="deliverableDefinition">
+      &lt;a:documentation>The &amp;lt;deliverableDefinition> element is the top-level element for a topic that answers
+        the question what is? Concepts provide background information that users must know before
+        they can successfully work with a product or interface. Often, a deliverableDefinition is an extended
+        definition of a major abstraction such as a process or function. It might also have an
+        example or a graphic, but generally the structure of a deliverableDefinition is fairly simple. 
+        Category: Concept elements&lt;/a:documentation>
+      &lt;ref name="deliverableDefinition.attlist"/>
+      &lt;ref name="deliverableDefinition.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableDefinition.attlist" combine="interleave">
+    &lt;ref name="deliverableDefinition.attributes"/>
+    &lt;ref name="arch-atts"/>
+    &lt;ref name="domains-atts"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: Deliverable Definition Body Body -->
+  &lt;define name="deliverableDefinitionBody.content">
+    &lt;choice>
+      &lt;ref name="deliverableProcessMetadata"/>
+    &lt;/choice>
+    &lt;zeroOrMore>
+      &lt;ref name="body.cnt"/>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="deliverableDefinitionBody.attributes">
+    &lt;ref name="id-atts"/>
+    &lt;ref name="localization-atts"/>
+    &lt;optional>
+      &lt;attribute name="base"/>
+    &lt;/optional>
+    &lt;ref name="base-attribute-extensions"/>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableDefinitionBody.element">
+    &lt;element name="deliverableDefinitionBody">
+      &lt;a:documentation>The &amp;lt;deliverableDefinitionBody> element is the main body-level element for a deliverableDefinition. Contains the deliverable definition metadata, optionally followed by
+      any normal topic body content.&lt;/a:documentation>
+      &lt;ref name="deliverableDefinitionBody.attlist"/>
+      &lt;ref name="deliverableDefinitionBody.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableDefinitionBody.attlist" combine="interleave">
+    &lt;ref name="deliverableDefinitionBody.attributes"/>
+  &lt;/define>
+  
+
+  &lt;!-- Specialization attributes. Global attributes and class defaults -->
+
+  &lt;define name="deliverableDefinition.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="- topic/topic deliverableDefinition/deliverableDefinition "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableDefinitionBody.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="- topic/body  deliverableDefinition/deliverableDefinitionBody "/>
+    &lt;/optional>
+  &lt;/define>
+&lt;/grammar></codeblock>
+        </fig><fig
+        id="fig_ewk_k2p_4k">
+        <title>Deliverable as-delivered key definition set declarations
+          (RelaxNG)</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= 
+     MODULE:    DITA Deliverable As-Delivered Key Definition Set - RNG              
+     VERSION:   1.3                                           
+     DATE:      June 2013                                       
+     ============================================================= -->
+&lt;!--
+     Refer to the latest version of this file by the following URI:
+     urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod
+     To refer to this specific version, you may use this value:
+     urn:oasis:names:tc:dita:rng:deliverableAsDeliveredKeydefSetMod:1.3
+-->
+&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
+  
+  &lt;!-- Define the domain values of this module -->
+  &lt;define name="domains-atts-value" combine="choice">
+    &lt;value>(map deliverableAsDeliveredKeydefSet deliveryMetadata-d)&lt;/value>
+  &lt;/define>
+  
+  &lt;!-- Define patterns -->
+  &lt;define name="deliverableAsDeliveredKeydefSet">
+    &lt;ref name="deliverableAsDeliveredKeydefSet.element"/>
+  &lt;/define>
+  &lt;define name="deliverableKeydefsetMetadata">
+    &lt;ref name="deliverableKeydefsetMetadata.element"/>
+  &lt;/define>
+  
+  
+  &lt;!-- LONG NAME: Deliverable-As-Delivered Key Definition Set -->
+  &lt;define name="deliverableAsDeliveredKeydefSet.content">
+    &lt;optional>
+      &lt;ref name="title"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="deliverableKeydefsetMetadata"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="data.elements.incl"/>
+        &lt;ref name="topicref"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="deliverableAsDeliveredKeydefSet.attributes">
+    &lt;optional>
+      &lt;attribute name="title"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="id">
+        &lt;data type="ID"/>
+      &lt;/attribute>
+    &lt;/optional>
+    &lt;ref name="conref-atts"/>
+    &lt;optional>
+      &lt;attribute name="anchorref"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;attribute name="outputclass"/>
+    &lt;/optional>
+    &lt;ref name="localization-atts"/>
+    &lt;ref name="topicref-atts"/>
+    &lt;ref name="select-atts"/>
+  &lt;/define>
+  &lt;define name="deliverableAsDeliveredKeydefSet.element">
+    &lt;a:documentation>The &amp;lt;map> element is used to define a map which describes the relationships
+      among a set of resources, such as DITA topics. Maps consist of references to topics and other
+      resources organized into hierarchies, groups, and tables. Maps provide a way to express these
+      relationships in a single common format that can be used for different outputs. 
+      Category: Map elements&lt;/a:documentation>
+    &lt;element name="deliverableAsDeliveredKeydefSet">
+      &lt;ref name="deliverableAsDeliveredKeydefSet.attlist"/>
+      &lt;ref name="deliverableAsDeliveredKeydefSet.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableAsDeliveredKeydefSet.attlist" combine="interleave">
+    &lt;ref name="deliverableAsDeliveredKeydefSet.attributes"/>
+    &lt;ref name="arch-atts"/>
+    &lt;ref name="domains-atts"/>
+  &lt;/define>
+  
+  &lt;!-- LONG NAME: deliverableKeydefsetMetadata -->
+  &lt;define name="deliverableKeydefsetMetadata.content">
+    &lt;optional>
+      &lt;ref name="navtitle"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="searchtitle"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="shortdesc"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="author"/>
+    &lt;/zeroOrMore>
+    &lt;optional>
+      &lt;ref name="source"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="publisher"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="copyright"/>
+    &lt;/zeroOrMore>
+    &lt;optional>
+      &lt;ref name="critdates"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="permissions"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="metadata"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="audience"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="category"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="keywords"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="prodinfo"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="othermeta"/>
+    &lt;/zeroOrMore>
+    &lt;zeroOrMore>
+      &lt;ref name="resourceid"/>
+    &lt;/zeroOrMore>
+    &lt;ref name="deliverableInstanceMetadata"/>
+    &lt;ref name="deliverableProcessMetadata"/>
+    &lt;zeroOrMore>
+      &lt;choice>
+        &lt;ref name="data.elements.incl"/>
+        &lt;ref name="foreign.unknown.incl"/>
+      &lt;/choice>
+    &lt;/zeroOrMore>
+  &lt;/define>
+  &lt;define name="deliverableKeydefsetMetadata.attributes">
+    &lt;optional>
+      &lt;attribute name="lockmeta">
+        &lt;choice>
+          &lt;value>no&lt;/value>
+          &lt;value>yes&lt;/value>
+          &lt;value>-dita-use-conref-target&lt;/value>
+        &lt;/choice>
+      &lt;/attribute>
+    &lt;/optional>
+    &lt;ref name="univ-atts"/>
+  &lt;/define>
+  &lt;define name="deliverableKeydefsetMetadata.element">
+    &lt;a:documentation>Holds the metadata that describes the deliverable instance this key definition set reflects.&lt;/a:documentation>
+    &lt;element name="deliverableKeydefsetMetadata">
+      &lt;ref name="deliverableKeydefsetMetadata.attlist"/>
+      &lt;ref name="deliverableKeydefsetMetadata.content"/>
+    &lt;/element>
+  &lt;/define>
+  &lt;define name="deliverableKeydefsetMetadata.attlist" combine="interleave">
+    &lt;ref name="deliverableKeydefsetMetadata.attributes"/>
+  &lt;/define>
+  
+  &lt;!-- Specialization attributes. Global attributes and class defaults -->
+
+  &lt;define name="deliverableAsDeliveredKeydefSet.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ map/map deliverableAsDeliveredKeydefSet/deliverableAsDeliveredKeydefSet "/>
+    &lt;/optional>
+  &lt;/define>
+  &lt;define name="deliverableKeydefsetMetadata.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="- map/topicmeta  deliverableAsDeliveredKeydefSet/deliverableKeydefsetMetadata "/>
+    &lt;/optional>
+  &lt;/define>
+&lt;/grammar></codeblock>
+        </fig></p>
+    </section>
+<section><title>Examples</title>
+      <fig
+        id="fig_zhh_p2p_4k">
+        <title>Sample deliverable definition</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?xml-model href="../doctypes/rng/deliverableDefinition.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+&lt;deliverableDefinition id="deliverable-def">
+  &lt;title>Deliverable Definition XYZ&lt;/title>
+  &lt;shortdesc>Parameters for HTML output filtered for ...&lt;/shortdesc>
+  &lt;deliverableDefinitionBody>    
+    &lt;deliverableProcessMetadata>
+      &lt;transformType>html&lt;/transformType>
+      &lt;deliverableDatatype>HTML&lt;/deliverableDatatype>
+      &lt;ditavals>
+        &lt;ditavalref>file://home/user/ditavals/ditaval-01.ditaval&lt;/ditavalref>
+        &lt;ditavalref>file://home/user/ditavals/ditaval-02.ditaval&lt;/ditavalref>
+      &lt;/ditavals>
+      &lt;processParameters>
+        &lt;processParam name="param1" value="value1"/>
+        &lt;processParam name="param2" value="value2"/>
+      &lt;/processParameters>
+    &lt;/deliverableProcessMetadata>    
+    &lt;p>Whatever additional information you want here.&lt;/p>
+  &lt;/deliverableDefinitionBody>
+&lt;/deliverableDefinition></codeblock>
+      </fig>
+      <fig
+        id="fig_vtd_r2p_4k">
+        <title>Sample as-delivered key definition set</title>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?xml-model href="../doctypes/rng/deliverableAsDeliveredKeydefSet.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+&lt;deliverableAsDeliveredKeydefSet>
+  &lt;title>Publication Map A As-Delivered Keydef set for Deliverable XYZ&lt;/title>
+  &lt;deliverableKeydefsetMetadata>
+    &lt;deliverableInstanceMetadata>
+      &lt;rootMap>file://home/user/maps/map-a.ditamap&lt;/rootMap>
+      &lt;finalDeliveryLocation>http://example.com/publications/pub-a/index.html&lt;/finalDeliveryLocation>
+    &lt;/deliverableInstanceMetadata>
+    &lt;deliverableProcessMetadata>
+      &lt;transformType>html&lt;/transformType>
+      &lt;deliverableDatatype>HTML&lt;/deliverableDatatype>
+      &lt;ditavals>
+        &lt;ditavalref>file://home/user/ditavals/ditaval-01.ditaval&lt;/ditavalref>
+        &lt;ditavalref>file://home/user/ditavals/ditaval-02.ditaval&lt;/ditavalref>
+      &lt;/ditavals>
+      &lt;processParameters>
+        &lt;processParam name="param1" value="value1"/>
+        &lt;processParam name="param2" value="value2"/>
+      &lt;/processParameters>
+    &lt;/deliverableProcessMetadata>        
+  &lt;/deliverableKeydefsetMetadata>
+  &lt;topicgroup>
+    &lt;keydef keys="key-01" href="http://example.com/publications/pub-a/topic-01.html" 
+      format="html" 
+      scope="external"
+    />
+  &lt;/topicgroup>
+&lt;/deliverableAsDeliveredKeydefSet></codeblock>
+      </fig></section>
 </refbody>
 </reference><?Pub Caret -3?>
 <?Pub *0000003625?>

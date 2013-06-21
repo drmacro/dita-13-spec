@@ -35,7 +35,6 @@
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>
-            <file name="proposals/proposal-13103-print-replacement/org.oasis-open.dita.deliveryTargetAttDomain/doctypes/rng/topic-test-deliveryTargetAttDomain.rng"/>
             <file name="proposals/proposal-13111-mathml/test/dtd/topic-with-mathml.dtd"/>
             <file name="proposals/proposal-13111-mathml/test/rng/topic-with-mathml.rng"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
@@ -48,7 +47,7 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
         <folder path="../../git/dita-ot/"/>
         <folder path="."/>
-        <folder path="../dita-ot-drmacro-github/dtd/"/>
+        <folder path="../dita_12_spec/"/>
         <folder path="../../workspace_37/dita-ng/"/>
         <folder path="../../workspace_37/dita13-xpub-linking/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
