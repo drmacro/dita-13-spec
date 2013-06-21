@@ -552,19 +552,14 @@ elements
         </table>
       </section>
     </body>
-    <concept id="concept_aqh_5zt_3h">
-      <title>New architectural specification topic</title>
-      <shortdesc/>
-      <conbody/>
-    </concept>
     <reference id="reference_aqh_5zt_3h">
       <title>Mathematics Elements</title>
       <shortdesc>The mathematics elements provide general containers for
         equations (inline, block, and display) and an integration with the
         MathML standard. The equation containers identify equations separate
         from the data that provides the equation content, which may take many
-        forms, including MathML markup, images, non-XML formats like TeX and
-        ASCII equations, and so on.</shortdesc>
+        forms, including MathML markup, images, and non-XML formats like TeX and
+        ASCII equations.</shortdesc>
       <refbody>
         <section>
           <p>The mathematics elements are provided as two domains:<ul
@@ -582,7 +577,8 @@ elements
               may include the &lt;mathml> element directly in content where
               &lt;foreign> is allowed (which is almost everywhere), best
               practice is to always include &lt;mathml> within one of the
-              equation elements from the equation domain.</p></li>
+              equation elements from the equation domain, or their semantic
+              equivalent in some non-OASIS-defined DITA vocabulary.</p></li>
             <li>equationDomain<p>Provides the &lt;equation-inline>,
               &lt;equation-block>, and &lt;equation-display> elements. This
               domain may be used without the MathML domain.</p><p>The elements
@@ -601,7 +597,12 @@ elements
           MathML domain. The elements in the equation domain are intended to
           allow authors to clearly distinguish equations from other type of
           content, providing markup distinctions that can, for example, enable
-          formatting distinctions, numbering of equations, and so on. </shortdesc>
+          formatting distinctions, numbering of equations, and so on. The
+          equation domain elements do not attempt to satisfy every possible
+          requirement for representing equations semantically. More
+          sophisticated users of equations may need to either further specialize
+          from these elements or provide alternative vocabulary for semantic
+          equations.</shortdesc>
         <reference
           id="reference_nzh_t5w_4k">
           <title>equation-block</title>
@@ -613,8 +614,8 @@ elements
             forms they use in deliverables. For example, if there is both an
             image and MathML markup, an HTML-generating processor could output
             both the image reference and the MathML with appropriate HTML @class
-            values to enable dynamic showing or hiding of one form or the other
-            based on browser capability.</shortdesc>
+            or @id values to enable dynamic showing or hiding of one form or the
+            other based on browser capability.</shortdesc>
           <refbody>
             <section>
               <title>Inheritance</title>
@@ -739,13 +740,13 @@ elements
             which form or forms they use in deliverables. For example, if there
             is both an image and MathML markup, an HTML-generating processor
             could output both the image reference and the MathML with
-            appropriate HTML @class values to enable dynamic showing or hiding
-            of one form or the other based on browser capability. All other
-            direct-child elements of &lt;equation-display> are treated normally.
-            When the intent is to have equations combined with other commentary
-            within an &lt;equation-display>, best practice is to use child
-            &lt;equation-block> elements to contain the equations and clearly
-            distinguish them from any commentary.</shortdesc>
+            appropriate HTML @class  or @id values to enable dynamic showing or
+            hiding of one form or the other based on browser capability. All
+            other direct-child elements of &lt;equation-display> are treated
+            normally. When the intent is to have equations combined with other
+            commentary within an &lt;equation-display>, best practice is to use
+            child &lt;equation-block> elements to contain the equations and
+            clearly distinguish them from any commentary.</shortdesc>
           <refbody>
             <section>
               <title>Inheritance</title>
@@ -861,8 +862,8 @@ is greater than 1.&lt;/p>
             form or forms they use in deliverables. For example, if there is
             both an image and MathML markup, an HTML-generating processor could
             output both the image reference and the MathML with appropriate HTML
-            @class values to enable dynamic showing or hiding of one form or the
-            other based on browser capability.</shortdesc>
+            @class  or @id values to enable dynamic showing or hiding of one
+            form or the other based on browser capability.</shortdesc>
           <refbody>
             <section>
               <title>Inheritance</title>
@@ -909,6 +910,263 @@ is greater than 1.&lt;/p>
                 id="attribute_table"
                 relcolwidth="2* 3* 1* 1* 1*">
                 <?Pub Caret?>
+                <sthead>
+                  <stentry>Name</stentry>
+                  <stentry>Description</stentry>
+                  <stentry>Data Type</stentry>
+                  <stentry>Default Value</stentry>
+                  <stentry>Required?</stentry>
+                </sthead>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+              </simpletable>
+            </section>
+          </refbody>
+        </reference>
+      </reference>
+      <reference
+        id="reference_sjp_1yw_4k">
+        <title>MathML Domain Elements</title>
+        <shortdesc>The MathML domain elements enable direct use of MathML markup
+          within DITA documents, as well as use-by-reference of MathML markup
+          held in separate non-DITA documents. MathML is a W3C standard,
+          <ph>http://www.w3.org/Math/</ph>. Note that for MathML markup stored
+          directly in DTD-validated DITA documents, the MathML elements must use
+          a namespace prefix to avoid conflict with DITA-defined elements of the
+          same name. Documents validated using XSD or RelaxNG may default the
+          MathML namespace on the MathML &lt;math> element. MathML elements used
+          by reference using the &lt;mathmlref> element do not need to have a
+          namespace prefix because they will be parsed separately from the DITA
+          documents that refer to them. The domain is configured by default to
+          use the namespace prefix "m" for the MathML elements.</shortdesc>
+        <reference
+          id="reference_y1p_lzw_4k">
+          <title>mathml</title>
+          <shortdesc>Contains MathML elements, references to MathML elements
+            held in separate, non-DITA documents, &lt;data>, or &lt;data-about>.
+            The &lt;mathml> element is not intended to represent a semantic
+            equation, only content that contributes to a semantic equation. The
+            equation domain elements or their equivalent should be used to
+            represent equations semantically (for example, to enable numbering
+            of equations). The MathML markup must have a root element of "math"
+            within the MathML namespace
+            "http://www.w3.org/1998/Math/MathML".</shortdesc>
+          <refbody>
+            <section>
+              <title>Inheritance</title>
+              <p>+ topic/foreign mathml-d/mathml </p>
+            </section>
+            <section>
+              <title>Example</title>
+              <codeblock>&lt;equation-block>
+  <b>&lt;mathml></b>
+    &lt;m:math>
+      &lt;m:semantics>
+        &lt;m:mrow>
+          &lt;m:msqrt>
+            &lt;m:mrow>
+              &lt;m:msup>
+                &lt;m:mi>a&lt;/m:mi>
+                &lt;m:mn>2&lt;/m:mn>
+              &lt;/m:msup>
+              &lt;m:mo>+&lt;/m:mo>&lt;m:msup>
+                &lt;m:mi>b&lt;/m:mi>
+                &lt;m:mn>2&lt;/m:mn>
+              &lt;/m:msup>
+            &lt;/m:mrow>
+          &lt;/m:msqrt>        
+        &lt;/m:mrow>
+      &lt;/m:semantics>
+    &lt;/m:math>
+  <b>&lt;/mathml></b>
+&lt;/equation-block></codeblock>
+            </section>
+            <section>
+              <title>Attributes</title>
+              <simpletable
+                relcolwidth="2* 3* 1* 1* 1*"
+                id="simpletable_vbp_lzw_4k">
+                <sthead>
+                  <stentry>Name</stentry>
+                  <stentry>Description</stentry>
+                  <stentry>Data Type</stentry>
+                  <stentry>Default Value</stentry>
+                  <stentry>Required?</stentry>
+                </sthead>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+                <strow
+                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                  <stentry/>
+                </strow>
+              </simpletable>
+            </section>
+          </refbody>
+        </reference>
+        <reference
+          id="reference_njg_nyw_4k">
+          <title>mathmlref</title>
+          <shortdesc>Refers to a non-DITA XML document containing MathML markup
+            in order to use the markup by reference. </shortdesc>
+          <refbody>
+            <section>
+<p>The reference <keyword>must</keyword> be to a MathML &lt;math>
+element. The reference <keyword>may</keyword> be a URI that
+addresses an XML document whose root element is a MathML
+&lt;math> element or a URI that addresses an XML document and a
+fragment identifier that is the XML ID of a &lt;math> element
+within the document. </p>
+<note>To reuse MathML markup stored within a DITA topic, use a
+normal content reference from the &lt;mathml> element.</note>
+<p>The MathML should be processed and rendered as though the
+&lt;m:math> element had occurred directly in the content of the
+containing &lt;mathml> element.</p>
+<p>The reference may be direct, via the @href attribute, or
+indirect, via the @keyref attribute. </p>
+<p>For key references, only the key name should be specified. Any
+fragment identifier for specifying the ID of the &lt;mathml>
+element to use must be specified as part of the key definition's
+@href value.</p>
+              <note
+                othertype="Example"
+                type="other">
+<p>To refer to the &lt;math> element with the @id value
+"equation-02" within a larger document using a key reference,
+you would define the key like
+so:<codeblock>&lt;keydef 
+  keys="mathml-equation-02" 
+  href="math/mathml-equations.xml#equation-02"
+  format="mathml"
+/></codeblock>You
+                  would refer to this key using just the key
+                  name:<codeblock>&lt;mathml>
+  &lt;mathmlref keyref="mathml-equation-02"/>
+&lt;/mathml></codeblock></p>
+              </note>
+            </section>
+            <section>
+              <title>Inheritance</title>
+              <p>+ topic/xref mathml-d/mathmlref </p>
+            </section>
+            <section>
+              <title>Example</title>
+              <p>A reference to a &lt;mathml> element that is the root element
+                of its containing document:</p>
+              <codeblock>&lt;equation-block>
+   &lt;mathml>
+     <b>&lt;mathmlref</b>
+       <b>href="../mathml-source/mathml-root-mathml.mml"</b>
+     <b>/></b>
+   &lt;/mathml>
+&lt;/equation-block></codeblock>
+              <p><filepath>mathml-root-mathml.mml</filepath> (note that the
+                &lt;mathml> element sets the MathML namespace as the default
+                namespace, so there are no namespace prefixes on the MathML
+                markup):<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+<b>&lt;math</b> xmlns="http://www.w3.org/1998/Math/MathML" 
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+    &lt;mstyle displaystyle="false" scriptlevel="0">
+        &lt;mrow>
+            &lt;mfrac>
+                &lt;mrow>
+                    &lt;mi mathcolor="gray">sin&lt;/mi>
+                    &lt;mo rspace="verythinmathspace">⁡&lt;/mo>                    
+                    &lt;mi>θ&lt;/mi>
+                &lt;/mrow>
+                &lt;mi>π&lt;/mi>
+            &lt;/mfrac>
+        &lt;/mrow>
+    &lt;/mstyle>
+<b>&lt;/math></b></codeblock></p>
+              <p>A reference to a &lt;mathml> element by ID:</p>
+              <codeblock>&lt;equation-block>
+  &lt;mathml>
+    <b>&lt;mathmlref</b>
+       <b>href="../mathml-source/mathml-equation-library.xml#mathfrag-02"</b>
+    <b>/></b>
+  &lt;/mathml>
+&lt;/equation-block></codeblock>
+              <p><filepath>mathml-equation-library.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;root>
+  &lt;part>
+    &lt;math
+      id="timeinday"
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;mi>x&lt;/mi>
+    &lt;/math>
+    <b>&lt;math</b>
+      <b>id="mathfrag-02"</b>
+      xmlns="http://www.w3.org/1998/Math/MathML">
+      &lt;math>
+        &lt;mrow>
+          &lt;mi>y&lt;/mi>
+          &lt;mo>=&lt;/mo>
+          &lt;mn>5&lt;/mn>
+          &lt;mi>x&lt;/mi>
+          &lt;mo>+&lt;/mo>
+          &lt;mn>2&lt;/mn>
+        &lt;/mrow>
+      &lt;/math>
+    &lt;/math>
+  &lt;/part>
+  &lt;part>
+    &lt;math
+      id="mathfrag-03"
+      display="inline"
+      overflow="scroll">
+      &lt;m:mi>y&lt;/m:mi>
+      &lt;m:mo>=&lt;/m:mo>
+      &lt;m:mi>m&lt;/m:mi>
+      &lt;m:mi>x&lt;/m:mi>
+      &lt;m:mo>+&lt;/m:mo>
+      &lt;m:mi>b&lt;/m:mi>
+    &lt;/math>
+  &lt;/part>
+&lt;/root></codeblock></p>
+              <title>Attributes</title>
+              <simpletable
+                id="foreign_attr"
+                relcolwidth="2* 3* 1* 1* 1*">
                 <sthead>
                   <stentry>Name</stentry>
                   <stentry>Description</stentry>
