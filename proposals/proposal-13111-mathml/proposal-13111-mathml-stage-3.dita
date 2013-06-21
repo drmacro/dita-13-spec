@@ -28,23 +28,34 @@
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>29 Sept 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=47028"
+              format="php"
+              scope="external">HTML</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49345/proposal-13111-mathml.dita"
+              scope="external">DITA source</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>9 Oct 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=47143"
+              format="php"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=47143</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>16 October 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>12 June 2014</stentry>
+            <stentry>Autumn Cuellar, Robert Anderson</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
