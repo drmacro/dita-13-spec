@@ -171,7 +171,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Honorific                       -->
 <!ENTITY % honorific.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % honorific.attributes
              "%data-element-atts;"
@@ -183,7 +184,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: First Name                      -->
 <!ENTITY % firstname.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % firstname.attributes
              "%data-element-atts;"
@@ -194,7 +196,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Middle Name                     -->
 <!ENTITY % middlename.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % middlename.attributes
              "%data-element-atts;"
@@ -205,7 +208,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Last Name                       -->
 <!ENTITY % lastname.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % lastname.attributes
              "%data-element-atts;"
@@ -217,7 +221,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Generation Identifier           -->
 <!ENTITY % generationidentifier.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % generationidentifier.attributes
              "%data-element-atts;"
@@ -331,7 +336,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Postal Code                     -->
 <!ENTITY % postalcode.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % postalcode.attributes
              "keyref 
@@ -349,7 +355,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    LONG NAME: Country                         -->
 <!ENTITY % country.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % country.attributes
              "keyref 
@@ -408,7 +415,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN"
 <!--                    Note: set the type of number using @type   -->
 <!ENTITY % contactnumber.content
                        "(#PCDATA |
-                         %keyword;)*"
+                         %keyword; |
+                         %text;)*"
 >
 <!ENTITY % contactnumber.attributes
              "%data-element-atts;"

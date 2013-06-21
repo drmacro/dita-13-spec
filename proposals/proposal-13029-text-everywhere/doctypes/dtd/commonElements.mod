@@ -74,7 +74,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 
 
 <!--                   Phrase/inline elements of various classes   -->
-<!ENTITY % basic.ph 
+`<!ENTITY % basic.ph 
   "%boolean; | 
    %cite; | 
    %keyword; | 

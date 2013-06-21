@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13029 Allow &lt;text> Everywhere</title>
+    <shortdesc>Allow the &lt;text> element to occur is all contexts where
+      #PCDATA is allowed.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>17 Feb 2013</stentry>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>19 Feb 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>26 Feb 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>21 June 2013</stentry>
+            <stentry>Don Day, Dick Hamilton</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Allowing &lt;text> everywhere #PCDATA is allowed requires the
+          following updates to the existing vocabulary modules:<ul
+          id="ul_xc2_r11_gj">
+          <li>Add to %basic.ph; (and remove from %ph.content)</li>
+          <li>Add to %basic.ph.noxref (all title-like elements)</li>
+          <li>Add to %basic.ph.notm (programming and ui domains)</li>
+          <li>Add to elements that only allow #PCDATA</li>
+          <li>Add to %words.cnt; </li>
+          <li>bookmap.mod: Add to elements that allow #PCDATA but no other
+            parments.</li>
+          <li>learningMetadataDomain.mod: Add to elements that allow #PCDATA but
+            no other parments.</li>
+          <li>glossentry: Add to elements that do not allow it by any other
+            means.</li>
+          <li>xnalDomain: Add to elements that allow #PCDATA but no other
+            parments.</li>
+          </ul><note>While %txt.incl seems by its name to be an obvious place to
+          put &lt;text>, it has too much overlap with other parameter entities
+          that must include &lt;text> in order to get full
+          coverage.</note><note>The figgroup element allows all phrases but does
+          not allow #PCDATA. This makes it something of an outlier. Disallowing
+          &lt;text> within figgroup would require defining a new parameter
+          entity specifically for use within figgroup. As &lt;figgroup> is
+          intended primarily for specialization, this does not seem to be worth
+          the cost.</note></p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>There are no related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>commonElements.mod</dt>
+            <dd>Add %text; to
+              %basic.ph:<codeblock>&lt;!ENTITY % basic.ph 
+  "%boolean; | 
+   %cite; | 
+   %keyword; | 
+   %ph; | 
+   %q; |
+   %term; | 
+   %text; |
+   %tm; | 
+   %xref; | 
+   %state;
+  "
+></codeblock><p>Add
+              %text; to %basic.ph.noxref and
+              %basic.ph.notm:<codeblock>&lt;!ENTITY % basic.ph.noxref
+  "%boolean; | 
+   %keyword; | 
+   %ph; | 
+   %q; |
+   %term; | 
+   %text; |
+   %tm; | 
+   %state;
+  "
+>
+&lt;!ENTITY % basic.ph.notm
+  "%boolean; | 
+   %cite; | 
+   %keyword; | 
+   %ph; | 
+   %q; |
+   %term; | 
+   %text; |
+   %xref; | 
+   %state;
+  "
+></codeblock></p><p>Add
+              %text; to
+              %words.cnt:<codeblock>&lt;!ENTITY % words.cnt 
+  "#PCDATA | 
+   %data.elements.incl; | 
+   %foreign.unknown.incl; | 
+   %keyword; | 
+   %term; |
+   %text;
+  "
+></codeblock></p><p>Remove
+              %text; from
+              %ph.content:<codeblock>&lt;!ENTITY % ph.content
+                       "(%ph.cnt;)*"
+></codeblock></p></dd>
+          </dlentry>
+          <dlentry>
+            <dt>bookMap.mod</dt>
+            <dd>
+              <p>Add %text; to
+                %year.content:<codeblock>&lt;!ENTITY % year.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %month.content:<codeblock>&lt;!ENTITY % month.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %day.content:<codeblock>&lt;!ENTITY % day.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %edition.content:<codeblock>&lt;!ENTITY % edition.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %isbn.content:<codeblock>&lt;!ENTITY % isbn.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %volume.content:<codeblock>&lt;!ENTITY % volume.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>glossentry.mod</dt>
+            <dd>
+              <p>Add %text to
+                %glossAbbreviation.content:<codeblock>&lt;!ENTITY % glossAbbreviation.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %term; |
+                         %text; |
+                         %tm;)*"
+></codeblock></p>
+              <p>Add %text to
+                %glossAcronym.content:<codeblock>&lt;!ENTITY % glossAcronym.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %term; |
+                         %text; |
+                         %tm;)*"
+></codeblock></p>
+              <p>Add %text to
+                %glossShortForm.content:<codeblock>&lt;!ENTITY % glossShortForm.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %term; |
+                         %text; |
+                         %tm;)*"
+></codeblock></p>
+              <p>Add %text to
+                %glossSynonym.content:<codeblock>&lt;!ENTITY % glossSynonym.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %term; |
+                         %text; |
+                         %tm;)*"
+></codeblock></p>
+              <p>Add %text to
+                %glossSurfaceForm.content:<codeblock>&lt;!ENTITY % glossSurfaceForm.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %term; |
+                         %text; |
+                         %tm;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>learningMetadataDomain.mod</dt>
+            <dd>
+              <p>Add %text; to
+                %lomStructure:<codeblock>&lt;!ENTITY % lomStructure.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomCoverage:<codeblock>&lt;!ENTITY % lomCoverage.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomAggregationLevel:<codeblock>&lt;!ENTITY % lomAggregationLevel.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomTechRequirement:<codeblock>&lt;!ENTITY % lomTechRequirement.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomInstallationRemarks:<codeblock>&lt;!ENTITY % lomInstallationRemarks.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomOtherPlatformRequirements:<codeblock>&lt;!ENTITY % lomOtherPlatformRequirements.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomInteractivityType:<codeblock>&lt;!ENTITY % lomInteractivityType.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomLearningResourceType:<codeblock>&lt;!ENTITY % lomLearningResourceType.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomInteractivityLevel:<codeblock>&lt;!ENTITY % lomInteractivityLevel.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomSemanticDensity:<codeblock>&lt;!ENTITY % lomSemanticDensity.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomIntendedUserRole:<codeblock>&lt;!ENTITY % lomIntendedUserRole.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomContext:<codeblock>&lt;!ENTITY % lomContext.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomTypicalAgeRange:<codeblock>&lt;!ENTITY % lomTypicalAgeRange.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomDifficulty:<codeblock>&lt;!ENTITY % lomDifficulty.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text; to
+                %lomTypicalLearningTime:<codeblock>&lt;!ENTITY % lomTypicalLearningTime.content
+                       "(#PCDATA |
+                         %text;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>xnalDomain</dt>
+            <dd>
+              <p>Add %text to
+                %honorific.content:<codeblock>&lt;!ENTITY % honorific.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %firstname.content:<codeblock>&lt;!ENTITY % firstname.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %middlename.content:<codeblock>&lt;!ENTITY % middlename.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %lastname.content:<codeblock>&lt;!ENTITY % lastname.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %generationidentifier.content:<codeblock>&lt;!ENTITY % generationidentifier.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %postalcode.content:<codeblock>&lt;!ENTITY % postalcode.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %country.content:<codeblock>&lt;!ENTITY % country.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+              <p>Add %text to
+                %contactnumber.content:<codeblock>&lt;!ENTITY % contactnumber.content
+                       "(#PCDATA |
+                         %keyword; |
+                         %text;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_ggb_5b1_pk">
+          <title>Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic to Modify</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>langref/text.dita</entry>
+                <entry>Section containing: For contexts where ph is available,
+                  authors should use that element. Where keyword is available,
+                  authors should use that element. Where neither ph nor keyword
+                  is available, text can be used to pull content by
+                  conref.</entry>
+                <entry>Delete the section.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+  </topic>
+</dita>
