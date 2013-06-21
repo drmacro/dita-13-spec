@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13023</title>
+    <shortdesc>New generic division element, &lt;div>. Content is intersection
+      of &lt;bodydiv> and &lt;sectiondiv>. To be allowed wherever &lt;p> or
+      other block-level elements are allowed.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber is the champion.</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Define a new element type, &lt;div>, whose content model is all body
+          content except &lt;section> and &lt;bodydiv> (that is, the
+          intersection of the 1.2 &lt;bodydiv> and &lt;sectiondiv> content
+          models) plus &lt;div>.</p>
+        <p>Allow &lt;div> wherever &lt;p> is allowed or any block context where
+          &lt;p> is not allowed for some reason (including within &lt;p>,
+          &lt;fig>, etc.). The design intent is to allow &lt;div> in all
+          block-containing contexts. </p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>There are no related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>For DTDs, the specific changes are:<ul
+          id="ul_ex2_p2y_4k">
+          <li>Declare the parameter entity %div in the commonElements.div
+            module:<codeblock>&lt;!ENTITY % div          "div"                                         ></codeblock></li>
+          <li>Declare the &lt;div> element type in the commonElements.mod
+            module:<codeblock>&lt;!--                    LONG NAME: Div element                    -->
+&lt;!ENTITY % div.content
+                       "(#PCDATA | 
+                         %basic.block; | 
+                         %basic.ph; | 
+                         %data.elements.incl; | 
+                         %foreign.unknown.incl; | 
+                         %txt.incl;)*
+">
+&lt;!ENTITY % div.attributes
+             "%data-element-atts;"
+>
+&lt;!ELEMENT div    %div.content;>
+&lt;!ATTLIST div    %div.attributes;></codeblock></li>
+          <li>Add %div; to the following parameter entities:<ul
+            id="ul_sx2_p2y_4k">
+            <li>%basic.block</li>
+            <li>%basic.block.notbl</li>
+            <li>%basic.block.nonote</li>
+            <li>%basic.block.nopara</li>
+            <li>%basic.block.nolq</li>
+            <li>%basic.block.notbnofg</li>
+            <li>%basic.block.notbfgobj</li>
+            </ul></li>
+          <li>Declare the @class
+            attribute:<codeblock>&lt;!ATTLIST div       %global-atts;  class CDATA "- topic/div "       ></codeblock></li>
+          </ul></p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>Provide a listing of new or modified topics. For existing topics, provide the location of
+          the DITA 1.2 topic; for new topics, suggest where you think the topic should be located in
+          the TOC.</p>
+        <p>List the exact language suggested for the topics. For existing topics, you can use a
+          table to compare the DITA 1.2 text and the proposed text for DITA 1.3. For new topics, use
+          the templates nested within this topic. </p>
+        <table
+          frame="all"
+          id="table_x1k_dfy_4k">
+          <title>Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic Name</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>topiccontent.dita</entry>
+                <entry/>
+                <entry>Add new definition list entry for "div" as follows:<dl>
+                  <dlentry>
+                    <dt>Div</dt>
+                    <dd>Div allows for the arbitrary grouping of content within
+                      a topic. The div does not include a title. Content that
+                      requires a title should use section or example or,
+                      possibly, fig. </dd>
+                  </dlentry>
+                  </dl></entry>
+              </row>
+              <row>
+                <entry>constraint-module-examples.dita</entry>
+                <entry>
+                  <codeblock>     %foreign.unknown.incl; |
+     %sectiondiv;)*)
+</codeblock>
+                </entry>
+                <entry>Reflect %div; in content model of
+                  section.<codeblock>     %foreign.unknown.incl; |
+     %div; |
+     %sectiondiv;)*)
+</codeblock></entry>
+              </row>
+              <row>
+                <entry>dita_concept_topic.dita</entry>
+                <entry>
+                  <p>The &lt;conbody> element holds the main body-level elements
+                    of the concept topic. Like the body element of a base topic,
+                    the &lt;conbody> allows paragraphs, lists, tables, figures
+                    and other general elements. It also provides two key
+                    elements that allow authors to subdivide the topic into
+                    parts, with or without titles. These subdivisions are called
+                    sections and examples. The &lt;conbody> also allows
+                    &lt;bodydiv> and &lt;sectiondiv> to facilitate grouping
+                    elements in the &lt;conbody> for reuse.</p>
+                </entry>
+                <entry>
+                  <p>Add "&lt;div>, " before &lt;bodydiv> and ", " after
+                    &lt;bodydiv>. Remove " for reuse" since there are other
+                    reasons to use divisions.</p>
+                  <p>The &lt;conbody> element holds the main body-level elements
+                    of the concept topic. Like the body element of a base topic,
+                    the &lt;conbody> allows paragraphs, lists, tables, figures
+                    and other general elements. It also provides two key
+                    elements that allow authors to subdivide the topic into
+                    parts, with or without titles. These subdivisions are called
+                    sections and examples. The &lt;conbody> also allows
+                    &lt;div>, &lt;bodydiv>, and &lt;sectiondiv> to facilitate
+                    grouping elements in the &lt;conbody>.</p>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+    <reference id="reference_aqh_5zt_3h">
+      <title>div</title>
+      <shortdesc>The &lt;<keyword>div</keyword>> element is used to contain
+        informal blocks of information within a topic. The div element is
+        specifically designed to be a grouping element, without any explicit
+        semantics, other than to organize subsets of content into logical groups
+        that are not intended or should not be contained as a topic. As such, it
+        does not contain an explicit title to avoid enabling the creation of
+        deeply nested content that would otherwise be written as separate
+        topics. Content that requires a title should use a section element or a
+        nested topic, or possibly a figure.</shortdesc>
+      <refbody>
+        <section>
+          <title>Inheritance</title>
+          <p>- topic/div </p>
+        </section>
+        <section>
+          <title>Example</title>
+          <p>A division used to organize several elements together that could
+            not be used as a unit using content reference range (because the
+            last element in the sequence is not the same type as the first
+            element in the
+            sequence):<codeblock>...
+&lt;div id="div-01">
+ &lt;p>The first paragraph&lt;/p>
+ &lt;p>The second paragraph&lt;/p>
+ &lt;note>This is a note&lt;/note>
+&lt;/div>
+...</codeblock></p>
+          <p>An element, &lt;pullquote>, specialized from
+            &lt;div>:<codeblock>&lt;!ENTITY % pullquote.content
+  "(%div.cnt;)*"
+>
+&lt;!ENTITY % pullquote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT pullquote    %pullquote.content;>
+&lt;!ATTLIST pullquote    %pullquote.attributes;>
+
+&lt;!ATTLIST pullquote      %global-atts;  class CDATA "+ topic/div d4p-pubcontent-d/pullquote "></codeblock></p>
+          <p>Instances of &lt;pullquote> could then be used in both &lt;body>
+            and &lt;section>
+            contexts:<codeblock>&lt;article id="article-01">
+  &lt;title>My Article&lt;/title>
+  &lt;body>
+    &lt;p>Something pithy someone said&lt;/p>
+    &lt;pullquote>&lt;p>Something Pithy&lt;/p>&lt;/pullquote>
+    ...
+    &lt;section spectitle="Deep Dive">
+      &lt;p>This is really really pithy&lt;/p>
+      &lt;pullquote>&lt;p>Really Pithy&lt;/p>&lt;/pullquote>
+      ...
+    &lt;/section>
+  &lt;/body>
+&lt;/article></codeblock></p>
+        </section>
+        <section>
+          <title>Attributes</title>
+          <simpletable
+            id="bodydiv_attr"
+            relcolwidth="2* 3* 1* 1* 1*">
+            <sthead>
+              <stentry>Name</stentry>
+              <stentry>Description</stentry>
+              <stentry>Data Type</stentry>
+              <stentry>Default Value</stentry>
+              <stentry>Required?</stentry>
+            </sthead>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+          </simpletable>
+        </section>
+      </refbody>
+    </reference>
+  </topic>
+</dita>
