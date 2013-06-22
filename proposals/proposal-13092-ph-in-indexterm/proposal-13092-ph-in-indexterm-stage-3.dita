@@ -84,18 +84,7 @@
                        "(%words.cnt; |
                          <b>%ph; |</b>
                          %indexterm;)*"
->
-&lt;!ENTITY % index-see.attributes
-             "keyref 
-                        CDATA 
-                                  #IMPLIED
-              %univ-atts;"
->
-&lt;!ELEMENT index-see    %index-see.content;>
-&lt;!ATTLIST index-see    %index-see.attributes;>
-
-
-&lt;!--                    LONG NAME: Index See Also                  -->
+></codeblock><codeblock>&lt;!--                    LONG NAME: Index See Also                  -->
 &lt;!ENTITY % index-see-also.content
                        "(%words.cnt; |
                          <b>%ph; |</b>
