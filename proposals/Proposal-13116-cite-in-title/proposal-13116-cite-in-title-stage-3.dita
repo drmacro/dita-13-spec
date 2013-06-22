@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13116 Allow &lt;cite> in &lt;title>, et.
+      al.</title>
+    <shortdesc>Proposal to add the &lt;cite> element to the content of title,
+      xref, and other title-like elements.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>4 Sept 2012</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>5 Feb 2013</stentry>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>5 Feb 2013</stentry>
+            <stentry><xref
+              href="https://lists.oasis-open.org/archives/dita/201302/msg00010.html"
+              format="html"
+              scope="external">https://lists.oasis-open.org/archives/dita/201302/msg00010.html</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>12 Feb 2013</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=48313"
+              format="php"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=48313</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Modify the definition of the basic.phrase.noxref content model group
+          to include &lt;cite>.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>commonElements.mod</dt>
+            <dd>
+              <p>Modify the declaration of %basic.phrase.noxref to include
+                %cite;:<codeblock>&lt;!ENTITY % basic.ph.noxref
+  "%boolean; |
+   %cite; 
+   %keyword; | 
+   %ph; | 
+   %q; |
+   %term; | 
+   %tm; | 
+   %state;
+  "
+></codeblock></p>
+            </dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>No changes to 1.2 specification text other than generate contains and
+          contained-by tables.</p>
+      </section>
+    </body>
+  </topic>
+</dita>
