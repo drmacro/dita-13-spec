@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13031 Linethrough and Overline in Highlight
+      Domain</title>
+    <shortdesc>Provide additional elements to the highlight domain for
+      representing line-through (strikeout) and overlines.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>9 August 2011</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>9 Oct 2012</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>16 October 2012</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Define a two element types, &lt;line-through> and &lt;overline>,
+          specialized from &lt;ph>, to the highlight domain.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>There are not related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>highlightDomain.ent</dt>
+            <dd>
+              <p>Add line-through and overline to
+                %hi-d-ph:<codeblock>&lt;!ENTITY % hi-d-ph      
+  "b | 
+   i | 
+   line-through |
+   overline |
+   sup | 
+   sub |
+   tt | 
+   u 
+  "
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>highlightDomain.mod</dt>
+            <dd>
+              <p>Add these element type name parameter entity
+                declarations:<codeblock>&lt;!ENTITY % line-through "line-through"                               >
+&lt;!ENTITY % overline     "overline"                                     ></codeblock></p>
+              <p>Add these element type and attribute list
+                declarations:<codeblock>&lt;!--                    LONG NAME: Line Through                       -->
+&lt;!ENTITY % line-through.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+&lt;!ENTITY % line-through.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT line-through    %line-through.content;>
+&lt;!ATTLIST line-through    %line-through.attributes;>
+
+&lt;!--                    LONG NAME: Overbar                           -->
+&lt;!ENTITY % overline.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+&lt;!ENTITY % overline.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT overline    %overline.content;>
+&lt;!ATTLIST overline    %overline.attributes;>
+</codeblock></p>
+              <p>Add these class attribute
+                declarations:<codeblock>
+&lt;!ATTLIST line-through %global-atts; class CDATA "+ topic/ph hi-d/line-through "  >
+&lt;!ATTLIST overline    %global-atts;  class CDATA "+ topic/ph hi-d/overline "  >
+</codeblock></p>
+            </dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_phv_2wd_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>New or Modified Topics</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>archSpec/dtdElementDomainCodingReq.dita</entry>
+                <entry>&lt;!ENTITY % hi-d-ph "b | u | i | tt | sup |
+                  sub"></entry>
+                <entry>&lt;!ENTITY % hi-d-ph "b | u | i | line-through |
+                  overline | tt | sup | sub"></entry>
+              </row>
+              <row>
+                <entry>archSpec/constraint-module-examples.dita</entry>
+                <entry>but not the &lt;u&gt;, &lt;sub&gt;, &lt;sup&gt;, and
+                  &lt;tt&gt; elements</entry>
+                <entry>but not the &lt;line-through>, &lt;overline>, &lt;u&gt;,
+                  &lt;sub&gt;, &lt;sup&gt;, and &lt;tt&gt; elements</entry>
+              </row>
+              <row>
+                <entry>langspec/line-through.dita</entry>
+                <entry/>
+                <entry>See below.</entry>
+              </row>
+              <row>
+                <entry>langspec/overline.dita</entry>
+                <entry/>
+                <entry>See below.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+    <reference
+      id="line-through"
+      xml:lang="en-us">
+      <title>line-through</title>
+      <shortdesc>The line-through (&lt;<keyword>line-through</keyword>&gt;)
+        element is used to apply a line through (strikethrough) to the content
+        of the element. <ph
+        id="highlight-caution">This element is part of the DITA highlighting
+        domain. Use this element only when a more semantically appropriate
+        element is not available.</ph> This element is intended for authors to
+        indicate a deletion or revision for rhetorical purpose. It is not
+        intended to be used for indicating revisions or changes made as a side
+        effect of authoring activity.</shortdesc>
+      <?Pub Caret 146?>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>line-through</indexterm>
+            <indexterm>strikethrough</indexterm>
+            <indexterm>Typographic
+              elements<indexterm>line-through</indexterm></indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <refbody>
+        <section
+          conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
+          id="contains"
+          otherprops="contains">
+          <title>Contains</title>
+          <p>The content model of this element may differ based on where it is
+            used. Content model information is located here: <xref
+            keyref="line-through-contains"/></p>
+        </section>
+        <section
+          conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
+          id="containedby"
+          otherprops="containedby">
+          <title>Contained By</title>
+          <p>The parents of this element may differ based on where it is used.
+            Content model information is located here: <xref
+            keyref="line-through-contained-by"/></p>
+        </section>
+        <section
+          id="inheritance"
+          otherprops="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/ph hi-d/line-through </p>
+        </section>
+        <example
+          id="example">
+          <title>Example</title>
+          <codeblock xml:space="preserve">&lt;p>Line-through: DITA technology can be
+      &lt;line-through>maddening&lt;/line-through>a challenge to implement.&lt;/p></codeblock>
+        </example>
+        <section
+          id="attributes">
+          <title>Attributes</title>
+          <simpletable
+            id="b_attr"
+            relcolwidth="2* 3* 1* 1* 1*">
+            <sthead>
+              <stentry>Name</stentry>
+              <stentry>Description</stentry>
+              <stentry>Data Type</stentry>
+              <stentry>Default Value</stentry>
+              <stentry>Required?</stentry>
+            </sthead>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+          </simpletable>
+        </section>
+      </refbody>
+    </reference>
+    <reference
+      xml:lang="en-us"
+      id="overline">
+      <title>overline</title>
+      <shortdesc>The overline (&lt;<keyword>overline</keyword>&gt;) element is
+        used to apply a line above the content of the element. <ph>This element
+        is part of the DITA highlighting domain. Use this element only when a
+        more semantically appropriate element is not available.</ph></shortdesc>
+      <?Pub Caret 146?>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>overline</indexterm>
+            <indexterm>Typographic
+              elements<indexterm>overline</indexterm></indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <refbody>
+        <section
+          conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
+          otherprops="contains">
+          <title>Contains</title>
+          <p>The content model of this element may differ based on where it is
+            used. Content model information is located here: <xref
+            keyref="overline-contains"/></p>
+        </section>
+        <section
+          conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
+          otherprops="containedby">
+          <title>Contained By</title>
+          <p>The parents of this element may differ based on where it is used.
+            Content model information is located here: <xref
+            keyref="overline-contained-by"/></p>
+        </section>
+        <section
+          otherprops="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/ph hi-d/overline </p>
+        </section>
+        <example>
+          <title>Example</title>
+          <codeblock xml:space="preserve">&lt;p>Overline: &lt;overline>&lt;i>x&lt;/i>&lt;/overline> is the average value of
+      &lt;i>x&lt;sub>i&lt;/sub>&lt;/i>&lt;/p></codeblock>
+        </example>
+        <section>
+          <title>Attributes</title>
+          <simpletable
+            relcolwidth="2* 3* 1* 1* 1*"
+            id="simpletable_dsz_gyd_pk">
+            <sthead>
+              <stentry>Name</stentry>
+              <stentry>Description</stentry>
+              <stentry>Data Type</stentry>
+              <stentry>Default Value</stentry>
+              <stentry>Required?</stentry>
+            </sthead>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+          </simpletable>
+        </section>
+      </refbody>
+    </reference>
+  </topic>
+</dita>
