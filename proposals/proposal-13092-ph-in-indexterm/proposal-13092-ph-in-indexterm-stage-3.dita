@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13092 allow &lt;ph> in
+      &lt;indexterm></title>
+    <shortdesc>Allow &lt;ph> within &lt;indexterm>.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>29 Jan 2011</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>7 May 2013</stentry>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>14 May 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>21 May 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Add &lt;ph> to the content model of &lt;indexterm>, &lt;index-see>,
+          and &lt;index-see-also>.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>commonElements.mod</dt>
+            <dd>
+              <p>Add "%ph;" to the content model for
+                &lt;indexterm>:<codeblock>&lt;!--                    LONG NAME: Index Term                      -->
+&lt;!ENTITY % indexterm.content
+                       "(%words.cnt;|
+                         <b>%ph; |</b>
+                         %indexterm;|
+                         %index-base;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>indexingDomain.dom</dt>
+            <dd>
+              <p>Add "%ph;" to the content models for &lt;index-see> and
+                &lt;index-see-also>:<codeblock>&lt;!--                    LONG NAME: Index See                       -->
+&lt;!ENTITY % index-see.content
+                       "(%words.cnt; |
+                         <b>%ph; |</b>
+                         %indexterm;)*"
+>
+&lt;!ENTITY % index-see.attributes
+             "keyref 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;"
+>
+&lt;!ELEMENT index-see    %index-see.content;>
+&lt;!ATTLIST index-see    %index-see.attributes;>
+
+
+&lt;!--                    LONG NAME: Index See Also                  -->
+&lt;!ENTITY % index-see-also.content
+                       "(%words.cnt; |
+                         <b>%ph; |</b>
+                         %indexterm;)*"
+></codeblock></p>
+            </dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>No changes to DITA 1.2 specification other than generated contains
+          and contained-by tables.</p>
+      </section>
+    </body>
+  </topic>
+</dita>
