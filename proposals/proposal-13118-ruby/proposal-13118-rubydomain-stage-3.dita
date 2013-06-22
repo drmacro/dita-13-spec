@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13118 Ruby Domain</title>
+    <shortdesc>Provide a domain that provides the ruby markup from HTML5 as used
+      by Japanese and other ideographic languages.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable
+          frame="all"
+          relcolwidth="1.01* 1.0* 1.02*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>31 Jan 2012</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>January 31 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/download.php/45036/minutes20120131.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/committees/download.php/45036/minutes20120131.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>30 October 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/download.php/45036/minutes20120131.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/committees/download.php/45036/minutes20120131.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Define a new vocabulary module, rubyDomain, that defines the
+          &lt;ruby> element type with the same content as defined in HTML5.<dl>
+          <dlentry>
+            <dt>ruby</dt>
+            <dd>Contains the subelements &lt;rp> and &lt;rt> or nested
+              &lt;ruby>. See the HTML5 definition of the &lt;ruby> element.</dd>
+          </dlentry>
+          </dl></p>
+        <p>This module should be included in the base vocabulary package as it
+          is applicable to all documents that use languages for which ruby
+          annotations are needed.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>rubyDomain.ent</dt>
+            <dd>
+              <p>Add new declaration set <filepath>rubyDomain.ent</filepath> to
+                the base vocabulary package:</p>
+              <codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA Ruby Domain
+     
+     Defines equivalent of HTML ruby elements for marking up
+     Japanese language documents.
+     
+     Copyright (c) 2012, 2013 OASIS Open
+     
+     ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   Ruby DOMAIN ENTITIES                  -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % ruby-d-ph
+   " ruby
+   "
+>
+
+
+
+&lt;!ENTITY   ruby-d-att     
+  "(topic ruby-d)"
+>
+
+
+&lt;!-- ================== End DITA For Publishers Ruby Domain Entities ============ --></codeblock>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>rubyDomain.mod</dt>
+            <dd>
+              <p>Add new declaration set <filepath>rubyDomain.mod</filepath> to
+                the base vocabulary package:</p>
+              <codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA Ruby Domain
+     
+     Defines equivalent of HTML ruby elements for marking up
+     Japanese language documents.
+     
+     Copyright (c) 2012, 2013 OASIS Open
+     
+     ============================================================= -->
+     
+ &lt;!ENTITY % ruby           "ruby" >
+
+ &lt;!ENTITY % rp             "rp" >
+ &lt;!ENTITY % rt             "rt" >
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- LONG NAME: Ruby Annotation -->
+&lt;!ENTITY % ruby.content
+"
+  (#PCDATA |
+   %ruby; |
+   %text; |
+   %rp; |
+   %rt;)*
+  " 
+>
+&lt;!ENTITY % ruby.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'ruby'    
+ "
+> 
+&lt;!ELEMENT ruby %ruby.content; >
+&lt;!ATTLIST ruby %ruby.attributes; >
+
+
+&lt;!-- LONG NAME: Ruby parenthesis -->
+&lt;!ENTITY % rp.content
+"
+  (#PCDATA 
+  )*
+  " 
+>
+&lt;!ENTITY % rp.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'rp'    
+ "
+> 
+&lt;!ELEMENT rp %rp.content; >
+&lt;!ATTLIST rp %rp.attributes; >
+
+&lt;!-- LONG NAME: Ruby Text -->
+
+&lt;!ENTITY % rt.content
+"
+  (#PCDATA |
+   %text; 
+  )*
+  " 
+>
+&lt;!ENTITY % rt.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    'rt'    
+ "
+> 
+&lt;!ELEMENT rt %rt.content; >
+&lt;!ATTLIST rt %rt.attributes; >
+
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+&lt;!ATTLIST ruby              %global-atts;  class CDATA "+ topic/ph ruby-d/ruby ">
+&lt;!ATTLIST rp                %global-atts;  class CDATA "+ topic/ph ruby-d/rp ">
+&lt;!ATTLIST rt                %global-atts;  class CDATA "+ topic/ph ruby-d/rt ">
+
+
+&lt;!-- ================== End Ruby Domain ==================== --></codeblock>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>integrations</dt>
+            <dd>Integrate with topic.dtd, concept.dtd, reference.dtd, task.dtd,
+              bookmap.dtd.</dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_uz3_pmf_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic File</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>common/ruby-d.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>langref/ruby.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>langref/rb.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>langref/rt.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <p> </p>
+      </section>
+    </body>
+    <reference
+      id="ruby-d">
+      <title>Ruby elements</title>
+      <shortdesc>The ruby elements are used to annotate ideographic characters
+        with their phonetic transliteration or similar cues to reading. The DITA
+        ruby domain is modeled directly on the HTML5 ruby facility.</shortdesc>
+      <reference
+        xml:lang="en-us"
+        id="reference_i4t_xpf_pk">
+        <title>ruby</title>
+        <shortdesc>The ruby element allows one or more spans of phrasing content
+          to be marked with ruby annotations. Ruby annotations are short runs of
+          text presented alongside base text, primarily used in East Asian
+          typography as a guide for pronunciation or to include other
+          annotations. In Japanese, this form of typography is also known as
+          furigana.</shortdesc>
+        <?Pub Caret 146?>
+        <prolog>
+          <metadata>
+            <keywords>
+              <indexterm>ruby</indexterm>
+              <indexterm>ruby elements<indexterm>ruby</indexterm></indexterm>
+            </keywords>
+          </metadata>
+        </prolog>
+        <refbody>
+          <section>
+            <p>The content for the &lt;ruby> element should consist of text,
+              &lt;text>, or &lt;ruby> elements that do not themselves have
+              &lt;ruby> children, followed by:<ul
+              id="ul_kpt_xpf_pk">
+              <li>An &lt;rp> element, followed by any number of &lt;rt>
+                elements, followed by an &lt;rp> element.</li>
+              <li>Any number of &lt;rt> elements or other phrase-level
+                elements.</li>
+              </ul></p>
+            <p>Per the HTML5 rules for &lt;ruby>, &lt;ruby> should not be nested
+              within &lt;ruby> more than one level deep, meaning you can have a
+              &lt;ruby> within a &lt;ruby> only if the child &lt;ruby> does not
+              itself have any &lt;ruby> children. </p>
+            <p>See the HTML5 specification for the &lt;ruby> element for
+              additional details on how to mark up and process &lt;ruby>
+              elements.</p>
+          </section>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
+            otherprops="contains">
+            <title>Contains</title>
+            <p>The content model of this element may differ based on where it is
+              used. Content model information is located here: <xref
+              keyref="ruby-contains"/></p>
+          </section>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
+            otherprops="containedby">
+            <title>Contained By</title>
+            <p>The parents of this element may differ based on where it is used.
+              Content model information is located here: <xref
+              keyref="ruby-contained-by"/></p>
+          </section>
+          <section
+            otherprops="inheritance">
+            <title>Inheritance</title>
+            <p>+ topic/ph ruby-d/ruby </p>
+          </section>
+          <example>
+            <title>Example</title>
+            <codeblock xml:space="preserve">&lt;topic id="ruby-test-topic-01" xml:lang="jp-JP">
+  &lt;title>Ruby Domain Test (DTD)&lt;/title>
+  &lt;body>
+    &lt;p> Ruby with bare PCDATA first child: &lt;ruby>
+      白熊
+      &lt;rp>（&lt;/rp>
+      &lt;rt>しろくま&lt;/rt>
+      &lt;rp>）&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+    &lt;p> Ruby with &amp;lt;text&amp;gt; element first child: &lt;ruby>
+      &lt;text>白熊&lt;/text>
+      &lt;rp>（&lt;/rp>
+      &lt;rt>しろくま&lt;/rt>
+      &lt;rp>)&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+  &lt;/body>
+&lt;/topic></codeblock>
+          </example>
+          <section>
+            <title>Attributes</title>
+            <simpletable
+              relcolwidth="2* 3* 1* 1* 1*"
+              id="simpletable_npt_xpf_pk">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
+      <reference
+        xml:lang="en-us"
+        id="reference_evr_tqf_pk">
+        <title>rp</title>
+        <shortdesc>The ruby parenthesis (rp) element contains a literal left or
+          right parenthesis (or the equivalent in the writing system in effect).
+          The &lt;rp> text is used as a fallback when the ruby text cannot be
+          rendered above or next to the text it annotates, otherwise it should
+          be suppressed in the output.</shortdesc>
+        <?Pub Caret 146?>
+        <prolog>
+          <metadata>
+            <keywords>
+              <indexterm>rp (ruby parenthesis)</indexterm>
+              <indexterm>ruby parenthesis (rp)</indexterm>
+              <indexterm>ruby elements<indexterm>rp (ruby
+                parenthesis)</indexterm></indexterm>
+            </keywords>
+          </metadata>
+        </prolog>
+        <refbody>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
+            otherprops="contains">
+            <title>Contains</title>
+            <p>The content model of this element may differ based on where it is
+              used. Content model information is located here: <xref
+              keyref="rp-contains"/></p>
+          </section>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
+            otherprops="containedby">
+            <title>Contained By</title>
+            <p>The parents of this element may differ based on where it is used.
+              Content model information is located here: <xref
+              keyref="rp-contained-by"/></p>
+          </section>
+          <section
+            otherprops="inheritance">
+            <title>Inheritance</title>
+            <p>+ topic/ph ruby-d/rp </p>
+          </section>
+          <example>
+            <title>Example</title>
+            <codeblock xml:space="preserve">&lt;topic id="ruby-test-topic-01" xml:lang="jp-JP">
+  &lt;title>Ruby Domain Test (DTD)&lt;/title>
+  &lt;body>
+    &lt;p> Ruby with bare PCDATA first child: &lt;ruby>
+      白熊
+      <b>&lt;rp>（&lt;/rp></b>
+      &lt;rt>しろくま&lt;/rt>
+      <b>&lt;rp>）&lt;/rp></b>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+    &lt;p> Ruby with &amp;lt;text&amp;gt; element first child: &lt;ruby>
+      &lt;text>白熊&lt;/text>
+      <b>&lt;rp>（&lt;/rp></b>
+      &lt;rt>しろくま&lt;/rt>
+      <b>&lt;rp>)&lt;/rp></b>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+  &lt;/body>
+&lt;/topic></codeblock>
+          </example>
+          <section>
+            <title>Attributes</title>
+            <simpletable
+              relcolwidth="2* 3* 1* 1* 1*"
+              id="simpletable_owr_tqf_pk">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
+      <reference
+        id="rt"
+        xml:lang="en-us">
+        <title>rt</title>
+        <shortdesc>The ruby text (rt) element contains the text that annotates
+          the base text in the parent &lt;ruby> element.</shortdesc>
+        <?Pub Caret 146?>
+        <prolog>
+          <metadata>
+            <keywords>
+              <indexterm>rt (ruby text)</indexterm>
+              <indexterm>ruby text (rt)</indexterm>
+              <indexterm>ruby elements<indexterm>rt (ruby
+                text)</indexterm></indexterm>
+            </keywords>
+          </metadata>
+        </prolog>
+        <refbody>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
+            id="contains"
+            otherprops="contains">
+            <title>Contains</title>
+            <p>The content model of this element may differ based on where it is
+              used. Content model information is located here: <xref
+              keyref="rt-contains"/></p>
+          </section>
+          <section
+            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
+            id="containedby"
+            otherprops="containedby">
+            <title>Contained By</title>
+            <p>The parents of this element may differ based on where it is used.
+              Content model information is located here: <xref
+              keyref="rt-contained-by"/></p>
+          </section>
+          <section
+            id="inheritance"
+            otherprops="inheritance">
+            <title>Inheritance</title>
+            <p>+ topic/ph ruby-d/rt </p>
+          </section>
+          <example
+            id="example">
+            <title>Example</title>
+            <codeblock xml:space="preserve">&lt;topic id="ruby-test-topic-01" xml:lang="jp-JP">
+  &lt;title>Ruby Domain Test (DTD)&lt;/title>
+  &lt;body>
+    &lt;p> Ruby with bare PCDATA first child: &lt;ruby>
+      白熊
+      &lt;rp>（&lt;/rp>
+      <b>&lt;rt>しろくま&lt;/rt></b>
+      &lt;rp>）&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+    &lt;p> Ruby with &amp;lt;text&amp;gt; element first child: &lt;ruby>
+      &lt;text>白熊&lt;/text>
+      &lt;rp>（&lt;/rp>
+      <b>&lt;rt>しろくま&lt;/rt></b>
+      &lt;rp>)&lt;/rp>
+    &lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p>   
+  &lt;/body>
+&lt;/topic></codeblock>
+          </example>
+          <section
+            id="attributes">
+            <title>Attributes</title>
+            <simpletable
+              id="b_attr"
+              relcolwidth="2* 3* 1* 1* 1*">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
+    </reference>
+  </topic>
+</dita>
