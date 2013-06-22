@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13044 Allow Basic Phrase in
+      &lt;data></title>
+    <shortdesc>Allow elements within %basic.ph; within &lt;data>.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable
+          frame="all"
+          relcolwidth="1.04* 1.0* 1.02*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>30 Aug 2011</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>9 Oct 2012</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>16 Oct 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Modify %data.cnt to allow %basic.ph;, remove element types already
+          allowed by %basic.ph;</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section><title>Modified DTDs</title>Modify
+        <filepath>commonElements.mod</filepath> by changing the declaration of
+        %data.cnt;
+        to:<codeblock>&lt;!ENTITY % data.cnt 
+  "#PCDATA |
+   %basic.ph; |
+   %image; |
+   %object; |
+   %title;
+  "
+></codeblock></section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>No changes to any specification topics except generated contains and
+          contained-by tables.</p>
+      </section>
+    </body>
+  </topic>
+</dita>
