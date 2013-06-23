@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13010 sort-as element</title>
+    <shortdesc>Provides an element that specifies the string ("sort phrase") on
+      which its associated element should be sorted. Analogous to
+      &lt;index-sort-as>.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable
+          frame="all"
+          relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>5 July 2011</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>21 May 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Add a new element type, &lt;sort-as>, specialized from &lt;data>, to
+          the utilities domain.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>utilitiesDomain.ent</dt>
+            <dd>
+              <p>Add domain integration entity
+                %ut-d-data:<codeblock>&lt;!ENTITY % ut-d-data     
+  "sort-as
+  "
+></codeblock></p>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>utilitiesDomain.mod</dt>
+            <dd>
+              <p>Add parameter entity declaration for the &lt;sort-as>
+                element:<codeblock>&lt;!ENTITY % sort-as     "sort-as"                                     ></codeblock></p>
+              <p>Add declaration for the &lt;sort-as> element
+                type:<codeblock>&lt;!--                    LONG NAME: Sort key specifier      -->
+&lt;!ENTITY % sort-as.content
+ "(#PCDATA |
+   %text; |
+   %keyword;)*"
+>
+&lt;!ENTITY % sort-as.attributes
+             "%univ-atts;
+              name 
+                        CDATA 
+                                  #IMPLIED
+              value 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT sort-as    %sort-as.content;>
+&lt;!ATTLIST sort-as    %sort-as.attributes;></codeblock></p>
+              <p>Declare the @class attribute for
+                &lt;sort-as>:<codeblock>&lt;!ATTLIST sort-as  %global-atts;  class CDATA "+ topic/data ut-d/sort-as " ></codeblock></p>
+            </dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_bt2_mql_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic File</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>archSpec/topicDomains_BasicDITA.dita</entry>
+                <entry>For providing imagemaps and other useful structures </entry>
+                <entry>For providing imagemaps, sort keys, and other useful
+                  structures </entry>
+              </row>
+              <row>
+                <entry>langref/sort-as.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>archSpec/sort-as-processing.dita</entry>
+                <entry/>
+                <entry>New topic. Add under DITA processing, as new last
+                  child.</entry>
+              </row>
+              <row>
+                <entry/>
+                <entry/>
+                <entry/>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+    <concept
+      id="sort-as-processing">
+      <title>Sorting</title>
+      <shortdesc>Processors may choose to sort any elements for any reason.
+        Common sort processing includes glossary entries sorted to produce
+        automatically-generated or automatically-sorted glossary lists, lists of
+        parameters or reference entries in custom navigation structures, tables
+        sorted based on the contents of a specific column, and so on. The
+        &lt;sort-as> element can be used to specify a sort key when the content
+        of the element to be sorted is not appropriate as the sort
+        key.</shortdesc>
+      <conbody>
+        <p>The details of sorting and grouping are necessarily implementation
+          specific. Processors may provide any mechanism for defining or
+          configuring collation and grouping details. Even where &lt;sort-as>
+          has been specified, two processors may produce different sorted and
+          grouped results because they may use different collation and grouping
+          rules. For example, one processor may be configured to sort English
+          terms before non-English terms, another may be configured to sort them
+          after. The grouping and sorting of any content is subject to local
+          editorial rules. </p>
+        <p>When sorting elements, each element to be sorted must have some
+          inherent text on which it will be sorted in the absence of a
+          &lt;sort-as> value. This text may be literal content in the DITA XML
+          source or may be generated or constructed based on the semantics of
+          the element involved (for example, it may be constructed from various
+          attribute or metadata values). This text is the "base sort phrase" for
+          the element. For elements with explicit or implicit titles, such as
+          topics, figures, tables, and sections, the base sort phrase would
+          normally be the title. Processors that do sorting should clearly
+          document how the base sort phrase is determined for a given element
+          type for which sorting is provided where the base sort phrase is not
+          the title content (for elements that have titles).</p>
+        <p>When &lt;sort-as> is specified, processors that sort the containing
+          element must construct the effective sort phrase by prepending the
+          &lt;sort-as> sort phrase to the base sort phrase. This ensures that
+          two items with the same sort-as phrase but different base sort phrases
+          will sort in the appropriate order.</p>
+        <note
+          othertype="example">For example, if the title of a topic is "24 Hour
+          Support Hotline" and the value of the &lt;sort-as> element is
+          "twenty-four hour", then the effective sort phrase would be
+          "twenty-four hour24 Hour Support Hotline".</note>
+      </conbody>
+    </concept>
+    <reference
+      id="sort-as">
+      <title>sort-as</title>
+      <shortdesc>The &lt;sort-as> element defines the string ("sort phrase") by
+        which the containing element should be sorted or grouped (or the nearest
+        ancestor to which sorting or grouping will be applied). The sort phrase
+        may be specified in the @value attribute or in the content of
+        &lt;sort-as>.</shortdesc>
+      <refbody>
+        <section>
+          <p>The &lt;text> and &lt;keyword> elements are allowed in order to
+            enable content referencing for specifying the sort phrase. If
+            &lt;keyword> is used within &lt;sort-as>, it may get its effective
+            value via @keyref in order to set the sort phrase value. If a
+            &lt;keyword> uses @keyref and would otherwise also act as a
+            navigation link, the link aspect of the &lt;keyword> element is
+            ignored.</p>
+          <p>As a specialization of &lt;data>, the &lt;sort-as> element is
+            nominally allowed in any context where &lt;data> is allowed.
+            However, the presence of &lt;sort-as> within an element does not, by
+            itself, indicate that the containing element should be sorted.
+            Processors may choose to sort any DITA elements for any reason.
+            Likewise, processors are not required to sort any elements. See <xref
+            keyref="sort-processing"/>.</p>
+          <p>Some elements in the base DITA vocabulary are natural candidates
+            for sorting, including topics, definition list entries, and rows in
+            tables and simple tables. For those elements, processors should
+            apply &lt;sort-as> as follows:<ul
+            id="ul_ush_jnn_zj">
+            <li>
+              <p>For topics, the &lt;sort-as> element may be included directly
+                in &lt;title>, &lt;searchtitle>, or &lt;navtitle> when the
+                different forms of title need different sort phrases. If the
+                sort phrase is common to all the titles for a topic, the
+                &lt;sort-as> element may be included in the topic's prolog
+                anywhere &lt;data> is allowed. The title's sort-as value should
+                be used as the sort-as for any search title or navigation title
+                when those elements do not specify their own sort-as values.
+              </p>
+            </li>
+            <li>
+              <p>For &lt;glossentry>, the &lt;sort-as> element may be included
+                directly in &lt;glossterm> or within &lt;prolog> as for other
+                topics.</p>
+            </li>
+            <li>
+              <p>For topic references, the &lt;sort-as> element may be included
+                directly in the &lt;navtitle> or &lt;title> element within
+                &lt;topicmeta> or as a child of &lt;topicmeta>.</p>
+            </li>
+            <li>
+              <p>For definition list items, the &lt;sort-as> element should be
+                included in the &lt;dt> element.</p>
+            </li>
+            <li>
+              <p>For tables and simple tables, each &lt;entry> or &lt;stentry>
+                element may contain a &lt;sort-as> element in order to define
+                the sort key for that element relative to other entries in the
+                same table column.</p>
+            </li>
+            <li>
+              <p>Except as stated above, processors should only apply
+                &lt;sort-as> elements that are either a direct child of the
+                element to be sorted or a direct child of the title- or
+                label-defining element of the element to be sorted.</p>
+            </li>
+            </ul></p>
+          <p>When multiple &lt;sort-as> elements occur within a topic's titles
+            or prolog or as direct children of non-topic elements, the first
+            &lt;sort-as> in document order is used as the sort phrase. </p>
+          <p>Sort phrases are determined after filtering and content reference
+            resolution is applied.</p>
+        </section>
+        <section>
+          <title>Inheritance</title>
+          <p>+ topic/data ut-d/sort-as </p>
+        </section>
+        <section>
+          <title>Example</title>
+          <p>A glossary entry with a &lt;sort-as> within the
+            &lt;glossterm>:<codeblock>&lt;glossentry id="gloss-dada">
+  &lt;glossterm>&lt;sort-as value="dada"/>&amp;#x5927;&amp;#x5927;&lt;/glossterm>
+    &lt;glossdef>Literally "big big".&lt;/glossdef>
+&lt;/glossentry></codeblock></p>
+          <p>A glossary entry with a &lt;sort-as> within
+            &lt;prolog>:<codeblock>&lt;glossentry id="gloss-dada">
+  &lt;glossterm>&amp;#x5927;&amp;#x5927;&lt;/glossterm>
+  &lt;prolog>
+    &lt;sort-as value="dada"/>
+  &lt;/prolog>
+    &lt;glossdef>Literally "big big".&lt;/glossdef>
+&lt;/glossentry></codeblock></p>
+        </section>
+        <section>
+          <title>Attributes</title>
+          <simpletable
+            id="foreign_attr"
+            relcolwidth="2* 3* 1* 1* 1*">
+            <sthead>
+              <stentry>Name</stentry>
+              <stentry>Description</stentry>
+              <stentry>Data Type</stentry>
+              <stentry>Default Value</stentry>
+              <stentry>Required?</stentry>
+            </sthead>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+            <strow
+              conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+              <stentry/>
+            </strow>
+          </simpletable>
+        </section>
+      </refbody>
+    </reference>
+  </topic>
+</dita>

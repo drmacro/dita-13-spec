@@ -522,7 +522,7 @@ elements
           id="table_zzc_j4w_4k">
           <title>Modified Topics</title>
           <tgroup
-            cols="3">
+            cols="4">
             <colspec
               colname="c1"
               colnum="1"
@@ -535,28 +535,55 @@ elements
               colname="c3"
               colnum="3"
               colwidth="1.0*"/>
+            <colspec
+              colname="newCol4"
+              colnum="4"
+              colwidth="1*"/>
             <thead>
               <row>
                 <entry>Topic to Be Modified</entry>
                 <entry>DITA 1.2 Text</entry>
-                <entry>Proposed 1.3 Text</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Proposed 1.3 Text</entry>
               </row>
             </thead>
             <tbody>
               <row>
                 <entry>common/mathml-d.dita</entry>
                 <entry/>
-                <entry>New Topic</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">New Topic</entry>
               </row>
               <row>
                 <entry>langref/mathml.dita</entry>
                 <entry/>
-                <entry>New Topic</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">New Topic</entry>
               </row>
               <row>
                 <entry>langref/mathmlref.dita</entry>
                 <entry/>
-                <entry>New Topic</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">New Topic</entry>
+              </row>
+              <row>
+                <entry
+                  morerows="1">archSpec/dita-linking-link-element-summary.dita</entry>
+                <entry
+                  morerows="1"/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Add entry for &lt;mathmlref>:</entry>
+              </row>
+              <row>
+                <entry>mathmlref (MathML domain)</entry>
+                <entry>Uses a MathML &lt;math> element stored in a non-DITA
+                  document by reference.</entry>
+                <entry/>
               </row>
             </tbody>
           </tgroup>
