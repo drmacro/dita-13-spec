@@ -10,10 +10,6 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
-                        <String>keys.context</String>
-                        <String>dita-13-spec/proposals/proposal-13103-print-replacement/org.oasis-open.dita.deliveryTargetAttDomain/subjectSchemes/typicalDeliveryTargetAttValues.ditamap</String>
-                    </entry>
-                    <entry>
                         <String>validation.scenarios</String>
                         <validationScenario-array/>
                     </entry>
