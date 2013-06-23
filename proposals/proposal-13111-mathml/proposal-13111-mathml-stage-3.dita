@@ -200,7 +200,7 @@
                                   #IMPLIED
               format 
                         CDATA 
-                                  'xml'
+                                  'mathml'
               scope 
                         (external | 
                          local | 
@@ -261,7 +261,7 @@
         <fig
           id="fig_i5f_xnw_4k">
           <title>RNG-Syntax Vocabulary Module</title>
-          <p>mathmlDomainMod.rng:<codeblock>&lt;&lt;!-- ============================================================= 
+          <p>mathmlDomainMod.rng:<codeblock>&lt;!-- ============================================================= 
      MODULE:    DITA MathML Domain - RNG              
      VERSION:   1.3                                                
      DATE:      May 2013                                       
@@ -324,7 +324,7 @@
     &lt;/optional>
     &lt;optional>
       &lt;attribute name="format"  
-        a:defaultValue="xml"/>
+        a:defaultValue="mathml"/>
     &lt;/optional>
     &lt;optional>
       &lt;attribute name="scope">
@@ -544,26 +544,27 @@ elements
             </thead>
             <tbody>
               <row>
+                <entry>common/mathml-d.dita</entry>
                 <entry/>
-                <entry/>
-                <entry/>
+                <entry>New Topic</entry>
               </row>
               <row>
+                <entry>langref/mathml.dita</entry>
                 <entry/>
-                <entry/>
-                <entry/>
+                <entry>New Topic</entry>
               </row>
               <row>
+                <entry>langref/mathmlref.dita</entry>
                 <entry/>
-                <entry/>
-                <entry/>
+                <entry>New Topic</entry>
               </row>
             </tbody>
           </tgroup>
         </table>
       </section>
     </body>
-    <reference id="reference_aqh_5zt_3h">
+    <reference
+      id="mathmldomain">
       <title>Mathematics Elements</title>
       <shortdesc>The mathematics elements provide general containers for
         equations (inline, block, and display) and an integration with the
@@ -601,7 +602,7 @@ elements
         </section>
       </refbody>
       <reference
-        id="reference_o5z_nsw_4k">
+        id="equation-block">
         <title>Equation Domain Elements</title>
         <shortdesc>Provides the &lt;equation-inline>, &lt;equation-block>, and
           &lt;equation-display> elements. This domain may be used without the
@@ -751,7 +752,7 @@ elements
             which form or forms they use in deliverables. For example, if there
             is both an image and MathML markup, an HTML-generating processor
             could output both the image reference and the MathML with
-            appropriate HTML @class  or @id values to enable dynamic showing or
+            appropriate HTML @class or @id values to enable dynamic showing or
             hiding of one form or the other based on browser capability. All
             other direct-child elements of &lt;equation-display> are treated
             normally. When the intent is to have equations combined with other
@@ -873,8 +874,8 @@ is greater than 1.&lt;/p>
             form or forms they use in deliverables. For example, if there is
             both an image and MathML markup, an HTML-generating processor could
             output both the image reference and the MathML with appropriate HTML
-            @class  or @id values to enable dynamic showing or hiding of one
-            form or the other based on browser capability.</shortdesc>
+            @class or @id values to enable dynamic showing or hiding of one form
+            or the other based on browser capability.</shortdesc>
           <refbody>
             <section>
               <title>Inheritance</title>
@@ -958,7 +959,7 @@ is greater than 1.&lt;/p>
         </reference>
       </reference>
       <reference
-        id="reference_sjp_1yw_4k">
+        id="mathml">
         <title>MathML Domain Elements</title>
         <shortdesc>The MathML domain elements enable direct use of MathML markup
           within DITA documents, as well as use-by-reference of MathML markup
@@ -1055,36 +1056,36 @@ is greater than 1.&lt;/p>
           </refbody>
         </reference>
         <reference
-          id="reference_njg_nyw_4k">
+          id="mathmlref">
           <title>mathmlref</title>
           <shortdesc>Refers to a non-DITA XML document containing MathML markup
             in order to use the markup by reference. </shortdesc>
           <refbody>
             <section>
-<p>The reference <keyword>must</keyword> be to a MathML &lt;math>
-element. The reference <keyword>may</keyword> be a URI that
-addresses an XML document whose root element is a MathML
-&lt;math> element or a URI that addresses an XML document and a
-fragment identifier that is the XML ID of a &lt;math> element
-within the document. </p>
-<note>To reuse MathML markup stored within a DITA topic, use a
-normal content reference from the &lt;mathml> element.</note>
-<p>The MathML should be processed and rendered as though the
-&lt;m:math> element had occurred directly in the content of the
-containing &lt;mathml> element.</p>
-<p>The reference may be direct, via the @href attribute, or
-indirect, via the @keyref attribute. </p>
-<p>For key references, only the key name should be specified. Any
-fragment identifier for specifying the ID of the &lt;mathml>
-element to use must be specified as part of the key definition's
-@href value.</p>
+              <p>The reference <keyword>must</keyword> be to a MathML &lt;math>
+                element. The reference <keyword>may</keyword> be a URI that
+                addresses an XML document whose root element is a MathML
+                &lt;math> element or a URI that addresses an XML document and a
+                fragment identifier that is the XML ID of a &lt;math> element
+                within the document. </p>
+              <note>To reuse MathML markup stored within a DITA topic, use a
+                normal content reference from the &lt;mathml> element.</note>
+              <p>The MathML should be processed and rendered as though the
+                &lt;m:math> element had occurred directly in the content of the
+                containing &lt;mathml> element.</p>
+              <p>The reference may be direct, via the @href attribute, or
+                indirect, via the @keyref attribute. </p>
+              <p>For key references, only the key name should be specified. Any
+                fragment identifier for specifying the ID of the &lt;mathml>
+                element to use must be specified as part of the key definition's
+                @href value.</p>
               <note
                 othertype="Example"
                 type="other">
-<p>To refer to the &lt;math> element with the @id value
-"equation-02" within a larger document using a key reference,
-you would define the key like
-so:<codeblock>&lt;keydef 
+                <p>To refer to the &lt;math> element with the @id value
+                  "equation-02" within a larger document using a key reference,
+                  you would define the key like
+                  so:<codeblock>&lt;keydef 
   keys="mathml-equation-02" 
   href="math/mathml-equations.xml#equation-02"
   format="mathml"

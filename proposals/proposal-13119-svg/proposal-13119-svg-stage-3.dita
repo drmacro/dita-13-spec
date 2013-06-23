@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13119 SVG domain</title>
+    <shortdesc>Official domain for SVG</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>25 Sept 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/document.php?document_id=47001&amp;wg_abbrev=dita"
+              format="php"
+              scope="external">https://www.oasis-open.org/committees/document.php?document_id=47001&amp;wg_abbrev=dita</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>30 October 2012</stentry>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Define a new vocabulary module, svgDomain, that defines the following
+          element type:</p>
+        <ul
+          id="ul_oqh_qp5_sh">
+          <li>&lt;svg_container><p>Specializes topic/foreign. Allows as content
+            the &lt;svg:svg> element from the SVG 1.1 vocabulary, &lt;data>, or
+            &lt;data-about>, as a repeating OR group.</p><p>Because the SVG
+            vocabulary includes some elements that have the same local name as
+            DITA elements, SVG included in DTD-based or RelaxNG-based documents
+            must use prefixed tagnames. Documents that use XSD schemas may use
+            unprefixed tagnames.</p></li>
+          <li>Include the SVG 1.1 DTD declarations. See <xref
+            href="http://www.w3.org/TR/SVG11/svgdtd.html"
+            format="html"
+            scope="external">http://www.w3.org/TR/SVG11/svgdtd.html</xref>.<p>There
+            do no appear to be normative XSD or RelaxNG versions of the SVG
+            vocabulary.</p></li>
+        </ul>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <dl>
+          <dlentry>
+            <dt>svgDomain.ent</dt>
+            <dd>Create new declaration set <filepath>svgDomain.ent</filepath> in
+              the base declaration set package with the following
+              content:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA SVG Domain
+     
+     Defines a specialization of &lt;foreign> that contains 
+     SVG markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012, 2013 OASIS Open
+     
+     ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                   SVG DOMAIN ENTITIES                  -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- SVG elements must be prefixed when validated by DTD, otherwise they 
+     conflict with existing DITA elements (e.g., &lt;desc> and &lt;title>).
+  -->
+&lt;!ENTITY % NS.prefixed "INCLUDE" >
+&lt;!ENTITY % SVG.prefix "svg" >
+
+&lt;!ENTITY % svg-d-foreign
+   "svg_container
+   "
+>
+
+&lt;!ENTITY   svg-d-att     
+  "(topic svg-d)"
+>
+
+&lt;!-- ================== End DITA SVG Domain Entities ============ --></codeblock></dd>
+          </dlentry>
+          <dlentry>
+            <dt>svgDomain.mod</dt>
+            <dd>Create new declaration set file
+              <filepath>svgDomain.mod</filepath> with the following
+              content:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;!-- =============================================================
+     DITA SVG Domain
+     
+     Defines a specialization of &lt;foreign> that contains 
+     SVG markup.
+     
+     DITA 1.3
+     
+     Copyright (c) 2012, 2013 OASIS Open
+     
+     ============================================================= -->
+     
+ &lt;!ENTITY % svg_container        "svg_container" >
+ &lt;!ENTITY % svgref               "svgref" >
+
+&lt;!ENTITY % svg11.dtd 
+  SYSTEM "svg11/svg11.dtd"
+>%svg11.dtd;
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % svg_container.content
+"
+  (%data; |
+   %data-about; |
+   %SVG.pfx;svg)*
+"
+>
+&lt;!ENTITY % svg_container.attributes
+ "
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+> 
+&lt;!ELEMENT svg_container %svg_container.content; >
+&lt;!ATTLIST svg_container %svg_container.attributes; >
+
+&lt;!-- LONG NAME: SVG Reference -->
+&lt;!ENTITY % svgref.content 
+"EMPTY" 
+>
+&lt;!ENTITY % svgref.attributes
+             "href 
+                        CDATA 
+                                  #IMPLIED
+              keyref 
+                        CDATA 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  "svg"
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT svgref    %svgref.content;>
+&lt;!ATTLIST svgref    %svgref.attributes;>
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+&lt;!ATTLIST svg_container           %global-atts;  class CDATA "+ topic/foreign svg-d/svg_container ">
+&lt;!ATTLIST svgref                  %global-atts;  class CDATA "+ topic/xref    svg-d/svgref ">
+
+&lt;!-- ================== End SVG Domain ==================== --></codeblock></dd>
+          </dlentry>
+        </dl>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_dr3_zdl_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic File</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>common/svg-d.dita</entry>
+                <entry/>
+                <entry>New topic, under Domain elements</entry>
+              </row>
+              <row>
+                <entry>langref/svg_container.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>langref/svgref.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry/>
+                <entry/>
+                <entry/>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+    <reference
+      id="svgdomain"
+      xml:lang="en-us">
+      <title>SVG elements</title>
+      <shortdesc>The SVG domain elements enable direct use of SVG markup within
+        DITA documents, as well as use-by-reference of SVG markup held in
+        separate non-DITA documents. SVG is a W3C standard,
+        <ph>http://www.w3.org/TR/SVG/</ph>. Note that for SVG markup stored
+        directly in DTD-validated DITA documents, the SVG elements must use a
+        namespace prefix to avoid conflict with DITA-defined elements of the
+        same name. Documents validated using XSD or RelaxNG may default the SVG
+        namespace on the SVG &lt;svg> element. SVG elements used by reference
+        using the &lt;svgref> element do not need to have a namespace prefix
+        because they will be parsed separately from the DITA documents that
+        refer to them. The domain is configured by default to use the namespace
+        prefix "svg" for the SVG elements.</shortdesc>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>Domains elements<indexterm>SVG
+              domain</indexterm></indexterm>
+            <indexterm>SVG elements</indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <reference
+        id="reference_y1p_lzw_4k">
+        <title>svg_container</title>
+        <shortdesc>Contains SVG elements, references to SVG elements held in
+          separate, non-DITA documents, &lt;data>, or &lt;data-about>. The SVG
+          markup must have a root element of "svg" within the SVG namespace
+          "http://www.w3.org/2000/svg".</shortdesc>
+        <refbody>
+          <section>
+            <title>Inheritance</title>
+            <p>+ topic/foreign svg-d/svg_container </p>
+          </section>
+          <section>
+            <title>Example</title>
+            <p>SVG containers with inline SVG markup:</p>
+            <codeblock>&lt;topic id="svg-test-topic-01">
+  &lt;title>SVG Domain Test: Namespace Prefixed SVG Elements&lt;/title>
+  &lt;body>
+    &lt;p>SVG Inline: &lt;svg_container>
+      &lt;svg:svg
+        width="100"
+        height="100">
+        &lt;svg:defs>
+          &lt;svg:filter
+            id="f1"
+            x="0"
+            y="0">
+            &lt;svg:feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="15"/>
+          &lt;/svg:filter>
+        &lt;/svg:defs>
+        &lt;svg:rect
+          width="90"
+          height="90"
+          stroke="green"
+          stroke-width="3"
+          fill="yellow"
+          filter="url(#f1)"/>
+      &lt;/svg:svg>
+      &lt;/svg_container>&lt;/p>
+    &lt;p>SVG Directly in body:&lt;/p>
+    &lt;svg_container>
+      &lt;svg:svg width="200" height="200">
+        &lt;svg:ellipse cx="100" cy="100" rx="80" ry="80" style="fill:blue;
+          stroke:rgb(0,0,100);stroke-width:2"/>
+      &lt;/svg:svg>
+    &lt;/svg_container>
+    &lt;fig>
+      &lt;title>Figure With SVG Container&lt;/title>
+      &lt;svg_container>
+        &lt;svg:svg width="4in" height="6in" version="1.1"
+          >
+          &lt;svg:circle cx="150" cy="200" r="100" fill="url(#grad_blue)" >
+            &lt;svg:animate attributeName="r" begin="Go.click" end="Stop.click" dur="4s"  
+              values="100; 0; 100" repeatCount="indefinite"/>
+          &lt;/svg:circle>
+          &lt;svg:radialGradient id="grad_blue" cx="20%" cy="20%" r="100%" fx="30%" fy="30%">
+            &lt;svg:stop stop-color="white" offset="0"/>
+            &lt;svg:stop stop-color="blue" offset="25%"/>
+            &lt;svg:stop stop-color="rgb(0,0,192)" offset="50%"/>
+            &lt;svg:stop stop-color="rgb(0,0,127)" offset="70%"/>
+            &lt;svg:stop stop-color="rgb(0,0,64)" offset="85%"/>
+            &lt;svg:stop stop-color="rgb(0,0,0)" offset="100%"/>
+          &lt;/svg:radialGradient>
+          &lt;svg:g id="Go">
+            &lt;svg:rect x="70" y="320" height="40" width="80" fill="aqua"/>
+            &lt;svg:text x="90" y="350" font-size="30" fill="green">Go &lt;/svg:text>
+          &lt;/svg:g>
+          &lt;svg:g id="Stop">
+            &lt;svg:rect x="160" y="320" height="40" width="80" fill="aqua"/>
+            &lt;svg:text x="170" y="350" font-size="30" fill="red">Stop&lt;/svg:text>
+          &lt;/svg:g>
+        &lt;/svg:svg>
+      &lt;/svg_container>
+    &lt;/fig>
+  &lt;/body>
+&lt;/topic></codeblock>
+            <p>An SVG container with a reference to SVG markup held in a
+              separate non-DITA
+              document:<codeblock>&lt;fig>
+  &lt;title>Figure With SVG Container&lt;/title>
+  &lt;svg_container>
+    &lt;svgref keyref="svg-fragment-01"/>
+  &lt;/svg>
+&lt;/fig></codeblock></p>
+            <p>Where the key "svg-fragment-01" is declared like
+              so:<codeblock>&lt;map>
+ ...
+ &lt;keydef keys="svg-fragment-01"
+   href="media/svg/svg-library.xml#frag-0001"
+   format="svg"
+ />
+ ...
+&lt;/map></codeblock></p>
+          </section>
+          <section>
+            <title>Attributes</title>
+            <simpletable
+              relcolwidth="2* 3* 1* 1* 1*"
+              id="simpletable_vbp_lzw_4k">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
+      <reference
+        id="mathmlref">
+        <title>svgref</title>
+        <shortdesc>Refers to a non-DITA XML document containing SVG markup in
+          order to use the markup by reference. </shortdesc>
+        <refbody>
+          <section>
+            <p>The reference <keyword>must</keyword> be to an SVG &lt;svg>
+              element. The reference <keyword>may</keyword> be a URI that
+              addresses an XML document whose root element is an SVG &lt;svg>
+              element or a URI that addresses an XML document and a fragment
+              identifier that is the XML ID of an &lt;svg> element within the
+              document. </p>
+            <note>To reuse SVG markup stored within a DITA topic, use a normal
+              content reference from the &lt;svg_container> element.</note>
+            <p>The SVG should be processed and rendered as though the &lt;svg>
+              element had occurred directly in the content of the containing
+              &lt;svg_container> element.</p>
+            <p>The reference may be direct, via the @href attribute, or
+              indirect, via the @keyref attribute. </p>
+            <p>For key references, only the key name should be specified. Any
+              fragment identifier for specifying the ID of the &lt;svg> element
+              to use must be specified as part of the key definition's @href
+              value.</p>
+            <note
+              othertype="Example"
+              type="other">
+              <p>To refer to the &lt;svg> element with the @id value
+                "svg-fragment-02" within a larger document using a key
+                reference, you would define the key like
+                so:<codeblock>&lt;keydef 
+  keys="svg-fragment-0002" 
+  href="svg/svg-library.xml#fragment-02"
+  format="svg"
+/></codeblock>You
+                would refer to this key using just the key
+                name:<codeblock>&lt;svg_container>
+  &lt;svgref keyref="svg-fragment-0002"/>
+&lt;/svg_container></codeblock></p>
+            </note>
+          </section>
+          <section>
+            <title>Inheritance</title>
+            <p>+ topic/xref svg-d/svgref </p>
+          </section>
+          <section>
+            <title>Example</title>
+            <p>A reference to an &lt;svg> element that is the root element of
+              its containing document:</p>
+            <codeblock>&lt;fig>
+  &lt;title>Figure With SVG Container&lt;/title>
+  &lt;svg_container>
+    &lt;svgref 
+       href="media/svg/svg-graphic-01.xml" 
+       format="svg"
+    />
+  &lt;/svg>
+&lt;/fig></codeblock>
+            <p><filepath>svg-graphic-01.xml</filepath> (note that the &lt;svg>
+              element sets the SVG namespace as the default namespace, so there
+              are no namespace prefixes on the SVG
+              markup):<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;svg xmlns="http://www.w3.org/2000/svg"
+  width="100"
+  height="100">
+  &lt;defs>
+    &lt;filter
+      id="f1"
+      x="0"
+      y="0">
+      &lt;feGaussianBlur
+        in="SourceGraphic"
+        stdDeviation="15"/>
+    &lt;/filter>
+  &lt;/defs>
+  &lt;rect
+    width="90"
+    height="90"
+    stroke="green"
+    stroke-width="3"
+    fill="yellow"
+    filter="url(#f1)"/>
+&lt;/svg></codeblock></p>
+            <p>A reference to an &lt;svg> element by ID:</p>
+            <codeblock>&lt;fig>
+  &lt;title>Figure With SVG Container&lt;/title>
+  &lt;svg_container>
+    &lt;svgref 
+      href="media/svg/svg-library.xml#frag-0001" 
+    />
+  &lt;/svg>
+&lt;/fig></codeblock>
+            <p><filepath>svg-library.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;root>
+  &lt;part>
+   &lt;svg id="frag-0001"
+     xmlns="http://www.w3.org/2000/svg"
+     width="100"
+     height="100">
+     &lt;defs>
+        &lt;filter
+          id="f1"
+          x="0"
+          y="0">
+          &lt;feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="15"/>
+        &lt;/filter>
+      &lt;/defs>
+      &lt;rect
+        width="90"
+        height="90"
+        stroke="green"
+        stroke-width="3"
+        fill="yellow"
+        filter="url(#f1)"/>
+    &lt;/svg>
+    &lt;svg id="frag-0002"
+       width="4in" height="6in" version="1.1"
+          >
+          &lt;circle cx="150" cy="200" r="100" fill="url(#grad_blue)" >
+            &lt;animate attributeName="r" begin="Go.click" end="Stop.click" dur="4s"  
+              values="100; 0; 100" repeatCount="indefinite"/>
+          &lt;/circle>
+          &lt;radialGradient id="grad_blue" cx="20%" cy="20%" r="100%" fx="30%" fy="30%">
+            &lt;stop stop-color="white" offset="0"/>
+            &lt;stop stop-color="blue" offset="25%"/>
+            &lt;stop stop-color="rgb(0,0,192)" offset="50%"/>
+            &lt;stop stop-color="rgb(0,0,127)" offset="70%"/>
+            &lt;stop stop-color="rgb(0,0,64)" offset="85%"/>
+            &lt;stop stop-color="rgb(0,0,0)" offset="100%"/>
+          &lt;/radialGradient>
+          &lt;g id="Go">
+            &lt;rect x="70" y="320" height="40" width="80" fill="aqua"/>
+            &lt;text x="90" y="350" font-size="30" fill="green">Go &lt;/text>
+          &lt;/g>
+          &lt;g id="Stop">
+            &lt;rect x="160" y="320" height="40" width="80" fill="aqua"/>
+            &lt;text x="170" y="350" font-size="30" fill="red">Stop&lt;/text>
+          &lt;/g>
+        &lt;/svg>
+  &lt;/part>
+&lt;/root></codeblock></p>
+            <title>Attributes</title>
+            <simpletable
+              id="foreign_attr"
+              relcolwidth="2* 3* 1* 1* 1*">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
+      <?Pub Caret1?>
+    </reference>
+  </topic>
+</dita>
