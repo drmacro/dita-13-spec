@@ -299,41 +299,7 @@
         </section>
         <section>
           <title>Attributes</title>
-          <simpletable
-            id="foreign_attr"
-            relcolwidth="2* 3* 1* 1* 1*">
-            <sthead>
-              <stentry>Name</stentry>
-              <stentry>Description</stentry>
-              <stentry>Data Type</stentry>
-              <stentry>Default Value</stentry>
-              <stentry>Required?</stentry>
-            </sthead>
-            <strow
-              conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-            </strow>
-            <strow
-              conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-            </strow>
-            <strow
-              conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-              <stentry/>
-            </strow>
-          </simpletable>
+          <p>Standard attribute table goes here.</p>
         </section>
       </refbody>
     </reference>

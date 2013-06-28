@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Proposal 13010, Sort-as</title>
+  <keydef
+    href="proposal-13010-sort-as-stage-3.dita#sort-as-processing"
+    keys="sort-processing"
+    processing-role="resource-only"/>
+  <topicref
+    href="proposal-13010-sort-as-stage-3.dita"/>
+</map>
