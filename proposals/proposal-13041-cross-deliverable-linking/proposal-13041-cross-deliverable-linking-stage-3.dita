@@ -148,12 +148,12 @@
     <concept
       id="map-to-map-linking">
       <title>Links between maps</title>
-      <shortdesc>When using scoped keys, one map may refer to keys defined in a
-        different root map (key space), creating peer map-to-map links (see <xref
-        keyref="key-based-addressing">Key-based addressing</xref>). These
-        map-to-map links enable the production of deliverables with working
-        links to other deliverables (cross-deliverable links).</shortdesc>
       <conbody>
+        <p>When using scoped keys, one map may refer to keys defined in a
+          different root map (key space), creating peer map-to-map links (see <!--<xref
+          keyref="key-based-addressing">-->Key-based addressing<!--</xref>-->). These
+          map-to-map links enable the production of deliverables with working
+          links to other deliverables (cross-deliverable links).</p>
         <p>When a key definition is bound to a DITA map (@format of "ditamap")
           and the @scope value is "peer", then the referenced map is taken to be
           a <term>peer map</term> with respect to the map making the reference.
@@ -176,9 +176,11 @@
           a key scope so that its keys can be qualified in key references from
           the referencing map.</p>
         <note
+          type="note">Example: Given the map documents
+<!--          <note
           type="other"
           othertype="Example">Given the map documents
-          <filepath>map-a.dita</filepath> and <filepath>map-b.dita</filepath>,
+-->          <filepath>map-a.dita</filepath> and <filepath>map-b.dita</filepath>,
           Map A can treat Map B as a peer root map using the key
           definition:<codeblock>&lt;map>&lt;title>Map A&lt;/title>
   &lt;keydef 
@@ -218,9 +220,9 @@
           resolving scoped key references from the referencing map. This avoids
           the need for processors to have access to or examine the peer map
           before being able to determine that a given key reference is or is not
-          in a peer scope.<note
+          in a peer scope.<!--<note
           type="other"
-          othertype="Example">Given this map reference in map Map
+          othertype="Example">--><note type="note">Example: Given this map reference in map Map
           A:<codeblock>&lt;mapref 
   keyscope="scope-b"
   scope="peer"  

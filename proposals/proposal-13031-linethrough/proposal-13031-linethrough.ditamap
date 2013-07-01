@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Proposal 13031 linethrough</title>
+  <keydef
+    keys="overline-contained-by line-through-contained-by line-through-contains overline-contains">
+    <topicmeta>
+      <linktext>Data to be generated</linktext>
+    </topicmeta>
+  </keydef>
+  <topicref
+    href="proposal-13031-linethrough-stage-3.dita"/>
+</map>

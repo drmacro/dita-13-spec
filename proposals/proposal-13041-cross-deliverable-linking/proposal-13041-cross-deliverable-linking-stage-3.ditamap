@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Stage 3 proposal: Feature 13041 Cross-Deliverable Linking</title>
+  <keydef
+    navtitle="Key-based addressing"
+    keys="key-based-addressing"/>
+  <topicref
+    href="proposal-13041-cross-deliverable-linking-stage-3.dita"/>
+</map>
