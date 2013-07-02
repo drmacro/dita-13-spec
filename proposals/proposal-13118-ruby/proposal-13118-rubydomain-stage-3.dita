@@ -23,12 +23,21 @@
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
             <stentry>31 Jan 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44983/minutes20120131.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44983/minutes20120131.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>22 October 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47268/proposal-13118-html.zip"
+              format="zip"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47268/proposal-13118-html.zip</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47266/proposal-13118-rubydomain.dita"
+              scope="external"
+              format="dita">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47266/proposal-13118-rubydomain.dita</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
@@ -48,8 +57,8 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>2 July 2013</stentry>
+            <stentry>Nancy Harrison, Richard Hamilton</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -342,22 +351,6 @@
               elements.</p>
           </section>
           <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
-            otherprops="contains">
-            <title>Contains</title>
-            <p>The content model of this element may differ based on where it is
-              used. Content model information is located here: <xref
-              keyref="ruby-contains"/></p>
-          </section>
-          <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
-            otherprops="containedby">
-            <title>Contained By</title>
-            <p>The parents of this element may differ based on where it is used.
-              Content model information is located here: <xref
-              keyref="ruby-contained-by"/></p>
-          </section>
-          <section
             otherprops="inheritance">
             <title>Inheritance</title>
             <p>+ topic/ph ruby-d/ruby </p>
@@ -384,41 +377,7 @@
           </example>
           <section>
             <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_npt_xpf_pk">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
+            <p>Generated attribute table goes here.</p>
           </section>
         </refbody>
       </reference>
@@ -443,22 +402,6 @@
           </metadata>
         </prolog>
         <refbody>
-          <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
-            otherprops="contains">
-            <title>Contains</title>
-            <p>The content model of this element may differ based on where it is
-              used. Content model information is located here: <xref
-              keyref="rp-contains"/></p>
-          </section>
-          <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
-            otherprops="containedby">
-            <title>Contained By</title>
-            <p>The parents of this element may differ based on where it is used.
-              Content model information is located here: <xref
-              keyref="rp-contained-by"/></p>
-          </section>
           <section
             otherprops="inheritance">
             <title>Inheritance</title>
@@ -486,41 +429,7 @@
           </example>
           <section>
             <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_owr_tqf_pk">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
+            <p>Generated attribute table goes here.</p>
           </section>
         </refbody>
       </reference>
@@ -542,24 +451,6 @@
           </metadata>
         </prolog>
         <refbody>
-          <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/contains"
-            id="contains"
-            otherprops="contains">
-            <title>Contains</title>
-            <p>The content model of this element may differ based on where it is
-              used. Content model information is located here: <xref
-              keyref="rt-contains"/></p>
-          </section>
-          <section
-            conref="../common/commonNavLibraryTable.dita#contentmodel-b/containedby"
-            id="containedby"
-            otherprops="containedby">
-            <title>Contained By</title>
-            <p>The parents of this element may differ based on where it is used.
-              Content model information is located here: <xref
-              keyref="rt-contained-by"/></p>
-          </section>
           <section
             id="inheritance"
             otherprops="inheritance">
@@ -590,41 +481,7 @@
           <section
             id="attributes">
             <title>Attributes</title>
-            <simpletable
-              id="b_attr"
-              relcolwidth="2* 3* 1* 1* 1*">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
+            <p>Generated attribute table goes here.</p>
           </section>
         </refbody>
       </reference>
