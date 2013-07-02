@@ -33,6 +33,7 @@
               href="https://www.oasis-open.org/apps/org/workgroup/dita/document.php?document_id=47028"
               format="php"
               scope="external">HTML</xref>, <xref
+                format="dita"
               href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49345/proposal-13111-mathml.dita"
               scope="external">DITA source</xref></stentry>
           </strow>
@@ -55,7 +56,7 @@
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
             <stentry>12 June 2014</stentry>
-            <stentry>Autumn Cuellar, Robert Anderson</stentry>
+            <stentry>Autumn Cuellar, Robert Anderson, Debra Bissantz</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -583,7 +584,6 @@ elements
                 <entry>mathmlref (MathML domain)</entry>
                 <entry>Uses a MathML &lt;math> element stored in a non-DITA
                   document by reference.</entry>
-                <entry/>
               </row>
             </tbody>
           </tgroup>
@@ -722,42 +722,7 @@ elements
             </section>
             <section>
               <title>Attributes</title>
-              <simpletable
-                relcolwidth="2* 3* 1* 1* 1*"
-                id="simpletable_ab3_t5w_4k">
-                <?Pub Caret?>
-                <sthead>
-                  <stentry>Name</stentry>
-                  <stentry>Description</stentry>
-                  <stentry>Data Type</stentry>
-                  <stentry>Default Value</stentry>
-                  <stentry>Required?</stentry>
-                </sthead>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-              </simpletable>
+              <p>Generated attribute table goes here.</p>
             </section>
           </refbody>
         </reference>
@@ -851,42 +816,7 @@ is greater than 1.&lt;/p>
             </section>
             <section>
               <title>Attributes</title>
-              <simpletable
-                relcolwidth="2* 3* 1* 1* 1*"
-                id="simpletable_z1j_bww_4k">
-                <?Pub Caret?>
-                <sthead>
-                  <stentry>Name</stentry>
-                  <stentry>Description</stentry>
-                  <stentry>Data Type</stentry>
-                  <stentry>Default Value</stentry>
-                  <stentry>Required?</stentry>
-                </sthead>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-              </simpletable>
+              <p>Generated attribute table goes here.</p>
             </section>
           </refbody>
         </reference>
@@ -945,42 +875,7 @@ is greater than 1.&lt;/p>
             </section>
             <section>
               <title>Attributes</title>
-              <simpletable
-                id="attribute_table"
-                relcolwidth="2* 3* 1* 1* 1*">
-                <?Pub Caret?>
-                <sthead>
-                  <stentry>Name</stentry>
-                  <stentry>Description</stentry>
-                  <stentry>Data Type</stentry>
-                  <stentry>Default Value</stentry>
-                  <stentry>Required?</stentry>
-                </sthead>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-              </simpletable>
+              <p>Generated attribute table goes here.</p>
             </section>
           </refbody>
         </reference>
@@ -1043,42 +938,7 @@ is greater than 1.&lt;/p>
 &lt;/equation-block></codeblock>
             </section>
             <section>
-              <title>Attributes</title>
-              <simpletable
-                relcolwidth="2* 3* 1* 1* 1*"
-                id="simpletable_vbp_lzw_4k">
-                <sthead>
-                  <stentry>Name</stentry>
-                  <stentry>Description</stentry>
-                  <stentry>Data Type</stentry>
-                  <stentry>Default Value</stentry>
-                  <stentry>Required?</stentry>
-                </sthead>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-              </simpletable>
+              <p>Generated attribute table goes here.</p>
             </section>
           </refbody>
         </reference>
@@ -1106,10 +966,13 @@ is greater than 1.&lt;/p>
                 fragment identifier for specifying the ID of the &lt;mathml>
                 element to use must be specified as part of the key definition's
                 @href value.</p>
-              <note
+<!--              <note
                 othertype="Example"
                 type="other">
-                <p>To refer to the &lt;math> element with the @id value
+-->                <note
+                  
+                  >Example:
+                  <p>To refer to the &lt;math> element with the @id value
                   "equation-02" within a larger document using a key reference,
                   you would define the key like
                   so:<codeblock>&lt;keydef 
@@ -1203,41 +1066,7 @@ is greater than 1.&lt;/p>
   &lt;/part>
 &lt;/root></codeblock></p>
               <title>Attributes</title>
-              <simpletable
-                id="foreign_attr"
-                relcolwidth="2* 3* 1* 1* 1*">
-                <sthead>
-                  <stentry>Name</stentry>
-                  <stentry>Description</stentry>
-                  <stentry>Data Type</stentry>
-                  <stentry>Default Value</stentry>
-                  <stentry>Required?</stentry>
-                </sthead>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-                <strow
-                  conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                  <stentry/>
-                </strow>
-              </simpletable>
+              <p>Generated attribute table goes here.</p>
             </section>
           </refbody>
         </reference>
