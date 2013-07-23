@@ -48,7 +48,7 @@
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
             <stentry>2 July 2013</stentry>
-            <stentry>JoAnn Hackos</stentry>
+            <stentry>JoAnn Hackos, Bob Thomas</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -72,16 +72,37 @@
           <dlentry>
             <dt>commonElements.mod</dt>
             <dd>
-              <p>Modify the declaration of %basic.phrase.noxref to include
-                %cite;:<codeblock>&lt;!ENTITY % basic.ph.noxref
-  "%boolean; |
-   %cite; 
-   %keyword; | 
-   %ph; | 
-   %q; |
-   %term; | 
-   %tm; | 
-   %state;
+              <note>
+                <p>In order to avoid allowing &lt;cite> within &lt;cite>, the
+                  parameter entities used configure phrase content and xref
+                  content must be refactored slightly to prevent %xrefph.cnt
+                  from allowing &lt;cite>. In 1.2, only &lt;cite> and
+                  &lt;fragref> use %xrefph.cnt; and in both cases it seems
+                  appropriate to disallow &lt;cite>.</p>
+              </note>
+              <p>Create new parameter entity %basic.ph.noxref.nocite defined as
+                follows:<codeblock>!ENTITY % basic.ph.noxref.nocite   
+        "%boolean; |    
+         %keyword; |    
+         %ph; |    
+         %q; |   
+         %term; |    
+         %tm; |    
+         %state;  
+        " 
+> </codeblock></p>
+              <p>Redefine %basic.ph.noxref as
+                follows:<codeblock>&lt;!ENTITY % basic.ph.noxref
+  "%basic.ph.noxref.nocite; |
+   %cite;
+  "
+></codeblock></p>
+              <p>Redefine %xrefph.cnt as
+                follows:<codeblock>&lt;!ENTITY % xrefph.cnt
+   "#PCDATA |
+    %basic.ph.noxref.nocite; |
+    %data.elements.incl; |
+    %foreign.unknown.incl;
   "
 ></codeblock></p>
             </dd>
@@ -90,8 +111,8 @@
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>No changes to 1.2 specification text other than generate contains and
-          contained-by tables.</p>
+        <p>No changes to 1.2 specification text other than generated contains
+          and contained-by tables.</p>
       </section>
     </body>
   </topic>

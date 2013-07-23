@@ -27,13 +27,22 @@
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>1 Oct 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47062/proposal-13119-dita-source.zip"
+              format="zip"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47062/proposal-13119-dita-source.zip</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47063/proposal-13119-html.zip"
+              format="zip"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47063/proposal-13119-html.zip</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>16 Oct 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47205/minutes20121016.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47205/minutes20121016.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
@@ -42,8 +51,8 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>2 July 2013</stentry>
+            <stentry>Debra Bissantz</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -415,41 +424,7 @@
           </section>
           <section>
             <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_vbp_lzw_4k">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
+            <p>Generated attribute table goes here.</p>
           </section>
         </refbody>
       </reference>
@@ -597,41 +572,7 @@
   &lt;/part>
 &lt;/root></codeblock></p>
             <title>Attributes</title>
-            <simpletable
-              id="foreign_attr"
-              relcolwidth="2* 3* 1* 1* 1*">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
+            <p>Generated attribute table goes here.</p>
           </section>
         </refbody>
       </reference>

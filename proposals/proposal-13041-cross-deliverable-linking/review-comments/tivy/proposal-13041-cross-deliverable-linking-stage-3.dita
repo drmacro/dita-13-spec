@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13041 Cross-Deliverable Linking</title>
+    <shortdesc>Defines the meaning and addressing implications for peer-scope
+      map references that specify a key scope for the map reference: keys
+      defined in peer maps that are bound to a key scope in the referencing map
+      may be addressed as scope-qualified keys.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>28 May 2013</stentry>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Define the meaning of @scope of "peer" on key-defining topicrefs to
+          DITA map documents where the key definition also specifies a key scope
+          such that the referenced map is treated as a separate key space bound
+          to the scope specified, such that references to keys in that scope are
+          taken to be references to keys in the target map's key space. The
+          target map's key space is treated as a separate key space and is not
+          merged with the key space of the referencing map.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>This proposal depends on scoped keys, as defined in proposal 13004.
+          Implementation of this facility for the production of deliverables
+          with working cross-deliverable links can be done using the vocabulary
+          and abstract processing defined in proposal 13120,  Vocabulary for
+          Publishing Process Definitions.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>No changes to existing declarations.</p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_h3j_f4m_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>Topic file</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>common/thetypeattribute.dita</entry>
+                <entry>scope is not local</entry>
+                <entry>scope is external:<p>During output processing for
+                  references to non-DITA objects (i.e., either scope is not
+                  “local” or format is neither “dita” nor “ditamap”)</p></entry>
+              </row>
+              <row>
+                <entry>archSpec/map-to-map-linking.dita</entry>
+                <entry/>
+                <entry>New topic</entry>
+              </row>
+              <row>
+                <entry>archSpec/processing_key_references.dita</entry>
+                <entry/>
+                <entry>Insert new paragraph before the paragraph that begins "For topic
+                    references...":<p>For references to keys in peer root maps, if the peer map is
+                    unavailable for processing or the peer key reference cannot otherwise be
+                    resolved, the key reference processed as though there was no key reference. If
+                    the peer map is
+                    <?oxy_delete author="jimt" timestamp="20130702T163032-0700" content="unavailable"?><?oxy_insert_start author="jimt" timestamp="20130702T163034-0700"?>available<?oxy_insert_end?>,
+                    then the key reference is processed normally, but with the peer map establishing
+                    the key resolution context (key space).</p></entry>
+              </row>
+              <row>
+                <entry>langref/thescopeattribute.dita</entry>
+                <entry>Set scope to peer when the resource is part of the
+                  current set of content but is not accessible at build
+                  time.</entry>
+                <entry>Set scope to peer when the resource is part of the current set of content but
+                  is
+                  <?oxy_delete author="jimt" timestamp="20130702T171752-0700" content="not"?><?oxy_insert_start author="jimt" timestamp="20130702T171752-0700"?>may
+                  or may not be<?oxy_insert_end?> accessible at build
+                  time<?oxy_insert_start author="jimt" timestamp="20130702T171810-0700"?>.  Peer
+                  scope is also
+                  used<?oxy_insert_end?><?oxy_delete author="jimt" timestamp="20130702T171822-0700" content=" or "?>for
+                  maps to be treated as root maps for the purpose of creating map-to-map key
+                  references.<?oxy_insert_start author="jimt" timestamp="20130702T171836-0700"?>
+                  Author time processors may be based on the content or an export of the links of
+                  the peer map.<?oxy_insert_end?></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <note>The suggested specification changes here may conflict with or be
+        redundant with proposed changes from the main key scope proposal. The
+        language of the key scope proposal should take precedence except where
+        it does not address cross-map key references at all.</note>
+    </body>
+    <concept
+      id="map-to-map-linking">
+      <title>Links between maps</title>
+      <conbody>
+        <p>When using scoped keys, one map may refer to keys defined in a
+          different root map (key space), creating peer map-to-map links (see <!--<xref
+          keyref="key-based-addressing">-->Key-based addressing<!--</xref>-->). These
+          map-to-map links enable the production of deliverables with working
+          links to other deliverables (cross-deliverable links).</p>
+        <p>When a key definition is bound to a DITA map (@format of "ditamap")
+          and the @scope value is "peer", then the referenced map is taken to be
+          a <term>peer map</term> with respect to the map making the reference.
+          The implication of a scope of "peer" in this case is that the target
+          map is managed with the referencing map such that the author or
+          processor of the first map likely has access to the referenced map as
+          well. Peer maps are always treated as root maps for the purpose of
+          constructing the key spaces for those maps for the purpose of
+          resolving key references from the referencing map to the target peer
+          map.</p>
+        <p>A <term>peer map</term> establishes its own key space separate from the key space of the
+          referencing map. The key space defined by a peer map is a <term>peer key space</term>. A
+          peer key space is identified by the root map from which the key space is constructed. Peer
+          key spaces are not merged.</p>
+        <note>Every peer map referenced by a given map is treated as the root of a separate key
+          space, even if one of the referenced maps happens to also be a sub map of another
+          referenced
+            map.<?oxy_insert_start author="jimt" timestamp="20130702T170603-0700"?><draft-comment
+            author="jimt">It is not clear here what the relationship between a peer map and a target
+            deliverable is.  Are you assuming each separate peer map (along with its keyspace)
+            constitutes a single target deliverable, or if you reference a submap under a new
+            keyspace is that somehow part of the same target deliverable as its parent, although a
+            second keyspace.</draft-comment><?oxy_insert_end?>
+        </note>
+        <p>In order to refer to keys in a peer map the peer map must be bound to
+          a key scope so that its keys can be qualified in key references from
+          the referencing map.</p>
+        <note type="note">Example: Given the map documents <!--          <note
+          type="other"
+          othertype="Example">Given the map documents
+-->
+          <filepath>map-a.dita</filepath> and <filepath>map-b.dita</filepath>, Map A can treat Map B
+          as a peer root map using the key
+            definition:<codeblock>&lt;map>&lt;title>Map A&lt;/title>
+  &lt;keydef 
+    keys="map-b"
+    scope="peer"
+    format="ditamap"
+    keyscope="map-b"
+    href="../map-b/map-b.ditamap"
+  />
+  ...
+&lt;/map></codeblock><p>In
+            this example, the map document <filepath>map-b.ditamap</filepath> is not a submap of Map
+            A, it is a peer map.
+            </p><?oxy_insert_start author="jimt" timestamp="20130702T173639-0700"?><draft-comment
+            author="jimt">I do not understand this example.  what is the difference between the use
+            of a topicref, mapref or keydef in these cases - since they are all topicrefs?  Why did
+            you choose keydef here.  Also, what does it say to set
+          keys="map-b".</draft-comment><?oxy_insert_end?></note>
+        <p>Conforming DITA processors are not required to support the resolution of or delivery of
+          key references to peer maps. Note, however, that the general implication of peer scope is
+          that the peer resources are all available in the same processing or management context.
+          This means that processors always have the potential to resolve peer key references when
+          the peer resources are in fact managed together. There may, of course, be performance,
+          scale, and user interface challenges in implementing such systems, but the fundamental
+          ability to resolve any given reference is ensured when the source files are physically
+          accessible. That is, given a correctly-specified key definition to a peer map, if the map
+          itself is accessible it must then be possible to process that map in order to resolve keys
+          defined by it, if it is also possible to resolve keys in the map making the peer map
+            reference.<?oxy_insert_start author="jimt" timestamp="20130702T171304-0700"?><draft-comment
+            author="jimt">Strikes me that the term "processor" is not fully distinguished as "author
+            time processors" (like oxygen) and "deliverable build processors" (like OT). For
+            example, author time processors may be able to see the keyref targets for setting up
+            cross deliverable links. </draft-comment><?oxy_insert_end?></p>
+        <p>Note also the inverse implication: if the peer resource is not available then it is
+          necessarily impossible to resolve the key reference.<?oxy_insert_start author="jimt" timestamp="20130702T172153-0700"?>
+          <draft-comment author="jimt">Is this true - what if you have an export file of links -
+            then having the actual content is not necessary to resolve a key
+            reference.</draft-comment><?oxy_insert_end?> For that reason, processors must be
+          prepared to provide appropriate messages or other indicators when a peer resource cannot
+          be resolved for a particular processing purpose. Depending on how a given set of DITA
+          resources is authored, managed, and processed, peer resources may be resolvable or not at
+          different points in the content's life cycle.</p>
+        <p>The referenced peer map may specify @keyscope on its root element. In
+          that case, the @keyscope on the peer map is ignored for the purpose of
+          resolving scoped key references from the referencing map. This avoids
+          the need for processors to have access to or examine the peer map
+          before being able to determine that a given key reference is or is not
+          in a peer scope.<!--<note
+          type="other"
+          othertype="Example">--><note type="note">Example: Given this map reference in map Map
+          A:<codeblock>&lt;mapref 
+  keyscope="scope-b"
+  scope="peer"  
+  href="map-b.ditamap"
+/> </codeblock><p>Where
+          "map-b.ditamap"
+          is:<codeblock>&lt;map keyscope="scope-b">
+ ...
+&lt;/map></codeblock></p><p>For
+          references from the context of Map A, key references of the form
+          "scope-b.somekey" will be resolved to keys defined in the global scope
+          of map B. The presence or absence of a @keyscope attribute on Map B's
+          &lt;map> element has no effect in this case. Another way to view this
+          is that a key reference to the scope "scope-b.somekey" is equivalent
+          to the unscoped reference "somekey" processed in the context of Map B
+          as the root map. In both cases, the presence of @keyscope on Map B's
+          &lt;map> element has no effect, in the first case (peer key reference)
+          because it is explicitly ignored, in the second because the key
+          reference will necessarily be within the scope "scope-b" and therefore
+          does not need to be scope qualified.</p></note></p>
+        <p>For local-scope map references, the @keyscope attribute values on the map reference and
+          the map element are merged, meaning that both the scopes named on the map reference and on
+          the map will be resolvable for key references processed in the context of the referencing
+          parent root map. The referenced map does not create another level of scope hierarchy when
+          referenced as a sub map.<note>This rule ensures that the same key reference (e.g.,
+            "scope-b.somekey") will resolve to the same resource whether the referenced map is
+            referenced as a local map (sub map) or a peer
+            map.</note><?oxy_insert_start author="jimt" timestamp="20130702T173119-0700"?><draft-comment
+            author="jimt">Is there some discussion on how local keyscope in the target map works
+            when referenced from a linkor map. I think we were going for hiearchial names - for
+            example there can be two tractor scopes, one in local keyscope Tractor-X and one in
+            local keyscope Tractor-Y.  Given a peer scope of PubA would you support
+            PubA.Tractor-Y.key1 in a keyref.</draft-comment><?oxy_insert_end?></p>
+      </conbody>
+    </concept>
+  </topic>
+</dita>
+<?oxy_options track_changes="on"?>
