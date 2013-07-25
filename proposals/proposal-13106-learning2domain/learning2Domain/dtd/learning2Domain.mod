@@ -62,8 +62,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcAnswerContent2          "lcAnswerContent2">
 <!ENTITY % lcSequenceOptionGroup2    "lcSequenceOptionGroup2">
 <!ENTITY % lcSequenceOption2         "lcSequenceOption2">
-<!--<!ENTITY % lcSequence               "lcSequence">
--->
+<!ENTITY % lcSequence2               "lcSequence2">
 <!ENTITY % lcMatchTable2             "lcMatchTable2">
 <!ENTITY % lcMatchingHeader2         "lcMatchingHeader2">
 <!ENTITY % lcMatchingPair2           "lcMatchingPair2">
@@ -72,6 +71,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcMatchingItemFeedback2   "lcMatchingItemFeedback2">
 
 <!ENTITY % lcFeedback2               "lcFeedback2">
+<!ENTITY % lcAsset2                  "lcAsset2">
+<!ENTITY % lcHotspotMap2             "lcHotspotMap2">
+<!ENTITY % lcCorrectResponse2        "lcCorrectResponse2">
+<!ENTITY % lcArea2                   "lcArea2">
+<!ENTITY % lcAreaShape2              "lcAreaShape2">
+<!ENTITY % lcAreaCoords2             "lcAreaCoords2">
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    - INTERACTION DEFINITIONS
@@ -79,7 +84,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcTrueFalse2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -103,7 +108,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcSingleSelect2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -125,7 +130,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcMultipleSelect2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -147,7 +152,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcSequencing2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcSequenceOptionGroup2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -169,7 +174,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcMatching2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcMatchTable2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -264,7 +269,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcHotspot2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcHotspotMap;),
+                         (%lcHotspotMap2;),
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
                          (%data;)*)"
@@ -285,7 +290,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcOpenQuestion2.content
                        "((%lcInteractionLabel;)?,
                          (%lcQuestion2;), 
-                         (%lcAsset;)*,
+                         (%lcAsset2;)*,
                          (%lcOpenAnswer2;)?,
                          (%lcFeedbackIncorrect2;)?,
                          (%lcFeedbackCorrect2;)?,
@@ -370,7 +375,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 <!ENTITY % lcSequenceOption2.content
                        "((%lcAnswerContent2;),
-                         (%lcSequence;))"
+                         (%lcSequence2;))"
 >
 <!ENTITY % lcSequenceOption2.attributes
 "
@@ -432,7 +437,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 <!ENTITY % lcAnswerOption2.content
                        "((%lcAnswerContent2;),
-                         (%lcCorrectResponse;)?,
+                         (%lcCorrectResponse2;)?,
                          (%lcFeedback2;)? )"
 >
 <!ENTITY % lcAnswerOption2.attributes
@@ -484,6 +489,120 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ELEMENT lcItem2    %lcItem2.content;>
 <!ATTLIST lcItem2    %lcItem2.attributes;>
 
+
+<!ENTITY % lcAsset2.content
+                       "((%imagemap; | 
+                          %image; | 
+                          %object;)*)"
+>
+<!ENTITY % lcAsset2.attributes
+             "%univ-atts; 
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcAsset2    %lcAsset2.content;>
+<!ATTLIST lcAsset2    %lcAsset2.attributes;>
+
+<!ENTITY % lcHotspotMap2.content
+                       "((%image;),
+                         (%lcArea2;)+)"
+>
+<!ENTITY % lcHotspotMap2.attributes 
+              "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED" 
+> 
+<!ELEMENT lcHotspotMap2    %lcHotspotMap2.content;>
+<!ATTLIST lcHotspotMap2    %lcHotspotMap2.attributes;>
+
+<!ENTITY % lcArea2.content 
+                       "((%lcAreaShape2;), 
+                         (%lcAreaCoords2;), 
+                         (%xref;)?, 
+                         (%lcCorrectResponse2;)?, 
+                         (%lcFeedback2;)?)" 
+> 
+<!ENTITY % lcArea2.attributes 
+              "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED" 
+> 
+<!ELEMENT lcArea2    %lcArea2.content;>
+<!ATTLIST lcArea2    %lcArea2.attributes;>
+
+<!ENTITY % lcAreaShape2.content 
+                       "(#PCDATA | 
+                         %text;)* 
+"> 
+<!ENTITY % lcAreaShape2.attributes 
+             "keyref 
+                        CDATA 
+                                  #IMPLIED 
+              %univ-atts-translate-no; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED" 
+> 
+
+
+<!ELEMENT lcAreaShape2    %lcAreaShape2.content;> 
+<!ATTLIST lcAreaShape2    %lcAreaShape2.attributes;> 
+
+
+
+<!--                    LONG NAME: Coordinates of the Hotspot      --> 
+<!ENTITY % lcAreaCoords2.content 
+                       "(%words.cnt;)*" 
+> 
+<!ENTITY % lcAreaCoords2.attributes 
+             "keyref 
+                        CDATA 
+                                  #IMPLIED 
+              %univ-atts-translate-no; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED" 
+> 
+<!ELEMENT lcAreaCoords2    %lcAreaCoords2.content;> 
+<!ATTLIST lcAreaCoords2    %lcAreaCoords2.attributes;> 
+
+
+<!ENTITY % lcSequence2.content
+                       "EMPTY">
+<!ENTITY % lcSequence2.attributes
+             "name
+                       CDATA
+                                 'lcSequence'
+              value
+                        CDATA
+                                  #REQUIRED
+              %univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcSequence2    %lcSequence2.content;>
+<!ATTLIST lcSequence2    %lcSequence2.attributes;>
+
+<!ENTITY % lcCorrectResponse2.content
+                       "EMPTY">
+<!ENTITY % lcCorrectResponse2.attributes
+             "name
+                        CDATA
+                                  'lcCorrectResponse2'
+              value
+                        CDATA
+                                  'lcCorrectResponse2'
+              %univ-atts;
+              outputclass
+                        CDATA
+                                  #IMPLIED"
+>
+<!ELEMENT lcCorrectResponse2    %lcCorrectResponse2.content;>
+<!ATTLIST lcCorrectResponse2    %lcCorrectResponse2.attributes;>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    - CHOICE DEFINITIONS
@@ -540,5 +659,11 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
     class CDATA "+ topic/ol learningInteractionBase2-d/ol learning2-d/lcSequenceOptionGroup2 ">
 <!ATTLIST lcSequenceOption2 %global-atts;
     class CDATA "+ topic/li learningInteractionBase2-d/li learning2-d/lcSequenceOption2 ">
+<!ATTLIST lcAsset2 %global-atts;
+    class CDATA "+ topic/p learningInteractionBase2-d/p learning2-d/lcAsset2 ">
+<!ATTLIST lcHotspotMap2 %global-atts; 
+   class CDATA "+ topic/fig learningInteractionBase2-d/figgroup learning2-d/lcHotspotMap2 " >
+<!ATTLIST lcCorrectResponse2 %global-atts;
+    class CDATA "+ topic/data learningInteractionBase2-d/data learning2-d/lcCorrectResponse2 ">
 
 <!-- End of declaration set -->

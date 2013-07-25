@@ -21,7 +21,7 @@
         <lcAnswerOptionGroup2>
           <lcAnswerOption2>
             <lcAnswerContent2>2/8</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
             <lcFeedback2> <p>There are 8 wedges, two of which are yellow. Thus
               the probability is:</p> <pre>2
 —
@@ -87,7 +87,7 @@
           </lcAnswerOption2>
           <lcAnswerOption2>
             <lcAnswerContent2>I, II, and III</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
           </lcAnswerOption2>
         </lcAnswerOptionGroup2>
         <lcFeedbackCorrect2> <p>This question asks…</p> <p>…So statement III is
