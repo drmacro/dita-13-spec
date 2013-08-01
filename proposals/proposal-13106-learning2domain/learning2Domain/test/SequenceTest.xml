@@ -18,7 +18,7 @@
                 <li>Ezekial</li>
                 <li>Daniel</li>
               </ul></lcAnswerContent2>
-            <lcSequence value="4"/>
+            <lcSequence2 value="4"/>
           </lcSequenceOption2>
           <lcSequenceOption2>
             <lcAnswerContent2>Books of the Law<ul id="ul_vwt_dbf_hk">
@@ -28,7 +28,7 @@
                 <li>Numbers</li>
                 <li>Deuteronomy</li>
               </ul></lcAnswerContent2>
-            <lcSequence value="1"/>
+            <lcSequence2 value="1"/>
           </lcSequenceOption2>
           <lcSequenceOption2>
             <lcAnswerContent2>Minor Prophets<ul id="ul_w4w_5bf_hk">
@@ -45,7 +45,7 @@
                 <li>Zechariah</li>
                 <li>Malachi</li>
               </ul></lcAnswerContent2>
-            <lcSequence value="5"/>
+            <lcSequence2 value="5"/>
           </lcSequenceOption2>
           <lcSequenceOption2>
             <lcAnswerContent2>Poetry Books<ul id="ul_ycj_4bf_hk">
@@ -55,7 +55,7 @@
                 <li>Ecclesiastes</li>
                 <li>Song of Solomon</li>
               </ul></lcAnswerContent2>
-            <lcSequence value=""/>
+            <lcSequence2 value=""/>
           </lcSequenceOption2>
           <lcSequenceOption2>
             <lcAnswerContent2>History Books<ul id="ul_mrs_jbf_hk">
@@ -67,7 +67,7 @@
                 <li>1&amp;2 Chronicles</li>
                 <li>Esther</li>
               </ul></lcAnswerContent2>
-            <lcSequence value="2"/>
+            <lcSequence2 value="2"/>
           </lcSequenceOption2>
         </lcSequenceOptionGroup2>
       </lcSequencing2>

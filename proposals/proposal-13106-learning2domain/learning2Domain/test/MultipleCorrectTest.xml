@@ -21,11 +21,11 @@
         <lcAnswerOptionGroup2 id="lcAnswerOptionGroup2_cfm_n52_hk">
           <lcAnswerOption2>
             <lcAnswerContent2>January</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
           </lcAnswerOption2>
           <lcAnswerOption2>
             <lcAnswerContent2>February</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
           </lcAnswerOption2>
           <lcAnswerOption2>
             <lcAnswerContent2>March</lcAnswerContent2>
@@ -35,11 +35,11 @@
           </lcAnswerOption2>
           <lcAnswerOption2>
             <lcAnswerContent2>May</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
           </lcAnswerOption2>
           <lcAnswerOption2>
             <lcAnswerContent2>June</lcAnswerContent2>
-            <lcCorrectResponse/>
+            <lcCorrectResponse2/>
           </lcAnswerOption2>
         </lcAnswerOptionGroup2>
         <lcFeedbackIncorrect2>EcoCorp stock either increased or decreased by more than two dollars

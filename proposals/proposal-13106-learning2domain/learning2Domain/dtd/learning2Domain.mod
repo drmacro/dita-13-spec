@@ -82,7 +82,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
    - INTERACTION DEFINITIONS
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!ENTITY % lcTrueFalse2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
@@ -106,7 +106,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcSingleSelect2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
@@ -128,7 +128,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcMultipleSelect2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcAnswerOptionGroup2;),
@@ -150,7 +150,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcSequencing2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcSequenceOptionGroup2;),
@@ -172,7 +172,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcMatching2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcMatchTable2;),
@@ -267,7 +267,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcHotspot2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcHotspotMap2;),
                          (%lcFeedbackIncorrect2;)?,
@@ -288,7 +288,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 
 
 <!ENTITY % lcOpenQuestion2.content
-                       "((%lcInteractionLabel;)?,
+                       "((%lcInteractionLabel2;)?,
                          (%lcQuestion2;), 
                          (%lcAsset2;)*,
                          (%lcOpenAnswer2;)?,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE learningAssessment2 SYSTEM "../dtd/learningAssessment2.dtd">
-<learningAssessment2
+<!DOCTYPE learningAssessment SYSTEM "../dtd/learningAssessment-learning2.dtd">
+<learningAssessment
   id="dita-1.3-lc-test-01">
   <title>Learning Assessment DITA 1.3 Test</title>
-  <learningAssessment2body>
+  <learningAssessmentbody>
     <lcIntro> <p>This document contains examples of interactions (questions and
       answers) that use the proposed 1.3 alternative markup.</p> </lcIntro>
     <lcInteraction>
@@ -97,5 +97,5 @@
           value="standard"/>
       </lcSingleSelect2>
     </lcInteraction>
-  </learningAssessment2body>
-</learningAssessment2>
+  </learningAssessmentbody>
+</learningAssessment>

@@ -35,15 +35,17 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
 <!--                    TOPIC ENTITY DECLARATIONS                  -->
 <!-- ============================================================= -->
 
+
+
 <!ENTITY % learningBase-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Learning Base//EN" 
          "learningBase.ent"
 >%learningBase-dec;
 
-<!ENTITY % learningAssesment-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Assessment//EN" 
-         "learningAssessment.ent"
->%learningAssesment-dec;
+<!ENTITY % learningAssesment2-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Learning Assessment 2//EN" 
+         "learningAssessment2.ent"
+>%learningAssesment2-dec;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ENTITY DECLARATIONS                 -->
@@ -106,13 +108,7 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
 <!ENTITY % fig          "fig |
                          %ut-d-fig;
                         ">
- <!--|
-                         %learningInteractionBase-d-fig; |                        -->
-<!ENTITY % lcInteractionBase "lcInteractionBase
-                        ">                     
-<!--                         |
-                         %learning-d-lcInteractionBase;
---><!ENTITY % lcInteractionBase2 "lcInteractionBase2 |
+<!ENTITY % lcInteractionBase2 "lcInteractionBase2 |
                          %learning-d-lcInteractionBase2;
                         ">                        
 <!ENTITY % index-base   "index-base | 
@@ -120,7 +116,6 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
                         ">
 <!ENTITY % note         "note
                         ">
-<!--                          | %learning-d-note;-->
 <!ENTITY % metadata     "metadata |
                          %learningmeta-d-metadata;
                          ">
@@ -130,6 +125,9 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
               div"
 >                       
 
+<!ENTITY % learningNoLearning1Constraint PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Learning No Learning1 Constraint//EN" 
+  "learningNoLearning1Constraint.mod"
+>%learningNoLearning1Constraint;
 
 <!-- ============================================================= -->
 <!--                    TOPIC NESTING OVERRIDE                     -->
@@ -155,12 +153,24 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
                            &learningBase-att;
                            &learning2-d-att;
                            &learningmeta-d-att;
-                           &learningAssessment-att;
+                           &learningAssessment2-att;
   "
 >
 <!--                           
                            &learning-d-att;
 -->
+<!-- ============================================================= -->
+<!--                    CONSTRAINT MODULES                         -->
+<!-- ============================================================= -->
+
+<!ENTITY % learningNoLearning1Constraint PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Learning No Learning1 Constraint//EN" 
+  "learningNoLearning1Constraint.mod"
+>%learningNoLearning1Constraint;
+
+<!ENTITY % lcInteraction.content
+                       "(%lcInteractionBase2;)*"
+>
+
 <!-- ============================================================= -->
 <!--                    TOPIC ELEMENT INTEGRATION                  -->
 <!-- ============================================================= -->
@@ -178,10 +188,10 @@ PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
   %learningBase-typemod;
 
 <!--Embed learningAssessment to get specific elements -->
-<!ENTITY % learningAssessment-typemod PUBLIC 
-"-//OASIS//ELEMENTS DITA 1.2 Learning Assessment//EN" 
-"learningAssessment.mod">
-  %learningAssessment-typemod;
+<!ENTITY % learningAssessment2-typemod PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.3 Learning Assessment 2//EN" 
+"learningAssessment2.mod">
+  %learningAssessment2-typemod;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->

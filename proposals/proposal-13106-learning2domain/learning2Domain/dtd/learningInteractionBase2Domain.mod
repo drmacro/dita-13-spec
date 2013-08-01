@@ -38,7 +38,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
      ===================================================================== -->
 
 <!ENTITY % lcInteractionBase2        "lcInteractionBase2">
-<!ENTITY % lcInteractionLabel        "lcInteractionLabel">
+<!ENTITY % lcInteractionLabel2       "lcInteractionLabel2">
 <!ENTITY % lcQuestionBase2           "lcQuestionBase2">
 
 <!-- =====================================================================
@@ -58,7 +58,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
    )"
 -->
 <!ENTITY % lcInteractionBase2.content
- "((%lcInteractionLabel;)?,
+ "((%lcInteractionLabel2;)?,
    (%lcQuestionBase2;), 
    (%basic.block; | 
     %basic.ph; | 
@@ -81,10 +81,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ELEMENT lcInteractionBase2    %lcInteractionBase2.content;>
 <!ATTLIST lcInteractionBase2    %lcInteractionBase2.attributes;>
 
-<!ENTITY % lcInteractionLabel.content
+<!ENTITY % lcInteractionLabel2.content
  "(%title.cnt;)*"
 >
-<!ENTITY % lcInteractionLabel.attributes
+<!ENTITY % lcInteractionLabel2.attributes
              "%id-atts;
               %localization-atts;
               base 
@@ -95,8 +95,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
                         CDATA 
                                   #IMPLIED"
 >
-<!ELEMENT lcInteractionLabel    %lcInteractionLabel.content;>
-<!ATTLIST lcInteractionLabel    %lcInteractionLabel.attributes;>
+<!ELEMENT lcInteractionLabel2    %lcInteractionLabel2.content;>
+<!ATTLIST lcInteractionLabel2    %lcInteractionLabel2.attributes;>
 
 <!ENTITY % lcQuestionBase2.content
  "(#PCDATA | 
@@ -121,8 +121,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
      ===================================================================== -->
 <!ATTLIST lcInteractionBase2 %global-atts;
     class CDATA "+ topic/div learningInteractionBase2-d/lcInteractionBase2 ">
-<!ATTLIST lcInteractionLabel %global-atts;
-    class CDATA "+ topic/p learningInteractionBase2-d/lcInteractionLabel ">
+<!ATTLIST lcInteractionLabel2 %global-atts;
+    class CDATA "+ topic/p learningInteractionBase2-d/lcInteractionLabel2 ">
 <!ATTLIST lcQuestionBase2 %global-atts;
     class CDATA "+ topic/div   learningInteractionBase2-d/lcQuestionBase2 ">
 
