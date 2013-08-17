@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>All Kimber DITA 1.3 Proposals</title>
+  <mapref
+    href="proposal-13010-sort-as/proposal-13010.ditamap"/>
+  <topicref
+    href="proposal-13023-div/proposal-13023-stage-3.dita"/>
+  <topicref
+    href="proposal-13027-draft-comment-everywhere/proposal-13027-stage-3.dita"/>
+  <topicref
+    href="proposal-13029-text-everywhere/proposal-13029-text-everywhere-stage-3.dita"/>
+  <mapref
+    href="proposal-13031-linethrough/proposal-13031-linethrough.ditamap"
+    format="ditamap"/>
+  <topicref
+    href="proposal-13035-xmldomain/proposal-13035-xmldomain.dita"/>
+  <topicref
+    href="Proposal-13044-basic-ph-in-data/proposal-13044-stage-3.dita"/>
+  <topicref
+    href="proposal-13092-ph-in-indexterm/proposal-13092-ph-in-indexterm-stage-3.dita"/>
+  <topicref
+    href="proposal-13103-print-replacement/proposal-13103-print-replacement.dita"/>
+  <topicref
+    href="proposal-13104-keyref-on-object/proposal-13104-keyref-on-object.dita"/>
+  <topicref
+    href="proposal-13105-data-in-list/proposal-13105-data-in-list.dita"/>
+  <topicref
+    href="proposal-13111-mathml/proposal-13111-mathml-stage-3.dita"/>
+  <topicref
+    href="proposal-13112-rng/proposal-13112-rng.dita"/>
+  <topicref
+    href="Proposal-13116-cite-in-title/proposal-13116-cite-in-title-stage-3.dita"/>
+  <topicref
+    href="proposal-13117-xref-in-shortdesc/proposal-13117-xref-in-shortdesc-stage-3.dita"/>
+  <topicref
+    href="proposal-13118-ruby/proposal-13118-rubydomain-stage-3.dita"/>
+  <topicref
+    href="proposal-13119-svg/proposal-13119-svg-stage-3.dita"/>
+</map>

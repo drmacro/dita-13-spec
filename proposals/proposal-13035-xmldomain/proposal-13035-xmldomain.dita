@@ -2,7 +2,7 @@
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
  "reference.dtd">
 <reference id="IssueNumber00" xml:lang="en-us">
-<title>DITA 1.3 proposed feature #13035</title>
+<title>DITA 1.3 proposed feature #13035, XML mention domain</title>
 <shortdesc>Provide "XML mention" domain for marking up mentions of XML syntactic
     components</shortdesc>
 <refbody>

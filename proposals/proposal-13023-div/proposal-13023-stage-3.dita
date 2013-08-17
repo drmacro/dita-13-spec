@@ -2,7 +2,7 @@
 <!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
 <dita>
   <topic id="topic_aqh_5zt_3h">
-    <title>Stage 3 proposal: Feature 13023</title>
+    <title>Stage 3 proposal: Feature 13023, &lt;div> element</title>
     <shortdesc>New generic division element, &lt;div>. Content is intersection
       of &lt;bodydiv> and &lt;sectiondiv>. To be allowed wherever &lt;p> or
       other block-level elements are allowed.</shortdesc>
