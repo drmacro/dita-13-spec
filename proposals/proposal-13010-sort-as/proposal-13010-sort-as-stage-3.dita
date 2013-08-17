@@ -43,8 +43,8 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>23 June 2013</stentry>
+            <stentry>Thilo Buchholz Tom Magliery Richard Hamilton</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -149,11 +149,6 @@
                 <entry>New topic. Add under DITA processing, as new last
                   child.</entry>
               </row>
-              <row>
-                <entry/>
-                <entry/>
-                <entry/>
-              </row>
             </tbody>
           </tgroup>
         </table>
@@ -162,13 +157,9 @@
     <concept
       id="sort-as-processing">
       <title>Sorting</title>
-      <shortdesc>Processors may choose to sort any elements for any reason.
-        Common sort processing includes glossary entries sorted to produce
-        automatically-generated or automatically-sorted glossary lists, lists of
-        parameters or reference entries in custom navigation structures, tables
-        sorted based on the contents of a specific column, and so on. The
-        &lt;sort-as> element can be used to specify a sort key when the content
-        of the element to be sorted is not appropriate as the sort
+      <shortdesc>Processors may choose to sort any elements for any reason. Common sort processing includes glossary entries sorted to produce automatically-generated or automatically-sorted glossary
+        lists, lists of parameters or reference entries in custom navigation structures, tables sorted based on the contents of cells in a specific column or row, and so on. The &lt;sort-as> element
+        can be used to specify a sort key when the content of the element to be sorted is not appropriate as the sort key. For index terms, the &lt;index-sort-as> element can be used to specify a sort
         key.</shortdesc>
       <conbody>
         <p>The details of sorting and grouping are necessarily implementation
@@ -180,18 +171,10 @@
           terms before non-English terms, another may be configured to sort them
           after. The grouping and sorting of any content is subject to local
           editorial rules. </p>
-        <p>When sorting elements, each element to be sorted must have some
-          inherent text on which it will be sorted in the absence of a
-          &lt;sort-as> value. This text may be literal content in the DITA XML
-          source or may be generated or constructed based on the semantics of
-          the element involved (for example, it may be constructed from various
-          attribute or metadata values). This text is the "base sort phrase" for
-          the element. For elements with explicit or implicit titles, such as
-          topics, figures, tables, and sections, the base sort phrase would
-          normally be the title. Processors that do sorting should clearly
-          document how the base sort phrase is determined for a given element
-          type for which sorting is provided where the base sort phrase is not
-          the title content (for elements that have titles).</p>
+        <p>When sorting elements, each element to be sorted must have some inherent text on which it will be sorted in the absence of a &lt;sort-as> value. This text may be literal content in the DITA
+          XML source or may be generated or constructed based on the semantics of the element involved (for example, it may be constructed from various attribute or metadata values). This text is the
+          "base sort phrase" for the element. Processors that do sorting should clearly document how the base sort phrase is being determined for a given element type. For other elements, or in case
+          of exceptions to use of the title, the method for determining the base sort phrase should be expressly documented.</p>
         <p>When &lt;sort-as> is specified, processors that sort the containing
           element must construct the effective sort phrase by prepending the
           &lt;sort-as> sort phrase to the base sort phrase. This ensures that
@@ -234,15 +217,9 @@
             apply &lt;sort-as> as follows:<ul
             id="ul_ush_jnn_zj">
             <li>
-              <p>For topics, the &lt;sort-as> element may be included directly
-                in &lt;title>, &lt;searchtitle>, or &lt;navtitle> when the
-                different forms of title need different sort phrases. If the
-                sort phrase is common to all the titles for a topic, the
-                &lt;sort-as> element may be included in the topic's prolog
-                anywhere &lt;data> is allowed. The title's sort-as value should
-                be used as the sort-as for any search title or navigation title
-                when those elements do not specify their own sort-as values.
-              </p>
+              <p>For topics, the &lt;sort-as> element may be included directly in &lt;title>, &lt;searchtitle>, or &lt;navtitle> when the different forms of title need different sort phrases. If the
+                sort phrase is common to all the titles for a topic, the &lt;sort-as> element may be included in the topic's prolog anywhere &lt;data> is allowed. A &lt;sort-as> specified in any title
+                takes precedence over &lt;sort-as> specified in the topic's prolog.</p>
             </li>
             <li>
               <p>For &lt;glossentry>, the &lt;sort-as> element may be included
@@ -258,22 +235,13 @@
               <p>For definition list items, the &lt;sort-as> element should be
                 included in the &lt;dt> element.</p>
             </li>
-            <li>
-              <p>For tables and simple tables, each &lt;entry> or &lt;stentry>
-                element may contain a &lt;sort-as> element in order to define
-                the sort key for that element relative to other entries in the
-                same table column.</p>
-            </li>
-            <li>
-              <p>Except as stated above, processors should only apply
-                &lt;sort-as> elements that are either a direct child of the
-                element to be sorted or a direct child of the title- or
-                label-defining element of the element to be sorted.</p>
-            </li>
             </ul></p>
-          <p>When multiple &lt;sort-as> elements occur within a topic's titles
-            or prolog or as direct children of non-topic elements, the first
-            &lt;sort-as> in document order is used as the sort phrase. </p>
+          <p>Except as stated above, processors should only apply &lt;sort-as> elements that are either a direct child of the element to be sorted or a direct child of the title- or label-defining
+            element of the element to be sorted.</p>
+          <p>When an element contains multiple direct-child &lt;sort-as> elements, the first direct-child &lt;sort-as> in document order takes precedence. Within topic prologs, the first &lt;sort-as>
+            in document order takes precedence.</p>
+          <p>Within &lt;indexterm>, &lt;sort-as> is equivalent to &lt;index-sort-as>. It is an error for an &lt;indexterm> to contain both a &lt;sort-as> and &lt;index-sort-as> as direct children or
+            multiple &lt;sort-as> or &lt;index-sort-as> direct children, per the rules for &lt;index-sort-as>.</p>
           <p>Sort phrases are determined after filtering and content reference
             resolution is applied.</p>
         </section>
@@ -292,7 +260,7 @@
             &lt;prolog>:<codeblock>&lt;glossentry id="gloss-dada">
   &lt;glossterm>&amp;#x5927;&amp;#x5927;&lt;/glossterm>
   &lt;prolog>
-    &lt;sort-as value="dada"/>
+    &lt;sort-as>dada&lt;/sort-as>
   &lt;/prolog>
     &lt;glossdef>Literally "big big".&lt;/glossdef>
 &lt;/glossentry></codeblock></p>
