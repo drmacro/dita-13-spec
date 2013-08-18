@@ -53,16 +53,14 @@
       <section>
         <title>Approved technical requirements</title>
         <ul>
-          <li>Add &lt;draft-comment> to the following places that do not allow
-            it in 1.2:<ul
+          <li>Add &lt;draft-comment> and &lt;required-cleanup> to the following places that do not allow it in 1.2:<ul
             id="ul_t1q_dvt_ng">
             <li>&lt;term></li>
             <li>&lt;keyword></li>
             <li>&lt;navtitle></li>
             <li>&lt;searchtitle></li>
             <li>&lt;alt></li>
-            <li>&lt;consequence>, &lt;howtoavoid>, &lt;typeofhazard> (hazard
-              domain)</li>
+            <li>&lt;consequence>, &lt;howtoavoid>, &lt;typeofhazard> (hazard domain)</li>
             <li>&lt;msgph> (software domain)</li>
             <li>%data.cnt; (&lt;data>, &lt;glossProperty>)</li>
             <li>%desc.cnt</li>
@@ -71,9 +69,7 @@
             <li>%fn.cnt</li>
             <li>%shortquote.cnt</li>
             <li>%term.cnt (&lt;dt>)</li>
-            <li>%title.cnt (&lt;title>, &lt;shortdesc>, &lt;dthd>, &lt;ddhd>,
-              &lt;glossterm>) [NOTE: remove draft-comment from
-              %shortdesc.content]</li>
+            <li>%title.cnt (&lt;title>, &lt;shortdesc>, &lt;dthd>, &lt;ddhd>, &lt;glossterm>) [NOTE: remove draft-comment from %shortdesc.content]</li>
             <li>%xreftext.cnt</li>
             <li>%xrefph.cnt</li>
             </ul></li>
@@ -84,11 +80,10 @@
               are almost certainly not appropriate, including index entries and
               other very-constrained contexts.</note>
           </li>
-          <li>Change definition of elements in highlighDomain.mod to
-            %ph.content; from current content models (ensures these elements
-            exactly match &lt;ph> content model).</li>
-          <li>Change codeph.content value to "%ph.content;" (programming
-            domain)</li>
+          <li>Change definition of elements in highlighDomain.mod to %ph.content; from current content models (ensures these elements exactly match &lt;ph> content model).<note>This is the approved
+            Stage 2 requirement. However, subsequent review determined that this change was too broad. The revised requirement is limited to added &lt;draft-comment> and &lt;required-cleanup> to the
+            highlight domain elements and to &lt;codeph>.</note></li>
+          <li>Change codeph.content value to "%ph.content;" (programming domain)<note>As for the highlight domain, this requirement was deemed to be too broach during Stage 3 review.</note></li>
         </ul>
         <p>Processors will need to provide appropriate ways to render draft
           comments that occur outside of normal topic body content, such as
@@ -256,38 +251,71 @@
           <dlentry>
             <dt>highlightDomain.mod</dt>
             <dd>
-              <p>Change content models of b, i, u, tt, sup, and sub to
-                %ph.content;<codeblock>&lt;!ENTITY % b.content
-                       "%ph.content;"
+              <p>Add %draft-comment; and %required-cleanup; to the content models of b, i, u, tt, sup, and sub
+                <codeblock>&lt;!ENTITY % b.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 ...
 &lt;!ENTITY % u.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 ...
 &lt;!ENTITY % i.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 ...
 &lt;!ENTITY % tt.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 ...
 &lt;!ENTITY % sup.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 ...
 &lt;!ENTITY % sub.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 ></codeblock></p>
             </dd>
           </dlentry>
           <dlentry>
             <dt>programmingDomain.mod</dt>
             <dd>
-              <p>Change %codeph.content to
+              <p>Add %draft-comment; and %required-cleanup; to
                 "%ph.content;":<codeblock>&lt;!ENTITY % codeph.content
-                       "%ph.content;"
+   "(#PCDATA|
+     %basic.ph.notm; |
+     %data.elements.incl; |
+     %foreign.unknown.incl;)*
 ></codeblock></p>
             </dd>
           </dlentry>

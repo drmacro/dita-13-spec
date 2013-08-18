@@ -3,8 +3,8 @@
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
 <!--  MODULE:    DITA Highlight Domain                             -->
-<!--  VERSION:   1.2                                               -->
-<!--  DATE:      November 2009                                     -->
+<!--  VERSION:   1.3                                               -->
+<!--  DATE:      October 2012                                      -->
 <!--                                                               -->
 <!-- ============================================================= -->
 
@@ -36,6 +36,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 <!--    2005.11.15 RDA: Corrected the "Delivered as" system ID     -->
 <!--    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       -->
 <!--    2008.02.13 RDA: Create .content and .attributes entities   -->
+<!--    2012.09.30 WEK: Added line-through and overline             -->
 <!-- ============================================================= -->
 
 <!-- ============================================================= -->
@@ -44,6 +45,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!ENTITY % b           "b"                                           >
 <!ENTITY % i           "i"                                           >
+<!ENTITY % line-through "line-through"                               >
+<!ENTITY % overline     "overline"                                     >
 <!ENTITY % u           "u"                                           > 
 <!ENTITY % tt          "tt"                                          >
 <!ENTITY % sup         "sup"                                         >
@@ -57,7 +60,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Bold                            -->
 <!ENTITY % b.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % b.attributes
              "%univ-atts; 
@@ -72,7 +80,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Underlined                      -->
 <!ENTITY % u.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % u.attributes
              "%univ-atts; 
@@ -87,7 +100,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Italic                          -->
 <!ENTITY % i.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % i.attributes
              "%univ-atts; 
@@ -102,7 +120,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Teletype (monospaced)           -->
 <!ENTITY % tt.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % tt.attributes
              "%univ-atts; 
@@ -117,7 +140,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Superscript                     -->
 <!ENTITY % sup.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % sup.attributes
              "%univ-atts; 
@@ -132,7 +160,12 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!--                    LONG NAME: Subscript                       -->
 <!ENTITY % sub.content
-                       "%ph.content;"
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
 >
 <!ENTITY % sub.attributes
              "%univ-atts; 
@@ -143,6 +176,42 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 <!ELEMENT sub    %sub.content;>
 <!ATTLIST sub    %sub.attributes;>
 
+<!--                    LONG NAME: Line Through                       -->
+<!ENTITY % line-through.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
+>
+<!ENTITY % line-through.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT line-through    %line-through.content;>
+<!ATTLIST line-through    %line-through.attributes;>
+
+<!--                    LONG NAME: Overbar                           -->
+<!ENTITY % overline.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %draft-comment; | 
+                         %foreign.unknown.incl; |
+                         %required-cleanup;)*"
+>
+<!ENTITY % overline.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT overline    %overline.content;>
+<!ATTLIST overline    %overline.attributes;>
+
  
 
 <!-- ============================================================= -->
@@ -152,6 +221,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 
 <!ATTLIST b           %global-atts;  class CDATA "+ topic/ph hi-d/b "  >
 <!ATTLIST i           %global-atts;  class CDATA "+ topic/ph hi-d/i "  >
+<!ATTLIST line-through %global-atts; class CDATA "+ topic/ph hi-d/line-through "  >
+<!ATTLIST overline    %global-atts;  class CDATA "+ topic/ph hi-d/overline "  >
 <!ATTLIST sub         %global-atts;  class CDATA "+ topic/ph hi-d/sub ">
 <!ATTLIST sup         %global-atts;  class CDATA "+ topic/ph hi-d/sup ">
 <!ATTLIST tt          %global-atts;  class CDATA "+ topic/ph hi-d/tt " >
