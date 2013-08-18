@@ -2,8 +2,7 @@
 <!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
 <dita>
   <topic id="topic_aqh_5zt_3h">
-    <title>Stage 3 proposal: Feature 13031 Linethrough and Overline in Highlight
-      Domain</title>
+    <title>Stage 3 proposal: Feature 13031, Linethrough and Overline in Highlight Domain</title>
     <shortdesc>Provide additional elements to the highlight domain for
       representing line-through (strikeout) and overlines.</shortdesc>
     <body>
@@ -21,32 +20,47 @@
           </sthead>
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
-            <stentry>9 August 2011</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>2 August 2011</stentry>
+            <stentry><xref
+              href="https://lists.oasis-open.org/archives/dita/201108/msg00009.html"
+              format="html"
+              scope="external">https://lists.oasis-open.org/archives/dita/201108/msg00009.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>1 Oct 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47204/proposal-13031-linethrough.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47204/proposal-13031-linethrough.html</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47203/proposal-13031-linethrough.dita.pdf"
+              format="pdf"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47203/proposal-13031-linethrough.dita.pdf</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>9 Oct 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47143"
+              format="php"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47143</xref>. NOTE: proposal was misidentified as 13011 in the minutes.</stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>16 October 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47205"
+              format="php"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47205</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>26 June 2013</stentry>
+            <stentry>Thilo Buchholz, JoAnn Hackos, Debra Bissantz</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>18 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
