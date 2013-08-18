@@ -541,6 +541,8 @@
 	<xs:group name="data.cnt">
 		<xs:choice>
 			<xs:group ref="basc.ph"/>
+			<xs:group ref="data.elements.incl"/>
+			<xs:group ref="foreign.unknown.incl"/>
 			<xs:group ref="image"/>
 			<xs:group ref="object"/>
 			<xs:group ref="title"/>

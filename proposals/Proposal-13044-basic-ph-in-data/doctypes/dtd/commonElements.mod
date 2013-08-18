@@ -419,6 +419,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"
 <!ENTITY % data.cnt 
   "#PCDATA |
    %basic.ph; |
+   %data.elements.incl; | 
+   %foreign.unknown.incl; | 
    %image; |
    %object; |
    %title;

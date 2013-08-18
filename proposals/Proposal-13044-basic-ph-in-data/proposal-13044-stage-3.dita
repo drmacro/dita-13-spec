@@ -46,7 +46,7 @@
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
             <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>Tom Magliery, Don Day, Michael Boses</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -64,12 +64,12 @@
         <title>Dependencies or interrelated proposals</title>
         <p>No related proposals.</p>
       </section>
-      <section><title>Modified DTDs</title>Modify
-        <filepath>commonElements.mod</filepath> by changing the declaration of
-        %data.cnt;
+      <section><title>Modified DTDs</title>Modify <filepath>commonElements.mod</filepath> by changing the declaration of %data.cnt;
         to:<codeblock>&lt;!ENTITY % data.cnt 
   "#PCDATA |
    %basic.ph; |
+   %data.elements.incl; | 
+   %foreign.unknown.incl; | 
    %image; |
    %object; |
    %title;
