@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference xml:lang="en-us" id="IssueNumber13106">
+  <title>DITA 1.3 proposed feature #13106 - updated</title>
+  <shortdesc>New base and specializations for interactions that allow multiple paragraphs for
+    question and feedback content</shortdesc>
+
+  <refbody>
+    <section><title>Date and version information</title>
+      <ul id="ul_dsm_xvn_dl">
+        <li>Date that this feature proposal was completed: TBD</li>
+        <li>Champions of the proposal: Eliot Kimber, Amber Swope</li>
+        <li><xref scope="external" format="html"
+            href="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/email/archives/201201/msg00000.html"
+            >http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/email/archives/201201/msg00000.html</xref></li>
+      </ul></section>
+    <section><title>Original requirement or use case</title><p>Our experience with instructional
+        designers and publishers revealed that many questions require multiple block elements for
+        the question statement ("prompt" or "stimulus" in instructional design parlance) and for
+        feedback. The DITA 1.2 interaction design only allows for a single paragraph question and
+        single-paragraph feedback. This makes it impossible to use 1.2 interactions directly for
+        such questions.</p></section>
+    <section><title>Use cases</title><p>Note: all question samples courtesy of Kaplan Publishing,
+        Inc. </p>
+      <table frame="all" id="table_sb5_qjn_dl">
+        <title>Use cases</title>
+        <tgroup cols="3">
+          <colspec colname="c1" colnum="1" colwidth="1*"/>
+          <colspec colname="c2" colnum="2" colwidth="2*"/>
+          <colspec colname="newCol3" colnum="3" colwidth="2.65*"/>
+          <thead>
+            <row>
+              <entry>Use case</entry>
+              <entry>Description</entry>
+              <entry>Example</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Author open question with multiple block elements</entry>
+              <entry>Many questions, including open questions, have multiple block elements. This
+                sample has multiple block elements that initial DITA 1.2 implementation does not
+                support. <p>This sample has the following items:</p><ul id="ul_czs_zjn_dl">
+                  <li>Think carefully about the issue...</li>
+                  <li>"Nothing in the world..." </li>
+                  <li> Assignment: Do you agree... </li>
+                </ul><p>Each of these items must be in a separate block element, such as &lt;p>.
+                </p></entry>
+              <entry><image id="ref_use_cases__image_3455B7F0D2294B5A8A6C10084E641978"
+                  href="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/download.php/45626/open_ques_example.jpg"
+                  scope="external"/></entry>
+            </row>
+            <row>
+              <entry>Author single select question with comparison</entry>
+              <entry>To structure a comparison question, such as this sample, you must be able to
+                have block elements.</entry>
+              <entry><image id="ref_use_cases__image_1DCF5DFC39AE4ED8BC4B39D5F92E20C2"
+                  href="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/download.php/45625/compare_table_example.jpg"
+                  scope="external"/></entry>
+            </row>
+            <row>
+              <entry>Author single select question with a table</entry>
+              <entry>In the this sample, the question requires the presentation of a table.</entry>
+              <entry><image id="ref_use_cases__image_FF13D2DF112B4607B14E4D61F43889BE"
+                  href="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/download.php/45628/single_select_table_sample.jpg"
+                  scope="external"/></entry>
+            </row>
+            <row>
+              <entry>Author single select question with a list</entry>
+              <entry>In some questions, the author needs to present the question and then a list
+                that presents additional information.</entry>
+              <entry><image id="ref_use_cases__image_705518CEC09144E8B5689519ABBC30FD"
+                  href="http://www.oasis-open.org/apps/org/workgroup/dita-learningspec/download.php/45627/single_select_list_example.jpg"
+                  scope="external"/></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></section>
+    <section><title>Proposed solution</title><p>The new, stand-alone plugin, learning2Domain,
+        provides updated functionality based upon the DITA 1.3 &lt;div> element support.
+      </p></section>
+    <section><title>Benefits</title>
+      <ul id="ul_lst_hwn_dl">
+        <li>Who benefits?<p>Anyone who needs to represent questions and answers with multi-paragraph
+            questions or feedback. This includes all educational publishers and many, if not most,
+            training developers.</p></li>
+        <li>Benefit:<p>The proposed markup makes it possible to use DITA learning markup directly
+            for all questions without restriction, making it easier to adopt the use of DITA for
+            educational publishing and instructional design by removing the need to design
+            workarounds or non-standard vocabulary for interactions.</p></li>
+        <li>All educational publishers have this requirement, essentially without exception. Many,
+          if not most, training groups within enterprises have this requirement. Essentially, anyone
+          who would otherwise use the Learning and Training vocabulary very likely has this
+          requirement.</li>
+        <li>This would provide a significant benefit to all users of the Learning and Training
+          vocabulary.</li>
+      </ul></section>
+    <section><title>Technical requirements</title>
+      <p>This proposal defines two new domains for the Learning and Training vocabulary,
+        interactionBase2Domain and learning2Domain. These two new domains mirror the existing
+        interactionBase and learning domains, but provide a base model that allows multi-paragraph
+        questions and multi-paragraph feedback. The new domains are otherwise semantically identical
+        to the original domains. In addition, the plugin redefines the learningAssessment topic with
+        the options for using either the DITA 1.2 support or the DITA 1.3 support.</p>
+      <dl>
+        <dlentry>
+          <dt>learningInteractionBase2Domain </dt>
+          <dd><dl>
+              <dlentry>
+                <dt>lcInteractionBase2</dt>
+                <dd><p>The lcInteractionBase2 element differs from lcInteractionBase as follows:</p>
+                  <ul id="ul_txj_bq1_4f">
+                    <li>It is a specialization of &lt;div> (new in 1.3), not fig. This removes the
+                      content limitations that &lt;fig> imposes (in particular, that &lt;fig> cannot
+                      directly contain table) and removes the need to explicit implement special
+                      processing for &lt;lcInteractionBase2> in order to not apply default figure
+                      processing to it. The &lt;div> element has no natural default processing
+                      semantics as it's just a wrapper element.</li>
+                    <li>Uses &lt;lcQuestionBase2> in place of &lt;lcQuestionBase>.
+                      &lt;lcQuestionBase2> allows multiple paragraphs within its content, whereas
+                      &lt;lcQuestionBase> is itself a specialization of &lt;p>.</li>
+                    <li>Allows the same content as div whereas &lt;lcInteractionBase> only allows
+                      figure content.</li>
+                    <li>Makes @id optional. Not all uses of interactions require that they have IDs
+                      and it is inappropriate to require @id in all cases. Users who need to require
+                      @id can add that requirement through DITA's normal constraint facility. The
+                      implementation of this proposal includes a constraint module that makes @id
+                      required on the new interaction elements. </li>
+                  </ul></dd>
+              </dlentry>
+              <dlentry>
+                <dt>lcQuestionBase2 </dt>
+                <dd> The &lt;lcQuestionBase2> element is also a specialization of &lt;div> and
+                  allows the same content as &lt;div> (that is, anything that can occur in &lt;body>
+                  except &lt;section> or &lt;bodydiv>). </dd>
+              </dlentry>
+              <dlentry>
+                <dt>lcInteractionLabel2</dt>
+                <dd>Replaces the use of &lt;title> with a specialization of &lt;p>,
+                  &lt;lcInteractionLabel2>. Because &lt;div> does not allow &lt;title>, the
+                  &lt;lcInteractionLabel2> element satisfies the general requirement to have
+                  "titles" on questions without literally using the &lt;title> element. There is
+                  some question with the Learning SC as to whether or not there is a general
+                  requirement for questions to have titles as distinct from classifying metadata
+                  that may be presented in a "titleish" way.</dd>
+              </dlentry>
+            </dl></dd>
+        </dlentry>
+        <dlentry>
+          <dt>learning2Domain </dt>
+          <dd>The learning2Domain is a clone of the 1.2 learningDomain. It defines new versions of
+            each of the built-in interaction types, each of which are specialized from
+            &lt;lcInteractionBase2>. The elements include: &lt;lcTrueFalse2>, &lt;lcSingleSelect2>,
+            &lt;lcMultipleSelect2>, &lt;lcSequencing2>, &lt;lcMatching2>, &lt;lcHotspot2>,
+            &lt;lcOpenQuestion2>, &lt;lcQuestion2>, &lt;lcOpenAnswer2>, &lt;lcAnswerOptionGroup2>,
+            &lt;lcFeedbackCorrect2>, &lt;lcAnswerOption2>, &lt;lcAnswerContent2>,
+            &lt;lcSequenceOptionGroup2>, &lt;lcSequenceOption2>, &lt;lcSequence2>,
+            &lt;lcMatchTable2>, &lt;lcMatchingHeader2>, &lt;lcMatchingPair2>, &lt;lcItem2>,
+            &lt;lcMatchingItem2>, &lt;lcMatchingItemFeedback2>, &lt;lcFeedback2>, &lt;lcAsset2>,
+            &lt;lcHotspotMap2>, &lt;lcCorrectResponse2>, &lt;lcArea2>, &lt;lcAreaShape2> and
+              &lt;lcAreaCoords2>.<p>In addition, the content models for the interactions are
+              extended as follows: </p><ul id="ul_yfl_ynn_dl">
+              <li>The &lt;lcAsset> element is allowed to repeat where in DITA 1.2 there may be at
+                most one.</li>
+              <li>The &lt;lcOpenAnswer2>, &lt;lcAnswerContent2>, &lt;lcFeedback2>,
+                &lt;lcFeedbackCorrect2>, and &lt;lcFeedbackIncorrect2> elements are all specialized
+                from &lt;div> and allow all &lt;div> content. </li>
+            </ul><p>The learning2Domain uses elements from the learningDomain when the content
+              models of those elements are unchanged.</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>learningAssessment.dtd </dt>
+          <dd>Integrates the DITA 1.2 support and the learning2Domain support.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>learningAssessment1.dtd </dt>
+          <dd>Integrates learning1, which is the DITA 1.2 support, and uses a constraint to remove
+            %lcInteraction2; from the content model of learningAssessmentBody (or wherever it's
+            included). </dd>
+        </dlentry>
+        <dlentry>
+          <dt>learningAssessment.dtd </dt>
+          <dd>Integrates learning2 and uses a constraint to remove %lcInteraction; from the content
+            model of learningAssessmentBody. </dd>
+        </dlentry>
+        <dlentry>
+          <dt>learningNoLearning1Constraint</dt>
+          <dd>Constraint to use only the learning2Domain elements. This allows authoring tools to
+            display only the learning2Domain elements and avoid confusion by having two instances of
+            every learning element.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>learningNoLearning2Constraint</dt>
+          <dd>Constraint to use only the learning elements. This allows authoring tools to display
+            only the learning elements and avoid confusion by having two instances of every learning
+            element.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Processing impact</dt>
+          <dd><ul>
+              <li>How, in general, will the feature work? It will work exactly like the DITA 1.2
+                support.</li>
+              <li>Will the feature have an impact on other processing features? For example, will
+                the proposed feature have an impact on key resolution? NO</li>
+              <li>What edge cases need to be considered? None</li>
+            </ul></dd>
+        </dlentry>
+      </dl><dl>
+        <dlentry>
+          <dt>Backwards compatibility</dt>
+          <dd>To support backwards compatibility for all teams that have used the DITA 1.2 support,
+            the 1.3 support is a stand-alone plugin. Because it includes a copy of the learningBase
+            and defines a new assessment topic, there is no dependency on the learning domain. </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Usability</dt>
+          <dd>In cases where the team can use either the original learning domain or the
+            learning2Domain, update the DITA deployment to use only one of the pluging.<ul
+              id="ul_ws4_jqn_dl">
+              <li>To only display the DITA 1.2 learning elements, integrate the learning domaing and
+                do not integrate the learning2Domain.</li>
+              <li>To only display the DITA 1.3 learning2Domain elements, integrate the
+                learning2Domain and do not integrate the learning domain.</li>
+            </ul><p>This proposal makes the DITA-defined interaction vocabulary more usable by
+              allowing a wider range of structural options and removing the need for non-standard
+              workarounds where multi-block questions, answers, or feedback are required.</p></dd>
+        </dlentry>
+      </dl></section>
+    <section><title>Costs</title><p>Outline the impact (time and effort) of the feature on the
+        following groups:<ul>
+          <li>Requires creation of new plugin with updates to the learningInteractionBase,
+            learningDomain, and learningAssessment vocabulary modules (initial work completed by WEK
+            as part of the proposal development).</li>
+          <li>Editors of the DITA specification:<ul>
+              <li>Will require new topics for 34 elements: &lt;lcInteractionBase2>,
+                &lt;lcInteractionLabel2>, &lt;lcQuestionBase2>, &lt;lcTrueFalse2>,
+                &lt;lcSingleSelect2>, &lt;lcMultipleSelect2>, &lt;lcSequencing2>, &lt;lcMatching2>,
+                &lt;lcHotspot2>, &lt;lcOpenQuestion2>, &lt;lcQuestion2>, &lt;lcOpenAnswer2>,
+                &lt;lcAnswerOptionGroup2>, &lt;lcFeedbackCorrect2>, &lt;lcAnswerOption2>,
+                &lt;lcAnswerContent2>, &lt;lcSequenceOptionGroup2>, &lt;lcSequenceOption2>,
+                &lt;lcSequence2>, &lt;lcMatchTable2>, &lt;lcMatchingHeader2>, &lt;lcMatchingPair2>,
+                &lt;lcItem2>, &lt;lcMatchingItem2>, &lt;lcMatchingItemFeedback2>, &lt;lcFeedback2>,
+                &lt;lcAsset2>, &lt;lcHotspotMap2>, &lt;lcCorrectResponse2>, &lt;lcArea2>,
+                &lt;lcAreaShape2>, &lt;lcAreaCoords2>, &lt;learningAssessment2>, and
+                &lt;learningAssessment2body>.</li>
+              <li>Will require updates to 3 existing topics:<ul id="ul_t5h_vsn_dl">
+                  <li>Architectural Specification: Learning and Training Version</li>
+                  <li>Overview - complete rewrite to explain differences between plugins, which may
+                    require new topics</li>
+                  <li>Summary of Learning Topic, Map, and Domain Designs</li>
+                </ul></li>
+              <li>Will the feature require substantial changes to the information architecture of
+                the DITA specification? If so, what? NO</li>
+            </ul></li>
+          <li>Vendors of tools: No direct impact on vendors of tools where those tools do not
+            provide specific processing for the current interaction markup. For tools that do
+            provide special interaction markup processing, will need to bind the same processing to
+            the new markup. For example, will need to include template for new assessment topic. May
+            require adjustment to processors that depend on the current limitations to question
+            statements and feedback. </li>
+          <li>DITA community-at-large. This will not add to the perception that DITA is too complex.
+            This is an incremental update to an existing vocabulary module that already has a narrow
+            application. The workarounds required by the limitations of the 1.2 design represent
+            greater complexity than the addition of new markup that removes the need for
+            workarounds. The inclusion of the constraint to provide only one set of learning
+            elements keeps the implementation usable for authors.</li>
+        </ul></p></section>
+    <section><title>Examples</title><p>Provide examples of the proposed feature. Include an example
+        for each of the use cases. </p>
+      <codeblock>&lt;learningAssessment2  id="dita-1.3-lc-test-01">
+  &lt;title>Learning Assessment DITA 1.3 Test&lt;/title>  
+  &lt;learningAssessment2body>    
+    &lt;lcIntro> 
+      &lt;p>This document contains examples of interactions (questions and answers) that use the proposed 1.3 alternative markup.&lt;/p> 
+    &lt;/lcIntro>
+    &lt;lcInteraction>
+      &lt;lcSingleSelect2>
+        &lt;lcInteractionLabel2>Typical Triumph Learning Question&lt;/lcInteractionLabel2>
+        &lt;lcQuestion2> &lt;p>The spinner below is divided into 8 equal sections. Xavier spins the pointer.&lt;/p>
+           &lt;p>&lt;image href="art/spinner-01.eps">
+              &lt;alt>A round spinner divided into 8 wedges, labeled clockwise from the top: yellow,
+                red, red, yellow, blue blue, red, blue.&lt;/alt>&lt;/image>&lt;/p> 
+           &lt;p outputclass="prompt">What is the probability that the pointer will land on yellow?&lt;/p>
+        &lt;/lcQuestion2>
+        &lt;lcAnswerOptionGroup2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>2/8&lt;/lcAnswerContent2>
+            &lt;lcCorrectResponse2/>
+            &lt;lcFeedback2>&lt;p>There are 8 wedges, two of which are yellow. Thus the probability is:&lt;/p>
+               &lt;pre>2 — 8&lt;/pre>
+            &lt;/lcFeedback2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>3/8&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>1/3&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>2/5&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+        &lt;/lcAnswerOptionGroup2>
+      &lt;/lcSingleSelect2>
+      &lt;lcOpenQuestion2>
+        &lt;lcInteractionLabel2>Open question with complex explanations and example responses.&lt;/lcInteractionLabel2>
+          &lt;lcQuestion2>
+            &lt;p>Do you think that people are capable of finding happiness or are they
+            always searching for something beyond what they have?…&lt;/p> 
+            &lt;lq>I entirely agree with you about the obscurity of Mrs Browning's line about the stars. 
+            It is far-fetched. She wanted to express something which she found beyond expression.
+            &lt;ph outputclass="attribution">Marie Corelli&lt;/ph>&lt;/lq>
+        &lt;/lcQuestion2>
+        &lt;lcOpenAnswer2>
+          &lt;div outputclass="example"> 
+            &lt;p>6 Score Essay&lt;/p> 
+            &lt;p>Happiness means different things to different people. My sister is happiest when she 
+            performs onstage in a play…&lt;/p>
+          &lt;/div>
+          &lt;div outputclass="critique">
+            &lt;p>6 Score Critique&lt;/p> 
+            &lt;p>All essays are evaluated on four basic criteria: Topic, Support, Organization, and Language. 
+            This essay begins with the author’s interpretation of the topic, showing…&lt;/p> 
+          &lt;/div> 
+          &lt;div outputclass="example"> 
+            &lt;p>4 Score Essay&lt;/p> &lt;p>My Mom’s favorite expression is “The grass is always greener on the 
+            other side.” She says this if I ask for something…&lt;/p> 
+          &lt;/div> 
+          &lt;div outputclass="critique"> 
+            &lt;p>4 Score Critique&lt;/p> 
+            &lt;p>All essays are evaluated on four basic criteria: Topic, Support, Organization, and Language. … &lt;/p>
+          &lt;/div>
+        &lt;/lcOpenAnswer2> 
+      &lt;/lcOpenQuestion2>
+      &lt;lcSingleSelect2>
+        &lt;lcInteractionLabel2>Single-select question with  multi-paragraph question and feedback.&lt;/lcInteractionLabel2>
+        &lt;lcQuestion2>
+            &lt;p>Which of the following is true of the image formed on the retina?&lt;/p>
+              &lt;ol>
+                &lt;li>It is real.&lt;/li>
+                &lt;li>It is inverted.&lt;/li>
+                &lt;li>It is reduced.&lt;/li>
+              &lt;/ol> 
+        &lt;/lcQuestion2>
+        &lt;lcAnswerOptionGroup2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>I only&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>I and II only&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>II and III only&lt;/lcAnswerContent2>
+          &lt;/lcAnswerOption2>
+          &lt;lcAnswerOption2>
+            &lt;lcAnswerContent2>I, II, and III&lt;/lcAnswerContent2>
+            &lt;lcCorrectResponse/>
+          &lt;/lcAnswerOption2>
+        &lt;/lcAnswerOptionGroup2>
+        &lt;lcFeedbackCorrect2> 
+          &lt;p>This question asks…&lt;/p> 
+          &lt;p>…So statement III is true&lt;/p> 
+        &lt;/lcFeedbackCorrect2>
+      &lt;/lcSingleSelect2>
+    &lt;/lcInteraction>
+  &lt;/learningAssessmentbody>
+&lt;/learningAssessment></codeblock></section>
+  </refbody>
+</reference>
