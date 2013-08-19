@@ -659,10 +659,10 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
     class CDATA "+ topic/ol learningInteractionBase2-d/ol learning2-d/lcSequenceOptionGroup2 ">
 <!ATTLIST lcSequenceOption2 %global-atts;
     class CDATA "+ topic/li learningInteractionBase2-d/li learning2-d/lcSequenceOption2 ">
-<!ATTLIST lcAsset2 %global-atts;
-    class CDATA "+ topic/p learningInteractionBase2-d/p learning2-d/lcAsset2 ">
+<!ATTLIST lcArea2       %global-atts; 
+    class CDATA "+ topic/figgroup learningInteractionBase-d/figgroup learning-d/lcArea2 ">
 <!ATTLIST lcHotspotMap2 %global-atts; 
-   class CDATA "+ topic/fig learningInteractionBase2-d/figgroup learning2-d/lcHotspotMap2 " >
+    class CDATA "+ topic/fig learningInteractionBase2-d/figgroup learning2-d/lcHotspotMap2 " >
 <!ATTLIST lcCorrectResponse2 %global-atts;
     class CDATA "+ topic/data learningInteractionBase2-d/data learning2-d/lcCorrectResponse2 ">
 
