@@ -23,17 +23,29 @@
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
             <stentry>30 Aug 2011</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/committees/download.php/43445/minutes20110830.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/committees/download.php/43445/minutes20110830.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>30 September 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47048/proposal-13044.dita"
+              scope="external"
+              format="html">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47048/proposal-13044.dita</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47050/proposal-13044.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/47050/proposal-13044.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>9 Oct 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47143"
+              format="php"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=47143</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
@@ -50,7 +62,7 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>19 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
