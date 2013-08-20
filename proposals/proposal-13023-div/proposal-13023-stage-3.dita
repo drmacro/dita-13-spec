@@ -237,15 +237,10 @@
     </body>
     <reference id="reference_aqh_5zt_3h">
       <title>div</title>
-      <shortdesc>The &lt;<keyword>div</keyword>> element is used to contain
-        informal blocks of information within a topic. The div element is
-        specifically designed to be a grouping element, without any explicit
-        semantics, other than to organize subsets of content into logical groups
-        that are not intended or should not be contained as a topic. As such, it
-        does not contain an explicit title to avoid enabling the creation of
-        deeply nested content that would otherwise be written as separate
-        topics. Content that requires a title should use a section element or a
-        nested topic, or possibly a figure.</shortdesc>
+      <shortdesc>The &lt;<keyword>div</keyword>> element is used to contain informal blocks of information within a topic. The div element is specifically designed to be a grouping element, without
+        any explicit semantics other than to organize subsets of content into logical groups that are not intended or should not be contained as a topic. As such, it does not contain an explicit title
+        to avoid enabling the creation of deeply nested content that would otherwise be written as separate topics. Content that requires a title should use a section element or a nested topic, or
+        possibly a figure.</shortdesc>
       <refbody>
         <section>
           <title>Inheritance</title>
