@@ -12,7 +12,10 @@
       </section>
       <section>
         <title>Tracking information</title>
-        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+        <simpletable
+          frame="all"
+          relcolwidth="2.33* 1.0* 4.74*"
+          id="simpletable_myt_1fp_fl">
           <sthead>
             <stentry>Event</stentry>
             <stentry>Date</stentry>
@@ -20,32 +23,47 @@
           </sthead>
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
-            <stentry>29 Jan 2011</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>29 Nov 2011</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44468/minutes20111122.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44468/minutes20111122.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry>7 May 2013</stentry>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>6 May 2013</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49088/proposal-13092.dita"
+              scope="external"
+              format="html">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49088/proposal-13092.dita</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49090/proposal-13092.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49090/proposal-13092.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>14 May 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49170/minutes20130514.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49170/minutes20130514.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>21 May 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49347/minutes20130521.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49347/minutes20130521.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>1 Jul 2013</stentry>
+            <stentry>Stan Doherty, JoAnn Hackos</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>19 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
@@ -96,8 +114,8 @@
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>No changes to DITA 1.2 specification other than generated contains
-          and contained-by tables.</p>
+        <p>No changes to DITA 1.2 specification other than generated contains and contained-by tables. It might be useful to update the examples for &lt;indexterm>, &lt;index-see>, and
+          &lt;index-see-also> to reflect the availability of &lt;ph>.</p>
       </section>
     </body>
   </topic>
