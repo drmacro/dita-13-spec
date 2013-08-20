@@ -659,11 +659,17 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
     class CDATA "+ topic/ol learningInteractionBase2-d/ol learning2-d/lcSequenceOptionGroup2 ">
 <!ATTLIST lcSequenceOption2 %global-atts;
     class CDATA "+ topic/li learningInteractionBase2-d/li learning2-d/lcSequenceOption2 ">
+<!ATTLIST lcSequence2 %global-atts;
+    class CDATA "+ topic/data learningInteractionBase2-d/data learning-d/lcSequence2 ">
 <!ATTLIST lcArea2       %global-atts; 
     class CDATA "+ topic/figgroup learningInteractionBase-d/figgroup learning-d/lcArea2 ">
 <!ATTLIST lcHotspotMap2 %global-atts; 
     class CDATA "+ topic/fig learningInteractionBase2-d/figgroup learning2-d/lcHotspotMap2 " >
 <!ATTLIST lcCorrectResponse2 %global-atts;
     class CDATA "+ topic/data learningInteractionBase2-d/data learning2-d/lcCorrectResponse2 ">
+<!ATTLIST lcAreaShape2    %global-atts;  
+    class CDATA "+ topic/keyword learningInteractionBase2-d/keyword learning-d/lcAreaShape2 "> 
+<!ATTLIST lcAreaCoords2   %global-atts;  
+    class CDATA "+ topic/ph learningInteractionBase2-d/ph learning-d/lcAreaCoords2 "    > 
 
 <!-- End of declaration set -->
