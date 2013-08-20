@@ -13,7 +13,10 @@
       </section>
       <section>
         <title>Tracking information</title>
-        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+        <simpletable
+          frame="all"
+          relcolwidth="1.0* 1.0* 1.0*"
+          id="simpletable_ebf_pz4_fl">
           <sthead>
             <stentry>Event</stentry>
             <stentry>Date</stentry>
@@ -21,46 +24,62 @@
           </sthead>
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>12 Jul 2011</stentry>
+            <stentry><xref
+              href="https://lists.oasis-open.org/archives/dita/201107/msg00007.html"
+              format="html"
+              scope="external">https://lists.oasis-open.org/archives/dita/201107/msg00007.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>25 Jan 2012, 14 May 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44921/proposal-13023.dita"
+              scope="external"
+              format="html">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44921/proposal-13023.dita</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44922/proposal-13023.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44922/proposal-13023.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>31 Jan 2012, 14 Feb 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45036/minutes20120131.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45036/minutes20120131.txt</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45204/minutes20120214.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45204/minutes20120214.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>7 Feb 2012, 15 May 2012</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45132/minutes20120207.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45132/minutes20120207.txt</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46007/minutes20120515.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46007/minutes20120515.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>21 June 2013</stentry>
+            <stentry>Stan Doherty, Don Day</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>19 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
       </section>
       <section>
         <title>Approved technical requirements</title>
-        <p>Define a new element type, &lt;div>, whose content model is all body
-          content except &lt;section> and &lt;bodydiv> (that is, the
-          intersection of the 1.2 &lt;bodydiv> and &lt;sectiondiv> content
-          models) plus &lt;div>.</p>
-        <p>Allow &lt;div> wherever &lt;p> is allowed or any block context where
-          &lt;p> is not allowed for some reason (including within &lt;p>,
-          &lt;fig>, etc.). The design intent is to allow &lt;div> in all
-          block-containing contexts. </p>
+        <p>Allow &lt;div> wherever &lt;p> is allowed or any block context where &lt;p> is not allowed for some reason (including within &lt;p>, &lt;fig>, etc.). The design intent is to allow &lt;div>
+          in all block-containing contexts. </p>
+        <p>Define a new element type, &lt;div>, that allows all body content except &lt;section> and also allows &lt;div>.</p>
       </section>
       <section>
         <title>Dependencies or interrelated proposals</title>
@@ -118,15 +137,15 @@
             <colspec
               colname="c1"
               colnum="1"
-              colwidth="1.0*"/>
+              colwidth="1.02*"/>
             <colspec
               colname="c2"
               colnum="2"
-              colwidth="1.0*"/>
+              colwidth="1*"/>
             <colspec
               colname="c3"
               colnum="3"
-              colwidth="1.0*"/>
+              colwidth="1.01*"/>
             <thead>
               <row>
                 <entry>Topic Name</entry>
@@ -188,6 +207,28 @@
                     &lt;div>, &lt;bodydiv>, and &lt;sectiondiv> to facilitate
                     grouping elements in the &lt;conbody>.</p>
                 </entry>
+              </row>
+              <row>
+                <entry>bodydiv.dita</entry>
+                <entry/>
+                <entry>Insert new paragraph at end of first section within &lt;refbody>:<p>Because the &lt;bodydiv> element allows &lt;section>, it may not be used within &lt;section> elements. Use
+                  the &lt;div> element for containers that may occur (or be used by reference from) both topic bodies and sections.</p></entry>
+              </row>
+              <row>
+                <entry>sectiondiv.dita</entry>
+                <entry/>
+                <entry>Insert new paragraph at end of first section within &lt;refbody>:<p>Because the &lt;sectiondiv> element allows &lt;section>, it may not be used within &lt;section> elements. Use
+                  the &lt;div> element for containers that may occur (or be used by reference from) both topic bodies and sections.</p></entry>
+              </row>
+              <row>
+                <entry>speclimits.dita</entry>
+                <entry/>
+                <entry>Under section "", add new dl entry after the entry for &lt;sectiondiv>:<dl>
+                  <dlentry>
+                    <dt>div</dt>
+                    <dd>generic, untitled, nestable container for content within topic bodies or sections </dd>
+                  </dlentry>
+                  </dl></entry>
               </row>
             </tbody>
           </tgroup>
