@@ -12,7 +12,10 @@
       </section>
       <section>
         <title>Tracking information</title>
-        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+        <simpletable
+          frame="all"
+          relcolwidth="1.0* 1.0* 1.0*"
+          id="simpletable_tlt_xx4_fl">
           <sthead>
             <stentry>Event</stentry>
             <stentry>Date</stentry>
@@ -20,23 +23,24 @@
           </sthead>
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>12 Jul 2011</stentry>
+            <stentry>https://lists.oasis-open.org/archives/dita/201107/msg00007.html</stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
             <stentry>17 Feb 2013</stentry>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48299/proposal-13029-text-everywhere.dita,
+              https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48300/proposal-13029-text-everywhere.html</stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>19 Feb 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48344/minutes20130219.txt</stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>26 Feb 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48436/minutes20130226.txt</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
@@ -45,7 +49,7 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>19 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
