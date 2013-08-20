@@ -12,7 +12,10 @@
       </section>
       <section>
         <title>Tracking information</title>
-        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+        <simpletable
+          frame="all"
+          relcolwidth="1.0* 1.0* 1.0*"
+          id="simpletable_lj4_c2p_fl">
           <sthead>
             <stentry>Event</stentry>
             <stentry>Date</stentry>
@@ -21,22 +24,37 @@
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
             <stentry>12 July 2011</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://lists.oasis-open.org/archives/dita/201107/msg00007.html"
+              format="html"
+              scope="external">https://lists.oasis-open.org/archives/dita/201107/msg00007.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>16 Feb 2013</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48292/proposal-13027-draft-comment-everywhere.dita"
+              scope="external"
+              format="html">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48292/proposal-13027-draft-comment-everywhere.dita</xref>, <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48293/proposal-13027-draft-comment-everywhere.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48293/proposal-13027-draft-comment-everywhere.html</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>19 Feb 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48344/minutes20130219.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48344/minutes20130219.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>26 Feb 2013</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48436/minutes20130226.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48436/minutes20130226.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
@@ -45,7 +63,7 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>19 Aug 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
