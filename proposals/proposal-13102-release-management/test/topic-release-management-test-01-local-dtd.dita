@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "topic-release-mgmt-local.dtd">
+<topic
+  id="topic_pf1_wcc_gl">
+  <title>Test of release management domain (local module files)</title>
+  <prolog>
+    <change-historylist>
+      <change-item>
+        <organizationinfo>
+          <namedetails>
+            <organizationnamedetails>
+              <organizationname>DITA Technical Committee</organizationname>
+            </organizationnamedetails>
+          </namedetails>
+        </organizationinfo>
+        <personinfo>
+          <namedetails>
+            <personname>
+              <firstname>W.</firstname>
+              <middlename>Eliot</middlename>
+              <lastname>Kimber</lastname>
+            </personname>
+          </namedetails>
+        </personinfo>
+        <change-revisionid>Stage 2</change-revisionid>
+        <change-request-reference>
+          <change-request-system>OASIS Kavi</change-request-system>
+          <change-request-id>13102</change-request-id>
+        </change-request-reference>
+        <change-started>2013-08-20</change-started>
+        <change-completed>2013-08-21</change-completed>
+        <change-summary>Test document created.</change-summary>
+        <data
+          name="myfield">This is an unspecialized data element</data>
+      </change-item>
+    </change-historylist>
+  </prolog>
+  <body>
+    <p>Test of release management domain. DTD uses local paths to refer to release management module files.</p>
+  </body>
+</topic>

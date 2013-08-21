@@ -33,6 +33,7 @@
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
+            <file name="proposals/proposal-13102-release-management/test/topic-release-mgmt-local.dtd"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>
             <file name="proposals/proposal-13111-mathml/test/dtd/topic-with-mathml.dtd"/>

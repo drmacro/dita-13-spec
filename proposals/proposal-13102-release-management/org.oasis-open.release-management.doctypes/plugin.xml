@@ -1,0 +1,6 @@
+<!-- 
+   DITA Open Toolkit descriptor for the release management domain.
+  -->
+<plugin id="org.oasis-open.dita.release-management.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

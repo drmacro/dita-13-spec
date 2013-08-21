@@ -9,21 +9,19 @@
     <section>
       <title>Date and version information</title>
       <p>Include the following information:<ul>
-          <li>The latest revision date for this proposed feature document is 2013 July 21.</li>
-          <li>[[Champion of the proposal]]</li>
-          <li>[[Links to any previous versions of the proposal]]</li>
+          <li>The latest revision date for this proposed feature document is 2013 August 20.</li>
+          <li>Tom Cihak is the champion of this proposal.</li>
           <li>The proposal was initially accepted for inclusion into DITA 1.3 on 2012 Feb 21: <xref
               format="html"
               href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/45220/minutes2"
               >Minutes from 2012 Feb 21</xref></li>
-          <li>[[Links to e-mail discussion that resulted in new versions of the proposal]]</li>
         </ul></p>
     </section>
     <section>
       <title>Original requirement or use case</title>
       <p>As described in Seth Park's <xref scope="external" format="html"
-        href="https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201202/msg00054.html"
-        >email</xref>, organizations and content authors need to help customers locate significant
+          href="https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201202/msg00054.html"
+          >email</xref>, organizations and content authors need to help customers locate significant
         changes in revisions of large documents. These content providers would benefit from the
         ability to record release notes at the topic level, rather than in separate topics or in CMS
         metadata.</p>
@@ -34,7 +32,9 @@
         required, insufficient by themselves: in some organizations, release notes belong in one and
         only one document. In other words, once the release note has appeared in a release document,
         it should never appear in another one.</p>
-      <p>This requirement makes using dates as a selection mechanism highly desirable, if not mandatory.</p>   </section>
+      <p>This requirement makes using dates as a selection mechanism highly desirable, if not
+        mandatory.</p>
+    </section>
     <section>
       <title>Use cases</title>
       <p>Medical Device Industry Requirements</p>
@@ -46,7 +46,8 @@
         <li>function responsible for validation</li>
         <li>identify who made the change (secure ID)</li>
         <li>time and date of the change to the second</li>
-        <li>nature of the change -- draft comment, including if change is valid for each reuse of the content (metadata change)</li>
+        <li>nature of the change -- draft comment, including if change is valid for each reuse of
+          the content (metadata change)</li>
         <li>resolution of the change: accepted, rejected, and so on</li>
         <li>some way of marking the exact location of the change in the content of the topic</li>
       </ul>
@@ -54,21 +55,17 @@
     <section>
       <title>Proposed solution</title>
       <p>Release notes, stored with date/time information in the changed topics, may be aggregated
-        during preprocessing or by an independent process to compile a release notes report based on
-        information supplied in the change history, including—but not limited to—date and time.</p>
+        by an independent process to compile a release notes report based on information supplied in
+        the change history, including—but not limited to—date and time.</p>
       <p>Here is the recommended scenario:</p>
-      <p>Based on parameters in a controlling map (or externally suplied parameters if the map has
-        none) date/time criteria are established. Though normally the last release date is used, the
-        user is free to choose any date; thus, the system could work just as well for a cumulative
-        scheme as for release-to-release system. [The choice of scheme could also be made using a
-        map attribute.]</p>
-      <p>After link resolution but before filtering, processing combs through the topics contained
-        in the map, selecting those changehistory items that meet the chosen criteria. These items
-        are aggregated into a DITA topic that the user may retrieve; in some cases the user may
-        initiate processing purely for the purpose of generating this file, which is then available
-        for editing or further processing. When the DITA topic is included in the map for
-        publication, filtering will ensure that only those release items appropriate for the given
-        map are included.</p>
+      <p>Based on externally suplied parameters, date/time criteria are established. Though normally
+        the last release date is used, the user is free to choose any date; thus, the system would
+        work just as well for a cumulative scheme as for release-by-release aggregation.</p>
+      <p>The external process combs through the topics contained in the map, selecting those
+        changehistory items that meet the chosen criteria. These items are aggregated into a DITA
+        topic that the user may retrieve; the topic is then available for editing or further
+        processing. When the DITA topic is included in the map for publication, filtering will
+        ensure that only those release items appropriate for the given map are included.</p>
     </section>
     <section>
       <title>Benefits</title>
@@ -76,107 +73,110 @@
         <li>Content creators will benefit; they will find it easier to record release notes if they
           don't have to record them in a separate topic. Accuracy and compliance will improve as a
           result.</li>
-        <li> Organizations will benefit from increased accuracy and detail. Their documents will be
+        <li>Organizations will benefit from increased accuracy and detail. Their documents will be
           better and their customers happier. It will be easier for them to comply with any
           regulatory or other outside requirements for change tracking.</li>
         <li>Having release notes available in DITA metadata is itself a benefit. Any organization is
           free to process and use the release notes as it sees fit, and an important class of
           information is provided a stable location, free from the vagaries of content management
           systems and local practice.</li>
+        <li>For topic based displays such as html, having release notes in the topic will facilitate
+          a display such as is common in wiki pages, where the topic history is included in a separate 
+          tab accessible at any time.</li>
       </ul>
     </section>
     <section>
       <title>Technical requirements</title>
-      <p>Provide a detailed description of how the solution will work. Be sure to include the
-        following details:<dl>
-          <dlentry>
-            <dt>DTD and Schema modifications</dt>
-            <dd>
-              <dl>
-                <dlentry>
-                  <dt>Topic or map specialization</dt>
-                  <dd>Name of the new module, for example, <term>Glossary</term> or <term>Subject
+      <dl>
+        <dlentry>
+          <dt>DTD and Schema modifications</dt>
+          <dd>
+            <dl>
+              <dlentry>
+                <dt>Topic or map specialization</dt>
+                <dd>Name of the new module, for example, <term>Glossary</term> or <term>Subject
                     scheme</term><ul><li>Release Management domain</li></ul></dd>
-                </dlentry>
-                <dlentry>
-                  <dt>Domain</dt>
-                  <dd>List of topic or map types that will include the domain<ul><li>DITA topic</li></ul></dd>
-                </dlentry>
-                <dlentry>
-                  <dt>Element</dt>
-                  <dd>
-                    <ul>
-                      <li>Element name and attributes: 
-                        <ul>
-                          <li>see figure and list below</li>
-                        </ul></li>
-                      <li>Description of the element, including any processing requirements</li>
-                      <li>Description of where the element will be permissable<ul>
-                        <li>The new element will only be permissible in the topic prolog</li>
+              </dlentry>
+              <dlentry>
+                <dt>Domain</dt>
+                <dd>List of topic or map types that will include the domain<ul><li>DITA
+                    topic</li></ul></dd>
+              </dlentry>
+              <dlentry>
+                <dt>Element</dt>
+                <dd>
+                  <ul>
+                    <li>Element name and attributes: <ul>
+                        <li>See figure and list below.</li>
                       </ul></li>
-                      <li>Is the element translatable? If yes, is it a block or phrase (subflow)
-                        element?: 
-                        <ul>
-                          <li>yes</li>
-                        </ul></li>
-                    </ul>
-                  </dd>
-                </dlentry>
-                <dlentry>
-                  <dt>Attributes</dt>
-                  <dd>
-                    <ul>
-                      <li>Name of the attribute:
-                        <ul>
-                          <li>changehistorylist/@changeID</li>
-                        </ul></li>
-                      <li>Elements for which the attributes will apply, for example, "new global
-                        attribute for conref-atts group" or "new specialized attribute for learning
-                        topics"
-                        <ul>
-                          <li>changehistorylist</li>
-                        </ul></li>
-                      <li>Processing expectations that are associated with the new attribute<ul>
+                    <li>Description of the element, including any processing requirements<ul>
+                        <li>See figure and list below.</li>
+                        <li>No processing is requested at this time.</li>
+                      </ul></li>
+                    <li>Description of where the element will be permissible<ul>
+                        <li>The new element will only be permissible in the topic prolog.</li>
+                      </ul></li>
+                    <li>Is the element translatable? If yes, is it a block or phrase (subflow)
+                      element?: <ul>
+                        <li>yes, block</li>
+                      </ul></li>
+                  </ul>
+                </dd>
+              </dlentry>
+              <dlentry>
+                <dt>Attributes</dt>
+                <dd>
+                  <ul>
+                    <li>Name of the attribute: <ul>
+                        <li>@changeID</li>
+                      </ul></li>
+                    <li>Elements for which the attributes will apply, for example, "new global
+                      attribute for conref-atts group" or "new specialized attribute for learning
+                      topics" <ul>
                         <li>as @rev</li>
                       </ul></li>
-                      <li>Does the attribute contain translatable text? This should be avoided, so
-                        if the answer is "yes," you must explain why: 
-                        <ul>
-                          <li>no</li>
-                        </ul></li>
-                    </ul>
-                  </dd>
-                </dlentry>
-              </dl>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>Processing impact</dt>
-            <dd>
-              <ul>
-                <li>How, in general, will the feature work?<ul><li>An external process, before or after publication, can collect release notes from the topics
-                      contained in a map. With time, it may be desirable to incorporate this
-                      collection into publication processing; however, this is not a
-                      requirement.</li></ul></li>
-                <li>Will the feature have an impact on other processing features? For example, will
-                  the proposed feature have an impact on key resolution?<ul><li>Since the elements
-                      of this domain will most likely be extracted and compiled into a separate
-                      report, there should be no impact to processing.</li></ul></li>
-                <li>What edge cases need to be considered?<ul><li>There are no known edge
-                      cases.</li></ul></li>
-              </ul>
-            </dd>
-          </dlentry>
-        </dl><dl>
-          <dlentry>
-            <dt>Overall usability</dt>
-            <dd>Discuss the impact to current DITA users. Discuss any set up that users will need to
-              do to make use of this feature.<ul>
-                <li>The domain adds additional complexity to the DITA topic, although it is optional, and similar to the existing bookchangehistory domain.</li>
-                <li>Adding release notes to the topic prolog may make the prolog much longer.</li>
-              </ul></dd>
-          </dlentry>
-        </dl></p>
+                    <li>Processing expectations that are associated with the new attribute<ul>
+                        <li>specialization of @rev</li>
+                      </ul></li>
+                    <li>Does the attribute contain translatable text? This should be avoided, so if
+                      the answer is "yes," you must explain why: <ul>
+                        <li>no</li>
+                      </ul></li>
+                  </ul>
+                </dd>
+              </dlentry>
+            </dl>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Processing impact</dt>
+          <dd>
+            <ul>
+              <li>How, in general, will the feature work?<ul><li>An external process, before or
+                    after publication, can collect release notes from the topics contained in a map.
+                    With time, it may be desirable to incorporate this collection into publication
+                    processing; however, this is not a requirement.</li></ul></li>
+              <li>Will the feature have an impact on other processing features? For example, will
+                the proposed feature have an impact on key resolution?<ul><li>Since the elements of
+                    this domain will most likely be extracted and compiled into a separate report,
+                    there should be no impact to processing.</li></ul></li>
+              <li>What edge cases need to be considered?<ul><li>There are no known edge
+                  cases.</li></ul></li>
+            </ul>
+          </dd>
+        </dlentry>
+      </dl>
+      <dl>
+        <dlentry>
+          <dt>Overall usability</dt>
+          <dd>Discuss the impact to current DITA users. Discuss any set up that users will need to
+            do to make use of this feature.<ul>
+              <li>The domain adds additional complexity to the DITA topic, although it is optional,
+                and similar to the existing bookchangehistory domain.</li>
+              <li>Adding release notes to the topic prolog may make the prolog much longer.</li>
+            </ul></dd>
+        </dlentry>
+      </dl>
       <fig>
         <title>Release Management Elements</title>
         <image scale="80" href="ReleaseManagement2.png"/>
@@ -200,11 +200,11 @@
                            -dita-use-conref-target)        #IMPLIED
              outputclass  CDATA                            #IMPLIED'   >
 
-<!-- change-list is the release note container; specialized from data -->
+<!-- changehistorylist is the release note container; specialized from metadata -->
 <!ELEMENT changehistorylist (change-item*) >
 <!ATTLIST changehistorylist >
 
-<!-- change-item is the release note; specialized from data -->
+<!-- change-item is the individual release note; specialized from data -->
 <!ELEMENT change-item ((person|organization)*,revisionid?,
                         change-request-reference?,changestarted?,
                         changecompleted,summary?,data*) >
@@ -215,23 +215,25 @@
 >
 
 <!-- Person making the change -->
-<!ELEMENT person ( [as data] ) >
+<!ELEMENT person (%data.cnt;)* >
 <!ATTLIST person 
   props CDATA #IMPLIED
 >
 
 <!-- Organization requesting or requiring the change -->
-<!ELEMENT organization ( [as data] ) >
+<!ELEMENT organization (%data.cnt;)* >
 <!ATTLIST organization 
   props CDATA #IMPLIED
 >
 
-<!-- from bookchangehistory(??): The <revisionid> element indicates the 
-      revision number or revision ID of the book. The processing implementation 
-      determines how the level is displayed. Common methods include using a 
-      dash, for example "-01". or a period, such as ".01".  -->
-<!ELEMENT revisionid ( [as data] ) >
-<!ATTLIST revisionid >
+<!-- The <revisionid> element indicates the revision number or revision ID 
+      of the book. The processing implementation determines
+      how the level is displayed. Common methods include using a 
+      dash, for example "-01", or a period, such as ".01".  -->
+<!ELEMENT revisionid (%data.cnt;)* >
+<!ATTLIST revisionid
+  name CDATA #IMPLIED "revisionid"
+>
 
 <!-- change-request-reference provides traceablity to an external change 
   request or other ticketing system; specialized from data -->
@@ -239,11 +241,11 @@
 <!ATTLIST change-request-reference >
 
 <!-- reference-system is the external system from which the change was mandated -->
-<!ELEMENT reference-system ( [as data] ) >
+<!ELEMENT reference-system (%data.cnt;)* >
 <!ATTLIST reference-system >
 
 <!-- reference-id is the external system's ticket or other number for traceability -->
-<!ELEMENT reference-id ( [as data] ) >
+<!ELEMENT reference-id (%data.cnt;)* >
 <!ATTLIST reference-id >
 
 <!-- started and completed are date containers; specialized from data -->
@@ -254,8 +256,8 @@
   props CDATA #IMPLIED
 >
 
-<!-- date the change was completed -->
-<!ELEMENT changecompleted ( [as started] ) >
+<!-- date the change was completed [model is just as started] -->
+<!ELEMENT changecompleted ((year,month?,day?,(time,timeZone?)?)|machinetime) >
 <!ATTLIST changecompleted >
 
 <!ELEMENT year ( [as ph] ) >
@@ -278,7 +280,7 @@
 <!ATTLIST machinetime >
 
 <!-- summary is the portion of the release note that will/may appear in a document -->
-<!ELEMENT summary ( [as data] ) >
+<!ELEMENT summary (%data.cnt;)* >
 <!ATTLIST summary 
   props CDATA #IMPLIED
 >
@@ -294,14 +296,14 @@
     <section>
       <title>Costs</title>
       <p>Outline the impact (time and effort) of the feature on the following groups:<ul>
-          <li>Maintainers of the DTDs and XSDs<ul><li>These are not trivial changes; however, the
-                stage three proposal should include all necessary DTD modifications. In any case,
-                the additions are very similar to the existing bookmap's bookchangehistory domain,
-                but simpler.</li></ul></li>
+          <li>Maintainers of the DTDs and XSDs
+            <ul>
+              <li>A new domain will be added; however, these additions are very similar to the
+                existing bookmap's bookchangehistory domain, but simpler.</li>
+            </ul></li>
           <li>Editors of the DITA specification:<ul>
-            <li>How many new topics will be required?<ul>
-              <li>Ten new topics will need to be added:
-                    <ul>
+              <li>How many new topics will be required?<ul>
+                  <li>Ten new topics will need to be added: <ul>
                       <li>change-item</li>
                       <li>change-request-reference</li>
                       <li>changestarted</li>
@@ -313,26 +315,23 @@
                       <li>timeZone</li>
                       <li>machinetime</li>
                     </ul></li>
-            </ul></li>
-            <li>How many existing topics will need to be edited?<ul>
-              <li> One topic (prolog) will need to be edited.</li>
-            </ul></li>
+                </ul></li>
+              <li>How many existing topics will need to be edited?<ul>
+                  <li> One topic (prolog) will need to be edited.</li>
+                </ul></li>
               <li>Will the feature require substantial changes to the information architecture of
                 the DITA specification? If so, what?<ul>
                   <li>No changes are required to the DITA information architecture.</li>
                 </ul></li>
             </ul></li>
-          <li>Vendors of tools: XML editors, component content management systems, processsors,
-            etc.
-            <ul>
+          <li>Vendors of tools: XML editors, component content management systems, processsors, etc. <ul>
               <li>No changes are required. Editors should be able to rely on DTDs to support the new
                 elements, assuming the prolog is visible. CMS vendors should have no problems.
-                Eventually, some support may be added to processing if this is deemed
-                desirable; however, this is not a requirement.</li>
+                Eventually, some support may be added to processing if this is deemed desirable;
+                however, this is not a requirement.</li>
             </ul></li>
           <li>DITA community-at-large. Will this feature add to the perception that DITA is becoming
-            too complex? Will it be simple for end users to understand?
-            <ul>
+            too complex? Will it be simple for end users to understand? <ul>
               <li>As content, these elements should be easy to understand (comparable to the
                 existing bookchangehistory domain); in any case, they are optional and can be easily
                 ignored by those with no need for them. </li>
@@ -341,8 +340,6 @@
     </section>
     <section>
       <title>Examples</title>
-      <p>[[Provide examples of the proposed feature. Include an example for each of the use cases. Be sure to include
-        edge cases, if known.]]</p>
       <title>Example 1</title>
       <p>This figure shows three simple release notes added to a single topic. This topic is used in
         documentation for two products, A and B.</p>
@@ -390,9 +387,9 @@
 ]]>
   </pre>
       </fig>
-      <p>To illustrate the desirability of date filtering, in this scenario product A's manual was updated on 1 Feb
-        2013, while product B's manual hasn't been revised since 10 Nov 2012. Then, on 22 Mar 2013, both manuals are being
-        revised.</p>
+      <p>To illustrate the desirability of date filtering, in this scenario product A's manual was
+        updated on 1 Feb 2013, while product B's manual hasn't been revised since 10 Nov 2012. Then,
+        on 22 Mar 2013, both manuals are being revised.</p>
       <p>Here is what these documents should contain:</p>
       <table>
         <title>Excerpt from product A's release notes, 22 Mar 2013, last issued 1 Feb 2013</title>
