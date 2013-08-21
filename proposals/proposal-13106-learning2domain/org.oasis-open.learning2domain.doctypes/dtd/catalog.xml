@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Learning Interaction Base Domain//EN"
+    uri="learningInteractionBase2Domain.ent"
+  />
+  <public publicId="-//OASIS//ELEMENTS DITA 1.3 Learning Interaction Base Domain//EN"
+    uri="learningInteractionBase2Domain.mod"
+  />
+
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Learning Domain//EN"
+    uri="learning2Domain.ent"
+  />
+  <public publicId="-//OASIS//ELEMENTS DITA 1.3 Learning Domain//EN"
+    uri="learning2Domain.mod"
+  />
+  
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Learning Base//EN"
+    uri="learningBase.ent"
+  />
+  <public publicId="-//OASIS//ELEMENTS DITA 1.3 Learning Base//EN"
+    uri="learningBase.mod"
+  />
+  
+  <!-- Shells with constraints: -->
+  <public publicId="-//OASIS//DTD DITA Learning Assessment Learning 1 Only//EN"
+    uri="learningAssessment-learning1.dtd"
+    />
+  <public publicId="-//OASIS//DTD DITA Learning Assessment Learning 2 Only//EN"
+    uri="learningAssessment-learning2.dtd"
+    />
+  
+</catalog>  

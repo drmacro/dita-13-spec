@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningAssessment PUBLIC "-//OASIS//DTD DITA Learning Assessment Learning 1 Only//EN" 
+"learningAssessment-learning1.dtd">
+<learningAssessment
+  id="dita-1.3-lc-test-01">
+  <title/>
+  <learningAssessmentbody>
+    <lcIntro> 
+      <p></p> 
+    </lcIntro>
+    </lcInteraction>
+  </learningAssessmentbody>
+</learningAssessment>
