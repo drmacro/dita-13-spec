@@ -455,15 +455,12 @@
             <note
               othertype="Example"
               type="other">
-              <p>To refer to the &lt;svg> element with the @id value
-                "svg-fragment-02" within a larger document using a key
-                reference, you would define the key like
+              <p>To refer to the &lt;svg> element with the @id value "svg-fragment-02" within a larger document using a key reference, you would define the key like
                 so:<codeblock>&lt;keydef 
   keys="svg-fragment-0002" 
-  href="svg/svg-library.xml#fragment-02"
+  href="svg/svg-library.xml#svg-fragment-02"
   format="svg"
-/></codeblock>You
-                would refer to this key using just the key
+/></codeblock>You would refer to this key using just the key
                 name:<codeblock>&lt;svg_container>
   &lt;svgref keyref="svg-fragment-0002"/>
 &lt;/svg_container></codeblock></p>
