@@ -73,12 +73,8 @@
             <dt>commonElements.mod</dt>
             <dd>
               <note>
-                <p>In order to avoid allowing &lt;cite> within &lt;cite>, the
-                  parameter entities used configure phrase content and xref
-                  content must be refactored slightly to prevent %xrefph.cnt
-                  from allowing &lt;cite>. In 1.2, only &lt;cite> and
-                  &lt;fragref> use %xrefph.cnt; and in both cases it seems
-                  appropriate to disallow &lt;cite>.</p>
+                <p>In order to avoid allowing &lt;cite> within &lt;cite>, the parameter entities used to configure phrase content and xref content must be refactored slightly to prevent %xrefph.cnt
+                  from allowing &lt;cite>. In 1.2, only &lt;cite> and &lt;fragref> use %xrefph.cnt; and in both cases it seems appropriate to disallow &lt;cite>.</p>
               </note>
               <p>Create new parameter entity %basic.ph.noxref.nocite defined as
                 follows:<codeblock>!ENTITY % basic.ph.noxref.nocite   
