@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature 13103, @print Replacement</title>
+    <shortdesc>Provides a new select attribute @deliveryTarget that is more general than @print.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Eliot Kimber</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>2 July 2013</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/minutes20130702.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/minutes20130702.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>17 June 2013</stentry>
+            <stentry>DITA: <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49565/proposal-13103-print-replacement.dita"
+              scope="external"
+              format="html">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49565/proposal-13103-print-replacement.dita</xref>, HTML: <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49567/proposal-13103-print-replacement.html"
+              format="html"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49567/proposal-13103-print-replacement.html</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>2 July 2013</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/minutes20130702.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/minutes20130702.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>9 July 2013 </stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49963/latest/minutes20130709.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49963/latest/minutes20130709.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>The general requirement is to have content that is conditional on the specific delivery target or rendition type being produced. This generalizes the @print attribute to any arbitrary set
+          of potential rendition types, of which "print" is just one.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>No related proposals or dependencies.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>This proposal defines a new attribute domain module, "deliveryTarget". This module will need to be integrated into each TC-defined document type shell.</p>
+        <fig
+          id="fig_ww5_3rc_hl">
+          <title>deliverTarget attribute domain RelaxNG declarations</title>
+          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;grammar 
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  &lt;define name="deliveryTargetAtt-d-attribute">
+    &lt;optional>
+      &lt;attribute name="deliveryTarget"/>
+    &lt;/optional>    
+  &lt;/define>
+  
+  &lt;define name="props-attribute-extensions" combine="interleave">
+    &lt;ref name="deliveryTargetAtt-d-attribute"/>
+  &lt;/define>
+  
+&lt;/grammar></codeblock>
+        </fig>
+        <fig
+          id="fig_w2c_ml5_nk">
+          <title>DTD Declarations for deliveryTarget attribute domain</title>
+          <codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;!ENTITY % deliveryTargetAtt-d-attribute "deliveryTarget CDATA #IMPLIED">
+
+&lt;!ENTITY deliveryTargetAtt-d-att "a(props deliveryTarget)" >
+
+&lt;!-- ===== End of Delivery Target Attribute Module ==== --></codeblock>
+        </fig>
+        <fig
+          id="fig_cxv_kl5_nk">
+          <title>XSD Declarations for deliveryTarget attribute domain</title>
+          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
+&lt;!--  VERSION:   1.3                                               -->
+&lt;!--  DATE:      June 2012                                         -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      Delivered as file "deliveryTargetAttDomain.ent"              -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
+&lt;!--             entity declarations for the User Interface Domain -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             June 2013                                         -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2013.                    -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  &lt;xs:attributeGroup name="deliveryTargetAtt-d-attribute">
+    &lt;xs:attribute name="deliveryTarget" type="xs:string"/>
+  &lt;/xs:attributeGroup>
+&lt;/xs:schema></codeblock>
+        </fig>
+        <p>The attribute domain will need to be integrated into the following TC-provided document type shells:<ul
+          id="ul_pwq_prc_hl">
+<li>basemap</li>
+<li>basetopic</li>
+<li>bookmap</li>
+<li>ditaval</li>
+<li>learningAssessment</li>
+<li>learningBookmap</li>
+<li>learningContent</li>
+<li>learningMap</li>
+<li>learningOverview</li>
+<li>learningPlan</li>
+<li>learningSummary</li>
+<li>machineryTask</li>
+<li>classifyMap</li>
+<li>subjectScheme</li>
+<li>concept</li>
+<li>ditabase</li>
+<li>generalTask</li>
+<li>glossary</li>
+<li>glossentry</li>
+<li>glossgroup</li>
+<li>map</li>
+<li>reference</li>
+<li>task</li>
+<li>topic</li>
+          </ul></p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>Conditional processing attributes do not have separate reference topics, so no new topics are required.</p>
+        <table
+          frame="all"
+          id="table_phv_2wd_pk">
+          <title>New and Modified Topics</title>
+          <tgroup
+            cols="3">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.0*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1.0*"/>
+            <thead>
+              <row>
+                <entry>New or Modified Topics</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry>DITA 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>archSpec/conditional-processing-attributes.dita</entry>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>product</dt>
+                      <dd>The product that is the subject of the discussion. </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>platform</dt>
+                      <dd>The platform on which the product is deployed.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>audience</dt>
+                      <dd>The intended audience of the content.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>rev</dt>
+                      <dd>The revision or draft number of the current document. (This is typically used only for flagging.)</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>otherprops</dt>
+                      <dd>Other properties that do not require semantic identification.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>props</dt>
+                      <dd>A generic conditional processing attribute that can be specialized to create new semantic conditional processing attributes.</dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+                <entry>
+                  <p>Add entry for @deliveryTarget:</p>
+                  <dl>
+                    <dlentry>
+                      <dt>product</dt>
+                      <dd>The product that is the subject of the discussion. </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>platform</dt>
+                      <dd>The platform on which the product is deployed.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>audience</dt>
+                      <dd>The intended audience of the content.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>deliveryTarget</dt>
+                      <dd>The intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>The @deliveryTarget attribute is defined through the @props specialization attribute domain
+                        deliveryTargetAttDomain. It will not be available if the domain is not integrated into a given document's document type. It is integrated into all OASIS-provided document type
+                        shells.</p></dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>rev</dt>
+                      <dd>The revision or draft number of the current document. (This is typically used only for flagging.)</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>otherprops</dt>
+                      <dd>Other properties that do not require semantic identification.</dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>props</dt>
+                      <dd>A generic conditional processing attribute that can be specialized to create new semantic conditional processing attributes.</dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/condproc.dita</entry>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>audience</dt>
+                      <dd>The values in the audience attribute may also be used to reference a more complete description of an audience in an audience element. Use the name of the audience in the
+                        audience element when referring to the same audience in an audience attribute.<p>The audience attribute takes a space-delimited list of values, which may or may not match the
+                        name value of any audience elements.</p> </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>platform</dt>
+                      <dd>The platform might be the operating system, hardware, or other environment. This attribute is equivalent to the platform element for the topic metadata.</dd>
+                      <dd>
+                        <p>The platform attribute takes a space-delimited list of values, which may or may not match the content of a platform element in the prolog.</p>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>product</dt>
+                      <dd>The product or component name, version, brand, or internal code or number. This attribute is equivalent to the prodinfo element for the topic metadata.</dd>
+                      <dd>
+                        <p>The product attribute takes a space-delimited list of values, which may or may not match the value of the prodname element in the prolog.</p>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>rev</dt>
+                      <dd>The identifier for the revision level. For example, if a paragraph was changed or added during revision 1.1, the rev attribute might contain the value "1.1". </dd>
+                    </dlentry>
+                    <dlentry
+                      rev="public-review-1">
+                      <dt>otherprops</dt>
+                      <dd>A catch-all for metadata qualification values about the content. This attribute is equivalent to the othermeta element for the topic metadata. <p>The attribute takes a
+                        space-delimited list of values, which may or may not match the values of othermeta elements in the prolog.</p><p>For example, a simple otherprops value list:
+                        <codeph>&lt;codeblock otherprops="java cpp"></codeph></p><p>The attribute <term>may</term> take labeled groups of values as for @props. Processors <term>may</term> treat such
+                        values as equivalent to @props or they <term>may</term> treat such values as simple strings. The use of labeled groups in @otherprops is deprecated in favor of using
+                        specializations of @props. Processors <term>should</term> clearly document how they treat grouped @otherprops values. See <xref
+                        href="attributegeneralize.dita#attributegeneralize"
+                        format="dita"/> for details on generalized @props attribute values.</p> </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>props</dt>
+                      <dd>A generic attribute for conditional processing values. Starting with DITA 1.1, the props attribute can be specialized to create new conditional processing attributes. <ph
+                        rev="public-review-1">See <xref
+                        href="attributegeneralize.dita#attributegeneralize"
+                        format="dita"/>.</ph></dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+                <entry>
+                  <p>Add entry for @deliveryTarget:</p>
+                  <dl>
+                    <dlentry>
+                      <dt>audience</dt>
+                      <dd>The values in the audience attribute may also be used to reference a more complete description of an audience in an audience element. Use the name of the audience in the
+                        audience element when referring to the same audience in an audience attribute.<p>The audience attribute takes a space-delimited list of values, which may or may not match the
+                        name value of any audience elements.</p> </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>platform</dt>
+                      <dd>The platform might be the operating system, hardware, or other environment. This attribute is equivalent to the platform element for the topic metadata.</dd>
+                      <dd>
+                        <p>The platform attribute takes a space-delimited list of values, which may or may not match the content of a platform element in the prolog.</p>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>product</dt>
+                      <dd>The product or component name, version, brand, or internal code or number. This attribute is equivalent to the prodinfo element for the topic metadata.</dd>
+                      <dd>
+                        <p>The product attribute takes a space-delimited list of values, which may or may not match the value of the prodname element in the prolog.</p>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>deliveryTarget</dt>
+                      <dd>The intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute may be used in place of the @print attribute on topic references.</p><p>The
+                        @deliveryTarget attribute is defined through the @props specialization attribute domain deliveryTargetAttDomain. It will not be available if the domain is not integrated into a
+                        given document's document type. It is integrated into all OASIS-provided document type shells.</p></dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>rev</dt>
+                      <dd>The identifier for the revision level. For example, if a paragraph was changed or added during revision 1.1, the rev attribute might contain the value "1.1". </dd>
+                    </dlentry>
+                    <dlentry
+                      rev="public-review-1">
+                      <dt>otherprops</dt>
+                      <dd>A catch-all for metadata qualification values about the content. This attribute is equivalent to the othermeta element for the topic metadata. <p>The attribute takes a
+                        space-delimited list of values, which may or may not match the values of othermeta elements in the prolog.</p><p>For example, a simple otherprops value list:
+                        <codeph>&lt;codeblock otherprops="java cpp"></codeph></p><p>The attribute <term>may</term> take labeled groups of values as for @props. Processors <term>may</term> treat such
+                        values as equivalent to @props or they <term>may</term> treat such values as simple strings. The use of labeled groups in @otherprops is deprecated in favor of using
+                        specializations of @props. Processors <term>should</term> clearly document how they treat grouped @otherprops values. See <xref
+                        href="attributegeneralize.dita#attributegeneralize"
+                        format="dita"/> for details on generalized @props attribute values.</p> </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>props</dt>
+                      <dd>A generic attribute for conditional processing values. Starting with DITA 1.1, the props attribute can be specialized to create new conditional processing attributes. <ph
+                        rev="public-review-1">See <xref
+                        href="attributegeneralize.dita#attributegeneralize"
+                        format="dita"/>.</ph></dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry>common/select-atts.dita</entry>
+                <entry>Table under "Attributes"</entry>
+                <entry>Added row for @deliveryTarget with the following entries:<dl>
+                  <dlentry>
+                    <dt>Name</dt>
+                    <dd>deliveryTarget</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>Description</dt>
+                    <dd>Specifies the intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute may be used in place of the @print attribute on topic
+                      references.</p><p>The @deliveryTarget attribute is defined through the @props specialization attribute domain deliveryTargetAttDomain. It will not be available if the domain is
+                      not integrated into a given document's document type. It is integrated into all OASIS-provided document type shells.</p></dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>Data Type</dt>
+                    <dd>CDATA</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>Default Value</dt>
+                    <dd>#IMPLIED</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>Required?</dt>
+                    <dd>No</dd>
+                  </dlentry>
+                  </dl></entry>
+              </row>
+              <row>
+                <entry>New</entry>
+                <entry/>
+                <entry>Add non-normative appendix with sample subject scheme for @deliveryTarget values.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+  </topic>
+  <concept
+    id="appendix-deliveryTarget-subjectScheme">
+    <title>Appendix: (Non-Normative) Sample Subject Scheme for @deliveryTarget attribute</title>
+    <conbody>
+      <draft-comment
+        author="ekimber">This topic is intended to serve as an illustrative appendix</draft-comment>
+      <p>Starting with DITA 1.2, subjectScheme maps may be used to define values for use with attributes. Starting with DITA 1.3, DITAVAL processing can take the hierarchy of the subject scheme into
+        account in order to infer conditions based on ancestry of values specified on conditional attributes. For example, if the value specified on platform is "windows7" and you are processing the
+        content with a subject scheme that defines the hierarchy "windows / windows7", meaning that "windows7" is a subtype of "windows", then if you specify in your DITAVAL that "windows" is active,
+        the processor will also consider "windows7" as active.</p>
+      <p>The ability to have a hierarchy of types used for filtering and flagging is especially handy for the @deliveryTarget attribute, where there may be many different delivery targets that you
+        care about and many of them will be closely related. For example, if you are producing EPUBs, you may need to distinguish between EPUB2 and EPUB3, between EPUB and Amazon's Kindle format, and
+        among EPUBs optimized for specific readers. By having a hierarchy of delivery targets you can more easily specify conditions on content and control filtering details at processing time.</p>
+      <p>See <xref
+        keyref="subject-scheme-maps">Subject Scheme Maps</xref> for general information on how to define and use subjec schemes for controlled values.</p>
+      <p>The subject scheme map shown in <xref
+        href="#appendix-deliveryTarget-subjectScheme/fig-01"/> provides a suggested, but by no means exhaustive, set of values for the @deliveryTarget attribute.</p>
+      <fig
+        id="fig-01">
+        <title>Subject Scheme for Suggested Values for @deliveryTarget</title>
+        <p>This subject scheme is a non-normative suggested set of values for @deliveryTarget. It is intended to be presented in a non-normative appendix.</p>
+        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
+&lt;subjectScheme>
+  &lt;subjectHead>
+    &lt;subjectHeadMeta>
+      &lt;navtitle>Typical Values for the @deliveryTarget attribute&lt;/navtitle>
+      &lt;shortdesc>Provides a set of typical values for use with the
+        @deliveryTarget conditional processing attribute. This set of values is
+        illustrative only, it is not normative. You may use any values with the
+        @deliveryTarget attribute.&lt;/shortdesc>      
+    &lt;/subjectHeadMeta>
+  &lt;/subjectHead>
+  &lt;subjectdef
+    keys="deliveryTargetValues">
+    &lt;topicmeta>
+      &lt;navtitle>Values for @deliveryTarget Attributes&lt;/navtitle>
+    &lt;/topicmeta>
+    &lt;!-- A tree of related values -->
+    &lt;subjectdef
+      keys="print">
+      &lt;topicmeta>
+        &lt;navtitle>Print-primary deliverables&lt;/navtitle>
+      &lt;/topicmeta>
+      &lt;subjectdef
+        keys="pdf">
+        &lt;topicmeta>
+          &lt;navtitle>PDF&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="css-print">
+        &lt;topicmeta>
+          &lt;navtitle>CSS for print&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="xsl-fo">
+        &lt;topicmeta>
+          &lt;navtitle>XSL-FO&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="afp">
+        &lt;topicmeta>
+          &lt;navtitle>Advanced Function Printing&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="ms-word">
+        &lt;topicmeta>
+          &lt;navtitle>Microsoft Word&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="indesign">
+        &lt;topicmeta>
+          &lt;navtitle>Adobe InDesign&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+      &lt;subjectdef
+        keys="open-office">
+        &lt;topicmeta>
+          &lt;navtitle>Open Office&lt;/navtitle>
+        &lt;/topicmeta>
+      &lt;/subjectdef>
+    &lt;/subjectdef>
+    &lt;subjectdef
+      keys="online">
+      &lt;topicmeta>
+        &lt;navtitle>Online Deliverables&lt;/navtitle>
+      &lt;/topicmeta>
+      &lt;subjectdef
+        keys="html-based">
+        &lt;topicmeta>
+          &lt;navtitle>HTML-based Deliverables&lt;/navtitle>
+        &lt;/topicmeta>
+        &lt;subjectdef
+          keys="html">
+          &lt;topicmeta>
+            &lt;navtitle>HTML&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="html5">
+            &lt;topicmeta>
+              &lt;navtitle>HTML5&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="help">
+          &lt;topicmeta>
+            &lt;navtitle>Contextual Help&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="htmlhelp">
+            &lt;topicmeta>
+              &lt;navtitle>HTML Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="webhelp">
+            &lt;topicmeta>
+              &lt;navtitle>Web Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="javahelp">
+            &lt;topicmeta>
+              &lt;navtitle>Java Help&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="eclipseinfocenter">
+            &lt;topicmeta>
+              &lt;navtitle>Eclipse InfoCenter&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="epub">
+          &lt;topicmeta>
+            &lt;navtitle>EPUB&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="epub2">
+            &lt;topicmeta>
+              &lt;navtitle>EPUB2&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="epub3">
+            &lt;topicmeta>
+              &lt;navtitle>EPUB3&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="ibooks">
+            &lt;topicmeta>
+              &lt;navtitle>iBooks&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="ibooks">
+            &lt;topicmeta>
+              &lt;navtitle>iBooks&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+          &lt;subjectdef
+            keys="nook">
+            &lt;topicmeta>
+              &lt;navtitle>nook&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+        &lt;subjectdef
+          keys="kindle">
+          &lt;topicmeta>
+            &lt;navtitle>Amazon Kindle&lt;/navtitle>
+          &lt;/topicmeta>
+          &lt;subjectdef
+            keys="kindle8">
+            &lt;topicmeta>
+              &lt;navtitle>Kindle Version 8&lt;/navtitle>
+            &lt;/topicmeta>
+          &lt;/subjectdef>
+        &lt;/subjectdef>
+      &lt;/subjectdef>
+    &lt;/subjectdef>
+  &lt;/subjectdef>
+  &lt;enumerationdef>
+    &lt;attributedef
+      name="deliveryTarget"/>
+    &lt;subjectdef
+      keyref="deliveryTargetValues"/>
+  &lt;/enumerationdef>
+&lt;/subjectScheme></codeblock>
+      </fig>
+    </conbody>
+  </concept>
+</dita>
