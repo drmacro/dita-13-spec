@@ -24,7 +24,10 @@
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
             <stentry>22 May 2012</stentry>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry><xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46083/minutes20120522.txt"
+              format="txt"
+              scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46083/minutes20120522.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
