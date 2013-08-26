@@ -10,10 +10,6 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
-                        <String>keys.context</String>
-                        <String>dita-13-spec/proposals/proposal-13010-sort-as/proposal-13010.ditamap</String>
-                    </entry>
-                    <entry>
                         <String>search.resources.filter.history</String>
                         <filterPanelHistoryItems>
                             <field name="expressionsLists">

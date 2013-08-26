@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Proposal 13103, @print replacement</title>
+  <keydef
+    href="attributegeneralize.dita"
+    keys="attribute-generalization"
+  />
+  <keydef
+    keys="subject-scheme-maps"
+    href="subjectSchema.dita"
+  />
+  <topicref
+    href="proposal-13103-print-replacement-stage-3.dita#topic_aqh_5zt_3h"/>
+  <topicref
+    href="proposal-13103-print-replacement-stage-3.dita#appendix-deliveryTarget-subjectScheme"/>
+</map>

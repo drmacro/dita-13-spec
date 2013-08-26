@@ -491,7 +491,7 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
         care about and many of them will be closely related. For example, if you are producing EPUBs, you may need to distinguish between EPUB2 and EPUB3, between EPUB and Amazon's Kindle format, and
         among EPUBs optimized for specific readers. By having a hierarchy of delivery targets you can more easily specify conditions on content and control filtering details at processing time.</p>
       <p>See <xref
-        keyref="subject-scheme-maps">Subject Scheme Maps</xref> for general information on how to define and use subjec schemes for controlled values.</p>
+        keyref="subject-scheme-maps">Subject Scheme Maps</xref> for general information on how to define and use subject schemes for controlled values.</p>
       <p>The subject scheme map shown in <xref
         href="#appendix-deliveryTarget-subjectScheme/fig-01"/> provides a suggested, but by no means exhaustive, set of values for the @deliveryTarget attribute.</p>
       <fig
