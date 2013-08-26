@@ -75,7 +75,7 @@
       </section>
       <section>
         <title>Dependencies or interrelated proposals</title>
-        <p>No dependent or related proposals.</p>
+        <p>Proposal 13106, learning2 domain, also defines specializations of lists that would need to reflect this change.</p>
       </section>
       <section>
         <title>Modified DTDs</title>
@@ -151,15 +151,81 @@
         <fig
           id="fig_cgy_p12_hl">
           <title>Modifications to hazardstatementDomain.mod</title>
-          <dl/>
+          <dl>
+            <dlentry>
+              <dt>messagepanel</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % messagepanel.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%typeofhazard;),
+                         (%consequence;)*,
+                         (%howtoavoid;)+)"
+></codeblock>
+              </dd>
+            </dlentry>
+          </dl>
+        </fig>
+        <fig
+          id="fig_h1p_smj_hl">
+          <title>Modifications to learningBase.mod</title>
+          <dl>
+            <dlentry>
+              <dt>lcObjectivesGroup</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % lcObjectivesGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcObjective;)+)"
+></codeblock>
+              </dd>
+            </dlentry>
+          </dl>
         </fig>
         <fig
           id="fig_t2m_v12_hl">
-          <title>Modifications to learningBase.mod</title>
-          <dl/>
+          <title>Modifications to learningDomain.mod</title>
+          <dl>
+            <dlentry>
+              <dt>lcAnswerOptionGroup</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % lcAnswerOptionGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcAnswerOption;)+)"
+></codeblock>
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>lcSequenceOptionGroup</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % lcSequenceOptionGroup.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%lcSequenceOption;)+)"
+></codeblock>
+              </dd>
+            </dlentry>
+          </dl>
         </fig>
         <fig
-          id="fig_jf2_nzd_hl">
+          id="fig_otr_jnj_hl">
+          <title>Modifications to programmingDomain.mod</title>
+          <dl>
+            <dlentry>
+              <dt>parml</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % parml.content
+                       "(<b>((%data;) | </b>
+                          <b>(%data-about;))*,</b>
+                         (%plentry;)+)"
+></codeblock>
+              </dd>
+            </dlentry>
+          </dl>
+        </fig>
+        <fig
+          id="fig_zkw_4nj_hl">
           <title>Modifications to task.mod</title>
           <dl>
             <dlentry>
@@ -206,78 +272,26 @@
             </dlentry>
           </dl>
         </fig>
-      </section>
-      <section>
-        <title>reorg</title>
-        <dl>
-          <dlentry>
-            <dt>lcAnswerOptionGroup</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % lcAnswerOptionGroup.content
-                       "(<b>((%data;) | </b>
-                          <b>(%data-about;))*,</b>
-                         (%lcAnswerOption;)+)"
-></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>lcObjectivesGroup</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % lcObjectivesGroup.content
-                       "(<b>((%data;) | </b>
-                          <b>(%data-about;))*,</b>
-                         (%lcObjective;)+)"
-></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>lcSequenceOptionGroup</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % lcSequenceOptionGroup.content
-                       "(<b>((%data;) | </b>
-                          <b>(%data-about;))*,</b>
-                         (%lcSequenceOption;)+)"
-></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>messagepanel</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % messagepanel.content
-                       "(<b>((%data;) | </b>
-                          <b>(%data-about;))*,</b>
-                         (%typeofhazard;),
-                         (%consequence;)*,
-                         (%howtoavoid;)+)"
-></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>parml</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % parml.content
-                       "(<b>((%data;) | </b>
-                          <b>(%data-about;))*,</b>
-                         (%plentry;)+)"
-></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>reqconds</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % reqconds.content
+        <fig
+          id="fig_jf2_nzd_hl">
+          <title>Modifications to taskreqDomain.mod</title>
+          <dl>
+            <dlentry>
+              <dt>reqconds</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % reqconds.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%noconds;) |
 						 ((%reqcond;) |
                           (%reqcontp;))+)"
 ></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>reqpers</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % reqpers.content
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>reqpers</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % reqpers.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%personnel;),
@@ -285,80 +299,137 @@
                           (%perskill;)?,
                           (%esttime;)?)?)+
 "></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>safety</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % safety.content
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>safety</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % safety.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%nosafety;) |
                          (%safecond;)+)"></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>sparesli</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % sparesli.content
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>sparesli</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % sparesli.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%spare;)+)"
 ></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>supeqli</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % supeqli.content
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>supeqli</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % supeqli.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%supequi;)+)"
 ></codeblock>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>supplyli</dt>
-            <dd>
-              <codeblock>&lt;!ENTITY % supplyli.content
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>supplyli</dt>
+              <dd>
+                <codeblock>&lt;!ENTITY % supplyli.content
                        "(<b>((%data;) | </b>
                           <b>(%data-about;))*,</b>
                          (%supply;)+)"
 >
 </codeblock>
-            </dd>
-          </dlentry>
-        </dl>
+              </dd>
+            </dlentry>
+          </dl>
+        </fig>
+        <fig
+          id="fig_mz5_hpj_hl">
+          <title>Strict Taskbody Constraint</title>
+          <p>Restores 1.2 definitions for &lt;steps>, &lt;steps-unordered>, and &lt;substeps>.</p>
+          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!-- ============================================================= -->
+&lt;!--                    HEADER                                     -->
+&lt;!-- ============================================================= -->
+&lt;!--  MODULE:    DITA Strict Taskbody Constraint                   -->
+&lt;!--  VERSION:   1.2                                               -->
+&lt;!--  DATE:      November 2009                                     -->
+&lt;!--                                                               -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+&lt;!--                    TYPICAL INVOCATION                         -->
+&lt;!--                                                               -->
+&lt;!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Strict Taskbody Constraint//EN"
+      Delivered as file "strictTaskbodyConstraint.mod"             -->
+
+&lt;!-- ============================================================= -->
+&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+&lt;!--                                                               -->
+&lt;!-- PURPOSE:    Declaring the domain entity for the strict task   -->
+&lt;!--             constraint module                                 -->
+&lt;!--                                                               -->
+&lt;!-- ORIGINAL CREATION DATE:                                       -->
+&lt;!--             April 2008                                        -->
+&lt;!--                                                               -->
+&lt;!--             (C) Copyright OASIS Open 2008, 2009.              -->
+&lt;!--             All Rights Reserved.                              -->
+&lt;!--                                                               -->
+&lt;!--  UPDATES:                                                     -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    Strict Taskbody ENTITIES                   -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY taskbody-constraints     
+  "(topic task strictTaskbody-c)"
+>
+
+&lt;!ENTITY % prereq          "prereq">
+&lt;!ENTITY % context         "context">
+&lt;!ENTITY % steps           "steps">
+&lt;!ENTITY % steps-unordered "steps-unordered">
+&lt;!ENTITY % result          "result">
+&lt;!ENTITY % example         "example">
+&lt;!ENTITY % postreq         "postreq">
+
+&lt;!ENTITY % taskbody.content
+                       "((%prereq;)?, 
+                         (%context;)?,
+                         (%steps; | 
+                          %steps-unordered;)?, 
+                         (%result;)?, 
+                         (%example;)?, 
+                         (%postreq;)?)"
+>
+
+<b>&lt;!-- Disallow initial &lt;data> or &lt;data-about> --></b>
+<b>&lt;!ENTITY % steps.content
+                       "((%stepsection;)?,
+                         (%step;))+"
+></b>
+
+<b>&lt;!ENTITY % steps-unordered.content
+                       "((%stepsection;)?,
+                         (%step;))+"
+></b>
+
+<b>&lt;!ENTITY % substeps.content
+                       "((%substep;)+)"
+></b>
+&lt;!-- ================== End Strict Taskbody Entities ============= --></codeblock>
+        </fig>
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>Provide a listing of new or modified topics. For existing topics, provide the location of
-          the DITA 1.2 topic; for new topics, suggest where you think the topic should be located in
-          the TOC.</p>
-        <p>List the exact language suggested for the topics. For existing topics, you can use a
-          table to compare the DITA 1.2 text and the proposed text for DITA 1.3. For new topics, use
-          the templates nested within this topic. </p>
+        <p>No changes to existing language. Only generated Contains and Contained By sections will be affected by this change.</p>
       </section>
     </body>
-    <concept id="concept_aqh_5zt_3h">
-      <title>New architectural specification topic</title>
-      <shortdesc/>
-      <conbody/>
-    </concept>
-    <reference id="reference_aqh_5zt_3h">
-      <title>New language reference topic</title>
-      <shortdesc/>
-      <refbody>
-        <section>
-          <title>Inheritance</title>
-        </section>
-        <section>
-          <title>Example</title>
-        </section>
-        <section>
-          <title>Attributes</title>
-        </section>
-      </refbody>
-    </reference>
   </topic>
 </dita>
