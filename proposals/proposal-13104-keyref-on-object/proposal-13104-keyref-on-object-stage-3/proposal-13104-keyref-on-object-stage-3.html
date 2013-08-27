@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Stage 3 proposal: Feature 13104, Allow @keyref on &lt;object&gt;"/>
+<meta name="abstract" content="Adds key references to &lt;object&gt; and &lt;param&gt; as alternatives to direct URI references from &lt;object&gt; and &lt;param&gt; elements."/>
+<meta name="description" content="Adds key references to &lt;object&gt; and &lt;param&gt; as alternatives to direct URI references from &lt;object&gt; and &lt;param&gt; elements."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic_aqh_5zt_3h"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Stage 3 proposal: Feature 13104, Allow @keyref on &lt;object&gt;</title>
+</head>
+<body>
+
+
+  <div class="nested0" id="topic_aqh_5zt_3h">
+    <h1 class="title topictitle1">Stage 3 proposal: Feature 13104, Allow @keyref on &lt;object&gt;</h1>
+
+    
+    <div class="body"><p class="shortdesc">Adds key references to &lt;object&gt; and &lt;param&gt; as alternatives to direct URI references from &lt;object&gt; and &lt;param&gt; elements.</p>
+
+      <div class="section"><h2 class="title sectiontitle">Champion</h2>
+        
+        <p class="p">Eliot Kimber</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Tracking information</h2>
+        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead">
+            <th valign="bottom" align="left" id="d25e34" class="stentry" width="33.333333333333336%">Event</th>
+
+            <th valign="bottom" align="left" id="d25e37" class="stentry" width="33.333333333333336%">Date</th>
+
+            <th valign="bottom" align="left" id="d25e40" class="stentry" width="33.333333333333336%">Links</th>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 1 proposal accepted</td>
+
+            <td valign="top" headers="d25e37" class="stentry">14 Feb 2012</td>
+
+            <td valign="top" headers="d25e40" class="stentry"><a class="xref" href="http://www.oasis-open.org/apps/org/workgroup/dita/download.php/45204/minutes20120214.txt" target="_blank">http://www.oasis-open.org/apps/org/workgroup/dita/download.php/45204/minutes20120214.txt</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 2 proposal submitted</td>
+
+            <td valign="top" headers="d25e37" class="stentry">18 Jun 2013</td>
+
+            <td valign="top" headers="d25e40" class="stentry">DITA: <a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49588/proposal-13104-keyref-on-object.dita" target="_blank">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49588/proposal-13104-keyref-on-object.dita</a>, HTML: <a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49589/proposal-13104-keyref-on-object.html" target="_blank">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49589/proposal-13104-keyref-on-object.html</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 2 proposal discussed</td>
+
+            <td valign="top" headers="d25e37" class="stentry">2 July 2013</td>
+
+            <td valign="top" headers="d25e40" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/latest/minutes20130702.txt" target="_blank">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49809/latest/minutes20130702.txt</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 2 proposal approved</td>
+
+            <td valign="top" headers="d25e37" class="stentry">16 July 2013</td>
+
+            <td valign="top" headers="d25e40" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50041/latest/minutes20130716.txt" target="_blank">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50041/latest/minutes20130716.txt</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 3 proposal submitted to reviewers</td>
+
+            <td valign="top" headers="d25e37" class="stentry"> </td>
+
+            <td valign="top" headers="d25e40" class="stentry">Include names of reviewers</td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d25e34" class="stentry">Stage 3 proposal (this document) submitted</td>
+
+            <td valign="top" headers="d25e37" class="stentry"> </td>
+
+            <td valign="top" headers="d25e40" class="stentry"> </td>
+
+          </tr>
+</table>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>
+        
+        <p class="p">The &lt;object&gt; and &lt;param&gt; elements may make references to resources, &lt;object&gt; via the @data attribute, &lt;param&gt; via the @value attribute when @valuetype is "ref". </p>
+
+        <p class="p">In both cases the value is a URI. </p>
+
+        <p class="p">It needs to be possible to use keys in place of these URI references.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>
+        
+        <p class="p">No dependencies or related proposals.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>
+        
+        <p class="p">This proposal adds attributes to the &lt;object&gt; and &lt;param&gt; elements, both declared in the commonElements module. The required changes are:</p>
+
+        <div class="p">For &lt;object&gt;:<ul class="ul" id="topic_aqh_5zt_3h__ul_lgy_42b_4k">
+          <li class="li">Add a new attribute @classidkeyref. </li>
+
+          <li class="li">Add a new attribute @codebasekeyref. </li>
+
+          <li class="li">Add new attribute @datakeyref. </li>
+
+          <li class="li">Add a new attribute @archivekeyrefs. </li>
+
+          </ul>
+</div>
+
+        <div class="p">For &lt;param&gt;<ul class="ul" id="topic_aqh_5zt_3h__ul_kzm_52b_4k">
+          <li class="li">Add new attribute @keyref. </li>
+
+          </ul>
+</div>
+
+        <div class="fig fignone" id="topic_aqh_5zt_3h__fig_asb_yqd_hl"><span class="figcap">Figure 1. Updated DTD-syntax attribute list declaration for &lt;object&gt; (<span class="ph filepath">commonElements.mod</span>)</span>
+          
+          <p class="p">New attributes are highlighted.</p>
+
+          <pre class="pre codeblock">&lt;!ENTITY % object.attributes
+             "declare 
+                        (declare) 
+                                  #IMPLIED
+              classid 
+                        CDATA 
+                                  #IMPLIED
+              <strong class="ph b">classidkeyref</strong> 
+                        CDATA 
+                                  #IMPLIED
+              codebase 
+                        CDATA 
+                                  #IMPLIED
+              <strong class="ph b">codebasekeyref</strong>                                  
+                        CDATA 
+                                  #IMPLIED
+              data 
+                        CDATA 
+                                  #IMPLIED
+              <strong class="ph b">datakeyref</strong> 
+                        CDATA 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              codetype 
+                        CDATA 
+                                  #IMPLIED
+              archive 
+                        CDATA 
+                                  #IMPLIED
+              <strong class="ph b">archivekeyrefs</strong> 
+                        CDATA 
+                                  #IMPLIED
+              standby 
+                        CDATA 
+                                  #IMPLIED
+              height 
+                        NMTOKEN 
+                                  #IMPLIED
+              width 
+                        NMTOKEN 
+                                  #IMPLIED
+              usemap 
+                        CDATA 
+                                  #IMPLIED
+              name 
+                        CDATA 
+                                  #IMPLIED
+              tabindex 
+                        NMTOKEN 
+                                  #IMPLIED
+              longdescref
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED 
+              longdescre CDATA    #IMPLIED
+              "
+&gt;</pre>
+
+        </div>
+
+        <div class="fig fignone" id="topic_aqh_5zt_3h__fig_xtf_jqd_hl"><span class="figcap">Figure 2. Updated DTD-syntax attribute list declaration for &lt;param&gt; (<span class="ph filepath">commonElements.mod</span>)</span>
+          
+          <p class="p">New attributes are highlighted.</p>
+
+          <pre class="pre codeblock">&lt;!ENTITY % param.attributes
+             "%univ-atts;
+              name 
+                        CDATA 
+                                  #REQUIRED
+              value 
+                        CDATA 
+                                  #IMPLIED
+              valuetype 
+                        (data | 
+                         object | 
+                         ref | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              <strong class="ph b">keyref</strong> 
+                        CDATA 
+                                  #IMPLIED"
+&gt;</pre>
+
+        </div>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified specification documentation</h2>
+        
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_phv_2wd_pk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. New and Modified Topics</span></caption>
+            
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="27.247956403269757%" id="d25e256">New or Modified Topics</th>
+
+                <th class="entry" valign="top" width="27.247956403269757%" id="d25e259">DITA 1.2 Text</th>
+
+                <th class="entry" valign="top" width="45.50408719346049%" id="d25e262">DITA 1.3 Text</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">object.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[Attribute description table]</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 "><dl class="dl">
+                  
+                    <dt class="dt dlterm">Name</dt>
+
+                    <dd class="dd">classidkeyref</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Description</dt>
+
+                    <dd class="dd">Key reference to the URI for the object's class, as for @classid. When specified, and the key is resolvable, the key-provided class ID URI is used. If @classid is specified, it
+                      is used as a fallback if the key cannot be resolved to a URI.</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Data Type</dt>
+
+                    <dd class="dd">CDATA</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Default Value</dt>
+
+                    <dd class="dd">#IMPLIED</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Required?</dt>
+
+                    <dd class="dd">No.</dd>
+
+                  
+                  </dl>
+<dl class="dl">
+                  
+                    <dt class="dt dlterm">Name</dt>
+
+                    <dd class="dd">codebasekeyref</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Description</dt>
+
+                    <dd class="dd">Key reference to the code base URI, as for @codebase. When specified, and the key is resolvable, the key-provided code base URI is used. If @codebase is specified, it is used
+                      as a fallback if  the key cannot be resolved to a URI. If no URI results from processing @codebasekeyref and @codebase is not specified, the default is the base URL of the
+                      current document.</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Data Type</dt>
+
+                    <dd class="dd">CDATA</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Default Value</dt>
+
+                    <dd class="dd">#IMPLIED</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Required?</dt>
+
+                    <dd class="dd">No.</dd>
+
+                  
+                  </dl>
+<dl class="dl">
+                  
+                    <dt class="dt dlterm">Name</dt>
+
+                    <dd class="dd">datakeyref</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Description</dt>
+
+                    <dd class="dd">Key reference to the data for the object, as for @data. When specified and the key is resolvable, the key-provided URI is used. If @data is specified, it is used as a fallback
+                      if the key cannot be resolved to a resource. A key that has no associated resource, only link text, is considered to be unresolved for the purpose of the @datakeyref
+                      element.</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Data Type</dt>
+
+                    <dd class="dd">CDATA</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Default Value</dt>
+
+                    <dd class="dd">#IMPLIED</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Required?</dt>
+
+                    <dd class="dd">No.</dd>
+
+                  
+                  </dl>
+Add the following rows for the new attributes:<dl class="dl">
+                  
+                    <dt class="dt dlterm">Name</dt>
+
+                    <dd class="dd">archivekeyrefs</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Description</dt>
+
+                    <dd class="dd">Key references to one or more archives, as for @archive. The value is a space-separated list of key names. Each resolvable key reference is treated as a URI as though it had
+                      been specified on the @archive attribute. If @archivekeyrefs is specified and at least one key listed in the @archivekeyrefs value is resolved to a URI, then @archive is ignored
+                      if specified. If none of the keys specified in @archivekeyrefs can be resolved to a URI then the value of @archive is used if present.</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Data Type</dt>
+
+                    <dd class="dd">CDATA</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Default Value</dt>
+
+                    <dd class="dd">#IMPLIED</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Required?</dt>
+
+                    <dd class="dd">No.</dd>
+
+                  
+                  </dl>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">object.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[Description of the @type attribute:]<p class="p">Indicates the content type for the data specified by the data attribute. This attribute should be set when the data attribute is set to
+                  avoid loading unsupported content types. Note that this differs from the type attribute on many other DITA elements.</p>
+</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 ">
+                  <p class="p">Indicates the content type for the data specified by the data or datakeyref attribute. This attribute should be set when the data or datakeyref attribute is set to avoid loading
+                    unsupported content types. Note that this differs from the type attribute on many other DITA elements. If type is not specified, the effective type value for the key named by the
+                    datakeyref attribute is used as the data's type value.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">object.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[Description of the @codetype attribute:]<p class="p">Indicates the content type for the data specified by the classid attribute. This attribute should be set when the classid attribute
+                  is set to avoid loading unsupported content types. If this attribute value is not set, the processing default is the value of the type attribute.</p>
+</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 ">
+                  <p class="p">Indicates the content type for the data specified by the classid or classidkeyref attribute. This attribute should be set when the classid or classidkeyref attribute is set to
+                    avoid loading unsupported content types. If codetype is not specified and classidkeyref is specified and resolvable, the effective type value specified for the key named by the
+                    classidkeyref attribute is used as the class's type value. If codetype is not specified and classidkeyref is also not specified, the default is the effective value of the type
+                    attribute.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">object.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[Examples section]</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 ">Add these examples to the end of the section:<div class="fig fignone" id="topic_aqh_5zt_3h__fig_o2l_bfb_4k"><span class="figcap">Figure 3. Object with reference to video via key reference on &lt;param&gt; elements</span>
+                  
+                  <pre class="pre codeblock">&lt;object
+  id="E5123_026.mp4"
+  width="300"
+  height="300"&gt;
+  &lt;param name="poster:
+     <strong class="ph b">keyref="E5123_026_poster"</strong>
+  /&gt;
+  &lt;param name="source"
+     <strong class="ph b">keyref="E5123_026_video"</strong>
+  /&gt;
+&lt;/object&gt;</pre>
+
+                  <div class="p">Where the keys could
+                    be:<pre class="pre codeblock">&lt;map&gt;
+  ...
+  &lt;keydef keys="E5123_026_poster"
+      href="../images/E5123_026_poster.png"
+      type="video/mp4"
+  /&gt;
+  &lt;keydef keys="E5123_026_video"
+      href="../media/E5123_026_poster.mp4"
+      type="video/mp4"
+  /&gt;
+  ...
+&lt;/map&gt;</pre>
+</div>
+
+                  </div>
+<div class="fig fignone" id="topic_aqh_5zt_3h__fig_ukm_bgb_4k"><span class="figcap">Figure 4. Object with indirect reference to a flash file and fallback @data value</span>
+                  
+                  <pre class="pre codeblock">&lt;object 
+ <strong class="ph b">classidkeyref="video_classid"</strong>
+ <strong class="ph b">codebasekeyref="video_codebase"</strong>
+ <strong class="ph b">datakeyref="cutkey370"</strong>
+ height="280"
+ width="370"
+ id="cutkey370"&gt;
+ &lt;desc&gt;A description of the task&lt;/desc&gt;
+ &lt;param name="movie" <strong class="ph b">keyref="cutkey370"</strong>/&gt;
+ &lt;param name="quality" value="high"/&gt;
+ &lt;param name="bgcolor" value="#FFFFFF"/&gt;
+&lt;/object&gt;</pre>
+
+                  <div class="p">Where the key could
+                    be:<pre class="pre codeblock">&lt;map&gt;
+  ...
+  &lt;!-- NOTE: Using @scope="external" because
+       the class ID is a URI that is not intended to
+       be directly resolved.
+    --&gt;
+  &lt;keydef keys="video_classid"
+    href="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+    scope="external"
+  /&gt;
+  &lt;!-- NOTE: Using @scope="external" to avoid systems trying to
+             download this file when they don't need to.
+    --&gt;
+  &lt;keydef keys="video_codebase"
+    href="http://download.macromedia.com/pub/shockwave/cabs/
+flash/swflash.cab#version=6,0,0,0"
+    format="shockwave"
+    scope="external"
+  /&gt;
+  &lt;!-- Using @scope="external" here because the referenced URL
+       is not intended to be resolved in isolation but relative
+       to the codebase URI.
+    --&gt;
+  &lt;keydef keys="cutkey370"
+      href="cutkey370.swf"
+      type="application/x-shockwave-flash"
+      scope="external"
+  /&gt;
+  ...
+&lt;/map&gt;</pre>
+</div>
+
+                  </div>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">param.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[Attribute description table]</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 ">Add row for new attribute @keyref:<dl class="dl">
+                  
+                    <dt class="dt dlterm">Name</dt>
+
+                    <dd class="dd">keyref</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Description</dt>
+
+                    <dd class="dd">
+                      <p class="p">Key reference to the thing the parameter references, when the parameter has a literal or effective value type of "ref".</p>
+
+                    </dd>
+
+                    <dd class="dd">When @keyref is specified, it implies a value of "ref" for @valuetype if @valuetype is not specified. If @valuetype is specified with a value other than "ref", @keyref is
+                      ignored. <p class="p">When the effective value of @valuetype is "ref" and @keyref is specified, the @value attribute value, if specified, is used as the fallback URI when the key reference
+                      cannot be resolved. A key that has no associated resource, only link text, is considered to be unresolved for the purpose of the @keyref element.</p>
+</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Data Type</dt>
+
+                    <dd class="dd">CDATA</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Default Value</dt>
+
+                    <dd class="dd">#IMPLIED</dd>
+
+                  
+                  
+                    <dt class="dt dlterm">Required?</dt>
+
+                    <dd class="dd">No.</dd>
+
+                  
+                  </dl>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e256 ">param.dita</td>
+
+                <td class="entry" valign="top" width="27.247956403269757%" headers="d25e259 ">[In attribute description table]<p class="p">This attribute specifies the content type of the resource designated by the value attribute only in the case where valuetype is set to "ref".
+                  This attribute specifies for the user agent the type of values that will be found at the URI designated by value. Note that this differs from the type attribute on many other DITA
+                  elements.</p>
+</td>
+
+                <td class="entry" valign="top" width="45.50408719346049%" headers="d25e262 ">
+                  <p class="p">This attribute specifies the content type of the resource designated by the value or keyref attribute only in the case where valuetype is set to "ref". This attribute specifies
+                    for the user agent the type of values that will be found at the URI designated by value. Note that this differs from the type attribute on many other DITA elements. If type is not
+                    specified and keyref is specified and is resolvable, the effective type value specified for the key named by the keyref attribute is used as the parameter's type value.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

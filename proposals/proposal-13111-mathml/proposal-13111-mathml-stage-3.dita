@@ -621,13 +621,10 @@ elements
               practice is to always include &lt;mathml> within one of the
               equation elements from the equation domain, or their semantic
               equivalent in some non-OASIS-defined DITA vocabulary.</p></li>
-            <li>equationDomain<p>Provides the &lt;equation-inline>,
-              &lt;equation-block>, and &lt;equation-display> elements. This
-              domain may be used without the MathML domain.</p><p>The elements
-              in the equation domain are intended to allow authors to clearly
-              distinguish equations from other type of content, providing markup
-              distinctions that can, for example, enable formatting
-              distinctions, numbering of equations, and so on. </p></li>
+            <li>equationDomain<p>Provides the &lt;equation-inline>, &lt;equation-block>, and
+              &lt;<?oxy_delete author="ekimber" timestamp="20130827T142539-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142539-0500"?>equation-figure<?oxy_insert_end?>>
+              elements. This domain may be used without the MathML domain.</p><p>The elements in the equation domain are intended to allow authors to clearly distinguish equations from other type of
+              content, providing markup distinctions that can, for example, enable formatting distinctions, numbering of equations, and so on. </p></li>
             </ul></p>
         </section>
       </refbody>
@@ -635,16 +632,11 @@ elements
         id="equation-block">
         <title>Equation Domain Elements</title>
         <shortdesc>Provides the &lt;equation-inline>, &lt;equation-block>, and
-          &lt;equation-display> elements. This domain may be used without the
-          MathML domain. The elements in the equation domain are intended to
-          allow authors to clearly distinguish equations from other type of
-          content, providing markup distinctions that can, for example, enable
-          formatting distinctions, numbering of equations, and so on. The
-          equation domain elements do not attempt to satisfy every possible
-          requirement for representing equations semantically. More
-          sophisticated users of equations may need to either further specialize
-          from these elements or provide alternative vocabulary for semantic
-          equations.</shortdesc>
+          &lt;<?oxy_delete author="ekimber" timestamp="20130827T142541-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142541-0500"?>equation-figure<?oxy_insert_end?>>
+          elements. This domain may be used without the MathML domain. The elements in the equation domain are intended to allow authors to clearly distinguish equations from other type of content,
+          providing markup distinctions that can, for example, enable formatting distinctions, numbering of equations, and so on. The equation domain elements do not attempt to satisfy every possible
+          requirement for representing equations semantically. More sophisticated users of equations may need to either further specialize from these elements or provide alternative vocabulary for
+          semantic equations.</shortdesc>
         <reference
           id="reference_nzh_t5w_4k">
           <title>equation-block</title>
@@ -731,39 +723,32 @@ elements
         </reference>
         <reference
           id="reference_zz3_bww_4k">
-          <title>equation-display</title>
-          <shortdesc>Represents an equation that functions as form of figure
-            ("display"). Display equations are intended to be numbered when
-            numbering is desired. As specializations of &lt;fig>, display
-            equations may have titles, descriptions, figure groups, and all
-            other figure components. The direct children of
-            &lt;equation-display> may be the equation content itself (e.g.,
-            &lt;mathml> or an image reference) or it may be one or more
-            &lt;equation-block> elements, along with other elements allowed
-            within &lt;fig>, such as paragraphs. When an &lt;equation-display>
-            element has multiple direct child &lt;mathml>, &lt;image>, or
-            &lt;pre> elements, each such child is taken to be an alternative
-            form of the equation. In that case processors are free to choose
-            which form or forms they use in deliverables. For example, if there
-            is both an image and MathML markup, an HTML-generating processor
-            could output both the image reference and the MathML with
-            appropriate HTML @class or @id values to enable dynamic showing or
-            hiding of one form or the other based on browser capability. All
-            other direct-child elements of &lt;equation-display> are treated
-            normally. When the intent is to have equations combined with other
-            commentary within an &lt;equation-display>, best practice is to use
-            child &lt;equation-block> elements to contain the equations and
-            clearly distinguish them from any commentary.</shortdesc>
+          <title><?oxy_delete author="ekimber" timestamp="20130827T142542-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142542-0500"?>equation-figure<?oxy_insert_end?></title>
+          <shortdesc>Represents an equation that functions as form of figure ("display"). Display equations are intended to be numbered when numbering is desired. As specializations of &lt;fig>,
+            display equations may have titles, descriptions, figure groups, and all other figure components. The direct children of
+            &lt;<?oxy_delete author="ekimber" timestamp="20130827T142543-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142543-0500"?>equation-figure<?oxy_insert_end?>>
+            may be the equation content itself (e.g., &lt;mathml> or an image reference) or it may be one or more &lt;equation-block> elements, along with other elements allowed within &lt;fig>, such
+            as paragraphs. When an
+            &lt;<?oxy_delete author="ekimber" timestamp="20130827T142544-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142544-0500"?>equation-figure<?oxy_insert_end?>>
+            element has multiple direct child &lt;mathml>, &lt;image>, or &lt;pre> elements, each such child is taken to be an alternative form of the equation. In that case processors are free to
+            choose which form or forms they use in deliverables. For example, if there is both an image and MathML markup, an HTML-generating processor could output both the image reference and the
+            MathML with appropriate HTML @class or @id values to enable dynamic showing or hiding of one form or the other based on browser capability. All other direct-child elements of
+            &lt;<?oxy_delete author="ekimber" timestamp="20130827T142544-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142544-0500"?>equation-figure<?oxy_insert_end?>>
+            are treated normally. When the intent is to have equations combined with other commentary within an
+            &lt;<?oxy_delete author="ekimber" timestamp="20130827T142545-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142545-0500"?>equation-figure<?oxy_insert_end?>>,
+            best practice is to use child &lt;equation-block> elements to contain the equations and clearly distinguish them from any commentary.</shortdesc>
           <refbody>
             <section>
               <title>Inheritance</title>
-              <p>+ topic/fig equation-d/equation-display </p>
+              <p>+ topic/fig
+                equation-d/<?oxy_delete author="ekimber" timestamp="20130827T142546-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142546-0500"?>equation-figure<?oxy_insert_end?> </p>
             </section>
             <section>
               <title>Example</title>
-              <p>Equation within an &lt;equation-display> element with no other
-                content (direct use of
-                &lt;mathml>):<codeblock>&lt;equation-display>
+              <p>Equation within an
+                &lt;<?oxy_delete author="ekimber" timestamp="20130827T142546-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142547-0500"?>equation-figure<?oxy_insert_end?>>
+                element with no other content (direct use of
+                &lt;mathml>):<codeblock>&lt;<?oxy_delete author="ekimber" timestamp="20130827T142547-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142547-0500"?>equation-figure<?oxy_insert_end?>>
   &lt;title>Display equation With MathML Container&lt;/title>
   &lt;mathml>
     &lt;m:math display='block'>
@@ -785,10 +770,11 @@ elements
       &lt;/m:semantics>
     &lt;/m:math>
   &lt;/mathml>
-&lt;/equation-display></codeblock></p>
-              <p>Equation within an &lt;equation-display> element with other
-                content (use of &lt;equation-block> within
-                &lt;equation-display>):<codeblock>&lt;equation-display>
+&lt;/<?oxy_delete author="ekimber" timestamp="20130827T142548-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142548-0500"?>equation-figure<?oxy_insert_end?>></codeblock></p>
+              <p>Equation within an
+                &lt;<?oxy_delete author="ekimber" timestamp="20130827T142549-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142549-0500"?>equation-figure<?oxy_insert_end?>>
+                element with other content (use of &lt;equation-block> within
+                &lt;<?oxy_delete author="ekimber" timestamp="20130827T142550-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142550-0500"?>equation-figure<?oxy_insert_end?>>):<codeblock>&lt;<?oxy_delete author="ekimber" timestamp="20130827T142551-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142551-0500"?>equation-figure<?oxy_insert_end?>>
   &lt;title>Display equation With MathML Container&lt;/title>
   &lt;equation-block>
     &lt;mathml>
@@ -815,7 +801,7 @@ elements
   &lt;p>Where 
 &lt;equation-inline>&lt;mathml>&lt;m:math>&lt;m:mi>r&lt;/m:mi>&lt;/m:math>&lt;/mathml>&lt;/equation-inline>
 is greater than 1.&lt;/p>
-&lt;/equation-display></codeblock></p>
+&lt;/<?oxy_delete author="ekimber" timestamp="20130827T142552-0500" content="equation-display"?><?oxy_insert_start author="ekimber" timestamp="20130827T142552-0500"?>equation-figure<?oxy_insert_end?>></codeblock></p>
             </section>
             <section>
               <title>Attributes</title>
@@ -1077,3 +1063,4 @@ is greater than 1.&lt;/p>
     </reference>
   </topic>
 </dita>
+<?oxy_options track_changes="on"?>
