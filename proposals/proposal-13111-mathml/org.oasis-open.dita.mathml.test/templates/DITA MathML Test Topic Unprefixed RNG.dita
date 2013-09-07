@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<topic id="mathml-test-topic-01">
-  <title>MathML Domain Test: Namespace Unprefixed MathML Elements</title>
+<?xml-model href="../doctypes/rng/topic-mathml-test.rng" type="application/relax-ng-compact-syntax"?>
+<!--<!DOCTYPE topic PUBLIC "-//OASIS//ENTITIES DITA 1.3 Topic MathML Test Prefixed//EN" "topic-mathml-test-prefixed.dtd">-->
+<topic id="mathml-test-topic-01"
+  >
+  <title>MathML Domain Test: Namespace Prefixed MathML Elements</title>
   <body>
-<p>MathML Inline: <equation-inline><mathml>
-  <math display='inline'>
+<p>MathML Inline: <mathml>
+  <math display='inline' xmlns="http://www.w3.org/1998/Math/MathML">
     <semantics>
       <mrow>
         <msqrt>
@@ -23,9 +26,9 @@
       </mrow>
     </semantics>
   </math>
-</mathml></equation-inline></p>
+</mathml></p>
     <p>MathML Directly in body:</p>
-    <equation-block><mathml>
+    <mathml  xmlns="http://www.w3.org/1998/Math/MathML">
       <math display='block'>
         <semantics>
           <mrow>
@@ -50,11 +53,11 @@
           </mrow>
         </semantics>
       </math>
-    </mathml></equation-block>
-<equation-figure>
+    </mathml>
+<fig>
   <title>Figure With MathML Container</title>
   <mathml>
-    <math display='block'>
+    <math display='block'  xmlns="http://www.w3.org/1998/Math/MathML">
       <semantics>
         <mrow>
           <mfrac>
@@ -74,6 +77,6 @@
       </semantics>
     </math>
   </mathml>
-</equation-figure>
+</fig>
   </body>
 </topic>

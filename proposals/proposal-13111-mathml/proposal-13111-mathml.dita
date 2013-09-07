@@ -651,9 +651,9 @@ elements
     &lt;alt>square root of a squared plus b squared&lt;/alt>
   <b>&lt;/image></b>
 <b>&lt;/equation-block></b></codeblock></p>
-      <p>Equation within an &lt;equation-display> element with no other content
+      <p>Equation within an &lt;equation-figure> element with no other content
         (direct use of
-        &lt;mathml>):<codeblock><b>&lt;equation-display></b>
+        &lt;mathml>):<codeblock><b>&lt;equation-figure></b>
   &lt;title>Display equation With MathML Container&lt;/title>
   <b>&lt;mathml></b>
     &lt;m:math display='block'>
@@ -676,10 +676,10 @@ elements
       &lt;/m:semantics>
     &lt;/m:math>
   <b>&lt;/mathml></b>
-<b>&lt;/equation-display></b></codeblock></p>
-      <p>Equation within an &lt;equation-display> element with other content
+<b>&lt;/equation-figure></b></codeblock></p>
+      <p>Equation within an &lt;equation-figure> element with other content
         (use of &lt;equation-block> within
-        &lt;equation-display>):<codeblock><b>&lt;equation-display></b>
+        &lt;equation-figure>):<codeblock><b>&lt;equation-figure></b>
   &lt;title>Display equation With MathML Container&lt;/title>
   <b>&lt;equation-block></b>
     <b>&lt;mathml></b>
@@ -706,7 +706,7 @@ elements
   <b>&lt;p></b>Where 
 &lt;equation-inline>&lt;mathml>&lt;m:math>&lt;m:mi>r&lt;/m:mi>&lt;/m:math>&lt;/mathml>&lt;/equation-inline>
 is greater than 1.<b>&lt;/p></b>
-<b>&lt;/equation-display></b></codeblock></p>
+<b>&lt;/equation-figure></b></codeblock></p>
       <p>Samples of &lt;mathmlref>:</p>
       <fig>
         <title>MathML Ref to document with root math element</title>
@@ -841,7 +841,7 @@ is greater than 1.<b>&lt;/p></b>
   &lt;mathml>&lt;m:math>...&lt;/m:math>&lt;/mathml>
   &lt;image keyref="equation-02-image"/>
 &lt;/equation-block></codeblock></note></li>
-        <li>&lt;equation-display><p>Represents a display equation. Specializes
+        <li>&lt;equation-figure><p>Represents a display equation. Specializes
           topic/fig. Allows the same content as &lt;fig>, which, when the MathML
           domain is also integrated, allows both &lt;mathml> and
           &lt;equation-block> elements, as well as the normal &lt;fig> content
@@ -849,18 +849,18 @@ is greater than 1.<b>&lt;/p></b>
           Display equations are expected to be numbered, typically with numbers
           distinct from the numbers used for other &lt;fig> elements and
           specializations of &lt;fig>.</p><p>If only a single form of the
-          equation is required, then the content of the &lt;equation-display>
+          equation is required, then the content of the &lt;equation-figure>
           may be just that representation, e.g., a &lt;mathml> element or
           &lt;image>.</p><p>However, if there need to be multiple
           representations of the same equation or multiple separate equations
           within the same display, &lt;equation-block> should be used within
-          &lt;equation-display> to contain the equations.</p><p>The display
+          &lt;equation-figure> to contain the equations.</p><p>The display
           equation may also include non-equation content, such as commentary or
           prose explanations of the equations as well as &lt;fig-group> to
           organize subequations within a larger display equation.</p><note
           type="other"
           othertype="example">A display equation with figure
-          groups:<codeblock>    <b>&lt;equation-display></b>
+          groups:<codeblock>    <b>&lt;equation-figure></b>
       &lt;title>Display Equation with &amp;lt;figgroup>&lt;/title>
       <b>&lt;figgroup></b>
         &lt;title>Fig Group 1&lt;/title>
@@ -900,7 +900,7 @@ is greater than 1.<b>&lt;/p></b>
           &lt;/m:math>
           &lt;/mathml><b>&lt;/equation-block></b>
       <b>&lt;/figgroup></b>
-    <b>&lt;/equation-display></b></codeblock></note></li>
+    <b>&lt;/equation-figure></b></codeblock></note></li>
         </ul></p>
       <fig>
         <title>Equation Domain DTD-Syntax module</title>
@@ -934,7 +934,7 @@ is greater than 1.<b>&lt;/p></b>
 >
 
 &lt;!ENTITY % equation-d-fig
-   "equation-display
+   "equation-figure
    "
 >
 
@@ -962,7 +962,7 @@ is greater than 1.<b>&lt;/p></b>
      
  &lt;!ENTITY % equation-inline        "equation-inline" >
  &lt;!ENTITY % equation-block         "equation-block" >
- &lt;!ENTITY % equation-display       "equation-display" >
+ &lt;!ENTITY % equation-figure       "equation-figure" >
 
 &lt;!-- ============================================================= -->
 &lt;!--                   ELEMENT NAME ENTITIES                       -->
@@ -1011,13 +1011,13 @@ is greater than 1.<b>&lt;/p></b>
 &lt;!ELEMENT equation-block %equation-block.content; >
 &lt;!ATTLIST equation-block %equation-block.attributes; >
 
-&lt;!ENTITY % equation-display.content
+&lt;!ENTITY % equation-figure.content
                        "((%title;)?, 
                          (%desc;)?, 
                          (%figgroup; | 
                           %fig.cnt;)* )"
 >
-&lt;!ENTITY % equation-display.attributes
+&lt;!ENTITY % equation-figure.attributes
              "%display-atts;
               spectitle 
                         CDATA 
@@ -1027,8 +1027,8 @@ is greater than 1.<b>&lt;/p></b>
                         CDATA 
                                   #IMPLIED"
  > 
-&lt;!ELEMENT equation-display %equation-display.content; >
-&lt;!ATTLIST equation-display %equation-display.attributes; >
+&lt;!ELEMENT equation-figure %equation-figure.content; >
+&lt;!ATTLIST equation-figure %equation-figure.attributes; >
 
 
 
@@ -1038,7 +1038,7 @@ is greater than 1.<b>&lt;/p></b>
 
 &lt;!ATTLIST equation-inline    %global-atts;  class CDATA "+ topic/ph  equation-d/equation-inline ">
 &lt;!ATTLIST equation-block     %global-atts;  class CDATA "+ topic/p   equation-d/equation-block ">
-&lt;!ATTLIST equation-display   %global-atts;  class CDATA "+ topic/fig equation-d/equation-display ">
+&lt;!ATTLIST equation-figure   %global-atts;  class CDATA "+ topic/fig equation-d/equation-figure ">
 
 
 &lt;!-- ================== End MathML Domain ==================== --></codeblock>
@@ -1072,7 +1072,7 @@ is greater than 1.<b>&lt;/p></b>
   &lt;define
     name="equation-d-fig">
     &lt;ref
-      name="equation-display.element"/>
+      name="equation-figure.element"/>
   &lt;/define>
 
   &lt;define
@@ -1177,7 +1177,7 @@ is greater than 1.<b>&lt;/p></b>
         The Block Equation element (&amp;lt;equation-block&amp;gt;) represents an
         equation that is intended to be rendered as a block element. Block
         equations are not intended to be numbered (see
-        &amp;lt;equation-display&amp;gt;).
+        &amp;lt;equation-figure&amp;gt;).
         
         The equation content may be represented in any number of ways,
         including embedded MathML using the &amp;lt;mathml&amp;gt; specialization of
@@ -1198,7 +1198,7 @@ is greater than 1.<b>&lt;/p></b>
   &lt;/define>
   
   &lt;define
-    name="equation-display.content">
+    name="equation-figure.content">
     &lt;optional>
       &lt;ref
         name="title"/>
@@ -1217,7 +1217,7 @@ is greater than 1.<b>&lt;/p></b>
     &lt;/zeroOrMore>
   &lt;/define>
   &lt;define
-    name="equation-display.attributes">
+    name="equation-figure.attributes">
     &lt;ref
       name="display-atts"/>
     &lt;optional>
@@ -1232,11 +1232,11 @@ is greater than 1.<b>&lt;/p></b>
     &lt;/optional>
   &lt;/define>
   &lt;define
-    name="equation-display.element">
+    name="equation-figure.element">
     &lt;element
-      name="equation-display">
+      name="equation-figure">
       &lt;a:documentation>
-        The Display Equation element (&amp;lt;equation-display&amp;gt;) represents an
+        The Display Equation element (&amp;lt;equation-figure&amp;gt;) represents an
         equation that may have a title or a description and that may be
         numbered. When equations are numbered they are often numbered separately
         from figures.
@@ -1257,13 +1257,13 @@ is greater than 1.<b>&lt;/p></b>
         version and an image.
       &lt;/a:documentation>
       &lt;ref
-        name="equation-display.content"/>
+        name="equation-figure.content"/>
       &lt;ref
-        name="equation-display.attlist"/>
+        name="equation-figure.attlist"/>
     &lt;/element>
   &lt;/define>
-  &lt;define name="equation-display.attlist" combine="interleave">
-    &lt;ref name="equation-display.attributes"/>
+  &lt;define name="equation-figure.attlist" combine="interleave">
+    &lt;ref name="equation-figure.attributes"/>
   &lt;/define>
   
   &lt;define name="equation-inline.attlist" combine="interleave">
@@ -1280,10 +1280,10 @@ is greater than 1.<b>&lt;/p></b>
     &lt;/optional>
   &lt;/define>
   
-  &lt;define name="equation-display.attlist" combine="interleave">
+  &lt;define name="equation-figure.attlist" combine="interleave">
     &lt;ref name="global-atts"/>
     &lt;optional>
-      &lt;attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-display "/>
+      &lt;attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-figure "/>
     &lt;/optional>
   &lt;/define>
   

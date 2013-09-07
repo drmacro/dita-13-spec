@@ -11,6 +11,11 @@
          "mathmlDomain.ent"
 >%mathml-d-dec;
 
+<!ENTITY % equation-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Equation Domain//EN" 
+         "equationDomain.ent"
+>%equation-d-dec;
+
 
 <!ENTITY % hi-d-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN" 
@@ -45,10 +50,15 @@
                         extension was declared                     -->
 
 <!ENTITY % ph           "ph | 
+                         %equation-d-ph; |
                          %hi-d-ph;
                         ">
 <!ENTITY % fig          "fig |
+                         %equation-d-fig; |
                          %ut-d-fig;
+                        ">
+<!ENTITY % p            "p |
+                         %equation-d-p;
                         ">
 <!ENTITY % index-base   "index-base | 
                          %indexing-d-index-base;
@@ -95,6 +105,7 @@
                            &indexing-d-att;
                            &hazard-d-att;
                            &mathml-d-att;
+                           &equation-d-att;
   "
 >
 
@@ -119,6 +130,11 @@
   PUBLIC "-//OASIS//ELEMENTS DITA 1.3 MathML Domain//EN" 
          "mathmlDomain.mod"
 >%mathml-d-def;
+
+<!ENTITY % equation-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Equation Domain//EN" 
+         "equationDomain.mod"
+>%equation-d-def;
 
 <!ENTITY % hi-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN" 

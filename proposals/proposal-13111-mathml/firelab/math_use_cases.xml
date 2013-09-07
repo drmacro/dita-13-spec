@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE dita PUBLIC "-//FIRELAB//DTD DITA Composite Plus MathML//EN" "ditabase.dtd">
+<dita>
+    <concept id="usecases"
+        domains="(topic ui-d) (topic hi-d) (topic pr-d) (topic sw-d)                          (topic ut-d) (topic indexing-d) (topic math-d)">
+        <title>Use cases for math in DITA</title>
+        <conbody>
+            <p>This topic collects a number of different use cases and examples for how to use math
+                in DITA using the Firelab extension. This extension allows users to: </p>
+            <ul>
+                <li>include formulas written in MathML directly in the DITA document</li>
+                <li>include MathML, OpenMath, or OpenDocument coded formulas by reference to an
+                    external file</li>
+                <li>associate the formula with a definition of the parameters (symbols) used in the
+                    formula</li>
+            </ul>
+        </conbody>
+    </concept>
+    <concept id="standalonemath">
+        <title>A stand-alone formula</title>
+        <conbody>
+            <p>This use case represents the most basic need to present a formula within the body of
+                the text, but not inline with the surrounding paragraphs. The <codeph>math</codeph>
+                element is used and the formula is coded directly into the DITA document. It is
+                expected that the <codeph>math</codeph> element will be directly replaced with a
+                visual rendering of the equation, and that it will not be treated like an exhibit
+                (e.g., no caption or equation number is assigned.)</p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;math type="presentation">
+  &lt;mml:math>
+    &lt;mml:mrow>
+      &lt;mml:mi>y&lt;/mml:mi>
+      &lt;mml:mo>=&lt;/mml:mo>
+      &lt;mml:mi>m&lt;/mml:mi>
+      &lt;mml:mi>x&lt;/mml:mi>
+      &lt;mml:mo>+&lt;/mml:mo>
+      &lt;mml:mi>b&lt;/mml:mi>
+    &lt;/mml:mrow>
+  &lt;/mml:math>
+&lt;/math></codeblock>
+                <p>The simple equation "y=mx+b" is shown above. Note that the <codeph>math</codeph>
+                    element forces the author to declare whether the expression represents content,
+                    presentation, or an isolated symbol using the <codeph>type</codeph>
+                    attribute.</p>
+            </section>
+            <section><title>Math rendering</title>
+                <math id="linear" type="presentation">
+                    <mml:math>
+                        <mml:mrow>
+                            <mml:mi>y</mml:mi>
+                            <mml:mo>=</mml:mo>
+                            <mml:mn>5</mml:mn>
+                            <mml:mi>x</mml:mi>
+                            <mml:mo>+</mml:mo>
+                            <mml:mn>2</mml:mn>
+                        </mml:mrow>
+                    </mml:math>
+                </math>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="inlineformula">
+        <title>An inline formula or an isolated symbol</title>
+        <conbody>
+            <p>Simple expressions and isolated symbols may be inlined with the main body of the
+                text. The math renderer should be used to display this content. This ensures that
+                symbols included in the text body appear the same as the symbols rendered as part of
+                a formula.</p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;p>Assume a constant 
+ &lt;mathph type="presentation">
+  &lt;mml:math>
+    &lt;mml:mrow>
+      &lt;mml:mi>x&lt;/mml:mi>
+      &lt;mml:mo>=&lt;/mml:mo>
+      &lt;mml:mn>2&lt;/mml:mn>
+    &lt;/mml:mrow>
+  &lt;/mml:math>
+ &lt;/mathph>.
+&lt;/p></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <p>Assume a constant <mathph type="presentation"><mml:math><mml:mrow><mml:mi
+                                    >x</mml:mi><mml:mo>=</mml:mo><mml:mn>2</mml:mn></mml:mrow></mml:math></mathph>.</p>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="extfile">
+        <title>Including a formula from an external file</title>
+        <conbody>
+            <p>MathML is verbose, and pages of MathML tags in the middle of a topic can be
+                distracting. Furthermore, complex formulas may require several iterations to display
+                correctly (and/or be correct). Heavy users of the math domain may soon find
+                themselves constructing simple formula libraries, where commonly used and/or complex
+                equations are represented in individual files.</p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;math type="presentation" href="simple_external.mml" format="mathml" /></codeblock>
+            </section>
+            <section><title>Math rendering</title>
+                <math type="presentation" href="simple_external.mml" format="mathml"/>
+                <image href="simple_external.png">
+                    <alt>A rendering of the simple external formula.</alt>
+                </image></section>
+        </conbody>
+    </concept>
+    <concept id="exhibit">
+        <title>A basic formula exhibit</title>
+        <conbody>
+            <p>Key formulas deserve to be set apart from the text, numbered and optionally named.
+                These formulas are typically central to the topic at hand, and may be the purpose of
+                writing the topic in the first place. The expectation should be that the text will
+                refer to these formulas by either name or number using the <codeph>xref</codeph>
+                element.</p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;equation>
+   &lt;title>My Simple equation&lt;/title>
+   &lt;desc>A simple formula placed inside an exhibit for illustrative purposes.&lt;/desc>
+   &lt;math type="-dita-use-conref-target" conref="#standalonemath/linear" />
+&lt;/equation></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <equation><title>My Simple equation</title><desc>A simple formula placed inside an
+                        exhibit for illustrative purposes.</desc>
+                    <math type="-dita-use-conref-target" conref="#standalonemath/linear"/>
+                </equation>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="formulasyms">
+        <title>A formula exhibit bound to a definition of its symbols</title>
+        <conbody>
+            <p>To use a formula correctly, the meaning of the symbols must be properly and
+                effectively communicated. In some cases this means that the physical constant is
+                named, in others, it means that the represented quantity is named, and sometimes, it
+                may mean that an "appropriate" system of units is specified. There are a handful of
+                ways in which the symbol definitions are typically presented to the reader:</p>
+            <ul>
+                <li>the definitions may be presented "inline", as in: <p>where <codeph
+                            >symbol1</codeph> is <codeph>definition of symbol1</codeph>, <codeph
+                            >symbol2</codeph> is <codeph>definition of symbol2</codeph></p></li>
+                <li>the definitions may be presented in "tabular" format, as in: <simpletable>
+                        <strow>
+                            <stentry><codeph>symbol1</codeph></stentry>
+                            <stentry>This is an expanded (but still terse) definition of <codeph
+                                    >symbol1</codeph>.</stentry>
+                        </strow>
+                        <strow>
+                            <stentry><codeph>symbol2</codeph></stentry>
+                            <stentry>This is an expanded (but still terse) definition of <codeph
+                                    >symbol2</codeph>.</stentry>
+                        </strow>
+                    </simpletable></li>
+                <li>the definitions from many equations may be collected into a single tabular
+                    presentation at one point in the work. </li>
+            </ul>
+            <p>There are two things to note about the above. First, the inline definitions are
+                constructed of phrases which should be expected to be compiled into a single runon
+                sentence. Second, the tabular definitions consist of complete sentences briefly
+                describing the symbols.</p>
+            <p>The symbol definition is not considered part of the formula exhibit in terms of
+                rendering. When rendered, the formula exhibit should suppress output from the symbol
+                definition list. This practice encourages reuse in different contexts. By
+                suppressing the definition list, the author is required to specify how they would
+                like to present the symbol definitions to the reader, and it may be specified
+                differently each time the exhibit is incorporated into a new document. </p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;equation id="eqdefs">
+  &lt;title>My Simple equation (with definitions)&lt;/title>
+  &lt;desc>A simple formula placed inside an exhibit to illustrate
+     binding an expression to symbol definitions.&lt;/desc>
+  &lt;math type="-dita-use-conref-target" conref="#standalonemath/linear"/>
+  &lt;eqsymbols>
+     &lt;eqsymbol>
+       &lt;symname>
+          &lt;mathph id="timeinday" type="symbol">
+             &lt;mml:math>&lt;mml:mi>x&lt;/mml:mi>&lt;/mml:math>
+          &lt;/mathph>
+       &lt;/symname>
+       &lt;symdesc>Represents the number of things I have time to do in a day.&lt;/symdesc>
+       &lt;symdescph>things I have time for&lt;/symdescph>
+     &lt;/eqsymbol>
+     &lt;eqsymbol>
+        &lt;symname>
+           &lt;mathph id="needtodo" type="symbol">
+              &lt;mml:math>&lt;mml:mi>y&lt;/mml:mi>&lt;/mml:math>
+           &lt;/mathph>                               
+        &lt;/symname>
+        &lt;symdescph>things I need to do&lt;/symdescph>
+        &lt;symdesc>Represents the number of things I need to do in a day.&lt;/symdesc>
+     &lt;/eqsymbol>               
+   &lt;/eqsymbols>           
+&lt;/equation></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <equation id="eqdefs"><title>My Simple equation (with definitions)</title><desc>A
+                        simple formula placed inside an exhibit to illustrate binding an expression
+                        to symbol definitions.</desc>
+                    <math type="-dita-use-conref-target" conref="#standalonemath/linear"/>
+                    <eqsymbols>
+                        <eqsymbol>
+                            <symname>
+                                <mathph type="symbol" id="timeinday">
+                                    <mml:math><mml:mi>x</mml:mi></mml:math>
+                                </mathph>
+                            </symname>
+                            <symdesc>Represents the number of things I have time to do in a
+                                day.</symdesc>
+                            <symdescph>things I have time for</symdescph>
+                        </eqsymbol>
+                        <eqsymbol>
+                            <symname>
+                                <mathph type="symbol" id="needtodo">
+                                    <mml:math><mml:mi>y</mml:mi></mml:math>
+                                </mathph>
+                            </symname>
+                            <symdescph>things I need to do</symdescph>
+                            <symdesc>Represents the number of things I need to do in a
+                                day.</symdesc>
+                        </eqsymbol>
+                    </eqsymbols></equation>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="symbolref">
+        <title>Referencing a defined symbol</title>
+        <conbody>
+            <p>It is always desirable to render symbols consistently, whether the symbol occurs in a
+                formula exhibit, in the symbol definition list or in the accompanying text. Some
+                symbols, particularly those with superscripts, subscripts, or other "special"
+                annotations may be verbose when expressed in their native MathML or OpenMath
+                encodings. Allowing authors to reference a symbol which has been declared in a
+                symbol definition list facilitates consistency and clarity in the DITA source.</p>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;p>In equation &lt;xref href="#formulasyms/eqdefs" scope="local" type="eq"/>,
+ I really only have time to do 
+ &lt;mathph type="symbol" conref="#formulasyms/timeinday"/> 
+ but I need to do 
+ &lt;mathph type="symbol" conref="#formulasyms/needtodo"/>.&lt;/p></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <p>In equation <xref href="#formulasyms/eqdefs" scope="local" type="eq"/>,
+                    I really only have time to do <mathph type="-dita-use-conref-target"
+                        conref="#formulasyms/timeinday"/> but I need to do <mathph
+                        type="-dita-use-conref-target" conref="#formulasyms/needtodo"
+                    />.</p>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="singleinline">
+        <title>Inline presentation of the symbols from a single formula</title>
+        <conbody>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;p>We can look now at 
+   &lt;xref href="#formulasyms/eqdefs" scope="local" type="eq"/>, where 
+   &lt;eqdefsph>
+      &lt;xref href="#formulasyms/eqdefs" scope="local" type="eq"/>
+   &lt;/eqdefsph>.&lt;/p></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <p>We can look now at <xref href="#formulasyms/eqdefs" scope="local"
+                        type="eq"/>, where <eqdefsph><xref href="#formulasyms/eqdefs"
+                            scope="local" type="eq"/></eqdefsph>.</p>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="singletabular">
+        <title>Tabular presentation of the symbols from a single formula</title>
+        <conbody>
+            <section>
+                <title>Math code</title>
+                <codeblock>&lt;fig id="tablesymbols">
+  &lt;title>Definition of symbols for equation 
+    &lt;xref href="#formulasyms/eqdefs" scope="local" type="eq" />.
+  &lt;/title>
+  &lt;eqdefstbl>
+    &lt;xref href="#formulasyms/eqdefs" scope="local" type="eq"/>
+  &lt;/eqdefstbl>
+&lt;/fig></codeblock>
+            </section>
+            <section>
+                <title>Math rendering</title>
+                <fig id="tablesymbols"><title>Definition of symbols</title><desc>For equation <xref
+                            href="#formulasyms/eqdefs" scope="local" type="eq"
+                        /></desc><eqdefstbl><xref href="#formulasyms/eqdefs"
+                            scope="local" type="eq"/></eqdefstbl></fig>
+            </section>
+        </conbody>
+    </concept>
+    <concept id="multitabular">
+        <title>Tabular presentation of the symbols from multiple formulas</title>
+    </concept>
+</dita>

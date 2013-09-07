@@ -25,7 +25,7 @@
   <define
     name="equation-d-fig">
     <ref
-      name="equation-display.element"/>
+      name="equation-figure.element"/>
   </define>
 
   <define
@@ -130,7 +130,7 @@
         The Block Equation element (&lt;equation-block&gt;) represents an
         equation that is intended to be rendered as a block element. Block
         equations are not intended to be numbered (see
-        &lt;equation-display&gt;).
+        &lt;equation-figure&gt;).
         
         The equation content may be represented in any number of ways,
         including embedded MathML using the &lt;mathml&gt; specialization of
@@ -151,7 +151,7 @@
   </define>
   
   <define
-    name="equation-display.content">
+    name="equation-figure.content">
     <optional>
       <ref
         name="title"/>
@@ -170,7 +170,7 @@
     </zeroOrMore>
   </define>
   <define
-    name="equation-display.attributes">
+    name="equation-figure.attributes">
     <ref
       name="display-atts"/>
     <optional>
@@ -185,16 +185,16 @@
     </optional>
   </define>
   <define
-    name="equation-display.element">
+    name="equation-figure.element">
     <element
-      name="equation-display">
+      name="equation-figure">
       <a:documentation>
-        The Display Equation element (&lt;equation-display&gt;) represents an
+        The Equation Figure element (&lt;equation-figure&gt;) represents an
         equation that may have a title or a description and that may be
         numbered. When equations are numbered they are often numbered separately
         from figures.
         
-        Display equations that are simply a single equation plus, optionally, a
+        Equation figures that are simply a single equation plus, optionally, a
         title or description, may use the &lt;mathml&gt; element directly. When
         the display equation content is more complicated, it should use
         &gt;equation-block&gt; to clearly distinguish
@@ -210,13 +210,13 @@
         version and an image.
       </a:documentation>
       <ref
-        name="equation-display.content"/>
+        name="equation-figure.content"/>
       <ref
-        name="equation-display.attlist"/>
+        name="equation-figure.attlist"/>
     </element>
   </define>
-  <define name="equation-display.attlist" combine="interleave">
-    <ref name="equation-display.attributes"/>
+  <define name="equation-figure.attlist" combine="interleave">
+    <ref name="equation-figure.attributes"/>
   </define>
   
   <define name="equation-inline.attlist" combine="interleave">
@@ -233,10 +233,10 @@
     </optional>
   </define>
   
-  <define name="equation-display.attlist" combine="interleave">
+  <define name="equation-figure.attlist" combine="interleave">
     <ref name="global-atts"/>
     <optional>
-      <attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-display "/>
+      <attribute name="class" a:defaultValue="+ topic/fig equation-d/equation-figure "/>
     </optional>
   </define>
   

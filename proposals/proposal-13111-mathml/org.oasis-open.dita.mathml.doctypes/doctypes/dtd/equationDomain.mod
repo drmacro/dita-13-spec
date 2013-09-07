@@ -13,7 +13,7 @@
      
  <!ENTITY % equation-inline        "equation-inline" >
  <!ENTITY % equation-block         "equation-block" >
- <!ENTITY % equation-display       "equation-display" >
+ <!ENTITY % equation-figure       "equation-figure" >
 
 <!-- ============================================================= -->
 <!--                   ELEMENT NAME ENTITIES                       -->
@@ -62,13 +62,13 @@
 <!ELEMENT equation-block %equation-block.content; >
 <!ATTLIST equation-block %equation-block.attributes; >
 
-<!ENTITY % equation-display.content
+<!ENTITY % equation-figure.content
                        "((%title;)?, 
                          (%desc;)?, 
                          (%figgroup; | 
                           %fig.cnt;)* )"
 >
-<!ENTITY % equation-display.attributes
+<!ENTITY % equation-figure.attributes
              "%display-atts;
               spectitle 
                         CDATA 
@@ -78,8 +78,8 @@
                         CDATA 
                                   #IMPLIED"
  > 
-<!ELEMENT equation-display %equation-display.content; >
-<!ATTLIST equation-display %equation-display.attributes; >
+<!ELEMENT equation-figure %equation-figure.content; >
+<!ATTLIST equation-figure %equation-figure.attributes; >
 
 
 
@@ -89,7 +89,7 @@
 
 <!ATTLIST equation-inline    %global-atts;  class CDATA "+ topic/ph  equation-d/equation-inline ">
 <!ATTLIST equation-block     %global-atts;  class CDATA "+ topic/p   equation-d/equation-block ">
-<!ATTLIST equation-display   %global-atts;  class CDATA "+ topic/fig equation-d/equation-display ">
+<!ATTLIST equation-figure   %global-atts;  class CDATA "+ topic/fig equation-d/equation-figure ">
 
 
-<!-- ================== End MathML Domain ==================== -->
+<!-- ================== End Equation Domain ==================== -->

@@ -159,7 +159,7 @@
   </xsl:template>
   
   
-  <xsl:template match="*[contains(@class, ' equation-d/equation-display ')]/*[contains(@class, ' mathml-d/mathml ')]"
+  <xsl:template match="*[contains(@class, ' equation-d/equation-figure ')]/*[contains(@class, ' mathml-d/mathml ')]"
     priority="10"
     >
     <div style="display: block">

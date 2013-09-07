@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+
+    <!-- Specialization files. -->
+    <public publicId="-//FIRELAB//DTD DITA Concept Plus MathML//EN" uri="ditabase.dtd"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/firelab-concept.dtd" uri="ditabase.dtd"/>
+
+    <public publicId="-//FIRELAB//DTD DITA Task Plus MathML//EN" uri="ditabase.dtd"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/firelab-task.dtd" uri="ditabase.dtd"/>
+
+    <public publicId="-//FIRELAB//DTD DITA Reference Plus MathML//EN" uri="ditabase.dtd"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/firelab-reference.dtd" uri="ditabase.dtd"/>
+
+    <public publicId="-//FIRELAB//DTD DITA Composite Plus MathML//EN" uri="ditabase.dtd"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/ditabase.dtd" uri="ditabase.dtd"/>
+    
+    <public publicId="-//FIRELAB//ELEMENTS DITA 1.1 MathML Domain 3//EN"  uri="mathmlDomain2.mod"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/mathmlDomain2.mod" uri="mathmlDomain2.mod"/>
+
+    <public publicId="-//FIRELAB//ENTITIES DITA 1.1 MathML Domain 3//EN" uri="mathmlDomain2.ent"/>
+    <system systemId="http://www.smoke-fire.us/svn/firelab/common/trunk/xml/firelab-doctypes/mathmlDomain2.ent" uri="mathmlDomain2.ent"/>
+    
+</catalog>

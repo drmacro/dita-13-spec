@@ -5,7 +5,7 @@
  id="mathml-test-topic-01">
   <title>MathML Domain Test: Namespace Prefixed MathML Elements</title>
   <body>
-<p>MathML Inline: <mathml_container>
+<p>MathML Inline: <mathml>
   <m:math display='inline'>
     <m:semantics>
       <m:mrow>
@@ -26,9 +26,9 @@
       </m:mrow>
     </m:semantics>
   </m:math>
-</mathml_container></p>
+</mathml></p>
     <p>MathML Directly in body:</p>
-    <mathml_container>
+    <mathml>
       <m:math display='block'>
         <m:semantics>
           <m:mrow>
@@ -53,10 +53,10 @@
           </m:mrow>
         </m:semantics>
       </m:math>
-    </mathml_container>
+    </mathml>
 <fig>
   <title>Figure With MathML Container</title>
-  <mathml_container>
+  <mathml>
     <m:math display='block'>
       <m:semantics>
         <m:mrow>
@@ -76,7 +76,7 @@
         </m:mrow>
       </m:semantics>
     </m:math>
-  </mathml_container>
+  </mathml>
 </fig>
   </body>
 </topic>

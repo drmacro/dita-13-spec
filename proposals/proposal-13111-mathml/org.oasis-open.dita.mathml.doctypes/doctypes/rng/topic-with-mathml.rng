@@ -37,7 +37,7 @@
   </define>
   
   <!-- Include modules -->
-  <include href="urn:dita-ng:dita:rng:topic.mod.rng">
+  <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
     <!--
       Redefine the infotype entity to exclude 
       other topic types and disallow nesting

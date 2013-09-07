@@ -231,6 +231,19 @@
           anyone should be able to successfully create or modify a new shell by
           example.</p></li>
       </ul></section>
+    <section>
+      <title>DITA-Specific RelaxNG markup requirements</title>
+      <ul
+        id="ul_xf3_hvj_jl">
+        <li>Convention for markup of shell and module header comments<ul
+          id="ul_ln5_3vj_jl">
+          <li>Module title, e.g., "DITA Highlight Domain"</li>
+          <li>Public identifiers to use for DTDs, XSDs, RNGs, and RNCs.</li>
+          <li>General comments as typified by OASIS-provided shells and modules</li>
+          <li/>
+          </ul></li>
+      </ul>
+    </section>
 <section><title>Examples</title>
       <p>The following sections describe the RelaxNG coding patterns in general
         terms. The formal specification language for inclusion in the

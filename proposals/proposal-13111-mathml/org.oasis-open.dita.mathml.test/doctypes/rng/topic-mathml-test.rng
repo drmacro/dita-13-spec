@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
 <!-- ============================================================= 
   MODULE:    DITA Topic RNG
   VERSION:   1.2
@@ -37,7 +37,7 @@
   </define>
   
   <!-- Include modules -->
-  <include href="urn:dita-ng:dita:rng:topic.mod.rng">
+  <include href="urn:oasis:names:tc:dita:rng:topicMod.rng">
     <!--
       Redefine the infotype entity to exclude 
       other topic types and disallow nesting
@@ -46,8 +46,8 @@
       <ref name="topic.element"/>
     </define>
   </include>
-  <include href="../../org.oasis-open.dita.mathml.doctypes/doctypes/rng/mathmlDomainMod.rng"/>
-  <include href="../../org.oasis-open.dita.mathml.doctypes/doctypes/rng/equationDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:mathmlDomainMod.rng"/>
+  <include href="urn:oasis:names:tc:dita:rng:equationDomainMod.rng"/>
   
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->
