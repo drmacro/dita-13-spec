@@ -1215,6 +1215,10 @@ elements
     &lt;/math>
   &lt;/part>
 &lt;/root></codeblock></p>
+              <?oxy_insert_start author="ekimber" timestamp="20130908T073421-0500" type="split"?>
+            </section>
+            <section>
+              <?oxy_insert_end?>
               <title>Attributes</title>
               <p>Generated attribute table goes here.</p>
             </section>

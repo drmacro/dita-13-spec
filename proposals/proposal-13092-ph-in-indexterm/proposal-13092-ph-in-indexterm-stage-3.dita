@@ -4,7 +4,7 @@
   <topic id="topic_aqh_5zt_3h">
     <title>Stage 3 proposal: Feature 13092 allow &lt;ph> in
       &lt;indexterm></title>
-    <shortdesc>Allow &lt;ph> within &lt;indexterm>.</shortdesc>
+    <shortdesc>Allow &lt;ph> within &lt;indexterm><?oxy_insert_start author="ekimber" timestamp="20130908T080206-0500"?> and &lt;index-base><?oxy_insert_end?>.</shortdesc>
     <body>
       <section>
         <title>Champion</title>
@@ -14,7 +14,7 @@
         <title>Tracking information</title>
         <simpletable
           frame="all"
-          relcolwidth="2.33* 1.0* 4.74*"
+          relcolwidth="1.7* 1.0* 3.19*"
           id="simpletable_myt_1fp_fl">
           <sthead>
             <stentry>Event</stentry>
@@ -70,8 +70,8 @@
       </section>
       <section>
         <title>Approved technical requirements</title>
-        <p>Add &lt;ph> to the content model of &lt;indexterm>, &lt;index-see>,
-          and &lt;index-see-also>.</p>
+        <p>Add &lt;ph> to the content model of &lt;indexterm>, <?oxy_insert_start author="ekimber" timestamp="20130908T074326-0500"?>&lt;index-base>, <?oxy_insert_end?>&lt;index-see>, and
+          &lt;index-see-also>.</p>
       </section>
       <section>
         <title>Dependencies or interrelated proposals</title>
@@ -83,14 +83,19 @@
           <dlentry>
             <dt>commonElements.mod</dt>
             <dd>
-              <p>Add "%ph;" to the content model for
+              <p>Add "%ph;" to the content model for &lt;index-base> and
                 &lt;indexterm>:<codeblock>&lt;!--                    LONG NAME: Index Term                      -->
 &lt;!ENTITY % indexterm.content
                        "(%words.cnt;|
                          <b>%ph; |</b>
                          %indexterm;|
                          %index-base;)*"
-></codeblock></p>
+></codeblock><?oxy_insert_start author="ekimber" timestamp="20130908T074348-0500"?><codeblock>&lt;!--                    LONG NAME: Index Base                      -->
+&lt;!ENTITY % index-base.content
+                       "(%words.cnt; |
+                         <b>%ph; |</b>
+                         %indexterm;)*"
+></codeblock><?oxy_insert_end?></p>
             </dd>
           </dlentry>
           <dlentry>
@@ -114,9 +119,76 @@
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>No changes to DITA 1.2 specification other than generated contains and contained-by tables. It might be useful to update the examples for &lt;indexterm>, &lt;index-see>, and
-          &lt;index-see-also> to reflect the availability of &lt;ph>.</p>
+        <?oxy_insert_start author="ekimber" timestamp="20130908T074414-0500"?>
+        <table
+          frame="all"
+          id="table_e2y_f31_ll">
+          <title>Modified Topics</title>
+          <tgroup
+            cols="4">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.13*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="0.5*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="2.34*"/>
+            <thead>
+              <row>
+                <entry>Topic to Be Modified</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Proposed 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>langref/indexterm.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Add new figure to end of examples section:<fig
+                  id="fig_l32_zk1_ll">
+                  <title>Index term with &lt;ph> or &lt;ph> specializations</title>
+                  <codeblock>&lt;p>In mathematics, 
+&lt;i>i&lt;/i>&lt;indexterm>&lt;i>i&lt;/i>&lt;/indexterm> 
+represents the square root of -1.</codeblock>
+                  <p>All the elements in the highlight domain are specializations of &lt;ph>.</p>
+                  </fig></entry>
+              </row>
+              <row>
+                <entry>langref/index-see.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Add new example to end of examples section:<p>The following example illustrates using a specialization of &lt;ph> within
+                  &lt;index-see>:<codeblock>&lt;indexterm>imaginary number
+  &lt;index-see>&lt;i>i&lt;/i>&lt;/index-see>
+&lt;/indexterm></codeblock></p></entry>
+              </row>
+              <row>
+                <entry>langref/index-see-also.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Add a new example to the end of the examples section:<p>The following example illustrates using a specialization of &lt;ph> within
+                  &lt;index-see-also>:<codeblock>&lt;indexterm>imaginary numbers
+  &lt;index-see-also>&lt;i>i&lt;/i>&lt;/index-see-also>
+&lt;/indexterm></codeblock></p></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <?oxy_insert_end?>
       </section>
     </body>
   </topic>
 </dita>
+
+<?oxy_options track_changes="on"?>
