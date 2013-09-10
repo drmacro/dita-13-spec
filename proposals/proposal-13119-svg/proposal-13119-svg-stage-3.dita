@@ -404,13 +404,12 @@
     &lt;/fig>
   &lt;/body>
 &lt;/topic></codeblock>
-            <p>An SVG container with a reference to SVG markup held in a
-              separate non-DITA
+            <p>An SVG container with a reference to SVG markup held in a separate non-DITA
               document:<codeblock>&lt;fig>
   &lt;title>Figure With SVG Container&lt;/title>
   &lt;svg_container>
     &lt;svgref keyref="svg-fragment-01"/>
-  &lt;/svg>
+  &lt;/svg_container>
 &lt;/fig></codeblock></p>
             <p>Where the key "svg-fragment-01" is declared like
               so:<codeblock>&lt;map>
@@ -481,7 +480,7 @@
        href="media/svg/svg-graphic-01.xml" 
        format="svg"
     />
-  &lt;/svg>
+  &lt;/svg_container>
 &lt;/fig></codeblock>
             <p><filepath>svg-graphic-01.xml</filepath> (note that the &lt;svg>
               element sets the SVG namespace as the default namespace, so there
@@ -515,7 +514,7 @@
     &lt;svgref 
       href="media/svg/svg-library.xml#frag-0001" 
     />
-  &lt;/svg>
+  &lt;/svg_container>
 &lt;/fig></codeblock>
             <p><filepath>svg-library.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;root>
