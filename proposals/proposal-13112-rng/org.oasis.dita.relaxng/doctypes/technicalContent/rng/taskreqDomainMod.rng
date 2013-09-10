@@ -21,7 +21,7 @@
   ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0">
   <!-- Define the domain values of this module -->
-  <define name="domains-atts-value" combine="choice">
+  <define name="domains-att-value" combine="choice">
     <value>(topic task taskreq-d)</value>
   </define>
   

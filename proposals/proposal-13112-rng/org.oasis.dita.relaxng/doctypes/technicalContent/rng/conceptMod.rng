@@ -23,7 +23,7 @@
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <!-- Define the domain values of this module -->
-  <define name="domains-atts-value" combine="choice">
+  <define name="domains-att-value" combine="choice">
     <value>(topic concept)</value>
   </define>
   

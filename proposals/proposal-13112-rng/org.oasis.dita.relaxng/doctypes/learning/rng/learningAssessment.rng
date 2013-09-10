@@ -27,7 +27,7 @@
   </start>
 
   <!-- The DITA domains attribute -->
-  <define name="domains-atts" combine="interleave">
+  <define name="domains-att" combine="interleave">
     <optional>
       <attribute name="domains" 
         a:defaultValue="(topic learningBase+learningInteractionBase-d) 

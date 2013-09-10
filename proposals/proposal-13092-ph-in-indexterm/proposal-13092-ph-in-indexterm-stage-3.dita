@@ -156,9 +156,9 @@
                   nameend="newCol4">Add new figure to end of examples section:<fig
                   id="fig_l32_zk1_ll">
                   <title>Index term with &lt;ph> or &lt;ph> specializations</title>
-                  <codeblock>&lt;p>In mathematics, 
-&lt;i>i&lt;/i>&lt;indexterm>&lt;i>i&lt;/i>&lt;/indexterm> 
-represents the square root of -1.</codeblock>
+                  <codeblock>&lt;p>Einstein's most famous equation
+E=mc&lt;sup>2&lt;/sup>&lt;indexterm>E=mc&lt;sup>2&lt;/sup>&lt;/indexterm> 
+expresses the relationship between mass and energy.</codeblock>
                   <p>All the elements in the highlight domain are specializations of &lt;ph>.</p>
                   </fig></entry>
               </row>
@@ -168,8 +168,8 @@ represents the square root of -1.</codeblock>
                 <entry
                   namest="c3"
                   nameend="newCol4">Add new example to end of examples section:<p>The following example illustrates using a specialization of &lt;ph> within
-                  &lt;index-see>:<codeblock>&lt;indexterm>imaginary number
-  &lt;index-see>&lt;i>i&lt;/i>&lt;/index-see>
+                  &lt;index-see>:<codeblock>&lt;indexterm>Einstein's mass and energy equation
+  &lt;index-see>E=mc&lt;sup>2&lt;/sup>&lt;/index-see>
 &lt;/indexterm></codeblock></p></entry>
               </row>
               <row>
@@ -178,8 +178,8 @@ represents the square root of -1.</codeblock>
                 <entry
                   namest="c3"
                   nameend="newCol4">Add a new example to the end of the examples section:<p>The following example illustrates using a specialization of &lt;ph> within
-                  &lt;index-see-also>:<codeblock>&lt;indexterm>imaginary numbers
-  &lt;index-see-also>&lt;i>i&lt;/i>&lt;/index-see-also>
+                  &lt;index-see-also>:<codeblock>&lt;indexterm>μ = E&lt;sub>0&lt;/sub>/V&lt;sup>2&lt;/sup>
+  &lt;index-see-also>E=mc&lt;sup>2&lt;/sup>&lt;/index-see-also>
 &lt;/indexterm></codeblock></p></entry>
               </row>
             </tbody>

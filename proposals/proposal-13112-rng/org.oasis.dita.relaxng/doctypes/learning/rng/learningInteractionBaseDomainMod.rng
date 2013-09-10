@@ -24,7 +24,7 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <!-- Define the domain values of this module -->
-  <define name="domains-atts-value" combine="choice">
+  <define name="domains-att-value" combine="choice">
     <value>(topic learningInteractionBase-d)</value>
   </define>
   

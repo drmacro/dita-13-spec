@@ -25,7 +25,7 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <!-- Define the domain values of this module -->
-  <define name="domains-atts-value" combine="choice">
+  <define name="domains-att-value" combine="choice">
     <value></value>
   </define>
   
@@ -399,7 +399,7 @@
   <define name="map.attlist" combine="interleave">
     <ref name="map.attributes"/>
     <ref name="arch-atts"/>
-    <ref name="domains-atts"/>
+    <ref name="domains-att"/>
   </define>
   
   <!-- LONG NAME: Navigation Reference -->
