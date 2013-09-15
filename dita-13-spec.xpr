@@ -31,17 +31,20 @@
         <folder masterFiles="true" name="Master Files">
             <file name="../../workspace_37/dita-ng/org.oasis-open.dita.relaxng/doctypes/base/rng/basetopic.rng"/>
             <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
+            <file name="proposals/proposal-13112-rng/org.oasis.dita.relaxng/doctypes/technicalContent/rng/concept.rng"/>
             <file name="proposals/proposal-13120-vocab-for-publishing/org.oasis-open.dita.publishingvocab/doctypes/rng/deliverableAsDeliveredKeydefSet.rng"/>
             <file name="proposals/proposal-13120-vocab-for-publishing/org.oasis.dita.deliverableDefinition/doctypes/rng/deliverableDefinition.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningGroupMap.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/dtd/learning/dtd/learningMap.dtd"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningMap.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningObjectMap.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis.dita.relaxng/doctypes/rng/rng/moduleDesc.rng"/>
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/rng/topic-mathml-test.rng"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/xsd/topic-mathml.xsd"/>
+            <file name="../../workspace_37/dita-ng/test/shells/rng/topic-mathmlDomain-test.rng"/>
             <file name="proposals/proposal-13102-release-management/test/topic-release-mgmt-local.dtd"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>

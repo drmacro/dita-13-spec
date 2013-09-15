@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_un5_5bs_ml">
+  <title>DITA RNG Module and Shell Coding Rules Notes</title>
+  <body>
+    <p>This document captures notes and thoughts on the RNG module and document type shell coding rules.</p>
+    <section>
+      <title>Module-level metadata</title>
+      <p>For modules we need a way to capture the following data:<ul
+        id="ul_fn5_1cs_ml">
+        <li>The public IDs for each component in each generated syntax (DTD .mod, .end, XSD, RNC)</li>
+        <li>The module header comment</li>
+        </ul></p>
+      <p>One approach would be to use namespaced attributes on an RNG-provided element, e.g., &lt;grammar> or &lt;a:documentation>. George Bina suggests it would be better to have DITA-specific markup
+        as RNG documents may contain elements from any foreign namespace.</p>
+      <p>In that case, the question becomes whether or not the foreign markup should be a topic or just purpose-defined.</p>
+      <p>If the markup is a topic then there is the question of instantiating the elements that make the topic recognizable as DITA (@domains, @class on element instance, etc.). That argues for
+        purpose-built elements that are the minimum required.</p>
+      <p>For the header comment, the simplest thing is to take the a:documentation approach and have the content be #PCDATA with no sub markup. That avoids issues of formatting the comment into a
+        string for use in DTDs etc.</p>
+      <p>Thus I think the best solution is purpose-built markup from the DITA namespace,
+        e.g.:<codeblock>&lt;grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
+ &lt;moduledesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   &lt;moduletitle>DITA Highlight Domain&lt;/moduletitle>
+   &lt;headercomment>
+============================================================= 
+                    HEADER                                     
+ ============================================================= 
+  MODULE:    DITA Highlight Domain                             
+  VERSION:   1.2                                               
+  DATE:      November 2009                                     
+                                                               
+ ============================================================= 
+
+ ============================================================= 
+ SYSTEM:     Darwin Information Typing Architecture (DITA)     
+                                                               
+ PURPOSE:    Define elements and specialization attributes     
+             for Highlight Domain                              
+                                                               
+ ORIGINAL CREATION DATE:                                       
+             March 2001                                        
+                                                               
+             (C) Copyright OASIS Open 2005, 2009.              
+             (C) Copyright IBM Corporation 2001, 2004.         
+             All Rights Reserved.                              
+                                                               
+  UPDATES:                                                     
+    2005.11.15 RDA: Corrected descriptive names for all        
+                    elements except bold                       
+    2005.11.15 RDA: Corrected the "Delivered as" system ID     
+    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+    2008.02.13 RDA: Create .content and .attributes entities   
+ =============================================================      
+   &lt;/headercomment>
+   &lt;moduleMetadata>
+     &lt;modulePublicIds>
+       &lt;dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN&lt;/dtdMod>
+       &lt;dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN&lt;/dtdEnt>
+       &lt;xsd>urn:oasis:names:tc:dita:xsd:highlightDomain.xsd&lt;/xsd>
+       &lt;rnc>urn:oasis:names:tc:dita:rnc:highlightDomain.xsd&lt;/rnc>
+       &lt;rng>urn:oasis:names:tc:dita:rng:highlightDomain.xsd&lt;/rng>
+     &lt;/modulePublicIds>
+   &lt;/moduleMetadata>
+ &lt;/moduledesc>
+ ...
+&lt;/grammar></codeblock></p>
+    </section>
+  </body>
+</topic>

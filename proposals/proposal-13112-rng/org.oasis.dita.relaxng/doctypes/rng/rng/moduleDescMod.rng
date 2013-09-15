@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <define name="domains-att-contribution" combine="choice">
+    <value>(topic moduleDesc)</value>
+  </define>
+  
+  <define name="moduleDesc-info-types">
+    <empty/>
+  </define>
+
+  <define name="moduleDesc">
+    <ref name="moduleDesc.element"/>
+  </define>
+  <define name="moduleTitle">
+    <ref name="moduleTitle.element"/>
+  </define>
+  <define name="headerComment">
+    <ref name="headerComment.element"/>
+  </define>
+  <define name="moduleMetadata">
+    <ref name="moduleMetadata.element"/>
+  </define>
+  <define name="modulePublicIds">
+    <ref name="modulePublicIds.element"/>
+  </define>
+  <define name="dtdMod">
+    <ref name="dtdMod.element"/>
+  </define>
+  <define name="dtdEnt">
+    <ref name="dtdEnt.element"/>
+  </define>
+  <define name="rncMod">
+    <ref name="rncMod.element"/>
+  </define>
+  <define name="rngMod">
+    <ref name="rngMod.element"/>
+  </define>
+  <define name="xsdMod">
+    <ref name="xsdMod.element"/>
+  </define>
+
+  <define name="moduleDesc.content">
+    <group>      
+      <ref name="moduleTitle"/>
+      <ref name="headerComment"/>
+      <ref name="moduleMetadata"/>
+    </group>    
+  </define>
+  <define name="moduleDesc.attributes">
+    <empty/>
+  </define>
+  <define name="moduleDesc.element">
+    <a:documentation>Describes a DITA vocabulary or constraint module.</a:documentation>
+    <element name="dita:moduleDesc">
+      <ref name="moduleDesc.content"/>
+      <ref name="moduleDesc.attributes"/>
+    </element>
+  </define>
+  <define name="moduleDesc.attlist" combine="interleave">
+    <ref name="moduleDesc.attributes"/>
+    <ref name="arch-atts"/>
+    <optional>
+      <attribute name="domains" a:defaultValue="(topic moduleDesc)"/>
+    </optional>
+  </define>
+
+  <define name="moduleTitle.content">
+    <text/>
+  </define>
+  <define name="moduleTitle.attributes">
+    <empty/>
+  </define>
+  <define name="moduleTitle.element">
+    <a:documentation>Describes a DITA vocabulary or constraint module.</a:documentation>
+    <element name="dita:moduleTitle">
+      <ref name="moduleTitle.content"/>
+      <ref name="moduleTitle.attributes"/>
+    </element>
+  </define>
+ 
+  <define name="headerComment.content">
+    <text/>
+  </define>
+  <define name="headerComment.attributes">
+    <attribute name="xml:space" a:defaultValue="preserve"/>
+  </define>
+  <define name="headerComment.element">
+    <a:documentation>Holds the header comment for the module. 
+      Spaces and newlines are preserved.</a:documentation>
+    <element name="dita:headerComment">
+      <ref name="headerComment.content"/>
+      <ref name="headerComment.attributes"/>
+    </element>
+  </define>
+
+  <define name="moduleMetadata.content">
+    <ref name="modulePublicIds"/>
+  </define>
+  <define name="moduleMetadata.attributes">
+    <empty/>
+  </define>
+  <define name="moduleMetadata.element">
+    <a:documentation>Holds metadata for the module. 
+    This metadata is used primarily to support the needs
+    of transforms that generate other syntax versions
+    of the schema, including DTD-syntax modules, XSD-syntax modules,
+    and RelaxNG compact syntax modules.</a:documentation>
+    <element name="dita:moduleMetadata">
+      <ref name="moduleMetadata.content"/>
+      <ref name="moduleMetadata.attributes"/>
+    </element>
+  </define>
+
+  <define name="modulePublicIds.content">
+    <interleave>
+      <ref name="dtdMod"/>
+      <optional>
+        <a:documentation>As attribute domains and constraint
+          modules do not have .ent
+        files, dtdEnt can be omitted. It must be specified
+        for other module types and for document type shells.</a:documentation>
+        <ref name="dtdEnt"/>
+      </optional>
+      <ref name="rncMod"/>
+      <ref name="rngMod"/>
+      <ref name="xsdMod"/>
+    </interleave>
+  </define>
+  <define name="modulePublicIds.attributes">
+    <empty/>
+  </define>
+  <define name="modulePublicIds.element">
+    <a:documentation>Defines the public IDs to be associated
+    with each different syntax form of the module. These
+    values serve as documentation for how the module
+    should be referenced and also enables generation of 
+    references to the modules from document type shells.
+    
+    The elements may occur in any order but all are required.
+    </a:documentation>
+    <element name="dita:modulePublicIds">
+      <ref name="modulePublicIds.content"/>
+      <ref name="modulePublicIds.attributes"/>
+    </element>
+  </define>
+
+  <define name="dtdMod.content">
+    <text/>
+  </define>
+  <define name="dtdMod.attributes">
+    <empty/>
+  </define>
+  <define name="dtdMod.element">
+    <a:documentation>Defines the public identifier to use for the 
+      DTD .mod file for this module.</a:documentation>
+    <element name="dita:dtdMod">
+      <ref name="dtdMod.content"/>
+      <ref name="dtdMod.attributes"/>
+    </element>
+  </define>
+
+  <define name="dtdEnt.content">
+    <text/>
+  </define>
+  <define name="dtdEnt.attributes">
+    <empty/>
+  </define>
+  <define name="dtdEnt.element">
+    <a:documentation>Defines the public identifier to use for the 
+      DTD .ent file for this module.</a:documentation>
+    <element name="dita:dtdEnt">
+      <ref name="dtdEnt.content"/>
+      <ref name="dtdEnt.attributes"/>
+    </element>
+  </define>
+
+  <define name="rncMod.content">
+    <text/>
+  </define>
+  <define name="rncMod.attributes">
+    <empty/>
+  </define>
+  <define name="rncMod.element">
+    <a:documentation>Defines the public identifier to use for the 
+      DTD .mod file for this module.</a:documentation>
+    <element name="dita:rncMod">
+      <ref name="rncMod.content"/>
+      <ref name="rncMod.attributes"/>
+    </element>
+  </define>
+
+  <define name="rngMod.content">
+    <text/>
+  </define>
+  <define name="rngMod.attributes">
+    <empty/>
+  </define>
+  <define name="rngMod.element">
+    <a:documentation>Defines the public identifier to use for the 
+      DTD .mod file for this module.</a:documentation>
+    <element name="dita:rngMod">
+      <ref name="rngMod.content"/>
+      <ref name="rngMod.attributes"/>
+    </element>
+  </define>
+
+  <define name="xsdMod.content">
+    <text/>
+  </define>
+  <define name="xsdMod.attributes">
+    <empty/>
+  </define>
+  <define name="xsdMod.element">
+    <a:documentation>Defines the public identifier to use for the 
+      DTD .mod file for this module.</a:documentation>
+    <element name="dita:xsdMod">
+      <ref name="xsdMod.content"/>
+      <ref name="xsdMod.attributes"/>
+    </element>
+  </define>
+  
+    <!-- Specialization attributes. Global attributes and class defaults -->
+
+  <define name="moduleDesc.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/topic moduleDesc/moduleDesc "/>
+    </optional>
+  </define>
+  <define name="moduleTitle.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/title moduleDesc/moduleTitle "/>
+    </optional>
+  </define>
+  <define name="headerComment.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/shortdesc moduleDesc/headerComment "/>
+    </optional>
+  </define>
+  <define name="moduleMetadata.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/prolog moduleDesc/moduleMetadata "/>
+    </optional>
+  </define>
+  <define name="modulePublicIds.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/modulePublicIds "/>
+    </optional>
+  </define>
+  <define name="dtdMod.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/dtdMod "/>
+    </optional>
+  </define>
+  <define name="dtdEnt.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/dtdEnt "/>
+    </optional>
+  </define>
+  <define name="rncMod.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/rncMod "/>
+    </optional>
+  </define>
+  <define name="rngMod.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/rngMod "/>
+    </optional>
+  </define>
+  <define name="xsdMod.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/xsdMod "/>
+    </optional>
+  </define>
+
+</grammar>

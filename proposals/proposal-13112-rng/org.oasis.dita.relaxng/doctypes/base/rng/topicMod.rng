@@ -25,7 +25,7 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <!-- Define the domain values of this module -->
-  <define name="domains-att-value" combine="choice">
+  <define name="domains-att-contribution" combine="choice">
     <value></value>
   </define>
   

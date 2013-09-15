@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <start>
+    <ref name="grammar.element"/>
+  </start>
+  
+  <define name="grammar.element">
+    <element name="grammar" ns="http://relaxng.org/ns/structure/1.0">
+      <group>
+        <ref name="moduleDesc"/>
+        <zeroOrMore>
+          <ref name="anyElementNotDita"/>
+        </zeroOrMore>
+      </group>
+      <zeroOrMore>      
+        <attribute>
+          <anyName/>
+        </attribute>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="anyElementNotDita">
+    <element>
+      <anyName>
+        <except>
+           <nsName ns="http://dita.oasis-open.org/architecture/2005/"/>
+        </except>
+      </anyName>
+      <zeroOrMore>
+      	<choice>
+      	  <attribute>
+      	    <anyName/>
+      	  </attribute>
+      	  <text/>
+      	  <ref name="anyElementNotDita"/>
+      	</choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="domains-att" combine="interleave">
+    <optional>
+      <attribute name="domains" 
+        a:defaultValue="(topic moduleDesc)"/>
+    </optional>    
+  </define>
+
+  <include href="../../base/rng/topicMod.rng"/>
+
+  <include href="moduleDescMod.rng"/>
+  
+    <!-- Define the any pattern to exclude elements with ID attributes
+    from the wildcard and refer them expliceitely  -->
+  <define name="any">
+    <zeroOrMore>
+      <choice>
+        <ref name="moduleDesc"/>
+        <element>
+          <anyName>
+            <except>
+              <name ns="http://dita.oasis-open.org/architecture/2005/">moduleDesc</name>
+            </except>
+          </anyName>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+
+</grammar>
