@@ -1,28 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-     MODULE:    DITA Metadata - RNG              
-     VERSION:   1.2                                                
-     DATE:      October 2010                                       
-     ============================================================= -->
-<!--
-     Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:metaDeclMod.rng
-     To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:metaDeclMod.rng:1.2
--->
-<!-- ============================================================= 
-     SYSTEM:     Darwin Information Typing Architecture (DITA)     
-     PURPOSE:    Define elements and specialization attributes
-                 for DITA XML Metadata             
-     ORIGINAL CREATION DATE:  
-     September 2010                                                
-     (C) Copyright Syncro Soft 2010-2011                                
-     All Rights Reserved.                                          
-     ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Metadata</moduleTitle>
+   <headerComment><![CDATA[
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA Metadata                                    
+ VERSION:   1.2                                              
+ DATE:      November 2009                                    
+                                                             
+=============================================================
 
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Metadata//EN"
+      Delivered as file "metaDecl.mod"                            
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Declaring the elements and specialization        
+            attributes for the DITA XML Metadata             
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2005.11.15 RDA: Corrected the "Delivered as" system ID    
+   2006.06.06 RDA: Move indexterm into commonElements        
+   2006.06.07 RDA: Make universal attributes universal       
+                     (DITA 1.1 proposal #12)                 
+   2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
+                     attributes                              
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2008.01.28 RDA: Removed enumerations for attributes:      
+                   author/@type, copyright/@type,            
+                   permissions/@view, audience/@type,        
+                   audience/@job, audience/@experiencelevel  
+   2008.01.28 RDA: Moved <metadata> defn. here from topic.mod
+   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+   2008.02.12 RDA: Add ph to source                          
+   2008.02.12 RDA: Add @format, @scope, and @type to         
+                   publisher, source                         
+   2008.02.12 RDA: Add @format, @scope, to author            
+   2008.02.13 RDA: Create .content and .attributes entities  
+   2009.03.09 RDA: Corrected public ID in comments to use    
+                   ELEMENTS instead of ENTITIES              
+=============================================================
+   
+ ]]></headerComment>
+   <moduleMetadata>
+     <moduleType>base</moduleType>
+     <modulePublicIds>
+       <dtdMod>-//OASIS//ELEMENTS DITA Metadata//EN</dtdMod>
+       <xsdMod>urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd</xsdMod>
+       <rncMod>urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc</rncMod>
+       <rngMod>urn:oasis:names:tc:dita:rng:metaDeclMod.rng</rngMod>
+     </modulePublicIds>
+   </moduleMetadata>
+ </moduleDesc>
   <!-- Define type patterns -->
   <define name="date-format">
     <data type="string"/>

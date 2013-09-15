@@ -118,7 +118,7 @@ The MathML should be processed and rendered as though the
 &lt;m:math&gt; element had occurred directly in the content of the
 containing &lt;mathml&gt; element.
 
-This element is part of the DITA MathML domain. Category: Foreign
+This element is part of the DITA MathML domain. Category: XRef
 elements
       </a:documentation>
       <ref

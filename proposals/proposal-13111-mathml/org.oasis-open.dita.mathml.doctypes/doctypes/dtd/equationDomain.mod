@@ -38,11 +38,8 @@
 "%equation.cnt;
 ">
 <!ENTITY % equation-inline.attributes
-              "keyref 
-                        CDATA 
-                                  #IMPLIED
-              %univ-atts;
-              outputclass 
+              "%univ-atts;
+               outputclass 
                         CDATA 
                                   #IMPLIED"
  > 

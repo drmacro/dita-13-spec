@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================= -->
+<!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      -->
+<!-- ============================================================= -->
+
+<!ENTITY % date-format
+  "CDATA" 
+>
+<!ENTITY % author.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % author.attributes
+  "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % author.element
+  "<!--                    LONG NAME: Author                          -->
+<!ENTITY % author.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % author.attributes
+              "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  author %author.content;>
+<!ATTLIST  author %author.attributes;>
+
+
+" 
+>
+<!ENTITY % author.attlist
+  "%author.attributes;" 
+>
+<!ENTITY % source.content
+  "(%words.cnt; |
+    %ph;)*" 
+>
+<!ENTITY % source.attributes
+  "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % source.element
+  "<!--                    LONG NAME: Source                          -->
+<!ENTITY % source.content
+              "(%words.cnt; |
+                %ph;)*" 
+>
+<!ENTITY % source.attributes
+              "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  source %source.content;>
+<!ATTLIST  source %source.attributes;>
+
+
+" 
+>
+<!ENTITY % source.attlist
+  "%source.attributes;" 
+>
+<!ENTITY % publisher.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % publisher.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % publisher.element
+  "<!--                    LONG NAME: Publisher                       -->
+<!ENTITY % publisher.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % publisher.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  publisher %publisher.content;>
+<!ATTLIST  publisher %publisher.attributes;>
+
+
+" 
+>
+<!ENTITY % publisher.attlist
+  "%publisher.attributes;" 
+>
+<!ENTITY % copyright.content
+  "((%copyryear;)+,
+    %copyrholder;)" 
+>
+<!ENTITY % copyright.attributes
+  "%univ-atts;
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % copyright.element
+  "<!--                    LONG NAME: Copyright                       -->
+<!ENTITY % copyright.content
+              "((%copyryear;)+,
+                %copyrholder;)" 
+>
+<!ENTITY % copyright.attributes
+              "%univ-atts;
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  copyright %copyright.content;>
+<!ATTLIST  copyright %copyright.attributes;>
+
+
+" 
+>
+<!ENTITY % copyright.attlist
+  "%copyright.attributes;" 
+>
+<!ENTITY % copyryear.content
+  "EMPTY" 
+>
+<!ENTITY % copyryear.attributes
+  "year
+                          %date-format;
+                                    #REQUIRED
+   %univ-atts;" 
+>
+<!ENTITY % copyryear.element
+  "<!--                    LONG NAME: Copyryear                       -->
+<!ENTITY % copyryear.content
+              "EMPTY" 
+>
+<!ENTITY % copyryear.attributes
+              "year
+                          %date-format;
+                                    #REQUIRED
+               %univ-atts;" 
+>
+<!ELEMENT  copyryear %copyryear.content;>
+<!ATTLIST  copyryear %copyryear.attributes;>
+
+
+" 
+>
+<!ENTITY % copyryear.attlist
+  "%copyryear.attributes;" 
+>
+<!ENTITY % copyrholder.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % copyrholder.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % copyrholder.element
+  "<!--                    LONG NAME: Copyrholder                     -->
+<!ENTITY % copyrholder.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % copyrholder.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  copyrholder %copyrholder.content;>
+<!ATTLIST  copyrholder %copyrholder.attributes;>
+
+
+" 
+>
+<!ENTITY % copyrholder.attlist
+  "%copyrholder.attributes;" 
+>
+<!ENTITY % critdates.content
+  "((%created;)?,
+    (%revised;)*)" 
+>
+<!ENTITY % critdates.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % critdates.element
+  "<!--                    LONG NAME: Critdates                       -->
+<!ENTITY % critdates.content
+              "((%created;)?,
+                (%revised;)*)" 
+>
+<!ENTITY % critdates.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  critdates %critdates.content;>
+<!ATTLIST  critdates %critdates.attributes;>
+
+
+" 
+>
+<!ENTITY % critdates.attlist
+  "%critdates.attributes;" 
+>
+<!ENTITY % created.content
+  "EMPTY" 
+>
+<!ENTITY % created.attributes
+  "date
+                          %date-format;
+                                    #REQUIRED
+               golive
+                          %date-format;
+                                    #IMPLIED
+               expiry
+                          %date-format;
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % created.element
+  "<!--                    LONG NAME: Created                         -->
+<!ENTITY % created.content
+              "EMPTY" 
+>
+<!ENTITY % created.attributes
+              "date
+                          %date-format;
+                                    #REQUIRED
+               golive
+                          %date-format;
+                                    #IMPLIED
+               expiry
+                          %date-format;
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  created %created.content;>
+<!ATTLIST  created %created.attributes;>
+
+
+" 
+>
+<!ENTITY % created.attlist
+  "%created.attributes;" 
+>
+<!ENTITY % revised.content
+  "EMPTY" 
+>
+<!ENTITY % revised.attributes
+  "modified
+                          %date-format;
+                                    #REQUIRED
+               golive
+                          %date-format;
+                                    #IMPLIED
+               expiry
+                          %date-format;
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % revised.element
+  "<!--                    LONG NAME: Revised                         -->
+<!ENTITY % revised.content
+              "EMPTY" 
+>
+<!ENTITY % revised.attributes
+              "modified
+                          %date-format;
+                                    #REQUIRED
+               golive
+                          %date-format;
+                                    #IMPLIED
+               expiry
+                          %date-format;
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  revised %revised.content;>
+<!ATTLIST  revised %revised.attributes;>
+
+
+" 
+>
+<!ENTITY % revised.attlist
+  "%revised.attributes;" 
+>
+<!ENTITY % permissions.content
+  "EMPTY" 
+>
+<!ENTITY % permissions.attributes
+  "%univ-atts;
+               view
+                          CDATA
+                                    #REQUIRED" 
+>
+<!ENTITY % permissions.element
+  "<!--                    LONG NAME: Permissions                     -->
+<!ENTITY % permissions.content
+              "EMPTY" 
+>
+<!ENTITY % permissions.attributes
+              "%univ-atts;
+               view
+                          CDATA
+                                    #REQUIRED" 
+>
+<!ELEMENT  permissions %permissions.content;>
+<!ATTLIST  permissions %permissions.attributes;>
+
+
+" 
+>
+<!ENTITY % permissions.attlist
+  "%permissions.attributes;" 
+>
+<!ENTITY % category.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % category.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % category.element
+  "<!--                    LONG NAME: Category                        -->
+<!ENTITY % category.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % category.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  category %category.content;>
+<!ATTLIST  category %category.attributes;>
+
+
+" 
+>
+<!ENTITY % category.attlist
+  "%category.attributes;" 
+>
+<!ENTITY % metadata.content
+  "((%audience;)*,
+    (%category;)*,
+    (%keywords;)*,
+    (%prodinfo;)*,
+    (%othermeta;)*,
+    (%data.elements.incl; |
+     %foreign.unknown.incl;)*)" 
+>
+<!ENTITY % metadata.attributes
+  "%univ-atts;
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % metadata.element
+  "<!--                    LONG NAME: Metadata                        -->
+<!ENTITY % metadata.content
+              "((%audience;)*,
+                (%category;)*,
+                (%keywords;)*,
+                (%prodinfo;)*,
+                (%othermeta;)*,
+                (%data.elements.incl; |
+                 %foreign.unknown.incl;)*)" 
+>
+<!ENTITY % metadata.attributes
+              "%univ-atts;
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  metadata %metadata.content;>
+<!ATTLIST  metadata %metadata.attributes;>
+
+
+" 
+>
+<!ENTITY % metadata.attlist
+  "%metadata.attributes;" 
+>
+<!ENTITY % audience.content
+  "EMPTY" 
+>
+<!ENTITY % audience.attributes
+  "type
+                          CDATA
+                                    #IMPLIED
+               othertype
+                          CDATA
+                                    #IMPLIED
+               job
+                          CDATA
+                                    #IMPLIED
+               otherjob
+                          CDATA
+                                    #IMPLIED
+               experiencelevel
+                          CDATA
+                                    #IMPLIED
+               name
+                          NMTOKEN
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % audience.element
+  "<!--                    LONG NAME: Audience                        -->
+<!ENTITY % audience.content
+              "EMPTY" 
+>
+<!ENTITY % audience.attributes
+              "type
+                          CDATA
+                                    #IMPLIED
+               othertype
+                          CDATA
+                                    #IMPLIED
+               job
+                          CDATA
+                                    #IMPLIED
+               otherjob
+                          CDATA
+                                    #IMPLIED
+               experiencelevel
+                          CDATA
+                                    #IMPLIED
+               name
+                          NMTOKEN
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  audience %audience.content;>
+<!ATTLIST  audience %audience.attributes;>
+
+
+" 
+>
+<!ENTITY % audience.attlist
+  "%audience.attributes;" 
+>
+<!ENTITY % keywords.content
+  "(%indexterm; |
+    %keyword;)*" 
+>
+<!ENTITY % keywords.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % keywords.element
+  "<!--                    LONG NAME: Keywords                        -->
+<!ENTITY % keywords.content
+              "(%indexterm; |
+                %keyword;)*" 
+>
+<!ENTITY % keywords.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  keywords %keywords.content;>
+<!ATTLIST  keywords %keywords.attributes;>
+
+
+" 
+>
+<!ENTITY % keywords.attlist
+  "%keywords.attributes;" 
+>
+<!ENTITY % prodinfo.content
+  "(%prodname;
+    %vrmlist;
+    (%brand; |
+     %component; |
+     %featnum; |
+     %platform; |
+     %prognum; |
+     %series;)*)" 
+>
+<!ENTITY % prodinfo.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % prodinfo.element
+  "<!--                    LONG NAME: Prodinfo                        -->
+<!ENTITY % prodinfo.content
+              "(%prodname;
+                %vrmlist;
+                (%brand; |
+                 %component; |
+                 %featnum; |
+                 %platform; |
+                 %prognum; |
+                 %series;)*)" 
+>
+<!ENTITY % prodinfo.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  prodinfo %prodinfo.content;>
+<!ATTLIST  prodinfo %prodinfo.attributes;>
+
+
+" 
+>
+<!ENTITY % prodinfo.attlist
+  "%prodinfo.attributes;" 
+>
+<!ENTITY % prodname.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % prodname.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % prodname.element
+  "<!--                    LONG NAME: Prodname                        -->
+<!ENTITY % prodname.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % prodname.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  prodname %prodname.content;>
+<!ATTLIST  prodname %prodname.attributes;>
+
+
+" 
+>
+<!ENTITY % prodname.attlist
+  "%prodname.attributes;" 
+>
+<!ENTITY % vrmlist.content
+  "(%vrm;)+" 
+>
+<!ENTITY % vrmlist.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % vrmlist.element
+  "<!--                    LONG NAME: Vrmlist                         -->
+<!ENTITY % vrmlist.content
+              "(%vrm;)+" 
+>
+<!ENTITY % vrmlist.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  vrmlist %vrmlist.content;>
+<!ATTLIST  vrmlist %vrmlist.attributes;>
+
+
+" 
+>
+<!ENTITY % vrmlist.attlist
+  "%vrmlist.attributes;" 
+>
+<!ENTITY % vrm.content
+  "EMPTY" 
+>
+<!ENTITY % vrm.attributes
+  "version
+                          CDATA
+                                    #REQUIRED
+               release
+                          CDATA
+                                    #IMPLIED
+               modification
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % vrm.element
+  "<!--                    LONG NAME: Vrm                             -->
+<!ENTITY % vrm.content
+              "EMPTY" 
+>
+<!ENTITY % vrm.attributes
+              "version
+                          CDATA
+                                    #REQUIRED
+               release
+                          CDATA
+                                    #IMPLIED
+               modification
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  vrm %vrm.content;>
+<!ATTLIST  vrm %vrm.attributes;>
+
+
+" 
+>
+<!ENTITY % vrm.attlist
+  "%vrm.attributes;" 
+>
+<!ENTITY % brand.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % brand.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % brand.element
+  "<!--                    LONG NAME: Brand                           -->
+<!ENTITY % brand.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % brand.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  brand %brand.content;>
+<!ATTLIST  brand %brand.attributes;>
+
+
+" 
+>
+<!ENTITY % brand.attlist
+  "%brand.attributes;" 
+>
+<!ENTITY % series.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % series.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % series.element
+  "<!--                    LONG NAME: Series                          -->
+<!ENTITY % series.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % series.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  series %series.content;>
+<!ATTLIST  series %series.attributes;>
+
+
+" 
+>
+<!ENTITY % series.attlist
+  "%series.attributes;" 
+>
+<!ENTITY % platform.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % platform.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % platform.element
+  "<!--                    LONG NAME: Platform                        -->
+<!ENTITY % platform.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % platform.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  platform %platform.content;>
+<!ATTLIST  platform %platform.attributes;>
+
+
+" 
+>
+<!ENTITY % platform.attlist
+  "%platform.attributes;" 
+>
+<!ENTITY % prognum.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % prognum.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % prognum.element
+  "<!--                    LONG NAME: Prognum                         -->
+<!ENTITY % prognum.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % prognum.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  prognum %prognum.content;>
+<!ATTLIST  prognum %prognum.attributes;>
+
+
+" 
+>
+<!ENTITY % prognum.attlist
+  "%prognum.attributes;" 
+>
+<!ENTITY % featnum.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % featnum.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % featnum.element
+  "<!--                    LONG NAME: Featnum                         -->
+<!ENTITY % featnum.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % featnum.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  featnum %featnum.content;>
+<!ATTLIST  featnum %featnum.attributes;>
+
+
+" 
+>
+<!ENTITY % featnum.attlist
+  "%featnum.attributes;" 
+>
+<!ENTITY % component.content
+  "(%words.cnt;)*" 
+>
+<!ENTITY % component.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % component.element
+  "<!--                    LONG NAME: Component                       -->
+<!ENTITY % component.content
+              "(%words.cnt;)*" 
+>
+<!ENTITY % component.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  component %component.content;>
+<!ATTLIST  component %component.attributes;>
+
+
+" 
+>
+<!ENTITY % component.attlist
+  "%component.attributes;" 
+>
+<!ENTITY % othermeta.content
+  "EMPTY" 
+>
+<!ENTITY % othermeta.attributes
+  "name
+                          CDATA
+                                    #REQUIRED
+               content
+                          CDATA
+                                    #REQUIRED
+               translate-content
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % othermeta.element
+  "<!--                    LONG NAME: Othermeta                       -->
+<!ENTITY % othermeta.content
+              "EMPTY" 
+>
+<!ENTITY % othermeta.attributes
+              "name
+                          CDATA
+                                    #REQUIRED
+               content
+                          CDATA
+                                    #REQUIRED
+               translate-content
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  othermeta %othermeta.content;>
+<!ATTLIST  othermeta %othermeta.attributes;>
+
+
+" 
+>
+<!ENTITY % othermeta.attlist
+  "%othermeta.attributes;" 
+>
+<!ENTITY % resourceid.content
+  "EMPTY" 
+>
+<!ENTITY % resourceid.attributes
+  "%select-atts;
+   %localization-atts;
+               id
+                          CDATA
+                                    #REQUIRED
+   %conref-atts;
+               appname
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % resourceid.element
+  "<!--                    LONG NAME: Resourceid                      -->
+<!ENTITY % resourceid.content
+              "EMPTY" 
+>
+<!ENTITY % resourceid.attributes
+              "%select-atts;
+               %localization-atts;
+               id
+                          CDATA
+                                    #REQUIRED
+               %conref-atts;
+               appname
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  resourceid %resourceid.content;>
+<!ATTLIST  resourceid %resourceid.attributes;>
+
+
+" 
+>
+<!ENTITY % resourceid.attlist
+  "%resourceid.attributes;" 
+>
+<!ENTITY % author.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/author '
+" 
+>
+<!ENTITY % source.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/source '
+" 
+>
+<!ENTITY % publisher.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/publisher '
+" 
+>
+<!ENTITY % copyright.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/copyright '
+" 
+>
+<!ENTITY % copyryear.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/copyryear '
+" 
+>
+<!ENTITY % copyrholder.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/copyrholder '
+" 
+>
+<!ENTITY % critdates.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/critdates '
+" 
+>
+<!ENTITY % created.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/created '
+" 
+>
+<!ENTITY % revised.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/revised '
+" 
+>
+<!ENTITY % permissions.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/permissions '
+" 
+>
+<!ENTITY % category.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/category '
+" 
+>
+<!ENTITY % metadata.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/metadata '
+" 
+>
+<!ENTITY % audience.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/audience '
+" 
+>
+<!ENTITY % keywords.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/keywords '
+" 
+>
+<!ENTITY % prodinfo.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/prodinfo '
+" 
+>
+<!ENTITY % prodname.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/prodname '
+" 
+>
+<!ENTITY % vrmlist.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/vrmlist '
+" 
+>
+<!ENTITY % vrm.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/vrm '
+" 
+>
+<!ENTITY % brand.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/brand '
+" 
+>
+<!ENTITY % series.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/series '
+" 
+>
+<!ENTITY % platform.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/platform '
+" 
+>
+<!ENTITY % prognum.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/prognum '
+" 
+>
+<!ENTITY % featnum.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/featnum '
+" 
+>
+<!ENTITY % component.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/component '
+" 
+>
+<!ENTITY % othermeta.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/othermeta '
+" 
+>
+<!ENTITY % resourceid.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/resourceid '
+" 
+>
+
+<!-- ================== metaDeclMod ==================== -->
+ 

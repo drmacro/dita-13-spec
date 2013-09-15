@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="org.oasis.dita.relaxng/doctypes/rng/rng/moduleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="org.oasis-open.dita.relaxng/doctypes/rng/rng/moduleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
   >
- <moduledesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-   <moduletitle>DITA Highlight Domain</moduletitle>
-   <headercomment>
+ <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Highlight Domain</moduleTitle>
+   <headerComment><![CDATA[
 ============================================================= 
                     HEADER                                     
  ============================================================= 
@@ -37,15 +37,16 @@
     2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
     2008.02.13 RDA: Create .content and .attributes entities   
  =============================================================      
-   </headercomment>
+ ]]></headerComment>
    <moduleMetadata>
+     <moduleType>elementDomain</moduleType>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>
        <dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN</dtdEnt>
        <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomain.xsd</xsdMod>
-       <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomain.xsd</rncMod>
-       <rngMod>urn:oasis:names:tc:dita:rng:highlightDomain.xsd</rngMod>
+       <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomain.rnc</rncMod>
+       <rngMod>urn:oasis:names:tc:dita:rng:highlightDomain.rng</rngMod>
      </modulePublicIds>
    </moduleMetadata>
- </moduledesc>
+ </moduleDesc>
 </grammar>

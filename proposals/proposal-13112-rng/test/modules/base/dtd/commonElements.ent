@@ -1,0 +1,3515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ============================================================= -->
+<!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      -->
+<!-- ============================================================= -->
+
+<!ENTITY % alt
+  "alt" 
+>
+<!ENTITY % boolean
+  "boolean" 
+>
+<!ENTITY % cite
+  "cite" 
+>
+<!ENTITY % data
+  "data" 
+>
+<!ENTITY % data-about
+  "data-about" 
+>
+<!ENTITY % dd
+  "dd" 
+>
+<!ENTITY % ddhd
+  "ddhd" 
+>
+<!ENTITY % desc
+  "desc" 
+>
+<!ENTITY % dl
+  "dl" 
+>
+<!ENTITY % dlentry
+  "dlentry" 
+>
+<!ENTITY % dlhead
+  "dlhead" 
+>
+<!ENTITY % draft-comment
+  "draft-comment" 
+>
+<!ENTITY % dt
+  "dt" 
+>
+<!ENTITY % dthd
+  "dthd" 
+>
+<!ENTITY % fig
+  "fig" 
+>
+<!ENTITY % figgroup
+  "figgroup" 
+>
+<!ENTITY % fn
+  "fn" 
+>
+<!ENTITY % foreign
+  "foreign" 
+>
+<!ENTITY % image
+  "image" 
+>
+<!ENTITY % indexterm
+  "indexterm" 
+>
+<!ENTITY % index-base
+  "index-base" 
+>
+<!ENTITY % indextermref
+  "indextermref" 
+>
+<!ENTITY % itemgroup
+  "itemgroup" 
+>
+<!ENTITY % keyword
+  "keyword" 
+>
+<!ENTITY % li
+  "li" 
+>
+<!ENTITY % lines
+  "lines" 
+>
+<!ENTITY % longdescref
+  "longdescref" 
+>
+<!ENTITY % longquoteref
+  "longquoteref" 
+>
+<!ENTITY % lq
+  "lq" 
+>
+<!ENTITY % navtitle
+  "navtitle" 
+>
+<!ENTITY % note
+  "note" 
+>
+<!ENTITY % object
+  "object" 
+>
+<!ENTITY % ol
+  "ol" 
+>
+<!ENTITY % p
+  "p" 
+>
+<!ENTITY % param
+  "param" 
+>
+<!ENTITY % ph
+  "ph" 
+>
+<!ENTITY % pre
+  "pre" 
+>
+<!ENTITY % q
+  "q" 
+>
+<!ENTITY % required-cleanup
+  "required-cleanup" 
+>
+<!ENTITY % sl
+  "sl" 
+>
+<!ENTITY % sli
+  "sli" 
+>
+<!ENTITY % simpletable
+  "simpletable" 
+>
+<!ENTITY % state
+  "state" 
+>
+<!ENTITY % stentry
+  "stentry" 
+>
+<!ENTITY % sthead
+  "sthead" 
+>
+<!ENTITY % strow
+  "strow" 
+>
+<!ENTITY % term
+  "term" 
+>
+<!ENTITY % text
+  "text" 
+>
+<!ENTITY % title
+  "title" 
+>
+<!ENTITY % tm
+  "tm" 
+>
+<!ENTITY % ul
+  "ul" 
+>
+<!ENTITY % unknown
+  "unknown" 
+>
+<!ENTITY % xref
+  "xref" 
+>
+<!ENTITY % table
+  "table" 
+>
+<!ENTITY % colspec
+  "colspec" 
+>
+<!ENTITY % entry
+  "entry" 
+>
+<!ENTITY % row
+  "row" 
+>
+<!ENTITY % tbody
+  "tbody" 
+>
+<!ENTITY % tgroup
+  "tgroup" 
+>
+<!ENTITY % thead
+  "thead" 
+>
+<!ENTITY % audience
+  "audience" 
+>
+<!ENTITY % author
+  "author" 
+>
+<!ENTITY % brand
+  "brand" 
+>
+<!ENTITY % category
+  "category" 
+>
+<!ENTITY % component
+  "component" 
+>
+<!ENTITY % copyrholder
+  "copyrholder" 
+>
+<!ENTITY % copyright
+  "copyright" 
+>
+<!ENTITY % copyryear
+  "copyryear" 
+>
+<!ENTITY % created
+  "created" 
+>
+<!ENTITY % critdates
+  "critdates" 
+>
+<!ENTITY % featnum
+  "featnum" 
+>
+<!ENTITY % keywords
+  "keywords" 
+>
+<!ENTITY % metadata
+  "metadata" 
+>
+<!ENTITY % othermeta
+  "othermeta" 
+>
+<!ENTITY % permissions
+  "permissions" 
+>
+<!ENTITY % platform
+  "platform" 
+>
+<!ENTITY % prodinfo
+  "prodinfo" 
+>
+<!ENTITY % prodname
+  "prodname" 
+>
+<!ENTITY % prognum
+  "prognum" 
+>
+<!ENTITY % publisher
+  "publisher" 
+>
+<!ENTITY % resourceid
+  "resourceid" 
+>
+<!ENTITY % revised
+  "revised" 
+>
+<!ENTITY % series
+  "series" 
+>
+<!ENTITY % source
+  "source" 
+>
+<!ENTITY % vrm
+  "vrm" 
+>
+<!ENTITY % vrmlist
+  "vrmlist" 
+>
+<!ENTITY % basic.ph
+  "%boolean; |
+   %cite; |
+   %keyword; |
+   %ph; |
+   %q; |
+   %term; |
+   %tm; |
+   %xref; |
+   %state;" 
+>
+<!ENTITY % basic.block
+  "%dl; |
+   %fig; |
+   %image; |
+   %lines; |
+   %lq; |
+   %note; |
+   %object; |
+   %ol; |
+   %p; |
+   %pre; |
+   %simpletable; |
+   %sl; |
+   %table; |
+   %ul;" 
+>
+<!ENTITY % basic.phandblock
+  "%basic.block; |
+   %basic.ph;" 
+>
+<!ENTITY % basic.ph.noxref
+  "%boolean; |
+   %keyword; |
+   %ph; |
+   %q; |
+   %term; |
+   %tm; |
+   %state;" 
+>
+<!ENTITY % basic.ph.notm
+  "%boolean; |
+   %cite; |
+   %keyword; |
+   %ph; |
+   %q; |
+   %term; |
+   %xref; |
+   %state;" 
+>
+<!ENTITY % basic.block.notbl
+  "%dl; |
+   %fig; |
+   %image; |
+   %lines; |
+   %lq; |
+   %note; |
+   %object; |
+   %ol; |
+   %p; |
+   %pre; |
+   %sl; |
+   %ul;" 
+>
+<!ENTITY % basic.block.nonote
+  "%dl; |
+   %fig; |
+   %image; |
+   %lines; |
+   %lq; |
+   %object; |
+   %ol; |
+   %p; |
+   %pre; |
+   %simpletable; |
+   %sl; |
+   %table; |
+   %ul;" 
+>
+<!ENTITY % basic.block.nopara
+  "%dl; |
+   %fig; |
+   %image; |
+   %lines; |
+   %lq; |
+   %note; |
+   %object; |
+   %ol; |
+   %pre; |
+   %simpletable; |
+   %sl; |
+   %table; |
+   %ul;" 
+>
+<!ENTITY % basic.block.nolq
+  "%dl; |
+   %fig; |
+   %image; |
+   %lines; |
+   %note; |
+   %object; |
+   %ol; |
+   %p; |
+   %pre; |
+   %simpletable; |
+   %sl; |
+   %table; |
+   %ul;" 
+>
+<!ENTITY % basic.block.notbnofg
+  "%dl; |
+   %image; |
+   %lines; |
+   %lq; |
+   %note; |
+   %object; |
+   %ol; |
+   %p; |
+   %pre; |
+   %sl; |
+   %ul;" 
+>
+<!ENTITY % basic.block.notbfgobj
+  "%dl; |
+   %image; |
+   %lines; |
+   %lq; |
+   %note; |
+   %ol; |
+   %p; |
+   %pre; |
+   %sl; |
+   %ul;" 
+>
+<!ENTITY % txt.incl
+  "%draft-comment; |
+   %fn; |
+   %indextermref; |
+   %indexterm; |
+   %required-cleanup;" 
+>
+<!ENTITY % data.elements.incl
+  "%data; |
+   %data-about;" 
+>
+<!ENTITY % foreign.unknown.incl
+  "%foreign; |
+   %unknown;" 
+>
+<!ENTITY % listitem.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %itemgroup; |
+   %txt.incl;" 
+>
+<!ENTITY % itemgroup.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % title.cnt
+  "#PCDATA |
+   %basic.ph.noxref; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %image;" 
+>
+<!ENTITY % xreftext.cnt
+  "#PCDATA |
+   %basic.ph.noxref; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %image;" 
+>
+<!ENTITY % xrefph.cnt
+  "#PCDATA |
+   %basic.ph.noxref; |
+   %data.elements.incl; |
+   %foreign.unknown.incl;" 
+>
+<!ENTITY % shortquote.cnt
+  "#PCDATA |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl;" 
+>
+<!ENTITY % para.cnt
+  "#PCDATA |
+   %basic.block.nopara; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % note.cnt
+  "#PCDATA |
+   %basic.block.nonote; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % longquote.cnt
+  "#PCDATA |
+   %basic.block.nolq; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %longquoteref; |
+   %txt.incl;" 
+>
+<!ENTITY % tblcell.cnt
+  "#PCDATA |
+   %basic.block.notbl; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % desc.cnt
+  "#PCDATA |
+   %basic.block.notbfgobj; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl;" 
+>
+<!ENTITY % ph.cnt
+  "#PCDATA |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %image; |
+   %txt.incl;" 
+>
+<!ENTITY % fn.cnt
+  "#PCDATA |
+   %basic.block.notbl; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl;" 
+>
+<!ENTITY % term.cnt
+  "#PCDATA |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %image;" 
+>
+<!ENTITY % defn.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %itemgroup; |
+   %txt.incl;" 
+>
+<!ENTITY % pre.cnt
+  "#PCDATA |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % fig.cnt
+  "%basic.block.notbnofg; |
+   %data.elements.incl; |
+   %fn; |
+   %foreign.unknown.incl; |
+   %simpletable; |
+   %xref;" 
+>
+<!ENTITY % figgroup.cnt
+  "%basic.block.notbnofg; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %fn; |
+   %foreign.unknown.incl;" 
+>
+<!ENTITY % words.cnt
+  "#PCDATA |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %keyword; |
+   %term;" 
+>
+<!ENTITY % data.cnt
+  "%words.cnt; |
+   %image; |
+   %object; |
+   %ph; |
+   %title;" 
+>
+<!ENTITY % display-atts
+  "scale
+                          (50 |
+                           60 |
+                           70 |
+                           80 |
+                           90 |
+                           100 |
+                           110 |
+                           120 |
+                           140 |
+                           160 |
+                           180 |
+                           200 |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               frame
+                          (all |
+                           bottom |
+                           none |
+                           sides |
+                           top |
+                           topbot |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               expanse
+                          (column |
+                           page |
+                           spread |
+                           textline |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+" 
+>
+<!ENTITY % props-attribute-extensions
+  "" 
+>
+<!ENTITY % base-attribute-extensions
+  "" 
+>
+<!ENTITY % filter-atts
+  "props
+                          CDATA
+                                    #IMPLIED
+               platform
+                          CDATA
+                                    #IMPLIED
+               product
+                          CDATA
+                                    #IMPLIED
+               audience
+                          CDATA
+                                    #IMPLIED
+               otherprops
+                          CDATA
+                                    #IMPLIED
+   %props-attribute-extensions;" 
+>
+<!ENTITY % select-atts
+  "%filter-atts;
+               base
+                          CDATA
+                                    #IMPLIED
+   %base-attribute-extensions;
+               importance
+                          (default |
+                           deprecated |
+                           high |
+                           low |
+                           normal |
+                           obsolete |
+                           optional |
+                           recommended |
+                           required |
+                           urgent |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               rev
+                          CDATA
+                                    #IMPLIED
+               status
+                          (changed |
+                           deleted |
+                           new |
+                           unchanged |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+" 
+>
+<!ENTITY % conref-atts
+  "conref
+                          CDATA
+                                    #IMPLIED
+               conrefend
+                          CDATA
+                                    #IMPLIED
+               conaction
+                          (mark |
+                           pushafter |
+                           pushbefore |
+                           pushreplace |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               conkeyref
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % id-atts
+  "id
+                          NMTOKEN
+                                    #IMPLIED
+   %conref-atts;" 
+>
+<!ENTITY % localization-atts
+  "translate
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               xml:lang
+                          CDATA
+                                    #IMPLIED
+               dir
+                          (lro |
+                           ltr |
+                           rlo |
+                           rtl |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+" 
+>
+<!ENTITY % localization-atts-translate-no
+  "translate
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    'no'
+               xml:lang
+                          CDATA
+                                    #IMPLIED
+               dir
+                          (lro |
+                           ltr |
+                           rlo |
+                           rtl |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+" 
+>
+<!ENTITY % univ-atts
+  "(%id-atts;
+    %select-atts;
+    %localization-atts;)" 
+>
+<!ENTITY % univ-atts-translate-no
+  "(%id-atts;
+    %select-atts;
+    %localization-atts-translate-no;)" 
+>
+<!ENTITY % global-atts
+  "xtrc
+                          CDATA
+                                    #IMPLIED
+               xtrf
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % data-about.content
+  "(%data;
+    (%data; |
+     %data-about;)*)" 
+>
+<!ENTITY % data-about.attributes
+  "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % data-about.element
+  "<!--                    LONG NAME: Data About                      -->
+<!ENTITY % data-about.content
+              "(%data;
+                (%data; |
+                 %data-about;)*)" 
+>
+<!ENTITY % data-about.attributes
+              "%univ-atts;
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  data-about %data-about.content;>
+<!ATTLIST  data-about %data-about.attributes;>
+
+
+" 
+>
+<!ENTITY % data-about.attlist
+  "%data-about.attributes;" 
+>
+<!ENTITY % data-element-atts
+  "%univ-atts;
+               name
+                          CDATA
+                                    #IMPLIED
+               datatype
+                          CDATA
+                                    #IMPLIED
+               value
+                          CDATA
+                                    #IMPLIED
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % data.content
+  "(%data.cnt;)*" 
+>
+<!ENTITY % data.attributes
+  "%data-element-atts;" 
+>
+<!ENTITY % data.element
+  "<!--                    LONG NAME: Data                            -->
+<!ENTITY % data.content
+              "(%data.cnt;)*" 
+>
+<!ENTITY % data.attributes
+              "%data-element-atts;" 
+>
+<!ELEMENT  data %data.content;>
+<!ATTLIST  data %data.attributes;>
+
+
+" 
+>
+<!ENTITY % data.attlist
+  "%data.attributes;" 
+>
+<!ENTITY % unknown.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % unknown.element
+  "<!--                    LONG NAME: Unknown                         -->
+<!ENTITY % unknown.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ATTLIST  unknown %unknown.attributes;>
+
+
+" 
+>
+<!ENTITY % unknown.attlist
+  "%unknown.attributes;" 
+>
+<!ENTITY % foreign.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % foreign.element
+  "<!--                    LONG NAME: Foreign                         -->
+<!ENTITY % foreign.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ATTLIST  foreign %foreign.attributes;>
+
+
+" 
+>
+<!ENTITY % foreign.attlist
+  "%foreign.attributes;" 
+>
+<!ENTITY % title.content
+  "(%title.cnt;)*" 
+>
+<!ENTITY % title.attributes
+  "%id-atts;
+   %localization-atts;
+               base
+                          CDATA
+                                    #IMPLIED
+   %base-attribute-extensions;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % title.element
+  "<!--                    LONG NAME: Title                           -->
+<!ENTITY % title.content
+              "(%title.cnt;)*" 
+>
+<!ENTITY % title.attributes
+              "%id-atts;
+               %localization-atts;
+               base
+                          CDATA
+                                    #IMPLIED
+               %base-attribute-extensions;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  title %title.content;>
+<!ATTLIST  title %title.attributes;>
+
+
+" 
+>
+<!ENTITY % title.attlist
+  "%title.attributes;" 
+>
+<!ENTITY % navtitle.content
+  "(%words.cnt; |
+    %ph;)*" 
+>
+<!ENTITY % navtitle.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % navtitle.element
+  "<!--                    LONG NAME: Navtitle                        -->
+<!ENTITY % navtitle.content
+              "(%words.cnt; |
+                %ph;)*" 
+>
+<!ENTITY % navtitle.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  navtitle %navtitle.content;>
+<!ATTLIST  navtitle %navtitle.attributes;>
+
+
+" 
+>
+<!ENTITY % navtitle.attlist
+  "%navtitle.attributes;" 
+>
+<!ENTITY % shortdesc.content
+  "(%title.cnt; |
+    %draft-comment;)*" 
+>
+<!ENTITY % shortdesc.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % shortdesc.element
+  "<!--                    LONG NAME: Shortdesc                       -->
+<!ENTITY % shortdesc.content
+              "(%title.cnt; |
+                %draft-comment;)*" 
+>
+<!ENTITY % shortdesc.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  shortdesc %shortdesc.content;>
+<!ATTLIST  shortdesc %shortdesc.attributes;>
+
+
+" 
+>
+<!ENTITY % shortdesc.attlist
+  "%shortdesc.attributes;" 
+>
+<!ENTITY % desc.content
+  "(%desc.cnt;)*" 
+>
+<!ENTITY % desc.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % desc.element
+  "<!--                    LONG NAME: Desc                            -->
+<!ENTITY % desc.content
+              "(%desc.cnt;)*" 
+>
+<!ENTITY % desc.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  desc %desc.content;>
+<!ATTLIST  desc %desc.attributes;>
+
+
+" 
+>
+<!ENTITY % desc.attlist
+  "%desc.attributes;" 
+>
+<!ENTITY % p.content
+  "(%para.cnt;)*" 
+>
+<!ENTITY % p.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % p.element
+  "<!--                    LONG NAME: P                               -->
+<!ENTITY % p.content
+              "(%para.cnt;)*" 
+>
+<!ENTITY % p.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  p %p.content;>
+<!ATTLIST  p %p.attributes;>
+
+
+" 
+>
+<!ENTITY % p.attlist
+  "%p.attributes;" 
+>
+<!ENTITY % note.content
+  "(%note.cnt;)*" 
+>
+<!ENTITY % note.attributes
+  "type
+                          (attention |
+                           caution |
+                           danger |
+                           fastpath |
+                           important |
+                           note |
+                           notice |
+                           other |
+                           remember |
+                           restriction |
+                           tip |
+                           warning |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               othertype
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % note.element
+  "<!--                    LONG NAME: Note                            -->
+<!ENTITY % note.content
+              "(%note.cnt;)*" 
+>
+<!ENTITY % note.attributes
+              "type
+                          (attention |
+                           caution |
+                           danger |
+                           fastpath |
+                           important |
+                           note |
+                           notice |
+                           other |
+                           remember |
+                           restriction |
+                           tip |
+                           warning |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               othertype
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  note %note.content;>
+<!ATTLIST  note %note.attributes;>
+
+
+" 
+>
+<!ENTITY % note.attlist
+  "%note.attributes;" 
+>
+<!ENTITY % longquoteref.content
+  "EMPTY" 
+>
+<!ENTITY % longquoteref.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % longquoteref.element
+  "<!--                    LONG NAME: Longquoteref                    -->
+<!ENTITY % longquoteref.content
+              "EMPTY" 
+>
+<!ENTITY % longquoteref.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  longquoteref %longquoteref.content;>
+<!ATTLIST  longquoteref %longquoteref.attributes;>
+
+
+" 
+>
+<!ENTITY % longquoteref.attlist
+  "%longquoteref.attributes;" 
+>
+<!ENTITY % lq.content
+  "(%longquote.cnt;)*" 
+>
+<!ENTITY % lq.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               reftitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % lq.element
+  "<!--                    LONG NAME: Lq                              -->
+<!ENTITY % lq.content
+              "(%longquote.cnt;)*" 
+>
+<!ENTITY % lq.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               reftitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  lq %lq.content;>
+<!ATTLIST  lq %lq.attributes;>
+
+
+" 
+>
+<!ENTITY % lq.attlist
+  "%lq.attributes;" 
+>
+<!ENTITY % q.content
+  "(%shortquote.cnt;)*" 
+>
+<!ENTITY % q.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % q.element
+  "<!--                    LONG NAME: Q                               -->
+<!ENTITY % q.content
+              "(%shortquote.cnt;)*" 
+>
+<!ENTITY % q.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  q %q.content;>
+<!ATTLIST  q %q.attributes;>
+
+
+" 
+>
+<!ENTITY % q.attlist
+  "%q.attributes;" 
+>
+<!ENTITY % sl.content
+  "(%sli;)+" 
+>
+<!ENTITY % sl.attributes
+  "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % sl.element
+  "<!--                    LONG NAME: Sl                              -->
+<!ENTITY % sl.content
+              "(%sli;)+" 
+>
+<!ENTITY % sl.attributes
+              "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  sl %sl.content;>
+<!ATTLIST  sl %sl.attributes;>
+
+
+" 
+>
+<!ENTITY % sl.attlist
+  "%sl.attributes;" 
+>
+<!ENTITY % sli.content
+  "(%ph.cnt;)*" 
+>
+<!ENTITY % sli.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % sli.element
+  "<!--                    LONG NAME: Sli                             -->
+<!ENTITY % sli.content
+              "(%ph.cnt;)*" 
+>
+<!ENTITY % sli.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  sli %sli.content;>
+<!ATTLIST  sli %sli.attributes;>
+
+
+" 
+>
+<!ENTITY % sli.attlist
+  "%sli.attributes;" 
+>
+<!ENTITY % ul.content
+  "(%li;)+" 
+>
+<!ENTITY % ul.attributes
+  "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % ul.element
+  "<!--                    LONG NAME: Ul                              -->
+<!ENTITY % ul.content
+              "(%li;)+" 
+>
+<!ENTITY % ul.attributes
+              "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  ul %ul.content;>
+<!ATTLIST  ul %ul.attributes;>
+
+
+" 
+>
+<!ENTITY % ul.attlist
+  "%ul.attributes;" 
+>
+<!ENTITY % ol.content
+  "(%li;)+" 
+>
+<!ENTITY % ol.attributes
+  "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % ol.element
+  "<!--                    LONG NAME: Ol                              -->
+<!ENTITY % ol.content
+              "(%li;)+" 
+>
+<!ENTITY % ol.attributes
+              "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  ol %ol.content;>
+<!ATTLIST  ol %ol.attributes;>
+
+
+" 
+>
+<!ENTITY % ol.attlist
+  "%ol.attributes;" 
+>
+<!ENTITY % li.content
+  "(%listitem.cnt;)*" 
+>
+<!ENTITY % li.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % li.element
+  "<!--                    LONG NAME: Li                              -->
+<!ENTITY % li.content
+              "(%listitem.cnt;)*" 
+>
+<!ENTITY % li.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  li %li.content;>
+<!ATTLIST  li %li.attributes;>
+
+
+" 
+>
+<!ENTITY % li.attlist
+  "%li.attributes;" 
+>
+<!ENTITY % itemgroup.content
+  "(%itemgroup.cnt;)*" 
+>
+<!ENTITY % itemgroup.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % itemgroup.element
+  "<!--                    LONG NAME: Itemgroup                       -->
+<!ENTITY % itemgroup.content
+              "(%itemgroup.cnt;)*" 
+>
+<!ENTITY % itemgroup.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  itemgroup %itemgroup.content;>
+<!ATTLIST  itemgroup %itemgroup.attributes;>
+
+
+" 
+>
+<!ENTITY % itemgroup.attlist
+  "%itemgroup.attributes;" 
+>
+<!ENTITY % dl.content
+  "((%dlhead;)?,
+    (%dlentry;)+)" 
+>
+<!ENTITY % dl.attributes
+  "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dl.element
+  "<!--                    LONG NAME: Dl                              -->
+<!ENTITY % dl.content
+              "((%dlhead;)?,
+                (%dlentry;)+)" 
+>
+<!ENTITY % dl.attributes
+              "compact
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dl %dl.content;>
+<!ATTLIST  dl %dl.attributes;>
+
+
+" 
+>
+<!ENTITY % dl.attlist
+  "%dl.attributes;" 
+>
+<!ENTITY % dlhead.content
+  "((%dthd;)?,
+    (%ddhd;)?)" 
+>
+<!ENTITY % dlhead.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dlhead.element
+  "<!--                    LONG NAME: Dlhead                          -->
+<!ENTITY % dlhead.content
+              "((%dthd;)?,
+                (%ddhd;)?)" 
+>
+<!ENTITY % dlhead.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dlhead %dlhead.content;>
+<!ATTLIST  dlhead %dlhead.attributes;>
+
+
+" 
+>
+<!ENTITY % dlhead.attlist
+  "%dlhead.attributes;" 
+>
+<!ENTITY % dthd.content
+  "(%title.cnt;)*" 
+>
+<!ENTITY % dthd.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dthd.element
+  "<!--                    LONG NAME: Dthd                            -->
+<!ENTITY % dthd.content
+              "(%title.cnt;)*" 
+>
+<!ENTITY % dthd.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dthd %dthd.content;>
+<!ATTLIST  dthd %dthd.attributes;>
+
+
+" 
+>
+<!ENTITY % dthd.attlist
+  "%dthd.attributes;" 
+>
+<!ENTITY % ddhd.content
+  "(%title.cnt;)*" 
+>
+<!ENTITY % ddhd.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % ddhd.element
+  "<!--                    LONG NAME: Ddhd                            -->
+<!ENTITY % ddhd.content
+              "(%title.cnt;)*" 
+>
+<!ENTITY % ddhd.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  ddhd %ddhd.content;>
+<!ATTLIST  ddhd %ddhd.attributes;>
+
+
+" 
+>
+<!ENTITY % ddhd.attlist
+  "%ddhd.attributes;" 
+>
+<!ENTITY % dlentry.content
+  "((%dt;)+,
+    (%dd;)+)" 
+>
+<!ENTITY % dlentry.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dlentry.element
+  "<!--                    LONG NAME: Dlentry                         -->
+<!ENTITY % dlentry.content
+              "((%dt;)+,
+                (%dd;)+)" 
+>
+<!ENTITY % dlentry.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dlentry %dlentry.content;>
+<!ATTLIST  dlentry %dlentry.attributes;>
+
+
+" 
+>
+<!ENTITY % dlentry.attlist
+  "%dlentry.attributes;" 
+>
+<!ENTITY % dt.content
+  "(%term.cnt;)*" 
+>
+<!ENTITY % dt.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dt.element
+  "<!--                    LONG NAME: Dt                              -->
+<!ENTITY % dt.content
+              "(%term.cnt;)*" 
+>
+<!ENTITY % dt.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dt %dt.content;>
+<!ATTLIST  dt %dt.attributes;>
+
+
+" 
+>
+<!ENTITY % dt.attlist
+  "%dt.attributes;" 
+>
+<!ENTITY % dd.content
+  "(%defn.cnt;)*" 
+>
+<!ENTITY % dd.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % dd.element
+  "<!--                    LONG NAME: Dd                              -->
+<!ENTITY % dd.content
+              "(%defn.cnt;)*" 
+>
+<!ENTITY % dd.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  dd %dd.content;>
+<!ATTLIST  dd %dd.attributes;>
+
+
+" 
+>
+<!ENTITY % dd.attlist
+  "%dd.attributes;" 
+>
+<!ENTITY % fig.content
+  "((%title;)?,
+    (%desc;)?,
+    (%figgroup; |
+     %fig.cnt;)*)" 
+>
+<!ENTITY % fig.attributes
+  "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % fig.element
+  "<!--                    LONG NAME: Fig                             -->
+<!ENTITY % fig.content
+              "((%title;)?,
+                (%desc;)?,
+                (%figgroup; |
+                 %fig.cnt;)*)" 
+>
+<!ENTITY % fig.attributes
+              "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  fig %fig.content;>
+<!ATTLIST  fig %fig.attributes;>
+
+
+" 
+>
+<!ENTITY % fig.attlist
+  "%fig.attributes;" 
+>
+<!ENTITY % figgroup.content
+  "((%title;)?,
+    (%figgroup; |
+     %figgroup.cnt;)*)" 
+>
+<!ENTITY % figgroup.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % figgroup.element
+  "<!--                    LONG NAME: Figgroup                        -->
+<!ENTITY % figgroup.content
+              "((%title;)?,
+                (%figgroup; |
+                 %figgroup.cnt;)*)" 
+>
+<!ENTITY % figgroup.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  figgroup %figgroup.content;>
+<!ATTLIST  figgroup %figgroup.attributes;>
+
+
+" 
+>
+<!ENTITY % figgroup.attlist
+  "%figgroup.attributes;" 
+>
+<!ENTITY % pre.content
+  "(%pre.cnt;)*" 
+>
+<!ENTITY % pre.attributes
+  "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               xml:space
+                          (preserve)
+                                    #FIXED 
+                                    'preserve'
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % pre.element
+  "<!--                    LONG NAME: Pre                             -->
+<!ENTITY % pre.content
+              "(%pre.cnt;)*" 
+>
+<!ENTITY % pre.attributes
+              "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               xml:space
+                          (preserve)
+                                    #FIXED 
+                                    'preserve'
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  pre %pre.content;>
+<!ATTLIST  pre %pre.attributes;>
+
+
+" 
+>
+<!ENTITY % pre.attlist
+  "%pre.attributes;" 
+>
+<!ENTITY % lines.content
+  "(%pre.cnt;)*" 
+>
+<!ENTITY % lines.attributes
+  "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               xml:space
+                          (preserve)
+                                    #FIXED 
+                                    'preserve'
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % lines.element
+  "<!--                    LONG NAME: Lines                           -->
+<!ENTITY % lines.content
+              "(%pre.cnt;)*" 
+>
+<!ENTITY % lines.attributes
+              "%display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               xml:space
+                          (preserve)
+                                    #FIXED 
+                                    'preserve'
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  lines %lines.content;>
+<!ATTLIST  lines %lines.attributes;>
+
+
+" 
+>
+<!ENTITY % lines.attlist
+  "%lines.attributes;" 
+>
+<!ENTITY % text.content
+  "(#PCDATA |
+    %text;)*" 
+>
+<!ENTITY % text.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % text.element
+  "<!--                    LONG NAME: Text                            -->
+<!ENTITY % text.content
+              "(#PCDATA |
+                %text;)*" 
+>
+<!ENTITY % text.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  text %text.content;>
+<!ATTLIST  text %text.attributes;>
+
+
+" 
+>
+<!ENTITY % text.attlist
+  "%text.attributes;" 
+>
+<!ENTITY % keyword.content
+  "(#PCDATA |
+    %text; |
+    %tm;)*" 
+>
+<!ENTITY % keyword.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % keyword.element
+  "<!--                    LONG NAME: Keyword                         -->
+<!ENTITY % keyword.content
+              "(#PCDATA |
+                %text; |
+                %tm;)*" 
+>
+<!ENTITY % keyword.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  keyword %keyword.content;>
+<!ATTLIST  keyword %keyword.attributes;>
+
+
+" 
+>
+<!ENTITY % keyword.attlist
+  "%keyword.attributes;" 
+>
+<!ENTITY % term.content
+  "(#PCDATA |
+    %text; |
+    %tm;)*" 
+>
+<!ENTITY % term.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % term.element
+  "<!--                    LONG NAME: Term                            -->
+<!ENTITY % term.content
+              "(#PCDATA |
+                %text; |
+                %tm;)*" 
+>
+<!ENTITY % term.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  term %term.content;>
+<!ATTLIST  term %term.attributes;>
+
+
+" 
+>
+<!ENTITY % term.attlist
+  "%term.attributes;" 
+>
+<!ENTITY % ph.content
+  "(%ph.cnt; |
+    %text;)*" 
+>
+<!ENTITY % ph.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % ph.element
+  "<!--                    LONG NAME: Ph                              -->
+<!ENTITY % ph.content
+              "(%ph.cnt; |
+                %text;)*" 
+>
+<!ENTITY % ph.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  ph %ph.content;>
+<!ATTLIST  ph %ph.attributes;>
+
+
+" 
+>
+<!ENTITY % ph.attlist
+  "%ph.attributes;" 
+>
+<!ENTITY % tm.content
+  "(#PCDATA |
+    %text; |
+    %tm;)*" 
+>
+<!ENTITY % tm.attributes
+  "trademark
+                          CDATA
+                                    #IMPLIED
+               tmowner
+                          CDATA
+                                    #IMPLIED
+               tmtype
+                                                      (reg |
+                           service |
+                           tm |
+                           -dita-use-conref-target)
+                                    #REQUIRED
+               tmclass
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % tm.element
+  "<!--                    LONG NAME: Tm                              -->
+<!ENTITY % tm.content
+              "(#PCDATA |
+                %text; |
+                %tm;)*" 
+>
+<!ENTITY % tm.attributes
+              "trademark
+                          CDATA
+                                    #IMPLIED
+               tmowner
+                          CDATA
+                                    #IMPLIED
+               tmtype
+                                                      (reg |
+                           service |
+                           tm |
+                           -dita-use-conref-target)
+                                    #REQUIRED
+               tmclass
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  tm %tm.content;>
+<!ATTLIST  tm %tm.attributes;>
+
+
+" 
+>
+<!ENTITY % tm.attlist
+  "%tm.attributes;" 
+>
+<!ENTITY % boolean.content
+  "EMPTY" 
+>
+<!ENTITY % boolean.attributes
+  "state
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #REQUIRED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % boolean.element
+  "<!--                    LONG NAME: Boolean                         -->
+<!ENTITY % boolean.content
+              "EMPTY" 
+>
+<!ENTITY % boolean.attributes
+              "state
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #REQUIRED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  boolean %boolean.content;>
+<!ATTLIST  boolean %boolean.attributes;>
+
+
+" 
+>
+<!ENTITY % boolean.attlist
+  "%boolean.attributes;" 
+>
+<!ENTITY % state.content
+  "EMPTY" 
+>
+<!ENTITY % state.attributes
+  "name
+                          CDATA
+                                    #REQUIRED
+               value
+                          CDATA
+                                    #REQUIRED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % state.element
+  "<!--                    LONG NAME: State                           -->
+<!ENTITY % state.content
+              "EMPTY" 
+>
+<!ENTITY % state.attributes
+              "name
+                          CDATA
+                                    #REQUIRED
+               value
+                          CDATA
+                                    #REQUIRED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  state %state.content;>
+<!ATTLIST  state %state.attributes;>
+
+
+" 
+>
+<!ENTITY % state.attlist
+  "%state.attributes;" 
+>
+<!ENTITY % image.content
+  "((%alt;)?,
+    (%longdescref;)?)" 
+>
+<!ENTITY % image.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               alt
+                          CDATA
+                                    #IMPLIED
+               longdescref
+                          CDATA
+                                    #IMPLIED
+               height
+                          NMTOKEN
+                                    #IMPLIED
+               width
+                          NMTOKEN
+                                    #IMPLIED
+               align
+                          CDATA
+                                    #IMPLIED
+               scale
+                          NMTOKEN
+                                    #IMPLIED
+               scalefit
+                          (yes |
+                           no |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               placement
+                          (break |
+                           inline |
+                           -dita-use-conref-target)
+                                    'inline'
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % image.element
+  "<!--                    LONG NAME: Image                           -->
+<!ENTITY % image.content
+              "((%alt;)?,
+                (%longdescref;)?)" 
+>
+<!ENTITY % image.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               alt
+                          CDATA
+                                    #IMPLIED
+               longdescref
+                          CDATA
+                                    #IMPLIED
+               height
+                          NMTOKEN
+                                    #IMPLIED
+               width
+                          NMTOKEN
+                                    #IMPLIED
+               align
+                          CDATA
+                                    #IMPLIED
+               scale
+                          NMTOKEN
+                                    #IMPLIED
+               scalefit
+                          (yes |
+                           no |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               placement
+                          (break |
+                           inline |
+                           -dita-use-conref-target)
+                                    'inline'
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  image %image.content;>
+<!ATTLIST  image %image.attributes;>
+
+
+" 
+>
+<!ENTITY % image.attlist
+  "%image.attributes;" 
+>
+<!ENTITY % alt.content
+  "(%words.cnt; |
+    %ph;)*" 
+>
+<!ENTITY % alt.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % alt.element
+  "<!--                    LONG NAME: Alt                             -->
+<!ENTITY % alt.content
+              "(%words.cnt; |
+                %ph;)*" 
+>
+<!ENTITY % alt.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  alt %alt.content;>
+<!ATTLIST  alt %alt.attributes;>
+
+
+" 
+>
+<!ENTITY % alt.attlist
+  "%alt.attributes;" 
+>
+<!ENTITY % longdescref.content
+  "EMPTY" 
+>
+<!ENTITY % longdescref.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % longdescref.element
+  "<!--                    LONG NAME: Longdescref                     -->
+<!ENTITY % longdescref.content
+              "EMPTY" 
+>
+<!ENTITY % longdescref.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  longdescref %longdescref.content;>
+<!ATTLIST  longdescref %longdescref.attributes;>
+
+
+" 
+>
+<!ENTITY % longdescref.attlist
+  "%longdescref.attributes;" 
+>
+<!ENTITY % object.content
+  "((%desc;)?,
+    (%longdescref;)?,
+    (%param;)*,
+    (%foreign.unknown.incl;)*)" 
+>
+<!ENTITY % object.attributes
+  "declare
+                          (declare)
+                                    #IMPLIED
+               classid
+                          CDATA
+                                    #IMPLIED
+               codebase
+                          CDATA
+                                    #IMPLIED
+               data
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               codetype
+                          CDATA
+                                    #IMPLIED
+               archive
+                          CDATA
+                                    #IMPLIED
+               standby
+                          CDATA
+                                    #IMPLIED
+               height
+                          NMTOKEN
+                                    #IMPLIED
+               width
+                          NMTOKEN
+                                    #IMPLIED
+               usemap
+                          CDATA
+                                    #IMPLIED
+               name
+                          CDATA
+                                    #IMPLIED
+               tabindex
+                          NMTOKEN
+                                    #IMPLIED
+               longdescref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+               longdescre
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % object.element
+  "<!--                    LONG NAME: Object                          -->
+<!ENTITY % object.content
+              "((%desc;)?,
+                (%longdescref;)?,
+                (%param;)*,
+                (%foreign.unknown.incl;)*)" 
+>
+<!ENTITY % object.attributes
+              "declare
+                          (declare)
+                                    #IMPLIED
+               classid
+                          CDATA
+                                    #IMPLIED
+               codebase
+                          CDATA
+                                    #IMPLIED
+               data
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               codetype
+                          CDATA
+                                    #IMPLIED
+               archive
+                          CDATA
+                                    #IMPLIED
+               standby
+                          CDATA
+                                    #IMPLIED
+               height
+                          NMTOKEN
+                                    #IMPLIED
+               width
+                          NMTOKEN
+                                    #IMPLIED
+               usemap
+                          CDATA
+                                    #IMPLIED
+               name
+                          CDATA
+                                    #IMPLIED
+               tabindex
+                          NMTOKEN
+                                    #IMPLIED
+               longdescref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+               longdescre
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  object %object.content;>
+<!ATTLIST  object %object.attributes;>
+
+
+" 
+>
+<!ENTITY % object.attlist
+  "%object.attributes;" 
+>
+<!ENTITY % param.content
+  "EMPTY" 
+>
+<!ENTITY % param.attributes
+  "%univ-atts;
+               name
+                          CDATA
+                                    #REQUIRED
+               value
+                          CDATA
+                                    #IMPLIED
+               valuetype
+                          (data |
+                           object |
+                           ref |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % param.element
+  "<!--                    LONG NAME: Param                           -->
+<!ENTITY % param.content
+              "EMPTY" 
+>
+<!ENTITY % param.attributes
+              "%univ-atts;
+               name
+                          CDATA
+                                    #REQUIRED
+               value
+                          CDATA
+                                    #IMPLIED
+               valuetype
+                          (data |
+                           object |
+                           ref |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  param %param.content;>
+<!ATTLIST  param %param.attributes;>
+
+
+" 
+>
+<!ENTITY % param.attlist
+  "%param.attributes;" 
+>
+<!ENTITY % simpletable.content
+  "((%sthead;)?,
+    (%strow;)+)" 
+>
+<!ENTITY % simpletable.attributes
+  "relcolwidth
+                          CDATA
+                                    #IMPLIED
+               keycol
+                          NMTOKEN
+                                    #IMPLIED
+               refcols
+                          NMTOKENS
+                                    #IMPLIED
+   %display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % simpletable.element
+  "<!--                    LONG NAME: Simpletable                     -->
+<!ENTITY % simpletable.content
+              "((%sthead;)?,
+                (%strow;)+)" 
+>
+<!ENTITY % simpletable.attributes
+              "relcolwidth
+                          CDATA
+                                    #IMPLIED
+               keycol
+                          NMTOKEN
+                                    #IMPLIED
+               refcols
+                          NMTOKENS
+                                    #IMPLIED
+               %display-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  simpletable %simpletable.content;>
+<!ATTLIST  simpletable %simpletable.attributes;>
+
+
+" 
+>
+<!ENTITY % simpletable.attlist
+  "%simpletable.attributes;" 
+>
+<!ENTITY % sthead.content
+  "(%stentry;)+" 
+>
+<!ENTITY % sthead.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % sthead.element
+  "<!--                    LONG NAME: Sthead                          -->
+<!ENTITY % sthead.content
+              "(%stentry;)+" 
+>
+<!ENTITY % sthead.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  sthead %sthead.content;>
+<!ATTLIST  sthead %sthead.attributes;>
+
+
+" 
+>
+<!ENTITY % sthead.attlist
+  "%sthead.attributes;" 
+>
+<!ENTITY % strow.content
+  "(%stentry;)*" 
+>
+<!ENTITY % strow.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % strow.element
+  "<!--                    LONG NAME: Strow                           -->
+<!ENTITY % strow.content
+              "(%stentry;)*" 
+>
+<!ENTITY % strow.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  strow %strow.content;>
+<!ATTLIST  strow %strow.attributes;>
+
+
+" 
+>
+<!ENTITY % strow.attlist
+  "%strow.attributes;" 
+>
+<!ENTITY % stentry.content
+  "(%tblcell.cnt;)*" 
+>
+<!ENTITY % stentry.attributes
+  "specentry
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % stentry.element
+  "<!--                    LONG NAME: Stentry                         -->
+<!ENTITY % stentry.content
+              "(%tblcell.cnt;)*" 
+>
+<!ENTITY % stentry.attributes
+              "specentry
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  stentry %stentry.content;>
+<!ATTLIST  stentry %stentry.attributes;>
+
+
+" 
+>
+<!ENTITY % stentry.attlist
+  "%stentry.attributes;" 
+>
+<!ENTITY % draft-comment.content
+  "(#PCDATA |
+    %basic.phandblock; |
+    %data.elements.incl; |
+    %foreign.unknown.incl;)*" 
+>
+<!ENTITY % draft-comment.attributes
+  "author
+                          CDATA
+                                    #IMPLIED
+               time
+                          CDATA
+                                    #IMPLIED
+               disposition
+                          CDATA
+                                    #IMPLIED
+   %univ-atts-translate-no;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % draft-comment.element
+  "<!--                    LONG NAME: Draft-comment                   -->
+<!ENTITY % draft-comment.content
+              "(#PCDATA |
+                %basic.phandblock; |
+                %data.elements.incl; |
+                %foreign.unknown.incl;)*" 
+>
+<!ENTITY % draft-comment.attributes
+              "author
+                          CDATA
+                                    #IMPLIED
+               time
+                          CDATA
+                                    #IMPLIED
+               disposition
+                          CDATA
+                                    #IMPLIED
+               %univ-atts-translate-no;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  draft-comment %draft-comment.content;>
+<!ATTLIST  draft-comment %draft-comment.attributes;>
+
+
+" 
+>
+<!ENTITY % draft-comment.attlist
+  "%draft-comment.attributes;" 
+>
+<!ENTITY % required-cleanup.attributes
+  "remap
+                          CDATA
+                                    #IMPLIED
+   %univ-atts-translate-no;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % required-cleanup.element
+  "<!--                    LONG NAME: Required-cleanup                -->
+<!ENTITY % required-cleanup.attributes
+              "remap
+                          CDATA
+                                    #IMPLIED
+               %univ-atts-translate-no;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ATTLIST  required-cleanup %required-cleanup.attributes;>
+
+
+" 
+>
+<!ENTITY % required-cleanup.attlist
+  "%required-cleanup.attributes;" 
+>
+<!ENTITY % fn.content
+  "(%fn.cnt;)*" 
+>
+<!ENTITY % fn.attributes
+  "callout
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % fn.element
+  "<!--                    LONG NAME: Fn                              -->
+<!ENTITY % fn.content
+              "(%fn.cnt;)*" 
+>
+<!ENTITY % fn.attributes
+              "callout
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  fn %fn.content;>
+<!ATTLIST  fn %fn.attributes;>
+
+
+" 
+>
+<!ENTITY % fn.attlist
+  "%fn.attributes;" 
+>
+<!ENTITY % indexterm.content
+  "(%words.cnt; |
+    %ph; |
+    %indexterm; |
+    %index-base;)*" 
+>
+<!ENTITY % indexterm.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+               start
+                          CDATA
+                                    #IMPLIED
+               end
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % indexterm.element
+  "<!--                    LONG NAME: Indexterm                       -->
+<!ENTITY % indexterm.content
+              "(%words.cnt; |
+                %ph; |
+                %indexterm; |
+                %index-base;)*" 
+>
+<!ENTITY % indexterm.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               start
+                          CDATA
+                                    #IMPLIED
+               end
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  indexterm %indexterm.content;>
+<!ATTLIST  indexterm %indexterm.attributes;>
+
+
+" 
+>
+<!ENTITY % indexterm.attlist
+  "%indexterm.attributes;" 
+>
+<!ENTITY % index-base.content
+  "(%words.cnt; |
+    %indexterm;)*" 
+>
+<!ENTITY % index-base.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;" 
+>
+<!ENTITY % index-base.element
+  "<!--                    LONG NAME: Index-base                      -->
+<!ENTITY % index-base.content
+              "(%words.cnt; |
+                %indexterm;)*" 
+>
+<!ENTITY % index-base.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;" 
+>
+<!ELEMENT  index-base %index-base.content;>
+<!ATTLIST  index-base %index-base.attributes;>
+
+
+" 
+>
+<!ENTITY % index-base.attlist
+  "%index-base.attributes;" 
+>
+<!ENTITY % indextermref.content
+  "EMPTY" 
+>
+<!ENTITY % indextermref.attributes
+  "keyref
+                          CDATA
+                                    #REQUIRED
+   %univ-atts;" 
+>
+<!ENTITY % indextermref.element
+  "<!--                    LONG NAME: Indextermref                    -->
+<!ENTITY % indextermref.content
+              "EMPTY" 
+>
+<!ENTITY % indextermref.attributes
+              "keyref
+                          CDATA
+                                    #REQUIRED
+               %univ-atts;" 
+>
+<!ELEMENT  indextermref %indextermref.content;>
+<!ATTLIST  indextermref %indextermref.attributes;>
+
+
+" 
+>
+<!ENTITY % indextermref.attlist
+  "%indextermref.attributes;" 
+>
+<!ENTITY % cite.content
+  "(%xrefph.cnt;)*" 
+>
+<!ENTITY % cite.attributes
+  "keyref
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % cite.element
+  "<!--                    LONG NAME: Cite                            -->
+<!ENTITY % cite.content
+              "(%xrefph.cnt;)*" 
+>
+<!ENTITY % cite.attributes
+              "keyref
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  cite %cite.content;>
+<!ATTLIST  cite %cite.attributes;>
+
+
+" 
+>
+<!ENTITY % cite.attlist
+  "%cite.attributes;" 
+>
+<!ENTITY % xref.content
+  "(%xreftext.cnt; |
+    %desc;)*" 
+>
+<!ENTITY % xref.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % xref.element
+  "<!--                    LONG NAME: Xref                            -->
+<!ENTITY % xref.content
+              "(%xreftext.cnt; |
+                %desc;)*" 
+>
+<!ENTITY % xref.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  xref %xref.content;>
+<!ATTLIST  xref %xref.attributes;>
+
+
+" 
+>
+<!ENTITY % xref.attlist
+  "%xref.attributes;" 
+>
+<!ENTITY % alt.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/alt '
+" 
+>
+<!ENTITY % boolean.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/boolean '
+" 
+>
+<!ENTITY % cite.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/cite '
+" 
+>
+<!ENTITY % dd.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dd '
+" 
+>
+<!ENTITY % data.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/data '
+" 
+>
+<!ENTITY % data-about.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/data-about '
+" 
+>
+<!ENTITY % ddhd.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/ddhd '
+" 
+>
+<!ENTITY % desc.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/desc '
+" 
+>
+<!ENTITY % dl.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dl '
+" 
+>
+<!ENTITY % dlentry.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dlentry '
+" 
+>
+<!ENTITY % dlhead.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dlhead '
+" 
+>
+<!ENTITY % draft-comment.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/draft-comment '
+" 
+>
+<!ENTITY % dt.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dt '
+" 
+>
+<!ENTITY % dthd.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/dthd '
+" 
+>
+<!ENTITY % fig.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/fig '
+" 
+>
+<!ENTITY % figgroup.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/figgroup '
+" 
+>
+<!ENTITY % fn.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/fn '
+" 
+>
+<!ENTITY % foreign.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/foreign '
+" 
+>
+<!ENTITY % image.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/image '
+" 
+>
+<!ENTITY % indexterm.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/indexterm '
+" 
+>
+<!ENTITY % index-base.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/index-base '
+" 
+>
+<!ENTITY % indextermref.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/indextermref '
+" 
+>
+<!ENTITY % itemgroup.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/itemgroup '
+" 
+>
+<!ENTITY % keyword.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/keyword '
+" 
+>
+<!ENTITY % li.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/li '
+" 
+>
+<!ENTITY % lines.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/lines '
+" 
+>
+<!ENTITY % longdescref.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/longdescref '
+" 
+>
+<!ENTITY % longquoteref.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/longquoteref '
+" 
+>
+<!ENTITY % lq.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/lq '
+" 
+>
+<!ENTITY % navtitle.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/navtitle '
+" 
+>
+<!ENTITY % note.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/note '
+" 
+>
+<!ENTITY % object.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/object '
+" 
+>
+<!ENTITY % ol.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/ol '
+" 
+>
+<!ENTITY % p.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/p '
+" 
+>
+<!ENTITY % param.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/param '
+" 
+>
+<!ENTITY % ph.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/ph '
+" 
+>
+<!ENTITY % pre.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/pre '
+" 
+>
+<!ENTITY % q.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/q '
+" 
+>
+<!ENTITY % required-cleanup.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/required-cleanup '
+" 
+>
+<!ENTITY % simpletable.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/simpletable '
+" 
+>
+<!ENTITY % sl.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/sl '
+" 
+>
+<!ENTITY % sli.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/sli '
+" 
+>
+<!ENTITY % state.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/state '
+" 
+>
+<!ENTITY % stentry.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/stentry '
+" 
+>
+<!ENTITY % sthead.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/sthead '
+" 
+>
+<!ENTITY % strow.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/strow '
+" 
+>
+<!ENTITY % term.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/term '
+" 
+>
+<!ENTITY % text.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/text '
+" 
+>
+<!ENTITY % title.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/title '
+" 
+>
+<!ENTITY % tm.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/tm '
+" 
+>
+<!ENTITY % ul.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/ul '
+" 
+>
+<!ENTITY % unknown.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/unknown '
+" 
+>
+<!ENTITY % xref.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/xref '
+" 
+>
+
+<!-- ================== commonElementsMod ==================== -->
+ 

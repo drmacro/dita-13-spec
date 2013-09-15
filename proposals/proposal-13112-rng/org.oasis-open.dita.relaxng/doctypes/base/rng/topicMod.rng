@@ -1,29 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-     MODULE:    DITA Topic RNG              
-     VERSION:   1.2                                                
-     DATE:      October 2010                                       
-     ============================================================= -->
-<!--
-     Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:topicMod.rng
-     To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:topicMod.rng:1.2
--->
-<!-- ============================================================= 
-     SYSTEM:     Darwin Information Typing Architecture (DITA)     
-     PURPOSE:    Relax NG schema to declare the elements and 
-                 specialization attributes for the base Topic type             
-     ORIGINAL CREATION DATE:  
-     September 2010                                                
-     (C) Copyright Syncro Soft 2010-2011                                
-     All Rights Reserved.                                          
-     ============================================================= -->
 <grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-  
+ <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Topic Module</moduleTitle>
+   <headerComment><![CDATA[
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA DITA Topic                                  
+ VERSION:   1.2                                              
+ DATE:      November 2009                                    
+                                                             
+=============================================================
+
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"
+      Delivered as file "topic.mod"                               
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Declaring the elements and specialization        
+            attributes for the base Topic type               
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2005.11.15 RDA: Corrected the public ID for tblDecl.mod   
+   2005.11.15 RDA: Removed old declaration for topicreftypes 
+                   entity                                    
+   2005.11.15 RDA: Corrected the PURPOSE in this comment     
+   2005.11.15 RDA: Corrected Long Names for alt, indextermref
+   2006.06.06 RDA: Bug fixes:                                
+                   Added xref and fn to fig.cnt              
+                   Remove xmlns="" from global-atts          
+   2006.06.06 RDA: Moved shared items to commonElements file 
+   2006.06.07 RDA: Added abstract> element                  
+   2006.06.07 RDA: Make universal attributes universal       
+                     (DITA 1.1 proposal #12)                 
+   2006.06.14 RDA: Add dir attribute to localization-atts    
+   2006.06.20 RDA: defn.cnt now explicitly sets its content  
+   2006.07.06 RDA: Moved class attributes in from topicAttr  
+   2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
+                     attributes                              
+   2006.11.30 RDA: Remove #FIXED from DITAArchVersion        
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2008.01.28 RDA: Add draft-comment to body.cnt             
+   2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod    
+   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
+   2008.02.12 RDA: Add ph to linktext, navtitle, searchtitle 
+   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+   2008.02.12 RDA: Move navtitle to commonElements.mod       
+   2008.02.13 RDA: Add bodydiv and sectiondiv                
+   2008.02.13 RDA: Create .content and .attributes entities  
+   2008.05.06 RDA: Moved sectiondiv to section.cnt; created  
+                   example.cnt for use by example element    
+=============================================================
+]]></headerComment>
+   <moduleMetadata>
+     <moduleType>topic</moduleType>
+     <modulePublicIds>
+       <dtdMod>-//OASIS//ELEMENTS DITA Topic//EN</dtdMod>
+       <xsdMod>urn:oasis:names:tc:dita:xsd:topicMod.xsd</xsdMod>
+       <rncMod>urn:oasis:names:tc:dita:rnc:topicMod.rnc</rncMod>
+       <rngMod>urn:oasis:names:tc:dita:rng:topicMod.rng</rngMod>
+     </modulePublicIds>
+   </moduleMetadata>
+ </moduleDesc>  
   <!-- Define the domain values of this module -->
   <define name="domains-att-contribution" combine="choice">
     <value></value>

@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-     MODULE:    DITA Highlight Domain - RNG              
-     VERSION:   1.2                                                
-     DATE:      October 2010                                       
-     ============================================================= -->
-<!--
-     Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:highlightDomainMod.rng
-     To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:highlightDomainMod.rng:1.2
--->
-<!-- ============================================================= 
-     SYSTEM:     Darwin Information Typing Architecture (DITA)     
-     PURPOSE:    Define elements and specialization attributes
-                 for Highlight Domain             
-     ORIGINAL CREATION DATE:  
-     September 2010                                                
-     (C) Copyright Syncro Soft 2010-2011                                
-     All Rights Reserved.                                          
-     ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0">
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Highlight Domain</moduleTitle>
+   <headerComment><![CDATA[
+============================================================= 
+                    HEADER                                     
+ ============================================================= 
+  MODULE:    DITA Highlight Domain                             
+  VERSION:   1.2                                               
+  DATE:      November 2009                                     
+                                                               
+ ============================================================= 
+
+ ============================================================= 
+ SYSTEM:     Darwin Information Typing Architecture (DITA)     
+                                                               
+ PURPOSE:    Define elements and specialization attributes     
+             for Highlight Domain                              
+                                                               
+ ORIGINAL CREATION DATE:                                       
+             March 2001                                        
+                                                               
+             (C) Copyright OASIS Open 2005, 2009.              
+             (C) Copyright IBM Corporation 2001, 2004.         
+             All Rights Reserved.                              
+                                                               
+  UPDATES:                                                     
+    2005.11.15 RDA: Corrected descriptive names for all        
+                    elements except bold                       
+    2005.11.15 RDA: Corrected the "Delivered as" system ID     
+    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
+    2008.02.13 RDA: Create .content and .attributes entities   
+ =============================================================      
+ ]]></headerComment>
+   <moduleMetadata>
+     <moduleType>elementDomain</moduleType>
+     <modulePublicIds>
+       <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>
+       <dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN</dtdEnt>
+       <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomain.xsd</xsdMod>
+       <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomain.rnc</rncMod>
+       <rngMod>urn:oasis:names:tc:dita:rng:highlightDomain.rng</rngMod>
+     </modulePublicIds>
+   </moduleMetadata>
+ </moduleDesc>  
   
-  <!-- Define the domain values of this module -->
-  <define name="domains-att-value" combine="choice">
+  <!-- Define the domain attribute contribution for this module -->
+  <define name="domains-att-contribution" combine="choice">
     <value>(topic hi-d)</value>
   </define>
   
@@ -45,7 +70,6 @@
   
   <!-- Define elements content and attributes -->
   
-  <!-- LONG NAME: Bold -->
   <define name="b.content">
     <zeroOrMore>
       <choice>
@@ -63,7 +87,7 @@
     </optional>
   </define>
   <define name="b.element">
-    <element name="b">
+    <element name="b" ditaarch:longName="Bold">
       <a:documentation>The bold (&lt;b>) element is used to apply bold highlighting to the content
         of the element. Use this element only when there is not some other more proper element. For
         example, for specific items such as GUI controls, use the &lt;uicontrol> element. This
@@ -77,7 +101,6 @@
     <ref name="b.attributes"/>
   </define>
   
-  <!-- LONG NAME: Underlined -->
   <define name="u.content">
     <zeroOrMore>
       <choice>
@@ -95,7 +118,7 @@
     </optional>
   </define>
   <define name="u.element">
-    <element name="u">
+    <element name="u" ditaarch:longName="Underlined">
       <a:documentation>The underline (&lt;u>) element is used to apply underline highlighting to the
         content of the element. 
         Category: Typographic elements</a:documentation>
@@ -107,7 +130,6 @@
     <ref name="u.attributes"/>
   </define>
   
-  <!-- LONG NAME: Italic -->
   <define name="i.content">
     <zeroOrMore>
       <choice>
@@ -125,7 +147,7 @@
     </optional>
   </define>
   <define name="i.element">
-    <element name="i">
+    <element name="i" ditaarch:longName="Italic">
       <a:documentation>The italic (&lt;i>) element is used to apply italic highlighting to the
         content of the element. 
         Category: Typographic elements</a:documentation>
@@ -137,7 +159,6 @@
     <ref name="i.attributes"/>
   </define>
   
-  <!-- LONG NAME: Teletype (monospaced) -->
   <define name="tt.content">
     <zeroOrMore>
       <choice>
@@ -155,7 +176,7 @@
     </optional>
   </define>
   <define name="tt.element">
-    <element name="tt">
+    <element name="tt" ditaarch:longName="Teletype (monospaced)">
       <a:documentation> The teletype (&lt;tt>) element is used to apply monospaced highlighting to
         the content of the element. 
         Category: Typographic elements </a:documentation>
@@ -167,7 +188,6 @@
     <ref name="tt.attributes"/>
   </define>
   
-  <!-- LONG NAME: Superscript -->
   <define name="sup.content">
     <zeroOrMore>
       <choice>
@@ -185,7 +205,7 @@
     </optional>
   </define>
   <define name="sup.element">
-    <element name="sup">
+    <element name="sup" ditaarch:longName="Superscript">
       <a:documentation>The superscript (&lt;sup>) element indicates that text should be
         superscripted, or vertically raised in relationship to the surrounding text. Superscripts
         are usually a smaller font than the surrounding text. Use this element only when there is
@@ -199,7 +219,6 @@
     <ref name="sup.attributes"/>
   </define>
   
-  <!-- LONG NAME: Subscript -->
   <define name="sub.content">
     <zeroOrMore>
       <choice>
@@ -217,7 +236,7 @@
     </optional>
   </define>
   <define name="sub.element">
-    <element name="sub">
+    <element name="sub" ditaarch:longName="Subscript">
       <a:documentation>A subscript (&lt;sub>) indicates that text should be subscripted, or placed
         lower in relationship to the surrounding text. Subscripted text is often a smaller font than
         the surrounding text. Formatting may vary depending on your output process. This element is

@@ -78,7 +78,7 @@
         <p>This proposal defines a new attribute domain module, "deliveryTarget". This module will need to be integrated into each TC-defined document type shell.</p>
         <fig
           id="fig_ww5_3rc_hl">
-          <title>deliverTarget attribute domain RelaxNG declarations</title>
+          <title>deliveryTarget attribute domain RelaxNG declarations</title>
           <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;!-- ============================================================= -->
 &lt;!--                    HEADER                                     -->

@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  ============================================================= -->
+<!--                     HEADER                                     -->
+<!--  ============================================================= -->
+<!--   MODULE:    DITA DITA Topic                                   -->
+<!--   VERSION:   1.2                                               -->
+<!--   DATE:      November 2009                                     -->
+<!--                                                                -->
+<!--  ============================================================= -->
+<!--  ============================================================= -->
+<!--                     PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                     TYPICAL INVOCATION                         -->
+<!--                                                                -->
+<!--   Refer to this file by the following public identifier or an -->
+<!--       appropriate system identifier -->
+<!-- PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"-->
+<!--       Delivered as file "topic.mod"                                -->
+<!--  ============================================================= -->
+<!--  SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                                -->
+<!--  PURPOSE:    Declaring the elements and specialization         -->
+<!--              attributes for the base Topic type                -->
+<!--                                                                -->
+<!--  ORIGINAL CREATION DATE:                                       -->
+<!--              March 2001                                        -->
+<!--                                                                -->
+<!--              (C) Copyright OASIS Open 2005, 2009.              -->
+<!--              (C) Copyright IBM Corporation 2001, 2004.         -->
+<!--              All Rights Reserved.                              -->
+<!--                                                                -->
+<!--   UPDATES:                                                     -->
+<!--     2005.11.15 RDA: Corrected the public ID for tblDecl.mod    -->
+<!--     2005.11.15 RDA: Removed old declaration for topicreftypes  -->
+<!--                     entity                                     -->
+<!--     2005.11.15 RDA: Corrected the PURPOSE in this comment      -->
+<!--     2005.11.15 RDA: Corrected Long Names for alt, indextermref -->
+<!--     2006.06.06 RDA: Bug fixes:                                 -->
+<!--                     Added xref and fn to fig.cnt               -->
+<!--                     Remove xmlns="" from global-atts           -->
+<!--     2006.06.06 RDA: Moved shared items to commonElements file  -->
+<!--     2006.06.07 RDA: Added <abstract> element                   -->
+<!--     2006.06.07 RDA: Make universal attributes universal        -->
+<!--                       (DITA 1.1 proposal #12)                  -->
+<!--     2006.06.14 RDA: Add dir attribute to localization-atts     -->
+<!--     2006.06.20 RDA: defn.cnt now explicitly sets its content   -->
+<!--     2006.07.06 RDA: Moved class attributes in from topicAttr   -->
+<!--     2006.11.30 RDA: Add -dita-use-conref-target to enumerated  -->
+<!--                       attributes                               -->
+<!--     2006.11.30 RDA: Remove #FIXED from DITAArchVersion         -->
+<!--     2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       -->
+<!--     2008.01.28 RDA: Add draft-comment to body.cnt              -->
+<!--     2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod     -->
+<!--     2008.01.30 RDA: Replace @conref defn. with %conref-atts;   -->
+<!--     2008.02.12 RDA: Add ph to linktext, navtitle, searchtitle  -->
+<!--     2008.02.12 RDA: Modify imbeds to use specific 1.2 version  -->
+<!--     2008.02.12 RDA: Move navtitle to commonElements.mod        -->
+<!--     2008.02.13 RDA: Add bodydiv and sectiondiv                 -->
+<!--     2008.02.13 RDA: Create .content and .attributes entities   -->
+<!--     2008.05.06 RDA: Moved sectiondiv to section.cnt; created   -->
+<!--                     example.cnt for use by example element     -->
+<!--  =============================================================     -->
+
+<!-- ============================================================= -->
+<!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      -->
+<!-- ============================================================= -->
+
+<!ENTITY % domains-att-contribution
+  "" 
+>
+<!ENTITY % arch-atts
+  "ditaarch:DITAArchVersion
+                          CDATA
+                                    '1.2'
+" 
+>
+<!ENTITY % topic-info-types
+  "%info-types;" 
+>
+<!ENTITY % info-types
+  "topic" 
+>
+<!ENTITY % abstract
+  "abstract" 
+>
+<!ENTITY % body
+  "body" 
+>
+<!ENTITY % bodydiv
+  "bodydiv" 
+>
+<!ENTITY % example
+  "example" 
+>
+<!ENTITY % link
+  "link" 
+>
+<!ENTITY % linkinfo
+  "linkinfo" 
+>
+<!ENTITY % linklist
+  "linklist" 
+>
+<!ENTITY % linkpool
+  "linkpool" 
+>
+<!ENTITY % linktext
+  "linktext" 
+>
+<!ENTITY % prolog
+  "prolog" 
+>
+<!ENTITY % related-links
+  "related-links" 
+>
+<!ENTITY % searchtitle
+  "searchtitle" 
+>
+<!ENTITY % section
+  "section" 
+>
+<!ENTITY % sectiondiv
+  "sectiondiv" 
+>
+<!ENTITY % shortdesc
+  "shortdesc" 
+>
+<!ENTITY % titlealts
+  "titlealts" 
+>
+<!ENTITY % abstract.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %shortdesc; |
+   %txt.incl;" 
+>
+<!ENTITY % body.cnt
+  "%basic.block; |
+   %data.elements.incl; |
+   %draft-comment; |
+   %foreign.unknown.incl; |
+   %required-cleanup;" 
+>
+<!ENTITY % bodydiv.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % example.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %title; |
+   %txt.incl;" 
+>
+<!ENTITY % section.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %sectiondiv; |
+   %title; |
+   %txt.incl;" 
+>
+<!ENTITY % section.notitle.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %sectiondiv; |
+   %txt.incl;" 
+>
+<!ENTITY % sectiondiv.cnt
+  "#PCDATA |
+   %basic.block; |
+   %basic.ph; |
+   %data.elements.incl; |
+   %foreign.unknown.incl; |
+   %txt.incl;" 
+>
+<!ENTITY % relational-atts
+  "type
+                          CDATA
+                                    #IMPLIED
+               format
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               role
+                          (ancestor |
+                           child |
+                           cousin |
+                           descendant |
+                           external |
+                           friend |
+                           next |
+                           other |
+                           parent |
+                           previous |
+                           sample |
+                           sibling |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               otherrole
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % topic.content
+  "(%title;
+    (%titlealts;)?,
+    (%shortdesc; |
+     %abstract;)?,
+    (%prolog;)?,
+    (%body;)?,
+    (%related-links;)?,
+    (%topic-info-types;)*)" 
+>
+<!ENTITY % topic.attributes
+  "id
+                          ID
+                                    #REQUIRED
+   %conref-atts;
+   %select-atts;
+   %localization-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % topic.element
+  "<!--                    LONG NAME: Topic                           -->
+<!ENTITY % topic.content
+              "(%title;
+                (%titlealts;)?,
+                (%shortdesc; |
+                 %abstract;)?,
+                (%prolog;)?,
+                (%body;)?,
+                (%related-links;)?,
+                (%topic-info-types;)*)" 
+>
+<!ENTITY % topic.attributes
+              "id
+                          ID
+                                    #REQUIRED
+               %conref-atts;
+               %select-atts;
+               %localization-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % arch-atts
+              "ditaarch:DITAArchVersion
+                          CDATA
+                                    '1.2'
+" 
+>
+<!ELEMENT  topic %topic.content;>
+<!ATTLIST  topic %topic.attributes;>
+
+
+" 
+>
+<!ENTITY % topic.attlist
+  "(%topic.attributes;
+    %arch-atts;
+    %domains-att;)" 
+>
+<!ENTITY % titlealts.content
+  "((%navtitle;)?,
+    (%searchtitle;)?)" 
+>
+<!ENTITY % titlealts.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % titlealts.element
+  "<!--                    LONG NAME: Title Alternatives              -->
+<!ENTITY % titlealts.content
+              "((%navtitle;)?,
+                (%searchtitle;)?)" 
+>
+<!ENTITY % titlealts.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  titlealts %titlealts.content;>
+<!ATTLIST  titlealts %titlealts.attributes;>
+
+
+" 
+>
+<!ENTITY % titlealts.attlist
+  "%titlealts.attributes;" 
+>
+<!ENTITY % searchtitle.content
+  "(%words.cnt; |
+    %ph;)*" 
+>
+<!ENTITY % searchtitle.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % searchtitle.element
+  "<!--                    LONG NAME: Search Title                    -->
+<!ENTITY % searchtitle.content
+              "(%words.cnt; |
+                %ph;)*" 
+>
+<!ENTITY % searchtitle.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  searchtitle %searchtitle.content;>
+<!ATTLIST  searchtitle %searchtitle.attributes;>
+
+
+" 
+>
+<!ENTITY % searchtitle.attlist
+  "%searchtitle.attributes;" 
+>
+<!ENTITY % abstract.content
+  "(%abstract.cnt;)*" 
+>
+<!ENTITY % abstract.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % abstract.element
+  "<!--                    LONG NAME: Abstract                        -->
+<!ENTITY % abstract.content
+              "(%abstract.cnt;)*" 
+>
+<!ENTITY % abstract.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  abstract %abstract.content;>
+<!ATTLIST  abstract %abstract.attributes;>
+
+
+" 
+>
+<!ENTITY % abstract.attlist
+  "%abstract.attributes;" 
+>
+<!ENTITY % body.content
+  "(%body.cnt; |
+    %bodydiv; |
+    %example; |
+    %section;)*" 
+>
+<!ENTITY % body.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % body.element
+  "<!--                    LONG NAME: Body                            -->
+<!ENTITY % body.content
+              "(%body.cnt; |
+                %bodydiv; |
+                %example; |
+                %section;)*" 
+>
+<!ENTITY % body.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  body %body.content;>
+<!ATTLIST  body %body.attributes;>
+
+
+" 
+>
+<!ENTITY % body.attlist
+  "%body.attributes;" 
+>
+<!ENTITY % bodydiv.content
+  "(%bodydiv.cnt; |
+    %bodydiv; |
+    %section;)*" 
+>
+<!ENTITY % bodydiv.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % bodydiv.element
+  "<!--                    LONG NAME: Body division                   -->
+<!ENTITY % bodydiv.content
+              "(%bodydiv.cnt; |
+                %bodydiv; |
+                %section;)*" 
+>
+<!ENTITY % bodydiv.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  bodydiv %bodydiv.content;>
+<!ATTLIST  bodydiv %bodydiv.attributes;>
+
+
+" 
+>
+<!ENTITY % bodydiv.attlist
+  "%bodydiv.attributes;" 
+>
+<!ENTITY % no-topic-nesting.element
+  "<!--                    LONG NAME: No Topic nesting                -->
+
+
+" 
+>
+<!ENTITY % section.content
+  "(%section.cnt;)*" 
+>
+<!ENTITY % section.attributes
+  "spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % section.element
+  "<!--                    LONG NAME: Section                         -->
+<!ENTITY % section.content
+              "(%section.cnt;)*" 
+>
+<!ENTITY % section.attributes
+              "spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  section %section.content;>
+<!ATTLIST  section %section.attributes;>
+
+
+" 
+>
+<!ENTITY % section.attlist
+  "%section.attributes;" 
+>
+<!ENTITY % sectiondiv.content
+  "(%sectiondiv.cnt; |
+    %sectiondiv;)*" 
+>
+<!ENTITY % sectiondiv.attributes
+  "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % sectiondiv.element
+  "<!--                    LONG NAME: Section division                -->
+<!ENTITY % sectiondiv.content
+              "(%sectiondiv.cnt; |
+                %sectiondiv;)*" 
+>
+<!ENTITY % sectiondiv.attributes
+              "%univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  sectiondiv %sectiondiv.content;>
+<!ATTLIST  sectiondiv %sectiondiv.attributes;>
+
+
+" 
+>
+<!ENTITY % sectiondiv.attlist
+  "%sectiondiv.attributes;" 
+>
+<!ENTITY % example.content
+  "(%example.cnt;)*" 
+>
+<!ENTITY % example.attributes
+  "spectitle
+                          CDATA
+                                    #IMPLIED
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % example.element
+  "<!--                    LONG NAME: Example                         -->
+<!ENTITY % example.content
+              "(%example.cnt;)*" 
+>
+<!ENTITY % example.attributes
+              "spectitle
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  example %example.content;>
+<!ATTLIST  example %example.attributes;>
+
+
+" 
+>
+<!ENTITY % example.attlist
+  "%example.attributes;" 
+>
+<!ENTITY % prolog.content
+  "((%author;)*,
+    (%source;)?,
+    (%publisher;)?,
+    (%copyright;)*,
+    (%critdates;)?,
+    (%permissions;)?,
+    (%metadata;)*,
+    (%resourceid;)*,
+    (%data.elements.incl; |
+     %foreign.unknown.incl;)*)" 
+>
+<!ENTITY % prolog.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % prolog.element
+  "<!--                    LONG NAME: Prolog                          -->
+<!ENTITY % prolog.content
+              "((%author;)*,
+                (%source;)?,
+                (%publisher;)?,
+                (%copyright;)*,
+                (%critdates;)?,
+                (%permissions;)?,
+                (%metadata;)*,
+                (%resourceid;)*,
+                (%data.elements.incl; |
+                 %foreign.unknown.incl;)*)" 
+>
+<!ENTITY % prolog.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  prolog %prolog.content;>
+<!ATTLIST  prolog %prolog.attributes;>
+
+
+" 
+>
+<!ENTITY % prolog.attlist
+  "%prolog.attributes;" 
+>
+<!ENTITY % related-links.content
+  "(%link; |
+    %linklist; |
+    %linkpool;)*" 
+>
+<!ENTITY % related-links.attributes
+  "%relational-atts;
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % related-links.element
+  "<!--                    LONG NAME: Related Links                   -->
+<!ENTITY % related-links.content
+              "(%link; |
+                %linklist; |
+                %linkpool;)*" 
+>
+<!ENTITY % related-links.attributes
+              "%relational-atts;
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  related-links %related-links.content;>
+<!ATTLIST  related-links %related-links.attributes;>
+
+
+" 
+>
+<!ENTITY % related-links.attlist
+  "%related-links.attributes;" 
+>
+<!ENTITY % link.content
+  "((%linktext;)?,
+    (%desc;)?)" 
+>
+<!ENTITY % link.attributes
+  "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               query
+                          CDATA
+                                    #IMPLIED
+   %relational-atts;
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % link.element
+  "<!--                    LONG NAME: Link                            -->
+<!ENTITY % link.content
+              "((%linktext;)?,
+                (%desc;)?)" 
+>
+<!ENTITY % link.attributes
+              "href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               query
+                          CDATA
+                                    #IMPLIED
+               %relational-atts;
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  link %link.content;>
+<!ATTLIST  link %link.attributes;>
+
+
+" 
+>
+<!ENTITY % link.attlist
+  "%link.attributes;" 
+>
+<!ENTITY % linktext.content
+  "(%words.cnt; |
+    %ph;)*" 
+>
+<!ENTITY % linktext.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % linktext.element
+  "<!--                    LONG NAME: Link Text                       -->
+<!ENTITY % linktext.content
+              "(%words.cnt; |
+                %ph;)*" 
+>
+<!ENTITY % linktext.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  linktext %linktext.content;>
+<!ATTLIST  linktext %linktext.attributes;>
+
+
+" 
+>
+<!ENTITY % linktext.attlist
+  "%linktext.attributes;" 
+>
+<!ENTITY % linklist.content
+  "((%title;)?,
+    (%desc;)?,
+    (%linklist; |
+     %link;)*,
+    (%linkinfo;)?)" 
+>
+<!ENTITY % linklist.attributes
+  "collection-type
+                          (choice |
+                           family |
+                           sequence |
+                           tree |
+                           unordered |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               duplicates
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+   %relational-atts;
+   %univ-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % linklist.element
+  "<!--                    LONG NAME: Link List                       -->
+<!ENTITY % linklist.content
+              "((%title;)?,
+                (%desc;)?,
+                (%linklist; |
+                 %link;)*,
+                (%linkinfo;)?)" 
+>
+<!ENTITY % linklist.attributes
+              "collection-type
+                          (choice |
+                           family |
+                           sequence |
+                           tree |
+                           unordered |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               duplicates
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+               %relational-atts;
+               %univ-atts;
+               spectitle
+                          CDATA
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  linklist %linklist.content;>
+<!ATTLIST  linklist %linklist.attributes;>
+
+
+" 
+>
+<!ENTITY % linklist.attlist
+  "%linklist.attributes;" 
+>
+<!ENTITY % linkinfo.content
+  "(%desc.cnt;)*" 
+>
+<!ENTITY % linkinfo.attributes
+  "%univ-atts;" 
+>
+<!ENTITY % linkinfo.element
+  "<!--                    LONG NAME: Link Information                -->
+<!ENTITY % linkinfo.content
+              "(%desc.cnt;)*" 
+>
+<!ENTITY % linkinfo.attributes
+              "%univ-atts;" 
+>
+<!ELEMENT  linkinfo %linkinfo.content;>
+<!ATTLIST  linkinfo %linkinfo.attributes;>
+
+
+" 
+>
+<!ENTITY % linkinfo.attlist
+  "%linkinfo.attributes;" 
+>
+<!ENTITY % linkpool.content
+  "(%linkpool; |
+    %link;)*" 
+>
+<!ENTITY % linkpool.attributes
+  "collection-type
+                          (choice |
+                           family |
+                           sequence |
+                           tree |
+                           unordered |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               duplicates
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+   %relational-atts;
+   %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ENTITY % linkpool.element
+  "<!--                    LONG NAME: Link Pool                       -->
+<!ENTITY % linkpool.content
+              "(%linkpool; |
+                %link;)*" 
+>
+<!ENTITY % linkpool.attributes
+              "collection-type
+                          (choice |
+                           family |
+                           sequence |
+                           tree |
+                           unordered |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               duplicates
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               mapkeyref
+                          CDATA
+                                    #IMPLIED
+               %relational-atts;
+               %univ-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED
+" 
+>
+<!ELEMENT  linkpool %linkpool.content;>
+<!ATTLIST  linkpool %linkpool.attributes;>
+
+
+" 
+>
+<!ENTITY % linkpool.attlist
+  "%linkpool.attributes;" 
+>
+<!ENTITY % abstract.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/abstract '
+" 
+>
+<!ENTITY % body.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/body '
+" 
+>
+<!ENTITY % bodydiv.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/bodydiv '
+" 
+>
+<!ENTITY % example.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/example '
+" 
+>
+<!ENTITY % link.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/link '
+" 
+>
+<!ENTITY % linkinfo.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/linkinfo '
+" 
+>
+<!ENTITY % linklist.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/linklist '
+" 
+>
+<!ENTITY % linkpool.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/linkpool '
+" 
+>
+<!ENTITY % linktext.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/linktext '
+" 
+>
+<!ENTITY % no-topic-nesting.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/no-topic-nesting '
+" 
+>
+<!ENTITY % prolog.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/prolog '
+" 
+>
+<!ENTITY % related-links.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/related-links '
+" 
+>
+<!ENTITY % searchtitle.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/searchtitle '
+" 
+>
+<!ENTITY % section.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/section '
+" 
+>
+<!ENTITY % sectiondiv.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/sectiondiv '
+" 
+>
+<!ENTITY % titlealts.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/titlealts '
+" 
+>
+<!ENTITY % topic.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/topic '
+" 
+>
+<!ENTITY % shortdesc.attlist
+  "%global-atts;
+               class
+                          CDATA
+                                    '- topic/shortdesc '
+" 
+>
+
+<!-- ==================  ==================== -->
+ 
