@@ -12,10 +12,10 @@ MODULE:    Test RNG DTD Shell
    <moduleMetadata>
      <moduleType>topic</moduleType>
      <shellPublicIds>
-       <dtdShell>-//OASIS//DTD Test With MathML RNG Shell//EN</dtdShell>
-       <rncShell>urn:urn:oasis:names:tc:dita:topic-mathmlDomain-test.rnc</rncShell>
-       <rngShell>urn:urn:oasis:names:tc:dita:topic-mathmlDomain-test.rng</rngShell>
-       <xsdShell>urn:urn:oasis:names:tc:dita:topic-mathmlDomain-test.xsd</xsdShell>
+       <dtdShell>-//OASIS//DTD Test RNG Shell//EN</dtdShell>
+       <rncShell>urn:urn:oasis:names:tc:dita:topic-withdomains-test.rnc</rncShell>
+       <rngShell>urn:urn:oasis:names:tc:dita:topic-withdomains-test.rng</rngShell>
+       <xsdShell>urn:urn:oasis:names:tc:dita:topic-withdomains-test.xsd</xsdShell>
      </shellPublicIds>
    </moduleMetadata>
  </moduleDesc>  <!-- Define the root elements -->
@@ -32,9 +32,6 @@ MODULE:    Test RNG DTD Shell
   </define>
   
   <!-- Include modules -->
-  <include href="../../../../proposal-13111-mathml/org.oasis-open.dita.mathml.doctypes/doctypes/rng/mathmlDomainMod.rng"/>
-  <include href="../../../../proposal-13111-mathml/org.oasis-open.dita.mathml.doctypes/doctypes/rng/equationDomainMod.rng"/>
-
   <include href="../../../org.oasis-open.dita.relaxng/doctypes/base/rng/topicMod.rng"/>
   <!-- Example of overriding the default module integration that's done in the module: -->
   <include href="../../../org.oasis-open.dita.relaxng/doctypes/base/rng/highlightDomainMod.rng">
@@ -57,7 +54,6 @@ MODULE:    Test RNG DTD Shell
         <element>
           <anyName>
             <except>
-              <nsName ns="http://www.w3.org/1998/Math/MathML"/>
               <name>topic</name>
             </except>
           </anyName>
