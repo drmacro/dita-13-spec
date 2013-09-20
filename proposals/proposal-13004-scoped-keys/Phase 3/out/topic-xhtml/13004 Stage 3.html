@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Stage 3 proposal: Feature #13004"/>
+<meta name="abstract" content="Proposal to provide a mechanism for different effective key definitions at different locations within a map structure."/>
+<meta name="description" content="Proposal to provide a mechanism for different effective key definitions at different locations within a map structure."/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic_aqh_5zt_3h"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Stage 3 proposal: Feature #13004</title>
+</head>
+<body>
+
+
+  <div class="nested0" id="topic_aqh_5zt_3h">
+    <h1 class="title topictitle1">Stage 3 proposal: Feature #13004</h1>
+
+    
+    <div class="body"><p class="shortdesc">Proposal to provide a mechanism for different effective key definitions at different
+      locations within a map structure.</p>
+
+      <div class="section"><h2 class="title sectiontitle">Champion</h2>
+        
+        <p class="p">Chris Nitchie, Oberon Technologies, <a class="xref" href="mailto:chris.nitchie@oberontech.com" target="_blank">chris.nitchie@oberontech.com</a></p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Tracking information</h2>
+        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead">
+            <th valign="bottom" align="left" id="d26e37" class="stentry" width="33.333333333333336%">Event</th>
+
+            <th valign="bottom" align="left" id="d26e40" class="stentry" width="33.333333333333336%">Date</th>
+
+            <th valign="bottom" align="left" id="d26e43" class="stentry" width="33.333333333333336%">Links</th>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 1 proposal accepted</td>
+
+            <td valign="top" headers="d26e40" class="stentry">June 21, 2011</td>
+
+            <td valign="top" headers="d26e43" class="stentry"><a class="xref" href="http://lists.oasis-open.org/archives/dita/201106/msg00036.html" target="_blank">Meeting Minutes</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 2 proposal submitted</td>
+
+            <td valign="top" headers="d26e40" class="stentry">
+              <p class="p">Initial Revision: January 22, 2012</p>
+
+              <p class="p">Final Revision: April 23, 2013</p>
+
+            </td>
+
+            <td valign="top" headers="d26e43" class="stentry">
+              <p class="p">Initial Revision: <a class="xref" href="https://www.oasis-open.org/committees/download.php/44886/1-3proposal-13004.htm" target="_blank">HTML</a> (no DITA by accident)</p>
+
+              <p class="p">Final Revision: <a class="xref" href="https://www.oasis-open.org/committees/download.php/48898/1-3proposal-13004.html" target="_blank">HTML</a>, <a class="xref" href="https://www.oasis-open.org/committees/download.php/48897/1-3proposal-13004.dita" target="_blank">DITA</a></p>
+
+            </td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 2 proposal discussed</td>
+
+            <td valign="top" headers="d26e40" class="stentry">
+              <p class="p">January 24, 2012</p>
+
+              <p class="p">April 9, 2013</p>
+
+              <p class="p">April 23, 2013</p>
+
+            </td>
+
+            <td valign="top" headers="d26e43" class="stentry">
+              <p class="p"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/44905/minutes20120124.txt" target="_blank">January 24, 2012</a></p>
+
+              <p class="p"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/48894/minutes20130409.txt" target="_blank">April 9, 2013</a></p>
+
+              <p class="p"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49009/minute20130423.txt" target="_blank">April 23, 2013</a></p>
+
+            </td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 2 proposal approved</td>
+
+            <td valign="top" headers="d26e40" class="stentry">April 30, 2013</td>
+
+            <td valign="top" headers="d26e43" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49092/minutes20130430.txt" target="_blank">Minutes</a></td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 3 proposal submitted to reviewers</td>
+
+            <td valign="top" headers="d26e40" class="stentry">July 8, 2013</td>
+
+            <td valign="top" headers="d26e43" class="stentry">David Helfinstine, Eliot Kimber</td>
+
+          </tr>
+<tr class="strow">
+            <td valign="top" headers="d26e37" class="stentry">Stage 3 proposal (this document) submitted</td>
+
+            <td valign="top" headers="d26e40" class="stentry"> </td>
+
+            <td valign="top" headers="d26e43" class="stentry"> </td>
+
+          </tr>
+</table>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>
+        
+        <p class="p">Future post DITA 1.2 work from Issue #12007: Item 2: Consider adding a scoping mechanism
+          for use with key definitions and possibly other aspects of DITA based on the map hierarchy
+          or the combined element hierarchy within a set of maps. Related topic: Consider allowing
+          subsequent key definitions within the same map or within peer maps to override previous
+          key definitions, probably as part of some hierarchal scope, and probably in a fashion that
+          is the same as or similar to override mechanisms to be developed for other features such
+          as ditaval.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>
+        
+        <p class="p">13041, cross-deliverable linking, depends heavily on this proposal.</p>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>
+        
+        <p class="p">The <samp class="ph codeph">topicref-atts</samp> entity and its relatives from
+              <strong class="ph b"><span class="ph filepath">map.mod</span></strong> will be modified with the new
+            <samp class="ph codeph">@keyscope</samp> attribute.</p>
+
+        <pre class="pre codeblock">&lt;!ENTITY % topicref-atts 
+             "collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                        (normal |
+                         resource-only |
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+<strong class="ph b">              keyscope
+                        CDATA
+                                  #IMPLIED
+</strong>  "
+&gt;
+
+&lt;!ENTITY % topicref-atts-no-toc 
+             'collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                        (normal |
+                         resource-only |
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target)
+                                  "no"
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+<strong class="ph b">              keyscope
+                        CDATA
+                                  #IMPLIED
+</strong>  '
+&gt;
+
+&lt;!ENTITY % topicref-atts-without-format 
+             "collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                        (normal |
+                         resource-only |
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+<strong class="ph b">              keyscope
+                        CDATA
+                                  #IMPLIED
+</strong>  "
+&gt;
+
+</pre>
+
+        <p class="p"><strong class="ph b"><span class="ph filepath">learningDomain.mod</span></strong></p>
+
+        <pre class="pre codeblock">&lt;!-- Attributes that are common to each topicref specialization in this domain --&gt;
+&lt;!ENTITY % learningDomain-topicref-atts-no-chunk
+             "navtitle
+                        CDATA
+                                  #IMPLIED
+              href
+                        CDATA
+                                  #IMPLIED
+              keyref
+                        CDATA
+                                  #IMPLIED
+              keys
+                        CDATA
+                                  #IMPLIED
+<strong class="ph b">              keyscope
+                        CDATA
+                                  #IMPLIED
+</strong>              query
+                        CDATA
+                                  #IMPLIED
+              copy-to
+                        CDATA
+                                  #IMPLIED
+              outputclass
+                        CDATA
+                                  #IMPLIED
+              scope
+                        (external |
+                         local | 
+                         peer | 
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              processing-role
+                        (normal |
+                         resource-only |
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              linking
+                        (targetonly|
+                         sourceonly|
+                         normal|
+                         none | 
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              locktitle
+                        (yes|
+                         no | 
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              toc
+                        (yes|
+                         no | 
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              print
+                        (yes|
+                         no | 
+                         printonly |
+                         -dita-use-conref-target)
+                                   #IMPLIED
+              search
+                        (yes|
+                         no | 
+                         -dita-use-conref-target)
+                                   #IMPLIED
+              %univ-atts;"
+&gt;
+</pre>
+
+        <p class="p"><strong class="ph b"><span class="ph filepath">mapMod.xsd</span></strong></p>
+
+        <pre class="pre codeblock">  &lt;xs:attributeGroup name="topicref-atts"&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;
+        The %topicref-atts; parameter entity represents a group of attributes
+        used in numerous map elements: map, topicref, relcolspec, relcell, topichead,
+        and topicgroup. The set is similar to those documented in &lt;xref href="topicref-atts-no-toc.xml"&gt;topicref-atts-no-toc&lt;/xref&gt;
+        but includes the &lt;i&gt;&lt;keyword&gt;toc&lt;/keyword&gt;&lt;/i&gt; attribute.
+      &lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+     &lt;xs:attribute name="collection-type" type="collection-type.class"/&gt;
+     &lt;xs:attribute name="type" type="xs:string"/&gt;
+    &lt;xs:attribute name="processing-role" type="processing-role-att.class" /&gt;
+     &lt;xs:attribute name="scope" type="scope-att.class"/&gt;
+     &lt;xs:attribute name="locktitle" type="yesno-att.class"/&gt;
+     &lt;xs:attribute name="format" type="xs:string"/&gt;
+     &lt;xs:attribute name="linking" type="linkingtypes.class"/&gt;
+     &lt;xs:attribute name="toc" type="yesno-att.class"/&gt;
+     &lt;xs:attribute name="print" type="print-att.class"/&gt;
+     &lt;xs:attribute name="search" type="yesno-att.class"/&gt;
+     &lt;xs:attribute name="chunk" type="xs:string"/&gt;
+<strong class="ph b">     &lt;xs:attribute name="keyscope" type="xs:string"/&gt;</strong>
+  &lt;/xs:attributeGroup&gt;
+
+&lt;!-- ... --&gt;
+
+  &lt;xs:attributeGroup name="topicref-atts-no-toc"&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;
+        The %topicref-atts-no-toc; parameter entity represents the set
+        of attributes used in the 
+          &lt;xref href="reltable.xml"&gt;reltable&lt;/xref&gt;
+         map
+        element. The set is similar to those documented in 
+          &lt;xref href="topicref-atts.xml"&gt;topicref-atts&lt;/xref&gt;
+         but
+        for &amp;lt;&lt;keyword&gt;reltable&lt;/keyword&gt;&amp;gt; the &lt;i&gt;&lt;keyword&gt;toc&lt;/keyword&gt;&lt;/i&gt; attribute
+        defaults to &lt;q&gt;no&lt;/q&gt;. For the other elements that use the %topicref-atts;
+        group declaration, the &lt;i&gt;&lt;keyword&gt;toc&lt;/keyword&gt;&lt;/i&gt; attribute doesn't have
+        a default; they can inherit their &lt;i&gt;&lt;keyword&gt;toc&lt;/keyword&gt;&lt;/i&gt; value from
+        the nearest container, otherwise it functions upon output as if set to &lt;q&gt;yes&lt;/q&gt;.
+      &lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+    &lt;xs:attribute name="collection-type" type="collection-type.class"/&gt;
+     &lt;xs:attribute name="type" type="xs:string"/&gt;
+    &lt;xs:attribute name="processing-role" type="processing-role-att.class" /&gt;
+     &lt;xs:attribute name="scope" type="scope-att.class"/&gt;
+     &lt;xs:attribute name="locktitle" type="yesno-att.class"/&gt;
+     &lt;xs:attribute name="format" type="xs:string"/&gt;
+     &lt;xs:attribute name="linking" type="linkingtypes.class"/&gt;
+     &lt;xs:attribute name="toc" type="yesno-att.class" default="no"/&gt;
+     &lt;xs:attribute name="print" type="print-att.class"/&gt;
+     &lt;xs:attribute name="search" type="yesno-att.class"/&gt;
+     &lt;xs:attribute name="chunk" type="xs:string"/&gt;
+<strong class="ph b">     &lt;xs:attribute name="keyscope" type="xs:string"/&gt;</strong>
+  &lt;/xs:attributeGroup&gt;
+</pre>
+
+        <p class="p">Unlike the DTDs, in the schemas, the <samp class="ph codeph">topicref-atts-without-format</samp>
+          attribute group is defined in <strong class="ph b"><span class="ph filepath">mapGroupMod.xsd</span></strong> instead of
+            <span class="ph filepath">mapMod.xsd</span>.</p>
+
+        <pre class="pre codeblock">  &lt;xs:attributeGroup name="topicref-atts-without-format"&gt;
+    &lt;xs:annotation&gt;
+      &lt;xs:documentation&gt;
+        The %topicref-atts-without-format; parameter entity represents a group of attributes
+        used in numerous map elements: mapref,
+        and topicgroup. The set is similar to those documented in &lt;xref href="topicref-atts.xml"&gt;topicref-atts&lt;/xref&gt; but
+        excludes the &lt;i&gt;&lt;keyword&gt;format&lt;/keyword&gt;&lt;/i&gt; attribute.
+      &lt;/xs:documentation&gt;
+    &lt;/xs:annotation&gt;
+    &lt;xs:attribute name="collection-type" type="collection-type.class"/&gt;
+    &lt;xs:attribute name="type" type="xs:string"/&gt;
+    &lt;xs:attribute name="processing-role" type="processing-role-att.class" /&gt;
+    &lt;xs:attribute name="scope" type="scope-att.class"/&gt;
+    &lt;xs:attribute name="locktitle" type="yesno-att.class"/&gt;
+    &lt;xs:attribute name="linking" type="linkingtypes.class"/&gt;
+    &lt;xs:attribute name="toc" type="yesno-att.class"/&gt;
+    &lt;xs:attribute name="print" type="print-att.class"/&gt;
+    &lt;xs:attribute name="search" type="yesno-att.class"/&gt;
+    &lt;xs:attribute name="chunk" type="xs:string"/&gt;
+<strong class="ph b">    &lt;xs:attribute name="keyscope" type="xs:string"/&gt;</strong>
+  &lt;/xs:attributeGroup&gt;
+  
+</pre>
+
+        <p class="p"><strong class="ph b"><span class="ph filepath">learningDomain.xsd</span></strong></p>
+
+        <pre class="pre codeblock">    &lt;xs:attributeGroup name="learningDomain-topicref-atts-no-chunk"&gt;
+          &lt;xs:attribute name="navtitle" type="xs:string"/&gt;  
+          &lt;xs:attribute name="href" type="xs:string"/&gt;
+          &lt;xs:attribute name="keyref" type="xs:string"/&gt;  
+          &lt;xs:attribute name="keys" type="xs:string"/&gt;
+<strong class="ph b">          &lt;xs:attribute name="keyscope" type="xs:string"/&gt;</strong>
+          &lt;xs:attribute name="query" type="xs:string"/&gt;
+          &lt;xs:attribute name="copy-to" type="xs:string"/&gt;          
+          &lt;xs:attribute name="outputclass" type="xs:string"/&gt;    
+          &lt;xs:attribute name="scope" type="scope-att.class"/&gt;
+          &lt;xs:attribute name="processing-role" type="processing-role-att.class" /&gt;
+          &lt;xs:attribute name="locktitle" type="yesno-att.class"/&gt;
+          &lt;xs:attribute name="linking" type="linkingtypes.class"/&gt;
+          &lt;xs:attribute name="toc" type="yesno-att.class"/&gt;
+          &lt;xs:attribute name="print" type="print-att.class"/&gt;
+          &lt;xs:attribute name="search" type="yesno-att.class"/&gt;
+          &lt;xs:attributeGroup ref="univ-atts" /&gt;          
+    &lt;/xs:attributeGroup&gt;
+</pre>
+
+      </div>
+
+      <div class="section"><h2 class="title sectiontitle">Modified specification documentation</h2>
+        
+        <p class="p">Provide a listing of new or modified topics. For existing topics, provide the location of
+          the DITA 1.2 topic; for new topics, suggest where you think the topic should be located in
+          the TOC.</p>
+
+        <p class="p">List the exact language suggested for the topics. For existing topics, you can use a
+          table to compare the DITA 1.2 text and the proposed text for DITA 1.3. For new topics, use
+          the templates nested within this topic. </p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_sfk_hxp_sk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 1. <span class="ph filepath">dita-terminology.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e304">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e307">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e304 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">key definition</dt>
+
+                      <dd class="dd">A &lt;topicref&gt; element or specialization of a &lt;topicref&gt; element that
+                        specifies the @keys attribute and defines one or more key names.</dd>
+
+                    
+                    
+                      <dt class="dt dlterm">key resolution context</dt>
+
+                      <dd class="dd">The root map that establishes the context for resolving key references.
+                        For a given key-resolution instance, there is at most one root map that
+                        defines the effective value of the key space, as determined by the key
+                        definition precedence rules..</dd>
+
+                    
+                    
+                      <dt class="dt dlterm">key space</dt>
+
+                      <dd class="dd">The effective set of unique key names that are defined by a given key
+                        resolution context. Within a given key resolution context, a key name has at
+                        most one binding.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e307 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">key definition</dt>
+
+                      <dd class="dd">A &lt;topicref&gt; element or specialization of a &lt;topicref&gt; element that
+                        specifies the @keys attribute and defines one or more key names.</dd>
+
+                    
+                    
+                      <dt class="dt dlterm">key scope</dt>
+
+                      <dd class="dd">A root map or section of a map hierarchy associated with a unique key
+                        space for purposes of key reference resolution.</dd>
+
+                    
+                    
+                      <dt class="dt dlterm">key space</dt>
+
+                      <dd class="dd">The set of unique key names that are defined for a given key scope. Within
+                        a given key scope, a key name has at most one definition, as determined by
+                        the key definition precedence rules.</dd>
+
+                    
+                    
+                      <dt class="dt dlterm">key resolution context</dt>
+
+                      <dd class="dd">The key scope that establishes the context for resolving key references.
+                        For a given key-resolution instance, there is at most one key scope that
+                        defines the effective key space, which in turn provides the effective key
+                        definition.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_y3k_2zp_sk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 2. <span class="ph filepath">definition-of-ditamaps.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e411">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e414">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e411 "><span class="ph" id="topic_aqh_5zt_3h__shortdesc">DITA maps are documents that organize topics and other
+                    resources into structured collections of information. DITA maps specify
+                    hierarchy and the relationships among the topics; they also provide the context
+                    in which keys are defined and resolved. DITA maps <span class="keyword">should</span> have
+                      <span class="ph filepath">.ditamap</span> file extensions.</span></td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e414 "><span class="ph">DITA maps are documents that organize topics and other resources into
+                    structured collections of information. DITA maps specify hierarchy and the
+                    relationships among the topics; they also provide the contexts in which keys are
+                    defined and resolved. DITA maps <span class="keyword">should</span> have
+                      <span class="ph filepath">.ditamap</span> file extensions.</span><div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>Chris Nitchie <br/>One-word change: 'context' to
+                  'contexts'</div>
+</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e411 ">
+                  <p class="p">DITA maps also define keys and provide the context in which key references are
+                    resolved. A &lt;topicref&gt; element (or specialized &lt;topicref&gt; such as
+                    &lt;keydef&gt;) may be used to define a key which binds that key name to a
+                    specified resource.</p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e414 ">
+                  <p class="p">DITA maps also define keys and organize the contexts in which key references
+                    are resolved. A &lt;topicref&gt; or &lt;map&gt; element, or any specialization, may be
+                    used to create a new context for key definition and resolution. A &lt;topicref&gt;
+                    element, or specialized &lt;topicref&gt; such as &lt;keydef&gt;, may also be used to
+                    define a key which binds that key name to a specified resource for references in
+                    the same key scope.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_yc5_gbq_sk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 3. <span class="ph filepath">purpose-of-ditamaps.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e481">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e484">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e481 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">Defining keys</dt>
+
+                      <dd class="dd">Maps can define keys, which provide an indirect addressing mechanism that
+                        enhances portability of content. The keys are defined by &lt;topicref&gt;
+                        elements or specialization of &lt;topicref&gt; elements, such as &lt;keydef&gt;.
+                        The &lt;keydef&gt; element is a convenience element; it is a specialized type
+                        of a &lt;topicref&gt; element with the following attributes:<ul class="ul" id="topic_aqh_5zt_3h__ul_krz_3bq_sk">
+                          <li class="li">A required @keys attribute</li>
+
+                          <li class="li">A @processing-role attribute with a default value of
+                            "resource-only".</li>
+
+                        </ul>
+</dd>
+
+                      <dd class="dd">Maps also are the context for resolving key-based references, such as
+                        elements that specify the @keyref or @conkeyref attribute.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e484 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">Defining keys and key scopes</dt>
+
+                      <dd class="dd">Maps can define keys, which provide an indirect addressing mechanism that
+                        enhances portability of content. The keys are defined by &lt;topicref&gt;
+                        elements or specialization of &lt;topicref&gt; elements, such as &lt;keydef&gt;.
+                        The &lt;keydef&gt; element is a convenience element; it is a specialized type
+                        of a &lt;topicref&gt; element with the following attributes:<ul class="ul" id="topic_aqh_5zt_3h__ul_m24_jbq_sk">
+                          <li class="li">A required @keys attribute</li>
+
+                          <li class="li">A @processing-role attribute with a default value of
+                            "resource-only".</li>
+
+                        </ul>
+</dd>
+
+                      <dd class="dd">Maps also define the context or contexts for resolving key-based
+                        references, such as elements that specify the @keyref or @conkeyref
+                        attribute. Elements within a map structure that specify a @keyscope
+                        attribute create a new context for key reference resolution. Key references
+                        within such elements are resolved against the set of effective key
+                        definitions for that scope.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_fr2_dfq_sk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 4. <span class="ph filepath">ditamap-attributes.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e565">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e568">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e565 ">
+                  <div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>Chris Nitchie <br/>The keyscope entry will ultimately go next
+                    to the entry for keys, which is currently missing from the spec. Reported as a
+                    doc fix.</div>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e568 ">
+                  <dl class="dl">
+                    
+                      <dt class="dt dlterm">keyscope</dt>
+
+                      <dd class="dd">Defines a new scope for key definition and resolution, and gives the scope
+                        one or more names, separated by white space. Key definitions within a scope
+                        can only be addressed directly by key references within the same scope. The
+                        key space defined by a key scope also inherits all of the key definitions
+                        from its parent scope, and if a key is defined in both the parent and child
+                        scopes, the definition from the parent scope takes precedence. Scoped key
+                        definitions are also added to the parent scope's key space, prepended by the
+                        scope name followed by a period. If a scope has more than one name, then
+                        each key within the scope will be contributed to the parent scope once for
+                        each prefix.</dd>
+
+                    
+                  </dl>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_q5r_4hq_sk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 5. <span class="ph filepath">overview_of_keys.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e618">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e621">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e618 ">To use key references, one must understand how keys are defined and bound to
+                  resources, how a map hierarchy establishes a key space, and the interaction of
+                  keys with conditional processing.</td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e621 ">To use key references, one must understand how keys are defined and bound to
+                  resources, how a map hierarchy and key scopes establish key spaces, and the
+                  interaction of keys with conditional processing.</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e618 "><em class="ph i">New section: Key scopes</em></td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e621 ">
+                  <p class="p"><strong class="ph b">Key scopes</strong></p>
+
+                  <p class="p">A key scope defines a key space associated with a segment of the map hierarchy,
+                    the contents of which are described below. It also defineds a key reference
+                    resolution context for key references occurring within the scope-defining
+                    element, associated with that key space. That is, key references within a key
+                    scope are resolved against the key space associated with that key scope.</p>
+
+                  <p class="p">A key scope is declared by setting the @keyscope attribute on a &lt;map&gt;,
+                    &lt;topicref&gt;, or any specialization of &lt;map&gt; or &lt;topicref&gt;, within the
+                    map structure. The value of the @keyscope attribute is the whitespace-delimited
+                    list of names for the key scope. The legal characters for a key scope name are
+                    the same as those for keys.</p>
+
+                  <div class="note note"><span class="notetitle">Note:</span> 
+                    <p class="p">If the @keyscope attribute is specified both on a map element and on a
+                      ltopicref element referencing that map, only one new scope is introduced, not
+                      two. If the topicref has a scope of "local", the set of names for the
+                      resulting key scope is the union of the unique values of the two @keyscope
+                      attributes. If the topicref has a scope of "peer", only the scope names on the
+                      topicref apply, because there may be cases where the referenced map is
+                      unavailable.</p>
+
+                  </div>
+
+                  <p class="p">The key space associated with a key scope consists of the following, in order
+                    of precedence:</p>
+
+                  <ol class="ol" id="topic_aqh_5zt_3h__ol_lhk_kbs_tk">
+                    <li class="li">All keys in the parent key scope's key space, if any.</li>
+
+                    <li class="li">All keys defined within the scope-defining element, including that element
+                      itself and any directly addressed, local scope maps contained by the
+                      scope-defining element, but <em class="ph i">excluding</em> keys defined in other key scopes
+                      contained by the scope-defining element (i.e. child scopes).</li>
+
+                    <li class="li">Keys defined in child scopes, prefixed with the name of the key scope,
+                      followed by a period. If a child key scope has multiple names, then each of
+                      its keys is addressable from the parent key scope using any of the child key
+                      scope's names as a prefix.</li>
+
+                  </ol>
+
+                  <div class="note note"><span class="notetitle">Note:</span> Since a parent scope contains the scope-qualified keys from its child
+                    scopes, and a child key scope inherits all key definitions from its parent
+                    scope, a child scope also contains all of the qualified key names from itself,
+                    as well as its "sibling" scopes.</div>
+
+                  <p class="p">For purposes of key definition precedence within a scope, the implicit
+                    qualified key definitions a parent key scope derives from a child key scope are
+                    considered to occur at the location of the child scope-defining element.</p>
+
+                  <p class="p">The root element in the root map in a map hierarchy always necessarily defines
+                    a key scope, even if its @keyscope attribute is unspecified.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e618 ">
+                  <p class="p"><strong class="ph b">Key spaces</strong></p>
+
+                  <p class="p">A root map and its directly addressed, local scope descendant maps establish a
+                    unique key space within which each unique key name has exactly one binding to a
+                    set of resources.</p>
+
+                  <p class="p">For the purposes of determining the effective key definitions for the key space
+                    represented by a given root map, a map tree is determined by considering only
+                    directly addressed, local scope maps descending from the root map. The order of
+                    subordinate maps is determined by the document order of the topicrefs that point
+                    to them. Indirect references to maps with key references are necessarily ignored
+                    until after the key space is determined.</p>
+
+                  <p class="p">Maps addressed by &lt;navref&gt; do not contribute to the key space of a map tree.
+                    Maps referenced by &lt;navref&gt; are equivalent to maps referenced with a scope of
+                    "peer" or "external" and therefore need not be present or available at the time
+                    the referencing map is processed for purposes of key space construction.</p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e621 ">
+                  <p class="p"><strong class="ph b">Key spaces</strong></p>
+
+                  <p class="p">A key scope-defining element and its directly addressed, local scope descendant
+                    maps establish a unique key space within which each unique key name has exactly
+                    one binding to a set of resources.</p>
+
+                  <p class="p">For the purposes of determining the effective key definitions for the key space
+                    represented by a given key scope, a map tree is determined by considering only
+                    directly addressed, local scope maps descending from the key scope-defining
+                    element. The order of subordinate maps is determined by the document order of
+                    the topicrefs that point to them. Indirect references to maps with key
+                    references are necessarily ignored until after the key space is determined.</p>
+
+                  <p class="p">Maps addressed by &lt;navref&gt; do not contribute to the key space of a key
+                    scope. Maps referenced by &lt;navref&gt; are equivalent to maps referenced with a
+                    scope of "peer" or "external" and therefore need not be present or available at
+                    the time the referencing map is processed for purposes of key space
+                    construction.</p>
+
+                </td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e618 ">
+                  <p class="p"><strong class="ph b">Effective key definitions</strong></p>
+
+                  <p class="p">For a given key there is at most one effective definition within a key space. A
+                    key definition is the effective definition for a given key if it is the first,
+                    in document order, within the map document that contains it, and is the first in
+                    the map tree in breadth-first order. It is not an error for the same key name to
+                    be defined more than once within a map or map tree, and duplicate key
+                    definitions <span class="keyword">should</span> be ignored without warning. </p>
+
+                  <div class="note note"><span class="notetitle">Note:</span> A given &lt;topicref&gt; element that defines more than one key may be the
+                    effective definition for some of its keys but not for others. It is the
+                    duplicate binding of a key name to its definition that is ignored, not the
+                    key-defining topic reference as a whole.</div>
+
+                  <p class="p">Key definitions are not scoped by the map document within which they occur or
+                    by the element hierarchy of their containing map document. Keys do not have to
+                    be declared before they are referenced. The key space is effective for the
+                    entire document, so the order of key definitions and key references relative to
+                    one another within the map hierarchy is not significant, and keys defined in any
+                    map in the map tree are available for use with key references from all maps and
+                    topics processed in the context of the root map. </p>
+
+                  <div class="note note"><span class="notetitle">Note:</span> These rules mean that key definitions higher in the map tree hierarchy take
+                    precedence over key definitions lower in the map tree and that key definitions
+                    in referencing maps always take precedence over key definitions in referenced
+                    maps. These rules also mean that the entire key space must be determined before
+                    any keys can be resolved to their ultimately-addressed resources (if
+                    any).</div>
+
+                  <div class="note note"><span class="notetitle">Note:</span> Because keys are defined in maps, all key-based processing must be done in
+                    the context of a root map that establishes the effective key space. </div>
+
+                  
+                  
+                  <p class="p">For key definitions in a submap to be included in the key space, there must be
+                    a direct URI reference to that submap from another directly addressed map in the
+                    map tree. However, if that same submap is referenced indirectly and has no
+                    direct URI reference as a backup (using @keyref without providing a fallback
+                    @href value, or using @conkeyref without providing a fallback @conref value),
+                    that reference is ignored for purposes of constructing the key space, and the
+                    definitions in that submap consequently do not enter into the construction of
+                    the key space at that point.</p>
+
+                </td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e621 ">
+                  <p class="p"><strong class="ph b">Effective key definitions</strong></p>
+
+                  <p class="p">For a given key there is at most one effective definition within a key space. A
+                    key definition is the effective definition for a given key if it is the first,
+                    in document order, within the key scope-defining element that contains it, and
+                    is the first in the map tree beneath the scope-defining elemnt in breadth-first
+                    order. It is not an error for the same key name to be defined more than once
+                    within a map or key scope, and duplicate key definitions
+                      <span class="keyword">should</span> be ignored without warning. </p>
+
+                  <div class="note note"><span class="notetitle">Note:</span> A given &lt;topicref&gt; element that defines more than one key may be the
+                    effective definition for some of its keys but not for others. It is the
+                    duplicate binding of a key name to its definition that is ignored, not the
+                    key-defining topic reference as a whole.</div>
+
+                  <p class="p">Key definitions are scoped by the key scope-defining elements within which they
+                    occur. Keys do not have to be declared before they are referenced. The key space
+                    is effective for the entire key scope, so the order of key definitions and key
+                    references relative to one another within the hierarchy of a key scope is not
+                    significant, and keys defined in any map in the key scope are available for use
+                    with key references from all maps and topics processed in the context of the key
+                    scope. </p>
+
+                  <div class="note note"><span class="notetitle">Note:</span> These rules mean that key definitions higher in the map tree hierarchy take
+                    precedence over key definitions lower in the map tree and that key definitions
+                    in referencing maps always take precedence over key definitions in referenced
+                    maps. These rules also mean that all key spaces must be fully determined before
+                    any keys can be resolved to their ultimately-addressed resources (if
+                    any).</div>
+
+                  <div class="note note"><span class="notetitle">Note:</span> Because keys are defined in maps, all key-based processing must be done in
+                    the context of a root map that establishes the root key scope and scope
+                    hierarchy, or a specific scope within such a map.</div>
+
+                  <p class="p">For key definitions in a submap to be included in the key space, there must be
+                    a direct URI reference to that submap from another directly addressed map in the
+                    map tree. However, if that same submap is referenced indirectly and has no
+                    direct URI reference as a backup (using @keyref without providing a fallback
+                    @href value, or using @conkeyref without providing a fallback @conref value),
+                    that reference is ignored for purposes of constructing the key space, and the
+                    definitions in that submap consequently do not enter into the construction of
+                    the key space at that point.</p>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_dbf_dbt_tk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 6. <span class="ph filepath">commonLRdefs.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e810">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e813">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e810 ">topicref-atts attribute group (collection-type, processing-role, type, scope,
+                  locktitle, format, linking, toc, print, search, chunk)</td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e813 ">topicref-atts attribute group (collection-type, processing-role, type, scope,
+                  locktitle, format, linking, toc, print, search, chunk, keyscope)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e810 ">topicref-atts-no-toc attribute group (collection-type, processing-role, type,
+                  scope, locktitle, format, linking, toc, print, search, chunk)</td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e813 ">topicref-atts-no-toc attribute group (collection-type, processing-role, type,
+                  scope, locktitle, format, linking, toc, print, search, chunk, keyscope)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e810 ">topicref-atts-without-format attribute group (collection-type,
+                  processing-role, type, scope, locktitle, linking, toc, print, search,
+                  chunk)</td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e813 ">topicref-atts-without-format attribute group (collection-type,
+                  processing-role, type, scope, locktitle, linking, toc, print, search, chunk,
+                  keyscope)</td>
+
+              </tr>
+
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e810 "><em class="ph i">New attribute table entry for 'keyscope', to be referenced from
+                    topicref-atts.dita</em></td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e813 ">Specifies that the element marks the boundaries of a key scope. See <a class="xref" href="#the_keyscope_attribute" title="The keyscope attribute consists of one or more space-separated key scope names. Map authors define the boundaries for key scopes by specifying the keyscope attribute on map elements, topicref elements, or elements that are specializations of map or topicref. Such elements, their contents, and any locally-scoped content referenced from within the element, are considered to be part of the scope. Keys defined within a scope are only directly referenceable from within the same scope. They can be referenced from the parent scope using the scope's name, followed by a period, followed by the key name.">The keyscope attribute</a> for details on how to use the
+                  keyscope attribute.</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="topic_aqh_5zt_3h__table_ynj_ndt_tk" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap">Table 7. <span class="ph filepath">thekeysattribute.dita</span></span></caption>
+            
+            
+            <thead class="thead" align="left">
+              <tr class="row">
+                <th class="entry" valign="top" width="50%" id="d26e883">DITA 1.2 Language</th>
+
+                <th class="entry" valign="top" width="50%" id="d26e886">DITA 1.3 Language</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" valign="top" width="50%" headers="d26e883 ">A keys attribute consists of one or more space-separated keys. Map authors
+                  define keys using a topicref or topicref specialization that contains the “keys”
+                  attribute. Each key definition introduces a global identifier for a resource
+                  referenced from a map. Keys resolve to the resources given as the href value on
+                  the key definition topicref element, to content contained within the key
+                  definition topicref element, or both.</td>
+
+                <td class="entry" valign="top" width="50%" headers="d26e886 ">A keys attribute consists of one or more space-separated keys. Map authors
+                  define keys using a topicref or topicref specialization that contains the “keys”
+                  attribute. Each key definition introduces an identifier for a resource referenced
+                  from the map. Keys resolve to the resources given as the href value on the key
+                  definition topicref element, to content contained within the key definition
+                  topicref element, or both.<div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>Chris Nitchie <br/>One-word change:
+                    removed the word 'global' from, 'Each key definition introduces a global
+                    identifier...'.</div>
+</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+</div>
+
+      </div>
+
+    </div>
+
+    <div class="topic concept nested1" id="concept_w12_3ts_tk">
+      <h2 class="title topictitle2">Examples of keys</h2>
+
+      <div class="body conbody">
+        <div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>Chris Nitchie <br/>This topic already exists. However, since the changes
+          to this topic are strictly additive - new sections with new examples - I've written up the
+          new sections here instead of using the tabular format normally used for updates to
+          existing topics.</div>
+
+        <div class="section"><h3 class="title sectiontitle">Topic reuse with varying key behavior</h3>
+          
+          <p class="p">In this example, the “oil change” procedures for Tractor X and Tractor Y are similar
+            enough to reuse the same topic for both, but the name of the product is included in the
+            title via <samp class="ph codeph">keyref</samp>. In the map below, the topic
+              <span class="ph filepath">common/oilchange.dita</span> is referenced twice. Each reference is
+            wrapped within a <samp class="ph codeph">topicgroup</samp> that defines a key scope, and each scope
+            has its own definition of the <samp class="ph codeph">ProductName</samp> key.</p>
+
+          <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Equipment Oil Change Procedures&lt;/title&gt;
+
+  &lt;topicgroup keyscope="Tractor-X"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor X&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+    &lt;topicref href="common/oilchange.dita"/&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;topicgroup keyscope="Tractor-Y"&gt;
+    &lt;keydef keys="ProductName"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Tractor Y&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;
+    &lt;topicref href="common/oilchange.dita"/&gt;
+  &lt;/topicgroup&gt;
+
+&lt;/map&gt;</pre>
+
+          <pre class="pre codeblock">&lt;task id="oilchange" xml:lang="en"&gt;
+  &lt;title&gt;Changing the Oil on the &lt;ph keyref="ProductName"/&gt;&lt;/title&gt;
+  &lt;!-- etc. --&gt;
+&lt;/task&gt;</pre>
+
+        </div>
+
+        <div class="section"><h3 class="title sectiontitle">Combination of standalone maps with their own key spaces</h3>
+          
+          <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Training Courses&lt;/title&gt;
+  &lt;mapref href="course-1.ditamap" keyscope="course-1"/&gt;
+  &lt;mapref href="course-2.ditamap" keyscope="course-2"/&gt;
+  &lt;mapref href="course-3.ditamap" keyscope="course-3"/&gt;
+  &lt;topicref keys="summary" href="omnibus-summary.dita"/&gt;
+&lt;/map&gt;</pre>
+
+          <p class="p">This map combines three standalone maps, each with its own set of keys. Each of the
+              <samp class="ph codeph">mapref</samp> elements is marked with a <samp class="ph codeph">keyscope</samp> attribute,
+            meaning that the key definitions within the referenced maps will be confined to those
+            sub-structures.</p>
+
+          <p class="p">Since the <samp class="ph codeph">summary</samp> key is defined in this map as part of the implicit
+            root scope, and keys defined in parent scopes override those in child scopes, its
+            definition overrides any conflicting definition of <samp class="ph codeph">summary</samp> in any of
+            the referenced maps.</p>
+
+        </div>
+
+        <div class="section"><h3 class="title sectiontitle">Examples of scope-qualified key references</h3>
+          
+          <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Scoped Key Example&lt;/title&gt;
+  &lt;topicgroup <strong class="ph b">keyscope="scope-1"</strong>&gt;
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-1.dita" /&gt;</strong>
+
+    &lt;!-- This topicref will refer to topic-1.dita.
+         This key is defined in this scope. --&gt;
+    &lt;topicref keyref="key-1" /&gt;
+
+    &lt;!-- This topicref will also refer to topic-1.dita.
+         This key is inherited from the root scope. --&gt;
+    &lt;topicref keyref="scope-1.key-1" /&gt;
+
+    &lt;!-- This topicref will refer to topic-2.dita.
+         This key is inherited from the root scope. --&gt;
+    &lt;topicref keyref="scope-2.key-1" /&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;topicgroup <strong class="ph b">keyscope="scope-2"</strong>&gt;
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-2.dita" /&gt;</strong>
+
+    &lt;!-- This topicref will refer to topic-2.dita.
+         This key is defined in this scope. --&gt;
+    &lt;topicref keyref="key-1" /&gt;
+
+    &lt;!-- This topicref will refer to topic-1.dita.
+         This key is inherited from the root scope. --&gt;
+    &lt;topicref keyref="scope-1.key-1" /&gt;
+
+    &lt;!-- This topicref will refer to topic-2.dita.
+         This key is inherited from the root scope. --&gt;
+    &lt;topicref keyref="scope-2.key-1" /&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;!-- This topicref will result in an error, because
+       no key definition 'key-1' exists at this scope. --&gt;
+  &lt;topicref keyref="key-1" /&gt;
+
+  &lt;!-- This topicref will refer to topic-1.dita.
+       Keys defined in a scope become a part of the
+       parent scope, prefixed with the scope name and
+       a period. --&gt;
+  &lt;topicref keyref="scope-1.key-1" /&gt;
+
+  &lt;!-- This topicref will refer to topic-2.dita. --&gt;
+  &lt;topicref keyref="scope-2.key-1" /&gt;
+
+&lt;/map&gt;</pre>
+
+          <p class="p">This example illustrates the way keys defined within a key scope can be addressed from
+            key references outside that scope.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="topic concept nested1" id="the_keyscope_attribute">
+      <h2 class="title topictitle2">The keyscope attribute</h2>
+
+      <p class="shortdesc">The keyscope attribute consists of one or more space-separated key scope names. Map
+        authors define the boundaries for key scopes by specifying the keyscope attribute on map
+        elements, topicref elements, or elements that are specializations of map or topicref. Such
+        elements, their contents, and any locally-scoped content referenced from within the element,
+        are considered to be part of the scope. Keys defined within a scope are only directly
+        referenceable from within the same scope. They can be referenced from the parent scope using
+        the scope's name, followed by a period, followed by the key name.</p>
+
+      <div class="related-links"/>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

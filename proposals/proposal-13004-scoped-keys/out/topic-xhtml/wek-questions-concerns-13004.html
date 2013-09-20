@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Questions/Issues/Observations on 13004 Scoped Keys"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic_s4k_q5r_vj"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Questions/Issues/Observations on 13004 Scoped Keys</title>
+</head>
+<body id="topic_s4k_q5r_vj">
+
+
+  <h1 class="title topictitle1">Questions/Issues/Observations on 13004 Scoped Keys</h1>
+
+  <div class="body">
+    <p class="p">Questions/concerns rising from my attempt to apply scoped keys to a
+      real-world example.</p>
+
+    <ol class="ol" id="topic_s4k_q5r_vj__ol_qh2_t5r_vj">
+      <li class="li">Should it be possible for the same scope to have multiple keyscope
+        names? That would make it possible to have the same physical scope
+        referenced by different qualified names. This would be parallel with
+        @keys.<div class="p">Without this I don't see a way to alias a scope with a
+        different key scope, unless you can do something
+        like:<pre class="pre codeblock">&lt;topicref keyscope="scope-y" keyref="scope-x-root"/&gt;
+&lt;topicref keyscope="scope-x" keys="scope-x-root"&gt;
+  ... keys defined in scope-x ...
+&lt;/topicref&gt;</pre>
+</div>
+<p class="p">Would
+        the above be taken to mean that references to "scope-y.foo" resolve to
+        keys defined in scope "scope-x"? I don't think that behavior is
+        necessary from the current proposal.</p>
+</li>
+
+      <li class="li">When there are scopes, topics intended for use within a scope have to
+        know when to use unscoped keys and scoped keys. That is, authors of
+        topics will need to know which references are to keys that are expected
+        to be local to whatever scope the topic is used in and which are not
+        local. I think this is reasonable but it bears repeating. I think this
+        case is the same as for cross-publication links. You either know your
+        link is *always* cross-scope or cross-publication or you don't. If you
+        don't you assume it is local to the current scope or publication. I
+        suppose for keys for which authors are unsure they could use a third
+        qualifier like "possibly-scoped" and let the using map author sort it
+        out.<p class="p">I think this ends up being a question of how topic authors come
+        to know about the keys they should use when creating references. One
+        would expect that there are normally business rules in effect, possibly
+        enforced or guided by authoring or content management systems.</p>
+</li>
+
+      <li class="li">If I have a map that specifies @keyscope and then include that map via
+        mapref, I really want to be able to specify the key scope name on the
+        mapref so that I know, given only the declarations in the local map,
+        what the keyspace name used for peer map is--meaning I don't have to
+        dereference the peer map and examine it in order to discover that it
+        defines a scope (which I need to know in order to process key references
+        in the context of the local map).<p class="p">I think this means that when a
+        &lt;mapref&gt; element specifies @keyscope it establishes a name for the
+        scope defined by the referenced map. If the referenced map also
+        specifies @keyscope, it establishes a single-level key scope, not a two
+        level keyscope. </p>
+<div class="p">That is, the effect
+        of:<pre class="pre codeblock">Map A:
+&lt;map&gt;&lt;title&gt;Map A&lt;/title&gt;
+  &lt;mapref keyscope="map-b" href="map-b.ditamap"/&gt;
+  ...
+&lt;/map&gt;
+
+
+Map B:
+&lt;map keyscope="map-b"&gt;
+  &lt;topicref id="ref-in-map-b"&gt;
+     ...
+  &lt;/topicref&gt;
+  ...
+&lt;/map&gt;</pre>
+</div>
+<div class="p">is
+        equivalent
+        to:<pre class="pre codeblock">&lt;map&gt;&lt;title&gt;Map A&lt;/title&gt;
+  &lt;topicgroup keyscope="map-b"&gt;
+    &lt;topicref id="ref-in-map-b"&gt;
+     ...
+    &lt;/topicref&gt;    
+  &lt;/topicgroup&gt;
+  ...
+&lt;/map&gt;</pre>
+</div>
+<p class="p">and
+        not:</p>
+<pre class="pre codeblock">&lt;map&gt;&lt;title&gt;Map A&lt;/title&gt;
+  &lt;topicgroup keyscope="map-b"&gt;
+    &lt;topicgroup keyscope="map-b"&gt;
+      &lt;topicref id="ref-in-map-b"&gt;
+       ...
+      &lt;/topicref&gt;    
+    &lt;/topicgroup&gt;
+  &lt;/topicgroup&gt;
+  ...
+&lt;/map&gt;</pre>
+<p class="p">This
+        also implies that scopes defined in peer maps are <strong class="ph b">not</strong> usable from
+        local maps, avoiding any requirement to do full key space construction
+        of peer maps in order to resolve keyrefs from the local map.</p>
+<p class="p">Given
+        this rule I think it gives you same addressing facility I was trying to
+        define in my cross-publication proposal, that is, a single identifier
+        for the peer key space and no more.</p>
+</li>
+
+      <li class="li">The practical implications for scopes defined in standalone
+        keydef-containing maps could be non-obvious and tricky. There's a lot of
+        indirection involved and it could get quite confusing an non-obvious
+        with regard to what it means, for example, to have a &lt;keydef&gt; element
+        define a scope.<p class="p">I think in that case it means that the resource
+        defined by that key can only be referenced by a scope-qualified
+        reference. That may not be obvious to all users.</p>
+</li>
+
+      <li class="li">In the case where you have a map that defines a key scope and that map
+        references a peer map and assigns it a scope (per item 3 above), then
+        references to that scope still only need to be qualified with the
+        peer-map's scope name, because all topics referenced from within the
+        local map will be in the same (or descendant) scope context as the peer
+        map reference.<p class="p">This means that if you always include your peer maps
+        within your using map's root scope, then references to keys on those
+        peers will always only require a single scope qualification term (e.g.,
+        "peer-map.foo", <strong class="ph b">not</strong> "my-local-map-scope.peer-map.foo").</p>
+</li>
+
+      <li class="li">For Open Toolkit, with generate-outer of "2", the peer deliverable
+        as-delivered maps need to be in the same directory tree as the root map,
+        otherwise, the Toolkit can't find them. This means that these maps need
+        to have either absolute URLs or URLs relative to the location of the
+        using root map, not relative to the peer root map. When the files are
+        organized in this way, the cross-deliverable links are correctly
+        generated by normal toolkit processing.<p class="p">When generate-outer is "3",
+        then the as-delivered maps can live with the maps they reflected, but
+        the output directory will be below where it might otherwise be expected
+        to be.</p>
+</li>
+
+      <li class="li">When the target of the xref is a complete topic, then if there is a
+        navtitle for the keydef (which the Toolkit claims is required, which it
+        probably is), then the link text used is the navtitle.<p class="p">However, if the
+        target of the xref is an element within the topic (e.g., a figure), then
+        the link text is the URL of the target. Not clear how to provide the
+        link text in that case without modifying the xref itself, since there is
+        no indirection element for the target element, only the topic. This
+        supports the argument that we need an indirection facility for
+        references to elements within topics as well as to topics as we have
+        with keys. On the other hand, if we have to generate intermediate copies
+        of all the topics then that process can also set the xref text, although
+        this requires processing the peer documents in order to get the
+        appropriate link texts for each target element.</p>
+<p class="p">One solution might
+        be to add metadata to the keydef used by the xref-to-element-with-topic
+        to provide a mapping of element IDs to link text. This would be done as
+        part of the process of generating the as-delivered key definitions for
+        each publication. Essentially, for each element within a topic with an
+        ID you'd need to generate an ID-to-link text mapping in the generated
+        keydef. Hmm. You have to do all IDed elements because you can't know
+        what elements might be linked to from other deliverables.</p>
+</li>
+
+    </ol>
+
+  </div>
+
+
+</body>
+</html>

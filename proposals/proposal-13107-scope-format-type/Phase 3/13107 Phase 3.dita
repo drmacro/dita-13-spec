@@ -104,10 +104,17 @@
                   <p><ph>If no value is specified, but the attribute is specified on an ancestor
                       within a map or within the related-links section, the value will cascade from
                       the closest ancestor.</ph> The processing default is determined by the value
-                    of the href attribute. If the href attribute specifies an absolute URI whose
-                    scheme is <q>http</q>, <q>https</q>, <q>ftp</q>, or <q>mailto</q>, then the
-                    processing default is <q>external</q>.  In all other cases, the processing
-                    default is <q>local</q>.</p>
+                    of the href attribute. In most cases, the processing default is local. The only
+                    exception is absolute URIs with one of the following schemes:</p>
+                  <ul id="ul_ugv_cbd_lk">
+                    <li>http</li>
+                    <li>https</li>
+                    <li>ftp</li>
+                    <li>mailto</li>
+                  </ul>
+                  <p>Processors may consider additional schemes as external by default, but must not
+                    consider <i>all</i> absolute URIs as external by default. Relative URIs are
+                    always local by default.</p>
                 </entry>
               </row>
             </tbody>
