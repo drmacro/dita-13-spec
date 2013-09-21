@@ -8,7 +8,8 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch"
+  xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
   version="2.0">
 
   <xd:doc scope="stylesheet">
@@ -29,6 +30,7 @@
   </xd:doc>
 
   <xsl:include href="../lib/relpath_util.xsl" />
+  <xsl:include href="rng2functions.xsl"/>
   <xsl:include href="rng2ditashelldtd.xsl"/>
   <xsl:include href="rng2ditaent.xsl" />
   <xsl:include href="rng2ditamod.xsl" />
@@ -166,6 +168,7 @@
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(.))"
     />
+    <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence select="$rngModuleUrl"/>"</xsl:message>
     <!-- Use the RNG module's grandparent directory name to construct output
          dir so the DTD module organization mirrors the RNG organization.
          This should always do the right thing for the OASIS-provided 
@@ -190,13 +193,13 @@
     <xsl:variable name="resultDir"
       select="relpath:newFile(relpath:newFile($moduleOutputDir, $rngParentDirName), 'dtd')"
     />
+    <xsl:message> + [DEBUG] generate-modules: resultDir="<xsl:sequence select="$resultDir"/>"</xsl:message>
 
-    <!-- The RNG modules have two "extensions": .xxx.rng -->
     <xsl:variable name="rngModuleName" as="xs:string"
       select="relpath:getNamePart($rngModuleUrl)" />
     <xsl:variable name="moduleBaseName" as="xs:string"
       select="if (ends-with($rngModuleName, 'Mod')) 
-      then substring($rngModuleName, 1, string-length($rngModuleName) - 3) 
+      then substring-before($rngModuleName, 'Mod') 
       else $rngModuleName"
     />
     <xsl:variable name="entFilename" as="xs:string"
@@ -221,12 +224,14 @@
         <xsl:with-param name="thisFile" select="$entResultUrl" tunnel="yes" as="xs:string" />
       </xsl:apply-templates>
     </xsl:result-document>
-    <!-- Generate the .mod file: -->
-    <xsl:result-document href="{$modResultUrl}" format="dtd">
-      <xsl:apply-templates mode="moduleFile" >
-        <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
-      </xsl:apply-templates>
-    </xsl:result-document>
+    <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
+    <xsl:if test="rngfunc:getModuleType(*) != 'attributeDomain'">
+      <xsl:result-document href="{$modResultUrl}" format="dtd">
+        <xsl:apply-templates mode="moduleFile" >
+          <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
+        </xsl:apply-templates>
+      </xsl:result-document>
+    </xsl:if>
     
   </xsl:template>
 

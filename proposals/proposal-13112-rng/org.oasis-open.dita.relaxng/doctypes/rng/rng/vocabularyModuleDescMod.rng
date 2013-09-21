@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="org.oasis-open.dita.relaxng/doctypes/rng/rng/moduleDesc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xxml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" 
+  schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
@@ -56,6 +57,7 @@
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>topic</moduleType>
+     <moduleShortName>vocabularyModule</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Vocabulary Module Description//EN</dtdMod>
        <dtdEnt>-//OASIS//ENTITIES DITA Vocabulary Module Description//EN</dtdEnt>
@@ -85,6 +87,9 @@
   </define>
   <define name="moduleMetadata">
     <ref name="moduleMetadata.element"/>
+  </define>
+  <define name="moduleShortName">
+    <ref name="moduleShortName.element"/>
   </define>
   <define name="modulePublicIds">
     <ref name="modulePublicIds.element"/>
@@ -182,6 +187,7 @@
   <define name="moduleMetadata.content">
     <group>
       <ref name="moduleType"/>
+      <ref name="moduleShortName"/>
       <choice>      
         <ref name="modulePublicIds"/>
         <ref name="shellPublicIds"/>
@@ -209,9 +215,9 @@
       <value>base</value>
       <value>constraint</value>
       <value>elementDomain</value>
-      <value>map</value>
+      <value>map</value><!-- Map type module -->
       <value>shell</value>
-      <value>topic</value>
+      <value>topic</value><!-- Topic type module -->
     </choice>
   </define>
   <define name="moduleType.attributes">    
@@ -240,6 +246,38 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     <element name="dita:moduleType" ditaarch:longName="Module type indicator">
       <ref name="moduleType.content"/>
       <ref name="moduleType.attributes"/>
+    </element>
+  </define>
+
+  <define name="moduleShortName.content">
+    <text/>
+  </define>
+  <define name="moduleShortName.attributes">    
+    <optional>
+      <attribute name="name" a:defaultValue="moduleShortName"/>
+    </optional>
+  </define>
+  <define name="moduleShortName.element">
+    <a:documentation>Indicates the type of the module. The types are:
+attributeDomain - An attribute domain module (e.g., deliveryTargetAttDomain)
+
+base - Part of the base DITA vocabulary definition. These modules are
+       special cases. Only OASIS-defined modules may be of type base,
+       e.g. commonElements, metaDecl.
+       
+constraint - A constraint module (e.g., strictTaskbodyConstraint)
+
+elementDomain - An element domain module (e.g., highlightDomain)
+
+map - A map-type module (e.g., basemap, bookmapMod)
+
+shell - A document type shell (e.g., concept, basemap, map)
+
+topic - A topic-type module (e.g., topicMod, conceptMod)
+    </a:documentation>
+    <element name="dita:moduleShortName" ditaarch:longName="Module Short Name">
+      <ref name="moduleShortName.content"/>
+      <ref name="moduleShortName.attributes"/>
     </element>
   </define>
 
@@ -467,6 +505,12 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     <ref name="global-atts"/>
     <optional>
       <attribute name="class" a:defaultValue="- topic/data moduleDesc/moduleType "/>
+    </optional>
+  </define>
+  <define name="moduleShortName.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/moduleShortName "/>
     </optional>
   </define>
   <define name="modulePublicIds.attlist" combine="interleave">

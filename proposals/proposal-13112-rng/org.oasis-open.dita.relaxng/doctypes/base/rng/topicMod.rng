@@ -71,7 +71,9 @@ ORIGINAL CREATION DATE:
 ]]></headerComment>
    <moduleMetadata>
      <moduleType>topic</moduleType>
+     <moduleShortName>topic</moduleShortName>
      <modulePublicIds>
+       <dtdEnt>-//OASIS//ENTITIES DITA Topic//EN</dtdEnt>
        <dtdMod>-//OASIS//ELEMENTS DITA Topic//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:topicMod.xsd</xsdMod>
        <rncMod>urn:oasis:names:tc:dita:rnc:topicMod.rnc</rncMod>

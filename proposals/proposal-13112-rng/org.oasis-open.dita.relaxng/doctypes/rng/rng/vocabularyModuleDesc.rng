@@ -63,6 +63,7 @@
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>topic</moduleType>
+     <moduleShortName>vocabularyModule</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//DTD DITA Vocabulary Module Description//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDesc.xsd</xsdMod>

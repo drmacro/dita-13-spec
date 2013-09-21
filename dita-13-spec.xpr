@@ -36,7 +36,7 @@
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/dtd/learning/dtd/learningMap.dtd"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningMap.rng"/>
             <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/relaxng/learning/rng/learningObjectMap.rng"/>
-            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rng/rng/moduleDesc.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng.transforms/xsl/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
@@ -50,6 +50,7 @@
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
             <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDesc.rng"/>
         </folder>
         <folder path="../../../../Applications/oxygen/frameworks/dita/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>

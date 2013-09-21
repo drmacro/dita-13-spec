@@ -11,6 +11,7 @@ MODULE:    Test RNG DTD Shell
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>topic</moduleType>
+     <moduleShortName>topic-withdomains</moduleShortName>
      <shellPublicIds>
        <dtdShell>-//OASIS//DTD Test RNG Shell//EN</dtdShell>
        <rncShell>urn:urn:oasis:names:tc:dita:topic-withdomains-test.rnc</rncShell>
