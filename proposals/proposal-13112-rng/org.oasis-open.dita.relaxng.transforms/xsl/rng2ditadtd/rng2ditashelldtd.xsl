@@ -42,33 +42,11 @@
     
     <xsl:message> + [INFO] === Generating DTD shell <xsl:value-of select="$dtdFilename" />...</xsl:message>
     
-    <xsl:variable name="rootClass"  as="xs:string">
-      <xsl:choose>
-        <xsl:when test="count(*)=1 and rng:include">
-            <xsl:value-of select="''" />
-        </xsl:when>
-        <xsl:when test="rng:define[@name=concat($rootElement,'.attlist')]">
-          <xsl:value-of          select="/rng:define[@name=concat($rootElement,'.attlist')]//rng:attribute[@name='class']/@rnga:defaultValue" />
-        </xsl:when>
-        <xsl:when test="count($modulesToProcess) &gt; 0">
-            <xsl:for-each select="$modulesToProcess">
-              <xsl:if test="/*/rng:define[@name=concat($rootElement,'.attlist')][.//rng:attribute/@name='class']">
-                <xsl:value-of
-                  select="./*/rng:define[@name=concat($rootElement,'.attlist')]//rng:attribute[@name='class']/@rnga:defaultValue" 
-                />
-              </xsl:if>
-            </xsl:for-each>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:value-of select="''" />
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
     
-    <xsl:variable name="shellType" select="substring-before(tokenize($rootClass,' ')[2],'/')" />
+    <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
     
-    <xsl:if test="$shellType != 'topic' and $shellType != 'map'">
-      <xsl:message terminate="yes"> + [ERROR] Root element type <xsl:value-of select="$rootElement"/> is not of class topic/* or map/*, found "<xsl:value-of select="$shellType"/>" in @class value "<xsl:value-of select="$rootClass"/>"</xsl:message>
+    <xsl:if test="$shellType != 'topicshell' and $shellType != 'mapshell'">
+      <xsl:message terminate="yes"> - [ERROR] mode dtdFile: Expected module type 'topicShell' or 'mapShell', got "<xsl:sequence select="$shellType"/>".</xsl:message>
     </xsl:if>
     
     <!-- ====================================
@@ -77,17 +55,17 @@
     
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
 
-    <xsl:apply-templates select="a:documentation[position() = 1]" mode="header-comment"/>
+    <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
 
     <xsl:choose>
-      <xsl:when test="$shellType='map'">
+      <xsl:when test="$shellType='mapShell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                MAP ENTITY DECLARATIONS                        -->
 &lt;!-- ============================================================= -->
 </xsl:text>
       </xsl:when>
-      <xsl:when test="$shellType='topic'">
+      <xsl:when test="$shellType='topicShell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--              TOPIC ENTITY DECLARATIONS                        -->
@@ -122,16 +100,35 @@
 </xsl:text>
         
         <xsl:apply-templates 
-          select="$modulesToProcess[ends-with(rngfunc:getModuleType(*), 'Domain')]" 
+          select="$modulesToProcess[rngfunc:getModuleType(*) = 'elementdomain']" 
           mode="entityDeclaration" 
-        />
+        >
+          <xsl:with-param 
+            name="entityType" 
+            select="'ent'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
 
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <!-- @TODO -->
+        
+        <xsl:apply-templates 
+          select="$modulesToProcess[rngfunc:getModuleType(*) = 'attributedomain']" 
+          mode="entityDeclaration" 
+        >
+          <xsl:with-param 
+            name="entityType" 
+            select="'mod'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
+
 
 <xsl:text>
 &lt;!-- ============================================================= -->
@@ -151,9 +148,16 @@
 &lt;!-- ============================================================= -->
 </xsl:text>
         <xsl:apply-templates 
-          select="$modulesToProcess" 
+          select="$modulesToProcess[rngfunc:getModuleType(*) = 'attributedomain']" 
           mode="attributeExtension" 
-        />
+        >
+          <xsl:with-param 
+            name="entityType" 
+            select="'mod'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
 
 <xsl:text>
 &lt;!-- ============================================================= -->
@@ -189,7 +193,17 @@
 &lt;!--                    CONTENT CONSTRAINT INTEGRATION             -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <!-- @TODO -->
+        <xsl:apply-templates 
+          select="$modulesToProcess[rngfunc:getModuleType(*) = 'constraint']" 
+          mode="attributeExtension" 
+        >
+          <xsl:with-param 
+            name="entityType" 
+            select="'mod'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
 
     <xsl:choose>
       <xsl:when test="$shellType='map'">
@@ -214,38 +228,61 @@
 </xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-        <xsl:if test="starts-with($rootClass, '-')">
-          <!-- This is a structural module -->
-          <xsl:for-each select="tokenize($rootClass,' ')">
-            <xsl:variable name="mainElement" select="substring-before(.,'/')" />
-            <xsl:if test="not($mainElement='')">
-              <xsl:apply-templates select="$modulesToProcess" mode="mainDeclaration">
-                <xsl:with-param name="mainElement" select="$mainElement" as="xs:string" />
-              </xsl:apply-templates>
-            </xsl:if>
-          </xsl:for-each>
-        </xsl:if>
+          <xsl:apply-templates 
+            select="$modulesToProcess[rngfunc:getModuleType(./*) = 'topic' or 
+                                      rngfunc:getModuleType(./*) = 'map']"
+            mode="entityDeclaration"
+          >
+            <xsl:with-param 
+              name="entityType" 
+              select="'mod'" 
+              as="xs:string" 
+              tunnel="yes"
+            />
+          </xsl:apply-templates>
+          
 
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ELEMENT INTEGRATION                 -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <xsl:apply-templates select="$modulesToProcess" mode="domainElementDeclaration" />
+        <xsl:apply-templates 
+          select="$modulesToProcess[rngfunc:getModuleType(*) = 'elementdomain']" 
+          mode="entityDeclaration" 
+        >
+          <xsl:with-param 
+            name="entityType" 
+            select="'mod'" 
+            as="xs:string" 
+            tunnel="yes"
+          />
+        </xsl:apply-templates>
+
 
       </xsl:otherwise>
     </xsl:choose>
+    
+    <xsl:text>
+&lt;!-- ================= End of </xsl:text>
+    <xsl:sequence select="rngfunc:getModuleTitle(.)"/>
+    <xsl:text> ================= --></xsl:text>
     
     <xsl:message> + [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
 
   </xsl:template>
 
   <xsl:template match="rng:include" mode="dtdRedirect">
+    
+    <!-- FIXME: Should be able to put this through the generic entity
+                reference code, but not 100% sure.
+      -->
     <xsl:variable name="dtdRedirect" select="substring-before(@href,'.rng')" />
     <xsl:variable name="dtdDoc" select="document(@href)" as="document-node()" />
-    <xsl:variable name="dtdPublicId" select="normalize-space(substring-before(substring-after($dtdDoc/comment()[1],'MODULE:'),'VERSION:'))" />
+    <xsl:variable name="dtdPublicId" 
+      select="rngfunc:getPublicId($dtdDoc/*, 'dtdMod')" />
     <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="concat($dtdRedirect,'Dtd')" /> 
-    <xsl:text>&#x0a;  PUBLIC "-//OASIS//DTD </xsl:text><xsl:value-of select="$dtdPublicId" /><xsl:text>//EN" &#x0a;         "</xsl:text>
+    <xsl:text>&#x0a;  PUBLIC "</xsl:text><xsl:sequence select="$dtdPublicId" /><xsl:text>" &#x0a;         "</xsl:text>
     <xsl:value-of select="concat($dtdRedirect,'.dtd')" />
     <xsl:text>"&#x0a;>&#x0a;%</xsl:text>
     <xsl:value-of select="concat($dtdRedirect,'Dtd')" /> 
@@ -269,15 +306,21 @@
     <!-- Have to special case the base topic module as its .ent file is named "topicDefn.ent"
          rather than topic.ent.
       -->
-    <xsl:variable name="entityNamePart" as="xs:string"
+    <xsl:variable name="baseRngName" as="xs:string"
       select="if ($entityType = 'ent' and 
                  (rngfunc:getModuleType(.) = 'topic' and rngfunc:getModuleShortName(.) = 'topic'))
       then 'topicDefn'
       else relpath:getNamePart(document-uri(root(.)))"
     />
+    <xsl:variable name="entityNamePart" as="xs:string"
+         select="
+         if (ends-with($baseRngName, 'Mod')) 
+            then substring-before($baseRngName, 'Mod') 
+            else $baseRngName"
+     />
     <xsl:variable name="entFilename" as="xs:string" 
       select="
-      concat($entityNamePart, '.ent')" 
+      concat($entityNamePart, '.', $entityType)" 
     />
     <xsl:variable name="shortName" as="xs:string"
       select="rngfunc:getModuleShortName(.)"
@@ -290,7 +333,7 @@
     />
     <xsl:variable name="entityName" as="xs:string"
       select="
-      if ($entityType = '.ent')
+      if ($entityType = 'ent')
          then concat($shortName, '-dec')
          else concat($shortName, '-def')
       "

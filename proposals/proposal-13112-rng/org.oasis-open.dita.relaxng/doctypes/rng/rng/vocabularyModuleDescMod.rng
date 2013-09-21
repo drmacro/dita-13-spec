@@ -211,13 +211,14 @@
 
   <define name="moduleType.content">
     <choice>
-      <value>attributeDomain</value>
+      <value>attributedomain</value>
       <value>base</value>
       <value>constraint</value>
-      <value>elementDomain</value>
+      <value>elementdomain</value>
       <value>map</value><!-- Map type module -->
-      <value>shell</value>
+      <value>mapshell</value><!-- Topic document type shell -->
       <value>topic</value><!-- Topic type module -->
+      <value>topicshell</value><!-- Topic document type shell -->
     </choice>
   </define>
   <define name="moduleType.attributes">    

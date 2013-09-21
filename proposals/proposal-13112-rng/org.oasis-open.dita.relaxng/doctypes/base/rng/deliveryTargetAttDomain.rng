@@ -72,7 +72,8 @@ ORIGINAL CREATION DATE:
 =============================================================
  ]]></headerComment>
    <moduleMetadata>
-     <moduleType>attributeDomain</moduleType>
+     <moduleType>attributedomain</moduleType>
+     <moduleShortName>deliveryTargetAtt-d</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ENTITIES DITA Delivery Target Domain//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd</xsdMod>

@@ -82,4 +82,35 @@
     <xsl:sequence select="$title"/>
   </xsl:function>
   
+   <!-- ==========================================
+        String formatting functions
+        ========================================== -->
+   <!-- See http://markmail.org/message/fhbwfe67amcjoelm?q=xslt+printf+list:com%2Emulberrytech%2Elists%2Exsl-list&page=1 -->
+  
+ <xsl:function name="str:pad" as="xs:string">
+   <!-- Pad a string with len trailing characters -->
+   <xsl:param    name="str" as="xs:string"/>
+   <xsl:param    name="len" as="xs:integer"/>
+   <xsl:variable name="lstr" select="string-length($str)" as="xs:integer"/>
+   <xsl:choose>
+     <xsl:when test="$lstr lt $len">
+       <xsl:variable name="pad"
+                     select="string-join((for $i in 1 to $len - $lstr return ' '),'')"/>
+       <xsl:sequence select="concat($str,$pad)"/>  
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:sequence select="$str"/>
+     </xsl:otherwise>
+   </xsl:choose>
+ </xsl:function>
+
+ <xsl:function name="str:indent" as="xs:string">
+   <!-- Generate a sequence of blanks of the specified length -->
+   <xsl:param    name="len" as="xs:integer"/>
+   <xsl:variable name="indent"
+                 select="string-join((for $i in 1 to $len return ' '),'')"/>
+   <xsl:sequence select="$indent"/>  
+ </xsl:function>
+
+
 </xsl:stylesheet>

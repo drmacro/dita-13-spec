@@ -5,12 +5,12 @@
 <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
    <moduleTitle>Test RNG DTD Shell </moduleTitle>
    <headerComment><![CDATA[
-============================================================= 
-MODULE:    Test RNG DTD Shell             
 =============================================================
- ]]></headerComment>
+MODULE:    Test RNG DTD Shell
+=============================================================
+]]></headerComment>
    <moduleMetadata>
-     <moduleType>topic</moduleType>
+     <moduleType>topicshell</moduleType>
      <moduleShortName>topic-withdomains</moduleShortName>
      <shellPublicIds>
        <dtdShell>-//OASIS//DTD Test RNG Shell//EN</dtdShell>

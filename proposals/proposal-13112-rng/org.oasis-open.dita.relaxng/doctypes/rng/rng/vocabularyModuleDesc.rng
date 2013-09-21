@@ -62,7 +62,7 @@
  =============================================================      
  ]]></headerComment>
    <moduleMetadata>
-     <moduleType>topic</moduleType>
+     <moduleType>topicshell</moduleType>
      <moduleShortName>vocabularyModule</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//DTD DITA Vocabulary Module Description//EN</dtdMod>
