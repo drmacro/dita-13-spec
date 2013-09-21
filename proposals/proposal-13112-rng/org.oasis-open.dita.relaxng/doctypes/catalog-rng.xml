@@ -142,6 +142,14 @@
   <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng" uri="machineryIndustry/rng/machineryTaskbodyConstraintMod.rng"/>
   <system systemId="urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng:1.2" uri="machineryIndustry/rng/machineryTaskbodyConstraintMod.rng"/>
   
+  <!-- Add mapping for: rng/vocabularyModuleDescMod.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng" uri="rng/rng/vocabularyModuleDescMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng:1.2" uri="rng/rng/vocabularyModuleDescMod.rng"/>
+  
+  <!-- Add mapping for: rng/vocabularyModuleDesc.rng-->
+  <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" uri="rng/rng/vocabularyModuleDesc.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng:1.2" uri="rng/rng/vocabularyModuleDesc.rng"/>
+  
   <!-- Add mapping for: subjectScheme/classifyDomainMod.rng-->
   <system systemId="urn:oasis:names:tc:dita:rng:classifyDomainMod.rng" uri="subjectScheme/rng/classifyDomainMod.rng"/>
   <system systemId="urn:oasis:names:tc:dita:rng:classifyDomainMod.rng:1.2" uri="subjectScheme/rng/classifyDomainMod.rng"/>

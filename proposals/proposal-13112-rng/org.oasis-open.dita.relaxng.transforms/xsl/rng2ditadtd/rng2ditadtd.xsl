@@ -22,8 +22,8 @@
         DTD coding requirements.
       </xd:p>
       <xd:p>The primary output is a conversion manifest, which simply
-        lists the files generated. Each module is generated separately
-        using xsl:result-document.
+        lists the files generated. Each module and document type shell
+        is generated separately using xsl:result-document.
       </xd:p>
     </xd:desc>
   </xd:doc>
