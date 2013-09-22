@@ -38,7 +38,7 @@
  =============================================================      
  ]]></headerComment>
    <moduleMetadata>
-     <moduleType>elementDomain</moduleType>
+     <moduleType>elementdomain</moduleType>
      <moduleShortName>hi-d</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>

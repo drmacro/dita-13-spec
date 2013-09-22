@@ -82,7 +82,12 @@ ORIGINAL CREATION DATE:
      </modulePublicIds>
    </moduleMetadata>
  </moduleDesc>  
-  
+ 
+  <!-- Define the domain attribute contribution for this module -->
+  <define name="domains-att-contribution" combine="choice">
+    <value>a(props deliveryTarget)</value>
+  </define>
+ 
   <define name="deliveryTargetAtt-d-attribute">
     <optional>
       <attribute name="deliveryTarget"/>

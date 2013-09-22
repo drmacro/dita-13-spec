@@ -306,21 +306,8 @@
     <!-- Have to special case the base topic module as its .ent file is named "topicDefn.ent"
          rather than topic.ent.
       -->
-    <xsl:variable name="baseRngName" as="xs:string"
-      select="if ($entityType = 'ent' and 
-                 (rngfunc:getModuleType(.) = 'topic' and rngfunc:getModuleShortName(.) = 'topic'))
-      then 'topicDefn'
-      else relpath:getNamePart(document-uri(root(.)))"
-    />
-    <xsl:variable name="entityNamePart" as="xs:string"
-         select="
-         if (ends-with($baseRngName, 'Mod')) 
-            then substring-before($baseRngName, 'Mod') 
-            else $baseRngName"
-     />
-    <xsl:variable name="entFilename" as="xs:string" 
-      select="
-      concat($entityNamePart, '.', $entityType)" 
+    <xsl:variable name="entFilename" as="xs:string"
+      select="rngfunc:getEntityFilename(., $entityType)"
     />
     <xsl:variable name="shortName" as="xs:string"
       select="rngfunc:getModuleShortName(.)"

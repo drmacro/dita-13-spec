@@ -23,7 +23,7 @@
   
   <xsl:function name="rngfunc:getModuleType" as="xs:string">
     <!-- Returns the declared module type of the module -->
-    <xsl:param name="rngGrammar" as="element()"/>
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:variable name="type" as="xs:string?"
       select="$rngGrammar/dita:moduleDesc/dita:moduleMetadata/dita:moduleType"
     />
@@ -40,7 +40,7 @@
   
   <xsl:function name="rngfunc:getPublicId" as="xs:string">
     <!-- Returns the public ID of the specified type -->
-    <xsl:param name="rngGrammar" as="element()"/>
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:param name="idType" as="xs:string"/>
     <xsl:variable name="pubId" as="xs:string?"
       select="$rngGrammar/dita:moduleDesc/dita:moduleMetadata/*/*[local-name(.) = $idType]"
@@ -58,7 +58,7 @@
   
   <xsl:function name="rngfunc:getModuleShortName" as="xs:string">
     <!-- Returns the short name of the specified type -->
-    <xsl:param name="rngGrammar" as="element()"/>
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:variable name="shortName" as="xs:string?"
       select="$rngGrammar/dita:moduleDesc/dita:moduleMetadata/dita:moduleShortName"
     />
@@ -75,16 +75,40 @@
   
   <xsl:function name="rngfunc:getModuleTitle" as="xs:string">
     <!-- Returns the title of the module -->
-    <xsl:param name="rngGrammar" as="element()"/>
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:variable name="title" as="xs:string"
       select="$rngGrammar/dita:moduleDesc/dita:moduleTitle"
     />
     <xsl:sequence select="$title"/>
   </xsl:function>
   
+  <xsl:function name="rngfunc:getEntityFilename" as="xs:string">
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
+    <xsl:param name="entityType" as="xs:string"/><!-- 'ent' or 'mod' -->
+    
+    <xsl:variable name="baseRngName" as="xs:string"
+      select="if ($entityType = 'ent' and 
+                 (rngfunc:getModuleType($rngGrammar) = 'topic' and rngfunc:getModuleShortName($rngGrammar) = 'topic'))
+      then 'topicDefn'
+      else relpath:getNamePart(document-uri(root($rngGrammar)))"
+    />
+    <xsl:variable name="entityNamePart" as="xs:string"
+         select="
+         if (ends-with($baseRngName, 'Mod')) 
+            then substring-before($baseRngName, 'Mod') 
+            else $baseRngName"
+     />
+    <xsl:variable name="entFilename" as="xs:string" 
+      select="
+      concat($entityNamePart, '.', $entityType)" 
+    />
+    <xsl:sequence select="$entFilename"/>
+  </xsl:function>
+  
    <!-- ==========================================
         String formatting functions
         ========================================== -->
+  
    <!-- See http://markmail.org/message/fhbwfe67amcjoelm?q=xslt+printf+list:com%2Emulberrytech%2Elists%2Exsl-list&page=1 -->
   
  <xsl:function name="str:pad" as="xs:string">

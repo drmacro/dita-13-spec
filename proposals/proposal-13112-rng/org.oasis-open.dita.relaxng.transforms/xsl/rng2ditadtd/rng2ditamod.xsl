@@ -10,7 +10,8 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita"
+  xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
+  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc"
   version="2.0"  >
 
   <xd:doc scope="stylesheet">
@@ -40,12 +41,12 @@
   <xsl:template match="rng:grammar" mode="moduleFile">
     <xsl:param name="thisFile" tunnel="yes" as="xs:string" />
 
-    <!-- FIXME: -->
     <xsl:variable name="moduleTitle" 
-      select="if (a:documentation) 
-      then string(a:documentation/@ditaarch:moduleTitle)
-      else relpath:getNamePart(base-uri(.))" 
+      select="rngfunc:getModuleTitle(.)" 
       as="xs:string"/>
+    <xsl:variable name="moduleShortName" as="xs:string"
+      select="rngfunc:getModuleShortName(.)"
+    />
     <xsl:variable name="domainValue" select="rng:define[@name='domains-atts-value']/rng:value[1]"/>
     <xsl:variable name="domainPrefix"> 
       <xsl:if test="$domainValue and not($domainValue='')">

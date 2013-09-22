@@ -168,7 +168,10 @@
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(.))"
     />
-    <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence select="$rngModuleUrl"/>"</xsl:message>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
+        select="$rngModuleUrl"/>"</xsl:message>
+    </xsl:if>
     <!-- Use the RNG module's grandparent directory name to construct output
          dir so the DTD module organization mirrors the RNG organization.
          This should always do the right thing for the OASIS-provided 
@@ -203,9 +206,11 @@
       else $rngModuleName"
     />
     <xsl:variable name="entFilename" as="xs:string"
-      select="concat(relpath:getNamePart($moduleBaseName), '.ent')" />
+      select="rngfunc:getEntityFilename(./*, 'ent')"
+    />
     <xsl:variable name="modFilename" as="xs:string"
-      select="concat(relpath:getNamePart($moduleBaseName), '.mod')" />
+      select="rngfunc:getEntityFilename(./*, 'mod')"
+    />
     <xsl:variable name="entResultUrl"
       select="relpath:newFile($resultDir, $entFilename)" />
     <xsl:variable name="modResultUrl"
@@ -225,7 +230,7 @@
       </xsl:apply-templates>
     </xsl:result-document>
     <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
-    <xsl:if test="rngfunc:getModuleType(*) != 'attributeDomain'">
+    <xsl:if test="rngfunc:getModuleType(*) != 'attributedomain'">
       <xsl:result-document href="{$modResultUrl}" format="dtd">
         <xsl:apply-templates mode="moduleFile" >
           <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
