@@ -60,16 +60,18 @@
          of the <grammar> element -->
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
     
-<xsl:text>
+    <xsl:if test="$moduleShortName != 'commonElements'">
+      <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                   ELEMENT NAME ENTITIES                       -->
 &lt;!-- ============================================================= -->
 
 </xsl:text>
 
-    <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
-    
-<xsl:text>
+        <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
+    </xsl:if>    
+
+    <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    ELEMENT DECLARATIONS                       -->
 &lt;!-- ============================================================= -->

@@ -89,6 +89,7 @@ For <entry>, add:
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>base</moduleType>
+     <moduleShortName>tblDecl</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Exchange Table Model//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:tblDeclMod.xsd</xsdMod>

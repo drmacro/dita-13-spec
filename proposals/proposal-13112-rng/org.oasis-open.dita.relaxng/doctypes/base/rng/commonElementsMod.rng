@@ -67,6 +67,7 @@ ORIGINAL CREATION DATE:
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>base</moduleType>
+     <moduleShortName>commonElements</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Common Elements//EN</dtdMod>
        <dtdEnt>-//OASIS//ENTITIES DITA Common Elements//EN</dtdEnt>

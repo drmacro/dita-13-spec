@@ -40,6 +40,9 @@
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 
       as="xs:string"/>
+    <xsl:variable name="moduleShortName" 
+      select="rngfunc:getModuleShortName(.)" 
+      as="xs:string"/>
     <xsl:variable name="domainValue" as="xs:string?" 
       select="rng:define[@name='domains-att-contribution']/rng:value[1]"/>
     <xsl:variable name="domainPrefix" as="xs:string"
@@ -54,6 +57,15 @@
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
+    
+    <xsl:if test="$moduleShortName = 'commonElements'">
+      <xsl:text>
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT NAME ENTITIES                      -->
+&lt;!-- ============================================================= -->&#x0a;</xsl:text>
+      
+      <xsl:apply-templates  select="rng:define" mode="element-name-entities" />
+    </xsl:if>
 
     <xsl:if test="$moduleType = 'elementdomain'">
       <xsl:text>

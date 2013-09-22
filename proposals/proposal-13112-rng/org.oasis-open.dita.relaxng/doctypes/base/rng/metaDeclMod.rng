@@ -62,6 +62,7 @@ ORIGINAL CREATION DATE:
  ]]></headerComment>
    <moduleMetadata>
      <moduleType>base</moduleType>
+     <moduleShortName>metaDecl</moduleShortName>
      <modulePublicIds>
        <dtdMod>-//OASIS//ELEMENTS DITA Metadata//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd</xsdMod>

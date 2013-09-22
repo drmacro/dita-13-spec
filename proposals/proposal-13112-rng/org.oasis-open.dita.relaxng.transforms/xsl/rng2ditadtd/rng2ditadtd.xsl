@@ -211,6 +211,12 @@
     <xsl:variable name="modFilename" as="xs:string"
       select="rngfunc:getEntityFilename(./*, 'mod')"
     />
+    <xsl:variable name="moduleType" as="xs:string"
+      select="rngfunc:getModuleType(./*)"
+    />
+    <xsl:variable name="moduleShortName" as="xs:string"
+      select="rngfunc:getModuleShortName(./*)"
+    />
     <xsl:variable name="entResultUrl"
       select="relpath:newFile($resultDir, $entFilename)" />
     <xsl:variable name="modResultUrl"
@@ -224,13 +230,20 @@
       <modFile><xsl:sequence select="$modResultUrl" /></modFile>
     </moduleFiles>
     <!-- Generate the .ent file: -->
-    <xsl:result-document href="{$entResultUrl}" format="dtd">
-      <xsl:apply-templates mode="entityFile">
-        <xsl:with-param name="thisFile" select="$entResultUrl" tunnel="yes" as="xs:string" />
-      </xsl:apply-templates>
-    </xsl:result-document>
+    <!-- NOTE: Not all base modules have .ent files -->
+    <xsl:if test="
+      $moduleShortName != 'tblDecl' and 
+      $moduleShortName != 'metaDecl' and 
+      $moduleShortName != 'map'"
+      >    
+      <xsl:result-document href="{$entResultUrl}" format="dtd">
+          <xsl:apply-templates mode="entityFile">
+            <xsl:with-param name="thisFile" select="$entResultUrl" tunnel="yes" as="xs:string" />
+          </xsl:apply-templates>
+        </xsl:result-document>
+    </xsl:if>
     <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
-    <xsl:if test="rngfunc:getModuleType(*) != 'attributedomain'">
+    <xsl:if test="$moduleType != 'attributedomain'">
       <xsl:result-document href="{$modResultUrl}" format="dtd">
         <xsl:apply-templates mode="moduleFile" >
           <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
