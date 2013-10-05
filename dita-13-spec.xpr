@@ -56,11 +56,7 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
-        <folder path="../../git/dita-ot/"/>
         <folder path="."/>
-        <folder path="../dita_12_spec/"/>
-        <folder path="../../workspace_37/dita-ng/"/>
-        <folder path="../../workspace_37/dita13-xpub-linking/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
     </projectTree>
 </project>
