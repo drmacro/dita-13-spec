@@ -3,3 +3,7 @@
 /doctypes
 /org.dita-ng.doctypes
 .DS_Store
+
+*.zip
+
+*.log

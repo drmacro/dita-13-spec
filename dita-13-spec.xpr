@@ -62,7 +62,5 @@
         <folder path="../../workspace_37/dita-ng/"/>
         <folder path="../../workspace_37/dita13-xpub-linking/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
-        <file name="../oup-metadata-hub/sample_data/EK-merge-test.zip"/>
-        <file name="../../../../Applications/oxygen-14.1.zip"/>
     </projectTree>
 </project>
