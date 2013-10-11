@@ -57,6 +57,7 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
         <folder path="."/>
+        <folder path="../DITA_TC_work/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
     </projectTree>
 </project>
