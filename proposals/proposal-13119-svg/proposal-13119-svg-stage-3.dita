@@ -52,7 +52,7 @@
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
             <stentry>2 July 2013</stentry>
-            <stentry>Debra Bissantz</stentry>
+            <stentry>Debra Bissantz, Nancy Harrison</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
@@ -421,9 +421,44 @@
  ...
 &lt;/map></codeblock></p>
           </section>
-          <section>
+          <section
+            id="attributes">
             <title>Attributes</title>
-            <p>Generated attribute table goes here.</p>
+            <simpletable
+              id="foreign_attr"
+              relcolwidth="2* 3* 1* 1* 1*">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classandout">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
           </section>
         </refbody>
       </reference>
@@ -567,8 +602,70 @@
         &lt;/svg>
   &lt;/part>
 &lt;/root></codeblock></p>
+          </section>
+          <section
+            id="attributes">
             <title>Attributes</title>
-            <p>Generated attribute table goes here.</p>
+            <simpletable
+              id="attribute_table"
+              relcolwidth="2* 3* 1* 1* 1*">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow>
+                <stentry>href</stentry>
+                <stentry>Reference to the &lt;svg> element to be used. If the &lt;svg> element is the root element of the referenced resource, then no fragment identifier is required, otherwise, a
+                  fragment identifier must be specified, where the fragment identifier is the XML ID of the &lt;svg> element to be used.</stentry>
+                <stentry>CDATA</stentry>
+                <stentry>#IMPLIED</stentry>
+                <stentry>Must be specified if @keyref is not specified.</stentry>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/type">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow>
+                <stentry>format</stentry>
+                <stentry>The data format of the resource.</stentry>
+                <stentry>CDATA</stentry>
+                <stentry>svg</stentry>
+                <stentry>No</stentry>
+              </strow>              
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
           </section>
         </refbody>
       </reference>

@@ -10,6 +10,10 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
+                        <String>keys.context</String>
+                        <String>../workspace_40/dita_13_specwork/spec/language-reference.ditamap</String>
+                    </entry>
+                    <entry>
                         <String>search.resources.filter.history</String>
                         <filterPanelHistoryItems>
                             <field name="expressionsLists">
@@ -59,5 +63,6 @@
         <folder path="."/>
         <folder path="../DITA_TC_work/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
+        <folder path="../../workspace_40/dita_13_specwork/"/>
     </projectTree>
 </project>
