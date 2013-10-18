@@ -1,1 +1,1 @@
-Plugin for EPUB support for MathML domain.
+Plugin for EPUB support for SVG domain.

@@ -56,7 +56,7 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>18 October 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
@@ -88,144 +88,13 @@
       </section>
       <section>
         <title>Modified DTDs</title>
-        <dl>
-          <dlentry>
-            <dt>svgDomain.ent</dt>
-            <dd>Create new declaration set <filepath>svgDomain.ent</filepath> in
-              the base declaration set package with the following
-              content:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
-&lt;!-- =============================================================
-     DITA SVG Domain
-     
-     Defines a specialization of &lt;foreign> that contains 
-     SVG markup.
-     
-     DITA 1.3
-     
-     Copyright (c) 2012, 2013 OASIS Open
-     
-     ============================================================= -->
-
-
-&lt;!-- ============================================================= -->
-&lt;!--                   SVG DOMAIN ENTITIES                  -->
-&lt;!-- ============================================================= -->
-
-&lt;!-- SVG elements must be prefixed when validated by DTD, otherwise they 
-     conflict with existing DITA elements (e.g., &lt;desc> and &lt;title>).
-  -->
-&lt;!ENTITY % NS.prefixed "INCLUDE" >
-&lt;!ENTITY % SVG.prefix "svg" >
-
-&lt;!ENTITY % svg-d-foreign
-   "svg_container
-   "
->
-
-&lt;!ENTITY   svg-d-att     
-  "(topic svg-d)"
->
-
-&lt;!-- ================== End DITA SVG Domain Entities ============ --></codeblock></dd>
-          </dlentry>
-          <dlentry>
-            <dt>svgDomain.mod</dt>
-            <dd>Create new declaration set file
+            <p>svgDomain.ent</p>
+            <p>Create new declaration set <filepath>svgDomain.ent</filepath> in the base declaration set package with the following
+              content:<codeblock><coderef href="org.oasis-open.dita.svg.doctypes/doctypes/dtd/svgDomain.ent"/></codeblock></p>
+            <p>svgDomain.mod</p>
+            <p>Create new declaration set file
               <filepath>svgDomain.mod</filepath> with the following
-              content:<codeblock>&lt;?xml version="1.0" encoding="utf-8"?>
-&lt;!-- =============================================================
-     DITA SVG Domain
-     
-     Defines a specialization of &lt;foreign> that contains 
-     SVG markup.
-     
-     DITA 1.3
-     
-     Copyright (c) 2012, 2013 OASIS Open
-     
-     ============================================================= -->
-     
- &lt;!ENTITY % svg_container        "svg_container" >
- &lt;!ENTITY % svgref               "svgref" >
-
-&lt;!ENTITY % svg11.dtd 
-  SYSTEM "svg11/svg11.dtd"
->%svg11.dtd;
-
-&lt;!-- ============================================================= -->
-&lt;!--                   ELEMENT NAME ENTITIES                       -->
-&lt;!-- ============================================================= -->
-
-
-&lt;!-- ============================================================= -->
-&lt;!--                    ELEMENT DECLARATIONS                       -->
-&lt;!-- ============================================================= -->
-
-&lt;!ENTITY % svg_container.content
-"
-  (%data; |
-   %data-about; |
-   %SVG.pfx;svg)*
-"
->
-&lt;!ENTITY % svg_container.attributes
- "
-  %id-atts;
-  %localization-atts;
-  base       
-    CDATA                            
-    #IMPLIED
-  %base-attribute-extensions;
-  outputclass 
-    CDATA                            
-    #IMPLIED    
-
- "
-> 
-&lt;!ELEMENT svg_container %svg_container.content; >
-&lt;!ATTLIST svg_container %svg_container.attributes; >
-
-&lt;!-- LONG NAME: SVG Reference -->
-&lt;!ENTITY % svgref.content 
-"EMPTY" 
->
-&lt;!ENTITY % svgref.attributes
-             "href 
-                        CDATA 
-                                  #IMPLIED
-              keyref 
-                        CDATA 
-                                  #IMPLIED
-              type 
-                        CDATA 
-                                  #IMPLIED
-              format 
-                        CDATA 
-                                  "svg"
-              scope 
-                        (external | 
-                         local | 
-                         peer | 
-                         -dita-use-conref-target) 
-                                  #IMPLIED
-              %univ-atts;
-              outputclass 
-                        CDATA 
-                                  #IMPLIED"
->
-&lt;!ELEMENT svgref    %svgref.content;>
-&lt;!ATTLIST svgref    %svgref.attributes;>
-
-&lt;!-- ============================================================= -->
-&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
-&lt;!-- ============================================================= -->
-
-&lt;!ATTLIST svg_container           %global-atts;  class CDATA "+ topic/foreign svg-d/svg_container ">
-&lt;!ATTLIST svgref                  %global-atts;  class CDATA "+ topic/xref    svg-d/svgref ">
-
-&lt;!-- ================== End SVG Domain ==================== --></codeblock></dd>
-          </dlentry>
-        </dl>
+              content:<codeblock><coderef href="org.oasis-open.dita.svg.doctypes/doctypes/dtd/svgDomain.mod"/></codeblock></p>
       </section>
       <section>
         <title>Modified specification documentation</title>

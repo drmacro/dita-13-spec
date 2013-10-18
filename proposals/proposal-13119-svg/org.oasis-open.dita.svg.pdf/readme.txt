@@ -1,1 +1,1 @@
-Plugin for PDF support for MathML domain.
+Plugin for PDF support for SVG domain.
