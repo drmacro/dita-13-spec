@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="15.0">
+<project version="15.1">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="15.0" xml:space="preserve">
+            <serialized version="15.1" xml:space="preserve">
                 <map>
                     <entry>
                         <String>enable.project.master.files.support</String>
@@ -11,7 +11,7 @@
                     </entry>
                     <entry>
                         <String>keys.context</String>
-                        <String>../workspace_40/dita_13_specwork/spec/language-reference.ditamap</String>
+                        <String>file:/Users/ekimber/workspace_40/dita_13_specwork/spec/language-reference.ditamap</String>
                     </entry>
                     <entry>
                         <String>search.resources.filter.history</String>
@@ -61,7 +61,9 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
         <folder path="."/>
+        <folder path="../dita-utilities/"/>
         <folder path="../DITA_TC_work/"/>
+        <folder path="../../workspace_40/dita-12-spec/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
         <folder path="../../workspace_40/dita_13_specwork/"/>
     </projectTree>

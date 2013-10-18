@@ -3,11 +3,11 @@
      XML construct domain
      
      Provides phrase-level elements for identifying mentions of
-     XML constructs: element types, attributes, etc.
+     XML constructs: element types, attributes, etc., as well as
+     named constructs used in the main XML document grammar and
+     constraint languages (DTD, XSD, and RelaxNG).
      
-     Copyright (c) 2009, 2010 DITA For Publishers
-     
-     This domain module may be used by anyone without restriction.
+     Copyright (c) 2013 OASIS Open
      
      ============================================================= -->
 
