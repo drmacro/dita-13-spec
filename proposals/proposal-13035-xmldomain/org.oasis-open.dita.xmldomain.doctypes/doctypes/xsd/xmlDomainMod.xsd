@@ -24,6 +24,7 @@
       <xs:element ref="xmlatt"/>
       <xs:element ref="xmlelement"/> 
       <xs:element ref="xmlnsname"/>
+      <xs:element ref="xmlpi"/>
       <xs:element ref="xsdattgroup"/> 
       <xs:element ref="xsdcomplextype"/> 
       <xs:element ref="xsdgroup"/> 
@@ -75,6 +76,13 @@
     </xs:sequence>
   </xs:group>
 <xs:group name="xmlnsname.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+<xs:group name="xmlpi.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:group ref="keyword.content"/>
@@ -295,6 +303,33 @@
   </xs:complexType>
   
   <xs:attributeGroup name="xmlnsname.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+  <xs:element name="xmlpi">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="xmlpi.class">
+          <xs:attribute ref="class" default="+ topic/keyword xml-d/xmlpi "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="xmlpi.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="xmlpi.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="xmlpi.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="xmlpi.attributes">
     <xs:attributeGroup ref="global-atts"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attribute name="outputclass" type="xs:string"/>

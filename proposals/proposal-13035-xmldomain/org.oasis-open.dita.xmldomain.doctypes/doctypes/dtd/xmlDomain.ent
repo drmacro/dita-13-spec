@@ -25,6 +25,7 @@
    xmlatt |
    xmlelement | 
    xmlnsname |
+   xmlpi |
    xsdattgroup | 
    xsdcomplextype | 
    xsdgroup | 

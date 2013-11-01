@@ -8,7 +8,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:template match="*[contains(@class, ' xml-d/xmlelement ')]" priority="10">
-    <code>
+    <code class="xmlelement">
       <xsl:text>&lt;</xsl:text>
       <xsl:apply-templates/>
       <xsl:text>&gt;</xsl:text>
@@ -16,14 +16,14 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/xmlatt ')]" priority="10">
-    <code>
+    <code class="xmlatt">
       <xsl:text>@</xsl:text>
       <xsl:apply-templates/>
     </code>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/textentity ')]" priority="10">
-    <code>
+    <code class="textentity">
       <xsl:text>&amp;</xsl:text>
       <xsl:apply-templates/>
       <xsl:text>;</xsl:text>
@@ -31,7 +31,7 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/parameterentity ')]" priority="10">
-    <code>
+    <code class="parameterentity">
       <xsl:text>%</xsl:text>
       <xsl:apply-templates/>
       <xsl:text>;</xsl:text>
@@ -39,7 +39,7 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/numcharref ')]" priority="10">
-    <code>
+    <code class="numcharref">
       <xsl:text>&amp;#</xsl:text>
       <xsl:apply-templates/>
       <xsl:text>;</xsl:text>
@@ -47,37 +47,43 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/rnggroup ')]" priority="10">
-    <code>
+    <code class="rnggroup">
       <xsl:apply-templates/>
     </code>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' xml-d/xmlnsname ')]" priority="10">
-    <code>
+    <code class="xmlnsname">
+      <xsl:apply-templates/>
+    </code>
+  </xsl:template>
+  
+  <xsl:template match="*[contains(@class, ' xml-d/xmlpi ')]" priority="10">
+    <code class="xmlpi">
       <xsl:apply-templates/>
     </code>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' xml-d/xsdattgroup ')]" priority="10">
-    <code>
+    <code class="xsdattgroup">
       <xsl:apply-templates/>
     </code>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' xml-d/xsdcomplextype ')]" priority="10">
-    <code>
+    <code class="xsdcomplextype">
       <xsl:apply-templates/>
     </code>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' xml-d/xsdgroup ')]" priority="10">
-    <code>
+    <code class="xsdgroup">
       <xsl:apply-templates/>
     </code>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' xml-d/xsdsimpletype ')]" priority="10">
-    <code>
+    <code class="xsdsimpletype">
       <xsl:apply-templates/>
     </code>
   </xsl:template>

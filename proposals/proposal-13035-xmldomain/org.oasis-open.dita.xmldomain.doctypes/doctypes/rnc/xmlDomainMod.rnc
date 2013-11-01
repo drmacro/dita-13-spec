@@ -20,6 +20,7 @@ xml-d-keyword =
    xmlatt.element |
    xmlelement.element | 
    xmlnsname.element |
+   xmlpi.element |
    xsdattgroup.element | 
    xsdcomplextype.element | 
    xsdgroup.element | 
@@ -152,6 +153,24 @@ xmlnsname.element =
    }
 xmlnsname.attlist &= xmlnsname.attributes
 
+# LONG NAME: XML processing instruction (PI) 
+xmlpi.content =
+  (text | \text | tm)*
+xmlpi.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+xmlpi.element =
+  
+  ## The xmlnsname (<xmlnsname>) element is used to identify
+  ## mentions of XML namespace names, e.g. the value used
+  ## in @xmlns attributes.
+  ##         Category: Mention elements
+  element xmlpi { 
+    xmlpi.attlist, 
+    xmlpi.content 
+   }
+xmlpi.attlist &= xmlpi.attributes
+
 
 # LONG NAME: XSD attribute group
 xsdattgroup.content =
@@ -248,6 +267,9 @@ xmlelement.attlist &=
 xmlnsname.attlist &=
   global-atts,
   [ a:defaultValue = "+ topic/ph xml-d/xmlnsname " ] attribute class { text }?
+xmlpi.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph xml-d/xmlpi " ] attribute class { text }?
 xsdattgroup.attlist &=
   global-atts,
   [ a:defaultValue = "+ topic/ph xml-d/xsdattgroup " ] attribute class { text }? 

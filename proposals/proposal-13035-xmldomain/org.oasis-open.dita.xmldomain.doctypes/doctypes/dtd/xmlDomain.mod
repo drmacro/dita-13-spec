@@ -36,6 +36,9 @@
 <!ENTITY % xmlnsname           
   "xmlnsname"                                           
 >
+<!ENTITY % xmlpi           
+  "xmlpi"                                          
+>
 <!ENTITY % xsdattgroup           
   "xsdattgroup"                                           
 >
@@ -193,6 +196,26 @@
 <!ELEMENT xmlnsname %xmlnsname.content; >
 <!ATTLIST xmlnsname %xmlnsname.attributes; >
 
+<!--                    LONG NAME: XML processing instruction (PI) -->
+<!ENTITY % xmlpi.content
+"
+  (#PCDATA |
+   %keyword; |
+   %text;)*
+">
+<!ENTITY % xmlpi.attributes
+"
+  %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
+  outputclass 
+    CDATA
+    #IMPLIED    
+">
+<!ELEMENT xmlpi %xmlpi.content; >
+<!ATTLIST xmlpi %xmlpi.attributes; >
+
 <!--                    LONG NAME: XSD Attribute Group -->
 <!ENTITY % xsdattgroup.content
 "
@@ -285,6 +308,7 @@
   <!ATTLIST rngpattern  %global-atts;  class CDATA "+ topic/keyword xml-d/rngpattern "  >
   <!ATTLIST textentity  %global-atts;  class CDATA "+ topic/keyword xml-d/textentity "  >
   <!ATTLIST xmlnsname   %global-atts;  class CDATA "+ topic/keyword xml-d/xmlnsname "  >
+  <!ATTLIST xmlpi       %global-atts;  class CDATA "+ topic/keyword xml-d/xmlpi "  >
   <!ATTLIST xmlatt      %global-atts;  class CDATA "+ topic/keyword xml-d/xmlatt "  >
   <!ATTLIST xmlelement  %global-atts;  class CDATA "+ topic/keyword xml-d/xmlelement "  >
   <!ATTLIST xsdattgroup %global-atts;  class CDATA "+ topic/keyword xml-d/xsdattgroup "  >

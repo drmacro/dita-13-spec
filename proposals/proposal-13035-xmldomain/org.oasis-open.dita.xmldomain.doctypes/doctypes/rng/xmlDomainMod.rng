@@ -38,6 +38,7 @@
       <ref name="xmlatt.element"/>
       <ref name="xmlelement.element"/>
       <ref name="xmlnsname.element"/>
+      <ref name="xmlpi.element"/>
       <ref name="xsdattgroup.element"/>
       <ref name="xsdcomplextype.element"/>
       <ref name="xsdgroup.element"/>
@@ -243,6 +244,34 @@ in @xmlns attributes.
   <define name="xmlnsname.attlist" combine="interleave">
     <ref name="xmlnsname.attributes"/>
   </define>
+  <!-- LONG NAME: XML processing instruction (PI) -->
+  <define name="xmlpi.content">
+    <zeroOrMore>
+      <choice>
+        <text/>
+        <ref name="text"/>
+        <ref name="tm"/>
+      </choice>
+    </zeroOrMore>
+  </define>
+  <define name="xmlpi.attributes">
+    <ref name="univ-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="xmlpi.element">
+    <element name="xmlpi">
+      <a:documentation>The xmlpi (&lt;xmlpi&gt;) element is used to identify
+mentions of XML processing instruction names (e.g., &lt;?piname the PI value?>).
+        Category: Mention elements</a:documentation>
+      <ref name="xmlpi.attlist"/>
+      <ref name="xmlpi.content"/>
+    </element>
+  </define>
+  <define name="xmlpi.attlist" combine="interleave">
+    <ref name="xmlpi.attributes"/>
+  </define>
   <!-- LONG NAME: XSD attribute group -->
   <define name="xsdattgroup.content">
     <zeroOrMore>
@@ -397,6 +426,12 @@ mentions of XSD simple types ("data types").
     <ref name="global-atts"/>
     <optional>
       <attribute name="class" a:defaultValue="+ topic/ph xml-d/xmlnsname "/>
+    </optional>
+  </define>
+  <define name="xmlpi.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph xml-d/xmlpi "/>
     </optional>
   </define>
   <define name="xsdattgroup.attlist" combine="interleave">
