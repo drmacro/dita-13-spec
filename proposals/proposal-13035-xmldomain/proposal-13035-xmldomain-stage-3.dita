@@ -82,7 +82,7 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>1 November 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
@@ -118,6 +118,10 @@
           <dlentry>
             <dt>&lt;xmlnsname></dt>
             <dd>Mention of an XML namespace name</dd>
+          </dlentry>
+          <dlentry>
+            <dt>&lt;xmlpi></dt>
+            <dd>Mention of an XML processing instruction name</dd>
           </dlentry>
           <dlentry>
             <dt>&lt;xsdattgroup></dt>
@@ -163,22 +167,22 @@
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>Adds 12 topics to the <cite>Language Reference</cite>:<ol>
-            <li>Container topic for the domain</li>
-            <li>Topic for the &lt;numcharref> element</li>
-            <li>Topic for the &lt;parameterentity> element</li>
-            <li>Topic for the &lt;rngpattern> element</li>
-            <li>Topic for the &lt;textentity> element</li>
-            <li>Topic for the &lt;xmlatt> element</li>
-            <li>Topic for the &lt;xmlelement> element</li>
-            <li>Topic for the &lt;xmlnsname> element</li>
-            <li>Topic for the &lt;xsdattgroup> element</li>
-            <li>Topic for the &lt;xsdcomplextype> element</li>
-            <li>Topic for the &lt;xsdgroup> element</li>
-            <li>Topic for the &lt;xsdsimpletype> element</li>
-          </ol>This topic collection should be added to the current section 3.2.6 [Technical
-          content] Domain elements. I suggest that it be placed in-between "User interface elements"
-          and "xNAL domain elements".</p>
+        <p>Adds 13 topics to the <cite>Language Reference</cite>:<ol>
+          <li>Container topic for the domain</li>
+          <li>Topic for the &lt;numcharref> element</li>
+          <li>Topic for the &lt;parameterentity> element</li>
+          <li>Topic for the &lt;rngpattern> element</li>
+          <li>Topic for the &lt;textentity> element</li>
+          <li>Topic for the &lt;xmlatt> element</li>
+          <li>Topic for the &lt;xmlelement> element</li>
+          <li>Topic for the &lt;xmlnsname> element</li>
+          <li>Topic for the &lt;xmlpi> element</li>
+          <li>Topic for the &lt;xsdattgroup> element</li>
+          <li>Topic for the &lt;xsdcomplextype> element</li>
+          <li>Topic for the &lt;xsdgroup> element</li>
+          <li>Topic for the &lt;xsdsimpletype> element</li>
+          </ol>This topic collection should be added to the current section 3.2.6 [Technical content] Domain elements. I suggest that it be placed in-between "User interface elements" and "xNAL domain
+          elements".</p>
       </section>
     </body>
   </topic>
@@ -186,9 +190,9 @@
     <title>New language reference topics</title>
     <reference id="xml-mention-domain">
       <title>XML mention domain</title>
-      <shortdesc>The XML-mention domain elements are used for mentions of named XML constructs, including elements, attributes, parameter entities, document type declaration components, and XSD and
-        Relax NG schema components. These elements enable specific typographic effects for different construct types, precise search and retrieval of specific constructs, and automatic indexing of
-        different constructs. This domain is intended to support the description and documentation of XML document types and XML applications.</shortdesc>
+      <shortdesc>The XML-mention domain elements are used for mentions of named XML constructs, including elements, attributes, parameter entities, processing instructions, document type declaration
+        components, and XSD and Relax NG schema components. These elements enable specific typographic effects for different construct types, precise search and retrieval of specific constructs, and
+        automatic indexing of different constructs. This domain is intended to support the description and documentation of XML document types and XML applications.</shortdesc>
       <prolog>
         <metadata>
           <keywords>
@@ -629,6 +633,66 @@ interface.&lt;/p></codeblock>
           </section>
         </refbody>
       </reference>
+      <reference
+        id="xmlpi">
+        <title>xmlpi</title>
+        <shortdesc>The &lt;xmlpi> element identifies mentions of processing instruction names (e.g., "&lt;?<i>piname</i> pi value"). This element enables more precise semantic searching of the DITA
+          source; it also enables distinct formatting. This element is part of the XML mention domain. </shortdesc>
+        <prolog>
+          <metadata>
+            <keywords>
+              <indexterm>xmlpi element</indexterm>
+              <indexterm>XML mention domain<indexterm>xmlpi element</indexterm></indexterm>
+            </keywords>
+          </metadata>
+        </prolog>
+        <refbody>
+          <section><title>Inheritance</title><codeph>+ topic/keyword xml-d/xmlpi</codeph></section>
+          <section>
+            <title>Example</title>
+            <codeblock>While DITA does not define any processing instructions, you may be able to
+use the DocBook processing instructions, such as <b>&lt;xmlpi>dbhtml_bgcolor&lt;/xmlpi></b>.</codeblock>
+          </section>
+          <section>
+            <title>Attributes</title>
+            <simpletable
+              relcolwidth="2* 3* 1* 1* 1*"
+              id="simpletable_os1_vc2_1m">
+              <sthead>
+                <stentry>Name</stentry>
+                <stentry>Description</stentry>
+                <stentry>Data Type</stentry>
+                <stentry>Default Value</stentry>
+                <stentry>Required?</stentry>
+              </sthead>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+              <strow
+                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+                <stentry/>
+              </strow>
+            </simpletable>
+          </section>
+        </refbody>
+      </reference>
       <reference id="xsdattgroup">
         <title>xsdattgroup</title>
         <shortdesc>The &lt;xsdattgroup> element identifies mentions of attribute groups in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also
@@ -811,7 +875,7 @@ for the &lt;xmlelement>text&lt;/xmlelement> element.  </codeblock>
       </reference>
       <reference id="xsdsimpletype">
         <title>xsdsimpletype</title>
-        <shortdesc>The &lt;xsdsimpletype> element identifies mentions of simple typse in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also enables
+        <shortdesc>The &lt;xsdsimpletype> element identifies mentions of simple types in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also enables
           distinct formatting. This element is part of the XML mention domain.</shortdesc>
         <prolog>
           <metadata>
