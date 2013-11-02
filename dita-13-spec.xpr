@@ -51,6 +51,7 @@
             <file name="proposals/proposal-13102-release-management/test/topic-release-mgmt-local.dtd"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>
+            <file name="proposals/proposal-13119-svg/org.oasis-open.dita.svg.test/doctypes/rng/topic-svg-test-prefixed.rng"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
             <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
