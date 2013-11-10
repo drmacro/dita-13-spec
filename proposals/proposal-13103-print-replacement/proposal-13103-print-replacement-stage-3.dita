@@ -62,6 +62,18 @@
             <stentry>18 October 2013</stentry>
             <stentry/>
           </strow>
+          <strow>
+            <stentry/>
+            <stentry>10 November 2013</stentry>
+            <stentry>Updated to reflect input from Kris:<ul
+              id="ul_gfp_qqt_cm">
+              <li>Fixed reference to UI domain in declaration files</li>
+              <li>Corrected "may" to "can" attribute description text.</li>
+              <li>Added deprecation statement to Printing topic in langref</li>
+              <li>Added deprecation statement to topicref-atts.dita</li>
+              <li>Reworked appendix to be a new example in the subjectScheme language reference topic.</li>
+              </ul></stentry>
+          </strow>
         </simpletable>
       </section>
       <section>
@@ -79,139 +91,12 @@
         <fig
           id="fig_ww5_3rc_hl">
           <title>deliveryTarget attribute domain RelaxNG declarations</title>
-          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;!-- ============================================================= -->
-&lt;!--                    HEADER                                     -->
-&lt;!-- ============================================================= -->
-&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
-&lt;!--  VERSION:   1.3                                               -->
-&lt;!--  DATE:      June 2012                                         -->
-&lt;!--                                                               -->
-&lt;!-- ============================================================= -->
-
-&lt;!-- ============================================================= -->
-&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-&lt;!--                    TYPICAL INVOCATION                         -->
-&lt;!--                                                               -->
-&lt;!--  Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
-      Delivered as file "deliveryTargetAttDomain.ent"              -->
-
-&lt;!-- ============================================================= -->
-&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
-&lt;!--                                                               -->
-&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
-&lt;!--             entity declarations for the User Interface Domain -->
-&lt;!--                                                               -->
-&lt;!-- ORIGINAL CREATION DATE:                                       -->
-&lt;!--             June 2013                                         -->
-&lt;!--                                                               -->
-&lt;!--             (C) Copyright OASIS Open 2013.                    -->
-&lt;!--             All Rights Reserved.                              -->
-&lt;!--                                                               -->
-&lt;!--  UPDATES:                                                     -->
-&lt;!-- ============================================================= -->
-&lt;grammar 
-  xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-  &lt;define name="deliveryTargetAtt-d-attribute">
-    &lt;optional>
-      &lt;attribute name="deliveryTarget"/>
-    &lt;/optional>    
-  &lt;/define>
-  
-  &lt;define name="props-attribute-extensions" combine="interleave">
-    &lt;ref name="deliveryTargetAtt-d-attribute"/>
-  &lt;/define>
-  
-&lt;/grammar></codeblock>
+          <codeblock><coderef href="org.oasis-open.dita.deliveryTargetAttDomain/doctypes/rng/deliveryTargetAttDomain.rng"/></codeblock>          
         </fig>
         <fig
           id="fig_w2c_ml5_nk">
           <title>DTD Declarations for deliveryTarget attribute domain</title>
-          <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                    HEADER                                     -->
-&lt;!-- ============================================================= -->
-&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
-&lt;!--  VERSION:   1.3                                               -->
-&lt;!--  DATE:      June 2012                                         -->
-&lt;!--                                                               -->
-&lt;!-- ============================================================= -->
-
-&lt;!-- ============================================================= -->
-&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-&lt;!--                    TYPICAL INVOCATION                         -->
-&lt;!--                                                               -->
-&lt;!--  Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
-      Delivered as file "deliveryTargetAttDomain.ent"              -->
-
-&lt;!-- ============================================================= -->
-&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
-&lt;!--                                                               -->
-&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
-&lt;!--             entity declarations for the User Interface Domain -->
-&lt;!--                                                               -->
-&lt;!-- ORIGINAL CREATION DATE:                                       -->
-&lt;!--             June 2013                                         -->
-&lt;!--                                                               -->
-&lt;!--             (C) Copyright OASIS Open 2013.                    -->
-&lt;!--             All Rights Reserved.                              -->
-&lt;!--                                                               -->
-&lt;!--  UPDATES:                                                     -->
-&lt;!-- ============================================================= -->
-&lt;!ENTITY % deliveryTargetAtt-d-attribute "deliveryTarget CDATA #IMPLIED">
-
-&lt;!ENTITY deliveryTargetAtt-d-att "a(props deliveryTarget)" >
-
-&lt;!-- ===== End of Delivery Target Attribute Module ==== --></codeblock>
-        </fig>
-        <fig
-          id="fig_cxv_kl5_nk">
-          <title>XSD Declarations for deliveryTarget attribute domain</title>
-          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;!-- ============================================================= -->
-&lt;!--                    HEADER                                     -->
-&lt;!-- ============================================================= -->
-&lt;!--  MODULE:    DITA Delivery Target Attribute Domain             -->
-&lt;!--  VERSION:   1.3                                               -->
-&lt;!--  DATE:      June 2012                                         -->
-&lt;!--                                                               -->
-&lt;!-- ============================================================= -->
-
-&lt;!-- ============================================================= -->
-&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-&lt;!--                    TYPICAL INVOCATION                         -->
-&lt;!--                                                               -->
-&lt;!--  Refer to this file by the following public identifier or an 
-      appropriate system identifier 
-PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
-      Delivered as file "deliveryTargetAttDomain.ent"              -->
-
-&lt;!-- ============================================================= -->
-&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
-&lt;!--                                                               -->
-&lt;!-- PURPOSE:    Declaring the substitution context and domain     -->
-&lt;!--             entity declarations for the User Interface Domain -->
-&lt;!--                                                               -->
-&lt;!-- ORIGINAL CREATION DATE:                                       -->
-&lt;!--             June 2013                                         -->
-&lt;!--                                                               -->
-&lt;!--             (C) Copyright OASIS Open 2013.                    -->
-&lt;!--             All Rights Reserved.                              -->
-&lt;!--                                                               -->
-&lt;!--  UPDATES:                                                     -->
-&lt;!-- ============================================================= -->
-&lt;xs:schema
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  elementFormDefault="qualified">
-  &lt;xs:attributeGroup name="deliveryTargetAtt-d-attribute">
-    &lt;xs:attribute name="deliveryTarget" type="xs:string"/>
-  &lt;/xs:attributeGroup>
-&lt;/xs:schema></codeblock>
+          <codeblock><coderef href="org.oasis-open.dita.deliveryTargetAttDomain/doctypes/dtd/deliveryTargetAttDomain.ent"/></codeblock>
         </fig>
         <p>The attribute domain will need to be integrated into the following TC-provided document type shells:<ul
           id="ul_pwq_prc_hl">
@@ -409,7 +294,7 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
                     </dlentry>
                     <dlentry>
                       <dt>deliveryTarget</dt>
-                      <dd>The intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute may be used in place of the @print attribute on topic references.</p><p>The
+                      <dd>The intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute can be used in place of the @print attribute on topic references</p><p>The
                         @deliveryTarget attribute is defined through the @props specialization attribute domain deliveryTargetAttDomain. It will not be available if the domain is not integrated into a
                         given document's document type. It is integrated into all OASIS-provided document type shells.</p></dd>
                     </dlentry>
@@ -448,8 +333,8 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
                   </dlentry>
                   <dlentry>
                     <dt>Description</dt>
-                    <dd>Specifies the intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute may be used in place of the @print attribute on topic
-                      references.</p><p>The @deliveryTarget attribute is defined through the @props specialization attribute domain deliveryTargetAttDomain. It will not be available if the domain is
+                    <dd>Specifies the intended delivery target of the content, such as "html", "pdf", "epub", etc.<p>This attribute can be used in place of the @print attribute on topic
+                      references</p><p>The @deliveryTarget attribute is defined through the @props specialization attribute domain deliveryTargetAttDomain. It will not be available if the domain is
                       not integrated into a given document's document type. It is integrated into all OASIS-provided document type shells.</p></dd>
                   </dlentry>
                   <dlentry>
@@ -467,9 +352,21 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
                   </dl></entry>
               </row>
               <row>
-                <entry>New</entry>
+                <entry>archspec/base/printing.dita</entry>
                 <entry/>
-                <entry>Add non-normative appendix with sample subject scheme for @deliveryTarget values.</entry>
+                <entry>Add new first child paragraph of &lt;body>:<p>The @print attribute is deprecated in DITA 1.3. Use the @deliveryTarget conditional processing attribute to indicate the delivery
+                  targets to which a given element applies.</p></entry>
+              </row>
+              <row>
+                <entry>langref/base/topicref-atts.dita</entry>
+                <entry/>
+                <entry>Add new paragraph to end of the description of the @print attribute:<p>The @print attribute is deprecated in DITA 1.3. Use the @deliveryTarget conditional processing attribute
+                  to indicate the delivery targets to which a given element applies.</p></entry>
+              </row>
+              <row>
+                <entry>langRef/base/subjectScheme.dita</entry>
+                <entry/>
+                <entry>Add new example before Attributes section. See full text of the example below.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -477,28 +374,23 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
       </section>
     </body>
   </topic>
-  <concept
+  <reference
     id="appendix-deliveryTarget-subjectScheme">
-    <title>Appendix: (Non-Normative) Sample Subject Scheme for @deliveryTarget attribute</title>
-    <conbody>
-      <draft-comment
-        author="ekimber">This topic is intended to serve as an illustrative appendix</draft-comment>
-      <p>Starting with DITA 1.2, subjectScheme maps may be used to define values for use with attributes. Starting with DITA 1.3, DITAVAL processing can take the hierarchy of the subject scheme into
-        account in order to infer conditions based on ancestry of values specified on conditional attributes. For example, if the value specified on platform is "windows7" and you are processing the
-        content with a subject scheme that defines the hierarchy "windows / windows7", meaning that "windows7" is a subtype of "windows", then if you specify in your DITAVAL that "windows" is active,
-        the processor will also consider "windows7" as active.</p>
-      <p>The ability to have a hierarchy of types used for filtering and flagging is especially handy for the @deliveryTarget attribute, where there may be many different delivery targets that you
-        care about and many of them will be closely related. For example, if you are producing EPUBs, you may need to distinguish between EPUB2 and EPUB3, between EPUB and Amazon's Kindle format, and
-        among EPUBs optimized for specific readers. By having a hierarchy of delivery targets you can more easily specify conditions on content and control filtering details at processing time.</p>
-      <p>See <xref
-        keyref="subject-scheme-maps">Subject Scheme Maps</xref> for general information on how to define and use subject schemes for controlled values.</p>
-      <p>The subject scheme map shown in <xref
-        href="#appendix-deliveryTarget-subjectScheme/fig-01"/> provides a suggested, but by no means exhaustive, set of values for the @deliveryTarget attribute.</p>
-      <fig
-        id="fig-01">
-        <title>Subject Scheme for Suggested Values for @deliveryTarget</title>
-        <p>This subject scheme is a non-normative suggested set of values for @deliveryTarget. It is intended to be presented in a non-normative appendix.</p>
-        <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+    <title>New example for subjectScheme.dita</title>
+    <refbody>
+      <example>
+        <title>Sample Subject Scheme for @deliveryTarget attribute</title>
+        <p>The ability to have a hierarchy of types used for filtering and flagging is especially handy for the @deliveryTarget attribute, where there may be many different delivery targets that you
+          care about and many of them will be closely related. For example, if you are producing EPUBs, you may need to distinguish between EPUB2 and EPUB3, between EPUB and Amazon's Kindle format,
+          and among EPUBs optimized for specific readers. By having a hierarchy of delivery targets you can more easily specify conditions on content and control filtering details at processing
+          time.</p>
+        <p>The subject scheme map shown in <xref
+          href="#appendix-deliveryTarget-subjectScheme/fig-01"/> provides a suggested, but by no means exhaustive, set of values for the @deliveryTarget attribute.</p>
+        <fig
+          id="fig-01">
+          <title>Subject Scheme for Suggested Values for @deliveryTarget</title>
+          <p>This subject scheme is a non-normative suggested set of values for @deliveryTarget.</p>
+          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
 &lt;subjectScheme>
   &lt;subjectHead>
@@ -674,7 +566,8 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
       keyref="deliveryTargetValues"/>
   &lt;/enumerationdef>
 &lt;/subjectScheme></codeblock>
-      </fig>
-    </conbody>
-  </concept>
+        </fig>
+      </example>
+    </refbody>
+  </reference>
 </dita>

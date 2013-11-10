@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_wsn_2nk_1m">
+  <title>Eliot's Thoughts and Comments on Proposal 13059</title>
+  <body>
+    <p>
+      I don’t have a problem with the general intent and specification of the proposal, but I do think that how it’s defined and described. I think the current proposal text is too closely tied to one particular processing technique (the OT’s builtin-in XHTML processing) and in general defined too much in terms of rendition.
+    </p><p>I think the mechanism is fundamentally not about rendition but about map augmentation.
+
+</p><p>That is, the primary result of applying branch DITAVAL processing is a new effective map and set of associated referenced resources. How the effective map and resource set gets rendered is really immaterial to the semantics of the proposal, because the rendition would be no different than if the effective map had been the original literal map.
+
+</p><p>In particular, all the discussion around the renaming of copied resources needs to be made more abstract and defined solely in terms of the effective map, rather than in terms of any possible rendition implications.
+
+</p><p>If we do this, it should then be easier to work out the implications for keys, which I think is the biggest potential problem here.
+
+</p><p>So I want to present my comments in two parts: first, reframing the proposal in terms of effective map generation, then second, an exploration of the interplay of conref resolution, map augmentation, and filtering.
+    </p>
+  </body>
+  <topic
+    id="topic_hgb_gqk_1m">
+    <title>Resource and Key Renaming Due to Branch Duplication</title>
+    <body>
+      <p>This is an important issue and a potential source of problems with this specification. The current proposal is insufficient in this regard.</p>
+      <p>Within a branch there are three sets of names that may need to be disambiguated:<ul
+        id="ul_vpr_drk_1m">
+        <li>Resource locations of referenced resources, e.g., "filenames". I think it's important to emphasize that DITA is a Web standard and that what topicrefs point to are resources with
+          associated URIs. The effect of the @copy-to attribute is to modify the effective location of the referenced resource (meaning its source location) by modifying the last component of the
+          resource path component of the URL (when the URI is a URL).</li>
+        <li>The names of keys defined on topicrefs within the branch</li>
+        <li>The names of key scopes defined on topicrefs with in the branch</li>
+        </ul></p>
+      <p>Note that topic IDs are not affected because topics are always located within the context of the XML document resource that contains them, so modifying the URI is sufficient.</p>
+      <p>Given this analysis, it should be clear that @copy-to is not sufficient to address the naming requirements.</p>
+      <p>Rather, I think that the &lt;ditavalref> needs to provide metadata that lets the author determine how each of these three names is or is not modified and do so with both prefixes and
+        suffixes. This suggests a set of elements like:<ul
+        id="ul_mp4_xrk_1m">
+        <li>&lt;resourcePrefix>apple-&lt;/resourcePrefix> -- Construct the effective resource location by prepending "apple-" to the base names of all referenced resources, e.g. "mytopic.dita" becomes
+          "apple-mytopic.dita".</li>
+        <li>&lt;resourceSuffix>-apple&lt;/resourceSuffix> -- Construct the effective resource location by appending "-apple" to the base names of all referenced resources, e.g. "mytopic.dita" becomes
+          "mytopic-apple.dita".</li>
+        <li>&lt;keyscopePrefix>apple-&lt;/keyscopePrefix> -- Construct the effective key scopes by prepending "apple-" to the scope name specified for the branch root topicref. If the branch root
+          topicref does not specify a scope name, its scope name is taken to be "" (empty string), to which the prefix is prepended. This means that copied branches will always have an effective key
+          scope when either keyscopePrefix or keyscopeSuffix is specified.</li>
+        <li>&lt;keyscopeSuffix>-apple&lt;/keyscopeSuffix> -- Construct the effective key scopes by appending "-apple" to the scope names specified for all topicrefs within the branch, including the
+          branch root topicref. If the branch root topicref does not specify a scope name, the scope name is taken to be "" (empty string), to which the prefix is appended.</li>
+        <li>&lt;keynamePrefix>apple-&lt;/keynamePrefix>  -- Construct the effective key names for all key-defining topicrefs in the branch by prepending "apple-" to the keys names specified for all
+          topicrefs within the branch, including the branch root topicref. </li>
+        <li>&lt;keynameSuffix>-apple&lt;/keynamePrefix>  -- Construct the effective key names for all key-defining topicrefs in the branch by appending "-apple" to the keys names specified for all
+          topicrefs within the branch, including the branch root topicref. </li>
+        </ul></p>
+      <p>In all cases, the default would be no prefix or suffix and no renaming of resources, keys or key scopes. In general, it would be user error to fail to specify either a key scope prefix or
+        suffix or key name prefix or suffix when the branch defines keys. In that case, normal key precedence rules would apply.</p>
+      <p>I think that each second and subsequent copy of the branch should always establish a key scope. If the branch specifies a scope name, then that's inherent in the the copy. If it doesn't, then
+        the processor should define an arbitrary and unique-in-the-current-scope scope name. This ensures that unqualified key references make within the branch will always resolve to resources within
+        the branch, which would be normal user expectation. The only reason to specify a scope prefix or suffix is when you want to be able to address keys within a copied branch's scope, for which
+        you need to know the effective scope name.</p>
+      <p>Note that there is no <i>processing</i> requirement to make copies of resources referenced from branch copies and therefore no reason for it to be the default, meaning that authors should not
+        need to explicitly turn off renaming as in the original proposal. Rather, you need to turn on renaming when it's important to you.</p>
+      <p>In most cases the location details of resources should not be important because, in the general case, public addresses of things, including generated HTML files, should be derived from
+        associated keys, coupled with processor-specific mechanisms (e.g., deliverable address construction rules), not source resource locations. This is true for many reasons, but the most
+        compelling one is simply that map authors have full control over key names, but little or no control over the locations and names of referenced resources. Therefore, if the requirement is to
+        enable map authors to enable persistent public addresses for rendered artifacts, keys are the thing they should depend on, not source resource locations. Essentially, the @copy-to mechanism
+        was always a workaround for the lack of keys by which persistent addresses could be defined. With the advent of keys the need for @copy-to should have gone away, but the OT's HTML generation
+        process hasn't caught up to that yet.</p>
+      <p>For keys and key scopes, I don't think there's any useful automatic renaming, since there would be no way to reference automatically-renamed keys. Thus, if duplicating a branch would cause
+        keys to be duplicated, the author must specify either a keyscope prefix or suffix or a key prefix or suffix.</p>
+      <p>In the case of key scopes, if the branch specifies a key scope, then each copy of the branch will establish a distinct key scope and unqualified key references within the branch will continue
+        to work as expected. The only reason to specify a key scope prefix or suffix would be if you want to able to explicitly reference the branch copy from outside the scope.</p>
+      <p>Given key scopes, I think it would be rare to want to modify key names directly, so I would expect the key name suffix and prefix feature to be little used, since key scopes would give you
+        the same effect while making topic authoring easier (because authors wouldn't necessarily need to know about the effective key names for references to keys within the scope, which would be the
+        usual case).</p>
+      <p>Note that authors creating key references do have to know about either effective key names or effective key scope names, so there has to be some communcation from map authors to topic
+        authors. It also implies that editing tools that provide lists of available keys would need to determine the effective key scopes and key names in order to provide complete lists.</p>
+      <p>I don't think it's a good idea to use the filename of the DITAVAL file, or any properties defined in it, to determine any of these names. The map author may have no control over the DITAVAL
+        filename or the contents of the DITAVAL file. It also creates a greater degree of separation between references to names (key references to resources) and the definition of what the name are:
+        authors would need to know to take either the DITAVAL filename into account or look inside the DITAVAL file for specific properties.</p>
+      <p>Thus, I think that all name modification should be drive exclusively by metadata specified on the &lt;ditavalref>. This removes a small convenience for map authors but makes things much
+        simpler for authors creating references to things in implicit branch copies.</p>
+    </body>
+  </topic>
+  <topic
+    id="topic_ych_jnk_1m">
+    <title>Branch Filtering as Effective Map Generation</title>
+    <body>
+      <p>DITA has always had an implicit or explicit concept of "effective map", meaning the result of applying processing to the initial input map to produce a single effective map in which maprefs
+        have been resolved, conrefs have been resolved, metadata has been propagated down the map tree, and so on. This process is more or less represented by the "map pull" processing in the
+        Toolkit.</p>
+      <p>The <term>effective map</term> is implicit in the root map and must be deterministic, meaning that there should be no processor-determinable variables that would produce different effective
+        maps for the same input map. That is, given the same starting map and DITAVAL specifications, two conforming processors must produce the same effective map, except for resource location
+        details, which are necessarily processor-specific.</p>
+      <p>The effective map can of course be represented by generating a new map document but it need not be, meaning that the DITA specification does not need to specify the effective map generation
+        as an actual process, it only needs to say what the properties of the effective map are.</p>
+      <p>This means that in terms of the spec language, all statements need to be declarative statements of the form "the effective map has/does not have a given feature" rather than procedural
+        statements like "the topicref is removed" or "the metadata is added". Procedural explanations can be used in non-normative information to explain the feature, but the normative specification
+        should always be declarative, not procedural.</p>
+      <p>I think with this proposal that it is probably necessary to rework the architectural spec to make the concept of <term>effective map</term> more explicit and provide a single place in which
+        to talk about all semantics and rules that contribute to determining the effective map. I'll need to do a deeper review of the 1.2 spec to see what this change might be.</p>
+      <p>Given that, then the general definition of the branch filtering feature is:<lq>When a topicref contains one or more &lt;ditavalref> elements, the effective map contains one copy of the
+        original topicref for each &lt;ditavaref>, ordered in the order the &lt;ditavalref> elements occur, with each copy of the topicref containing only the &lt;ditavalref> to which it corresponds.
+        Within each copy, key names and referenced resource locations must reflect the addition of any specified prefixes or suffixes.<note>When there is exactly one &lt;ditavalref> and the
+        &lt;ditavalref> does not specify any name or resource location prefixes or suffixes, the copy of the original topicref should be identical to the original topicref before application of any
+        filtering.</note></lq></p>
+      <p>This definition separates the semantics of producing the effective map from any subsequent processing applied to the effective map.</p>
+    </body>
+  </topic>
+</topic>
