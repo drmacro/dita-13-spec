@@ -152,6 +152,13 @@
                   nameend="newCol4">New topic</entry>
               </row>
               <row>
+                <entry>foreigncontentspec.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Modifed to reflect the SVG domain (full topic included below)</entry>
+              </row>
+              <row>
                 <entry
                   morerows="1">archSpec/dita-linking-link-element-summary.dita</entry>
                 <entry
@@ -170,6 +177,306 @@
         </table>
       </section>
     </body>
+    <concept
+      id="concept-1"
+      xml:lang="en-us">
+      <title>Specializing foreign or unknown content</title>
+      <shortdesc>Specializing the &lt;foreign&gt; or &lt;unknown&gt; element is an open extension to DITA for the purpose of incorporating standard vocabularies for non-textual content, such as MathML
+        and SVG as markup within DITA documents. <ph>These elements <keyword>should not</keyword> be used to include textual content or metadata in DITA documents except where such content acts as an
+        example or display, rather than as the primary content of a topic.</ph></shortdesc>
+      <conbody>
+        <note>Both MathML and SVG are built-in domains starting with DITA 1.3 and serve as working examples of &lt;foreign> specializations.</note>
+        <section
+          id="section_C45458033A7347F8BF2D99D251A611C4">
+          <title>Incorporating foreign or unknown content</title>
+          <p>There are three methods of incorporating foreign content into DITA. </p>
+          <ul
+            id="ul_35DA1E5F56044DE3BCF73F8CFCCB55DA">
+            <li
+              id="li_73ABC413E3DA4472BF55D0EF1B73C728">A domain specialization of the &lt;foreign&gt; or &lt;unknown&gt; element. This is the usual implementation.</li>
+            <li
+              id="li_3DA9AC4CE9114E28A0F601CB66D26A29">A structural specialization using the &lt;foreign&gt; or &lt;unknown&gt; element. This affords more control over the content.</li>
+            <li
+              id="li_7F1FFDC5D0C54080B1E819E4C1F7B685">Do nothing: simply embed the foreign content within &lt;foreign&gt; or &lt;unknown&gt;.</li>
+          </ul>
+        </section>
+        <section
+          id="section_9867B44DADC644579062CBA3B116AF61">
+          <title>Foreign or unknown content and the architectural @class attribute</title>
+          <p>Foreign content that is incorporated in DITA by one of these methods is not specialized. Specialization depends upon the architectural @class attribute found in every DITA element. If the
+            foreign content has interoperability or vocabulary naming issues such as those that are addressed by specialization in DITA, they must be addressed by means that are appropriate to the
+            foreign content. </p>
+        </section>
+        <section>
+          <title>Foreign or unknown content, element type name conflicts, and namespaces</title>
+          <p>Because foreign vocabularies are integrated into larger DITA document types, it is possible for a foreign vocabulary to have declared element types with the same local names as
+            DITA-defined elements integrated into a given DITA document type. If the foreign vocabulary has no element types in common with any of the DITA vocabulary modules integrated into the same
+            DITA document type, then there should be no problem creating working DTDs, XSD schemas, or RelaxNG schemas for the DITA document type. </p>
+          <p>However, if the foreign vocabulary has any element types with the same local name as a DITA-defined element type, there may be limitations on what can be done in specific document schema
+            languages to accommodate the foreign vocabulary. </p>
+          <p>If the foreign vocabulary is in a namespace, then it is always possible to construct a DTD, XSD schema, or RelaxNG schema that integrates the foreign vocabulary.  However, if the foreign
+            vocabulary is not in a namespace it may be impossible to construct a working DTD or XSD document type that accommodates both the DITA vocabulary and the foreign vocabulary. With RelaxNG
+            schemas it is always possible to construct a complete RelaxNG schema that includes the foreign vocabulary.</p>
+          <p>For DTDs that integrate a foreign vocabulary that is in a namespace, the foreign elements must use a namespace prefix for all element types with local names that are the same as any
+            DITA-defined element type name. The prefix must be fixed in the document type shell (because XML DTDs are not namespace aware). A namespace prefix must be used because DTD validation only
+            acts on the tagname as specified on the start tag, not the fuly-qualified element type name. Thus, setting a default namespace within a DTD, while valid in XML, does not serve to
+            distinguish the element types for the purposes of DTD validation. While only conflicting element types require the namespace prefix, normal practice is to use the same namespace prefix for
+            all element types in the foreign vocabulary. </p>
+          <p>For XSD and RelaxNG schemas that integrate a foreign vocabulary that is in a namespace there is no restriction on how the tags are constructed in documents governed by XSD and RelaxNG
+            schemas because XSD and RelaxNG are both namespace aware.</p>
+          <p>For DTDs that integrate a foreign vocabulary that is not in a namespace and that has element type names that are the same as DITA-defined names integrated in the same document type shell,
+            it is impossible to construct a DTD that integrates the foreign vocabulary. This is because DTDs do not provide a mechanism for context-specific element type declarations within a single
+            namespace or no namespace. </p>
+          <p>For XSD schemas that integrate a foreign vocabulary that is not in a namespace and that has element type names that are the same as DITA-defined names integrated in the same document type
+            shell, it is possible to integrate the foreign vocabulary only if the foreign vocabulary's element types are defined within the context of another element type (meaning they are not global
+            element types). This is possible but is not common practice (most XSD schemas will define all element types as global types) and may be practically impossible due to the need to use the
+            same element type name in different contexts.</p>
+        </section>
+        <example
+          id="example_0566553963A34B66AFC511C71D16B023">
+          <title>Example of specializing foreign or unknown content using DTDs</title>
+          <p>The sample below shows how to create a domain declaration for SVG markup and integrate it into a document type shell.</p>
+          <p>From the <filepath>svgDomain.ent</filepath>
+            file:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                   SVG DOMAIN ENTITIES                         -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- SVG elements must be prefixed, otherwise they conflict with
+     existing DITA elements (e.g., &lt;desc> and &lt;title>.
+  -->
+&lt;!ENTITY % NS.prefixed "INCLUDE" >
+&lt;!ENTITY % SVG.prefix "svg" >
+
+&lt;!ENTITY % svg-d-foreign
+   "svg_container
+   "
+>
+
+&lt;!ENTITY   svg-d-att     
+  "(topic svg-d)"
+></codeblock></p>
+          <p>Note that the SVG-specific <keyword>%SVG.prefix</keyword> parameter entity is declared. This establishes the namespace prefix to be used for the SVG content. It could be overridden in a
+            document type shell by declaring the parameter entity before the reference to the <filepath>svgDomain.ent</filepath> file.</p>
+          <p>From the <filepath>svgDomain.mod</filepath> file:</p>
+          <pre>&lt;!-- =============================================================
+     DITA SVG Domain
+     ============================================================= -->
+
+ &lt;!ENTITY % svg_container        "svg_container" >
+ &lt;!ENTITY % svgref               "svgref" >
+
+&lt;!ENTITY % svg11.dtd 
+  SYSTEM "svg11/svg11.dtd"
+>%svg11.dtd;
+
+&lt;!-- ============================================================= -->
+&lt;!--                   ELEMENT NAME ENTITIES                       -->
+&lt;!-- ============================================================= -->
+
+
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT DECLARATIONS                       -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % svg_container.content
+"
+  (%data; |
+   %data-about; |
+   %SVG.pfx;svg)*
+"
+>
+&lt;!ENTITY % svg_container.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+> 
+&lt;!ELEMENT svg_container %svg_container.content; >
+&lt;!ATTLIST svg_container %svg_container.attributes; >
+
+&lt;!-- LONG NAME: SVG Reference -->
+&lt;!ENTITY % svgref.content 
+"EMPTY" 
+>
+&lt;!ENTITY % svgref.attributes
+             "href 
+                        CDATA 
+                                  #IMPLIED
+              keyref 
+                        CDATA 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+&lt;!ELEMENT svgref    %svgref.content;>
+&lt;!ATTLIST svgref    %svgref.attributes;>
+
+&lt;!-- ============================================================= -->
+&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+&lt;!-- ============================================================= -->
+
+&lt;!ATTLIST svg_container           %global-atts;  class CDATA "+ topic/foreign svg-d/svg_container ">
+&lt;!ATTLIST svgref                  %global-atts;  class CDATA "+ topic/xref    svg-d/svgref ">
+
+&lt;!-- ================== End SVG Domain ==================== --> </pre>
+          <p>From a document type shell that integrates the SVG
+            domain:<codeblock> ...
+
+&lt;!ENTITY % svg-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 SVG Domain//EN" 
+         "svgDomain.ent"
+>%svg-d-dec;
+  
+ ...
+
+&lt;!ENTITY % foreign      "foreign | 
+                         %svg-d-foreign;
+                        ">
+
+  ...
+
+&lt;!ENTITY included-domains 
+                          "&amp;hi-d-att; 
+                           &amp;ut-d-att; 
+                           &amp;indexing-d-att;
+                           &amp;hazard-d-att;
+                           &amp;svg-d-att;
+  "
+>
+
+  ...
+
+&lt;!ENTITY % svg-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.3 SVG Domain//EN" 
+         "svgDomain.mod"
+>%svg-d-def;
+
+  ...</codeblock></p>
+        </example>
+        <example
+          id="example_8C8549BD3D814F978CAC1C6667B82BE4">
+          <title>Example of SVG within a &lt;p&gt; element </title>
+          <pre>&lt;p&gt;This is an ellipse:
+  &lt;svg_container&gt;
+    &lt;svg:svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg"&gt;
+
+&lt;ellipse cx="300" cy="150" rx="200" ry="80"
+style="fill:rgb(200,100,50);
+stroke:rgb(0,0,100);stroke-width:2"/&gt;
+
+    &lt;/svg:svg&gt;    
+  &lt;/svg_container&gt;.
+&lt;/p&gt; </pre>
+        </example>
+        <example
+          id="example_B14351B0016E4065A4D5CFE991D30BC0">
+          <title>Example of specializing foreign content using XML Schemas</title>
+          <p>The sample below describes how to create a domain declaration of the mathML element, but does not show how to integrate that declaration in a DITA document-type shell. For more specific
+            information on creating document-type shells, see <xref
+            href="schemamod.dita#modSchema"
+            format="dita"/></p>
+          <pre>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"  
+  elementFormDefault="qualified">
+  
+  &lt;xs:import schemaLocation="mathml3/mathml3.xsd"
+    namespace="http://www.w3.org/1998/Math/MathML"
+  />
+  
+  &lt;xs:group name="mathml-d-foreign">
+    &lt;xs:sequence>
+      &lt;xs:choice>
+        &lt;xs:element ref="mathml_container"/>
+      &lt;/xs:choice>
+    &lt;/xs:sequence>
+  &lt;/xs:group>
+  
+  &lt;xs:group name="mathml_container.content">
+    &lt;xs:choice  minOccurs="0" maxOccurs="unbounded">
+      &lt;xs:element ref="m:math"/>
+      &lt;xs:group ref="data.elements.incl" minOccurs="0"/>
+    &lt;/xs:choice>
+  &lt;/xs:group>
+  
+  &lt;xs:attributeGroup name="mathml_container.attributes">
+    &lt;xs:attribute name="outputclass" type="xs:string"/>
+    &lt;xs:attributeGroup ref="global-atts"/>
+    &lt;xs:attributeGroup ref="univ-atts"/>
+  &lt;/xs:attributeGroup>
+  
+  &lt;xs:complexType name="mathml_container.class" mixed="false">
+    &lt;xs:sequence>  
+      &lt;xs:group ref="mathml_container.content"/>
+    &lt;/xs:sequence>        
+    &lt;xs:attributeGroup ref="mathml_container.attributes"/>
+  &lt;/xs:complexType>
+  
+  &lt;xs:element name="mathml_container">
+    &lt;xs:annotation>
+      &lt;xs:documentation>
+        The mathml_container (&amp;lt;&lt;keyword>mathml_container&lt;/keyword>&amp;gt;) element 
+        contains zero or more MathML equations, along with optional &amp;lt;&lt;keyword>data&lt;/keyword>&amp;gt;
+        or &amp;lt;&lt;keyword>data-about&lt;/keyword>&amp;gt; elements, which act as metadata for the
+        equations.
+      &lt;/xs:documentation>
+    &lt;/xs:annotation>
+    &lt;xs:complexType mixed="false">
+      &lt;xs:complexContent>
+        &lt;xs:extension base="mathml_container.class">
+          &lt;xs:attribute ref="class" default="+ topic/foreign mathml-d/mathml_container "/>
+        &lt;/xs:extension>
+      &lt;/xs:complexContent>
+    &lt;/xs:complexType>
+  &lt;/xs:element>
+  
+&lt;/xs:schema>  </pre>
+        </example>
+        <example
+          id="example_34AAE3513574457F8FE30CC970D35211">
+          <title>Example of MathML within an &lt;equation-block&gt; element </title>
+          <pre>&lt;p&gt;... as in the formula 
+&lt;object&gt;
+  &lt;!-- sum 4 + x --&gt;
+  &lt;mathML&gt;
+    &lt;mml:math display="block"&gt;
+      &lt;mml:mrow&gt;
+        &lt;mml:mo&gt;&amp;sum;&lt;/mml:mo&gt;
+        &lt;mml:mn&gt;4&lt;/mml:mn&gt;
+        &lt;mml:mo&gt;+&lt;/mml:mo&gt;
+        &lt;mml:mi&gt;x&lt;/mml:mi&gt;
+      &lt;/mml:mrow&gt;
+    &lt;/mml:math&gt;    
+  &lt;/mathML&gt;
+ &lt;equation-block&gt;.
+&lt;/p&gt; </pre>
+        </example>
+      </conbody>
+    </concept>
     <reference
       id="svgdomain"
       xml:lang="en-us">
