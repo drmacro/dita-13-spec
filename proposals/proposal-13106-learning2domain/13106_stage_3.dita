@@ -190,57 +190,60 @@
           <dlentry>
             <dt>learning2Domain.ent</dt>
             <dd>
-              <codeblock/>
+              <codeblock><coderef href="learning2Domain/dtd/learning2Domain.ent"/></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>learning2Domain.mod</dt>
             <dd>
-              <codeblock/>
+              <codeblock><coderef href="learning2Domain/dtd/learning2Domain.mod"/></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>learningInteractionBase2Domain.ent</dt>
             <dd>
-              <codeblock/>
+              <codeblock><coderef href="learning2Domain/dtd/learningInteractionBase2Domain.ent"/></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>learningInteractionBase2Domain.mod</dt>
             <dd>
-              <codeblock/>
+              <codeblock><coderef href="learning2Domain/dtd/learningInteractionBase2Domain.mod"/></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>learningAssessment-learning1.dtd </dt>
             <dd>Integrates learning1, which is the DITA 1.2 support, and uses a constraint to remove
               %lcInteraction2; from the content model of learningAssessmentBody (or wherever it's
-              included).<codeblock/>
+              included).
+               <codeblock><coderef href="learning2Domain/dtd/learningAssessment-learning1.dtd"/></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>learningAssessment-learning2.dtd </dt>
             <dd>Integrates learning2 and uses a constraint to remove %lcInteraction; from the
-              content model of learningAssessmentBody. <codeblock/></dd>
+              content model of learningAssessmentBody. 
+               <codeblock><coderef href="learning2Domain/dtd/learningAssessment-learning2.dtd"/></codeblock>
+            </dd>
           </dlentry>
           <dlentry>
-            <dt>learningNoLearning1Constraint</dt>
+            <dt>learningNoLearning1Constraint.mod</dt>
             <dd>Constraint to use only the learning2Domain elements. This allows authoring tools to
               display only the learning2Domain elements and avoid confusion by having two instances
-              of every learning element.<codeblock/></dd>
+              of every learning element.
+              <codeblock><coderef href="learning2Domain/dtd/learningNoLearning1Constraint.mod"/></codeblock>
+            </dd>
           </dlentry>
           <dlentry>
             <dt>learningNoLearning2Constraint</dt>
             <dd>Constraint to use only the learning elements. This allows authoring tools to display
               only the learning elements and avoid confusion by having two instances of every
-              learning element.<codeblock/></dd>
+              learning element.
+            <codeblock><coderef href="learning2Domain/dtd/learningNoLearning2Constraint.mod"/></codeblock>
+            </dd>
           </dlentry>
         </dl>
-        <p>In addition, the support includes the following files to allow the plugin to function as
-          a stand-alone unit: <ul id="ul_qhb_ymk_ll">
-            <li>learningBase.ent</li>
-            <li>learningBase.mod</li>
-          </ul></p></section>
+      </section>
       <section>
         <title>Modified language reference specification documentation</title>
         <p>The specification impact is small.</p>
