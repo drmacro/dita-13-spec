@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+  
+  <!-- DITA 1.3 Markup Domain -->
+  
+    <xs:annotation>
+      <xs:appinfo>
+        <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic markup-d)</dita:domainsModule>
+      </xs:appinfo>
+      <xs:documentation>
+      
+      </xs:documentation>
+    </xs:annotation>
+
+
+  <xs:group name="markup-d-keyword">
+    <xs:choice>
+      <xs:element ref="markupname"/>
+    </xs:choice>
+  </xs:group>
+  
+
+  <xs:group name="markupname.content">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="keyword.content"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
+  <!-- Basic form: Markup name -->
+  <xs:element name="markupname">
+    <xs:annotation>
+      <xs:documentation>
+       
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="markupname.class">
+          <xs:attribute ref="class" default="+ topic/keyword markup-d/markupname "/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="markupname.class" mixed="true">
+        <xs:sequence>
+          <xs:group ref="markupname.content"/>
+        </xs:sequence>
+    <xs:attributeGroup ref="markupname.attributes"/>
+  </xs:complexType>
+  
+  <xs:attributeGroup name="markupname.attributes">
+    <xs:attributeGroup ref="global-atts"/>
+    <xs:attributeGroup ref="univ-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+  </xs:attributeGroup>
+
+</xs:schema>

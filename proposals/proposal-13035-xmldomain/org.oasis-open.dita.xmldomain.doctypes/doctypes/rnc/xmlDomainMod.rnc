@@ -3,28 +3,23 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 # ============================================================= 
 # MODULE:    DITA XML Domain - RNC              
 # VERSION:   1.3                                                
-# DATE:      October 2012                                       
+# DATE:      November 2013                                       
 # =============================================================
 
 
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 
 # Define the domain values of this module
-domains-atts-value |= "(topic xml-d)"
+domains-atts-value |= "(topic markup-d xml-d)"
 # Define domain extension patterns
 xml-d-keyword =
    numcharref.element |
    parameterentity.element |
-   rngpattern.element |
    textentity.element | 
    xmlatt.element |
    xmlelement.element | 
    xmlnsname.element |
-   xmlpi.element |
-   xsdattgroup.element | 
-   xsdcomplextype.element | 
-   xsdgroup.element | 
-   xsdsimpletype.element
+   xmlpi.element
    
 # Extend the patterns with the domain contribution
 keyword |= xml-d-keyword
@@ -61,24 +56,6 @@ parameterentity.element =
     parameterentity.content 
    }
 parameterentity.attlist &= parameterentity.attributes
-
-
-# LONG NAME: Relax NG named pattern
-rngpattern.content =
-  (text | \text | tm)*
-rngpattern.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-rngpattern.element =
-  
-  ## The rngpattern (<rngpattern>) element is used to 
-  ## identify mentions of named patterns.
-  ##         Category: Mention elements
-  element rngpattern { 
-    rngpattern.attlist, 
-    rngpattern.content 
-   }
-rngpattern.attlist &= rngpattern.attributes
 
 
 # LONG NAME: Text entity (&prodname;)
@@ -172,113 +149,25 @@ xmlpi.element =
 xmlpi.attlist &= xmlpi.attributes
 
 
-# LONG NAME: XSD attribute group
-xsdattgroup.content =
-  (text | \text | tm)*
-xsdattgroup.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-xsdattgroup.element =
-  
-  ## The xsdattgroup (<xsdattgroup>) element is used to identify
-  ## mentions of XSD attribute groups.
-  ##         Category: Mention elements
-  element xsdattgroup { 
-    xsdattgroup.attlist, 
-    xsdattgroup.content 
-   }
-xsdattgroup.attlist &= xsdattgroup.attributes
- 
-
-# LONG NAME: XSD complex type
-xsdcomplextype.content =
-  (text | \text | tm)*
-xsdcomplextype.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-xsdcomplextype.element =
-  
-  ## The xsdcomplextype (<xsdcomplextype>) element is used to identify
-  ## mentions  of XSD complex types.
-  ##         Category: Mention elements
-  element xsdcomplextype { 
-    xsdcomplextype.attlist, 
-    xsdcomplextype.content 
-   }
-xsdcomplextype.attlist &= xsdcomplextype.attributes
- 
-
-# LONG NAME: XSD group
-xsdgroup.content =
-  (text | \text | tm)*
-xsdgroup.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-xsdgroup.element =
-  
-  ## The xsdgroup (<xsdgroup>) element is used to identify
-  ## mentions of XSD groups (element groups, as opposed to 
-  ## attribute groups).
-  ##         Category: Mention elements
-  element xsdgroup { 
-    xsdgroup.attlist, 
-    xsdgroup.content 
-   }
-xsdgroup.attlist &= xsdgroup.attributes
-
-
-# LONG NAME: XSD simpletype
-xsdsimpletype.content =
-  (text | \text | tm)*
-xsdsimpletype.attributes =
-  univ-atts,
-  attribute outputclass { text }?
-xsdsimpletype.element =
-  
-  ## The xsdsimpletype (<xsdsimpletype>) element is used to identify
-  ## mentions of XSD simple types ("data types").
-  ##         Category: Mention elements
-  element xsdsimpletype { 
-    xsdsimpletype.attlist, 
-    xsdsimpletype.content 
-   }
-xsdsimpletype.attlist &= xsdsimpletype.attributes
-
-
 # Specialization attributes. Global attributes and class defaults
 numcharref.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/numcharref " ] attribute class { text }?
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/numcharref " ] attribute class { text }?
 parameterentity.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/parameterentity " ] attribute class { text }?
-rngpattern.attlist &=
-  global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/rngpattern " ] attribute class { text }?
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/parameterentity " ] attribute class { text }?
 textentity.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/textentity " ] attribute class { text }? 
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/textentity " ] attribute class { text }? 
 xmlatt.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xmlatt " ] attribute class { text }?
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/xmlatt " ] attribute class { text }?
 xmlelement.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xmlelement " ] attribute class { text }? 
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/xmlelement " ] attribute class { text }? 
 xmlnsname.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xmlnsname " ] attribute class { text }?
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/xmlnsname " ] attribute class { text }?
 xmlpi.attlist &=
   global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xmlpi " ] attribute class { text }?
-xsdattgroup.attlist &=
-  global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xsdattgroup " ] attribute class { text }? 
-xsdcomplextype.attlist &=
-  global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xsdcomplextype " ] attribute class { text }? 
-xsdgroup.attlist &=
-  global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xsdgroup " ] attribute class { text }?
-xsdsimpletype.attlist &=
-  global-atts,
-  [ a:defaultValue = "+ topic/ph xml-d/xsdsimpletype " ] attribute class { text }?
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname xml-d/xmlpi " ] attribute class { text }?

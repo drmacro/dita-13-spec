@@ -1,939 +1,623 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN"
+ "ditabase.dtd">
 <dita>
-  <topic id="topic_aqh_5zt_3h">
-    <title>Stage 3 proposal: Feature #13035</title>
-    <shortdesc>Provides an XML-mention domain for marking up mentions of XML syntactic components.
-      This will benefit any document that talks about XML vocabularies, such as the DITA standard,
-      documentation for XML applications, instructional materials for XML technologies,
-      documentation of XML-based configuration files, and more.</shortdesc>
-    <body>
-      <section>
-        <title>Champion</title>
-        <p>Eliot Kimber</p>
-      </section>
-      <section>
-        <title>Tracking information</title>
-        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
-          <sthead>
-            <stentry>Event</stentry>
-            <stentry>Date</stentry>
-            <stentry>Links</stentry>
-          </sthead>
-          <strow>
-            <stentry>Stage 1 proposal accepted</stentry>
-            <stentry>16 August 2011</stentry>
-            <stentry>
-              <xref
-                href="https://www.oasis-open.org/committees/download.php/43308/DITA-TC-minutes-16-August-2011.txt"
-                scope="external" format="text">Minutes, 16 August 2011</xref></stentry>
-          </strow>
-          <strow>
-            <stentry>Stage 2 proposal submitted</stentry>
-            <stentry>30 September 2012; 16 October 2012</stentry>
-            <stentry>
-              <sl>
-                <sli>
-                  <xref
-                    href="https://www.oasis-open.org/committees/download.php/47212/proposal-13035-xmldomain.html"
-                    scope="external" format="html">XHTML</xref></sli>
-                <sli>
-                  <xref
-                    href="https://www.oasis-open.org/committees/download.php/47210/proposal-13035-xmldomain.dita"
-                    scope="external" format="dita">DITA source</xref></sli>
-                <sli>
-                  <xref
-                    href="https://www.oasis-open.org/committees/download.php/47209/proposal-13035-xmldomain-toolkit-plugins.zip"
-                    scope="external" format="zip">DITA-OT plug-ins</xref></sli>
-              </sl>
-            </stentry>
-          </strow>
-          <strow>
-            <stentry>Stage 2 proposal discussed</stentry>
-            <stentry>9 and 16 October 2012</stentry>
-            <stentry>
-              <sl>
-                <sli>
-                  <xref
-                    href="https://www.oasis-open.org/committees/download.php/47143/dita_tc_minutes_20121009.txt"
-                    scope="external" format="text">Minutes, 9 October 2012</xref>
-                </sli>
-                <sli>
-                  <xref
-                    href="https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt"
-                    scope="external" format="text">Minutes, 16 October 2012</xref>
-                </sli>
-              </sl>
-            </stentry>
-          </strow>
-          <strow>
-            <stentry>Stage 2 proposal approved</stentry>
-            <stentry>19 February 2013</stentry>
-            <stentry>
-              <xref
-                href="https://www.oasis-open.org/committees/download.php/48344/minutes20130219.txt"
-                type="text" scope="external" format="txt">Minutes, 19 February 2013
-              </xref></stentry>
-          </strow>
-          <strow>
-            <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry>18 October 2013</stentry>
-            <stentry>Tom Magliery, David Helfinstine</stentry>
-          </strow>
-          <strow>
-            <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry>1 November 2013</stentry>
-            <stentry/>
-          </strow>
-        </simpletable>
-      </section>
-      <section>
-        <title>Approved technical requirements</title>
-        <p>Define a new vocabulary module, xmlDomain, that defines the following element types:</p>
-        <dl>
-          <dlentry>
-            <dt>&lt;numcharref></dt>
-            <dd>Mention of a numeric character reference</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;parameterentity></dt>
-            <dd>Mention of a parameter entity</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;rngpattern></dt>
-            <dd>Mention of a RelaxNG named pattern</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;textentity></dt>
-            <dd>A mention of a text entity</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xmlatt></dt>
-            <dd>Mention of an XML attribute</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xmlelement></dt>
-            <dd>Mention of an XML element type</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xmlnsname></dt>
-            <dd>Mention of an XML namespace name</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xmlpi></dt>
-            <dd>Mention of an XML processing instruction name</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xsdattgroup></dt>
-            <dd>Mention of a named attribute group within an XML Schema document</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xsdcomplextype></dt>
-            <dd>Mention of a named complex type within an XML Schema document</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xsdgroup></dt>
-            <dd>Mention of a named group within an XML Schema document,</dd>
-          </dlentry>
-          <dlentry>
-            <dt>&lt;xsdsimpletype></dt>
-            <dd>Mention of a simple type (datatype) within an XML Schema document</dd>
-          </dlentry>
-        </dl>
-      </section>
-      <section>
-        <title>Dependencies or interrelated proposals</title>
-        <p>None</p>
-      </section>
-      <section>
-        <title>New DTD files</title>
-        <p>
-          <fig>
-            <title>xmlDomain.ent</title>
-            <codeblock><coderef href="org.oasis-open.dita.xmldomain.doctypes/doctypes/dtd/xmlDomain.ent"/></codeblock>
-          </fig>
-        </p>
-        <p>
-          <fig>
-            <title>xmlDomain.mod</title>
-            <codeblock><coderef href="org.oasis-open.dita.xmldomain.doctypes/doctypes/dtd/xmlDomain.mod"/></codeblock>
-          </fig>
-        </p>
-      </section>
-      <section>
-        <title>Modified DTDs</title>
-        <p>This depends on whether we plan to integrate the XML mention domain into the base or
-          technical content DTDs.</p>
-      </section>
-      <section>
-        <title>Modified specification documentation</title>
-        <p>Adds 13 topics to the <cite>Language Reference</cite>:<ol>
-          <li>Container topic for the domain</li>
-          <li>Topic for the &lt;numcharref> element</li>
-          <li>Topic for the &lt;parameterentity> element</li>
-          <li>Topic for the &lt;rngpattern> element</li>
-          <li>Topic for the &lt;textentity> element</li>
-          <li>Topic for the &lt;xmlatt> element</li>
-          <li>Topic for the &lt;xmlelement> element</li>
-          <li>Topic for the &lt;xmlnsname> element</li>
-          <li>Topic for the &lt;xmlpi> element</li>
-          <li>Topic for the &lt;xsdattgroup> element</li>
-          <li>Topic for the &lt;xsdcomplextype> element</li>
-          <li>Topic for the &lt;xsdgroup> element</li>
-          <li>Topic for the &lt;xsdsimpletype> element</li>
-          </ol>This topic collection should be added to the current section 3.2.6 [Technical content] Domain elements. I suggest that it be placed in-between "User interface elements" and "xNAL domain
-          elements".</p>
-      </section>
-    </body>
-  </topic>
-  <reference id="reference_aqh_5zt_3h">
-    <title>New language reference topics</title>
-    <reference id="xml-mention-domain">
-      <title>XML mention domain</title>
-      <shortdesc>The XML-mention domain elements are used for mentions of named XML constructs, including elements, attributes, parameter entities, processing instructions, document type declaration
-        components, and XSD and Relax NG schema components. These elements enable specific typographic effects for different construct types, precise search and retrieval of specific constructs, and
-        automatic indexing of different constructs. This domain is intended to support the description and documentation of XML document types and XML applications.</shortdesc>
-      <prolog>
-        <metadata>
-          <keywords>
-            <indexterm>XML mention domain<indexterm>overview</indexterm></indexterm>
-          </keywords>
-        </metadata>
-      </prolog>
-      <reference id="numcharref">
-        <title>numcharref</title>
-        <shortdesc>The &lt;numcharref> element identifies mentions of XML numeric character references (e.g., "&amp;#10;", "&amp;#x0a;"). This element enables more precise semantic searching of the
-          DITA source; it also enables distinct output formatting. The content of the &lt;numcharref> element should be just the numeric value, e.g. "10" or "x0a", with any leading or trailing
-          characters added as a matter of style, e.g., the "&amp;#" and ";" delimiters. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>numcharref element</indexterm>
-              <indexterm>XML mention domain<indexterm>numcharref element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/numcharref</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>&lt;p>Numeric character references represent characters from the Universal
+<topic id="topic_aqh_5zt_3h">
+<title>Stage 3 proposal: Feature #13035</title>
+<shortdesc>Provides an XML-mention domain for marking up mentions
+of XML syntactic components.       This will benefit any document
+that talks about XML vocabularies, such as the DITA standard,    
+  documentation for XML applications, instructional materials for
+XML technologies,       documentation of XML-based configuration files,
+and more.</shortdesc>
+<body>
+<section>         <title>Champion</title>         <p>Eliot Kimber</p
+>       </section>
+<section>         <title>Tracking information</title>         <simpletable
+frame="all" relcolwidth="1.0* 1.0* 1.0*">
+<sthead>
+<stentry>Event</stentry>
+<stentry>Date</stentry>
+<stentry>Links</stentry>
+</sthead>
+<strow>
+<stentry>Stage 1 proposal accepted</stentry>
+<stentry>16 August 2011</stentry>
+<stentry>               <xref format="text"
+href="https://www.oasis-open.org/committees/download.php/43308/DITA-TC-minutes-16-August-2011.txt"
+scope="external">Minutes, 16 August 2011</xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal submitted</stentry>
+<stentry>30 September 2012; 16 October 2012</stentry>
+<stentry>               <sl>
+<sli>                   <xref format="html"
+href="https://www.oasis-open.org/committees/download.php/47212/proposal-13035-xmldomain.html"
+scope="external">XHTML</xref></sli>
+<sli>                   <xref format="dita"
+href="https://www.oasis-open.org/committees/download.php/47210/proposal-13035-xmldomain.dita"
+scope="external">DITA source</xref></sli>
+<sli>                   <xref format="zip"
+href="https://www.oasis-open.org/committees/download.php/47209/proposal-13035-xmldomain-toolkit-plugins.zip"
+scope="external">DITA-OT plug-ins</xref></sli>
+</sl>             </stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal discussed</stentry>
+<stentry>9 and 16 October 2012</stentry>
+<stentry>               <sl>
+<sli>                   <xref format="text"
+href="https://www.oasis-open.org/committees/download.php/47143/dita_tc_minutes_20121009.txt"
+scope="external">Minutes, 9 October 2012</xref>                 </sli>
+<sli>                   <xref format="text"
+href="https://www.oasis-open.org/committees/download.php/47205/minutes20121016.txt"
+scope="external">Minutes, 16 October 2012</xref>                 </sli>
+</sl>             </stentry>
+</strow>
+<strow>
+<stentry>Stage 2 proposal approved</stentry>
+<stentry>19 February 2013</stentry>
+<stentry>               <xref format="txt"
+href="https://www.oasis-open.org/committees/download.php/48344/minutes20130219.txt"
+scope="external" type="text">Minutes, 19 February 2013           
+   </xref></stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal submitted to reviewers</stentry>
+<stentry>18 October 2013</stentry>
+<stentry>Tom Magliery, David Helfinstine</stentry>
+</strow>
+<strow>
+<stentry>Stage 3 proposal (this document) submitted</stentry>
+<stentry>1 November 2013</stentry>
+<stentry></stentry>
+</strow>
+</simpletable>       </section>
+<section>         <title>Approved technical requirements</title> 
+       <p>Define a markupDomain vocabulary module for generic mentions
+of markup names, and an xmlDomain vocabulary module defining XML-specific
+markup naming elements.</p>         <dl>
+<dlentry>
+<dt>&lt;markupname></dt>
+<dd>Markup domain. Mention of any markup-related name. This element
+serves as the specialization basis for all other elements.</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;numcharref></dt>
+<dd>XML domain. Mention of a numeric character reference</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;parameterentity></dt>
+<dd>XML domain. Mention of a parameter entity</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;textentity></dt>
+<dd>XML domain. A mention of a text entity</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;xmlatt></dt>
+<dd>XML domain. Mention of an XML attribute</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;xmlelement></dt>
+<dd>XML domain. Mention of an XML element type</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;xmlnsname></dt>
+<dd>XML domain. Mention of an XML namespace name</dd>
+</dlentry>
+<dlentry>
+<dt>&lt;xmlpi></dt>
+<dd>XML domain. Mention of an XML processing instruction name</dd>
+</dlentry>
+</dl>       </section>
+<section>         <title>Dependencies or interrelated proposals</title
+>         <p>None</p>       </section>
+<section>         <title>New DTD files</title>         <p>  <fig>
+<title>markupDomain.ent</title>
+<codeblock><coderef
+href="org.oasis-open.dita.markupdomain.doctypes/doctypes/dtd/markupDomain.ent"
+/></codeblock>
+</fig><fig>
+<title>markupDomain.mod</title>
+<codeblock><coderef
+href="org.oasis-open.dita.markupdomain.doctypes/doctypes/dtd/markupDomain.mod"
+/></codeblock><?Pub Caret -1?>
+</fig>         <fig>
+<title>xmlDomain.ent</title>
+<codeblock><coderef
+href="org.oasis-open.dita.xmldomain.doctypes/doctypes/dtd/xmlDomain.ent"
+/></codeblock>
+</fig>         </p>         <p>           <fig>
+<title>xmlDomain.mod</title>
+<codeblock><coderef
+href="org.oasis-open.dita.xmldomain.doctypes/doctypes/dtd/xmlDomain.mod"
+/></codeblock>
+</fig>         </p>       </section>
+<section>         <title>Modified DTDs</title>         <p>This depends
+on whether we plan to integrate the XML mention domain into the base
+or           technical content DTDs.</p>       </section>
+<section>         <title>Modified specification documentation</title
+>         <p>Adds 10 topics to the <cite>Language Reference</cite
+>:<ol>
+<li>Container topic for the markupDomain</li>
+<li>Topic for the &lt;markupname> element</li>
+<li>Container topic for the xmlDomain</li>
+<li>Topic for the &lt;numcharref> element</li>
+<li>Topic for the &lt;parameterentity> element</li>
+<li>Topic for the &lt;textentity> element</li>
+<li>Topic for the &lt;xmlatt> element</li>
+<li>Topic for the &lt;xmlelement> element</li>
+<li>Topic for the &lt;xmlnsname> element</li>
+<li>Topic for the &lt;xmlpi> element</li>
+</ol>This topic collection should be added to the current section
+3.2.6 [Technical content] Domain elements. I suggest that it be placed
+in-between "User interface elements" and "xNAL domain           elements".</p
+>       </section>
+</body>
+</topic>
+<reference id="reference_aqh_5zt_3h">
+<title>New language reference topics</title>
+<reference id="markup-domain">
+<title>Markup domain</title>
+<shortdesc>The markup domain elements are used for the mention of
+named constructs in markup languages.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>Markup domain<indexterm>overview</indexterm
+></indexterm></keywords></metadata>
+</prolog>
+<reference id="markupname">
+<title>markupname</title>
+<shortdesc>The &lt;markupname> element identifies mentions of any
+named markup token, such as elements or attributes in XML or SGML.
+This element also serves as the specialization basis for the elements
+in the XML mention domain; when that domain is present, its more specific
+elements should be used instead of &lt;markupname> when appropriate.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>markupname element</indexterm><indexterm
+>Markup domain<indexterm>markupname element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname </codeph
+></section>
+<section>             <title>Example</title>            <codeblock
+>The <b>&lt;markupname>p.attributes&lt;/markupname></b> attribute group defines 
+the allowed attributes for the &lt;xmlelement>p&lt;/xmlelement> element.</codeblock
+>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_i3l_1pn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+</reference>
+<reference id="xml-mention-domain">
+<title>XML mention domain</title>
+<shortdesc>The XML-mention domain elements are used for mentions of
+named XML constructs, including elements, attributes, parameter entities,
+processing instructions, document type declaration         components,
+and XSD and Relax NG schema components. These elements enable specific
+typographic effects for different construct types, precise search
+and retrieval of specific constructs, and         automatic indexing
+of different constructs. This domain is intended to support the description
+and documentation of XML document types and XML applications.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>XML mention domain<indexterm>overview</indexterm
+></indexterm></keywords></metadata>
+</prolog>
+<reference id="numcharref"><?Pub Dtl?>
+<title>numcharref</title>
+<shortdesc>The &lt;numcharref> element identifies mentions of XML
+numeric character references (e.g., "&amp;#10;", "&amp;#x0a;"). This
+element enables more precise semantic searching of the           DITA
+source; it also enables distinct output formatting. The content of
+the &lt;numcharref> element should be just the numeric value, e.g.
+"10" or "x0a", with any leading or trailing           characters added
+as a matter of style, e.g., the "&amp;#" and ";" delimiters. This
+element is part of the XML mention domain.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>numcharref element</indexterm><indexterm
+>XML mention domain<indexterm>numcharref element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/numcharref</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>&lt;p>Numeric character references represent characters from the Universal
 Character Set (UCS) of Unicode. They are used to reference characters  that 
 cannot easily be directly encoded in a document, such as a copyright 
 symbol. When a markup-aware processor encounters a numeric  character 
-reference, for example, <b>&lt;numcharref>225&lt;/numcharref></b>, it renders the 
-reference as the Unicode character that it represents: a-acute.&lt;/p></codeblock>
-          </section>
-          <section
-            id="attributes">
-            <title>Attributes</title>
-            <simpletable
-              id="keyword_attr"
-              relcolwidth="2* 3* 1* 1* 1*">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="parameterentity">
-        <title>parameterentity</title>
-        <shortdesc>The &lt;parameterentity> element identifies mentions of parameter entities (e.g. "%keyword.content;"). This element enables more precise semantic searching of the DITA source; it
-          also enables distinct formatting, such as adding the "%" and ";" delimiters to the parameter entity name. The content of the &lt;parameterentity> element should be the entity name without
-          the leading "%" or trailing ";". This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>parameterentity element</indexterm>
-              <indexterm>XML mention domain<indexterm>parameterentity
-                element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/parameterentity</codeph></section>
-          <section>
-            <title>Examples</title>
-            <codeblock>&lt;p> ... The <b>&lt;parameterentity>p.content&lt;parameterentity></b> parameter entity 
-defines the content model for the &lt;xmlelement>p&lt;/xmlelement> element.&lt;/p></codeblock>
-            <codeblock>&lt;p>To include the XML-mention domain in a DTD document-type shell, you must 
-declare the <b>&lt;parameterentity>xml-d-dec&lt;/parameterentity></b> parameter entity.&lt;/p></codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_ld2_1pn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="rngpattern">
-        <title>rngpattern</title>
-        <shortdesc>The &lt;rngpattern> element identifies mentions of Relax NG patterns. This element enables more precise semantic searching of the DITA source; it also enables distinct formatting of
-          mentions of Relax NG patterns. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>rngpattern element</indexterm>
-              <indexterm>XML mention domain<indexterm>rngpattern element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/rngpattern</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;rngpattern>anySvg&lt;/rngpattern></b> pattern allows any SVG element.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_i3l_1pn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="textentity">
-        <title>textentity</title>
-        <shortdesc>The &lt;textentity> element identifies mentions of XML text entities (e.g. "&amp;xml-d-att;"). This element enables more precise semantic searching of the DITA source; it also
-          enables distinct formatting, such as adding an ampersand (&amp;) as a leading character and a semicolon (;) as a trailing character. The content of the &lt;textentity> element should be the
-          entity name without the "&amp;" and ";" delimiters. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>textentity element</indexterm>
-              <indexterm>XML mention domain<indexterm>textentity element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/textentity</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;textentity>hi-d-att&lt;/textentity></b> entity holds the contribution for the 
-&lt;xmlatt>domains&lt;/xmlatt> attribute.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_pc5_1pn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xmlatt">
-        <title>xmlatt</title>
-        <shortdesc>The &lt;xmlatt> element identifies mentions of XML attributes. This element enables more precise semantic searching of the DITA source; it also enables distinct formatting, such as
-          preceding the name of the attribute with a commercial at (@) sign. The content of the &lt;xmlatt> element should be the attribute name without any "@" or "=" characters. This element is part
-          of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xmlatt element</indexterm>
-              <indexterm>XML mention domain<indexterm>xmlatt element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword xml-d/xmlatt</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;xmlatt>collection-type&lt;/xmlatt></b> and <b>&lt;xmlatt>linking&lt;/xmlatt></b> 
+reference, for example,&nbsp;<b>&lt;numcharref>225&lt;/numcharref></b
+>, it renders the 
+reference as the Unicode character that it represents: a-acute.&lt;/p></codeblock
+>           </section>
+<section id="attributes">             <title>Attributes</title>  
+          <simpletable id="keyword_attr" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="parameterentity"><?Pub Dtl?>
+<title>parameterentity</title>
+<shortdesc>The &lt;parameterentity> element identifies mentions of
+parameter entities (e.g. "%keyword.content;"). This element enables
+more precise semantic searching of the DITA source; it           also
+enables distinct formatting, such as adding the "%" and ";" delimiters
+to the parameter entity name. The content of the &lt;parameterentity>
+element should be the entity name without           the leading "%"
+or trailing ";". This element is part of the XML mention domain.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>parameterentity element</indexterm>
+<indexterm>XML mention domain<indexterm>parameterentity          
+      element</indexterm></indexterm></keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/parameterentity</codeph></section>
+<section>             <title>Examples</title>             <codeblock
+>&lt;p> ... The <b>&lt;parameterentity>p.content&lt;parameterentity></b
+> parameter entity 
+defines the content model for the &lt;xmlelement>p&lt;/xmlelement> element.&lt;/p></codeblock
+>             <codeblock>&lt;p>To include the XML-mention domain in a DTD document-type shell, you must 
+declare the <b>&lt;parameterentity>xml-d-dec&lt;/parameterentity></b
+> parameter entity.&lt;/p></codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_ld2_1pn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="textentity"><?Pub Dtl?>
+<title>textentity</title>
+<shortdesc>The &lt;textentity> element identifies mentions of XML
+text entities (e.g. "&amp;xml-d-att;"). This element enables more
+precise semantic searching of the DITA source; it also           enables
+distinct formatting, such as adding an ampersand (&amp;) as a leading
+character and a semicolon (;) as a trailing character. The content
+of the &lt;textentity> element should be the           entity name
+without the "&amp;" and ";" delimiters. This element is part of the
+XML mention domain.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>textentity element</indexterm><indexterm
+>XML mention domain<indexterm>textentity element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/textentity</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>The <b>&lt;textentity>hi-d-att&lt;/textentity></b> entity holds the contribution for the 
+&lt;xmlatt>domains&lt;/xmlatt> attribute.</codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_pc5_1pn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="xmlatt">
+<title>xmlatt</title>
+<shortdesc>The &lt;xmlatt> element identifies mentions of XML attributes.
+This element enables more precise semantic searching of the DITA source;
+it also enables distinct formatting, such as           preceding the
+name of the attribute with a commercial at (@) sign. The content of
+the &lt;xmlatt> element should be the attribute name without any "@"
+or "=" characters. This element is part           of the XML mention
+domain.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>xmlatt element</indexterm><indexterm
+>XML mention domain<indexterm>xmlatt element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/xmlatt</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>The <b>&lt;xmlatt>collection-type&lt;/xmlatt></b> and <b>&lt;xmlatt>linking&lt;/xmlatt></b
+> 
 attributes affect how related links are generated for topics that are 
-referenced in the DITA map.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_zv2_bpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xmlelement">
-        <title>xmlelement</title>
-        <shortdesc>The &lt;xmlelement> element identifies mentions of XML element types. This element enables more precise semantic searching of the DITA source; it also enables distinct formatting,
-          such as surrounding the name of the element with angle brackets. The content of the &lt;xmlelement> element should be the element type name without leading or training angle brackets. This
-          element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xmlelement element</indexterm>
-              <indexterm>XML mention domain<indexterm>xmlelement element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xmlelement</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>&lt;p>Use the <b>&lt;xmlelement>uicontrol&lt;/xmlelement></b> (user interface control) 
+referenced in the DITA map.</codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_zv2_bpn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="xmlelement"><?Pub Dtl?>
+<title>xmlelement</title>
+<shortdesc>The &lt;xmlelement> element identifies mentions of XML
+element types. This element enables more precise semantic searching
+of the DITA source; it also enables distinct formatting,         
+ such as surrounding the name of the element with angle brackets.
+The content of the &lt;xmlelement> element should be the element type
+name without leading or training angle brackets. This           element
+is part of the XML mention domain.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>xmlelement element</indexterm><indexterm
+>XML mention domain<indexterm>xmlelement element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/xmlelement</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>&lt;p>Use the <b>&lt;xmlelement>uicontrol&lt;/xmlelement></b> (user interface control) 
 element to indicate the names of buttons, entry fields, menu items, or 
 other objects that enable a user to interact with a graphical user 
-interface.&lt;/p></codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_gj4_bpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xmlnsname">
-        <title>xmlnsname</title>
-        <shortdesc>The &lt;xmlnsname> element identifies mentionds of namespace names (e.g., "http://dita.oasis-open.org/architecture/2005/"). This element enables more precise semantic searching of
-          the DITA source; it also enables distinct formatting. This element is part of the XML mention domain. </shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xmlnsname element</indexterm>
-              <indexterm>XML mention domain<indexterm>xmlnsname element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xmlnsname</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The namespace name for XHTML is <b>&lt;xmlnamespace>http://www.w3.org/1999/xhtml&lt;/xmlnamespace></b>. </codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_hky_bpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference
-        id="xmlpi">
-        <title>xmlpi</title>
-        <shortdesc>The &lt;xmlpi> element identifies mentions of processing instruction names (e.g., "&lt;?<i>piname</i> pi value"). This element enables more precise semantic searching of the DITA
-          source; it also enables distinct formatting. This element is part of the XML mention domain. </shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xmlpi element</indexterm>
-              <indexterm>XML mention domain<indexterm>xmlpi element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword xml-d/xmlpi</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>While DITA does not define any processing instructions, you may be able to
-use the DocBook processing instructions, such as <b>&lt;xmlpi>dbhtml_bgcolor&lt;/xmlpi></b>.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_os1_vc2_1m">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xsdattgroup">
-        <title>xsdattgroup</title>
-        <shortdesc>The &lt;xsdattgroup> element identifies mentions of attribute groups in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also
-          enables distinct formatting. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xsdattgroup element</indexterm>
-              <indexterm>XML mention domain<indexterm>xsdattgroup element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xsdattgroup</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;xsdattgroup>p.attributes&lt;/xsdattgroup></b> attribute group defines 
-the allowed attributes for the &lt;xmlelement>p&lt;/xmlelement> element.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_xj3_cpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xsdcomplextype">
-        <title>xsdcomplextype</title>
-        <shortdesc>The &lt;xsdcomplextype> element identifies mentions of complex types in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also
-          enables distinct formatting. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xsdcomplextype element</indexterm>
-              <indexterm>XML mention domain<indexterm>xsdcomplextype element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xsdcomplextype</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;xsdcomplextype>state.class&lt;/xsdcomplextype></b> complex type defines
-the base content model for the &lt;xmlelement>state&lt;/xmlelement> element.  </codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_uzs_cpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xsdgroup">
-        <title>xsdgroup</title>
-        <shortdesc>The &lt;xsdgroup> element identifies mentions of groups in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also enables distinct
-          formatting. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xsdgroup element</indexterm>
-              <indexterm>XML mention domain<indexterm>xsdgroup element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xsdgroup</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>The <b>&lt;xsdgroup>text.content&lt;/xsdgroup></b> group defines the full content model 
-for the &lt;xmlelement>text&lt;/xmlelement> element.  </codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_i32_dpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-      <reference id="xsdsimpletype">
-        <title>xsdsimpletype</title>
-        <shortdesc>The &lt;xsdsimpletype> element identifies mentions of simple types in XML Schema documents. This element enables more precise semantic searching of the DITA source; it also enables
-          distinct formatting. This element is part of the XML mention domain.</shortdesc>
-        <prolog>
-          <metadata>
-            <keywords>
-              <indexterm>xsdsimpletype element</indexterm>
-              <indexterm>XML mention domain<indexterm>xsdsimpletype element</indexterm></indexterm>
-            </keywords>
-          </metadata>
-        </prolog>
-        <refbody>
-          <section><title>Inheritance</title><codeph>+ topic/keyword
-            xml-d/xsdsimpletype</codeph></section>
-          <section>
-            <title>Example</title>
-            <codeblock>&lt;p>The simple type 
-<b>&lt;xsdsimpletype>frame-att.class&lt;/xsdsimpletype></b> defines
-the allowed values for the &lt;xmlatt>frame&lt;/xmlatt> attribute.</codeblock>
-          </section>
-          <section>
-            <title>Attributes</title>
-            <simpletable
-              relcolwidth="2* 3* 1* 1* 1*"
-              id="simpletable_sx4_dpn_5l">
-              <sthead>
-                <stentry>Name</stentry>
-                <stentry>Description</stentry>
-                <stentry>Data Type</stentry>
-                <stentry>Default Value</stentry>
-                <stentry>Required?</stentry>
-              </sthead>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-              <strow
-                conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-                <stentry/>
-              </strow>
-            </simpletable>
-          </section>
-        </refbody>
-      </reference>
-    </reference>
-  </reference>
+interface.&lt;/p></codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_gj4_bpn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="xmlnsname"><?Pub Dtl?>
+<title>xmlnsname</title>
+<shortdesc>The &lt;xmlnsname> element identifies mentionds of namespace
+names (e.g., "http://dita.oasis-open.org/architecture/2005/"). This
+element enables more precise semantic searching of           the DITA
+source; it also enables distinct formatting. This element is part
+of the XML mention domain. </shortdesc>
+<prolog>
+<metadata><keywords><indexterm>xmlnsname element</indexterm><indexterm
+>XML mention domain<indexterm>xmlnsname element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/xmlnsname</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>The namespace name for XHTML is <b>&lt;xmlnamespace>http://www.w3.org/1999/xhtml&lt;/xmlnamespace></b
+>. </codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_hky_bpn_5l" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+<reference id="xmlpi"><?Pub Dtl?>
+<title>xmlpi</title>
+<shortdesc>The &lt;xmlpi> element identifies mentions of processing
+instruction names (e.g., "&lt;?<i>piname</i> pi value"). This element
+enables more precise semantic searching of the DITA           source;
+it also enables distinct formatting. This element is part of the XML
+mention domain. </shortdesc>
+<prolog>
+<metadata><keywords><indexterm>xmlpi element</indexterm><indexterm
+>XML mention domain<indexterm>xmlpi element</indexterm></indexterm>
+</keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Inheritance</title><codeph>+ topic/keyword markup-d/markupname
+xml-d/xmlpi</codeph></section>
+<section>             <title>Example</title>             <codeblock
+>While DITA does not define any processing instructions, you may be able to
+use the DocBook processing instructions, such as <b>&lt;xmlpi>dbhtml_bgcolor&lt;/xmlpi></b
+>.</codeblock>           </section>
+<section>             <title>Attributes</title>             <simpletable
+id="simpletable_os1_vc2_1m" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>           </section>
+</refbody>
+</reference>
+</reference>
+</reference>
 </dita>

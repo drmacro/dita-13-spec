@@ -1,0 +1,10 @@
+/*
+================================
+    Markup elements. [markup-d]
+================================
+*/
+
+*[class~="markup-d/markupname"]
+{
+    font-family:monospace;
+}

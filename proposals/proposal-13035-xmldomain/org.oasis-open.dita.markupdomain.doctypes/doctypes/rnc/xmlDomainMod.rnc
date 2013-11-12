@@ -1,0 +1,39 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# ============================================================= 
+# MODULE:    DITA Markup Domain - RNC              
+# VERSION:   1.3                                                
+# DATE:      November 2013                                       
+# =============================================================
+
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+# Define the domain values of this module
+domains-atts-value |= "(topic markup-d)"
+# Define domain extension patterns
+markup-d-keyword =
+   markupname.element
+   
+# Extend the patterns with the domain contribution
+keyword |= markup-d-keyword
+# Define elements content and attributes
+
+# LONG NAME: Markup Name
+markupname.content =
+  (text | \text | tm)*
+markupname.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+markupname.element =
+  
+  element markupname { 
+    markupname.attlist, 
+    numcharref.content 
+   }
+markupname.attlist &= markupname.attributes
+
+# Specialization attributes. Global attributes and class defaults
+markupname.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/keyword markup-d/markupname " ] attribute class { text }?

@@ -1,9 +1,10 @@
 <!-- =============================================================
 
-     XML construct domain
+     Markup domain
 
-     Provides phrase-level elements for identifying mentions of
-     XML constructs: element types, attributes, etc.
+     Provides a generic, phrase-level element for identifying
+     mentions of markup constructs: element types, attributes,
+     etc.
 
      Copyright (c) 2013 OASIS Open
 
@@ -15,18 +16,12 @@
 <!--                    XML DOMAIN ENTITIES                        -->
 <!-- ============================================================= -->
 
-<!ENTITY % xml-d-keyword
-  "numcharref |
-   parameterentity |
-   textentity |
-   xmlatt |
-   xmlelement |
-   xmlnsname |
-   xmlpi
+<!ENTITY % markup-d-keyword
+  "markupname
   "
   >
 
-<!ENTITY   xml-d-att     "(topic markup-d xml-d)"
+<!ENTITY   markup-d-att     "(topic markup-d)"
 >
 
 

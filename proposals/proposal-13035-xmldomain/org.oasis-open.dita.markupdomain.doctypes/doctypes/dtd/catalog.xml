@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+
+  <public publicId="-//OASIS//ELEMENTS DITA Markup Domain//EN" uri="markupDomain.mod"/>
+  <public publicId="-//OASIS//ENTITIES DITA Markup Domain//EN" uri="markupDomain.ent"/>
+  <public publicId="-//OASIS//ELEMENTS DITA 1.x Markup Domain//EN" uri="markupDomain.mod"/>
+  <public publicId="-//OASIS//ENTITIES DITA 1.x Markup Domain//EN" uri="markupDomain.ent"/>
+  <public publicId="-//OASIS//ELEMENTS DITA 1.3 Markup Domain//EN" uri="markupDomain.mod"/>
+  <public publicId="-//OASIS//ENTITIES DITA 1.3 Markup Domain//EN" uri="markupDomain.ent"/>
+</catalog>
