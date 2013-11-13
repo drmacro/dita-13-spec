@@ -460,7 +460,7 @@ stroke:rgb(0,0,100);stroke-width:2"/&gt;
           id="example_34AAE3513574457F8FE30CC970D35211">
           <title>Example of MathML within an &lt;equation-block&gt; element </title>
           <pre>&lt;p&gt;... as in the formula 
-&lt;object&gt;
+&lt;equation-block&gt;
   &lt;!-- sum 4 + x --&gt;
   &lt;mathML&gt;
     &lt;mml:math display="block"&gt;
