@@ -21,7 +21,9 @@ keyword |= markup-d-keyword
 
 # LONG NAME: Markup Name
 markupname.content =
-  (text | \text | tm)*
+  (text | 
+   \text | 
+   tm)*
 markupname.attributes =
   univ-atts,
   attribute outputclass { text }?

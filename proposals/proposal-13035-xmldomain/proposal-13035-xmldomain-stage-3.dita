@@ -73,6 +73,11 @@ scope="external" type="text">Minutes, 19 February 2013
 <stentry>1 November 2013</stentry>
 <stentry></stentry>
 </strow>
+          <strow>
+            <stentry>Updated to reflect TC decision to remove XSD and RNG elements and add markup domain as the specialization base.</stentry>
+            <stentry>13 November 2013</stentry>
+            <stentry/>
+          </strow>
 </simpletable>       </section>
 <section>         <title>Approved technical requirements</title> 
        <p>Define a markupDomain vocabulary module for generic mentions
@@ -169,11 +174,9 @@ named constructs in markup languages.</shortdesc>
 </prolog>
 <reference id="markupname">
 <title>markupname</title>
-<shortdesc>The &lt;markupname> element identifies mentions of any
-named markup token, such as elements or attributes in XML or SGML.
-This element also serves as the specialization basis for the elements
-in the XML mention domain; when that domain is present, its more specific
-elements should be used instead of &lt;markupname> when appropriate.</shortdesc>
+<shortdesc>The &lt;markupname> element identifies mentions of any named markup token, such as elements or attributes in XML or SGML, named groups in XSD schemas, or named patterns in RelaxNG schemas.
+          This element also serves as the specialization basis for the elements in the XML mention domain; when that domain is present, its more specific elements should be used instead of
+          &lt;markupname> when appropriate.</shortdesc>
 <prolog>
 <metadata><keywords><indexterm>markupname element</indexterm><indexterm
 >Markup domain<indexterm>markupname element</indexterm></indexterm>

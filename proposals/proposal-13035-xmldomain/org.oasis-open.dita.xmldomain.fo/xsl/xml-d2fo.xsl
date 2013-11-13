@@ -43,12 +43,6 @@
     </fo:inline>
   </xsl:template>
   
-  <xsl:template match="*[contains(@class, ' xml-d/rngpattern ')]" priority="10">
-    <fo:inline font-size="90%" font-family="Monospaced">
-      <xsl:apply-templates/>
-    </fo:inline>
-  </xsl:template>
-  
   <xsl:template match="*[contains(@class, ' xml-d/xmlnsname ')]" priority="10">
     <fo:inline font-size="90%" font-family="Monospaced">
       <xsl:apply-templates/>
@@ -61,25 +55,8 @@
     </fo:inline>
   </xsl:template>
   
-  <xsl:template match="*[contains(@class, ' xml-d/xsdattgroup ')]" priority="10">
-    <fo:inline font-size="90%" font-family="Monospaced">
-      <xsl:apply-templates/>
-    </fo:inline>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdcomplextype ')]" priority="10">
-    <fo:inline font-size="90%" font-family="Monospaced">
-      <xsl:apply-templates/>
-    </fo:inline>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdgroup ')]" priority="10">
-    <fo:inline font-size="90%" font-family="Monospaced">
-      <xsl:apply-templates/>
-    </fo:inline>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdsimpletype ')]" priority="10">
+
+  <xsl:template match="*[contains(@class, ' markup-d/markupname ')]" priority="9">
     <fo:inline font-size="90%" font-family="Monospaced">
       <xsl:apply-templates/>
     </fo:inline>

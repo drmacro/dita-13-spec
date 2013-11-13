@@ -17,10 +17,6 @@
         </dd>
       </dlentry>
       <dlentry>
-        <dt>rngpattern</dt>
-        <dd><rngpattern>p.content</rngpattern></dd>
-      </dlentry>
-      <dlentry>
         <dt>textentity</dt>
         <dd>
           <p><textentity>hi-d-att</textentity></p>
@@ -43,20 +39,8 @@
         <dd><xmlpi>dbhtml_background-color</xmlpi></dd>
       </dlentry>
       <dlentry>
-        <dt>xsdattgroup</dt>
-        <dd><xsdattgroup>p.attributes</xsdattgroup></dd>
-      </dlentry>
-      <dlentry>
-        <dt>xsdcomplextype</dt>
-        <dd><xsdcomplextype>p.class</xsdcomplextype></dd>
-      </dlentry>
-      <dlentry>
-        <dt>xsdgroup</dt>
-        <dd><xsdgroup>p.content</xsdgroup></dd>
-      </dlentry>
-      <dlentry>
-        <dt>xsdsimpletype</dt>
-        <dd><xsdsimpletype>type-tmtype-att.class</xsdsimpletype></dd>
+        <dt>markupname</dt>
+        <dd><markupname>p.attributes</markupname></dd>
       </dlentry>
     </dl>
   </body>

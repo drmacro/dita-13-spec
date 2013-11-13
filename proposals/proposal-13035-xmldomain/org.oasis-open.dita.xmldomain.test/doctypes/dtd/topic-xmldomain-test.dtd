@@ -11,6 +11,11 @@
          "xmlDomain.ent"
 >%xml-d-dec;
 
+<!ENTITY % markup-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA Markup Domain//EN" 
+         "markupDomain.ent"
+>%markup-d-dec;
+
 
 <!ENTITY % hi-d-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN" 
@@ -48,6 +53,7 @@
                          %hi-d-ph;
                         ">
 <!ENTITY % keyword      "keyword | 
+                         %markup-d-keyword; |
                          %xml-d-keyword;
                         ">
 
@@ -96,6 +102,7 @@
                            &indexing-d-att;
                            &hazard-d-att;
                            &xml-d-att;
+                           &markup-d-att;
   "
 >
 
@@ -120,6 +127,11 @@
   PUBLIC "-//OASIS//ELEMENTS DITA XML Domain//EN" 
          "xmlDomain.mod"
 >%xml-d-def;
+
+<!ENTITY % markup-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA Markup Domain//EN" 
+         "markupDomain.mod"
+>%markup-d-def;
 
 <!ENTITY % hi-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN" 

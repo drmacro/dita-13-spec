@@ -45,18 +45,6 @@
       <xsl:text>;</xsl:text>
     </code>
   </xsl:template>
-
-  <xsl:template match="*[contains(@class, ' xml-d/rnggroup ')]" priority="10">
-    <code class="rnggroup">
-      <xsl:apply-templates/>
-    </code>
-  </xsl:template>
-
-  <xsl:template match="*[contains(@class, ' xml-d/xmlnsname ')]" priority="10">
-    <code class="xmlnsname">
-      <xsl:apply-templates/>
-    </code>
-  </xsl:template>
   
   <xsl:template match="*[contains(@class, ' xml-d/xmlpi ')]" priority="10">
     <code class="xmlpi">
@@ -64,25 +52,7 @@
     </code>
   </xsl:template>
   
-  <xsl:template match="*[contains(@class, ' xml-d/xsdattgroup ')]" priority="10">
-    <code class="xsdattgroup">
-      <xsl:apply-templates/>
-    </code>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdcomplextype ')]" priority="10">
-    <code class="xsdcomplextype">
-      <xsl:apply-templates/>
-    </code>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdgroup ')]" priority="10">
-    <code class="xsdgroup">
-      <xsl:apply-templates/>
-    </code>
-  </xsl:template>
-  
-  <xsl:template match="*[contains(@class, ' xml-d/xsdsimpletype ')]" priority="10">
+  <xsl:template match="*[contains(@class, ' markup-d/markupname ')]" priority="9">
     <code class="xsdsimpletype">
       <xsl:apply-templates/>
     </code>
