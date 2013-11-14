@@ -225,14 +225,9 @@ id="simpletable_i3l_1pn_5l" relcolwidth="2* 3* 1* 1* 1*">
 </reference>
 <reference id="xml-mention-domain">
 <title>XML mention domain</title>
-<shortdesc>The XML-mention domain elements are used for mentions of
-named XML constructs, including elements, attributes, parameter entities,
-processing instructions, document type declaration         components,
-and XSD and Relax NG schema components. These elements enable specific
-typographic effects for different construct types, precise search
-and retrieval of specific constructs, and         automatic indexing
-of different constructs. This domain is intended to support the description
-and documentation of XML document types and XML applications.</shortdesc>
+<shortdesc>The XML-mention domain elements are used for mentions of named XML constructs, including elements, attributes, parameter entities, processing instructions, and document type declaration
+        components. These elements enable specific typographic effects for different construct types, precise search and retrieval of specific constructs, and automatic indexing of different
+        constructs. This domain is intended to support the description and documentation of XML document types and XML applications.</shortdesc>
 <prolog>
 <metadata><keywords><indexterm>XML mention domain<indexterm>overview</indexterm
 ></indexterm></keywords></metadata>
