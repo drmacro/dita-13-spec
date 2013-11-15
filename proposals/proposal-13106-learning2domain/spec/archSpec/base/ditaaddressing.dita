@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?Pub Sty _display FontColor="red"?>
-<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
- "concept.dtd">
-<concept id="id" xml:lang="en-us">
- <title>DITA<?Pub Caret?> addressing</title>
- <shortdesc><ph conref="../../common/conref_file.dita#reuse_file/addressing-shortdesc"/></shortdesc>
-</concept>
-<?Pub *0000004302?>

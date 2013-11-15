@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
-<map title="Architectural specification" xml:lang="en-us">
- <mapref href="base/introduction_to_dita.ditamap" navtitle="Introduction to DITA"/>
- <mapref href="base/ditamarkup.ditamap" navtitle="DITA markup"/>
- <mapref href="base/processing.ditamap" navtitle="Processing"/>
- <mapref href="base/specialization-and-custom-doctypes.ditamap"
-  navtitle="Specialization, configuration, and extension"/>
-</map>

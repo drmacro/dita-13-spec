@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
-<concept
-  id="shell-doctype-examples">
-  <title>Shell Document Type Examples</title>
-  <shortdesc>This section provides example shell document types demonstrating how to integrate and
-    configure vocabulary and constraint modules.</shortdesc>
-</concept>

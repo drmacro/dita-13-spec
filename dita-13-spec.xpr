@@ -62,6 +62,7 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
         <folder path="."/>
+        <folder path="proposals/proposal-13106-learning2domain/spec/"/>
         <folder path="../dita-utilities/"/>
         <folder path="../DITA_TC_work/"/>
         <folder path="../../workspace_40/dita-12-spec/"/>
