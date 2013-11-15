@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="linking-and-addressing-overview" xml:lang="en-us">
+<title>Linking and addressing</title>
+<abstract>   <shortdesc>DITA depends heavily on links to establish
+relationships among content components.    These links include references
+from maps to topics, links among topics, content use-by-reference
+   within topics and maps, links to images and other objects, and
+cross references. All of these links depend either on the use of URI
+references or on key-based addresses.</shortdesc><draft-comment
+author="Kristen James Eberlein" rev="6 March 2010">This topic was
+   removed from the "Introduction to DITA" section. We need to ensure
+that all relevant content in    this topic is covered in the applicable
+section.</draft-comment><draft-comment author="Kristen James Eberlein"
+rev="5 March 2010">Comment from review #3:<p>[Jeff,     3 Jan 1010]
+Is "hyperlink" the right term to use here? I think of a "hyperlink"
+as something     that appears or which might appear in rendered output,
+but not as the thing that is authored in     the DITA source. What
+is authored are relationships. How those relationships are rendered
+will     depend on the type of output, the processor that is used,
+and how the processing has been     customized, probably through the
+use of a stylesheet.</p></draft-comment></abstract>
+<conbody>
+<section>    <title>Types of DITA links</title><p>DITA defines two
+types of link: navigation links and use-by-reference links. <draft-comment
+author="Kristen James Eberlein" rev="5 March 2010">Comment from review
+#3:<p>[MPriestley 17       December 2009] image and object seem to
+belong in use-by-reference cat, and topicref is arguable</p></draft-comment><dl>
+<dlentry>
+<dt>Navigation links</dt>
+<dd>        <p>Navigation links enable readers to navigate from one
+location to another within a body of         content. DITA provides
+the following base element types that are primarily or exclusively
+        navigating in this manner:<dl><dlentry>
+<dt>&lt;topicref></dt><?Pub Caret -3?>
+<dd>Used within DITA maps to link to DITA topics, subordinate maps,
+or non-DITA            resources.</dd>
+</dlentry><dlentry>
+<dt>&lt;reltable></dt>
+<dd>Used within DITA maps to relate sets of topics to each other.
+Each row in the            relationship table defines <ph >relationships
+(generally expressed as hyperlinks)</ph> among two or more sets of
+topics or non-DITA resources.</dd>
+</dlentry><dlentry>
+<dt>&lt;navref></dt>
+<dd>Used within DITA maps to link to standalone maps whose navigation
+structures should be            integrated with the referencing map
+after the referencing map is processed.</dd>
+</dlentry><dlentry>
+<dt>&lt;link></dt>
+<dd>Used within DITA topics to create links to other related topics<ph
+> or             non-DITA resources.</ph></dd>
+</dlentry><dlentry>
+<dt>&lt;xref></dt>
+<dd>Used within DITA topics to create inline links to other topics
+or elements. </dd>
+<dd>            <draft-comment author="Kristen James Eberlein"
+rev="5 March 2010">Comment from review              #3:<p>[MPriestley
+17 December 2009] Under "Navigation links", xref item: may also be
+             resolved to inline, for example when specialized to coderef </p></draft-comment> 
+         </dd>
+</dlentry><dlentry>
+<dt>&lt;image></dt>
+<dd>Used within DITA topics or within certain elements in DITA maps
+to link to static            media objects.</dd>
+</dlentry><dlentry>
+<dt>&lt;object></dt>
+<dd>Used within DITA topics or within certain elements in DITA maps
+to link to static or            interactive media objects.</dd>
+</dlentry></dl></p>       </dd>
+</dlentry><dlentry>
+<dt>Use-by-reference links</dt>
+<dd>        <p>Use-by-reference links relate one element (the referencing
+element) to another element         (the referenced element). The
+referenced element acts as the effective value or effective      
+  content of the referencing element, with the result being as if
+the referenced element had         occurred at the point of reference.
+Some links, in particular &lt;topicref> elements, can         serve
+as both navigation links and use-by-reference links depending on how
+they are         processed; for example, they might be resolved into
+content when transformed to PDF, but         they might be resolved
+to links when transformed to HTML.</p>        <p>Use-by-reference
+links are defined primarily through the DITA content reference (conref)
+        mechanism. Almost any element can be made into a use-by-reference
+link. See <xref format="dita" href="conref.dita"></xref><draft-comment
+author="Kristen James Eberlein" rev="5 March 2010">Comment from review
+#3:<p>[MPriestley 17 December 2009] Generally this           whole
+section is problematic, just because most things can be resolved into
+either content           or a link (conref excepted).</p></draft-comment>.</p> 
+     </dd>
+</dlentry></dl></p>    <p>Some elements, including &lt;term>, &lt;keyword>,
+and &lt;ph>, may use the @keyref attribute     and key-based addressing
+to become navigation links to other DITA elements or non-DITA    
+resources, to get their effective content from a key definition, or
+both.</p>   </section>
+<section>    <title>Types of DITA addressing</title>    <p>DITA defines
+two addressing mechanisms for use by DITA links: URI-based addresses
+and     key-based addresses.<dl><dlentry>
+<dt>URI-based addresses</dt>
+<dd>URI-based addresses are used to point directly to DITA or non-DITA
+resources; they use a        DITA-specific fragment-identifier syntax
+to address elements within DITA topics and maps.       </dd>
+</dlentry><dlentry>
+<dt>key-based addresses</dt>
+<dd>Key-based addresses are used to point indirectly to DITA or non-DITA
+resources. Keys are        defined within DITA maps. Key definitions
+bind key names to resources; these resources can be        resources
+addressed by URI reference, elements within the content of the key
+definition        itself, or both. Because keys are defined within
+DITA maps, the same key name may have        different bindings in
+different DITA maps. This allows DITA topics and DITA maps to reference
+       keys that can resolve to different targets in the context of
+different root DITA maps. This        mechanism can be used both for
+navigation links and content use-by-reference links, so that a   
+    single topic or subordinate DITA map can be used in different
+contexts without modification        or the need for conditional markup
+and processing.</dd>
+</dlentry></dl></p>   </section>
+</conbody>
+<related-links>
+<link href="ditaaddressing.dita#id"></link>
+<link href="ditalinking.dita#ditalinking"></link>
+</related-links>
+</concept>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="steptroubleshooting" xml:lang="en-us" rev="DITA1.3 proposal-13086">
+  <title>steptroubleshooting</title>
+  <shortdesc>The &lt;steptroubleshooting> element provides a place for a troubleshooting remedy in a
+    task step, following the stepresult. This troubleshooting remedy is intended to help the reader
+    resolve any problems that may arise should their step result not match the result stated in the
+    &lt;stepresult> section of the step. The troubleshooting remedy typically contains one or more
+    actions for solving a problem. Linking to another task is recommended for complex
+    remedies.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>steptroubleshooting</indexterm>
+        <indexterm>task elements<indexterm>steptroubleshooting</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <note type="tip">
+        <p>Do not use &lt;note type=&#x201d;troubleshooting&#x201d;> inside of
+          &lt;steptroubleshooting> because its meaning there would be ambiguous.</p>
+      </note>
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>- topic/itemgroup task/steptroubleshooting </p>
+    </section>
+    <example id="example">
+      <title>Example</title>
+      <p>Using &lt;steptroubleshooting> with a single action:</p>
+      <pre xml:space="preserve"><![CDATA[
+  <step>
+    <cmd>Select <uicontrol>Perform system backup</uicontrol></cmd>
+    <stepresult>
+      <p>The message <systemoutput>Backup successfully
+        completed</systemoutput> displays.</p>
+    </stepresult>
+    <steptroubleshooting>
+      <p>If an error message displays during the system backup,
+        locate the error ID in the <cite>Troubleshooting Guide
+        </cite> and follow the instructions there.</p>
+    </steptroubleshooting>
+  </step>]]>
+
+</pre>
+      <?Pub Caret 2?>
+      <p>Using &lt;steptroubleshooting> with a multiple actions:</p>
+      <pre><![CDATA[
+  <step>
+    <cmd>Log in to the system</cmd>
+    <stepresult>
+      <p>The <wintitle>Welcome</wintitle> screen appears.</p>
+    </stepresult>
+    <steptroubleshooting>
+      <p>If the <wintitle>Welcome</wintitle> screen does not
+        appear, try one or more of the following:
+        <ul>
+          <li>Verify that the user name was entered correctly</li>
+          <li>Verify that the password was entered correctly</li>
+          <li>Confirm that the maintenance contract is still
+            active</li>
+        </ul>
+      </p>
+    </steptroubleshooting>
+  </step>]]>
+</pre>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="steptroubleshooting_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

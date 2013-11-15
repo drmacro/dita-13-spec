@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="attinherit" xml:lang="en-us" >
+    <title>Attribute inheritance</title>
+    <shortdesc>The ways in which attribute values, both default and explicit, are inherited, have
+        major impact on authors' ability to generate appropriate output and navigation artifacts. </shortdesc>
+    <conbody>
+        <p>Any special inheritance rules that apply to a particular attribute are discussed in the
+            language reference for that attribute. <draft-comment author="gershon">This topic will
+                be written for a post 1.2 release.</draft-comment></p>
+    </conbody>
+</concept>

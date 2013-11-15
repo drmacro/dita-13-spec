@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="dita_learning_specialization_elements" xml:lang="en-us">
+<title>DITA learning domain elements</title>
+<shortdesc>In addition to the interactions and metadata, the learning domain also provides an lcInstructornote element, which you can use to provide instructor-specific information anywhere in a topic where the note element is available. A specializer could add additional learning-specific domain elements. </shortdesc>
+<refbody>
+</refbody>
+</reference>

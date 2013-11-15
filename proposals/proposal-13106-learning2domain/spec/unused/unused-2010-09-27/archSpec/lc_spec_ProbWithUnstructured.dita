@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2006, v.4002-->
+<!DOCTYPE learningContent PUBLIC "-//OASIS//DTD DITA Learning Content//EN"
+ "learningContent.dtd">
+<learningContent id="ProbUnstruct">
+<title>Problems with unstructured content</title>
+<shortdesc>Although unstructured, or free form, writing is desirable when
+you are writing poetry or fiction, its use is more problematic in technical
+writing and training.</shortdesc>
+<learningContentbody>
+<section><p>Some problems with unstructured content include:</p><ul>
+<li>Content reuse is difficult.</li>
+<li>Reader experience with unstructured content can be inconsistent.</li>
+<li>Automated processing of content is difficult.</li>
+<li>Content is not conducive to interchange or interoperability among departments,
+organizations, or businesses.</li>
+</ul> </section>
+<section><title>Content reuse is difficult</title><p>When reuse or recycling of
+content is efficient and flexible, it offers great value in fast-paced and
+ever-changing business environments. Just as we have learned to recycle paper,
+glass and metal, more and more organizations are realizing and leveraging
+the benefits of content reuse and repurposing.</p><p>However, when content is written
+in free form mode, without the guidance of a predetermined structure, it is
+difficult to reuse that content in other contexts. Free form, unstructured
+information typically suits one purpose very well, the purpose in mind when
+the content is first written. While it is certainly possible to write free
+form content wi<?Pub Caret?>th multiple contexts in mind, it is difficult
+to foresee and anticipate all future contexts where information might be used.</p><p>An
+obvious analogy is the manufacture of a consumable product. How expensive
+and cost prohibitive would it be if the steering wheel of each of a manufacture’s
+car models was created without regard for specifications?</p></section>
+<section> <title>Reader experience with unstructured content is inconsistent</title><p>The
+readers’ experience is a direct result of how content is written. If the writing
+is unstructured and inconsistent, different readers might understand the content
+in different and inconsistent ways. When specific outcomes for information
+transfer or training are required (content mastery confirmed by certification,
+for example), consistently written and experienced content is mandatory.</p></section>
+<section> <title>Automated processing of unstructured content is difficult</title><p>The
+information age has brought more information to more people than ever before.
+Information is not knowledge. Information overload is a problem solved by
+careful attention to the purpose, filtering, organization, and accessibility
+of information. When content is created with reuse in mind, it is more easily
+manipulated and presented in a variety of forms, and thus is better able to
+satisfy particular needs. </p><p>Structured content lends itself to the automated
+production of predefined information deliverables. For example,  automated
+publishing systems can be built to produce a variety of deliverables based
+on the same content, but that content must assemble consistently and flexibly.</p></section>
+<section> <title>Unstructured content does not lend itself to efficient or
+effective data interchange or interoperability</title><p>As more and more
+organizations cooperate and interoperate to satisfy a variety of business
+or organization goals, it becomes more important for their content to be consistent,
+complementary, and interoperable. When the content is unstructured, interchange
+is more difficult become it requires more manual manipulation. Content structured
+with interoperability in mind accomplishes this more easily and in a more
+automated way.</p></section>
+</learningContentbody>
+</learningContent>
+<?Pub *0000004486?>

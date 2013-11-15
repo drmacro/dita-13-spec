@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="dita_spec_21_info_refs"  xml:lang="en-us">
+<title>Reference</title>
+<shortdesc>Reference topics describe regular features of a subject or product,
+such as commands in a programming language.</shortdesc>
+<conbody>
+<section><title>Why reference?</title><p>In technical information, reference
+topics are often used to cover subjects such as the commands in a programming
+language. Reference topics can hold anything that has regular content, such
+as ingredients for food recipes, bibliographic lists, catalogues, and the
+like. Reference topics provide quick access to facts. Information needed for
+deeper understanding of a reference topic or to perform related procedures
+should be provided in a concept or task topic.</p></section>
+<section><title>Reference structure</title><p>The &lt;reference> element is
+the top-level element for a reference topic. Every reference topic contains
+a &lt;title> and a &lt;refbody> and optional  &lt;titlealts>, &lt;shortdesc>
+or &lt;abstract>, &lt;prolog>, &lt;related-links>, and nested topics.</p><p>The &lt;refbody>
+element holds the main content of the reference topic. Reference topics limit
+the body structure to tables (both simple and standard), property lists, syntax
+sections, and generic sections and examples. </p><p>All of the elements of &lt;refbody>
+are optional and may appear in any sequence and number. </p><dl><dlentry>
+<dt>&lt;section></dt>
+<dd>Represents an organizational division in a reference topic. Sections organize
+subsets of information within a larger topic. You can only include a simple
+list of peer sections in a topic; sections cannot be nested. A section may
+have an optional title.</dd>
+</dlentry><dlentry>
+<dt>&lt;refsyn></dt>
+<dd>Contains syntax or signature content (for example, a command-line utility's
+calling syntax, or an API's signature). The &lt;refsyn> contains a brief,
+possibly diagrammatic description of the subject's interface or high-level
+structure.</dd>
+</dlentry><dlentry>
+<dt>&lt;example></dt>
+<dd>Provides containing examples that illustrate or support the current topic.
+The &lt;example> element has the same content model as &lt;section>. </dd>
+</dlentry><dlentry>
+<dt>&lt;table></dt>
+<dd>Organizes information according into a tabular  rows and columns structure.
+Table markup also allows for more complex structures, including spanning rows
+and columns, as well as table captions. </dd>
+</dlentry><dlentry>
+<dt>&lt;simpletable></dt>
+<dd>Holds information in regular rows and columns and does not allow for a
+caption.  </dd>
+</dlentry><dlentry>
+<dt>&lt;properties></dt>
+<dd>Lists properties and their types, values, and descriptions.</dd>
+</dlentry></dl></section>
+<example>Here’s an example of a reference topic.<pre xml:space="preserve">
+&lt;reference id="boldproperty">
+&lt;title>Bold property&lt;/title>
+&lt;shortdesc>(Read-write) Whether to use a bold font for the specified
+text string.&lt;/shortdesc>
+&lt;refbody>
+  &lt;refsyn>
+    &lt;synph>
+      &lt;var>object&lt;/var>&lt;delim>.&lt;/delim>&lt;kwd>Font&lt;/kwd>&lt;delim>.&lt;/delim>
+      &lt;kwd>Bold&lt;/kwd>&lt;delim> = &lt;/delim>&lt;var>trueorfalse&lt;/var>
+    &lt;/synph>
+  &lt;/refsyn>
+  &lt;properties>
+    &lt;property>
+      &lt;proptype>Data type&lt;/proptype>
+      &lt;propvalue>Boolean&lt;/propvalue>
+    &lt;/property>
+    &lt;property>
+      &lt;proptype>Legal values&lt;/proptype>
+      &lt;propvalue>True (1) or False (0)&lt;/propvalue>
+    &lt;/property>
+  &lt;/properties>
+&lt;/refbody>
+&lt;/reference>
+</pre><draft-comment>from jeff ogden: consider adding example output for all
+examples</draft-comment><draft-comment>MP response: aim for comprehensive
+example addition in 1.2<?Pub Caret?></draft-comment></example>
+<section><title>Modules</title><sl>
+<sli>reference.mod (DTD)</sli>
+<sli>referenceMod.xsd, referenceGrp.xsd (Schema)</sli>
+</sl></section>
+</conbody>
+</concept>
+<?Pub *0000004052?>

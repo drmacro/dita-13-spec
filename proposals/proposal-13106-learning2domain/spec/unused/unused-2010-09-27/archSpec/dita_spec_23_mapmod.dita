@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="dita_spec_23_mapmod" xml:lang="en-us">
+<title>DITA map modules</title>
+<shortdesc>Maps have the same module structure as topics. They also
+share some of the same modules for defining metadata.</shortdesc>
+<conbody>
+<dl><dlentry>
+<dt>map.mod (DTD)</dt>
+<dd>Defines the base map structures</dd>
+</dlentry><dlentry>
+<dt>mapMod.xsd</dt>
+<dd>Defines the base map structures</dd>
+</dlentry><dlentry>
+<dt>mapGroup.mod (DTD)</dt>
+<dd>Adds the &lt;topicgroup> and &lt;topichead> elements as specialized
+variants of the &lt;topicref> element</dd>
+<dd >Adds the &lt;anchoref>, &lt;keydef>, &lt;mapref>, &lt;topicset>,
+and &lt;topicsetref> elements as specialized variants of the &lt;topicref>
+element</dd>
+</dlentry><dlentry>
+<dt>mapGroup.xsd (Schema)</dt>
+<dd>Adds the &lt;topicgroup> and &lt;topichead> elements as specialized
+variants of the &lt;topicref> element</dd>
+<dd >Adds the &lt;anchoref>, &lt;keydef>, &lt;mapref>, &lt;topicset>,
+and &lt;topicsetref> elements as specialized variants of the &lt;topicref>
+element</dd>
+</dlentry></dl>
+<p><draft-comment author="Kristen James Eberlein" time="21 April 2009">This
+material largely is unchanged from DITA 1.1. A couple of questions:<ul>
+<li>I<?Pub Caret1?>s this material helpful? Should it be relocated
+elsewhere? (It might make sense to have all such material in a single
+place, rather than interspersed throughout the arch spec.)</li>
+<li>The content of the &lt;shortdesc> (unchanged from 1.1 refers to
+metadata, but there is nothing about metadata in the body of the topic.</li>
+</ul></draft-comment></p>
+</conbody>
+</concept>
+<?Pub *0000001795?>

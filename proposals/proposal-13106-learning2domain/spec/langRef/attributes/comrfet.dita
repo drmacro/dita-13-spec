@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="comrfet" xml:lang="en-us">
+<title>Commonly referenced attribute groups</title>
+<shortdesc>Common attribute groups, such as the selection and property
+attributes of most DITA elements, are described here as sets in order
+to reduce unnecessary duplication of common information.</shortdesc><?Pub
+Caret 113?>
+<prolog><metadata>
+<keywords><indexterm>Commonly referenced attribute descriptions</indexterm>
+</keywords>
+</metadata></prolog>
+</reference>
+<?Pub *0000000876?>

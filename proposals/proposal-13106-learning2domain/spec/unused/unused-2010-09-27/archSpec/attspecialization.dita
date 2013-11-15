@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="attspecialization"  xml:lang="en-us">
+<title>Specialization of attributes</title>
+<shortdesc>When creating a structural specialization, you can limit the contents
+of existing attributes on your new elements; you can also create new attributes
+through domain specialization based off of the props attribute (for conditional
+processing) or the base attribute (for other simple token attributes).</shortdesc>
+<conbody>
+<p>Domain attribute specialization allows DITA document type developers to
+incorporate new conditional processing attributes that can be used for filtering
+and flagging, or new attributes with no existing equivalent that can be managed
+and generalized in the same way as conditional processing attributes. </p>
+<p>The new attributes need to be based off of either props or base:<ul>
+<li>Attributes specialized from props are identified as conditional processing
+attributes</li>
+<li>Attributes specialized from base have no existing behavior associated
+with them</li>
+<li>Values in specialized attributes should be preserved during generalization
+and respecialization</li>
+<li>While generalized, the attribute values should still be understandable
+by both general and specialized behaviors, and be treated as equivalent to
+their specialized form. <?Pub Caret?>For example, conditional filtering should
+work the same way on specialized attributes and on generalized attributes.</li>
+</ul></p>
+<p>Because there is a strong possibility that the existing conditional processing
+attributes (audience, platform, product, and otherprops) will be moved into
+a domain based off of props in the future, structural specializations are
+discouraged from limiting the values in those attributes.</p>
+</conbody>
+</concept>
+<?Pub *0000001920?>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<map xml:lang="en-us"><title>DITA 1.2 Language Reference</title>
+<topichead collection-type="sequence" navtitle="DITA elements">
+<topicref keys="abbreviated-form" href="langref/abbreviated-form.dita"
+navtitle="abbreviated-form"></topicref>
+<topicref keys="apiname" href="langref/apiname.dita" navtitle="apiname"></topicref>
+<topicref keys="chdesc" href="langref/chdesc.dita" navtitle="chdesc"></topicref>
+<topicref keys="chdeschd" href="langref/chdeschd.dita" navtitle="chdeschd"></topicref>
+<topicref keys="chhead" href="langref/chhead.dita" navtitle="chhead"></topicref>
+<topicref keys="choice" href="langref/choice.dita" navtitle="choice"></topicref>
+<topicref keys="choices" href="langref/choices.dita" navtitle="choices"></topicref>
+<topicref keys="choicetable" href="langref/choicetable.dita" navtitle="choicetable">
+</topicref>
+<topicref keys="choption" href="langref/choption.dita" navtitle="choption"></topicref>
+<topicref keys="choptionhd" href="langref/choptionhd.dita" navtitle="choptionhd">
+</topicref>
+<topicref keys="chrow" href="langref/chrow.dita" navtitle="chrow"></topicref>
+<topicref keys="cmd" href="langref/cmd.dita" navtitle="cmd"></topicref>
+<topicref keys="cmdname" href="langref/cmdname.dita" navtitle="cmdname"></topicref>
+<topicref keys="codeblock" href="langref/codeblock.dita" navtitle="codeblock"></topicref>
+<topicref keys="codeph" href="langref/codeph.dita" navtitle="codeph"></topicref>
+<topicref keys="coderef" href="langref/coderef.dita" navtitle="coderef"></topicref>
+<topicref keys="conbody" href="langref/conbody.dita" navtitle="conbody"></topicref>
+<topicref keys="conbodydiv" href="langref/conbodydiv.dita" navtitle="conbodydiv">
+</topicref>
+<topicref keys="concept" href="langref/concept.dita" navtitle="concept"></topicref>
+<topicref keys="context" href="langref/context.dita" navtitle="context"></topicref>
+<topicref keys="delim" href="langref/delim.dita" navtitle="delim"></topicref>
+<topicref keys="dita" href="langref/dita.dita" navtitle="dita"></topicref>
+<topicref keys="filepath" href="langref/filepath.dita" navtitle="filepath"></topicref>
+<topicref keys="fragment" href="langref/fragment.dita" navtitle="fragment"></topicref>
+<topicref keys="fragref" href="langref/fragref.dita" navtitle="fragref"></topicref>
+<topicref keys="glossAbbreviation" href="langref/glossAbbreviation.dita"
+navtitle="glossAbbreviation"></topicref>
+<topicref keys="glossAcronym" href="langref/glossAcronym.dita" navtitle="glossAcronym">
+</topicref>
+<topicref keys="glossAlt" href="langref/glossAlt.dita" navtitle="glossAlt"></topicref>
+<topicref keys="glossAlternateFor" href="langref/glossAlternateFor.dita"
+navtitle="glossAlternateFor"></topicref>
+<topicref keys="glossBody" href="langref/glossBody.dita" navtitle="glossBody"></topicref>
+<topicref keys="glossPartOfSpeech" href="langref/glossPartOfSpeech.dita"
+navtitle="glossPartOfSpeech"></topicref>
+<topicref keys="glossProperty" href="langref/glossProperty.dita" navtitle="glossProperty">
+</topicref>
+<topicref keys="glossScopeNote" href="langref/glossScopeNote.dita" navtitle="glossScopeNote">
+</topicref>
+<topicref keys="glossShortForm" href="langref/glossShortForm.dita" navtitle="glossShortForm">
+</topicref>
+<topicref keys="glossStatus" href="langref/glossStatus.dita" navtitle="glossStatus">
+</topicref>
+<topicref keys="glossSurfaceForm" href="langref/glossSurfaceForm.dita"
+navtitle="glossSurfaceForm"></topicref>
+<topicref keys="glossSymbol" href="langref/glossSymbol.dita" navtitle="glossSymbol">
+</topicref>
+<topicref keys="glossSynonym" href="langref/glossSynonym.dita" navtitle="glossSynonym">
+</topicref>
+<topicref keys="glossUsage" href="langref/glossUsage.dita" navtitle="glossUsage">
+</topicref>
+<topicref keys="glossdef" href="langref/glossdef.dita" navtitle="glossdef"></topicref>
+<topicref keys="glossentry" href="langref/glossentry.dita" navtitle="glossentry">
+</topicref>
+<topicref keys="glossgroup" href="langref/glossgroup.dita" navtitle="glossgroup">
+</topicref>
+<topicref keys="glossref" href="langref/glossref.dita" navtitle="glossref"></topicref>
+<topicref keys="glossterm" href="langref/glossterm.dita" navtitle="glossterm"></topicref>
+<topicref keys="groupchoice" href="langref/groupchoice.dita" navtitle="groupchoice">
+</topicref>
+<topicref keys="groupcomp" href="langref/groupcomp.dita" navtitle="groupcomp"></topicref>
+<topicref keys="groupseq" href="langref/groupseq.dita" navtitle="groupseq"></topicref>
+<topicref keys="info" href="langref/info.dita" navtitle="info"></topicref>
+<topicref keys="kwd" href="langref/kwd.dita" navtitle="kwd"></topicref>
+<topicref keys="msgblock" href="langref/msgblock.dita" navtitle="msgblock"></topicref>
+<topicref keys="msgnum" href="langref/msgnum.dita" navtitle="msgnum"></topicref>
+<topicref keys="msgph" href="langref/msgph.dita" navtitle="msgph"></topicref>
+<topicref keys="oper" href="langref/oper.dita" navtitle="oper"></topicref>
+<topicref keys="option" href="langref/option.dita" navtitle="option"></topicref>
+<topicref keys="parml" href="langref/parml.dita" navtitle="parml"></topicref>
+<topicref keys="parmname" href="langref/parmname.dita" navtitle="parmname"></topicref>
+<topicref keys="pd" href="langref/pd.dita" navtitle="pd"></topicref>
+<topicref keys="plentry" href="langref/plentry.dita" navtitle="plentry"></topicref>
+<topicref keys="postreq" href="langref/postreq.dita" navtitle="postreq"></topicref>
+<topicref keys="prereq" href="langref/prereq.dita" navtitle="prereq"></topicref>
+<topicref keys="propdesc" href="langref/propdesc.dita" navtitle="propdesc"></topicref>
+<topicref keys="propdeschd" href="langref/propdeschd.dita" navtitle="propdeschd">
+</topicref>
+<topicref keys="properties" href="langref/properties.dita" navtitle="properties">
+</topicref>
+<topicref keys="property" href="langref/property.dita" navtitle="property"></topicref>
+<topicref keys="prophead" href="langref/prophead.dita" navtitle="prophead"></topicref>
+<topicref keys="proptype" href="langref/proptype.dita" navtitle="proptype"></topicref>
+<topicref keys="proptypehd" href="langref/proptypehd.dita" navtitle="proptypehd">
+</topicref>
+<topicref keys="propvalue" href="langref/propvalue.dita" navtitle="propvalue"></topicref>
+<topicref keys="propvaluehd" href="langref/propvaluehd.dita" navtitle="propvaluehd">
+</topicref>
+<topicref keys="pt" href="langref/pt.dita" navtitle="pt"></topicref>
+<topicref keys="refbody" href="langref/refbody.dita" navtitle="refbody"></topicref>
+<topicref keys="refbodydiv" href="langref/refbodydiv.dita" navtitle="refbodydiv">
+</topicref>
+<topicref keys="reference" href="langref/reference.dita" navtitle="reference"></topicref>
+<topicref keys="refsyn" href="langref/refsyn.dita" navtitle="refsyn"></topicref>
+<topicref keys="repsep" href="langref/repsep.dita" navtitle="repsep"></topicref>
+<topicref keys="result" href="langref/result.dita" navtitle="result"></topicref>
+<topicref keys="sep" href="langref/sep.dita" navtitle="sep"></topicref>
+<topicref keys="step" href="langref/step.dita" navtitle="step"></topicref>
+<topicref keys="stepresult" href="langref/stepresult.dita" navtitle="stepresult">
+</topicref>
+<topicref keys="steps" href="langref/steps.dita" navtitle="steps"></topicref>
+<topicref keys="steps-informal" href="langref/steps-informal.dita" navtitle="steps-informal"></topicref>
+<topicref keys="steps-unordered" href="langref/steps-unordered.dita" navtitle="steps-unordered">
+</topicref>
+<topicref keys="stepsection" href="langref/stepsection.dita" navtitle="stepsection">
+</topicref>
+<topicref keys="stepxmp" href="langref/stepxmp.dita" navtitle="stepxmp"></topicref>
+<topicref keys="substep" href="langref/substep.dita" navtitle="substep"></topicref>
+<topicref keys="substeps" href="langref/substeps.dita" navtitle="substeps"></topicref>
+<topicref keys="synblk" href="langref/synblk.dita" navtitle="synblk"></topicref>
+<topicref keys="synnote" href="langref/synnote.dita" navtitle="synnote"></topicref>
+<topicref keys="synnoteref" href="langref/synnoteref.dita" navtitle="synnoteref">
+</topicref>
+<topicref keys="synph" href="langref/synph.dita" navtitle="synph"></topicref>
+<topicref keys="syntaxdiagram" href="langref/syntaxdiagram.dita" navtitle="syntaxdiagram">
+</topicref>
+<topicref keys="systemoutput" href="langref/systemoutput.dita" navtitle="systemoutput">
+</topicref>
+<topicref keys="task" href="langref/task.dita" navtitle="task"></topicref>
+<topicref keys="taskbody" href="langref/taskbody.dita" navtitle="taskbody"></topicref>
+<topicref keys="tutorialinfo" href="langref/tutorialinfo.dita" navtitle="tutorialinfo">
+</topicref>
+<topicref keys="userinput" href="langref/userinput.dita" navtitle="userinput"></topicref>
+<topicref keys="var" href="langref/var.dita" navtitle="var"></topicref>
+<topicref keys="varname" href="langref/varname.dita" navtitle="varname"></topicref>
+</topichead>
+<topicref conref="ditaref-commonatts.ditamap#attributes"></topicref>
+<!--<topichead navtitle="Appendix">
+<topicref href="common/technicalLibraryTable.dita"
+navtitle="Complete Content Model Definitions"></topicref>
+</topichead>
+<topicref format="ditamap" href="ditaref-technical-keys.ditamap"
+navtitle="Define keys" print="no" toc="no"></topicref>-->
+</map>
+<?Pub *0000007754?>

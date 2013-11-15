@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_D21C0CBCD4904BE782707FEF1B6D6E63">
+    <title>Conditional processing using indirect referencing</title>
+    <conbody>
+        <p>As an alternative to using the profiling attributes, conditional processing can also
+            be implemented through the use of DITA's indirect referencing features.<note
+                >Conditional processing implemented through indirect referencing is not combined
+                with flagging. If the topic or topic element pointed to by a conkeyref attribute
+                value does not exist, the attribute is ignored, <draft-comment>NH: would/should
+                    an error be generated if so?</draft-comment> with the same result as
+                filtering using 'action="exclude"'.</note></p>
+        <p>Use of profiling attributes in conditional processing has the following
+            drawbacks:</p>
+        <ul id="ul_2F519D7129014E3A9E7AA4F5F1CF8526">
+            <li id="li_F2403B8169E3407F9541B2E4C489120E">Several topics may need to be searched
+                and modified to include information about another variant. This becomes
+                especially complicated when dealing with several combinations of attributes and
+                attribute values. .</li>
+            <li id="li_2814892115BD4E2582D07A63F742D331">Ditaval files can become confusing when
+                including and excluding combinations of attribute values.</li>
+            <li id="li_BF26429C194545C695A2E26D27FC9119">The author is also restricted to using
+                the conditional processing attributes (<codeph>product, platform, audience,
+                    otherprops </codeph>) when specifying conditions. The <codeph>props</codeph>
+                attribute needs to be specialized for other types of metadata.</li>
+        </ul>
+        <p>For example, consider the case of an author who wants to produce a guide to birds,
+            with different types of documentation about various bird species. As part of the
+            document, he creates the topics <filepath>birdfood.dita</filepath> and <filepath
+                >birdhealth.dita</filepath>. Each topic has some general content and some
+            profiled content relevant to specific bird species. </p>
+        <p><filepath>birdfood.dita</filepath> needs to contain a conditional processing
+            attribute value for every variant to be produced, and if a variant is added, it must
+            be modified.</p>
+        <codeblock>&lt;concept id="birdfood" xml:lang="en-us"&gt;
+            ...
+            &lt;conbody&gt;
+            &lt;p&gt;Bird food is an important element in the well being of birds.&lt;/p&gt;
+            &lt;!-- Add a line for every bird; in ditaval file include desired bird; exclude others --&gt;
+            &lt;p product="albatross" conref="albatrossfood.dita#albatrossfood/fooddesc"&gt;Food for
+            albatross.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;            </codeblock>
+        <p>Likewise, <filepath>birdhealth.dita</filepath> needs to contain a conditional
+            processing attribute value for every variant, and to be modified whenever a new type
+            of bird is added.</p>
+        <codeblock>&lt;concept id="birdfood" xml:lang="en-us"&gt;
+            ...
+            &lt;conbody&gt;
+            &lt;p&gt;Birds of a feather flock together, hence infections spread quickly. Preventive healtch
+            care is important.&lt;/p&gt;
+            &lt;!-- Add a line for every bird;  in ditaval file include desired bird; exclude others --&gt;
+            &lt;p product="albatross" conref="albatrosshealth.dita#albatrosshealth/healthcaredesc"&gt;care for albatross.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;            </codeblock>
+        <p>Use of the keys / conkeyref attributes addresses the above problems. A conkeyref is
+            similar to a conref in that it pulls in content from a referenced topic's element.
+            However, a conkeyref refers to a topic indirectly via a previously defined key and
+            not directly via a topic file name. </p>
+        <p>Using keys/conkeyref, an author could create the guide to birds using the following
+            method.</p>
+        <p><filepath>birdfood.dita</filepath> uses conkeyref with a key and element id to pull
+            in relevant information</p>
+        <codeblock>&lt;concept id="birdfood" xml:lang="en-us"&gt;
+            &lt;!-- use conkeyref  instead of conref--&gt;
+            &lt;title conkeyref="birdfoodkey/birdtitle"&gt;Bird Food&lt;/title&gt;
+            &lt;shortdesc&gt;Bird food is tailor made for every bird.&lt;/shortdesc&gt;
+            &lt;conbody&gt;
+            &lt;p&gt;Bird food is an important element in the well being of birds.&lt;/p&gt;
+            &lt;p conkeyref="birdfoodkey/fooddesc"&gt;Description of food for birds.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;</codeblock>
+        <p><filepath>birdhealth.dita</filepath> uses conkeyref with a key and element id to pull
+            in relevant information</p>
+        <codeblock>&lt;concept id="birdhealth" xml:lang="en-us"&gt;
+            &lt;!-- use conkeyref  instead of conref--&gt;
+            &lt;title conkeyref="birdhealthkey/birdtitle"&gt;Bird Health&lt;/title&gt;
+            &lt;conbody&gt;
+            &lt;p&gt;Birds of a feather flock together, hence infections spread quickly. Preventive health
+            care is important.&lt;/p&gt;        
+            &lt;p conkeyref="birdhealthkey/healthcaredesc"&gt;Description of health care for birds.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;</codeblock>
+        <p><filepath>albatross.ditamap</filepath> defines keys that point to topics containing
+            informations about albatross food and health.</p>
+        <codeblock>&lt;map&gt;
+            &lt;title&gt;Albatross Guide&lt;/title&gt;
+            &lt;!-- Keys defined for bird information --&gt;
+            &lt;topicref keys="birdfoodkey" href="albatrossfood.dita" type="concept" format="dita" toc="no"/&gt;
+            &lt;topicref keys="birdhealthkey" href="albatrosshealth.dita" type="concept" format="dita" toc="no"/&gt;
+            
+            &lt;!-- Topics containing conkeyrefs that refer to the keys defined above  --&gt;
+            &lt;topicref href="birdfood.dita" type="concept"/&gt;
+            &lt;topicref href="birdhealth.dita" type="concept"/&gt;
+            &lt;/map&gt;            </codeblock>
+        <p><filepath>albatrossfood.dita</filepath> contains elements with the appropriate ids
+            referenced by conkeyref in <filepath>birdfood.dita</filepath>.</p>
+        <codeblock>&lt;concept id="albatrossfood" xml:lang="en-us"&gt;
+            &lt;title id="birdtitle"&gt;Albatross Bird Food&lt;/title&gt;
+            &lt;conbody&gt;
+            &lt;p id="fooddesc"&gt;Albatross food is rich in vitamins A and B.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;</codeblock>
+        <p><filepath>albatrosshealth.dita</filepath> contains elements with the appropriate ids
+            referenced by conkeyref in <filepath>birdhealth.dita</filepath>.</p>
+        <codeblock>&lt;concept id="albatrosshealth" xml:lang="en-us"&gt;
+            &lt;title id="birdtitle"&gt;Albatross Bird Health&lt;/title&gt;
+            &lt;conbody&gt;
+            &lt;p id="healthcaredesc"&gt;Albatross need to be inspected every 3 months.&lt;/p&gt;
+            &lt;/conbody&gt;
+            &lt;/concept&gt;                       </codeblock>
+        <p>The above approach to conditional processing has the following advantages:</p>
+        <ul id="ul_5622CD84CC55470AB46D909BDD72E1AD">
+            <li id="li_F80DF4B9C8304DE4A699AC180C9C1B65">The base content topics (<filepath
+                >birdfood.dita, birdhealth.dita</filepath> in this case) do not need to be
+                modified when adding a new variant. Only the topics specific to the variant need
+                to be added or updated (for example, <filepath>cormorantfood.dita,
+                    cormoranthealth.dita, cormorant.ditamap</filepath>). New variants will work
+                seamlessly as long as they define the same ids referenced by the conkeyref.</li>
+            <li id="li_6048E4DA0E014A5181C45567A846FA25">An author is not restricted to
+                specifying conditions using conditional processing attributes. Any number of
+                variations may be created by redefining keys in different maps.</li>
+            <li id="li_8AE256B3C05144049C3AC9819AF55609">Ditaval files are not required, hence
+                it becomes easier to debug output.</li>
+            <li id="li_B64E103EDA2F4F158ABCBC149D4C52C1">Some Content Management Systems have
+                proprietary mechanisms that simulate similar behavior by switching object ids
+                for topics. The keys/conkeyref mechanism is non-proprietary.</li>
+        </ul>
+    </conbody>
+</concept>

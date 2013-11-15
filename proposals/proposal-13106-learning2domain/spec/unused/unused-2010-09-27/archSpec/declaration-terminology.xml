@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic
+  id="declarationterminology"
+  xml:lang="en-us">
+  <title>Declaration terminology</title>
+  <shortdesc>When the model is expressed in a DTD or schema, various element types are declared. </shortdesc>
+  <body>
+    <p>When referring to the element-type declarations, the following terminology is
+      used:<draft-comment>JTH: Define specialized element, specialized attribute
+        here?</draft-comment></p>
+    <dl>
+      <dlentry>
+        <dt>Element declaration</dt>
+        <dd> The representation within a schema technology (such as DTD, XML Schema, or Relax NG)
+          for an element type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Attribute declaration</dt>
+        <dd> The representation within a schema technology (such as DTD, XML Schema, or Relax NG)
+          for an attribute type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Type module</dt>
+        <dd>The representation within a schema technology for the element and attribute types
+          uniquely defined by a topic type, map type, or domain.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Topic module</dt>
+        <dd>The representation within a schema technology for the element types uniquely defined
+          by a topic type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Map module</dt>
+        <dd>The representation within a schema technology for the element types uniquely defined
+          by a map type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Structural module</dt>
+        <dd>A topic or map module.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Domain module</dt>
+        <dd>The representation within a schema technology for the element types or attribute type
+          uniquely defined by a domain.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Document type shell, head schema</dt>
+        <dd>The representation within a schema technology for a DTD shell or head schema that
+          declares no element or attribute types itself (except potentially for a &lt;dita> root
+          element that allows multiple peer topic types in the same document type) but points to
+          and assembles topic and domain modules or map and domain modules.<draft-comment
+            author="MP"
+            disposition="completed"
+            time="06/09/19">Added mention of dita common pattern per Jeff
+            Ogden</draft-comment><draft-comment>MP added "head schema" terminology after review of
+              schema module organization topic</draft-comment></dd>
+      </dlentry>
+      <dlentry>
+        <dt>Document type declaration</dt>
+        <dd> The representation within a schema technology for a document type. The document type
+          declaration includes the declaration modules assembled by the document declaration
+          shell.</dd>
+      </dlentry>
+    </dl>
+    <fig>
+      <title>Diagram of Declaration Terminology</title>
+    </fig>
+  </body>
+</topic>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="lcSequencing2" xml:lang="en-us" rev="DITA1.3">
+  <title>lcSequencing2</title>
+  <shortdesc>A &lt;<keyword>lcSequencing2</keyword>> interaction asks the learner to arrange a list
+    of choices into a predefined order, such as small to large. This element replaces the
+      &lt;<keyword>lcSequencing</keyword>> element in DITA 1.2.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>lcSequencing2</indexterm>
+        <indexterm>learning and training elements<indexterm>lcSequencing2</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section id="contains"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSequencing2/contains"
+      otherprops="contains">
+    </section>
+    <section id="containedby"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSequencing2/containedby"
+      otherprops="containedby">
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ topic/div learningInteractionBase2-d/lcInteractionBase learning2-d/lcSequencing2</p>
+    </section>
+    <example id="example">
+      <title>Example</title>
+      <?Pub Caret?>
+      <codeblock>
+      &lt;lcSequencing2>
+        &lt;lcInteractionLabel2>Sequencing City Populations in the U.S.&lt;/lcInteractionLabel2>
+        &lt;lcQuestion2>Order the following U.S. cities according to population, from
+          largest to smallest.&lt;/lcQuestion2>
+        &lt;lcSequenceOptionGroup2>
+          &lt;lcSequenceOption2>
+            &lt;lcAnswerContent2>Portland, Oregon&lt;/lcAnswerContent2>
+            &lt;lcSequence2 name="lcSequence2" value="2"/>
+          &lt;/lcSequenceOption2>
+          &lt;lcSequenceOption2>
+            &lt;lcAnswerContent2>Chicago, Illinois&lt;/lcAnswerContent2>
+            &lt;lcSequence2 name="lcSequence2" value="1"/>
+          &lt;/lcSequenceOption2>
+          &lt;lcSequenceOption2>
+            &lt;lcAnswerContent2>Portland, Maine&lt;/lcAnswerContent2>
+            &lt;lcSequence2 name="lcSequence2" value="4"/>
+          &lt;/lcSequenceOption2>
+          &lt;lcSequenceOption2>
+            &lt;lcAnswerContent2>Syracuse, New York&lt;/lcAnswerContent2>
+            &lt;lcSequence2 name="lcSequence2" value="3"/>
+          &lt;/lcSequenceOption2>
+        &lt;/lcSequenceOptionGroup2>
+        &lt;lcFeedbackIncorrect2>No, try again, please.     &lt;/lcFeedbackIncorrect2>
+        &lt;lcFeedbackCorrect2>Very good.&lt;/lcFeedbackCorrect2>
+      &lt;/lcSequencing2>
+  </codeblock>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="lcSequencing2_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/id-learning">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/conref-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/localization-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

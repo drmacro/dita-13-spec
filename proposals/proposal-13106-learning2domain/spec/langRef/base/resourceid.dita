@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="resourceid" xml:lang="en-us">
+<title>resourceid</title>
+<shortdesc>The &lt;<keyword>resourceid</keyword>> element provides an identifier for applications
+    that <ph rev="DITA1.3 proposal-13008">must use their own identifier scheme, such as
+      context-sensitive help systems and databases.</ph></shortdesc>
+<prolog><metadata>
+<keywords><indexterm>resourceid</indexterm><indexterm>prolog elements<indexterm>resourceid</indexterm></indexterm>
+</keywords>
+</metadata></prolog>
+<refbody>
+<section rev="DITA1.3 proposal-13008">
+      <p>Multiple @appid values may be associated with a single @appname value, and multiple
+        @appname values may be associated with a single @appid value. Because the values for the
+        @appid and @appname attributes work in combination to specify a specific ID for a specific
+        application, each combination of values for the @appid and @appname attributes
+          <keyword>should</keyword> be unique.</p>
+      <p>Versions of DITA before 1.3 used the @id attribute on the &lt;resourceid> element to
+        specify an ID for an external application. This use of the @id attribute is deprecated in
+        favor of using the @appid attribute.</p>
+    </section>
+<section
+conref="../../common/commonNavLibraryTable.dita#contentmodel-resourceid/contains"
+id="contains" otherprops="contains">    <title>Contains</title>  
+ <p>The content model of this element may differ based on where it
+is used. Content model     information is located here: <xref
+keyref="resourceid-contains"></xref></p>   </section>
+<section
+conref="../../common/commonNavLibraryTable.dita#contentmodel-resourceid/containedby"
+id="containedby" otherprops="containedby">    <title>Contained By</title> 
+  <p>The parents of this element may differ based on where it is used.
+Content model information is     located here: <xref
+keyref="resourceid-contained-by"></xref></p>   </section>
+<section id="inheritance" otherprops="inheritance">    <title>Inheritance</title> 
+  <p>- topic/resourceid </p>   </section>
+<example id="example" rev="DITA1.3 proposal-13008">
+      <title>Example</title>
+      <p>In the following example, a topic is referenced by three applications.</p>
+      <codeblock>&lt;prolog>
+  &lt;resourceid appid="sqlid00375" 
+            appname="dbaccess"/>
+  &lt;resourceid appid="sample" 
+            appname="otherApp1"/>
+  &lt;resourceid appid="sample" 
+            appname="otherApp2"/>
+&lt;/prolog></codeblock>
+      <p>A database application with a value of "dbaccess" for the @appname attribute references the
+        topic using the ID "sqlid00375". Two other applications use the ID "sample"; differing
+        values for the @appname attribute distinguish between these two applications and the
+        &lt;resourceid> elements that are associated with them.</p>
+      <p>If this topic is reused by another author, that author may associate additional
+        &lt;resourceid> elements with the topic by placing them in the map. For example, the
+        following entry in the &lt;topicmeta> indicates that (in addition to the values already
+        specified in the topic), an application with the value of "Author-B-App" references the
+        topic using the ID
+        "FunNewId":<codeblock>&lt;topicref href="sample.dita">
+  &lt;topicmeta>
+    &lt;navtitle>Sample: adding a resourceid externally&lt;/navtitle>
+    &lt;resourceid appname="Author-B-App" appid="FunNewId"/>
+  &lt;/topicmeta>
+&lt;/topicref></codeblock></p>
+      <?Pub Caret -1?>
+    </example>
+<section id="attributes">    <title>Attributes</title>    <simpletable
+id="resourceid_attr" relcolwidth="2* 3* 1* 1* 1*">
+<sthead>
+<stentry>Name</stentry>
+<stentry>Description</stentry>
+<stentry>Data Type</stentry>
+<stentry>Default Value</stentry>
+<stentry>Required?</stentry>
+</sthead>
+  <strow rev="DITA1.3 proposal-13008" id="id-resourceid"> 
+    <stentry>id</stentry> 
+    <stentry>
+            <p rev="DITA1.3 proposal-13008">Before DITA 1.3, this attribute specified a value used
+              by a specific application to identify the topic. That usage is deprecated in favor of
+              using the @appid attribute.</p>
+          </stentry> 
+    <stentry>CDATA</stentry> 
+    <stentry rev="DITA1.3 proposal-13008">#IMPLIED</stentry> 
+    <stentry rev="DITA1.3 proposal-13008">No</stentry> 
+  </strow>
+<strow conref="../../common/commonLRdefs.dita#commonLRdefs/conref">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+  <strow id="appname"> 
+    <stentry>appname</stentry> 
+    <stentry rev="DITA1.3 proposal-13008">A name for the external application that references the
+      topic.</stentry> 
+    <stentry>CDATA</stentry> 
+    <stentry>#IMPLIED</stentry> 
+    <stentry>No</stentry> 
+  </strow>
+  <strow rev="DITA1.3 proposal-13008">
+    <stentry>appid</stentry>
+    <stentry>An ID used by an application to identify the topic.</stentry>
+    <stentry>CDATA</stentry>
+    <stentry>#IMPLIED</stentry>
+    <stentry>No</stentry>
+  </strow>
+<strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow
+conref="../../common/commonLRdefs.dita#commonLRdefs/localization-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+<strow conref="../../common/commonLRdefs.dita#commonLRdefs/classonly">
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+<stentry></stentry>
+</strow>
+</simpletable>   </section>
+</refbody>
+</reference>
+<?Pub *0000003562?>

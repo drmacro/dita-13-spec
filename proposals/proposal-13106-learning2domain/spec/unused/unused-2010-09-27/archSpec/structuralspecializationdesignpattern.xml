@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="conceptId"
+  >
+  <title>Structural specialization design pattern requirements</title>
+  <prolog>
+    <author>Eliot Kimber</author>
+  </prolog>
+  <conbody>
+    <p>
+      <draft-comment
+        author="WEK">Define the design pattern requirements for structural vocabulary
+        modules</draft-comment>
+    </p>
+  </conbody>
+</concept>

@@ -26,6 +26,8 @@
             <stentry>
               <xref
                 href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46007/minutes20120515.txt"
+                scope="external"
+                format="txt"
                 >Minutes 15 May 2012</xref></stentry>
           </strow>
           <strow>
@@ -51,12 +53,12 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry>???</stentry>
+            <stentry>16 November 2013</stentry>
             <stentry/>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry>???</stentry>
+            <stentry/>
             <stentry/>
           </strow>
         </simpletable>
@@ -317,7 +319,7 @@
                 interaction support, the recommended set is defined in the learningDomain2 support
                 provided in DITA 1.3, which supports block elements. This support deprecates
                 original DITA 1.2 elements, which do not support including block elements in many of
-                the elements. See <xref href="lc_spec_Overview_domains.dita#concept_cvq_vzc_ll"> for
+                the elements. See <xref keyref="lc_spec_Overview_domains/concept_cvq_vzc_ll"> for
                   information about the DITA 1.3 domains.</xref><dl>
                   <dlentry>
                     <dt>lcOpenQuestion2</dt>
@@ -357,17 +359,17 @@
             <stentry>2.3.5 (new topic) learningDomain1 and learningDomain2 Support</stentry>
             <stentry>N/A</stentry>
             <stentry>Add new topic
-              <!--<xref
-href="../../DITA1.3spec/archSpec/lc_spec_Overview_domains.dita/">
---></stentry>
+              <xref
+keyref="lc_spec_Overview_domains"/>
+</stentry>
           </strow>
           <strow>
             <stentry>2.3.6 (new topic) Learning and Training Specialization Usage  </stentry>
             <stentry>N/A</stentry>
             <stentry>Add new topic
-              <!--<xref
-href="../../DITA1.3spec/archSpec/lc_spec_Overview_usage.dita/">
---></stentry>
+              <xref
+keyref="lc_spec_Overview_usage"/>
+</stentry>
           </strow>
           <strow>
             <stentry>3.3.3.2 DITA learning interaction base domain elements</stentry>
@@ -390,198 +392,198 @@ href="../../DITA1.3spec/archSpec/lc_spec_Overview_usage.dita/">
                 element was deprecated in DITA version 1.3. It was replaced with the
                   <varname>element2</varname> element. It was originally intended to... </p><ul
                 id="ul_5zs_twk_ll">
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerContent.dita/">
--->lcAnswerContent</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerOption.dita/">
--->lcAnswerOption</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerOptionGroup.dita/">
--->lcAnswerOpenGroup</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcArea.dita/">
--->lcArea</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAreaCoords.dita/">
--->lcAreaCoords</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAreaShape.dita/">
--->lcAreaShape</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcCorrectResponse.dita/">
--->lcCorrectResponse</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedback.dita/">
--->lcFeedback</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedbackCorrect.dita/">
--->lcFeedbackCorrect</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedbackIncorrect.dita/">
--->lcFeedbackIncorrect</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcHotspot.dita/">
--->lcHotspot</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcHotspotMap.dita/">
--->lcHotspotMap</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcInstructorNote.dita/">
--->lcInstructorNote</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcInteractionBase.dita/">
--->lcInteractionBase</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcItem.dita/">
--->lcItem</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatching.dita/">
--->lcMatching</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingItem.dita/">
--->lcMatchingItem</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingItemFeedback.dita/">
--->lcMatchingItemFeedback</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingPair.dita/">
--->lcMatchingPair</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchTable.dita/">
--->lcMatchTable</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMultipleSelect.dita/">
--->lcMultipleSelect</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcOpenAnswer.dita/">
--->lcOpenAnswer</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcOpenQuestion.dita/">
--->lcOpenQuestion</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcQuestion.dita/">
--->lcQuestion</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcQuestionBase.dita/">
--->lcQuestionBase</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequence.dita/">
--->lcSequence</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequenceOption.dita/">
--->lcSequenceOption</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequenceOptionGroup.dita/">
--->lcSequenceOptionGroup</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequencing.dita/">
--->lcSequencing</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSingleSelect.dita/">
--->lcSingleSelect</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcTrueFalse.dita/">
--->lcTrueFalse</li>
+                <li><xref
+keyref="lcAnswerContent"/>
+lcAnswerContent</li>
+                <li><xref
+keyref="lcAnswerOption"/>
+lcAnswerOption</li>
+                <li><xref
+keyref="lcAnswerOptionGroup"/>
+lcAnswerOpenGroup</li>
+                <li><xref
+keyref="lcArea"/>
+lcArea</li>
+                <li><xref
+keyref="lcAreaCoords"/>
+lcAreaCoords</li>
+                <li><xref
+keyref="lcAreaShape"/>
+lcAreaShape</li>
+                <li><xref
+keyref="lcCorrectResponse"/>
+lcCorrectResponse</li>
+                <li><xref
+keyref="lcFeedback"/>
+lcFeedback</li>
+                <li><xref
+keyref="lcFeedbackCorrect"/>
+lcFeedbackCorrect</li>
+                <li><xref
+keyref="lcFeedbackIncorrect"/>
+lcFeedbackIncorrect</li>
+                <li><xref
+keyref="lcHotspot"/>
+lcHotspot</li>
+                <li><xref
+keyref="lcHotspotMap"/>
+lcHotspotMap</li>
+                <li><xref
+keyref="lcInstructorNote"/>
+lcInstructorNote</li>
+                <li><xref
+keyref="lcInteractionBase"/>
+lcInteractionBase</li>
+                <li><xref
+keyref="lcItem"/>
+lcItem</li>
+                <li><xref
+keyref="lcMatching"/>
+lcMatching</li>
+                <li><xref
+keyref="lcMatchingItem"/>
+lcMatchingItem</li>
+                <li><xref
+keyref="lcMatchingItemFeedback"/>
+lcMatchingItemFeedback</li>
+                <li><xref
+keyref="lcMatchingPair"/>
+lcMatchingPair</li>
+                <li><xref
+keyref="lcMatchTable"/>
+lcMatchTable</li>
+                <li><xref
+keyref="lcMultipleSelect"/>
+lcMultipleSelect</li>
+                <li><xref
+keyref="lcOpenAnswer"/>
+lcOpenAnswer</li>
+                <li><xref
+keyref="lcOpenQuestion"/>
+lcOpenQuestion</li>
+                <li><xref
+keyref="lcQuestion"/>
+lcQuestion</li>
+                <li><xref
+keyref="lcQuestionBase"/>
+lcQuestionBase</li>
+                <li><xref
+keyref="lcSequence"/>
+lcSequence</li>
+                <li><xref
+keyref="lcSequenceOption"/>
+lcSequenceOption</li>
+                <li><xref
+keyref="lcSequenceOptionGroup"/>
+lcSequenceOptionGroup</li>
+                <li><xref
+keyref="lcSequencing"/>
+lcSequencing</li>
+                <li><xref
+keyref="lcSingleSelect"/>
+lcSingleSelect</li>
+                <li><xref
+keyref="lcTrueFalse"/>
+lcTrueFalse</li>
               </ul></stentry>
           </strow>
           <strow>
             <stentry>3.3.3 (new topics)</stentry>
             <stentry>NA</stentry>
             <stentry>Add new topics <ul id="ul_jxl_3sk_ll">
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerContent2.dita/">
--->lcAnswerContent2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerOption2.dita/">
--->lcAnswerOption2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAnswerOptionGroup2.dita/">
--->lcAnswerOptionGroup2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcArea2.dita/">
--->lcArea2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAreaCoords2.dita/">
--->lcAreaCoords2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcAreaShape2.dita/">
--->lcAreaShape2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcCorrectResponse2.dita/">
--->lcCorrectResponse2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedback2.dita/">
--->lcFeedback2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedbackCorrect2.dita/">
--->lcFeedbackCorrect2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcFeedbackIncorrect2.dita/">
--->lcFeedbackIncorrect2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcHotspot2.dita/">
--->lcHotspot2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcHotspotMap2.dita/">
--->lcHotspotMap2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcInstructorNote2.dita/">
--->lcInstructorNote2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcInteractionBase2.dita/">
--->lcInteractionBase2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcItem2.dita/">
--->lcItem2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatching2.dita/">
--->lcMatching2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingItem2.dita/">
--->lcMatchingItem2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingItemFeedback2.dita/">
--->lcMatchingItemFeedback2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchingPair2.dita/">
--->lcMatchingPair2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMatchTable2.dita/">
--->lcMatchTable2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcMultipleSelect2.dita/">
--->lcMultipleSelect2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcOpenAnswer2.dita/">
--->lcOpenAnswer2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcOpenQuestion2.dita/">
--->lcOpenQuestion2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcQuestion2.dita/">
--->lcQuestion2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcQuestionBase2.dita/">
--->lcQuestionBase2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequence2.dita/">
--->lcSequence2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequenceOption2.dita/">
--->lcSequenceOption2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequenceOptionGroup2.dita/">
--->lcSequenceOptionGroup2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSequencing2.dita/">
--->lcSequencing2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcSingleSelect2.dita/">
--->lcSingleSelect2</li>
-                <li><!--<xref
-href="../../DITA1.3spec/langref/lcTrueFalse2.dita/">
--->lcTrueFalse2</li>
+                <li><xref
+keyref="lcAnswerContent2"/>
+lcAnswerContent2</li>
+                <li><xref
+keyref="lcAnswerOption2"/>
+lcAnswerOption2</li>
+                <li><xref
+keyref="lcAnswerOptionGroup2"/>
+lcAnswerOptionGroup2</li>
+                <li><xref
+keyref="lcArea2"/>
+lcArea2</li>
+                <li><xref
+keyref="lcAreaCoords2"/>
+lcAreaCoords2</li>
+                <li><xref
+keyref="lcAreaShape2"/>
+lcAreaShape2</li>
+                <li><xref
+keyref="lcCorrectResponse2"/>
+lcCorrectResponse2</li>
+                <li><xref
+keyref="lcFeedback2"/>
+lcFeedback2</li>
+                <li><xref
+keyref="lcFeedbackCorrect2"/>
+lcFeedbackCorrect2</li>
+                <li><xref
+keyref="lcFeedbackIncorrect2"/>
+lcFeedbackIncorrect2</li>
+                <li><xref
+keyref="lcHotspot2"/>
+lcHotspot2</li>
+                <li><xref
+keyref="lcHotspotMap2"/>
+lcHotspotMap2</li>
+                <li><xref
+keyref="lcInstructorNote2"/>
+lcInstructorNote2</li>
+                <li><xref
+keyref="lcInteractionBase2"/>
+lcInteractionBase2</li>
+                <li><xref
+keyref="lcItem2"/>
+lcItem2</li>
+                <li><xref
+keyref="lcMatching2"/>
+lcMatching2</li>
+                <li><xref
+keyref="lcMatchingItem2"/>
+lcMatchingItem2</li>
+                <li><xref
+keyref="lcMatchingItemFeedback2"/>
+lcMatchingItemFeedback2</li>
+                <li><xref
+keyref="lcMatchingPair2"/>
+lcMatchingPair2</li>
+                <li><xref
+keyref="lcMatchTable2"/>
+lcMatchTable2</li>
+                <li><xref
+keyref="lcMultipleSelect2"/>
+lcMultipleSelect2</li>
+                <li><xref
+keyref="lcOpenAnswer2"/>
+lcOpenAnswer2</li>
+                <li><xref
+keyref="lcOpenQuestion2"/>
+lcOpenQuestion2</li>
+                <li><xref
+keyref="lcQuestion2"/>
+lcQuestion2</li>
+                <li><xref
+keyref="lcQuestionBase2"/>
+lcQuestionBase2</li>
+                <li><xref
+keyref="lcSequence2"/>
+lcSequence2</li>
+                <li><xref
+keyref="lcSequenceOption2"/>
+lcSequenceOption2</li>
+                <li><xref
+keyref="lcSequenceOptionGroup2"/>
+lcSequenceOptionGroup2</li>
+                <li><xref
+keyref="lcSequencing2"/>
+lcSequencing2</li>
+                <li><xref
+keyref="lcSingleSelect2"/>
+lcSingleSelect2</li>
+                <li><xref
+keyref="lcTrueFalse2"/>
+lcTrueFalse2</li>
               </ul></stentry>
           </strow>
           <strow>

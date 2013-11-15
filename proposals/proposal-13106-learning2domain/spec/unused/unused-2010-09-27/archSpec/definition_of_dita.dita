@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="definition_of_dita" xml:lang="en-us">
+<title>Definition of DITA</title>
+<shortdesc>Put your short description here; used for first paragraph
+and abstract.</shortdesc>
+<conbody>
+<section><p><dl><dlentry>
+<dt>Darwin</dt>
+<dd></dd>
+</dlentry><dlentry>
+<dt>Information typing</dt>
+<dd></dd>
+</dlentry><dlentry>
+<dt>Architecture</dt>
+<dd>As an architecture, DITA addresses many of the challenges that
+large hyperlinked documents present:<ul>
+<li>The need for indirect and dynamically-bound addresses</li>
+<li>The need for rich options for organizing content for storage</li>
+<li>The need for metadata and content to be applied to topics in specific
+use contexts</li>
+</ul></dd><?Pub Caret1?>
+</dlentry></dl></p></section>
+</conbody>
+</concept>
+<?Pub *0000000927?>

@@ -11,7 +11,7 @@
                     </entry>
                     <entry>
                         <String>keys.context</String>
-                        <String>file:/Users/ekimber/workspace_40/dita_13_specwork/spec/language-reference.ditamap</String>
+                        <String>${pdu}/proposals/proposal-13106-learning2domain/proposal-13106-learning2domain.ditamap</String>
                     </entry>
                     <entry>
                         <String>search.resources.filter.history</String>

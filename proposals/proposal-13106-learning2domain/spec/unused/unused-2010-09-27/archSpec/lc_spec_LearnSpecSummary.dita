@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningSummary PUBLIC "-//OASIS//DTD DITA Learning Summary//EN"
+ "learningSummary.dtd">
+<learningSummary id="LearnSpecSummary">
+<title>Summary: The DITA learning and training content specialization</title>
+<shortdesc>This topic recaps the key learning points about the design and language specification for DITA learning and training content. </shortdesc>
+<learningSummarybody>
+<lcObjectives>
+<lcObjectivesStem>You have learned the following in this topic:</lcObjectivesStem>
+<lcObjectivesGroup>
+        <lcObjective>The intent behind the specifications</lcObjective>
+		<lcObjective>Who designed the specifications</lcObjective>
+		<lcObjective>The main elements of the specifications</lcObjective></lcObjectivesGroup></lcObjectives>
+</learningSummarybody>
+</learningSummary>

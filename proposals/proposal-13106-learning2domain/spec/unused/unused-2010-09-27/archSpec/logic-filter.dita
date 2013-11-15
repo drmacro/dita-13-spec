@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="filteringlogic" xml:lang="en-us">
+    <title>Filtering logic</title>
+    <conbody>
+        <p>When deciding whether to include or exclude a particular element, a process should
+            evaluate each attribute, and then evaluate the set of attributes:<ul
+                id="ul_E5C4EB1DD65B4143A9751556B38FAD3B">
+                <li>If all the values in an attribute have been set to "exclude", the attribute
+                    evaluates to "exclude"</li>
+                <li id="li_CE8848B2ED4742B7BC8984D20C0F489D">If any of the attributes evaluate to
+                    exclude, the element is excluded.</li>
+            </ul>For example, if a paragraph applies to three products and the publisher has chosen
+            to exclude all of them, the process should exclude the paragraph; even if the paragraph
+            applies to an audience or platform that you aren't excluding. But if the paragraph
+            applies to an additional product that has not been excluded, then its content is still
+            relevant for the intended output and should be preserved.</p>
+    </conbody>
+</concept>

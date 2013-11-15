@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="integrate" xml:lang="en-us">
+<title>Integration</title>
+<shortdesc>Each domain specialization or structural specialization has its
+own design module. These modules can be combined to create many different
+document types. The process of creating a new document type from a specific
+combination of modules is called integration. </shortdesc>
+<conbody>
+<p>Integration is accomplished using a document type shell, which defines
+the modules to be integrated and how they will be integrated. Integration
+defines both what topic types and domains will be allowed in the document
+type, and how the topic types will be allowed to nest.</p>
+<p>The module for a specific type should contain only the declarations for
+elements and attributes <?Pub Caret?>that are unique to that type, and should
+not embed any other modules. The shell should contain no markup declarations,
+and should directly reference all the modules it requires. Nesting shells
+or nesting modules (having shells that embed other shells, or modules that
+embed other modules) is discouraged since it adds complexity and may break
+some tools. Sharing between document types should be accomplished through
+shared modules, not through direct reference to any other document type. Dependencies
+between modules should be satisfied by the integrating shell, not through
+the module itself.</p>
+</conbody>
+</concept>
+<?Pub *0000001537?>

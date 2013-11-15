@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="IssueNumber00" xml:lang="en-us">
+<title>DITA Proposed Feature #12010</title>
+<shortdesc>Unify domains and topics to improve design flexibility and to simplify
+the DITA specialization constructs.</shortdesc>
+<reference id="longdesc" xml:lang="en-us">
+<title>Longer description</title>
+<refbody>
+<section><title>Problem</title><p>DITA 1.1 packages elements in two distinct
+kinds of module: domains and topics. The elements provided by a topic module
+can only specialize the elements available in its base topic module. Elements
+provided by a domain module can only specialize the elements available in
+its base domain module (or the root topic module). </p><p>These restrictions
+significantly reduce the designer's flexibility in reusing vocabularies. The
+only method for combining vocabularies is domain extension, which is global
+and provides optional alternatives for the extended base element. Aside from
+these global alternatives, each vocabulary is effectively segregated from
+every other vocabulary except for its base vocabularies. As a result, designers
+who need elements in specific contexts must create elements with different
+names for the same content, resulting in greater complexity, difficulty in
+reusing content fragments, and duplication of design, processing, and documentation. </p><p>For
+example, the javaClass, javaInterface, and javaMethod topics cannot share
+a &lt;javaInterfaceName> element for marking up Java interfaces in the definition
+of a class, interface, or method. Instead, javaClass must have &lt;javaClassInterface>
+and javaMethod must have &lt;javaMethodInterface>. </p><simpletable>
+<strow>
+<stentry>Inheritance</stentry>
+<stentry>Containment</stentry>
+</strow>
+<strow>
+<stentry><codeblock>apiRef
+    apiClassifier
+        <b>javaClass</b>
+        <b>javaInterface</b>
+    apiOperation
+        <b>javaMethod</b></codeblock></stentry>
+<stentry><codeblock><ph> </ph>
+<ph> </ph>
+  ...  <b>javaClassInterfaceName</b>
+  ...  <b>javaInterfaceName</b>
+
+  ...  <b>javaMethodInterfaceName</b></codeblock></stentry>
+</strow>
+</simpletable></section>
+<section><title>Solution</title><p> Relax the restriction on specialization
+so that common vocabulary elements can be shared between modules. For example,
+allow the javaClass, javaInterface, and javaMethod topics to share a &lt;javaInterfaceName>
+element. Allowing broader reuse of vocabularies reduces the work of designers
+and processing developers. </p><p>For an earlier version of this proposal,
+please see: </p><lq><xref format="html" href="http://www.oasis-open.org/committees/download.php/14849/Issue32.html"
+scope="external">http://www.oasis-open.org/committees/download.php/14849/Issue32.html</xref></lq> </section>
+</refbody>
+</reference>
+<reference id="stmtreq" xml:lang="en-us">
+<title>Statement of Requirement</title>
+<refbody>
+<section><ul>
+<li>Allow more flexible reuse of vocabularies so the same element name can
+be used for to mark up a kind of content in all contexts.</li>
+<li>Maintain reliable interoperability by generalization to ancestors. </li>
+<li>Maintain reliable checking on resolution of conref across document types.</li>
+<li>Minimize the increased burden on designers. </li>
+</ul></section>
+</refbody>
+</reference>
+<reference id="usecase" xml:lang="en-us">
+<title>Use Cases</title>
+<refbody>
+<section><dl><dlentry>
+<dt>Taking advantage of existing vocabularies when defining new topic types</dt>
+<dd><p>For example, a reference specialization for message content can require
+the existing &lt;msgnum> and &lt;msgph> elements from the software domain
+within the &lt;msgRefTitle> element. Similarly, the reference topic type could
+be refactored to move the &lt;refsyn> element into the programming domain
+as a general-purpose section wrapper for &lt;syntaxdiagram> but still provided
+as an option within the &lt;refbody> content model. </p></dd>
+</dlentry><dlentry>
+<dt>Providing common subelements within the content of several topic types</dt>
+<dd><p>For example, the Java API reference provides topic types for documenting
+a Java class library, including javaClass, javaInterface, and javaMethod.
+These topic types derive from generic API types such as apiClassifier and
+apiOperation and thus don't have a single common base vocabulary. In the content,
+Java interface names are common across Java classes, interfaces, and methods
+for identifying implemented interfaces, base interfaces, method parameters,
+return values, and exceptions. </p><p>The proposal allows the javaInterfaceName
+element to be required in specific contexts within javaClass, javaInterface,
+and javaMethod topic types.</p><p>For another example, if the &lt;prereq>, &lt;context>, &lt;steps>,
+and &lt;result> specialized elements within the task vocabulary module were
+refactored as a domain, other information types could have a &lt;context>
+element as substructure.</p></dd>
+</dlentry><dlentry>
+<dt>Extending an existing topic type with optional special alternatives to
+an existing element</dt>
+<dd><p>For example, recovery tasks can have steps that apply to hardware or
+software. The proposal allows &lt;hardwareStep> and &lt;softwareStep> specializations
+of &lt;step> to be offered as more specific alternatives to the &lt;step>
+element within task content.</p></dd>
+</dlentry></dl> </section>
+</refbody>
+</reference>
+<reference id="scope" xml:lang="en-us">
+<title>Scope</title>
+<refbody>
+<section> <p>This proposal has the following impacts:</p><ul>
+<li>Refactors some existing domains and class attributes for the core DITA
+vocabulary modules.</li>
+<li>Requires enhancements to existing conref and generalization processors.</li>
+</ul> </section>
+</refbody>
+</reference>
+<reference id="techreq" xml:lang="en-us">
+<title>Technical Requirements</title>
+<refbody>
+<section><title>Terminology</title><p>This proposal relies on a conceptual
+refactoring of the existing division between topics modules and domain modules.
+Instead, both kinds of modules can be seen as provide vocabularies for mark
+up of content fragments (which, in the case of topics, are complete content
+objects). These content fragments are rooted at elements but also have elements
+for substructure. The proposal formalizes this distinction in existing DITA
+practice between extension and substructure elements:</p><dl><dlentry>
+<dt>Extension element</dt>
+<dd>An element that, under the control of a document type shell, can appear
+as an alternative or replacement for its base element in contexts where its
+base element can appear.  <p>A specialization of &lt;topic> is always an extension
+element. For instance, the &lt;reference> element can appear instead of &lt;topic>
+in all &lt;topic> contexts including the top context in a document as well
+as nested contexts in the content models for the &lt;dita> and &lt;topic>
+elements. </p><p>Domain modules always provide one or more extension elements.
+  For instance, the programming domain supplies the &lt;apiname>, &lt;codeblock>, &lt;codeph>, &lt;option>, &lt;parml>, &lt;parmname>, &lt;synph>,
+and &lt;syntaxdiagram> extensions of the base &lt;dl>, &lt;fig>, &lt;keyword>, &lt;ph>,
+and &lt;pre> elements.</p> </dd>
+</dlentry><dlentry>
+<dt>Substructure element</dt>
+<dd>An element that appears only within the content fragment under an extension
+element. <p>For instance, the &lt;properties> element from the reference vocabulary
+module can appear only in the content under the &lt;reference> extension element.
+Similarly, the &lt;plentry> element from the programming domain can appear
+only as a subelement of the &lt;parml> extension element.</p> </dd>
+</dlentry></dl><p>For another example, the UI domain supplies the &lt;menucascade>, &lt;screen>, &lt;shortcut>, &lt;uicontrol>,
+and &lt;wintitle> elements. Of these elements, the &lt;menucascade>, &lt;screen>, &lt;uicontrol>,
+and &lt;wintitle> elements are provided as extensions of their base elements.
+That is, when the UI domain is integrated into a document type shell, these
+elements become alternatives for their base elements in all contexts where
+their base elements appear. By contrast, the &lt;shortcut> element from the
+UI domain is a substructure element. It doesn't appear in every context where
+its base &lt;keyword> element can appear but instead appears only under the &lt;uicontrol>
+element.</p><p>Recognition of extension elements is important for developers
+of specialized processing because the processing handles content fragments
+rooted at extension elements rather than individual elements in isolation.
+For instance, a developer of specialized processing for the UI domain processes
+a &lt;uicontrol> content fragment that may contain the &lt;shortcut> element
+but doesn't have to process the &lt;shortcut> element in isolation. </p></section>
+<section><title>Specialization rules</title><p>The distinction between extension
+and substructure elements offers a strategy for relaxing some of the existing
+restrictions of specialization. </p><note>Changes to the fundamentals of specialization
+aren't necessary. Specialized designs are still packaged as reusable XML Schema
+or DTD modules. An element still can only restrict and specialize the content
+model and attributes of its base element. An element still declares its type
+and base types with a defaulted class attribute. Processing still matches
+the class attribute. </note><p>The relaxed restrictions on specialization
+can be defined in terms of extension and substructure elements as follows:</p><ul>
+<li><p>All of the extension elements provided by a vocabulary must specialize
+base elements from a single vocabulary module (or one of its base vocabulary
+modules). That's true in DITA 1.1.</p><p>For instance, if the &lt;menucascade&gt;
+extension element from the UI domain specializes the &lt;ph&gt; element of
+the topic module, all extension elements from the UI domain must specialize
+elements of the topic module. Similarly, if the &lt;linkpath> element from
+the web user interface domain module extends the &lt;menucascade> element,
+the other elements in the web user interface domain module must extend elements
+in the UI domain or topic modules.  </p><p>This rule preserves generalization
+in that every module has an unambiguous generalization fallback to a more
+general module. As described below, substructure elements have a somewhat
+different restriction.</p></li>
+<li><p>A vocabulary module can extend any element defined by the base vocabulary
+modules. That's a new capability in this proposal. </p><p>For instance, the &lt;properties>
+element in the reference module can be extended by a &lt;parameters> element
+in a paramref domains module. A document type shell can provide the &lt;parameters&gt;
+ element as an alternative or replacement for the &lt;properties&gt;  element.</p><p>This
+rule preserves generalization in that every extension element generalizes
+to one element in the base module.</p></li>
+<li><p>The substructure of an extension can use or specialize the substructure
+of its base element including extensions of the base substructure elements.</p><p>For
+instance, because &lt;codeph&gt; can contain &lt;keyword&gt;, a &lt;commandph&gt;
+extension of &lt;codeph&gt; can contain or specialize &lt;keyword&gt;.  That
+part is true in DITA 1.1.</p><p>As a new capability in this proposal, the &lt;commandph&gt;
+extension can also contain or specialize any extension of &lt;keyword&gt;.
+For instance, &lt;commandph> can require the &lt;cmdname&gt; extension of &lt;keyword>
+provided by the software domain.</p><p>This rule preserves generalization
+in that a specialization of a substructure extension can generalize back to
+either the extension element or to the extended substructure element in the
+base module. That is, using extension elements doesn't remove the ability
+to generalize to a single base module. In the example, &lt;cmdname> generalizes
+back to &lt;keyword>, which is valid in the content for &lt;codeph>. </p><p>Unless
+the extension module is constrained, the extension elements must also be available
+in other context for their base element. In other contexts, however, the extension
+element is an optional alternative to the base element. In a specialized content
+model, the extension module can replace the base element, be made mandatory,
+or have any number of occurrences that is valid in a specialized content model. </p><p>This
+requirement also ensures that the content of the extension element in a specialized
+position can be conreffed into any other document with the extension element
+because the element will be available in any nested contexts. For example, &lt;codeph>
+contains its base element &lt;ph>. Integrating the programming domain in a
+document type extends &lt;ph> with &lt;codeph> in all contexts. Thus, global
+integration of the programming domain allows &lt;codeph> to nest. If such
+nesting is not desired, constraints can be declared and applied on the extension. </p><p>The
+same option of using extensions that are valid in the base substructure is
+available at any depth. The vocabulary module must declare not only the base
+module but these substructure dependencies (as described in the following
+section).</p></li>
+<li><p>A vocabulary module that extends a top element (topic or map) must
+define architectural attributes on that extension. That's true in DITA 1.1.</p><p>Otherwise,
+with regard to specialization and pluggable integration, a vocabulary module
+with a top extension follows the same rules as any other vocabulary module,
+and the extension element follows the same rules as any other extension element.
+To put it another way, a topic or map specialization is just a domain specialization
+that happens to extend the top element. That's new in this proposal. </p></li>
+</ul><p>Cyclical dependencies among modules are not allowed. As in DITA 1.1,
+the main risk for cyclical dependencies in specialization comes from elements
+that nest themselves, either directly as with &lt;ph> or indirectly as with &lt;p>,
+which can contain &lt;lq>, which can contain &lt;p>. An example of a cyclical
+dependency would be a &lt;slogan> specialization of &lt;ph> in the attribution
+vocabulary module whose content model lists the &lt;catchphrase> specialization
+of &lt;ph> in the soundbyte vocabulary module where the content model of &lt;catchphrase>
+lists &lt;slogan>. In this situation, a processor could not determine how
+to generalize the content.</p></section>
+<section><title>Declarations</title><p>The conref and generalization processors
+must be able to recognize the base modules for every module. The domains attribute
+declares the dependencies for each vocabulary module in a parenthetical expression
+in which the module is the rightmost token. </p><p>Where substructure makes
+use of extension elements from modules other than the base module, the parenthetical
+expression identifies the combination of the base module and these extension
+modules. To avoid confusing which module is the base module or implying a
+dependency between the extension modules and the base module, each extension
+module is appended to the base module with a separating plus sign.</p><p>For
+example, the following declaration indicates that the codeConcept module has
+concept as its base module and has a dependency on the combination of the
+concept module and the programming extension module. </p><codeblock>domains="... (topic concept+pr-d codeConcept) ..."</codeblock><p>Here
+are the details about that example and some additional examples:</p><dl><dlentry>
+<dt>A specialized topic whose substructure includes a preexisting domain element</dt>
+<dd>The codeConcept topic marks up an explanation of a programming technique.<ul>
+<li>The &lt;codeConcept> extension element specializes &lt;concept> and has
+a &lt;codeConceptBody> substructure.</li>
+<li>The &lt;codeConBody> content model lists the &lt;codeblock> element from
+the programming domain to show the code analyzed and explained by the remainder
+of the topic. </li>
+</ul><p>As a result, the codeConcept topic depends on the combination of the
+concept and programming modules. The architectural attribute declarations:</p><codeblock>codeConcept/@domains: (topic concept+pr-d codeConcept)
+codeConcept/@class:   (- topic/topic concept/concept codeConcept/codeConcept )
+codeConBody/@class:   (- topic/body  concept/conbody codeConcept/codeConBody )
+codeblock/@class:     (+ topic/pre   pr-d/codeblock                          )</codeblock><lines>Topic instances generalize to any of the following combinations of modules:
+topic and concept and programming, topic and concept, topic and programming, topic</lines><p>Both
+the topic and concept modules are available because the &lt;concept> element
+is only available in contexts where the &lt;topic> element can appear, and
+the &lt;topic> element isn't excluded unless a constraint has been applied.
+(For more detail, see the 12008 constraints proposal.)</p></dd>
+</dlentry><dlentry>
+<dt>A specialized topic whose substructure specializes a preexisting domain
+element</dt>
+<dd>The uiTask topic marks up a UI procedure.<ul>
+<li>The &lt;uiTask> extension element specializes &lt;task> and has &lt;uiTaskBody>
+and &lt;uiContext> substructure.</li>
+<li>The &lt;uiContext> content model lists the &lt;uiMenuContext> specialization
+of &lt;menucascade> in the UI domain to identify the menu item that launches
+the UI task.</li>
+</ul><p>As a result, the uiTask topic depends on the combination of the task
+and ui modules. The architectural attribute declarations:</p><codeblock>uiTask/@domains:      (topic task+ui-d uiTask)
+uiTask/@class:        (- topic/topic   task/task        uiTask/uiTask        )
+uiTaskBody/@class:    (- topic/body    task/taskbody    uiTask/uiTaskBody    )
+uiContext/@class:     (- topic/section task/context     uiTask/uiContext     )
+uiMenuContext/@class: (+ topic/ph      ui-d/menucascade uiTask/uiMenuContext )</codeblock><lines>Topic instances generalize to any of the following combinations of modules:
+topic and task and UI, topic and task, topic and UI, topic</lines></dd>
+</dlentry><dlentry>
+<dt>A specialized domain extension whose substructure includes a preexisting
+domain element</dt>
+<dd>The &lt;commandph> element marks up inline code phrases that show the
+invocation of a command. extension of &lt;codeph> <ul>
+<li>The &lt;commandph> extension element specializes &lt;codeph> from the
+programming domain and lists the &lt;cmdname> element from the software domain
+to identify the invoked command.</li>
+</ul><p>As a result, the cli module depends on the combination of the programming
+and software modules. The architectural attribute declarations:</p><codeblock>topic/@domains:   (topic pr-d+sw-d cli-d)
+commandph/@class: (+ topic/ph      pr-d/codeph  cli-d/commandph )
+cmdname/@class:   (+ topic/keyword sw-d/cmdname                 )</codeblock><lines>Content instances generalize to any of the following combinations of modules:
+topic and programming and software, topic and programming, topic and software, topic</lines></dd>
+</dlentry><dlentry>
+<dt>A domain with extension and substructure elements that specialize different
+domains</dt>
+<dd>The &lt;widget> element marks up a component provided by a UI library.<ul>
+<li>The &lt;widget> extension element specializes &lt;uicontrol> from the
+UI domain and has the &lt;widgetName> specialization of the &lt;apiname> extension
+element from the programming domain to identify the API object used to display
+and manage the widget.</li>
+</ul><p>As a result, the widgetlib module depends on the combination of the
+UI and programming modules. The architectural attribute declarations:</p><codeblock>topic/@domains:    topic ui-d+pr-d widgetlib-d)
+widget/@class:     (+ topic/ph      ui-d/uicontrol widgetlib-d/widget     )
+widgetName/@class: (+ topic/keyword pr-d/apiname   widgetlib-d/widgetName )</codeblock><lines>Content instances generalize to any of the following combinations of modules:
+topic and UI and programming, topic and UI, topic and programming, topic</lines></dd>
+</dlentry><dlentry>
+<dt>A domain that extends the substructure of a topic</dt>
+<dd>The &lt;parameters> element marks up the parameters as part of the reference
+for a command, function, or statement.<ul>
+<li>The &lt;parameters> extension element specializes &lt;properties> from
+the reference topic and contains the &lt;paramtype> and &lt;paramdesc> specializations
+of &lt;proptype> and &lt;propdesc>.</li>
+</ul><p>As a result, the paramref module depends on the reference topic. The
+architectural attribute declarations:</p><codeblock>reference/@domains: (topic reference paramref-d)
+parameters/@class:  (+ topic/simpletable reference/properties paramref-d/parameters )</codeblock><lines>Content instances generalize to any of the following combinations of modules:
+topic and reference, topic</lines></dd>
+</dlentry><dlentry>
+<dt>A specialized topic whose substructure requires a domain that extends
+the substructure of the base topic</dt>
+<dd>The commandref topic marks up the reference for a command-line statement.<ul>
+<li>The &lt;commandref> extension element specializes &lt;reference> and has
+a &lt;commandBody> substructure.</li>
+<li>The &lt;commandBody> content model lists the &lt;parameters> element from
+the paramref module to identify the parameters of the command.</li>
+</ul><p>As a result, the commandref module depends on the combination of the
+reference topic and the paramref module. The paramref module retains its dependency
+on the reference topic. The architectural attribute declarations:</p><codeblock>commandref/@domains: (topic reference paramref-d)
+                     (topic reference+paramref-d commandref)
+commandref/@class:   (- topic/topic       reference/reference  commandref/commandref  )
+commandBody/@class:  (- topic/body        reference/refbody    commandref/commandBody )
+parameters/@class:   (+ topic/simpletable reference/properties paramref-d/parameters    )</codeblock><lines>Topic instances generalize to any of the following combinations of modules:
+topic and reference and paramref, topic and reference, topic</lines></dd>
+</dlentry></dl><p>As part of unifying topics and domains, designers are encouraged </p><ul>
+<li>To provide parenthetical expressions in the domains attribute for topic
+modules as well as for domain modules. This approach provides a consistent
+representation when topic modules are constrained or combined with extension
+modules as dependencies. </li>
+<li>To represent topics in nested positions based on the topic element name
+rather than a special infotypes name. </li>
+</ul><p>A future DITA release might consider whether defaulted class attributes
+should be refactored to distinguish extension and substructure elements rather
+than topic and domain elements.</p></section>
+<section><title>Generalization</title><p>To determine compatibility of documents,
+processors can check the domains attribute. Document types with a superset
+of modules can accept instances of document types with a subset of modules.</p><p>Combination
+of base modules with extension modules doesn't affect such processing. Because
+a combination of modules only expresses a base dependency, checking the rightmost
+module in each parenthetical expression is sufficient to establish the list
+of available modules. As noted previously, because modules are combined only
+by means of extension elements, generalization cannot produce invalid instances. </p><p>As
+noted in the Generalization section of the Architectural specification (<xref
+format="html" href="http://docs.oasis-open.org/dita/v1.1/OS/archspec/generalize.html"
+scope="external">http://docs.oasis-open.org/dita/v1.1/OS/archspec/generalize.html</xref>),
+a generalizer process can take the list of source modules to be generalized
+from or the list of target modules to be generalized to or both as parameters
+for generalization. The generalizer must assume the following:</p><dl><dlentry>
+<dt>Source</dt>
+<dd>The specified source module and all modules depending on the source module
+are invalid in the generalization output. Such depending modules include any
+modules that extend its substructure elements as well as any modules that
+include its extension elements in specialized content models. The base modules
+for the set of source modules and all of their ancestor modules are valid
+in the generalization output. <p>For example, if the programming domain module
+is declared as a source, a process can discover from its declaration in the
+domains attribute that the codeConcept module depends on the combination of
+the concept module and the programming domain extensions and thus is also
+invalid. Similarly, if the paramref module extends the &lt;properties> element
+of the reference topic and the reference module is declared as a source, a
+process can discover that the paramref module is invalid from its declaration
+in the domains attribute. </p><p>Conversely, if the codeConcept module is
+declared as a source, the programming domain and concept topic are by implication
+valid. Similarly, if the paramref module is declared as a source, the reference
+topic is by implication valid. </p><p>A source list can never include base
+topic or map because they have no base modules. </p></dd>
+</dlentry><dlentry>
+<dt>Target</dt>
+<dd>The specified target modules and all of their ancestor modules are valid
+in the generalization output. Descendent modules of the set of valid target
+modules (including any domain vocabulary elements that extend substructure
+elements) are implicitly invalid in the generalization output. <p>For example,
+if the programming domain module is declared to be a target, a process can
+discover from the domains attribute that the codeConcept module depends on
+the programming domain extensions and thus is by implication invalid. Similarly,
+if the reference topic is declared to be a target, a process can discover
+from the domains attribute that the paramref module depends on reference and
+is invalid by implication. </p><p>Conversely, if the codeConcept module is
+declared as a target, the programming domain and concept topic are by implication
+valid. Similarly, if the paramref module is declared as a target, the reference
+topic is by implication valid. </p></dd>
+</dlentry><dlentry>
+<dt>Unknown</dt>
+<dd>Modules that are neither a source or target module nor their descendent
+or ancestor modules have no specified or implied disposition. Where such vocabulary
+modules extend the top element, they are assumed to be invalid. Otherwise,
+they are assumed to be valid.<p>For example, if the concept module has an
+unknown disposition, the codeConcept module must generalize as well. The elements
+specialize from the concept module generalize like all concept elements to
+base topic. The elements that specialize from the extension element of the
+programming module generalize to the programming module because that module
+is assumed to be valid. Similarly, if the reference topic has an unknown disposition,
+a process can discover from the domains attribute that the paramref module
+depends on reference and thus generalize all of its elements as well. </p></dd>
+</dlentry></dl><draft-comment>The behavior described above for unknown modules
+is consistent with the DITA 1.1 specification and implementable. However,
+as long as we're reexamining the issue, would there be more value in having
+a simpler, consistent rule (either pessimistic for safety or optimistic for
+utility)? </draft-comment><p>Where a source module is a descendent of a target
+module, the target module takes precedence, invalidating all of its descendents.
+A target cannot be a descendent of a source module. </p><p><draft-comment>The
+Architectural Specification specifies something slightly different for resolving
+conflicts, but that would appear to be unsafe. If a &lt;javaClass> topic can
+contain only a &lt;javaMethod> topic but the generalizer specifies a source
+of javaMethod and a target of reference, the &lt;javaClass> would end up containing
+a &lt;reference>, which would be invalid. </draft-comment></p></section>
+<section><title>Conref</title><p>The same methods for determining compatibility
+of documents that apply during generalization also apply during conref.</p><simpletable>
+<sthead>
+<stentry>Referencing</stentry>
+<stentry>Referenced</stentry>
+<stentry>Resolution</stentry>
+</sthead>
+<strow>
+<stentry><codeblock>(topic concept+pr-d codeConcept)</codeblock></stentry>
+<stentry><codeblock>(topic pr-d)</codeblock></stentry>
+<stentry><b>Prevented</b> - the extension elements from the programming domain
+might appear in some base element contexts in the referenced document where
+they aren't allowed in the referencing document.</stentry>
+</strow>
+<strow>
+<stentry><codeblock>(topic pr-d)
+(topic concept+pr-d codeConcept)</codeblock></stentry>
+<stentry><codeblock>(topic pr-d)</codeblock></stentry>
+<stentry><b>Allowed</b> - the extension elements from the programming domain
+can appear in any base element context in the referencing document. </stentry>
+</strow>
+<strow>
+<stentry><codeblock>(topic concept+pr-d codeConcept)</codeblock></stentry>
+<stentry><codeblock>(topic)</codeblock></stentry>
+<stentry><b>Allowed</b> - elements from the topic module are valid in all
+contexts in which they can be referenced.</stentry>
+</strow>
+<strow>
+<stentry><codeblock>(topic concept+pr-d codeConcept)</codeblock></stentry>
+<stentry><codeblock>(topic concept+pr-d codeConcept)</codeblock></stentry>
+<stentry><b>Allowed</b> - codeConcept elements including substructure elements
+from the programming domain are valid in all contexts in which they can be
+referenced.</stentry>
+</strow>
+</simpletable></section>
+<section><title>Combined vocabulary modules and constraints</title><p>Constraints
+ordinarily apply to a single vocabulary module. For example, the following
+parenthetical expression declares the shortdescReq constraint on the topic
+module.</p><codeblock>(topic shortdescReq-c)</codeblock><p>Constraints can
+also be used with combinations of vocabulary modules:</p><dl><dlentry>
+<dt>A constraint can apply to a vocabulary module with a base dependency. </dt>
+<dd><p>For example, the following parenthetical expression declares the commandShortdescReq
+constraint on the commandref module.</p><codeblock>(topic reference+paramref-d commandref commandShortdescReq-c)</codeblock></dd>
+</dlentry><dlentry>
+<dt>Compatible constraints on base modules can be declared. </dt>
+<dd><p>Where vocabulary modules are combined, the constraint applies only
+to the base module. For example, the following parenthetical expression declares
+that commandref constrained by commandShortdescReq is consistent with the
+reference constrained by referenceShortdescReq-c and also with topic constrained
+by shortdescReq-c.</p><codeblock>(topic shortdescReq-c reference+paramref-d referenceShortdescReq-c commandref
+    commandShortdescReq-c)</codeblock></dd>
+</dlentry><dlentry>
+<dt>A constraint require extension elements as part of redefining content
+models.</dt>
+<dd><p>For example, a constraints module can override the reference topic,
+restricting the &lt;proptype> element to contain only the &lt;apiname> extension
+from the programming domain as a replacement for the &lt;keyword> element.
+The following parenthetical expression declares this constraint:</p><codeblock>(topic reference+pr-d apiproperty-c)</codeblock><p>Instances
+of the &lt;apiname> element generalize to the &lt;keyword> element in document
+type shells that have the reference topic but not the programming domain.</p><p>Similarly,
+a constraint for the combination of the topic module and layout module can
+extend the &lt;data> element with the &lt;blockLayout> element in block contexts.</p><codeblock>(topic+layout-d contextLayout-c)</codeblock><p>Instances
+of the &lt;blockLayout> element generalize to the &lt;data> element in document
+types without the layout vocabulary module. </p></dd>
+</dlentry></dl><note>Applying different constraints to the same elements in
+different document types can prevent conrefs that are allowed between other
+document types. Such differences for the same elements can raise an issue
+of usability for writers. Designers can prevent confusion for writers by applying
+constraints consistently across all documents that are authored as part of
+the same information set. </note></section>
+<section><title>Schema and DTD Implementation</title><p>The proposal makes
+no changes in the implementation of specialization other than the rules described
+above for determining eligible base elements and content elements and for
+declaring module dependencies with parenthetical expressions in the domains
+attribute. </p> </section>
+</refbody>
+</reference>
+<reference id="specmod" xml:lang="en-us">
+<title>New or Changed Specification Language</title>
+<refbody>
+<section> Replaces the distinction between structural and domain specialization
+with the distinction between extension and substructure elements <xref format="html"
+href="http://docs.oasis-open.org/dita/v1.1/CD02/archspec/ditaspecialization.html"
+scope="external">http://docs.oasis-open.org/dita/v1.1/CD02/archspec/ditaspecialization.html</xref> as
+described in this proposal. </section>
+</refbody>
+</reference>
+<reference id="costs" xml:lang="en-us">
+<title>Costs</title>
+<refbody>
+<section><ul>
+<li>Revising document type shells to list topic types in the domains attribute. </li>
+<li>Revising the class attributes in Schema and DTD modules to distinguish
+extension and substructure elements rather than topic and domain elements.</li>
+<li>Revising topic type modules to use topic element names to refer to nested
+topics instead of special info-type names (resolving the topic name by default
+to the value to the value of the existing info-type names). </li>
+<li>Possibly refactoring the reference and task modules to move top-level
+specialized elements from the body into domains and to require the domain
+modules in the reference and task modules. </li>
+<li>Revision to the specification. </li>
+<li>Modifying the generalization and conref processes to check for combinations
+of vocabulary modules when determining compatibility of document instances.</li>
+</ul> </section>
+</refbody>
+</reference>
+<reference id="benefits" xml:lang="en-us">
+<title>Benefits</title>
+<refbody>
+<section> <ul>
+<li>Provide document instances that are easier to understand because vocabularies
+have fewer elements and mark up the same content with the same element.</li>
+<li>Reduces the implementation and maintenance effort in design, documentation,
+and processing by eliminating redundant elements.</li>
+<li>Simplifies one aspect of the DITA architecture by removing the distinction
+between topic and domain modules.</li>
+</ul> </section>
+</refbody>
+</reference>
+</reference>
+

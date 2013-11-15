@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="dita_spec_2_1_info_tasks"  xml:lang="en-us">
+<title>Machinery Tasks</title>
+<shortdesc> Machinery task topics  answer similar to the generic task topics the "How do I?" questions, and have a well-defined
+structure that describes how to complete a procedure to accomplish a specific
+goal. Compared to a generic task, a machinery task topic contains more descriptive elements in the prelreqs section.The Machinery task topic is a specialized task type using the DITA constraint technique.</shortdesc>
+<conbody>
+<section id="section_F9AB21B4659F4AABBC58797D6C30BE13"><title>Why machinery tasks?</title><p>Machinery tasks are the essential building blocks
+for providing procedure information for machines, machinery equipments, assemblies and apparatus. A machinery task topic answers the "How do I?"
+question by providing precise step-by-step instructions detailing what requirements must be fulfilled, what to
+do and the order in which to do it. The machinery task topic includes sections for describing
+the context, preliminary requirements, expected results, examples, closing requirements and other aspects of a task. </p></section>
+<section id="section_04F3B03B678B4F3AA833E9CC37351771"><title>Machinery task structure</title><p>Similar as in a generic task, the &lt;task&gt; element is the top-level
+element for a machinery task topic. Every machinery task topic contains a &lt;title&gt; and a &lt;taskbody&gt;
+and optional  &lt;titlealts&gt;, &lt;shortdesc&gt; or &lt;abstract&gt;, &lt;prolog&gt;, &lt;related-links&gt;,
+and nested topics<?Pub Caret?>.</p><p>The &lt;taskbody&gt; element is the main
+body-level element inside a machinery task topic. A machinery task body has a very specific structure,
+with the following elements in this order: (&lt;prelreqs&gt; or &lt;context&gt; or &lt;section&gt;)*, &lt;steps&gt;, &lt;result&gt;, &lt;example&gt;
+and &lt;closereqs&gt;. Each of the body sections is optional.</p><dl><dlentry>
+<dt>&lt;prelreqs&gt;</dt>
+<dd><b>Special element used in a machinery task. </b>The preliminary-requirements section of a task should document things the user needs to know or
+do before starting the current task. The &lt;prelreqs&gt; element is
+similar to &lt;prereq&gt; but contains the following more descriptive content model. The &lt;prelreqs&gt; element contains &lt;reqconds&gt;, &lt;reqpers&gt;, &lt;supequip&gt;, &lt;supplies&gt;, &lt;spares&gt; and &lt;safety&gt;<dl><dlentry><dt>&lt;reqconds&gt;</dt><dd>The required-conditions element contains the description of all required conditions that have
+to be fulfilled before performing a task.</dd></dlentry><dlentry><dt>&lt;reqpers&gt;</dt><dd>The Required-Personnel
+element contains information on the personnel required for the task. E.g. number of personell and skills</dd></dlentry><dlentry><dt>&lt;supequip&gt;</dt><dd>The Support-Equipment element lists any required support equipment for the task e.g. special tools like a torque wrench, along with
+optional descriptions.</dd></dlentry><dlentry><dt>&lt;supplies&gt;</dt><dd>The supplies element has to
+be used to list and maybe to describe any supplies required for the
+task, e.g. supplies to be procured locally.</dd></dlentry><dlentry><dt>&lt;spares&gt;</dt><dd>The spares element lists spare
+parts required for a task, and may include descriptions of those parts.</dd></dlentry><dlentry><dt>&lt;safety&gt;</dt><dd>The Safety-Condition element has to be used to list and maybe to describe any safety condition
+that has to be taken in account for the task.<b> You may use the hazardstatement element in safety.</b></dd></dlentry></dl></dd>
+</dlentry><dlentry>
+<dt>&lt;context&gt;</dt>
+<dd>Provides background information for the task. This information helps the
+user understand what the purpose of the task is and what they will gain by
+completing the task. This section should be brief and does not replace or
+recreate a concept topic on the same subject, although the context section
+may include some conceptual information.</dd>
+</dlentry><dlentry><dt>&lt;section&gt;</dt><dd>Provides additional information and descriptoins of other aspects of a task</dd></dlentry><dlentry>
+<dt>&lt;steps&gt;</dt>
+<dd>Provides the main content of the task topic. A task consists of a series
+of steps that accomplish the task. The &lt;steps&gt; section must have one or
+more &lt;step&gt; elements, which provide the specifics about each step in in
+the task.<p>The &lt;step&gt; element represents an action that a user must follow
+to accomplish a task. Each step in a task must contain a command &lt;cmd&gt;
+element which describes the particular action the user must do to accomplish
+the overall task. The step element can also contain information &lt;info&gt;,
+substeps &lt;substeps&gt;, tutorial information &lt;tutorialinfo&gt;, a step example &lt;stepxmp&gt;,
+choices &lt;choices&gt; or a stepresult &lt;stepresult&gt;, although these are optional.</p></dd>
+</dlentry><dlentry>
+<dt>&lt;result&gt;</dt>
+<dd>Describes the expected outcome for the task as a whole. </dd>
+</dlentry><dlentry>
+<dt>&lt;example&gt;</dt>
+<dd>Provides an example that illustrates or supports the task. </dd>
+</dlentry><dlentry>
+<dt>&lt;closereqs&gt;</dt>
+<dd><b>Special element used in a machinery task. </b>Describes required conditions that have to be fulfilled after the successful
+completion of the current task. It is often supported by links to the next
+task or tasks in the &lt;related-links&gt; section. The &lt;closereqs&gt; element contains &lt;reqconds&gt;<dl><dlentry><dt>&lt;reqconds&gt;</dt><dd>The required-conditions element contains the description of all required conditions that have
+to be fulfilled before performing a task.</dd></dlentry></dl></dd>
+</dlentry></dl></section>
+<example id="example_1B8BA0FB53C04CE5AF1CF04D601D4956">Here’s an example of a machinery task topic.<pre xml:space="preserve">tbd
+</pre></example>
+<section id="section_E222FFE915194BEEB2614FA65EA125B7"><title>Modules</title><sl>
+<sli>machineryTask.dtd (DTD), machineryTaskbodyConstraint.mod</sli>
+<sli>machineryTaskbodyConstraintMod.xsd, machineryTask.xsd (Schema)</sli>
+</sl></section>
+</conbody>
+</concept>
+<?Pub *0000003809?>
+

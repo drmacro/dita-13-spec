@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="keysandkeyref"  xml:lang="en-us">
+<title>Using keys and keyref</title>
+<shortdesc>Whenever a topic has a reference to other content, it makes
+the topic less reusable because of the dependency on the target being
+still available and still relevant. Key and keyref provide a simple
+redirection scheme that leverages existing attributes and map architectures
+to provide support for redirectable conrefs, topicrefs, xrefs, links,
+and other reference elements and attributes. They also provide a simplified
+architecture for managing variable or volatile content such as product
+names, which need to be easily swapped out when a topic is reused
+in new contexts.</shortdesc>
+<conbody>
+<section><p><i>Key definitions</i> introduce global identifiers for
+resources referenced from a map. A key definition defines one or more
+keys and specifies the resource or resources to which the keys resolve.
+Map authors define keys using a topicref or topicref specialization
+that contains the new “keys” attribute. Keys resolve to the resources
+given as the href value on the key definition topicref element, to
+content contained within the key definition topicref element, or both.</p><p>Topic
+or map authors include <i>key references</i> on xref, link, topicref,
+and other reference elements using the keyref attribute. Key references
+may also be included in the “conkeyref” attribute. A key reference
+consists of a key name optionally followed by a “/” character and
+an id of a sub-topic element.</p><p>During processing key references
+in topics and maps are resolved using key definitions from maps. If
+a key used in a keyref or conkeyref attribute is not defined, the
+reference is resolved using the href or conref value on the referencing
+element, if any, as a fallback.</p></section><?Pub Caret?>
+<section><p>A key value consists of one or more space separated key
+names. The following characters are prohibited in key names: “{“,
+“}”, “[“, “]”, “/”, “#”, “?”, and space characters. The case of key
+names is significant. A key may not resolve to sub-topic elements,
+although a keyref attribute may do so by combining a key with a sub-topic
+element id.</p><p>The keyref syntax consists of a key name optionally
+followed by the character "/" and a topic element id. The values "keyname"
+and "keyname/elementid" are both valid examples of a keyref attribute.</p></section>
+<section><title>Required behaviors</title><ul>
+<li>Keys and key references resolve to topics, to collections of topics
+(ditabase), to maps, to referenceable portions of maps, to non-DITA
+documents, to external URIs, or to XML content contained within a
+key definition topic reference.</li>
+<li>Key references, but not individual keys, may resolve to sub-topic
+elements.</li>
+<li>All href values are resolved using the standard rules for resolving
+URIs [RFC 3986]. A relative URI in an href attribute on a key definition
+is resolved relative to the location of the key definition rather
+than relative to the location of the key reference.<draft-comment>Need
+to turn RFC 3986 into a link.</draft-comment></li>
+<li>Key definitions are not scoped by the map in which they occur
+or by the element hierarchy within a map. Key definitions made in
+maps are visible from other maps including referencing maps at a higher,
+lower, or the same level in the map hierarchy.</li>
+<li>Key definitions in referencing maps take precedence over key definitions
+in referenced maps.</li>
+<li> Key definitions, once made, cannot be redefined.</li>
+<li>A key is defined by the first definition found in a breadth-first
+traversal of the hierarchy of referenced map documents. Thus a key
+definition in a higher level map takes precedence over key definitions
+in lower level maps and the first key definition in document order
+within a single map takes precedence over later key definitions. A
+duplicate definition within the branch of the map document hierarchy
+under the defining map is ignored without a warning. A duplicate definition
+within one map or outside of the branch of the map document hierarchy
+under the defining map is ignored, possibly with a warning. Note that
+the phrases “hierarchy of referenced map documents” and “map file
+hierarchy” mean the hierarchy of map documents or map files and not
+the element hierarchy within the map documents or files.</li>
+<li>Key definitions are part of a global key namespace that is defined
+by a particular map hierarchy. The order of key definitions and key
+references relative to one another within the map hierarchy is not
+significant. Keys do not need to be defined before they are referenced.
+Forward references are allowed. Keys defined in any map are available
+for use with key references from all maps and topics.</li>
+<li>It is an error for key references (the keyref and conkeyref attributes)
+to be used on topicref elements or specializations that reference
+maps or portions of maps when the referenced maps define keys. In
+such cases the key definitions from the referenced maps are not used,
+an implementation SHOULD give an error message, and MAY (but need
+not) recover from the error condition by ignoring the key definitions.</li>
+</ul></section>
+</conbody>
+</concept>

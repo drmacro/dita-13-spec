@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+
+<reference id="lcInteractionBase2" xml:lang="en-us" rev="DITA1.3">
+ <title>lcInteractionLabel2</title>
+ <shortdesc>Use &lt;<keyword>lcInteractionLabel2</keyword>&gt; to provide a label or title for an
+  interaction.</shortdesc>
+ <prolog>
+  <metadata>
+   <keywords>
+    <indexterm>lcInteractionLabel2</indexterm>
+    <indexterm>learning and training elements<indexterm>lcInteractionLabel2</indexterm></indexterm>
+   </keywords>
+  </metadata>
+ </prolog>
+ <refbody>
+  <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcInteractionBase2/contains"
+   id="contains" otherprops="contains">
+   <title>Contains</title>
+   <p>The content model of this element may differ based on where it is used. Content model
+    information is located here: <xref keyref="lcInteractionLabel2-contains"/>
+   </p>
+  </section>
+  <section
+   conref="../../common/commonNavLibraryTable.dita#contentmodel-lcInteractionLabel2/containedby"
+   id="containedby" otherprops="containedby">
+   <title>Contained By</title>
+   <p>The parents of this element may differ based on where it is used. Content model information is
+    located here: <xref keyref="lcInteractionLabel2-contained-by"/>
+   </p>
+  </section>
+  <?Pub Caret?>
+  <section id="inheritance" otherprops="inheritance">
+   <title>Inheritance</title>
+   <p>+ topic/p learningInteractionBase2-d/lcInteractionLabel2</p>
+  </section>
+  <example conref="lcTrueFalse2.dita#lcTrueFalse2/example"/>
+  <section id="attributes">
+   <title>Attributes</title>
+   <simpletable id="lcInteractionBase2_attr" relcolwidth="2* 3* 1* 1* 1*">
+    <sthead>
+     <stentry>Name</stentry>
+     <stentry>Description</stentry>
+     <stentry>Data Type</stentry>
+     <stentry>Default Value</stentry>
+     <stentry>Required?</stentry>
+    </sthead>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/id-learning">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/conref-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/localization-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+   </simpletable>
+  </section>
+ </refbody>
+</reference>
+<?Pub *0000003158?>

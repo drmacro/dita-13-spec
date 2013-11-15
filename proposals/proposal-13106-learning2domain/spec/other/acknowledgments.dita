@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="r-acknowledgments" outputclass="appendix" xml:lang="en-us">
+<title>Acknowledgments</title>
+<shortdesc>(Non-normative) Many individuals participated in the creation
+of this specification and are gratefully acknowledged.</shortdesc>
+<refbody>
+<section>       <sl>
+<sli>Robert Anderson, IBM</sli>
+<sli>Deb Bissantz, LSI</sli>
+<sli>Michael Bose, Individual Member</sli>
+<sli>Thilo Buchholtz, SAP</sli>
+<sli>Don Day, Individual Member</sli>
+<sli>Stanley Doherty, Individual Member</sli>
+<sli>Kristen James Eberlein, Individual Member</sli><?Pub Caret -1?>
+<sli>JoAnn Hackos, Comtech Services, Inc.</sli>
+<sli>Richard Hamilton, Individual Member</sli>
+<sli>Nancy Harrison, Individual Member</sli>
+<sli>David Helfinstine, PTC</sli>
+<sli>Scott Hudson, Schneider Electric Industries</sli>
+<sli>John Hunt, IBM</sli>
+<sli>Eliot Kimber, Really Strategies, Inc.</sli>
+<sli>Tom Magliery, JustSystems</sli>
+<sli>Mark Myers, SAP</sli>
+<sli>Chris Nitchie, Oberon Technologies</sli>
+<sli>Seth Park, Freescale Semiconductor, Inc.</sli>
+<sli>Michael Priestley, IBM</sli>
+<sli>Eric Sirois, IBM</sli>
+<sli>Bob Thomas, Individual Member</sli>
+<sli>Adrian Warman, IBM</sli>
+<sli>Su-Laine Yeo, JustSystems</sli>
+</sl>     </section>
+</refbody>
+</reference>
+<?Pub *0000001714?>

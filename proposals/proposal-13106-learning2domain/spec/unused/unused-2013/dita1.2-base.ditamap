@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en-us">
+ <title>DITA 1.2 Specification: Base Version</title>
+ <topicref href="dita-1.2_base_overview.dita" navtitle="Overview of the DITA 1.2 specification: Base version"/>
+ <topicref href="architectural_specification.dita" navtitle="Architectural specification">
+  <mapref href="archspec/archspec.ditamap" navtitle="Architectural specification: Base version"/>
+ </topicref>
+ <topicref href="language_reference.dita" navtitle="Language reference">
+  <topicref href="base_elements.ditamap" navtitle="Base elements" format="ditamap"/>
+  <topicref href="ditaref-commonatts.ditamap" navtitle="Common attribute definitions" format="ditamap" />
+  <topicref href="common/base_elements_a_to_z.dita"/>
+</topicref> 
+ <topicref href="conformance.dita" navtitle="Conformance statement" locktitle="yes"/>
+ <topicref href="appendixes.ditamap" format="ditamap"/>
+</map>

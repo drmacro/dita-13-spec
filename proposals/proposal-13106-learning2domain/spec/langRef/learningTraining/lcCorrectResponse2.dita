@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference  PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="lcCorrectResponse2" xml:lang="en-us" rev="DITA1.3">
+  <title>lcCorrectResponse2</title>
+  <shortdesc>The &lt;<keyword>lcCorrectResponse2</keyword>&gt; element in an assessment interaction
+    indicates a correct response. This element replaces the
+    &lt;<keyword>lcCorrectResponse</keyword>&gt; element in DITA 1.2.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>lcCorrectResponse2</indexterm>
+        <indexterm>learning and training
+          elements<indexterm>lcCorrectResponse2</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>In a &lt;<keyword>lcHotspot</keyword>> interaction, indicate the correct hotspot by setting
+        the value attribute of &lt;<keyword>lcCorrectResponse2</keyword>> to the id of the "correct"
+        area in the imagemap.</p>
+    </section>
+    <section id="contains"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcCorrectResponse2/contains"
+      otherprops="contains">
+    </section>
+    <section id="containedby"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcCorrectResponse2/containedby"
+      otherprops="containedby">
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ topic/data learningInteractionBase2-d/data learning2-d/lcCorrectResponse2 </p>
+    </section>
+    <example conref="lcTrueFalse2.dita#lcTrueFalse2/example"/>
+    <example conref="lcHotspot2.dita#lcHotspot2/example"/>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="lcCorrectResponse2_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow>
+          <stentry>name</stentry>
+          <stentry>The name used to indicate this data.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>lcCorrectResponse2</stentry>
+          <stentry>Required</stentry>
+        </strow>
+        <strow>
+          <stentry>value</stentry>
+          <stentry>The value.</stentry>
+          <stentry>PCDATA</stentry>
+          <stentry>In an lcHotspot2 interaction, set the value to the id corresponding to the
+            correct area in the imagemap.</stentry>
+          <stentry>Required</stentry>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="concept-1" xml:lang="en-us">
+<title>About the Ditabase Composite document type</title>
+<shortdesc>The Ditabase Composite document type represents the core topic
+types of the DITA architecture: topic, concept, task, reference, and glossentry.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>Ditabase document type<?Pub Caret?></indexterm></keywords>
+</metadata></prolog>
+<conbody></conbody>
+</concept>

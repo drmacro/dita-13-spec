@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_cvq_vzc_ll">
+ <title>learningDomain1 and learningDomain2 Support</title>
+ <shortdesc>Many questions require multiple block elements for the question statement ("prompt" or "stimulus" in instructional design parlance) and for feedback. The DITA 1.2 interaction,
+    learningDomain1, design only allows for a single paragraph question and single-paragraph feedback. The learningDomain2 design
+    <?oxy_insert_start author="ekimber" timestamp="20131011T162127-0500"?>uses the topic/div element as the base
+    type<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131011T162125-0500" content="&quot;resets&quot;"?>
+    <?oxy_insert_start author="ekimber" timestamp="20131011T162156-0500"?> for
+    <?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131011T162204-0500" content="the "?>interaction<?oxy_insert_start author="ekimber" timestamp="20131011T162206-0500"?>
+    elements<?oxy_insert_end?>
+    <?oxy_delete author="ekimber" timestamp="20131011T162214-0500" content="base to the div element "?>to provide block element support in question statements, answer content and feedback. </shortdesc>
+ <conbody>
+  <p>The DITA 1.3 learningDomain2 support deprecates the DITA 1.2 learningDomain1<?oxy_delete author="ekimber" timestamp="20131011T162241-0500" content=" support"?>, but
+      <?oxy_delete author="ekimber" timestamp="20131011T162248-0500" content="includes support for"?><?oxy_insert_start author="ekimber" timestamp="20131011T162248-0500"?>enables<?oxy_insert_end?>
+      backward compatibility by redefining the learningAssessment topic with the option<?oxy_delete author="ekimber" timestamp="20131011T162305-0500" content="s"?>
+      <?oxy_delete author="ekimber" timestamp="20131011T162307-0500" content="for"?><?oxy_insert_start author="ekimber" timestamp="20131011T162307-0500"?>of<?oxy_insert_end?> using either the DITA 1.2
+      support or the DITA 1.3 support<?oxy_insert_start author="ekimber" timestamp="20131011T162310-0500"?> or both<?oxy_insert_end?>.</p>
+  <section>
+   <title>learningDomain2 </title>
+   <p>DITA 1.3 defines two new domains for the Learning and Training
+        vocabulary<?oxy_delete author="ekimber" timestamp="20131011T165136-0500" content=","?><?oxy_insert_start author="ekimber" timestamp="20131011T165136-0500"?>:<?oxy_insert_end?>
+        interactionBase2Domain and learning2Domain. These two new domains mirror the existing interactionBase and learning domains, but provide a base model that allows multi-paragraph questions and
+        multi-paragraph feedback. The new domains are otherwise semantically identical to the original domains.</p>
+   <dl>
+    <dlentry>
+     <dt>learningInteractionBase2Domain </dt>
+     <dd>
+      <dl>
+       <dlentry>
+        <dt>lcInteractionBase2</dt>
+        <dd>
+         <p>The lcInteractionBase2 element differs from lcInteractionBase as follows:</p>
+         <ul id="ul_txj_bq1_4f">
+          <li>Is a specialization of div, not fig, which removes the content limitations that fig
+           imposes, such as that fig cannot directly contain table, and therefore, allows the same
+           content as div whereas lcInteractionBase only allows figure content.</li>
+          <li>Uses lcQuestionBase2 in place of lcQuestionBase to allow multiple paragraphs within
+           its content.</li>
+          <li>Makes @id attribute optional for all interactions.</li>
+         </ul>
+        </dd>
+       </dlentry>
+       <dlentry>
+        <dt>lcQuestionBase2 </dt>
+        <dd>The lcQuestionBase2 element is also a specialization of div and allows the same content
+         as div, which is anything that can occur in body except section or bodydiv. </dd>
+       </dlentry>
+       <dlentry>
+        <dt>lcInteractionLabel2</dt>
+        <dd>The lcInteractionLabel2 is a specialization of p and replaces the use of title. This
+         element is necessary because div does not allow title.</dd>
+       </dlentry>
+      </dl>
+     </dd>
+    </dlentry>
+    <dlentry>
+     <dt>learning2Domain </dt>
+     <dd>The learning2Domain is a clone of the 1.2 learningDomain that defines new versions of each
+      of the built-in interaction types, each of which are specialized from lcInteractionBase2. In
+      addition, the content models for the interactions now allow multiple lcAssets
+       elements.<note>The learning2Domain uses elements from the learningDomain when the content
+       models of those elements are unchanged.</note></dd>
+    </dlentry>
+   </dl>
+  </section>
+ </conbody>
+</concept>
+<?oxy_options track_changes="on"?>

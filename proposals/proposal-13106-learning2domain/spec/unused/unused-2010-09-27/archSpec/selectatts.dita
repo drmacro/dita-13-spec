@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="condprocatt" >
+    <title>Select attributes</title>
+    <conbody>
+        <p>For a topic or topicref, the audience, platform, and product metadata can be expressed
+            with attributes on the topic or topicref element or with elements within the topic
+            prolog or topicmeta element. While the metadata elements are more expressive, the
+            meaning of the values is the same, and can be used in coordination: for example, the
+            prolog elements can fully define the audiences for a topic, and then metadata attributes
+            can be used within the content to identify parts that apply to only some of those
+            audiences.</p>
+        <dl>
+            <dlentry>
+                <dt>audience</dt>
+                <dd>
+                    <p>The values in the audience attribute may also be used to reference a more
+                        complete description of an audience in an audience element. Use the name of
+                        the audience in the audience element when referring to the same audience in
+                        an audience attribute.</p>
+                    <p>The audience attribute takes a space-delimited list of values, which may or
+                        may not match the name value of any audience elements.</p>
+                </dd>
+            </dlentry>
+            <dlentry>
+                <dt>platform</dt>
+                <dd>The platform might be the operating system, hardware, or other environment. This
+                    attribute is equivalent to the platform element for the topic metadata.</dd>
+                <dd>
+                    <p>The platform attribute takes a space-delimited list of values, which may or
+                        may not match the content of a platform element in the prolog.</p>
+                </dd>
+            </dlentry>
+            <dlentry>
+                <dt>product</dt>
+                <dd>The product or component name, version, brand, or internal code or number. This
+                    attribute is equivalent to the prodinfo element for the topic metadata.</dd>
+                <dd>
+                    <p>The product attribute takes a space-delimited list of values, which may or
+                        may not match the value of the prodname element in the prolog.</p>
+                </dd>
+            </dlentry>
+            <dlentry>
+                <dt>rev</dt>
+                <dd>The identifier for the revision level. For example, if a paragraph was changed
+                    or added during revision 1.1, the rev attribute might contain the value "1.1".
+                </dd>
+            </dlentry>
+            <dlentry>
+                <dt>otherprops</dt>
+                <dd>A catch-all for metadata qualification values about the content. This attribute
+                    is equivalent to the othermeta element for the topic metadata. </dd>
+                <dd>
+                    <p>The attribute takes a space-delimited list of values, which may or may not
+                        match the values of othermeta elements in the prolog. </p>
+                    <p>For example, a simple otherprops value list: <codeph>&lt;codeblock
+                            otherprops="java cpp"></codeph></p>
+                    <p><draft-comment>MP: deprecated grouped value syntax per TC meeting
+                            2007/01/02</draft-comment>The attribute can also take labelled groups of
+                        values, but this syntax is deprecated in DITA 1.1 in favor of attribute
+                        specialization. The labelled group syntax is similar to the generalized
+                        attribute syntax and may cause confusion for processors. A labelled group
+                        consists of a string value followed by an open parenthesis followed by one
+                        or more space-delimited values followed by a close parenthesis. The simple
+                        format is sufficient when an information set requires only one additional
+                        metadata axis, in addition to the base metadata attributes of product,
+                        platform, and audience. The full format is similar to attribute
+                        specialization in that it allows two or more additional metadata axes. For
+                        example, a complex otherprops value list: <codeph>&lt;codeblock
+                            otherprops="proglang(java cpp) commentformat(javadoc
+                        html)"></codeph></p>
+                </dd>
+            </dlentry>
+            <dlentry>
+                <dt>props</dt>
+                <dd>A generic attribute for conditional processing values. Starting with DITA 1.1,
+                    the props attribute can be specialized to create new conditional processing
+                    attributes.</dd>
+            </dlentry>
+        </dl>
+    </conbody>
+</concept>

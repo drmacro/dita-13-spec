@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="modintproc" xml:lang="en-us">
+<title>Modularization and integration of processing</title>
+<shortdesc>Processing should be divided into modules based on the structural
+types or domains they support, and can be integrated together into transforms
+or stylesheets in the same way that structural<?Pub Caret?> type and domain
+modules can be integrated into document types.</shortdesc>
+<conbody></conbody>
+</concept>
+<?Pub *0000000599?>

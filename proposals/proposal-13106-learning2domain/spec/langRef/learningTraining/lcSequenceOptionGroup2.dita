@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="lcSequenceOptionGroup2" xml:lang="en-us" rev="DITA1.3">
+	<title>lcSequenceOptionGroup2</title>
+	<shortdesc>The &lt;<keyword>lcSequenceOptionGroup2</keyword>&gt; element provides the options
+		for an assessment sequence interaction. This element replaces the
+			&lt;<keyword>lcSequenceOptionGroup</keyword>&gt; element in DITA 1.2.</shortdesc>
+	<prolog>
+		<metadata>
+			<keywords>
+				<indexterm>lcSequenceOptionGroup2</indexterm>
+				<indexterm>learning and training
+					elements<indexterm>lcSequenceOptions</indexterm></indexterm>
+			</keywords>
+		</metadata>
+	</prolog>
+	<refbody>
+		<section id="contains"
+			conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSequenceOptionGroup2/contains"
+			otherprops="contains">
+		</section>
+		<section id="containedby"
+			conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSequenceOptionGroup2/containedby"
+			otherprops="containedby">
+		</section>
+		<section id="inheritance" otherprops="inheritance">
+			<title>Inheritance</title>
+			<p>+ topic/ol learningInteractionBase2-d/ol learning2-d/lcSequenceOptionGroup2 </p>
+		</section>
+		<example conref="lcSequencing2.dita#lcSequencing2/example"/>
+		<section id="attributes">
+			<title>Attributes</title>
+			<simpletable id="lcInteractions_attr" relcolwidth="2* 3* 1* 1* 1*">
+				<sthead>
+					<stentry>Name</stentry>
+					<stentry>Description</stentry>
+					<stentry>Data Type</stentry>
+					<stentry>Default Value</stentry>
+					<stentry>Required?</stentry>
+				</sthead>
+				<strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+				</strow>
+				<strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+				</strow>
+				<strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+					<stentry/>
+				</strow>
+			</simpletable>
+		</section>
+	</refbody>
+</reference>

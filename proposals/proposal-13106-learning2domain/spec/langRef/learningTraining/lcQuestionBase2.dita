@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="lcQuestionBase2" xml:lang="en-us">
+    <title>lcQuestionBase2</title>
+    <shortdesc>The &lt;<keyword>lcQuestionBase2</keyword>> element is the base for
+            &lt;<keyword>lcQuestion2</keyword>> in the learning2Domain domain. This is an "abstract"
+        element type intended only for use as a base for specialization. This element replaces the
+            &lt;<keyword>lcQuestion</keyword>> element in DITA 1.2.</shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>lcQuestionBase2</indexterm>
+                <indexterm>learning and training
+                    elements<indexterm>lcQuestionBase2</indexterm></indexterm>
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcQuestionBase2/contains"
+            id="contains" otherprops="contains">
+        </section>
+        <section
+            conref="../../common/commonNavLibraryTable.dita#contentmodel-lcQuestionBase2/containedby"
+            id="containedby" otherprops="containedby">
+        </section>
+        <?Pub Caret?>
+        <section id="inheritance" otherprops="inheritance">
+            <title>Inheritance</title>
+            <p>+ topic/div learningInteractionBase2-d/lcQuestionBase2</p>
+        </section>
+        <example id="example">
+            <title>Example</title>
+            <p>See <xref keyref="lcQuestion2" scope="local">lcQuestion2</xref>.</p>
+        </example>
+        <section id="attributes">
+            <title>Attributes</title>
+            <simpletable id="lcQuestionBase2_attr" relcolwidth="2* 3* 1* 1* 1*">
+                <sthead>
+                    <stentry>Name</stentry>
+                    <stentry>Description</stentry>
+                    <stentry>Data Type</stentry>
+                    <stentry>Default Value</stentry>
+                    <stentry>Required?</stentry>
+                </sthead>
+                <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                </strow>
+                <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                </strow>
+                <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                    <stentry/>
+                </strow>
+            </simpletable>
+        </section>
+    </refbody>
+</reference>
+<?Pub *0000002528?>

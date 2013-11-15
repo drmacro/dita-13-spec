@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2004, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="specproc" xml:lang="en-us">
+<title>Specialization in processing</title>
+<shortdesc>Specialized processing is not necessary for every specialized element,
+only for those elements which do not have appropriate default behavior based
+on their ancestors.</shortdesc>
+<conbody>
+<p>Whether creating a new transform or extending an existing one, there are
+several rules that should be followed to ensure the effectiveness of the transform
+for other specialized types, and also the maintainability and extensibility
+of the transform to accommodate new requirements.</p><?Pub Caret1?>
+</conbody>
+</concept>
+<?Pub *0000000803?>

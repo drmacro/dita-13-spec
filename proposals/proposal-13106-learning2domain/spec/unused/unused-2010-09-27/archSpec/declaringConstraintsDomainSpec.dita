@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+ "topic.dtd">
+<topic id="declaringConstraintsDomainSpec" xml:lang="en-us">
+<title>Declaring a constraints domain</title>
+<prolog>
+<author>Erik Hennum</author>
+</prolog><?Pub Caret?>
+<body>
+<p>To allow processors to detect constraints, the domains attribute
+lists constraint modules as well as vocabulary modules (such as topic
+or domain modules). The rules for declaring constraints modules with
+parenthetical expressions in the domains attribute are as follows:</p>
+<ul>
+<li>Each constraints modules included by the document type shell must
+appear as the rightmost token in one parenthetical expression.</li>
+<li>The constrained vocabulary module must appear immediately to the
+left of the included constraints module. Constrained vocabulary modules
+can include topic modules as well as domain modules. </li>
+<li>A constrained vocabulary module must not appear as the rightmost
+token in a parenthetical expression.</li>
+<li>Where the constraint on a vocabulary module consists of replacement
+of a base element with its domain extensions in the document type
+shell, the named constraint doesn't have a corresponding implementing
+module (see the noBasePhrase example below). </li>
+<li>The designer can declare compatibility with constraints that aren't
+included in the document type shell by listing those less restrictive
+constraints in the parenthetical expression (see the simpleTaskSection
+and strictTopic examples below).</li>
+</ul>
+<p>The root name for a constraint is formed by removing the extension
+and <q>Constraints</q> infix from the module filename. In declaration
+contexts such as the domains attribute, the <q>-c</q> suffix is added.
+Thus, the shortdescReqConstraints.xsd Schema or shortdescReqConstraints.mod
+DTD implementation of a constraint has the root name of <q>shortdescReq</q> and
+the declaration name of <q>shortdescReq-c</q>.</p>
+<p>Here are some examples of constraints module declarations as qualifications
+on vocabulary modules:</p>
+<dl><dlentry>
+<dt>Constraining element content in a topic vocabulary module</dt>
+<dd>The shortdescReq constraints module redefines the content model
+of the &lt;topic&gt; element so that the &lt;shortdesc&gt; element
+is required. <p>The domains attribute declaration:</p><codeblock>(topic shortdescReq-c)</codeblock> </dd>
+</dlentry><dlentry>
+<dt>Constraining element content in a domain vocabulary module</dt>
+<dd>The noNestedHighlight constraints module redefines the content
+models of the highlight elements to prevent self-nesting. For example,
+ the constrained content model for the &lt;b&gt; element replaces
+the nested &lt;ph&gt; element with  the &lt;i&gt;, &lt;u&gt;, &lt;sub&gt;,
+and &lt;sup&gt; elements. <p>The domains attribute declaration:</p><codeblock>(topic hi-d noNestedHighlight-c)</codeblock> </dd>
+</dlentry><dlentry>
+<dt>Integrating a subset of the extension elements from a domain module</dt>
+<dd>The basicHighlight constraints module includes the &lt;b&gt; and &lt;i&gt;
+elements but not the &lt;u>, &lt;sub>, &lt;sup>, and &lt;tt&gt; elements. <p>The
+domains attribute declaration:</p><codeblock>(topic hi-d basicHighlight-c)</codeblock> </dd>
+</dlentry><dlentry>
+<dt>Applying multiple constraints to a single vocabulary module</dt>
+<dd>The simpleSection constraints module redefines the content models
+of the &lt;section&gt; and &lt;example&gt; elements to allow a single
+initial &lt;title&gt; element and to remove text and phrase elements.
+Because this constraints module redefines different elements than
+the shortdescReq constraints module, both modules can apply to the
+topic module. The order in which the constraints modules are listed
+is not significant.<p>The domains attribute declaration:</p><codeblock>(topic shortdescReq-c)
+(topic simpleSection-c)</codeblock> </dd>
+</dlentry><dlentry>
+<dt>Constraining and integrating a subset of a domain</dt>
+<dd>Because the noNestedHighlight constraints module redefines content
+models and the basicHighlight constraints module subsets extension,
+these constraints don't conflict in attempting to revise the same
+content model and thus can be combined. <p>The domains attribute declaration:</p><codeblock>(topic hi-d noNestedHighlight-c)
+(topic hi-d basicHighlight-c)</codeblock> </dd>
+</dlentry><dlentry>
+<dt>A topic with elements replaced by domain extensions</dt>
+<dd>A document type shell replaces the &lt;ph> element with extension
+elements from the highlighting and programming domains. Because the
+highlighting and programming domains cannot be generalized to a topic
+without the &lt;ph> element, the removal constraint must be declared
+on the topic module with a separate parenthetical expression. <p>The
+domains attribute declaration:</p><codeblock>(topic noBasePhrase-c)
+(topic hi-d)
+(topic pr-d)</codeblock><p>For another example, the concept document
+type customizes the content model of &lt;concept> to allow extension
+of the nested &lt;topic> element only by other concept topics. This
+restriction could be declared by the domains attribute as follows:</p><codeblock>(topic concept nestedConcept-c)</codeblock></dd>
+</dlentry><dlentry>
+<dt>Declaring compatibility of specialized and base constraints</dt>
+<dd>The simpleTaskSection constraints module redefines the content
+models of the &lt;prereq&gt;, &lt;context&gt;, &lt;result&gt;, and &lt;postreq&gt;
+elements to remove text and phrase elements. These content models
+are thus consistent with the content model of the &lt;section&gt;
+element  as constrained by the simpleSection module.    <p>The designer
+can declare the compatibility of the simpleTaskSection constraints
+module with the simpleSection constraints module so processors  know
+that instances can be safely generalized to the topic module constrained
+by simpleSection. The designer bears the responsibility of determining
+that any instance of the constrained task specializations of &lt;section>
+are valid for the constrained topic &lt;section>.</p><p>The domains
+attribute declaration:</p><codeblock>(topic simpleSection-c task simpleTaskSection-c)</codeblock><p>By
+definition, an instance of task constrained by simpleTaskSection can
+always generalize to task or topic (the unconstrained vocabulary modules). </p><p>Note
+that the example doesn't imply that task is consistent with topic
+constrained by simpleSection. A vocabulary module never has a relationship
+with a constrained version of another vocabulary module. That is,
+constraints always augment the basic relations between vocabularies. </p> </dd>
+</dlentry><dlentry>
+<dt>Declaring compatibility with other constraints on the same module</dt>
+<dd>The strictTopic constraints module redefines the content model
+for the &lt;topic&gt; element to require the &lt;shortdesc&gt; element
+and to remove the &lt;related-links&gt; element and nested &lt;topic&gt;
+elements. Thus, the strictTopic constraints module is more restrictive
+than the  shortdescReq constraints module. <p>A designer who knows
+about the shortdescReq constraints module has the option to declare
+the compatibility of the strictTopic constraints module with the shortdescReq
+constraints module so processors  know that instances can be safely
+converted to the less restrictive schema. </p><p>The domains attribute
+declaration:</p><codeblock>(topic shortdescReq-c strictTopic-c)</codeblock><p>Note
+the difference from the earlier example of shortdescReq combined with
+simpleSection. Because the shortdescReq constraint isn't declared
+in the rightmost position, it doesn't constrain topic in this document
+type shell. Again, the designer would only want to declare this compatibility
+when needing interchange with a different document type shell that
+applies the shortdescReq constraint. </p> </dd>
+</dlentry></dl>
+</body>
+</topic>
+<?Pub *0000007898?>

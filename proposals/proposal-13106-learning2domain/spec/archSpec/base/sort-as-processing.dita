@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="sort-as-processing" rev="DITA1.3 proposal-13030">
+ <title>Sorting</title>
+ <shortdesc>Processors may choose to sort any elements for any reason. Common sort processing
+  includes glossary entries sorted to produce automatically-generated or automatically-sorted
+  glossary lists, lists of parameters or reference entries in custom navigation structures, tables
+  sorted based on the contents of cells in a specific column or row, and so on. The &lt;sort-as>
+  element can be used to specify a sort key when the content of the element to be sorted is not
+  appropriate as the sort key. For index terms, the &lt;index-sort-as> element can be used to
+  specify a sort key.</shortdesc>
+ <conbody>
+  <p>The details of sorting and grouping are necessarily implementation specific. Processors may
+   provide any mechanism for defining or configuring collation and grouping details. Even where
+   &lt;sort-as> has been specified, two processors may produce different sorted and grouped results
+   because they may use different collation and grouping rules. For example, one processor may be
+   configured to sort English terms before non-English terms, another may be configured to sort them
+   after. The grouping and sorting of any content is subject to local editorial rules. </p>
+  <p>When sorting elements, each element to be sorted must have some inherent text on which it will
+   be sorted in the absence of a &lt;sort-as> value. This text may be literal content in the DITA
+   XML source or may be generated or constructed based on the semantics of the element involved (for
+   example, it may be constructed from various attribute or metadata values). This text is the "base
+   sort phrase" for the element. Processors that do sorting should clearly document how the base
+   sort phrase is being determined for a given element type. For other elements, or in case of
+   exceptions to use of the title, the method for determining the base sort phrase should be
+   expressly documented.</p>
+  <p>When &lt;sort-as> is specified, processors that sort the containing element must construct the
+   effective sort phrase by prepending the &lt;sort-as> sort phrase to the base sort phrase. This
+   ensures that two items with the same sort-as phrase but different base sort phrases will sort in
+   the appropriate order.</p>
+  <note othertype="example">For example, if the title of a topic is "24 Hour Support Hotline" and
+   the value of the &lt;sort-as> element is "twenty-four hour", then the effective sort phrase would
+   be "twenty-four hour24 Hour Support Hotline".</note>
+ </conbody>
+</concept>

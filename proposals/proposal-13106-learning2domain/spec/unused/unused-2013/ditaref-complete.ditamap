@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<?Pub Inc?>
+<map id="ditaref-complete" xml:lang="en-us">
+<title>DITA 1.2 Language Reference: CompleteVersion</title>
+<topichead navtitle="Base elements">
+<topicref format="ditamap" href="base_elements.ditamap"
+navtitle="Base elements"></topicref>
+</topichead>
+<topichead navtitle="Technical content elements">
+<topicref format="ditamap" href="technicalContent_elements.ditamap"
+navtitle="Technical content elements"></topicref>
+</topichead>
+<topichead navtitle="Learning and training elements"><?Pub Caret?>
+<topicref format="ditamap" href="learningTraining_elements.ditamap"
+navtitle="Learning and training elements"></topicref>
+</topichead>
+<topicref format="ditamap" href="ditaref-commonatts.ditamap"
+navtitle="Common attribute definitions"></topicref>
+</map>
+<?Pub *0000000926?>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="sort-as" rev="DITA1.3 proposal-13010">
+  <title>sort-as</title>
+  <shortdesc>The &lt;sort-as> element defines the string ("sort phrase") by which the containing
+    element should be sorted or grouped (or the nearest ancestor to which sorting or grouping will
+    be applied). The sort phrase may be specified in the @value attribute or in the content of
+    &lt;sort-as>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>sort-as</indexterm>
+        <indexterm>utilities domain<indexterm>sort-as</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The &lt;text> and &lt;keyword> elements are allowed in order to enable content referencing
+        for specifying the sort phrase. If &lt;keyword> is used within &lt;sort-as>, it may get its
+        effective value via @keyref in order to set the sort phrase value. If a &lt;keyword> uses
+        @keyref and would otherwise also act as a navigation link, the link aspect of the
+        &lt;keyword> element is ignored.</p>
+      <p>As a specialization of &lt;data>, the &lt;sort-as> element is nominally allowed in any
+        context where &lt;data> is allowed. However, the presence of &lt;sort-as> within an element
+        does not, by itself, indicate that the containing element should be sorted. Processors may
+        choose to sort any DITA elements for any reason. Likewise, processors are not required to
+        sort any elements. See <xref href="../../archSpec/base/sort-as-processing.dita"/>.</p>
+      <p>Some elements in the base DITA vocabulary are natural candidates for sorting, including
+        topics, definition list entries, and rows in tables and simple tables. For those elements,
+        processors should apply &lt;sort-as> as follows:<ul id="ul_ush_jnn_zj">
+          <li>
+            <p>For topics, the &lt;sort-as> element may be included directly in &lt;title>,
+              &lt;searchtitle>, or &lt;navtitle> when the different forms of title need different
+              sort phrases. If the sort phrase is common to all the titles for a topic, the
+              &lt;sort-as> element may be included in the topic's prolog anywhere &lt;data> is
+              allowed. A &lt;sort-as> specified in any title takes precedence over &lt;sort-as>
+              specified in the topic's prolog.</p>
+          </li>
+          <li>
+            <p>For &lt;glossentry>, the &lt;sort-as> element may be included directly in
+              &lt;glossterm> or within &lt;prolog> as for other topics.</p>
+          </li>
+          <li>
+            <p>For topic references, the &lt;sort-as> element may be included directly in the
+              &lt;navtitle> or &lt;title> element within &lt;topicmeta> or as a child of
+              &lt;topicmeta>.</p>
+          </li>
+          <li>
+            <p>For definition list items, the &lt;sort-as> element should be included in the &lt;dt>
+              element.</p>
+          </li>
+        </ul></p>
+      <p>Except as stated above, processors should only apply &lt;sort-as> elements that are either
+        a direct child of the element to be sorted or a direct child of the title- or label-defining
+        element of the element to be sorted.</p>
+      <p>When an element contains multiple direct-child &lt;sort-as> elements, the first
+        direct-child &lt;sort-as> in document order takes precedence. Within topic prologs, the
+        first &lt;sort-as> in document order takes precedence.</p>
+      <p>Within &lt;indexterm>, &lt;sort-as> is equivalent to &lt;index-sort-as>. It is an error for
+        an &lt;indexterm> to contain both a &lt;sort-as> and &lt;index-sort-as> as direct children
+        or multiple &lt;sort-as> or &lt;index-sort-as> direct children, per the rules for
+        &lt;index-sort-as>.</p>
+      <p>Sort phrases are determined after filtering and content reference resolution is
+        applied.</p>
+    </section>
+    <section>
+      <title>Inheritance</title>
+      <p>+ topic/data ut-d/sort-as </p>
+    </section>
+    <section>
+      <title>Example</title>
+      <p>A glossary entry with a &lt;sort-as> within the
+        &lt;glossterm>:<codeblock>&lt;glossentry id="gloss-dada">
+  &lt;glossterm>&lt;sort-as value="dada"/>&amp;#x5927;&amp;#x5927;&lt;/glossterm>
+    &lt;glossdef>Literally "big big".&lt;/glossdef>
+&lt;/glossentry></codeblock></p>
+      <p>A glossary entry with a &lt;sort-as> within
+        &lt;prolog>:<codeblock>&lt;glossentry id="gloss-dada">
+  &lt;glossterm>&amp;#x5927;&amp;#x5927;&lt;/glossterm>
+  &lt;prolog>
+    &lt;sort-as>dada&lt;/sort-as>
+  &lt;/prolog>
+    &lt;glossdef>Literally "big big".&lt;/glossdef>
+&lt;/glossentry></codeblock></p>
+    </section>
+    <section>
+      <title>Attributes</title>
+      <draft-comment author="Kristen James Eberlein" time="3 October 2013">Proposal 13030 did not
+        contain an attributes table; Eliot assumed that it was auto-generated. Eliot, please verify
+        that this is what you expected.</draft-comment>
+      <draft-comment
+        author="ekimber">Attribute entries created.</draft-comment>
+      <simpletable id="attribute_table" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow>
+          <stentry>name</stentry>
+          <stentry>Names the metadata item the element represents. Specializations of &lt;sort-as> may set the @name attribute to reflect the specialized element's tagname.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>"sort-as"</stentry>
+          <stentry>no</stentry>
+        </strow>
+        <strow>
+          <stentry>value</stentry>
+          <stentry>The value of the metadata item. When the &lt;sort-as> element has content and @value is specified, the @value attribute takes precedence. If neither @value nor content are specified
+            then the &lt;sort-as> element has no effect.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>#IMPLIED</stentry>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

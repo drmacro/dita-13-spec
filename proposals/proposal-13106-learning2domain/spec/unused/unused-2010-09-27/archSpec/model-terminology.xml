@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic
+  id="modelterminology"
+  xml:lang="en-us"
+  rev="1.2.1">
+  <title>Model terminology</title>
+  <shortdesc>The DITA specification defines an abstract model distinct from any particular
+    implementation of the model.</shortdesc>
+  <body>
+    <draft-comment
+      author="WEK">Ideally these terms should be marked up as glossentry topics. I have not made
+      that change because it might require customization of the publishing tools to get the
+      approriate presentation of glossary entries in this context (e.g., making them look like a
+      definition list rather than simply subordinate topics.</draft-comment>
+    <p>When discussing DITA concepts at the abstract level, the following terminology is used:</p>
+    <dl>
+      <dlentry>
+        <dt>Element type </dt>
+        <dd>Defines the structure and semantics of an XML element. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>Attribute type</dt>
+        <dd>Defines the structure and semantics of an attribute. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>DITA element type</dt>
+        <dd>An <term>element type</term> that is either one of the <term>base types</term> defined
+          by the DITA specification or a direct or indirect <term>specialization</term> of one of
+          the base types. A given DITA element type is declared in exactly one <term>vocabulary
+            module</term>. DITA element types may only exhibit attributes that are <term>DITA
+            attribute types</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>DITA attribute type</dt>
+        <dd>An <term>attribute type</term> that is either one of the <term>base types</term> defined
+          by the DITA specification or a direct or indirect <term>specialization</term> of either
+          the @base or @props attribute.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>DITA element</dt>
+        <dd>An XML element instance whose type is a <term>DITA element type</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Specialization</dt>
+        <dd>(1) The act of defining new element types or attribute types as a semantic refinement of
+          another element type or attribute type. Sn element type or attribute type created through
+          the act of specialization is a <term>specialization of</term> its <term>base type</term>.
+          Specialization is nominally performed by <term>Information Architects</term>, who
+          translate information representation requirements into specific specialized element and
+          attribute types.</dd>
+        <dd>(2) An element type or attribute type that is a specialization of a base type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Integration</dt>
+        <dd>The mechanism, within a <term>concrete document type</term>, by which <term>vocabulary
+            modules</term> and <term>constraint modules</term> are combined and configured in order
+          to construct an effective document type definition. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>Generalization</dt>
+        <dd>A process by which a <term>specialized element</term> is transformed into one of its
+          less specialized ancestor element types or a <term>specialized attribute</term> is
+          transformed into a less specialized ancestor attribute and where the original
+          specialization hierarchy information is preserved such that the original specialized form
+          can be recreated from the generalized instance.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Concrete document type</dt>
+        <dd>A unique set of <term>structural modules</term>, <term>domain modules</term>, and <term
+            >constraint modules</term>. Two concrete document types are <term>equivalent</term> if
+          they combine exactly the same set of modules. A given module set is formally defined as
+          the value of the @domains attribute on map and topic elements. Thus a concrete document
+          type is implied by a given @domains value: given the @domains value it is conceptually
+          possible to generate a concrete document type that would correctly validate those use the
+          listed domains.<p>Because map and topic elements must exhibit the @domains attribute,
+            there is no DITA-defined requirement that DITA documents be literally governed by
+            concrete document types: every DITA document is inherently governed by the virtual
+            concrete document type represented by its root element's @domains value.</p><p>Concrete
+            document types <keyword>may</keyword> be implemented via <term>shell document
+              types</term>. </p></dd>
+      </dlentry>
+      <dlentry>
+        <dt>Base type</dt>
+        <dd>An <term>element type</term> or <term>attribute type</term> that is not a specialization
+          of any other type. All base DITA types are defined by the DITA specification. Within a
+          DITA document, all other element and attribute types <keyword>must</keyword> be a
+          specialization of one of the standard-defined base types (except for elements used in the
+          context of <keyword>foreign</keyword> or <keyword>unknown</keyword>, which may only be
+          non-DITA elements).</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Specialized element type</dt>
+        <dd>An element type defined as a semantic refinement of another element type. The content
+          allowed by the specialized element type <keyword>must</keyword> be a subset of or
+          identical to the content allowed by the original element type.<draft-comment>MP: to do per
+            jeff ogden: add equivalent wording for attribute type, specialized attribute type here
+            and in equivalent declaration and instance sections JTH: see below for attribute type
+            and specialized attribute type</draft-comment></dd>
+      </dlentry>
+      <dlentry>
+        <dt>Specialized attribute type</dt>
+        <dd>An attribute type defined as a semantic refinement of another attribute type. The
+          attribute type must specialize the @base or @props attribute, and its allowed value must
+          be a subset of or identical to the value allowed by the original attribute type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Specialization hierarchy</dt>
+        <dd>The sequence of element or attribute types, from most general to most specialized and
+          starting with a DITA-defined base type, from which a given element or attribute type is
+          ultimately specialized. A given DITA element's specialization hierarchy is formally
+          declared through its <term>@class attribute</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Specialization parent</dt>
+        <dd>For a given DITA element type, the most specialized of its ancestors in its
+          specialization hierarchy (e.g., the immediately preceding type as declared by the
+          element's @class attribute. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>Topic type</dt>
+        <dd>An element type that defines a complete unit of content. The topic type provides the
+          root element for the topic and, through contained element types, the substructure for the
+          topic instances. The root element of the topic type is not necessarily the same as the
+          root element of a document type: document types may nest multiple topic types and may also
+          declare non-DITA wrapper elements as the root element for compatibility with other
+          processes.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Map type</dt>
+        <dd>An element type that defines a set of relationships among topic instances. The map type
+          provides the root element and, through contained element types, the substructure for the
+          map instances. The map substructure provides hierarchy, group, and matrix organization of
+          references to topic instances.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Structural type</dt>
+        <dd>A <term>topic type</term> or <term>map type</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Document type module</dt>
+        <dd>A document type component used to compose <term>concrete document types</term> according
+          to DITA-defined implementation requirements. There are two types of document type module:
+            <term>vocabulary modules</term>, and <term>constraint modules</term>. Document type
+          modules are combined through <term>integration</term> and <term>specialization</term> to
+          construct <term>concrete document types</term>. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>Vocabulary module</dt>
+        <dd>An atomic, uniquely-named unit of <term>element type</term> or <term>attribute
+            type</term> declaration. There are two types of vocabulary module: <term>structural
+            modules</term> and <term>domain modules</term>. For a given <term>map type</term>, <term
+            >topic type</term>, or <term>domain</term>, there is exactly one vocabulary module that
+          defines it. An abstract module may be implemented by any number of different constraint
+          mechanisms. However, for a given constraint mechanism, there <keyword>should</keyword> be
+          at most one authoritative declaration of the module.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Structural module</dt>
+        <dd>A <term>vocabulary module</term> that defines exactly one top-level <term>map
+            type</term> or <term>topic type</term>. Structural modules <keyword>may</keyword> also
+          define specializations of elements from <term>domain modules</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Map module</dt>
+        <dd>A <term>structural module</term> that defines a single <term>map type</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Topic module</dt>
+        <dd>A <term>structural module</term> that defines a single top-level <term>topic
+            type</term>.<note>Because topics may nest, a topic module may declare additional topic
+            types for exclusive use within the context of the main topic type. Such topic types
+              <keyword>may not</keyword> be used as the root elements of topic documents. Any such
+            topic type can be made into a root topic type by moving its declaration into its own
+            structural module. Note also that, through <term>integration</term>, any topic type may
+            be configured so as to allow any given topic type as a subordinate topic.</note></dd>
+      </dlentry>
+      <dlentry>
+        <dt>Domain module</dt>
+        <dd>A set of <term>element types</term> or an <term>attribute type</term> that supports a
+          specific subject or functional area. Element types or attribute types in a domain can be
+          integrated with <term>topic types</term> or <term>map types</term> to enhance their
+          semantic support for particular kinds of content. For example, the structural type
+          &lt;topic> declares the &lt;keyword> element; when integrated with a domain for describing
+          user interfaces, new keyword specializations (such as &lt;wintitle>) become available
+          wherever &lt;keyword> was allowed in the original structural type.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Element domain module</dt>
+        <dd>A <term>domain module</term> that defines one or more element types for use within maps
+          or topics. </dd>
+      </dlentry>
+      <dlentry>
+        <dt>Attribute domain module</dt>
+        <dd>A <term>domain module</term> that defines exactly one specialization of either @base or
+          @props.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Constraint module</dt>
+        <dd>A set of declarations that imposes additional constraints onto <term>element
+            types</term> or <term>attribute types</term> defined in a specific <term>vocabulary
+            module</term>. Constraints do not change the semantics of the element types and
+          attributes constrained.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Extension element</dt>
+        <dd>Within a <term>vocabulary module</term>, an element type that can be replaced or
+          extended by a <term>concrete document type</term> through <term>integration</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Base content model</dt>
+        <dd>The content model of a <term>DITA element</term> as defined in its defining <term
+            >vocabulary module</term>, before any constraints or extensions are applied (for element
+          types being constrained via a constraint module) , or by its specialization parent (for
+          specialized element types).</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Restricted content model</dt>
+        <dd>For a <term>DITA element type</term>, a content model that has been restricted from that
+          element type's <term>base content model</term> by the removal of optional elements, by the
+          requiring of optional elements, by ordering unordered elements, or by limiting the
+          repeatability of repeatable (but optional) elements. Content models may be restricted
+          through the use of <term>constraint modules</term> or through <term
+          >specialization</term>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Selective domain extension</dt>
+        <dd>An extension that replaces a <term>extension element</term> with element types defined
+          in a <term>domain module</term>, making the base type unavailable in the <term>concrete
+            document type</term> that configures the extension.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>Information Architect</dt>
+        <dd>A person who performs <term>integration</term> or <term>integration</term> reflecting
+          analysis and consideration of a specific set of business and information requirements.
+        </dd>
+      </dlentry>
+    </dl>
+    <fig>
+      <title>Diagram of Model Terminology</title>
+    </fig>
+  </body>
+</topic>

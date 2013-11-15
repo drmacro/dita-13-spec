@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_gl2_5cd_ll">
+ <title>Learning and Training Specialization Usage </title>
+ <shortdesc>The DITA 1.3 learning and training support includes new domains that deprecate the DITA 1.2 interactions<?oxy_delete author="ekimber" timestamp="20131011T162420-0500" content=" support"?>,
+    but provide a path for backward
+    <?oxy_delete author="ekimber" timestamp="20131011T162431-0500" content="compatiblity"?><?oxy_insert_start author="ekimber" timestamp="20131011T162431-0500"?>compatibility<?oxy_insert_end?>.</shortdesc>
+ <conbody>
+    <p>The key changes in the DITA 1.3 support are:</p>
+    <ul
+      id="ul_sry_p2d_ll">
+      <li>Support block elements in question content, answer content, and feedback.</li>
+      <li>Allow multiple assets.</li>
+      <li>Make the @id attribute for interactions optional.</li>
+    </ul>
+    <?oxy_delete author="ekimber" timestamp="20131011T162438-0500" content="&lt;p/&gt;"?>
+    <section>
+      <title>New implementations</title>
+      <p>If you are implementating learning and training support in DITA for the first time, use the DITA 1.3
+        support<?oxy_delete author="ekimber" timestamp="20131011T162609-0500" content=". To do this, use the learningAssessment-learning2.dtd for assessment topics. "?><?oxy_insert_start author="ekimber" timestamp="20131011T162609-0500"?>,
+        use the learning2Domain in document types that need assessments, as demonstrated by the learningAssessment-learning2.dtd.<?oxy_insert_end?></p>
+    </section>
+    <section>
+      <title>Existing implementations to continue DITA 1.2 assessment support</title>
+      <p>If you have already
+        <?oxy_delete author="ekimber" timestamp="20131011T162534-0500" content="implementated"?><?oxy_insert_start author="ekimber" timestamp="20131011T162534-0500"?>implemented<?oxy_insert_end?>
+        learning and training support with DITA 1.2 and none of the limitations adversely affected your support, then you can continue to use the
+        <?oxy_insert_start author="ekimber" timestamp="20131011T162700-0500"?>learningDomain in document types that need assessments, as demonstrated by the <?oxy_insert_end?>learningAssessement.dtd
+        <?oxy_delete author="ekimber" timestamp="20131011T162725-0500" content="or use the"?><?oxy_insert_start author="ekimber" timestamp="20131011T162725-0500"?>and<?oxy_insert_end?>
+        learningAssessment-learning2.dtd<?oxy_insert_start author="ekimber" timestamp="20131011T162727-0500"?> document type shells<?oxy_insert_end?>.<draft-comment>Is this
+        true?<?oxy_insert_start author="ekimber" timestamp="20131011T162743-0500"?> WEK: Yes, this is true as I've corrected it.<?oxy_insert_end?></draft-comment> </p>
+    </section>
+  </conbody>
+</concept>
+<?oxy_options track_changes="on"?>

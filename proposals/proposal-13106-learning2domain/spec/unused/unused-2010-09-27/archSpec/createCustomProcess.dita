@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="createCustomProcess"
+  >
+  <title>Specialization-aware processing</title>
+  <prolog>
+    <author>Eliot Kimber</author>
+  </prolog>
+  <conbody>
+    <draft-comment
+      author="WEK">This topic is treading a fine line between specifying legitimate policy and
+      unenforceable blather. However, I think that the way that DITA can and should be processed in
+      a specialization-aware way is sufficiently non-obvious and sufficiently important to the
+      productive use of DITA that it's worth at least stating some "shoulds" about it. However,
+      details of how to implement such processing in a particular implementation context is clearly
+      outside the domain of the spec. I've moved the original implementation-detail topics to the
+      "DITA implementation how-to document".</draft-comment>
+    <p>The layered semantics provided by DITA's specialization feature, coupled with modular
+      vocabularies maps well onto standard software engineering practices for modular, extensible,
+      and object-oriented software. DITA-aware tools that build in the ability to process DITA
+      elements in terms of their specialization hierarchies and that enable the integration of new
+      modules of functionality with a minimum of effort take best advantage of specialization in
+      order to minimize the cost of implementing processing of DITA content regardless of how
+      specialized it might be. In the best case, DITA-aware processors that provide support for the
+      DITA-defined base types can usefully process specialized elements with no additional effort
+      beyond configuring resolution of the concrete document types used by the documents being
+      processed.</p>
+    <p>DITA-aware processors should be engineered as much as possible to reflect the following
+        characteristics:<ul>
+        <li>All processing, behavior, and configuration associated with individual element types
+          should be definable in terms of any step along an element's specialization hierarchy as
+          defined in the element's class attribute value. Ideally DITA-aware processors express such
+          association directly in terms of vocabulary module names and element type names,
+          abstracted from the details of the class attribute syntax, but at a minimum it means that
+          association must be via element attributes rather than element tagnames.<fig>
+            <title>Class-based CSS Selectors</title>
+            <p>For example, CSS style sheets can use selectors of the form "<codeph
+                  >*[@class~='<varname>module</varname>/<varname>typename</varname>']</codeph>":</p>
+            <pre>*[class~=&quot;topic/section&quot;]   {
+  margin-top: 12pt;
+  display: block;
+}</pre>
+          </fig></li>
+        <li>Functionality can be added to the system to support new vocabulary modules without the
+          need to modify existing functionality, either through some sort of "plug-in" mechanism, as
+          implemented in the DITA Open Toolkit, through inclusion of base processing into an
+          extending processor, or through other extension mechanisms (e.g., extending base object
+          classes in an object-oriented language like Java or C#).</li>
+        <li>Binding of elements to governing DTDs or XSD schemas should make the use of local
+          concrete shells as easy as possible, e.g., by minimizing dependencies on the use of
+          specific DTD or schema files and by making it easy to add public ID-to-file mappings
+          (e.g., XML entity catalogs). Because the production use of DITA effectively requires the
+          use of local concrete shell document types, processors that are tightly bound to specific
+          top-level DTD or XSD files are severely limited in their ability to accommodate normal
+          DITA practice.<note>The open-source DITA Open Toolkit provides a simple plugin facility
+            that manages the integration of custom shell document types and vocabulary modules into
+            a common processing context, including management of a master entity resolution catalog
+            that can be used by any tools that can use XML entity catalogs. </note></li>
+      </ul></p>
+  </conbody>
+</concept>

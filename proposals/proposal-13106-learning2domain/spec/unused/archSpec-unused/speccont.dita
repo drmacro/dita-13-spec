@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2004, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="speccont" xml:lang="en-us">
+<title>Specialization in content</title>
+<shortdesc>Specialization is expressed in content through the use of two attributes:
+the class attribute and the domain attribute. These are not typically present
+in the document instance, but are provided by default values expressed in
+a DTD or schema<?Pub Caret?>.</shortdesc>
+<conbody></conbody>
+</concept>
+<?Pub *0000000584?>

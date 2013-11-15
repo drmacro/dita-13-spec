@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?Pub Sty _display FontColor="red"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en-us">
+ <title>DITA 1.2 Specification</title>
+<!-- <topicref href="build/DITA1.2-spec-chm.html" format="html" navtitle="DITA 1.2 specification"
+  toc="no"/>-->
+ <topicref href="dita1.2-complete.ditamap" format="ditamap"/>
+</map>
+<?Pub *0000002236?>

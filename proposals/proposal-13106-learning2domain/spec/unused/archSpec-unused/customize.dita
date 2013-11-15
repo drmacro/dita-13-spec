@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="customize" xml:lang="en-us">
+<title>Customization</title>
+<shortdesc>When you just need a difference in output, you can use DITA customization
+to override the default output without affecting portability or interchange,
+and without involving specialization. </shortdesc>
+<conbody>
+<p>For example, if your readers are mostly experienced users, you could concentrate
+on creating many summary tables, and maximizing retrievability; or if you
+needed to create a brand presence, you could customize the transforms to apply
+appropriate fonts and indent style, and include some standard graphics and
+copyright links.</p><?Pub Caret1?>
+<p>Use customization when you need new output, with no change to the underlying
+semantics (you aren’t saying anything new or meaningful about the content,
+only its display).</p>
+</conbody>
+</concept>

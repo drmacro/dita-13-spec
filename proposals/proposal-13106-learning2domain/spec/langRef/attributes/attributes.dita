@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="attributes" xml:lang="en-us">
+<title>Attributes</title>
+<shortdesc>Many DITA attributes are reused in groups or are too complex
+to describe in the usual table cell format. Those attributes are collected
+in this section.</shortdesc><?Pub Caret -1?>
+</reference>
+<?Pub *0000000690?>

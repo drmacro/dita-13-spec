@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="separation_of_content_and_presentation" xml:lang="en-us">
+ <title>Separation of content and presentation</title>
+ <shortdesc>Because DITA is designed to enable the publication of content to any number of different
+  formats, it must maintain as complete a separation between content and presentation as possible.
+  This means that DITA processors, rather than the DITA standard, are responsible for defining the
+  details of the presentations that those processors produce.</shortdesc>
+ <conbody>
+  <draft-comment author="Kristen James Eberlein" rev="6 March 2010">This topic was removed from the
+   "Introduction to DITA" section. We need to ensure that all relevant content in this topic is
+   covered in the applicable section.</draft-comment>
+  <p>The DITA specification does not define or require any particular presentation form, format, or
+   style, beyond certain default presentation expectations that are necessary to foster reasonable
+   consistency across different implementations of common presentation targets, such as HTML and
+   PDF.</p>
+  <p>DITA provides some means, <ph >such as the @outputclass attribute</ph>, by which
+   authors can indicate specific presentation intents, but in general the DITA standard expects
+   presentation details to be a matter of separately-specified style that is applied to
+   semantically-tagged content. This separation of content and presentation is essential to ensuring
+   that DITA content is inherently reusable in a wide variety of contexts and for a wide variety of
+   presentation and delivery environments.</p>
+  <draft-comment author="Kristen James Eberlein" rev="7 March 2010">The following content was
+   relocated from topicdefined.dita:<p >There is no single, DITA-defined way to go from
+    maps and topics to particular deliverables, e.g., HTML for Web delivery, PDF for print or online
+    delivery, and so on. Producing specific types of deliverables from DITA content is processor and
+    implementation dependent.</p></draft-comment>
+ </conbody>
+</concept>
+<?Pub Caret?>
+<?Pub *0000001520?>

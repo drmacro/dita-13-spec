@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="conceptId"
+  >
+  <title>Element domain specialization design pattern requirements</title>
+  <prolog>
+    <author>Eliot Kimber</author>
+  </prolog>
+  <conbody>
+    <p>
+      <draft-comment
+        author="WEK">Define the design pattern requirements for element domain vocabulary
+        modules</draft-comment>
+    </p>
+  </conbody>
+</concept>

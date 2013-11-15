@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map
+  PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+   <keydef keys="lcAge" href="../langref/lcAge.dita" scope="peer" navtitle="lcAge"/>
+   <keydef keys="lcAnswerContent" href="../langref/lcAnswerContent.dita" scope="peer"
+           navtitle="lcAnswerContent"/>
+   <keydef keys="lcAnswerOption" href="../langref/lcAnswerOption.dita" scope="peer"
+           navtitle="lcAnswerOption"/>
+   <keydef keys="lcAnswerOptionGroup" href="../langref/lcAnswerOptionGroup.dita"
+           scope="peer"
+           navtitle="lcAnswerOptionGroup"/>
+   <keydef keys="lcArea" href="../langref/lcArea.dita" scope="peer" navtitle="lcArea"/>
+   <keydef keys="lcAreaCoords" href="../langref/lcAreaCoords.dita" scope="peer"
+           navtitle="lcAreaCoords"/>
+   <keydef keys="lcAreaShape" href="../langref/lcAreaShape.dita" scope="peer"
+           navtitle="lcAreaShape"/>
+   <keydef keys="lcAssessment" href="../langref/lcAssessment.dita" scope="peer"
+           navtitle="lcAssessment"/>
+   <keydef keys="lcAsset" href="../langref/lcAsset.dita" scope="peer" navtitle="lcAsset"/>
+   <keydef keys="lcAttitude" href="../langref/lcAttitude.dita" scope="peer"
+           navtitle="lcAttitude"/>
+   <keydef keys="lcAudience" href="../langref/lcAudience.dita" scope="peer"
+           navtitle="lcAudience"/>
+   <keydef keys="lcBackground" href="../langref/lcBackground.dita" scope="peer"
+           navtitle="lcBackground"/>
+   <keydef keys="lcChallenge" href="../langref/lcChallenge.dita" scope="peer"
+           navtitle="lcChallenge"/>
+   <keydef keys="lcCIN" href="../langref/lcCIN.dita" scope="peer" navtitle="lcCIN"/>
+   <keydef keys="lcClassroom" href="../langref/lcClassroom.dita" scope="peer"
+           navtitle="lcClassroom"/>
+   <keydef keys="lcClient" href="../langref/lcClient.dita" scope="peer"
+           navtitle="lcClient"/>
+   <keydef keys="lcConstraints" href="../langref/lcConstraints.dita" scope="peer"
+           navtitle="lcConstraints"/>
+   <keydef keys="lcCorrectResponse" href="../langref/lcCorrectResponse.dita" scope="peer"
+           navtitle="lcCorrectResponse"/>
+   <keydef keys="lcDelivDate" href="../langref/lcDelivDate.dita" scope="peer"
+           navtitle="lcDelivDate"/>
+   <keydef keys="lcDelivery" href="../langref/lcDelivery.dita" scope="peer"
+           navtitle="lcDelivery"/>
+   <keydef keys="lcDownloadTime" href="../langref/lcDownloadTime.dita" scope="peer"
+           navtitle="lcDownloadTime"/>
+   <keydef keys="lcDuration" href="../langref/lcDuration.dita" scope="peer"
+           navtitle="lcDuration"/>
+   <keydef keys="lcEdLevel" href="../langref/lcEdLevel.dita" scope="peer"
+           navtitle="lcEdLevel"/>
+   <keydef keys="lcFeedback" href="../langref/lcFeedback.dita" scope="peer"
+           navtitle="lcFeedback"/>
+   <keydef keys="lcFeedbackCorrect" href="../langref/lcFeedbackCorrect.dita" scope="peer"
+           navtitle="lcFeedbackCorrect"/>
+   <keydef keys="lcFeedbackIncorrect" href="../langref/lcFeedbackIncorrect.dita"
+           scope="peer"
+           navtitle="lcFeedbackIncorrect"/>
+   <keydef keys="lcFileSizeLimitations" href="../langref/lcFileSizeLimitations.dita"
+           scope="peer"
+           navtitle="lcFileSizeLimitations"/>
+   <keydef keys="lcGapAnalysis" href="../langref/lcGapAnalysis.dita" scope="peer"
+           navtitle="lcGapAnalysis"/>
+   <keydef keys="lcGapItem" href="../langref/lcGapItem.dita" scope="peer"
+           navtitle="lcGapItem"/>
+   <keydef keys="lcGapItemDelta" href="../langref/lcGapItemDelta.dita" scope="peer"
+           navtitle="lcGapItemDelta"/>
+   <keydef keys="lcGeneralDescription" href="../langref/lcGeneralDescription.dita"
+           scope="peer"
+           navtitle="lcGeneralDescription"/>
+   <keydef keys="lcGoals" href="../langref/lcGoals.dita" scope="peer" navtitle="lcGoals"/>
+   <keydef keys="lcGraphics" href="../langref/lcGraphics.dita" scope="peer"
+           navtitle="lcGraphics"/>
+   <keydef keys="lcHandouts" href="../langref/lcHandouts.dita" scope="peer"
+           navtitle="lcHandouts"/>
+   <keydef keys="lcHotspot" href="../langref/lcHotspot.dita" scope="peer"
+           navtitle="lcHotspot"/>
+   <keydef keys="lcHotspotMap" href="../langref/lcHotspotMap.dita" scope="peer"
+           navtitle="lcHotspotMap"/>
+   <keydef keys="lcInstruction" href="../langref/lcInstruction.dita" scope="peer"
+           navtitle="lcInstruction"/>
+   <keydef keys="lcInstructornote" href="../langref/lcInstructornote.dita" scope="peer"
+           navtitle="lcInstructornote"/>
+   <keydef keys="lcInteraction" href="../langref/lcInteraction.dita" scope="peer"
+           navtitle="lcInteraction"/>
+   <keydef keys="lcInteractionBase" href="../langref/lcInteractionBase.dita" scope="peer"
+           navtitle="lcInteractionBase"/>
+   <keydef keys="lcIntervention" href="../langref/lcIntervention.dita" scope="peer"
+           navtitle="lcIntervention"/>
+   <keydef keys="lcInterventionItem" href="../langref/lcInterventionItem.dita"
+           scope="peer"
+           navtitle="lcInterventionItem"/>
+   <keydef keys="lcIntro" href="../langref/lcIntro.dita" scope="peer" navtitle="lcIntro"/>
+   <keydef keys="lcItem" href="../langref/lcItem.dita" scope="peer" navtitle="lcItem"/>
+   <keydef keys="lcJtaItem" href="../langref/lcJtaItem.dita" scope="peer"
+           navtitle="lcJtaItem"/>
+   <keydef keys="lcKnowledge" href="../langref/lcKnowledge.dita" scope="peer"
+           navtitle="lcKnowledge"/>
+   <keydef keys="lcLearnStrat" href="../langref/lcLearnStrat.dita" scope="peer"
+           navtitle="lcLearnStrat"/>
+   <keydef keys="lcLMS" href="../langref/lcLMS.dita" scope="peer" navtitle="lcLMS"/>
+   <keydef keys="lcLom" href="../langref/lcLom.dita" scope="peer" navtitle="lcLom"/>
+   <keydef keys="lcMatching" href="../langref/lcMatching.dita" scope="peer"
+           navtitle="lcMatching"/>
+   <keydef keys="lcMatchingHeader" href="../langref/lcMatchingHeader.dita" scope="peer"
+           navtitle="lcMatchingHeader"/>
+   <keydef keys="lcMatchingItem" href="../langref/lcMatchingItem.dita" scope="peer"
+           navtitle="lcMatchingItem"/>
+   <keydef keys="lcMatchingItemFeedback" href="../langref/lcMatchingItemFeedback.dita"
+           scope="peer"
+           navtitle="lcMatchingItemFeedback"/>
+   <keydef keys="lcMatchingPair" href="../langref/lcMatchingPair.dita" scope="peer"
+           navtitle="lcMatchingPair"/>
+   <keydef keys="lcMatchTable" href="../langref/lcMatchTable.dita" scope="peer"
+           navtitle="lcMatchTable"/>
+   <keydef keys="lcModDate" href="../langref/lcModDate.dita" scope="peer"
+           navtitle="lcModDate"/>
+   <keydef keys="lcMotivation" href="../langref/lcMotivation.dita" scope="peer"
+           navtitle="lcMotivation"/>
+   <keydef keys="lcMultipleSelect" href="../langref/lcMultipleSelect.dita" scope="peer"
+           navtitle="lcMultipleSelect"/>
+   <keydef keys="lcNeeds" href="../langref/lcNeeds.dita" scope="peer" navtitle="lcNeeds"/>
+   <keydef keys="lcNeedsAnalysis" href="../langref/lcNeedsAnalysis.dita" scope="peer"
+           navtitle="lcNeedsAnalysis"/>
+   <keydef keys="lcNextSteps" href="../langref/lcNextSteps.dita" scope="peer"
+           navtitle="lcNextSteps"/>
+   <keydef keys="lcNoLMS" href="../langref/lcNoLMS.dita" scope="peer" navtitle="lcNoLMS"/>
+   <keydef keys="lcObjective" href="../langref/lcObjective.dita" scope="peer"
+           navtitle="lcObjective"/>
+   <keydef keys="lcObjectives" href="../langref/lcObjectives.dita" scope="peer"
+           navtitle="lcObjectives"/>
+   <keydef keys="lcObjectivesGroup" href="../langref/lcObjectivesGroup.dita" scope="peer"
+           navtitle="lcObjectivesGroup"/>
+   <keydef keys="lcObjectivesStem" href="../langref/lcObjectivesStem.dita" scope="peer"
+           navtitle="lcObjectivesStem"/>
+   <keydef keys="lcOJT" href="../langref/lcOJT.dita" scope="peer" navtitle="lcOJT"/>
+   <keydef keys="lcOpenAnswer" href="../langref/lcOpenAnswer.dita" scope="peer"
+           navtitle="lcOpenAnswer"/>
+   <keydef keys="lcOpenQuestion" href="../langref/lcOpenQuestion.dita" scope="peer"
+           navtitle="lcOpenQuestion"/>
+   <keydef keys="lcOrganizational" href="../langref/lcOrganizational.dita" scope="peer"
+           navtitle="lcOrganizational"/>
+   <keydef keys="lcOrgConstraints" href="../langref/lcOrgConstraints.dita" scope="peer"
+           navtitle="lcOrgConstraints"/>
+   <keydef keys="lcPlanAudience" href="../langref/lcPlanAudience.dita" scope="peer"
+           navtitle="lcPlanAudience"/>
+   <keydef keys="lcPlanDescrip" href="../langref/lcPlanDescrip.dita" scope="peer"
+           navtitle="lcPlanDescrip"/>
+   <keydef keys="lcPlanObjective" href="../langref/lcPlanObjective.dita" scope="peer"
+           navtitle="lcPlanObjective"/>
+   <keydef keys="lcPlanPrereqs" href="../langref/lcPlanPrereqs.dita" scope="peer"
+           navtitle="lcPlanPrereqs"/>
+   <keydef keys="lcPlanResources" href="../langref/lcPlanResources.dita" scope="peer"
+           navtitle="lcPlanResources"/>
+   <keydef keys="lcPlanSubject" href="../langref/lcPlanSubject.dita" scope="peer"
+           navtitle="lcPlanSubject"/>
+   <keydef keys="lcPlanTitle" href="../langref/lcPlanTitle.dita" scope="peer"
+           navtitle="lcPlanTitle"/>
+   <keydef keys="lcPlayers" href="../langref/lcPlayers.dita" scope="peer"
+           navtitle="lcPlayers"/>
+   <keydef keys="lcPrereqs" href="../langref/lcPrereqs.dita" scope="peer"
+           navtitle="lcPrereqs"/>
+   <keydef keys="lcProcesses" href="../langref/lcProcesses.dita" scope="peer"
+           navtitle="lcProcesses"/>
+   <keydef keys="lcProject" href="../langref/lcProject.dita" scope="peer"
+           navtitle="lcProject"/>
+   <keydef keys="lcQuestion" href="../langref/lcQuestion.dita" scope="peer"
+           navtitle="lcQuestion"/>
+   <keydef keys="lcQuestionBase" href="../langref/lcQuestionBase.dita" scope="peer"
+           navtitle="lcQuestionBase"/>
+   <keydef keys="lcResolution" href="../langref/lcResolution.dita" scope="peer"
+           navtitle="lcResolution"/>
+   <keydef keys="lcResources" href="../langref/lcResources.dita" scope="peer"
+           navtitle="lcResources"/>
+   <keydef keys="lcReview" href="../langref/lcReview.dita" scope="peer"
+           navtitle="lcReview"/>
+   <keydef keys="lcSecurity" href="../langref/lcSecurity.dita" scope="peer"
+           navtitle="lcSecurity"/>
+   <keydef keys="lcSequence" href="../langref/lcSequence.dita" scope="peer"
+           navtitle="lcSequence"/>
+   <keydef keys="lcSequenceOption" href="../langref/lcSequenceOption.dita" scope="peer"
+           navtitle="lcSequenceOption"/>
+   <keydef keys="lcSequenceOptionGroup" href="../langref/lcSequenceOptionGroup.dita"
+           scope="peer"
+           navtitle="lcSequenceOptionGroup"/>
+   <keydef keys="lcSequencing" href="../langref/lcSequencing.dita" scope="peer"
+           navtitle="lcSequencing"/>
+   <keydef keys="lcSingleSelect" href="../langref/lcSingleSelect.dita" scope="peer"
+           navtitle="lcSingleSelect"/>
+   <keydef keys="lcSkills" href="../langref/lcSkills.dita" scope="peer"
+           navtitle="lcSkills"/>
+   <keydef keys="lcSpecChars" href="../langref/lcSpecChars.dita" scope="peer"
+           navtitle="lcSpecChars"/>
+   <keydef keys="lcSummary" href="../langref/lcSummary.dita" scope="peer"
+           navtitle="lcSummary"/>
+   <keydef keys="lcTask" href="../langref/lcTask.dita" scope="peer" navtitle="lcTask"/>
+   <keydef keys="lcTaskItem" href="../langref/lcTaskItem.dita" scope="peer"
+           navtitle="lcTaskItem"/>
+   <keydef keys="lcTechnical" href="../langref/lcTechnical.dita" scope="peer"
+           navtitle="lcTechnical"/>
+   <keydef keys="lcTime" href="../langref/lcTime.dita" scope="peer" navtitle="lcTime"/>
+   <keydef keys="lcTrueFalse" href="../langref/lcTrueFalse.dita" scope="peer"
+           navtitle="lcTrueFalse"/>
+   <keydef keys="lcValues" href="../langref/lcValues.dita" scope="peer"
+           navtitle="lcValues"/>
+   <keydef keys="lcViewers" href="../langref/lcViewers.dita" scope="peer"
+           navtitle="lcViewers"/>
+   <keydef keys="lcW3C" href="../langref/lcW3C.dita" scope="peer" navtitle="lcW3C"/>
+   <keydef keys="lcWorkEnv" href="../langref/lcWorkEnv.dita" scope="peer"
+           navtitle="lcWorkEnv"/>
+   <keydef keys="lcWorkEnvDescription" href="../langref/lcWorkEnvDescription.dita"
+           scope="peer"
+           navtitle="lcWorkEnvDescription"/>
+   <keydef keys="learningAssessment" href="../langref/learningAssessment.dita"
+           scope="peer"
+           navtitle="learningAssessment"/>
+   <keydef keys="learningAssessmentbody" href="../langref/learningAssessmentbody.dita"
+           scope="peer"
+           navtitle="learningAssessmentbody"/>
+   <keydef keys="learningBase" href="../langref/learningBase.dita" scope="peer"
+           navtitle="learningBase"/>
+   <keydef keys="learningBasebody" href="../langref/learningBasebody.dita" scope="peer"
+           navtitle="learningBasebody"/>
+   <keydef keys="learningContent" href="../langref/learningContent.dita" scope="peer"
+           navtitle="learningContent"/>
+   <keydef keys="learningContentbody" href="../langref/learningContentbody.dita"
+           scope="peer"
+           navtitle="learningContentbody"/>
+   <keydef keys="learningContentRef" href="../langref/learningContentRef.dita"
+           scope="peer"
+           navtitle="learningContentRef"/>
+   <keydef keys="learningContentComponentRef"
+           href="../langref/learningContentComponentRef.dita"
+           scope="peer"
+           navtitle="learningContentComponentRef"/>
+   <keydef keys="learningGroup" href="../langref/learningGroup.dita" scope="peer"
+           navtitle="learningGroup"/>
+   <keydef keys="learningObject" href="../langref/learningObject.dita" scope="peer"
+           navtitle="learningObject"/>
+   <keydef keys="learningOverview" href="../langref/learningOverview.dita" scope="peer"
+           navtitle="learningOverview"/>
+   <keydef keys="learningOverviewbody" href="../langref/learningOverviewbody.dita"
+           scope="peer"
+           navtitle="learningOverviewbody"/>
+   <keydef keys="learningOverviewRef" href="../langref/learningOverviewRef.dita"
+           scope="peer"
+           navtitle="learningOverviewRef"/>
+   <keydef keys="learningPlan" href="../langref/learningPlan.dita" scope="peer"
+           navtitle="learningPlan"/>
+   <keydef keys="learningPlanbody" href="../langref/learningPlanbody.dita" scope="peer"
+           navtitle="learningPlanbody"/>
+   <keydef keys="learningPlanRef" href="../langref/learningPlanRef.dita" scope="peer"
+           navtitle="learningPlanRef"/>
+   <keydef keys="learningPostAssessmentRef"
+           href="../langref/learningPostAssessmentRef.dita"
+           scope="peer"
+           navtitle="learningPostAssessmentRef"/>
+   <keydef keys="learningPreAssessmentRef" href="../langref/learningPreAssessmentRef.dita"
+           scope="peer"
+           navtitle="learningPreAssessmentRef"/>
+   <keydef keys="learningSummary" href="../langref/learningSummary.dita" scope="peer"
+           navtitle="learningSummary"/>
+   <keydef keys="learningSummarybody" href="../langref/learningSummarybody.dita"
+           scope="peer"
+           navtitle="learningSummarybody"/>
+   <keydef keys="learningSummaryRef" href="../langref/learningSummaryRef.dita"
+           scope="peer"
+           navtitle="learningSummaryRef"/>
+   <keydef keys="lomAggregationLevel" href="../langref/lomAggregationLevel.dita"
+           scope="peer"
+           navtitle="lomAggregationLevel"/>
+   <keydef keys="lomContext" href="../langref/lomContext.dita" scope="peer"
+           navtitle="lomContext"/>
+   <keydef keys="lomCoverage" href="../langref/lomCoverage.dita" scope="peer"
+           navtitle="lomCoverage"/>
+   <keydef keys="lomDifficulty" href="../langref/lomDifficulty.dita" scope="peer"
+           navtitle="lomDifficulty"/>
+   <keydef keys="lomInstallationRemarks" href="../langref/lomInstallationRemarks.dita"
+           scope="peer"
+           navtitle="lomInstallationRemarks"/>
+   <keydef keys="lomIntendedUserRole" href="../langref/lomIntendedUserRole.dita"
+           scope="peer"
+           navtitle="lomIntendedUserRole"/>
+   <keydef keys="lomInteractivityLevel" href="../langref/lomInteractivityLevel.dita"
+           scope="peer"
+           navtitle="lomInteractivityLevel"/>
+   <keydef keys="lomInteractivityType" href="../langref/lomInteractivityType.dita"
+           scope="peer"
+           navtitle="lomInteractivityType"/>
+   <keydef keys="lomLearningResourceType" href="../langref/lomLearningResourceType.dita"
+           scope="peer"
+           navtitle="lomLearningResourceType"/>
+   <keydef keys="lomOtherPlatformRequirements"
+           href="../langref/lomOtherPlatformRequirements.dita"
+           scope="peer"
+           navtitle="lomOtherPlatformRequirements"/>
+   <keydef keys="lomSemanticDensity" href="../langref/lomSemanticDensity.dita"
+           scope="peer"
+           navtitle="lomSemanticDensity"/>
+   <keydef keys="lomStructure" href="../langref/lomStructure.dita" scope="peer"
+           navtitle="lomStructure"/>
+   <keydef keys="lomTechRequirement" href="../langref/lomTechRequirement.dita"
+           scope="peer"
+           navtitle="lomTechRequirement"/>
+   <keydef keys="lomTypicalAgeRange" href="../langref/lomTypicalAgeRange.dita"
+           scope="peer"
+           navtitle="lomTypicalAgeRange"/>
+   <keydef keys="lomTypicalLearningTime" href="../langref/lomTypicalLearningTime.dita"
+           scope="peer"
+           navtitle="lomTypicalLearningTime"/>
+</map>

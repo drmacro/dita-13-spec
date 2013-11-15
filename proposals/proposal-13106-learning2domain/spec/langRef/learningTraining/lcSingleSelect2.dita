@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="lcSingleSelect2" xml:lang="en-us" rev="DITA1.3">
+  <title>lcSingleSelect2</title>
+  <shortdesc>A &lt;<keyword>lcSingleSelect2</keyword>> interaction presents three or more choices,
+    only one of which is correct. This element replaces the &lt;<keyword>lcSingleSelect</keyword>>
+    element in DITA 1.2.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>lcSingleSelect2</indexterm>
+        <indexterm>learning and training elements<indexterm>lcSingleSelect2</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section id="contains"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSingleSelect2/contains"
+      otherprops="contains">
+    </section>
+    <section id="containedby"
+      conref="../../common/commonNavLibraryTable.dita#contentmodel-lcSingleSelect2/containedby"
+      otherprops="containedby">
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ topic/div learningInteractionBase2-d/lcInteractionBase learning2-d/lcSingleSelect2 </p>
+    </section>
+    <example id="example">
+      <title>Example</title>
+      <codeblock>
+   &lt;!--Single select Interaction                    -->
+   &lt;lcSingleSelect2 id="singleselect">
+    &lt;lcInteractionLabel2>Multiple Choice - IEEE standards trivia&lt;/lcInteractionLabel2>
+    &lt;lcQuestion2>Which one of the listed standards committees is responsible for
+developing the token ring specification?&lt;/lcQuestion2>
+    &lt;lcAnswerOptionGroup2>
+     &lt;lcAnswerOption2>
+      &lt;lcAnswerContent2>IEEE 802.3&lt;/lcAnswerContent2>
+      &lt;lcFeedback2>Sorry. A little low.&lt;/lcFeedback2>
+     &lt;/lcAnswerOption2>
+     &lt;lcAnswerOption2>
+      &lt;lcAnswerContent2>IEEE 802.5&lt;/lcAnswerContent2>
+      &lt;lcCorrectResponse2/>
+      &lt;lcFeedback2>That's the one.&lt;/lcFeedback2>
+     &lt;/lcAnswerOption2>
+     &lt;lcAnswerOption2>
+      &lt;lcAnswerContent2>IEEE 802.6&lt;/lcAnswerContent2>
+      &lt;lcFeedback2>Nope. Too high.&lt;/lcFeedback2>
+     &lt;/lcAnswerOption2>
+     &lt;lcAnswerOption2>
+      &lt;lcAnswerContent2>IEEE 802.11&lt;/lcAnswerContent2>
+      &lt;lcFeedback2>Nope. Way too high.&lt;/lcFeedback2>
+     &lt;/lcAnswerOption2>
+    &lt;/lcAnswerOptionGroup2>
+   &lt;/lcSingleSelect2>
+  </codeblock>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="lcSingleSelect2_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/id-learning">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/conref-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/localization-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="lcHotspot2" xml:lang="en-us" rev="DITA1.3">
+      <title>lcHotspot2</title>
+      <shortdesc>In a &lt;<keyword>lcHotspot2</keyword>> interaction, the learner clicks on a region
+            of the screen to indicate a choice. This element replaces the
+                  &lt;<keyword>lcHotspot</keyword>> element in DITA 1.2.</shortdesc>
+      <prolog>
+            <metadata>
+                  <keywords>
+                        <indexterm>lcHotspot2</indexterm>
+                        <indexterm>learning and training
+                              elements<indexterm>lcHotspot2</indexterm></indexterm>
+                  </keywords>
+            </metadata>
+      </prolog>
+      <refbody>
+            <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcHotspot2/contains"
+                  id="contains" otherprops="contains">
+            </section>
+            <section
+                  conref="../../common/commonNavLibraryTable.dita#contentmodel-lcHotspot2/containedby"
+                  id="containedby" otherprops="containedby">
+            </section>
+            <section id="inheritance" otherprops="inheritance">
+                  <title>Inheritance</title>
+                  <p>+ topic/div learningInteractionBase2-d/lcInteractionBase learning2-d/lcHotspot2
+                  </p>
+            </section>
+            <example id="example">
+                  <title>Example</title>
+                  <codeblock>   &lt;!--Hotspot Interaction    -->
+   &lt;lcHotspot2>
+    &lt;lcInteractionLabel2>Team logos hotspot&lt;/lcInteractionLabel2>
+    &lt;lcQuestion2>Which of the following is the logo for the Cleveland Indians?&lt;/lcQuestion2>
+    &lt;lcHotspotMap2>
+     &lt;image href="hotlogos.gif"/>
+     &lt;lcArea2 id="indians">
+      &lt;lcAreaShape2>rect&lt;/lcAreaShape2>
+      &lt;lcAreaCoords2>0,0,50,50&lt;/lcAreaCoords2>
+      &lt;lcCorrectResponse2 value="indians"/>
+      &lt;lcFeedback2>Yes.&lt;/lcFeedback2>
+     &lt;/lcArea2>
+     &lt;lcArea2 id="giants">
+      &lt;lcAreaShape2>rect&lt;/lcAreaShape2>
+      &lt;lcAreaCoords2>50,0,100,50&lt;/lcAreaCoords2>
+      &lt;lcFeedback2>No.&lt;/lcFeedback2>
+     &lt;/lcArea2>
+     &lt;lcArea2 id="cardinals">
+      &lt;lcAreaShape2>rect&lt;/lcAreaShape2>
+      &lt;lcAreaCoords2>0,50,50,100&lt;/lcAreaCoords2>
+      &lt;lcFeedback2>No.&lt;/lcFeedback2>
+     &lt;/lcArea2>
+     &lt;lcArea2 id="orioles">
+      &lt;lcAreaShape2>rect&lt;/lcAreaShape2>
+      &lt;lcAreaCoords2>50,50,100,100&lt;/lcAreaCoords2>
+      &lt;lcFeedback2>No.&lt;/lcFeedback2>
+     &lt;/lcArea2>
+    &lt;/lcHotspotMap2>
+   &lt;/lcHotspot2>
+</codeblock>
+                  <?Pub Caret -2?>
+            </example>
+            <section id="attributes">
+                  <title>Attributes</title>
+                  <simpletable id="lcHotspot2_attr" relcolwidth="2* 3* 1* 1* 1*">
+                        <sthead>
+                              <stentry>Name</stentry>
+                              <stentry>Description</stentry>
+                              <stentry>Data Type</stentry>
+                              <stentry>Default Value</stentry>
+                              <stentry>Required?</stentry>
+                        </sthead>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/id-learning">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/conref-atts">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/localization-atts">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                              <stentry/>
+                        </strow>
+                  </simpletable>
+            </section>
+      </refbody>
+</reference>
+<?Pub *0000004355?>

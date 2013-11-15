@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+
+<reference id="lcAreaCoords2" xml:lang="en-us" rev="DITA1.3">
+  <title>lcAreaCoords2</title>
+  <shortdesc>The &lt;<keyword>lcAreaCoords2</keyword>> element specifies the coordinates of a
+    linkable hotspot in a learning image. This element replaces the
+      &lt;<keyword>lcAreaCoords</keyword>> element in DITA 1.2.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>lcAreaCoords2</indexterm>
+        <indexterm>learning and training elements<indexterm>lcAreaCoords2</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This element contains text data representing coordinate data for learning images with
+        linkable hotspots. Pixels are the recommended units for describing coordinates. The syntax
+        of the coordinate data depends on the shape described by the coordinates, and is based on
+        the image map definition in HTML. It uses the following data for the appropriate shapes:<dl>
+          <dlentry>
+            <dt><b>Shape</b></dt>
+            <dd><b>Data format</b></dd>
+          </dlentry>
+          <dlentry>
+            <dt>rect</dt>
+            <dd>left-x, top-y, right-x, bottom-y</dd>
+          </dlentry>
+          <dlentry>
+            <dt>circle</dt>
+            <dd>center-x, center-y, radius</dd>
+          </dlentry>
+          <dlentry>
+            <dt>poly</dt>
+            <dd> x1, y1, x2, y2, ..., xN, yN. The first x and y coordinate pair and the last should
+              be the same to close the polygon. </dd>
+          </dlentry>
+        </dl>
+      </p>
+    </section>
+    <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcAreaCoords2/contains"
+      id="contains" otherprops="contains">
+    </section>
+    <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcAreaCoords2/containedby"
+      id="containedby" otherprops="containedby">
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ topic/ph learningInteractionBase2-d/ph learning2-d/lcAreaCoords2</p>
+    </section>
+    <example conref="lcHotspot2.dita#lcHotspot2/example"/>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="coords_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/translate-default-no">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/xmllang">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/dir">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/id-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/select-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classoutkey">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>
+<?Pub *0000004369?>

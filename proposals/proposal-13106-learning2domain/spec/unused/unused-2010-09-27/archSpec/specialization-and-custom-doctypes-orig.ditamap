@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<?Pub Sty _display FontColor="red"?>
+<map
+  collection-type="sequence"
+  title="Specialization and custom document types"
+  xml:lang="en-us">
+  <topicref
+    collection-type="sequence"
+    href="ditaspecialization.dita"
+    navtitle="DITA specialization">
+    <topicref
+      href="specialize.dita"
+      navtitle="What is specialization?"
+      >
+      <topicref
+        href="whyspec.dita"
+        navtitle="Why specialization?"
+        >
+      </topicref>
+      <topicref
+        href="infodom.dita"
+        navtitle="Structural versus domain specialization"
+        />
+      <topicref
+        href="classatt.dita"
+        navtitle="The class attribute"/>
+      <topicref
+        href="domainsatt.dita"
+        navtitle="The domains attribute">
+      </topicref>
+      <topicref
+        collection-type="sequence"
+        href="generalize.dita"
+        navtitle="Generalization"
+        />
+      <topicref
+        href="specAwareProcessing.dita"/>
+    </topicref>
+    <topicref
+      href="createCustomDocType.dita">
+      <topicref
+        href="modint.dita"
+        navtitle="Modularization and integration of design"
+        >
+      </topicref>
+      <topicref
+        href="dtdmod.dita"
+        navtitle="Modularization in DTDs"
+        >
+      </topicref>
+      <topicref
+        href="schemamod.dita"
+        navtitle="Modularization in schemas"
+        />
+    </topicref>
+    <topicref
+      href="createCustomProcess.dita">
+      <topicref
+        href="modintproc.dita"
+        navtitle="Modularization and integration of processing"/>
+      <topicref
+        href="modularization-css.dita"
+        navtitle="Modularization in CSS">
+      </topicref>
+      <topicref
+        href="modularization-xslt.dita"
+        navtitle="Modularization in XSLT"/>
+    </topicref>
+    <topicref
+      href="createNewSpecialization.dita">
+      <topicref
+        href="specvalid.dita"
+        navtitle="Specialization validity"
+        />
+      <topicref
+        href="createStructSpec.dita">
+        <topicref
+          href="createStructSpecFromTopic.dita">
+          <topicref
+            href="createStructSpecFromTopic-dtd.dita">
+            <topicref
+              href="createModules-dtd-topic-structSpec.dita"/>
+            <topicref
+              href="integrateModules-dtd-topic-structSpec.dita"/>
+          </topicref>
+          <topicref
+            href="createStructSpecFromTopic-xsd.dita">
+            <topicref
+              href="createModules-xsd-topic-structSpec.dita"/>
+            <topicref
+              href="integrateModules-xsd-topic-structSpec.dita"/>
+          </topicref>
+        </topicref>
+        <topicref
+          href="createStructSpecFromMap.dita">
+          <topicref
+            href="createStructSpecFromMap-dtd.dita">
+            <topicref
+              href="createModules-dtd-map-structSpec.dita"/>
+            <topicref
+              href="integrateModules-dtd-map-structSpec.dita"/>
+          </topicref>
+          <topicref
+            href="createStructSpecFromMap-xsd.dita">
+            <topicref
+              href="createModules-xsd-map-structSpec.dita"/>
+            <topicref
+              href="integrateModules-xsd-map-structSpec.dita"/>
+          </topicref>
+        </topicref>
+        <topicref
+          href="generalize-structSpec.dita"/>
+        <topicref
+          href="usingclass.dita"
+          navtitle="Using the class attribute">
+        </topicref>
+      </topicref>
+      <topicref
+        href="createElementDomainSpec.dita">
+        <topicref
+          href="createDomainSpecFromTopic.dita">
+          <topicref
+            href="createDomainSpecFromTopic-dtd.dita">
+            <topicref
+              href="createModules-dtd-topic-domainSpec.dita"/>
+            <topicref
+              href="integrateModules-dtd-topic-domainSpec.dita"/>
+          </topicref>
+          <topicref
+            href="createDomainSpecFromTopic-xsd.dita">
+            <topicref
+              href="createModules-xsd-topic-domainSpec.dita"/>
+            <topicref
+              href="integrateModules-xsd-topic-domainSpec.dita"/>
+          </topicref>
+        </topicref>
+        <topicref
+          href="createDomainSpecFromMap.dita"/>
+        <topicref
+          href="createDomainSpecFromCommonMetadata.dita"/>
+        <topicref
+          href="generalizationElementBasedDomainSpecs.dita"/>
+      </topicref>
+      <topicref
+        href="createAttrDomainSpec.dita">
+        <topicref
+          href="attspecialization.dita"
+          navtitle="Specialization of attributes"
+          />
+        <topicref
+          href="createAttrDomainSpec-dtd.dita">
+          <topicref
+            href="createModules-dtd-attrDomainSpec.dita"/>
+          <topicref
+            href="integrateModules-dtd-attrDomainSpec.dita"/>
+        </topicref>
+        <topicref
+          href="createAttrDomainSpec-xsd.dita">
+          <topicref
+            href="createModules-xsd-attrDomainSpec.dita"/>
+          <topicref
+            href="integrateModules-xsd-attrDomainSpec.dita"/>
+        </topicref>
+        <topicref
+          href="attributegeneralize.dita"
+          navtitle="Attribute generalization"
+          />
+        <topicref
+          href="procspecatt.dita"
+          navtitle="Processing specialized attributes"
+          />
+      </topicref>
+      <topicref
+        href="createConstraintsDomainSpec.dita">
+        <topicref
+          href="whatAreConstraints.dita"/>
+        <topicref
+          href="whyUseConstraints.dita"/>
+        <topicref
+          href="createConstraintsDomainSpec-dtd.dita">
+          <topicref
+            href="createModules-dtd-ConstraintsDomainSpec.dita">
+          </topicref>
+          <topicref
+            href="integrateModules-dtd-ConstraintsDomainSpec.dita">
+          </topicref>
+        </topicref>
+        <topicref
+          href="createConstraintsDomainSpec-xsd.dita">
+          <topicref
+            href="createModules-xsd-ConstraintsDomainSpec.dita">
+          </topicref>
+          <topicref
+            href="integrateModules-xsd-ConstraintsDomainSpec.dita">
+          </topicref>
+        </topicref>
+        <topicref
+          href="constraintsGeneralize.dita"/>
+      </topicref>
+    </topicref>
+    <topicref
+      href="advancedSpec.dita">
+      <topicref
+        href="foreigncontentspec.dita"
+        navtitle="Specializing foreign content"
+        />
+      <topicref
+        href="foreigngeneralization.dita"
+        navtitle="Foreign generalization"
+        />
+      <topicref
+        href="foreigncontentproc.dita"
+        navtitle="Processing foreign content"
+        />
+      <topicref
+        href="dataextend.dita"
+        navtitle="Data extensibility"
+        >
+      </topicref>
+      <topicref
+        href="generalizeData.dita"/>
+    </topicref>
+    <topicref
+      href="speclimits.dita"
+      navtitle="Limits of specialization"
+      />
+  </topicref>
+  
+</map>
+<?Pub *0000010851?>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="modint"
+  xml:lang="en-us">
+  <title>Modularization and integration of design</title>
+  <?Pub Caret1?>
+  <shortdesc>Specialization hierarchies are implemented as sets of vocabulary modules, each of which
+    declares the markup and entities that are unique to a specialization.</shortdesc>
+  <conbody>
+    <p>The separation of the markup vocabulary and its implementing declarations into modules makes
+      it easy to extend the hierarchy, because new modules can be added without affecting existing
+      document types. It also makes it easy to assemble design elements from different sources into
+      a single integrated document type shell and makes it easy to reuse specific parts of the
+      specialization hierarchy in more than one document type shell.</p>
+  </conbody>
+</concept>
+<?Pub *0000001005?>

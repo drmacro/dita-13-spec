@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="newDomain">
+  <title>Domain specialization pattern</title>
+  <conbody>
+    <section
+      id="section_04EBD53C7C3B43B0AC495952905D4EF1">
+      <p>The name of the domain type schema document consists of the domain name plus <filepath
+          >Domain</filepath>plus the <filepath>.xsd</filepath> extension, e.g., <filepath
+          >highlightDomain.xsd</filepath>.</p>
+      <p>As in a structural module, the domain module must define each specialized element, its
+        attributes, and its model groups. As with any specialization, the domain element must
+        restrict the base element. The class attribute of the domain element must start with a plus
+        sign but, otherwise, follows the same rules as the class attribute for an element introduced
+        by a topic specialization. </p>
+      <p>For each element extended by one or more domains, the domain type schema document defines a
+        model group for the base element. The definition of the model group is a disjunctive list of
+        alternatives beginning with the literal name of the element and including the element
+        extension entity name from each domain that is providing specializations. </p>
+      <p>The schema document must define an a model group for each element extended by the domain.
+        The contents of the model group must be the list of specialized elements for the extended
+        element. The name of the model group is the abbreviation for the domain plus the name of the
+        extended element separated by a hyphen. In the following example, the user interface domain
+        (abbreviated as <codeph>ui-d</codeph>) extends the <codeph>ph</codeph>
+        element.<codeblock>&lt;xs:group name="ui-d-ph"&gt;
+          &lt;xs:choice&gt;
+          &lt;xs:element ref="uicontrol" /&gt;
+          &lt;xs:element ref="menucascade" /&gt;
+          &lt;/xs:choice&gt; 
+          &lt;/xs:group&gt;</codeblock></p>
+    </section>
+  </conbody>
+</concept>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE learningAssessment PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN"
+ "learningAssessment.dtd">
+<learningAssessment id="testAssess">
+<title>Quiz: Benefits of structured content</title>
+<shortdesc>This set of questions checks your understanding.</shortdesc>
+<learningAssessmentbody>
+<lcInteraction>
+<!--Multiple select Interaction     -->
+<lcMultipleSelect id="bs_ms1">
+<title>Advantages of XML</title>
+<lcQuestion>Which one of the following is/are typical benefits derived from
+using XML? (You may choose more than one.)</lcQuestion>
+<lcAnswerOptionGroup>
+<lcAnswerOption id="A">
+<lcAnswerContent>XML provides a framework for structuring content when structuring
+content is desired.</lcAnswerContent>
+<lcCorrectResponse/>
+<lcFeedback>Yes, that's correct.</lcFeedback>
+</lcAnswerOption>
+<lcAnswerOption id="B">
+<lcAnswerContent>XML provides strict tag name names, like HTML, so thought
+doesn't need to be spent creating tag names.<?Pub Caret?></lcAnswerContent>
+<lcFeedback>No, the naming of tags is necessary, and one of the benefits.</lcFeedback>
+</lcAnswerOption>
+<lcAnswerOption id="C">
+<lcAnswerContent>XML provides authors with a completely unstructured and unencumbered
+writing environment.</lcAnswerContent>
+<lcFeedback>No, XML is used to implement structure and writing guidance.</lcFeedback>
+</lcAnswerOption>
+</lcAnswerOptionGroup>
+</lcMultipleSelect>
+<!--Sequencing Interaction     -->
+<lcSequencing id="sequencing">
+<title>Order of learning object components</title>
+<lcQuestion>As presented in this lesson, order the following components of
+a learning object, in the sequence best presented to a student.</lcQuestion>
+<lcSequenceOptionGroup>
+<lcSequenceOption>
+<lcAnswerContent>The learning content itself</lcAnswerContent>
+<lcSequence name="lcSequence" value="4"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Assessment of achievement</lcAnswerContent>
+<lcSequence name="lcSequence" value="6"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Summary of the learning content</lcAnswerContent>
+<lcSequence name="lcSequence" value="5"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Introduction or overview of the learning content</lcAnswerContent>
+<lcSequence name="lcSequence" value="2"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Statement of the learning objective and the criteria for
+achieving it</lcAnswerContent>
+<lcSequence name="lcSequence" value="1"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Context for the learning information</lcAnswerContent>
+<lcSequence name="lcSequence" value="3"/></lcSequenceOption>
+<lcSequenceOption>
+<lcAnswerContent>Remediation/review of learning based on assessment results.</lcAnswerContent>
+<lcSequence name="lcSequence" value="7"/></lcSequenceOption>
+</lcSequenceOptionGroup>
+<lcFeedbackIncorrect>No, try again, please.  </lcFeedbackIncorrect>
+<lcFeedbackCorrect>Very good.</lcFeedbackCorrect>
+</lcSequencing>
+</lcInteraction>
+</learningAssessmentbody>
+</learningAssessment>

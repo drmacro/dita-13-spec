@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="concept-1"  xml:lang="en-us">
+ <title>Transitional text</title>
+ <shortdesc>Most writers are familiar with narrative text in which writers provide transitions that
+  lead a reader from one idea to the next (like &quot;Next, we will consider...&quot; or
+  &quot;Having completed the previous tasks,...&quot;). The topic-oriented paradigm incorporated in
+  DITA&apos;s design supports a writing style that minimizes the use of such narrative filler
+  between topics.</shortdesc>
+ </concept>
+

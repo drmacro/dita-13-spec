@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="lcOpenAnswer" xml:lang="en-us" rev="DITA1.3">
+ <title>lcOpenAnswer</title>
+ <shortdesc>The &lt;<keyword>lcOpenAnswer</keyword>> element was deprecated in DITA version 1.3. It
+  was replaced with the &lt;<keyword>lcOpenAnswer2</keyword>> element. It was originally intended to
+  provide a suggested answer for an &lt;<keyword>lcOpenQuestion</keyword>> interaction.</shortdesc>
+ <?Pub Caret 18?>
+ <prolog>
+  <metadata>
+   <keywords>
+    <indexterm>lcOpenAnswer</indexterm>
+    <indexterm>learning and training elements<indexterm>lcOpenAnswer</indexterm></indexterm>
+   </keywords>
+  </metadata>
+ </prolog>
+ <refbody>
+  <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcOpenAnswer/contains"
+   id="contains" otherprops="contains">
+   <title>Contains</title>
+   <p>The content model of this element may differ based on where it is used. Content model
+    information is located here: <xref keyref="lcOpenAnswer-contains"/>
+   </p>
+  </section>
+  <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcOpenAnswer/containedby"
+   id="containedby" otherprops="containedby">
+   <title>Contained By</title>
+   <p>The parents of this element may differ based on where it is used. Content model information is
+    located here: <xref keyref="lcOpenAnswer-contained-by"/>
+   </p>
+  </section>
+  <section id="inheritance" otherprops="inheritance">
+   <title>Inheritance</title>
+   <p>+ topic/p learningInteractionBase-d/p learning-d/lcOpenAnswer </p>
+  </section>
+  <example id="example">
+   <title>Example</title>
+   <codeblock>
+   &lt;!--Open Question sample                    -->
+   &lt;lclOpenQuestion id="oq1">
+    &lt;title>Cows and moon jumps&lt;/title>
+    &lt;lcQuestion>Describe how it might be possible for a cow to jump over the moon.&lt;/lcQuestion>
+    &lt;lcOpenAnswer>Cow's can only jump over the moon in nursery rhymes.&lt;lcOpenAnswer>
+   &lt;/lcOpenQuestion>
+  </codeblock>
+  </example>
+  <section id="attributes">
+   <title>Attributes</title>
+   <simpletable id="lcTrueFalse_attr" relcolwidth="2* 3* 1* 1* 1*">
+    <sthead>
+     <stentry>Name</stentry>
+     <stentry>Description</stentry>
+     <stentry>Data Type</stentry>
+     <stentry>Default Value</stentry>
+     <stentry>Required?</stentry>
+    </sthead>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+   </simpletable>
+  </section>
+ </refbody>
+</reference>
+<?Pub *0000002802?>

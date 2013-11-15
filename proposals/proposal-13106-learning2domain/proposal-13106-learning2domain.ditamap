@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Proposal 13106, Learning2 Domain</title>
+<topicgroup>
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerContent2.dita" keys="lcAnswerContent2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerOption2.dita" keys="lcAnswerOption2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerOptionGroup2.dita" keys="lcAnswerOptionGroup2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcArea2.dita" keys="lcArea2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAreaCoords2.dita" keys="lcAreaCoords2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAreaShape2.dita" keys="lcAreaShape2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcCorrectResponse2.dita" keys="lcCorrectResponse2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedback2.dita" keys="lcFeedback2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedbackCorrect2.dita" keys="lcFeedbackCorrect2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedbackIncorrect2.dita" keys="lcFeedbackIncorrect2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcHotspot2.dita" keys="lcHotspot2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcHotspotMap2.dita" keys="lcHotspotMap2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcInstructornote2.dita" keys="lcInstructorNote2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcInteractionBase2.dita" keys="lcInteractionBase2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcItem2.dita" keys="lcItem2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatching2.dita" keys="lcMatching2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingItem2.dita" keys="lcMatchingItem2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingItemFeedback2.dita" keys="lcMatchingItemFeedback2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingPair2.dita" keys="lcMatchingPair2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchTable2.dita" keys="lcMatchTable2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMultipleSelect2.dita" keys="lcMultipleSelect2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcOpenAnswer2.dita" keys="lcOpenAnswer2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcOpenQuestion2.dita" keys="lcOpenQuestion2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcQuestion2.dita" keys="lcQuestion2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcQuestionBase2.dita" keys="lcQuestionBase2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequence2.dita" keys="lcSequence2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequenceOption2.dita" keys="lcSequenceOption2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequenceOptionGroup2.dita" keys="lcSequenceOptionGroup2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequencing2.dita" keys="lcSequencing2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSingleSelect2.dita" keys="lcSingleSelect2"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcTrueFalse2.dita" keys="lcTrueFalse2"/>
+
+</topicgroup>
+<topicgroup>
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerContent.dita" keys="lcAnswerContent"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerOption.dita" keys="lcAnswerOption"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAnswerOptionGroup.dita" keys="lcAnswerOptionGroup"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcArea.dita" keys="lcArea"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAreaCoords.dita" keys="lcAreaCoords"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcAreaShape.dita" keys="lcAreaShape"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcCorrectResponse.dita" keys="lcCorrectResponse"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedback.dita" keys="lcFeedback"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedbackCorrect.dita" keys="lcFeedbackCorrect"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcFeedbackIncorrect.dita" keys="lcFeedbackIncorrect"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcHotspot.dita" keys="lcHotspot"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcHotspotMap.dita" keys="lcHotspotMap"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcInstructornote.dita" keys="lcInstructorNote"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcInteractionBase.dita" keys="lcInteractionBase"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcItem.dita" keys="lcItem"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatching.dita" keys="lcMatching"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingItem.dita" keys="lcMatchingItem"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingItemFeedback.dita" keys="lcMatchingItemFeedback"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchingPair.dita" keys="lcMatchingPair"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMatchTable.dita" keys="lcMatchTable"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcMultipleSelect.dita" keys="lcMultipleSelect"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcOpenAnswer.dita" keys="lcOpenAnswer"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcOpenQuestion.dita" keys="lcOpenQuestion"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcQuestion.dita" keys="lcQuestion"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcQuestionBase.dita" keys="lcQuestionBase"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequence.dita" keys="lcSequence"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequenceOption.dita" keys="lcSequenceOption"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequenceOptionGroup.dita" keys="lcSequenceOptionGroup"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSequencing.dita" keys="lcSequencing"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcSingleSelect.dita" keys="lcSingleSelect"/>
+
+  <keydef
+    href="spec/langRef/learningTraining/lcTrueFalse.dita" keys="lcTrueFalse"/>
+
+
+
+</topicgroup>
+<topicgroup>
+</topicgroup>
+    <topicgroup>
+      <keydef keys="lc_spec_Overview_problem" 
+        href="spec/archSpec/learningTraining/lc_spec_Overview_problem.dita"/>
+        <keydef keys="lc_spec_Overview_objectives"
+          href="spec/archSpec/learningTraining/lc_spec_Overview_objectives.dita"/>
+        <keydef keys="lc_spec_Overview_assumptions" 
+          href="spec/archSpec/learningTraining/lc_spec_Overview_assumptions.dita"/>
+        <keydef keys="lc_spec_Overview_usecases" 
+          href="spec/archSpec/learningTraining/lc_spec_Overview_usecases.dita"/>
+        <keydef keys="lc_spec_Overview_domains" 
+          href="spec/archSpec/learningTraining/lc_spec_Overview_domains.dita"/>
+        <keydef keys="lc_spec_Overview_usage" 
+          href="spec/archSpec/learningTraining/lc_spec_Overview_usage.dita"/>
+        <keydef keys="lc_spec_Summary_of_landt_designs" 
+          href="spec/archSpec/learningTraining/lc_spec_Summary_of_landt_designs.dita"/>
+    </topicgroup>
+  <mapref
+    href="spec/peer-keydefs-base_elements.ditamap"/>
+  <mapref
+    href="spec/peer-keydefs-learningTraining.ditamap"/>
+  <mapref
+    href="spec/peer-keydefs-technicalContent_elements.ditamap"/>
+  <topicgroup>
+    <keydef
+      href="spec/common/commonLRdefs.dita"
+      keys="commonLRdefs"/>
+    <keydef
+      href="spec/archSpec/base/attributegeneralize.dita"
+      keys="attributegeneralize"/>
+    <keydef
+      href="spec/langRef/attributes/display-atts.dita"
+      keys="display-atts"/>
+    <keydef
+      href="spec/langRef/attributes/global-atts.dita"
+      keys="global-atts"/>
+    <keydef
+      href="spec/langRef/attributes/id-atts.dita"
+      keys="id-atts"/>
+    <keydef
+      href="spec/langRef/attributes/rel-atts.dita"
+      keys="rel-atts"/>
+    <keydef
+      href="spec/langRef/attributes/select-atts.dita"
+      keys="select-atts"/>
+    <keydef
+      href="spec/langRef/attributes/topicref-atts.dita"
+      keys="topicref-atts"/>
+    <keydef
+      href="spec/langRef/attributes/othercommon.dita"
+      keys="othercommon"/>
+  </topicgroup>
+  <topicref
+    href="13106_stage_3.dita"
+    chunk="to-content">
+    <topicgroup>
+      <topicref
+        keyref="lc_spec_Overview_problem"/>
+      <topicref
+        keyref="lc_spec_Overview_objectives"/>
+      <topicref
+        keyref="lc_spec_Overview_assumptions"/>
+      <topicref
+        keyref="lc_spec_Overview_usecases"/>
+      <topicref
+        keyref="lc_spec_Overview_domains"/>
+      <topicref
+        keyref="lc_spec_Overview_usage"/>
+      <topicref
+        keyref="lc_spec_Summary_of_landt_designs"/>
+    </topicgroup>
+    <topicgroup>
+      <topicref
+        keyref="lcAnswerContent2"/>
+      <topicref
+        keyref="lcAnswerOption2"/>
+      <topicref
+        keyref="lcAnswerOptionGroup2"/>
+      <topicref
+        keyref="lcArea2"/>
+      <topicref
+        keyref="lcAreaCoords2"/>
+      <topicref
+        keyref="lcAreaShape2"/>
+      <topicref
+        keyref="lcCorrectResponse2"/>
+      <topicref
+        keyref="lcFeedback2"/>
+      <topicref
+        keyref="lcFeedbackCorrect2"/>
+      <topicref
+        keyref="lcFeedbackIncorrect2"/>
+      <topicref
+        keyref="lcHotspot2"/>
+      <topicref
+        keyref="lcHotspotMap2"/>
+      <topicref
+        keyref="lcInstructorNote2"/>
+      <topicref
+        keyref="lcInteractionBase2"/>
+      <topicref
+        keyref="lcItem2"/>
+      <topicref
+        keyref="lcMatching2"/>
+      <topicref
+        keyref="lcMatchingItem2"/>
+      <topicref
+        keyref="lcMatchingItemFeedback2"/>
+      <topicref
+        keyref="lcMatchingPair2"/>
+      <topicref
+        keyref="lcMatchTable2"/>
+      <topicref
+        keyref="lcMultipleSelect2"/>
+      <topicref
+        keyref="lcOpenAnswer2"/>
+      <topicref
+        keyref="lcOpenQuestion2"/>
+      <topicref
+        keyref="lcQuestion2"/>
+      <topicref
+        keyref="lcQuestionBase2"/>
+      <topicref
+        keyref="lcSequence2"/>
+      <topicref
+        keyref="lcSequenceOption2"/>
+      <topicref
+        keyref="lcSequenceOptionGroup2"/>
+      <topicref
+        keyref="lcSequencing2"/>
+      <topicref
+        keyref="lcSingleSelect2"/>
+      <topicref
+        keyref="lcTrueFalse2"/>
+    </topicgroup>
+  </topicref>
+</map>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic
+  id="topic-1">
+  <title>General Arch Spec Comments</title>
+  <body>
+    <ol>
+      <li>Current terminology section is good but needs to be expanded to include all DITA-specific
+        jargon terms used in this spec or in the language spec.</li>
+      <li>In terminology, break out shell DTD and head schema into separate terms.</li>
+      <li>Should probably use glossary topics for terminology</li>
+      <li>Define "constraints module" (or "constraint module")</li>
+      <li>Define "vocabulary" as it is used in the discussion of specialization and constraints. </li>
+      <li>The current constraints draft use the term "vocabulary module". Is this a formal term or
+        should it be replaced?</li>
+      <li>Constraints are orthogonal to specialization—moved that discussion into the "creating a
+        custom document type" section, although the organization needs more refinement.</li>
+    </ol>
+  </body>
+</topic>

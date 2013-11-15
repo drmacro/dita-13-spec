@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2004, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="conoverprint" xml:lang="en-us">
+<title>Basic concepts</title>
+<shortdesc>The following are <?Pub Caret?>basic concepts used in DITA.</shortdesc>
+<conbody>
+<!--maintaining this list of topics by hand for print purposes only (since summary not currently generated from maps for print)-->
+</conbody>
+<related-links>
+<linklist>
+<link href="topics.dita"></link>
+<link href="maps.dita"></link>
+<link href="specialize.dita"></link>
+<link href="infodom.dita"></link>
+<link href="integrate.dita"></link>
+<link href="customize.dita"></link>
+<link href="generalize.dita"></link>
+</linklist>
+</related-links>
+</concept>
+<?Pub *0000000813?>

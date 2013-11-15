@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="indexingdgroup" xml:lang="en-us">
+<title>Indexing group elements</title>
+<shortdesc>The indexing domain provides several new elements for use
+with indexing. The new elements allow authors to define "See" and
+"See also" references, and to override the default sort order for
+a term.</shortdesc>
+<prolog><metadata>
+<keywords><indexterm>domains<indexterm>indexing domain</indexterm></indexterm></keywords>
+</metadata></prolog>
+<refbody>
+<section>Indexing domain elements typically work with the indexterm
+and index-base elements; index-base is grouped with elements that
+are typically useful only in specialization contexts, and can be found
+using the link below.</section>
+</refbody>
+</reference>
+

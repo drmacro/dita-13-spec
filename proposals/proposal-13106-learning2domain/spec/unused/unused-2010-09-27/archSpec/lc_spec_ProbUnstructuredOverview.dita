@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2006, v.4002-->
+<!DOCTYPE learningOverview PUBLIC "-//OASIS//DTD DITA Learning Overview//EN"
+ "learningOverview.dtd">
+<learningOverview id="ProbUnstructOver">
+<title>Overview: Problems with unstructured content</title>
+<shortdesc>Learn about the problems that using unstructured content poses for learning
+and training.</shortdesc>
+<learningOverviewbody>
+<lcAudience><title>Audience</title><p>The target audience for this lesson
+includes anyone interested in adopting structured writing for their content.</p></lcAudience>
+<lcDuration>
+<title>Duration</title>
+<lcTime value="00:15:00">The expected duration for completing this lesson
+is 15 minutes.</lcTime>
+</lcDuration>
+<lcPrereqs><title>Prerequisites</title><p>You have no need to know anything
+prior to taking this lesson beyond being a writer of information.</p></lcPrereqs>
+<lcObjectives>
+<title>Objectives</title>
+<lcObjectivesStem>When you complete this lesson, you'll know how to do the
+following:</lcObjectivesStem>
+<lcObjectivesGroup>
+<lcObjective>State some disadvantages of using unstructured content.</lcObjective>
+<lcObjective>State why unstructured content is not easily reused.</lcObjective>
+<lcObjective>State examples of why unstructured content poses problems for
+collaborative writing environments and for readers of such content.</lcObjective>
+<lcObjective>Describe some difficulties associated with the automated processing
+of unstructured content. </lcObjective>
+</lcObjectivesGroup>
+</lcObjectives>
+</learningOverviewbody>
+</learningOverview>

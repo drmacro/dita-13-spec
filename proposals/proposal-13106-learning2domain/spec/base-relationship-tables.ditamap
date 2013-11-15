@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Relationship tables for the DITA specification: Base</title>
+ <reltable>
+  <title>External resources</title>
+  <relheader>
+   <relcolspec linking="sourceonly"/>
+   <relcolspec scope="external"/>
+  </relheader>
+  <relrow>
+   <relcell>
+    <topicref href="archSpec/base/diratt.dita"/>
+   </relcell>
+   <relcell>
+    <topicref format="html" href="http://www.w3.org/International/articles/inline-bidi-markup/"
+     scope="external">
+     <topicmeta>
+      <linktext>What you need to know about the BIDI algorithm and inline markup
+       (http://www.w3.org/International/articles/inline-bidi-markup/)</linktext>
+     </topicmeta>
+    </topicref>
+    <topicref format="html" href="http://www.w3.org/TR/2004/WD-xhtml2-20040722/mod-bidi.html"
+     scope="external">
+     <topicmeta>
+      <linktext>XHTML Bi-directional Text Attribute Module
+       (http://www.w3.org/TR/2004/WD-xhtml2-20040722/mod-bidi.html)</linktext>
+     </topicmeta>
+    </topicref>
+    <topicref format="html" href="http://www.w3.org/TR/html4/struct/dirlang.html#adef-dir"
+     scope="external">
+     <topicmeta>
+      <linktext>Specifying the direction of text and tables: the dir attribute
+       (http://www.w3.org/TR/html4/struct/dirlang.html#adef-dir)</linktext>
+     </topicmeta>
+    </topicref>
+    <topicref format="html" href="http://www.htmlhelp.com/reference/html40/attrs.html"
+     scope="external">
+     <topicmeta>
+      <linktext>HTML 4.0 Common Attributes
+       (http://www.htmlhelp.com/reference/html40/attrs.html)</linktext>
+     </topicmeta>
+    </topicref>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="archSpec/base/metadata-elements.dita"/>
+   </relcell>
+   <relcell>
+    <topicref format="xhtml" href="http://dublincore.org/">
+     <topicmeta>
+      <linktext>Dublin Core Metadata Initiative (DCMI)</linktext>
+     </topicmeta>
+    </topicref>
+   </relcell>
+  </relrow>
+ </reltable>
+ <reltable>
+  <title>Concept --> reference</title>
+  <relheader>
+   <relcolspec type="concept"/>
+   <relcolspec type="reference"/>
+  </relheader>
+  <relrow>
+   <relcell>
+    <topicref href="archSpec/base/conditional-processing-attributes.dita"
+     navtitle="Conditional processing attributes"/>
+    <topicref href="archSpec/base/condproc.dita" navtitle="Conditional processing (profiling)"/>
+   </relcell>
+   <relcell>
+    <topicref href="langRef/attributes/select-atts.dita"
+     navtitle="select-atts attribute group"/>
+    <topicref href="langRef/containers/ditaval-elements.dita"
+     navtitle="DITAVAL elements"/>
+   </relcell>
+  </relrow>
+ </reltable>
+ <reltable>
+  <title>Concept --> concept</title>
+  <relheader>
+   <relcolspec type="concept"/>
+   <relcolspec type="concept"/>
+  </relheader>
+  <relrow>
+   <relcell>
+    <topicref href="archSpec/base/conditional-processing-attributes.dita"
+     navtitle="Conditional processing attributes"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/condproc.dita"
+     navtitle="Conditional processing (profiling)"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="archSpec/base/conref.dita" navtitle="Content inclusion (conref)"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/constraintsGeneralize.dita"
+     navtitle="Conref and generalization for constraint modules"/>
+   </relcell>
+  </relrow>
+ </reltable>
+ <reltable>
+  <title>Source and target</title>
+  <relheader>
+   <relcolspec linking="sourceonly"/>
+   <relcolspec linking="targetonly"/>
+  </relheader>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/attributes/ditauseconreftarget.dita"
+     navtitle="Using the -dita-use-conref-target value"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/conref.dita" navtitle="Content inclusion (conref)"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/containers/indexing-d.dita" navtitle="Indexing group elements"/>
+   </relcell>
+   <relcell>
+    <topicref href="langRef/base/index-base.dita" navtitle="index-base"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/attributes/localization-atts.dita"
+     navtitle="localization-atts attribute group"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/translation.dita" navtitle="Translation and localization"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/attributes/select-atts.dita" navtitle="select-atts attribute group"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/specialize.dita" navtitle="Specialization"/>
+    <topicref href="archSpec/base/dtdAttributeDomainCodingReq.dita"
+     navtitle="Attribute domain module coding requirements"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/attributes/theconrefattribute.dita" navtitle="conref attribute"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/conref.dita" navtitle="Content inclusion (conref)"/>
+   </relcell>
+  </relrow>
+  <relrow>
+   <relcell>
+    <topicref href="langRef/attributes/thekeyrefattribute.dita" navtitle="keyref attribute"/>
+    <topicref href="langRef/attributes/thekeysattribute.dita" navtitle="keys attribute"/>
+   </relcell>
+   <relcell>
+    <topicref href="archSpec/base/key-based_addressing.dita" navtitle="Key-based addressing"/>
+   </relcell>
+  </relrow>
+ </reltable>
+</map>

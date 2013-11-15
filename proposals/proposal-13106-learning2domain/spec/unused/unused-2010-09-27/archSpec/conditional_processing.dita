@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?Pub Sty _display FontColor="red"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+ "topic.dtd">
+<topic id="filter-and-flag-intro" rev="1.2.1" xml:lang="en-US">
+ <title>Conditional processing</title>
+ <shortdesc>The DITA standard includes elements and attributes that support conditional processing.
+  These elements and attributes provide the general semantics for managing conditional processing,
+  but they impose neither requirements nor restrictions on how particular processors format the
+  output.</shortdesc>
+ <body>
+  <p><draft-comment author="Kristen James Eberlein" rev="6 March 2010">This topic was removed from
+    the "Introduction to DITA" section. We need to ensure that all relevant content in this topic is
+    covered in the applicable section.</draft-comment>The DITA standard includes a starter set of
+   attributes that can be used to perform conditional processing. Additional attributes also can be
+   specialized from the @props attribute. When conditional processing attributes are applied to
+   elements in a topic or DITA map, such elements can be filtered (included or excluded) or flagged
+   (marked with highlighting or images) when processed. This facility enables authors and
+   information architects to create topics and DITA maps that contain elements that apply to
+   specific sets of conditions; the conditions can represent any set of distinctions that are
+   meaningful to the information set, such as product version, audience type, software and hardware
+   platform, and more.</p>
+  <p> When DITA content is processed, the set of applicable conditions for the processing session is
+   defined and elements are included, excluded, and flagged based on how they match those conditions
+   that are defined. The DITAVAL file is one mechanism for specifying how processors <term
+    >should</term> handle the conditional processing attributes. Processors <term
+    >may</term> provide other mechanisms for conditional processing.</p>
+  <!--<p>See <xref format="dita" href="condproc.dita">Profiling with select
+attributes</xref> for details.</p>-->
+ </body>
+ <?Pub Caret?>
+</topic>
+<?Pub *0000001988?>

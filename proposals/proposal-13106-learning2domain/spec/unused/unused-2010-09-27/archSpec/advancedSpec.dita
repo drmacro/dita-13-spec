@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="dataextend"  xml:lang="en-us">
+<title>Advanced Specialization</title>
+<shortdesc>The &lt;data&gt; element provides for extensibility of metadata properties. The &lt;foreign&gt; and &lt;unknown&gt;, elements are open extensions for incorporating other standard vocabularies into DITA content. </shortdesc>
+<conbody>
+
+<section id="section_05BE636B36EE41538188E071CD3D2033"><title>Specializing the &lt;data&gt; element</title><p>The &lt;data&gt; element is used to associate metadata properties with DITA topics or with elements within topics. Values of these properties can direct processing of content, or processes can manipulate and present the values themselves as data.
+The &lt;data&gt; element can be specialized to control user input of property data and to facilitate usability of structures created by nesting such elements .</p></section><section id="section_39D57F6396A546D29EAC10E7ACEC80AB"><title>Specializing the &lt;foreign&gt; or &lt;unknown&gt; element</title><p>The &lt;foreign&gt; or &lt;unknown&gt; element may be specialized to incorporate non-textual content marked up with standard vocabularies such as MathML
+and SVG, into DITA content as in-line objects. The foreign content itself is not specialized. The default is to try to process content of the &lt;foreign&gt; element, but to ignore content of the &lt;unknown&gt; element.</p></section>
+
+
+</conbody>
+</concept>
+<?Pub *0000005191?>

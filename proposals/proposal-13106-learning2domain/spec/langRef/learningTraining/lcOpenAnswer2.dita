@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+
+<reference id="lcOpenAnswer2" xml:lang="en-us" rev="DITA1.3">
+ <title>lcOpenAnswer2</title>
+ <shortdesc>Use &lt;<keyword>lcOpenAnswer2</keyword>> to provide a suggested answer for an
+   &lt;<keyword>lcOpenQuestion2</keyword>> interaction. This element replaces the
+   &lt;<keyword>lcOpenAnswer</keyword>> element in DITA 1.2.</shortdesc>
+ <?Pub Caret 18?>
+ <prolog>
+  <metadata>
+   <keywords>
+    <indexterm>lcOpenAnswer2</indexterm>
+    <indexterm>learning and training elements<indexterm>lcOpenAnswer2</indexterm></indexterm>
+   </keywords>
+  </metadata>
+ </prolog>
+ <refbody>
+  <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcOpenAnswer2/contains"
+   id="contains" otherprops="contains">
+  </section>
+  <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcOpenAnswer2/containedby"
+   id="containedby" otherprops="containedby">
+  </section>
+  <section id="inheritance" otherprops="inheritance">
+   <title>Inheritance</title>
+   <p>+ topic/div learningInteractionBase2-d/div learning2-d/lcOpenAnswer2 </p>
+  </section>
+  <example conref="lcOpenQuestion2.dita#lcOpenQuestion2/example"/>
+  <section id="attributes">
+   <title>Attributes</title>
+   <simpletable id="lcOpenAnswer_attr" relcolwidth="2* 3* 1* 1* 1*">
+    <sthead>
+     <stentry>Name</stentry>
+     <stentry>Description</stentry>
+     <stentry>Data Type</stentry>
+     <stentry>Default Value</stentry>
+     <stentry>Required?</stentry>
+    </sthead>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+    <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+     <stentry/>
+    </strow>
+   </simpletable>
+  </section>
+ </refbody>
+</reference>
+<?Pub *0000002802?>

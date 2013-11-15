@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="lcHotspotMap" xml:lang="en-us" rev="DITA1.3">
+   <title>lcHotspotMap</title>
+   <shortdesc>The &lt;<keyword>lcHotspotMap</keyword>> was deprecated in DITA version 1.3. It was
+      replaced with the &lt;<keyword>lcHotspotMap2</keyword>> element. It was originally intended to
+      let you designate an action area or region over an image, allowing a click in that region to
+      get scored as correct or incorrect in response to an interaction question.</shortdesc>
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>lcHotspotMap</indexterm>
+            <indexterm>learning and training elements<indexterm>lcHotspotMap</indexterm></indexterm>
+         </keywords>
+      </metadata>
+   </prolog>
+   <?Pub Caret -2?>
+   <refbody>
+      <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcHotspotMap/contains"
+         id="contains" otherprops="contains">
+      </section>
+      <section conref="../../common/commonNavLibraryTable.dita#contentmodel-lcHotspotMap/containedby"
+         id="containedby" otherprops="containedby">
+      </section>
+      <section id="inheritance" otherprops="inheritance">
+         <title>Inheritance</title>
+         <p>+ topic/fig learningInteractionBase-d/figgroup learning-d/lcHotspotMap </p>
+      </section>
+      <example conref="lcHotspot.dita#lcHotspot/example" id="example"/>
+      <section id="attributes">
+         <title>Attributes</title>
+         <simpletable id="lcHotspotMap_attr" relcolwidth="2* 3* 1* 1* 1*">
+            <sthead>
+               <stentry>Name</stentry>
+               <stentry>Description</stentry>
+               <stentry>Data Type</stentry>
+               <stentry>Default Value</stentry>
+               <stentry>Required?</stentry>
+            </sthead>
+            <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+            </strow>
+            <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+            </strow>
+            <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+               <stentry/>
+            </strow>
+         </simpletable>
+      </section>
+   </refbody>
+</reference>
+<?Pub *0000002540?>

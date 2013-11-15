@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="conceptId" xml:lang="en-us">
+ <title>DITA document types and modules</title>
+ <shortdesc >DITA is unlike most other XML standards. While the DITA standard includes a
+  starter set of DITA document types, these document types are not definitive or exhaustive. Instead
+  the DITA standard defines design patterns that can be used to construct new use-case-specific DITA
+  document types.</shortdesc>
+ <conbody>
+  <p ><draft-comment author="Kristen James Eberlein" importance="" rev="6 March 2010"
+    >This topic was removed from the "Introduction to DITA" section. We need to ensure that all
+    relevant content in this topic is covered in the applicable section.</draft-comment>DITA
+   document types are implemented using DITA document type shells, which may be either DTD or XSD
+   based. The document type shells simply include vocabulary and constraint modules, which provide
+   all of the actual declarations that make up the DITA document type. Thus DITA document types are
+   assembled using standard DITA-defined and non-standard, but DITA-conforming, declaration
+   modules.</p>
+  <p >Because there is no single definitive set of DITA document types, DITA should be
+   viewed as a standardized application framework that provides the building blocks and extension
+   rules by which DITA-based applications can be constructed that ensure the interchange and
+   interoperability of all DITA conforming documents.</p>
+ </conbody>
+ <?Pub Caret1?>
+</concept>
+<?Pub *0000001437?>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en-us">
+  <topicref href="archSpec/appendices.dita" navtitle="Appendices" collection-type="sequence">
+    <topicref href="r-acknowledgments.dita"/>
+    <topicref href="r-revision-history.dita"/>
+    <topicref href="common/changes-from-previous-versions.dita" collection-type="sequence">
+      <topicref href="common/new-in_1_2.dita"/>
+      <topicref href="common/new-in_1_1.dita"/>
+    </topicref>
+    <topicref href="common/migration-1_1-to-1_2.dita"/>
+    <topicref href="archSpec/DITA-mime-type.dita"/>
+    <topicref href="archSpec/foreigngeneralization.dita" navtitle="Foreign generalization"/>
+    <topicref href="archSpec/elementsMerged.dita" rev="1.1"/>
+    <topicref href="archSpec/dita-module-impl-ref.dita"
+      navtitle="DITA module and shell implementation reference" collection-type="sequence">
+      <topicref href="archSpec/dtdorganization.dita" navtitle="DTD organization"/>
+      <topicref href="archSpec/schemaorganization.dita" navtitle="XML schema organization"/>
+      <topicref href="common/filenaming-processing-modules.dita"/>
+    </topicref>
+    <topicref href="common/interoperability-considerations.dita"/>
+    <topicref href="archSpec/speclimits.dita"/>
+  </topicref>
+</map>
+<?Pub *0000000725?>

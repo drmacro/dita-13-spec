@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="progd" xml:lang="en-us">
+<title>Programming elements</title>
+<shortdesc>The programming domain elements are used to define the
+syntax and to give examples of programming languages.</shortdesc><?Pub
+Caret 22?>
+<prolog><metadata>
+<keywords><indexterm>Domains elements<indexterm>programming domain</indexterm></indexterm>
+<indexterm>Programming elements</indexterm></keywords>
+</metadata></prolog>
+</reference>
+<?Pub *0000000837?>

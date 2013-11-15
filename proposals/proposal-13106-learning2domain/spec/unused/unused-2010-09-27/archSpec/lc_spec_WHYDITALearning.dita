@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE learningContent PUBLIC "-//OASIS//DTD DITA Learning Content//EN"
+ "learningContent.dtd">
+<learningContent id="WHYDITA" xml:lang="en-us">
+<title>Why DITA for learning and training content?</title>
+<shortdesc>Using DITA to create a model for learning content lets
+you take advantage of the benefits of structured content in creating
+learning and training deliverables, and reusing learning and training
+content with others.</shortdesc>
+<learningContentbody>
+<lcIntro> <p>There are many aspects to the DITA specification that
+make it suitable for structuring learning content. As an evolving
+specification, extending it to areas like the learning industry not
+only helps learning professionals but contributes to DITA's overall
+success. Some of the aspects of the DITA spec that make it appropriate
+for learning include a modular and topic-based architecture that allows
+for specialization and standard processing, to name a few.</p> </lcIntro>
+<section><title>Why DITA in general</title><p>DITA is a data model
+for authoring and publishing topic-based content. </p><p>DITA's modular
+architecture supports efficient reuse of content at the word, phrase,
+or topic level. DITA also offers "specialization," which allows you
+to develop new elements and content models that are based on core
+DITA elements and content models. This helps you to customize DITA
+to support particular types of content while continuing to take advantage
+of the base DITA tools and transformations. For learning content,
+this change to specialization enables the creation of specific content
+structures that can ensure that the right learners get the right information
+at the right time. </p></section>
+<section><title>Topic-based DITA offers flexibility in content organization</title><p>DITA
+is a topic-based architecture. It allows you to order, reorder, and
+nest topics to create any kind of information product. Since content
+is not all tied together in a single "book" but rather captured in
+chunks, using modular, topic-based chunks in various circumstances
+is easy to accommodate.</p></section>
+<section><title>DITA's modularity allows for reuse</title><p>Topics
+can be used in more than one deliverable at once, independently from
+other topics. The real advantage here, however, is that even though
+content is being used in more than one instance, the content itself
+remains as an independent unit. Modification of that content need
+only happen in one place to accommodate all the instances of the appearance
+of that content.</p></section>
+<section><title>DITA helps you save some style sheet creation time</title><p>A
+virtue of DITA specialization is that new elements and topic types
+can be processed using DITA's standard processing. Standard processing
+means even though you have created "specializations," you can still
+process the specialized content without any or much additional stylesheet
+work. Of course, you may need to create specialized processing, to
+support some specialized types of content used in learning and training,
+such as assessment interactions.</p></section>
+<section><title>Why DITA for Learning?</title><p>The ability to have
+a standard definition for educational information is appealing because
+it allows you to:</p><ul>
+<li>Minimize duplicate effort (reuse)</li>
+<li>Use material from alternate sources (repurpose)</li>
+<li>Supply course topics to alternate deliverables (repurpose)</li>
+<li>Build to company-wide standardized methods</li>
+<li>Create custom courses quickly</li>
+</ul><p>Providing meaningful semantics at a word, topic, or section
+level can help preserve the instructional value of content. Reuse
+in a learning context will depend heavily on the model&apos;s ability
+to preserve this value regardless of mode of delivery. Using DITA's
+specialization capabilities, you can preserve new elements that describe
+what content means to a learner at a content level regardless of delivery
+vehicle.</p><p>Learning models and best practices<?Pub Caret?> are
+an evolving science. Using DITA for learning allows for the model
+to extend itself to evolving circumstances and best practices. Following
+DITA guidelines will ensure content is never locked into a proprietary
+format and can always be repurposed and reprocessed.</p><p>DITA for
+learning provides a model for structuring content. As companies depend
+more heavily on subject matter experts and not instructional designers
+to produce content, having a content model will help provide a solid
+structure on which to build training and learning content.</p></section>
+</learningContentbody>
+</learningContent>
+<?Pub *0000004702?>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map
+  PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+   <keydef keys="concept" href="seeLangRef.dita" navtitle="concept"/>
+   <keydef keys="conbody" href="seeLangRef.dita" navtitle="conbody"/>
+   <keydef keys="conbodydiv" href="seeLangRef.dita"
+           navtitle="conbodydiv"/>
+   <keydef keys="task" href="seeLangRef.dita" navtitle="task"/>
+   <keydef keys="taskbody" href="seeLangRef.dita"
+           navtitle="taskbody"/>
+   <keydef keys="prereq" href="seeLangRef.dita" navtitle="prereq"/>
+   <keydef keys="context" href="seeLangRef.dita" navtitle="context"/>
+   <keydef keys="steps" href="seeLangRef.dita" navtitle="steps"/>
+   <keydef keys="steps-informal" href="seeLangRef.dita"
+           navtitle="steps-informal"/>
+   <keydef keys="steps-unordered" href="seeLangRef.dita"
+           navtitle="steps-unordered"/>
+   <keydef keys="step" href="seeLangRef.dita" navtitle="step"/>
+   <keydef keys="stepsection" href="seeLangRef.dita"
+           navtitle="stepsection"/>
+   <keydef keys="cmd" href="seeLangRef.dita" navtitle="cmd"/>
+   <keydef keys="info" href="seeLangRef.dita" navtitle="info"/>
+   <keydef keys="substeps" href="seeLangRef.dita"
+           navtitle="substeps"/>
+   <keydef keys="substep" href="seeLangRef.dita" navtitle="substep"/>
+   <keydef keys="stepxmp" href="seeLangRef.dita" navtitle="stepxmp"/>
+   <keydef keys="choicetable" href="seeLangRef.dita"
+           navtitle="choicetable"/>
+   <keydef keys="chhead" href="seeLangRef.dita" navtitle="chhead"/>
+   <keydef keys="choptionhd" href="seeLangRef.dita"
+           navtitle="choptionhd"/>
+   <keydef keys="chdeschd" href="seeLangRef.dita"
+           navtitle="chdeschd"/>
+   <keydef keys="chrow" href="seeLangRef.dita" navtitle="chrow"/>
+   <keydef keys="choption" href="seeLangRef.dita"
+           navtitle="choption"/>
+   <keydef keys="chdesc" href="seeLangRef.dita" navtitle="chdesc"/>
+   <keydef keys="choices" href="seeLangRef.dita" navtitle="choices"/>
+   <keydef keys="choice" href="seeLangRef.dita" navtitle="choice"/>
+   <keydef keys="stepresult" href="seeLangRef.dita"
+           navtitle="stepresult"/>
+   <keydef keys="tutorialinfo" href="seeLangRef.dita"
+           navtitle="tutorialinfo"/>
+   <keydef keys="result" href="seeLangRef.dita" navtitle="result"/>
+   <keydef keys="postreq" href="seeLangRef.dita" navtitle="postreq"/>
+   <keydef keys="reference" href="seeLangRef.dita"
+           navtitle="reference"/>
+   <keydef keys="refbody" href="seeLangRef.dita" navtitle="refbody"/>
+   <keydef keys="refbodydiv" href="seeLangRef.dita"
+           navtitle="refbodydiv"/>
+   <keydef keys="refsyn" href="seeLangRef.dita" navtitle="refsyn"/>
+   <keydef keys="properties" href="seeLangRef.dita"
+           navtitle="properties"/>
+   <keydef keys="prophead" href="seeLangRef.dita"
+           navtitle="prophead"/>
+   <keydef keys="proptypehd" href="seeLangRef.dita"
+           navtitle="proptypehd"/>
+   <keydef keys="propvaluehd" href="seeLangRef.dita"
+           navtitle="propvaluehd"/>
+   <keydef keys="propdeschd" href="seeLangRef.dita"
+           navtitle="propdeschd"/>
+   <keydef keys="property" href="seeLangRef.dita"
+           navtitle="property"/>
+   <keydef keys="proptype" href="seeLangRef.dita"
+           navtitle="proptype"/>
+   <keydef keys="propvalue" href="seeLangRef.dita"
+           navtitle="propvalue"/>
+   <keydef keys="propdesc" href="seeLangRef.dita"
+           navtitle="propdesc"/>
+   <keydef keys="glossentry" href="seeLangRef.dita"
+           navtitle="glossentry"/>
+   <keydef keys="glossterm" href="seeLangRef.dita"
+           navtitle="glossterm"/>
+   <keydef keys="glossdef" href="seeLangRef.dita"
+           navtitle="glossdef"/>
+   <keydef keys="glossAbbreviation" href="seeLangRef.dita"
+           navtitle="glossAbbreviation"/>
+   <keydef keys="glossAcronym" href="seeLangRef.dita"
+           navtitle="glossAcronym"/>
+   <keydef keys="glossAlt" href="seeLangRef.dita"
+           navtitle="glossAlt"/>
+   <keydef keys="glossAlternateFor" href="seeLangRef.dita"
+           navtitle="glossAlternateFor"/>
+   <keydef keys="glossBody" href="seeLangRef.dita"
+           navtitle="glossBody"/>
+   <keydef keys="glossPartOfSpeech" href="seeLangRef.dita"
+           navtitle="glossPartOfSpeech"/>
+   <keydef keys="glossProperty" href="seeLangRef.dita"
+           navtitle="glossProperty"/>
+   <keydef keys="glossScopeNote" href="seeLangRef.dita"
+           navtitle="glossScopeNote"/>
+   <keydef keys="glossShortForm" href="seeLangRef.dita"
+           navtitle="glossShortForm"/>
+   <keydef keys="glossStatus" href="seeLangRef.dita"
+           navtitle="glossStatus"/>
+   <keydef keys="glossSurfaceForm" href="seeLangRef.dita"
+           navtitle="glossSurfaceForm"/>
+   <keydef keys="glossSymbol" href="seeLangRef.dita"
+           navtitle="glossSymbol"/>
+   <keydef keys="glossSynonym" href="seeLangRef.dita"
+           navtitle="glossSynonym"/>
+   <keydef keys="glossUsage" href="seeLangRef.dita"
+           navtitle="glossUsage"/>
+   <keydef keys="abbreviated-form" href="seeLangRef.dita"
+           navtitle="abbreviated-form"/>
+   <keydef keys="glossref" href="seeLangRef.dita"
+           navtitle="glossref"/>
+   <keydef keys="glossgroup" href="seeLangRef.dita"
+           navtitle="glossgroup"/>
+   <keydef keys="bookmap" href="seeLangRef.dita" navtitle="bookmap"/>
+   <keydef keys="abbrevlist" href="seeLangRef.dita"
+           navtitle="abbrevlist"/>
+   <keydef keys="amendments" href="seeLangRef.dita"
+           navtitle="amendments"/>
+   <keydef keys="appendices" href="seeLangRef.dita"
+           navtitle="appendices"/>
+   <keydef keys="appendix" href="seeLangRef.dita"
+           navtitle="appendix"/>
+   <keydef keys="backmatter" href="seeLangRef.dita"
+           navtitle="backmatter"/>
+   <keydef keys="bibliolist" href="seeLangRef.dita"
+           navtitle="bibliolist"/>
+   <keydef keys="bookabstract" href="seeLangRef.dita"
+           navtitle="bookabstract"/>
+   <keydef keys="booklibrary" href="seeLangRef.dita"
+           navtitle="booklibrary"/>
+   <keydef keys="booklist" href="seeLangRef.dita"
+           navtitle="booklist"/>
+   <keydef keys="booklists" href="seeLangRef.dita"
+           navtitle="booklists"/>
+   <keydef keys="booktitle" href="seeLangRef.dita"
+           navtitle="booktitle"/>
+   <keydef keys="booktitlealt" href="seeLangRef.dita"
+           navtitle="booktitlealt"/>
+   <keydef keys="chapter" href="seeLangRef.dita" navtitle="chapter"/>
+   <keydef keys="colophon" href="seeLangRef.dita"
+           navtitle="colophon"/>
+   <keydef keys="dedication" href="seeLangRef.dita"
+           navtitle="dedication"/>
+   <keydef keys="draftintro" href="seeLangRef.dita"
+           navtitle="draftintro"/>
+   <keydef keys="figurelist" href="seeLangRef.dita"
+           navtitle="figurelist"/>
+   <keydef keys="frontmatter" href="seeLangRef.dita"
+           navtitle="frontmatter"/>
+   <keydef keys="glossarylist" href="seeLangRef.dita"
+           navtitle="glossarylist"/>
+   <keydef keys="indexlist" href="seeLangRef.dita"
+           navtitle="indexlist"/>
+   <keydef keys="mainbooktitle" href="seeLangRef.dita"
+           navtitle="mainbooktitle"/>
+   <keydef keys="notices" href="seeLangRef.dita" navtitle="notices"/>
+   <keydef keys="part" href="seeLangRef.dita" navtitle="part"/>
+   <keydef keys="preface" href="seeLangRef.dita" navtitle="preface"/>
+   <keydef keys="tablelist" href="seeLangRef.dita"
+           navtitle="tablelist"/>
+   <keydef keys="toc" href="seeLangRef.dita" navtitle="toc"/>
+   <keydef keys="trademarklist" href="seeLangRef.dita"
+           navtitle="trademarklist"/>
+   <keydef keys="bookmeta" href="seeLangRef.dita"
+           navtitle="bookmeta"/>
+   <keydef keys="approved" href="seeLangRef.dita"
+           navtitle="approved"/>
+   <keydef keys="bookchangehistory" href="seeLangRef.dita"
+           navtitle="bookchangehistory"/>
+   <keydef keys="bookevent" href="seeLangRef.dita"
+           navtitle="bookevent"/>
+   <keydef keys="bookeventtype" href="seeLangRef.dita"
+           navtitle="bookeventtype"/>
+   <keydef keys="bookid" href="seeLangRef.dita" navtitle="bookid"/>
+   <keydef keys="booknumber" href="seeLangRef.dita"
+           navtitle="booknumber"/>
+   <keydef keys="bookowner" href="seeLangRef.dita"
+           navtitle="bookowner"/>
+   <keydef keys="bookpartno" href="seeLangRef.dita"
+           navtitle="bookpartno"/>
+   <keydef keys="bookrestriction" href="seeLangRef.dita"
+           navtitle="bookrestriction"/>
+   <keydef keys="bookrights" href="seeLangRef.dita"
+           navtitle="bookrights"/>
+   <keydef keys="completed" href="seeLangRef.dita"
+           navtitle="completed"/>
+   <keydef keys="copyrfirst" href="seeLangRef.dita"
+           navtitle="copyrfirst"/>
+   <keydef keys="copyrlast" href="seeLangRef.dita"
+           navtitle="copyrlast"/>
+   <keydef keys="day" href="seeLangRef.dita" navtitle="day"/>
+   <keydef keys="edited" href="seeLangRef.dita" navtitle="edited"/>
+   <keydef keys="edition" href="seeLangRef.dita" navtitle="edition"/>
+   <keydef keys="isbn" href="seeLangRef.dita" navtitle="isbn"/>
+   <keydef keys="maintainer" href="seeLangRef.dita"
+           navtitle="maintainer"/>
+   <keydef keys="month" href="seeLangRef.dita" navtitle="month"/>
+   <keydef keys="organization" href="seeLangRef.dita"
+           navtitle="organization"/>
+   <keydef keys="person" href="seeLangRef.dita" navtitle="person"/>
+   <keydef keys="printlocation" href="seeLangRef.dita"
+           navtitle="printlocation"/>
+   <keydef keys="published" href="seeLangRef.dita"
+           navtitle="published"/>
+   <keydef keys="publisherinformation" href="seeLangRef.dita"
+          
+           navtitle="publisherinformation"/>
+   <keydef keys="publishtype" href="seeLangRef.dita"
+           navtitle="publishtype"/>
+   <keydef keys="reviewed" href="seeLangRef.dita"
+           navtitle="reviewed"/>
+   <keydef keys="revisionid" href="seeLangRef.dita"
+           navtitle="revisionid"/>
+   <keydef keys="started" href="seeLangRef.dita" navtitle="started"/>
+   <keydef keys="summary" href="seeLangRef.dita" navtitle="summary"/>
+   <keydef keys="tested" href="seeLangRef.dita" navtitle="tested"/>
+   <keydef keys="volume" href="seeLangRef.dita" navtitle="volume"/>
+   <keydef keys="year" href="seeLangRef.dita" navtitle="year"/>
+   <keydef keys="prelreqs" href="seeLangRef.dita"
+           navtitle="prelreqs"/>
+   <keydef keys="closereqs" href="seeLangRef.dita"
+           navtitle="closereqs"/>
+   <keydef keys="reqconds" href="seeLangRef.dita"
+           navtitle="reqconds"/>
+   <keydef keys="reqcond" href="seeLangRef.dita" navtitle="reqcond"/>
+   <keydef keys="noconds" href="seeLangRef.dita" navtitle="noconds"/>
+   <keydef keys="reqcontp" href="seeLangRef.dita"
+           navtitle="reqcontp"/>
+   <keydef keys="reqpers" href="seeLangRef.dita" navtitle="reqpers"/>
+   <keydef keys="personnel" href="seeLangRef.dita"
+           navtitle="personnel"/>
+   <keydef keys="perscat" href="seeLangRef.dita" navtitle="perscat"/>
+   <keydef keys="perskill" href="seeLangRef.dita"
+           navtitle="perskill"/>
+   <keydef keys="esttime" href="seeLangRef.dita" navtitle="esttime"/>
+   <keydef keys="supeqli" href="seeLangRef.dita" navtitle="supeqli"/>
+   <keydef keys="supequi" href="seeLangRef.dita" navtitle="supequi"/>
+   <keydef keys="supequip" href="seeLangRef.dita"
+           navtitle="supequip"/>
+   <keydef keys="nosupeq" href="seeLangRef.dita" navtitle="nosupeq"/>
+   <keydef keys="supplies" href="seeLangRef.dita"
+           navtitle="supplies"/>
+   <keydef keys="supply" href="seeLangRef.dita" navtitle="supply"/>
+   <keydef keys="supplyli" href="seeLangRef.dita"
+           navtitle="supplyli"/>
+   <keydef keys="nosupply" href="seeLangRef.dita"
+           navtitle="nosupply"/>
+   <keydef keys="spare" href="seeLangRef.dita" navtitle="spare"/>
+   <keydef keys="spares" href="seeLangRef.dita" navtitle="spares"/>
+   <keydef keys="sparesli" href="seeLangRef.dita"
+           navtitle="sparesli"/>
+   <keydef keys="nospares" href="seeLangRef.dita"
+           navtitle="nospares"/>
+   <keydef keys="nosafety" href="seeLangRef.dita"
+           navtitle="nosafety"/>
+   <keydef keys="safecond" href="seeLangRef.dita"
+           navtitle="safecond"/>
+   <keydef keys="safety" href="seeLangRef.dita" navtitle="safety"/>
+   <keydef keys="apiname" href="seeLangRef.dita" navtitle="apiname"/>
+   <keydef keys="codeblock" href="seeLangRef.dita"
+           navtitle="codeblock"/>
+   <keydef keys="coderef" href="seeLangRef.dita" navtitle="coderef"/>
+   <keydef keys="codeph" href="seeLangRef.dita" navtitle="codeph"/>
+   <keydef keys="option" href="seeLangRef.dita" navtitle="option"/>
+   <keydef keys="parmname" href="seeLangRef.dita"
+           navtitle="parmname"/>
+   <keydef keys="parml" href="seeLangRef.dita" navtitle="parml"/>
+   <keydef keys="plentry" href="seeLangRef.dita" navtitle="plentry"/>
+   <keydef keys="pt" href="seeLangRef.dita" navtitle="pt"/>
+   <keydef keys="pd" href="seeLangRef.dita" navtitle="pd"/>
+   <keydef keys="synph" href="seeLangRef.dita" navtitle="synph"/>
+   <keydef keys="syntaxdiagram" href="seeLangRef.dita"
+           navtitle="syntaxdiagram"/>
+   <keydef keys="groupseq" href="seeLangRef.dita"
+           navtitle="groupseq"/>
+   <keydef keys="groupchoice" href="seeLangRef.dita"
+           navtitle="groupchoice"/>
+   <keydef keys="groupcomp" href="seeLangRef.dita"
+           navtitle="groupcomp"/>
+   <keydef keys="fragment" href="seeLangRef.dita"
+           navtitle="fragment"/>
+   <keydef keys="fragref" href="seeLangRef.dita" navtitle="fragref"/>
+   <keydef keys="synblk" href="seeLangRef.dita" navtitle="synblk"/>
+   <keydef keys="synnote" href="seeLangRef.dita" navtitle="synnote"/>
+   <keydef keys="synnoteref" href="seeLangRef.dita"
+           navtitle="synnoteref"/>
+   <keydef keys="kwd" href="seeLangRef.dita" navtitle="kwd"/>
+   <keydef keys="var" href="seeLangRef.dita" navtitle="var"/>
+   <keydef keys="oper" href="seeLangRef.dita" navtitle="oper"/>
+   <keydef keys="delim" href="seeLangRef.dita" navtitle="delim"/>
+   <keydef keys="sep" href="seeLangRef.dita" navtitle="sep"/>
+   <keydef keys="repsep" href="seeLangRef.dita" navtitle="repsep"/>
+   <keydef keys="msgph" href="seeLangRef.dita" navtitle="msgph"/>
+   <keydef keys="msgblock" href="seeLangRef.dita"
+           navtitle="msgblock"/>
+   <keydef keys="msgnum" href="seeLangRef.dita" navtitle="msgnum"/>
+   <keydef keys="cmdname" href="seeLangRef.dita" navtitle="cmdname"/>
+   <keydef keys="varname" href="seeLangRef.dita" navtitle="varname"/>
+   <keydef keys="filepath" href="seeLangRef.dita"
+           navtitle="filepath"/>
+   <keydef keys="userinput" href="seeLangRef.dita"
+           navtitle="userinput"/>
+   <keydef keys="systemoutput" href="seeLangRef.dita"
+           navtitle="systemoutput"/>
+   <keydef keys="uicontrol" href="seeLangRef.dita"
+           navtitle="uicontrol"/>
+   <keydef keys="wintitle" href="seeLangRef.dita"
+           navtitle="wintitle"/>
+   <keydef keys="menucascade" href="seeLangRef.dita"
+           navtitle="menucascade"/>
+   <keydef keys="shortcut" href="seeLangRef.dita"
+           navtitle="shortcut"/>
+   <keydef keys="screen" href="seeLangRef.dita" navtitle="screen"/>
+   <keydef keys="authorinformation" href="seeLangRef.dita"
+           navtitle="authorinformation"/>
+   <keydef keys="addressdetails" href="seeLangRef.dita"
+           navtitle="addressdetails"/>
+   <keydef keys="administrativearea" href="seeLangRef.dita"
+          
+           navtitle="administrativearea"/>
+   <keydef keys="contactnumber" href="seeLangRef.dita"
+           navtitle="contactnumber"/>
+   <keydef keys="contactnumbers" href="seeLangRef.dita"
+           navtitle="contactnumbers"/>
+   <keydef keys="country" href="seeLangRef.dita" navtitle="country"/>
+   <keydef keys="emailaddress" href="seeLangRef.dita"
+           navtitle="emailaddress"/>
+   <keydef keys="emailaddresses" href="seeLangRef.dita"
+           navtitle="emailaddresses"/>
+   <keydef keys="firstname" href="seeLangRef.dita"
+           navtitle="firstname"/>
+   <keydef keys="generationidentifier" href="seeLangRef.dita"
+          
+           navtitle="generationidentifier"/>
+   <keydef keys="honorific" href="seeLangRef.dita"
+           navtitle="honorific"/>
+   <keydef keys="lastname" href="seeLangRef.dita"
+           navtitle="lastname"/>
+   <keydef keys="locality" href="seeLangRef.dita"
+           navtitle="locality"/>
+   <keydef keys="localityname" href="seeLangRef.dita"
+           navtitle="localityname"/>
+   <keydef keys="middlename" href="seeLangRef.dita"
+           navtitle="middlename"/>
+   <keydef keys="namedetails" href="seeLangRef.dita"
+           navtitle="namedetails"/>
+   <keydef keys="organizationinfo" href="seeLangRef.dita"
+           navtitle="organizationinfo"/>
+   <keydef keys="organizationname" href="seeLangRef.dita"
+           navtitle="organizationname"/>
+   <keydef keys="organizationnamedetails" href="seeLangRef.dita"
+          
+           navtitle="organizationnamedetails"/>
+   <keydef keys="otherinfo" href="seeLangRef.dita"
+           navtitle="otherinfo"/>
+   <keydef keys="personinfo" href="seeLangRef.dita"
+           navtitle="personinfo"/>
+   <keydef keys="personname" href="seeLangRef.dita"
+           navtitle="personname"/>
+   <keydef keys="postalcode" href="seeLangRef.dita"
+           navtitle="postalcode"/>
+   <keydef keys="thoroughfare" href="seeLangRef.dita"
+           navtitle="thoroughfare"/>
+   <keydef keys="url" href="seeLangRef.dita" navtitle="url"/>
+   <keydef keys="urls" href="seeLangRef.dita" navtitle="urls"/>
+</map>

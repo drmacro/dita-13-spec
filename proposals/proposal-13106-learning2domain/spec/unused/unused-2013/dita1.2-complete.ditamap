@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en-us">
+<title>DITA 1.2 Specification</title>
+ <topicref href="introduction.ditamap" format="ditamap" navtitle="Introduction"/>
+ <topicref href="architectural-specification.ditamap" format="ditamap"/>
+ <topicref href="language-reference.ditamap" format="ditamap"/>
+ <topicref href="conformance.dita" navtitle="Conformance"/> 
+ <topicref href="r-acknowledgments.dita"/>
+ <topicref href="non-normative-information.ditamap" format="ditamap"/>
+
+<reltable title="Concept to concept">
+<relheader>
+<relcolspec type="concept"></relcolspec>
+<relcolspec type="concept"></relcolspec>
+</relheader>
+<relrow>
+<relcell>
+<topicref format="dita"
+href="archSpec/conditional-processing-attributes.dita"
+navtitle="Conditional processing attributes" scope="local" type="concept">
+</topicref>
+</relcell>
+<relcell>
+<topicref format="dita" href="archSpec/condproc.dita"
+navtitle="Conditional processing (profiling)" scope="local"
+type="concept"></topicref>
+</relcell>
+</relrow>
+<relrow>
+<relcell></relcell>
+<relcell></relcell>
+</relrow>
+<relrow>
+<relcell></relcell>
+<relcell></relcell>
+</relrow>
+<relrow>
+<relcell></relcell>
+<relcell></relcell>
+</relrow>
+</reltable>
+<reltable title="Concept to reference">
+<relheader>
+<relcolspec type="concept"></relcolspec>
+<relcolspec type="reference"></relcolspec>
+</relheader>
+<relrow>
+<relcell>
+<topicref format="dita"
+href="archSpec/conditional-processing-attributes.dita"
+navtitle="Conditional processing attributes" scope="local" type="concept">
+</topicref>
+<topicref format="dita" href="archSpec/condproc.dita"
+navtitle="Conditional processing (profiling)" scope="local"
+type="concept"></topicref>
+</relcell>
+<relcell>
+<topicref format="dita" href="common/select-atts.dita"
+navtitle="select-atts attribute group" scope="local" type="reference">
+</topicref>
+<topicref format="dita" href="common/about-ditaval.dita"
+navtitle="DITAVAL elements" scope="local" type="concept"></topicref>
+</relcell>
+</relrow>
+<relrow>
+<relcell></relcell>
+<relcell></relcell>
+</relrow>
+<relrow>
+<relcell></relcell>
+<relcell></relcell>
+</relrow>
+<relrow>
+<relcell></relcell><?Pub Caret -1?>
+<relcell></relcell>
+</relrow>
+</reltable>
+</map>
+<?Pub *0000006508?>

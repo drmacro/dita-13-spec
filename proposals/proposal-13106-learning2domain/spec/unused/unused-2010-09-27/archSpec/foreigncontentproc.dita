@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="concept-1"
+  
+  xml:lang="en-us">
+  <title>Processing foreign content</title>
+  <shortdesc>The default behavior for &lt;foreign&gt; is to try to display the content. If the
+    processor cannot render the content, it <keyword>may</keyword> emit a warning. The default
+    processing behavior for &lt;unknown&gt; is to suppress. </shortdesc>
+  <conbody>
+    <?Pub Caret1?>
+    <draft-comment
+      author="WEK">I think this topic should be integrated with the reference entry for &lt;foreign>
+      as it's simply defining the processing rules for that element type, not
+      architectural.</draft-comment>
+    <p>This section describes processing behaviour of specialized foreign content based on existing
+      standard vocabularies for non-textual content.</p>
+    <section
+      id="section_66EACE9DBA8347418CF8039107FD1DBB">
+      <title>Default processing for &lt;foreign&gt;</title>
+      <p>Base processing attempts to display &lt;foreign&gt; content unless otherwise
+        instructed.</p>
+      <p>The enabler of the foreign vocabulary must provide the processing and override the base
+        processing for &lt;foreign&gt;. </p>
+      <ul
+        id="ul_91B45B69D05C4138A698D8FEE20B72DD">
+        <li
+          id="li_0D7914E89CB54D37ACB1267B8861D86F">If &lt;foreign&gt; contains more than one
+          alternative content element, they will all be processed. In the case of &lt;desc&gt; they
+          will be concatenated in a similar way to &lt;section&gt;, but with no title (analogous to
+          &lt;div&gt; in HTML). <draft-comment> bnevin: Update the description of &lt;desc&gt; to
+            reflect this. Does the following &lt;ls&gt; refer to hover help, or alternative content
+            to be rendered if the foreign processor drops the ball? Or both,
+            ambiguously?</draft-comment></li>
+        <li
+          id="li_4594791821234B059500E0BB5E29CDA9">If alternate content is desired, specialize the
+          &lt;desc&gt; element to contain it. This specialization of &lt;desc&gt; will be used
+          within the element specialized from &lt;foreign&gt;. Such alternate content must of course
+          be valid wherever the &lt;foreign&gt; specialization is valid.</li>
+        <li
+          id="li_DA93ADDC34014B918CC7EF5E0DD93065"> If no &lt;desc&gt;, &lt;object&gt;, or
+          &lt;image&gt; element is found within an instance of the &lt;foreign&gt; element, the base
+          processing may emit a warning about the absence of processable content.<draft-comment>This
+            suggests that &lt;foreign&gt; could contain just one &lt;desc&gt;
+            element.</draft-comment></li>
+        <li
+          id="li_CD218DE850EB4455A4566CE6483905C5">The base processing for &lt;object&gt; can emit
+          the content of &lt;foreign&gt; as a file at the location specified by the data attribute
+          of the &lt;object&gt; element. The &lt;object&gt; element should have a data attribute or
+          a &lt;foreign&gt; sub-element but not both. In the event that an &lt;object&gt; element
+          contains both a data attribute and an &lt;foreign&gt; sub-element the processing system
+          will ignore one of them.<draft-comment>Can't we tell them which one gets
+            ignored?</draft-comment></li>
+      </ul>
+    </section>
+    <section
+      id="section_CEDB12011CE84DD3972FCAD3FF9EB32E">
+      <title>Default processing for &lt;unknown&gt;</title>
+      <p>Base processing skips &lt;unknown&gt; content, doing nothing with it unless otherwise
+        instructed.</p>
+    </section>
+  </conbody>
+</concept>
+<?Pub *0000002424?>

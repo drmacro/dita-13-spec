@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Arbortext, Inc., 1988-2005, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="dita_spec_intro_bookmap">
+<title>Bookmap</title>
+<shortdesc>The DITA bookmap specialization represents the key markup requirements
+for managing DITA content through book-oriented publication processes, including
+book metadata and book structures for organizing content.</shortdesc>
+<concept id="dita_spec_intro_bookmap_whatis">
+<title>Why bookmaps?</title>
+<shortdesc>Books and other printed media are popular ways to present DITA
+content. By specializing the general DITA map structure into the general structure
+and affordances used by most book-oriented DTDs, bookmaps enable users to
+organize their DITA information into front matter, parts, chapters, and so
+forth. A rich set of metadata allows for recording information about the book,
+such as its authors and owners, versions, and production history. </shortdesc>
+</concept>
+<concept id="dita_spec_intro_bookmap_structure" xml:lang="en-us">
+<title>Bookmap structure</title>
+<shortdesc>The &lt;bookmap&gt; element is the top-level element for a DITA
+bookmap. Most of the content for a bookmap is optional, allowing for restrictive
+specializations.</shortdesc>
+<conbody>
+<p>A bookmap allows for:</p>
+<ul>
+<li>an intial title or booktitle (which has more structure),</li>
+<li>book metadata (publisher, author, copyright holders and dates, etc.),</li>
+<li>front matter (placement for Table of Contents and other preliminary information), </li>
+<li>any number of chapters or parts (which can group chapters),</li>
+<li>any number of appendixes,</li>
+<li>back matter (similar roles as for front matter),</li>
+<li>reltable</li>
+</ul>
+<p>In typical book-oriented DTDs or Schemas, authors commonly manage major
+content structures as external entities, separate from the body of the book,
+and referenced as imbeds into that overall structure. Bookmap follows the
+same organizational approach, using the topicref-based structure of DITA maps
+as the archetype for the major divisions of a book.</p>
+<p>Here is an example of a simple bookmap. It includes additional chapter
+content by normal reference, by direct nesting of topicrefs to topics, and
+by referencing a separate map as the content of a chapter.</p>
+<pre>&lt;bookmap ditaarch:DITAArchVersion=&quot;1.1&quot; id=&quot;taskbook&quot; xmlns:ditaarch=&quot;http://dita.oasis-open.org/architecture/2005/&quot;&gt;
+  &lt;booktitle&gt;
+    &lt;mainbooktitle&gt;Product tasks&lt;/mainbooktitle&gt;
+    &lt;booktitlealt&gt;Tasks and what they do&lt;/booktitlealt&gt;
+  &lt;/booktitle&gt;
+  &lt;bookmeta&gt;
+    &lt;author&gt;John Doe&lt;/author&gt;
+    &lt;bookrights&gt;
+      &lt;copyrfirst&gt;
+        &lt;year&gt;2006&lt;/year&gt;
+      &lt;/copyrfirst&gt;
+      &lt;bookowner&gt;
+        &lt;person href=&quot;task_preface.xml&quot;&gt;Jane Doe&lt;/person&gt;
+      &lt;/bookowner&gt;
+    &lt;/bookrights&gt;
+  &lt;/bookmeta&gt;
+  &lt;frontmatter&gt;
+    &lt;preface/&gt;
+  &lt;/frontmatter&gt;
+  &lt;chapter format=&quot;ditamap&quot; href=&quot;installing.ditamap&quot;/&gt;
+  &lt;chapter href=&quot;configuring.xml&quot;/&gt;
+  &lt;chapter href=&quot;maintaining.xml&quot;&gt;
+    &lt;topicref href=&quot;maintainstorage.xml&quot;/&gt;
+    &lt;topicref href=&quot;maintainserver.xml&quot;/&gt;
+    &lt;topicref href=&quot;maintaindatabase.xml&quot;/&gt;
+  &lt;/chapter&gt;
+  &lt;appendix href=&quot;task_appendix.xml&quot;/&gt;
+&lt;/bookmap&gt;</pre>
+</conbody>
+</concept>
+<concept id="dita_spec_intro_bookmap_modules">
+<title>Modules</title>
+<conbody>
+<p>DTD:</p>
+<pre>bookmap.dtd
+bookmap.mod
+</pre>
+<p>Schema:</p>
+<pre>bookmap.xsd
+bookmapGrp.xsd
+bookmapMod.xsd</pre>
+</conbody>
+</concept><?Pub Caret?>
+</concept>
+<?Pub *0000003807?>

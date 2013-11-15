@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap outputclass="specification" xml:lang="en-us">
+ <booktitle outputclass="specificationTitles">
+  <mainbooktitle outputclass="specificationTitle">Darwin Information Typing Architecture (DITA)
+   Version 1.3</mainbooktitle>
+  <booktitlealt outputclass="specificationLevel">OASIS Standard</booktitlealt>
+  <booktitlealt outputclass="specificationApproved">1 December 2014</booktitlealt>
+  <booktitlealt outputclass="specificationShorttitle">DITA Version 1.3 Specification</booktitlealt>
+ </booktitle>
+ <bookmeta>
+  <shortdesc outputclass="specificationAbstract">The Darwin Information Typing Architecture (DITA)
+   1.3 specification defines both a) a set of document types for authoring and organizing
+   topic-oriented information; and b) a set of mechanisms for combining, extending, and constraining
+   document types.</shortdesc>
+  <bookrights>
+   <copyrfirst>
+    <year>2005</year>
+   </copyrfirst>
+   <copyrlast>
+    <year>2014</year>
+   </copyrlast>
+   <bookowner>
+    <organization>OASIS</organization>
+   </bookowner>
+  </bookrights>
+  <data outputclass="specificationURIs"/>
+  <!-- For each group: allow notApplicable OR one authoritative version and zero or more versionLink -->
+  <data outputclass="thisVersion">
+   <data format="html"
+    href="http://docs.oasis-open.org/dita/v1.3/os/spec/DITA1.3-spec.html"
+    outputclass="authoritativeVersion" scope="external"/>
+   <data format="pdf"
+    href="http://docs.oasis-open.org/dita/v1.3/os/spec/DITA1.3-spec.pdf" outputclass="versionLink"
+    scope="external"/>
+   <data format="chm"
+    href="http://docs.oasis-open.org/dita/v1.3/os/spec/DITA1.3-spec-chm.zip"
+    outputclass="versionLink" scope="external"/>
+   <data format="zip"
+    href="http://docs.oasis-open.org/dita/v1.3/os/spec/DITA1.3-spec.zip" outputclass="versionLink"
+    scope="external"/>
+  </data>
+  <data outputclass="previousVersion">
+   <data format="html"
+    href="http://docs.oasis-open.org/dita/v1.3/cs01/spec/DITA1.3-spec.html"
+    outputclass="authoritativeVersion" scope="external"/>
+   <data format="pdf"
+    href="http://docs.oasis-open.org/dita/v1.3/cs01/spec/DITA1.3-spec.pdf" outputclass="versionLink"
+    scope="external"/>
+   <data format="chm"
+    href="http://docs.oasis-open.org/dita/v1.3/cs01/spec/DITA1.3-spec-chm.zip"
+    outputclass="versionLink" scope="external"/>
+   <data format="zip"
+    href="http://docs.oasis-open.org/dita/v1.3/cs01/spec/DITA1.3-spec.zip" outputclass="versionLink"
+    scope="external"/>
+  </data>
+  <data outputclass="latestVersion">
+   <data format="html"
+    href="http://docs.oasis-open.org/dita/v1.3/spec/DITA1.3-spec.html"
+    outputclass="authoritativeVersion" scope="external"/>
+   <data format="pdf"
+    href="http://docs.oasis-open.org/dita/v1.3/spec/DITA1.3-spec.pdf" outputclass="versionLink"
+    scope="external"/>
+   <data format="chm"
+    href="http://docs.oasis-open.org/dita/v1.3/spec/DITA1.3-spec-chm.zip" outputclass="versionLink"
+    scope="external"/>
+   <data format="zip"
+    href="http://docs.oasis-open.org/dita/v1.3/spec/DITA1.3-spec.zip" outputclass="versionLink"
+    scope="external"/>
+  </data>
+  <data format="html" href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dita"
+   outputclass="technicalCommittee">OASIS Darwin Information Typing Architecture (DITA) TC</data>
+  <data outputclass="tcChair">Don Day, Individual Member</data>
+  <data outputclass="tcChair">Kristen James Eberlein, Individual Member</data>
+  <data outputclass="specEditor">Kristen James Eberlein, Individual Member</data>
+  <data outputclass="specEditor">Robert D. Anderson, IBM</data>
+  <data outputclass="relatedWork">
+   <data format="html" href="http://docs.oasis-open.org/dita/v1.1/archspec/archspec.html"
+    outputclass="supercedesWork" scope="external">OASIS DITA Version 1.1 Architectural
+    Specification</data>
+   <data format="html" href="http://docs.oasis-open.org/dita/v1.1/langspec/ditaref-type.html"
+    outputclass="supercedesWork" scope="external">OASIS DITA Version 1.1 Language
+    Specification</data>
+   <data format="zip" href="http://docs.oasis-open.org/dita/v1.3/os/DITA1.3-dtds.zip"
+    outputclass="relatedToWork" scope="external">OASIS DITA Version 1.3 DTDs</data>
+   <data format="zip" href="http://docs.oasis-open.org/dita/v1.3/os/DITA1.2-xsds.zip"
+    outputclass="relatedToWork" scope="external">OASIS DITA Version 1.3 XML Schemas</data></data>
+  <data outputclass="declaredNamespace">None</data>
+  <data format="html" href="http://www.oasis-open.org/committees/dita/ipr.php"
+   outputclass="iprPolicy" scope="external"/>
+  <data format="html" href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dita"
+   outputclass="errata" scope="external"/>
+  <data outputclass="specTrademarks">The names "OASIS" and "DITA" are trademarks of <ph><xref
+     format="html" href="http://www.oasis-open.org/" scope="external">OASIS</xref></ph>, the owner
+   and developer of this specification, and should be used only to refer to the organization and its
+   official outputs. OASIS welcomes reference to, and implementation and use of, specifications,
+   while reserving the right to enforce its marks against misleading uses. Please see <ph><xref
+     format="html" href="http://www.oasis-open.org/who/trademark.php" scope="external"
+     >http://www.oasis-open.org/who/trademark.php</xref></ph> for above guidance.</data>
+ </bookmeta>
+ <frontmatter>
+  <mapref href="DITA-1.3-specification-subjectScheme.ditamap" type="subjectScheme" format="ditamap"/>
+  <mapref href="base-relationship-tables.ditamap" format="ditamap"/>
+  <booklists>
+   <toc/>
+  </booklists>
+ </frontmatter>
+ <chapter format="ditamap" href="other/introduction/introduction.ditamap"/>
+ <chapter href="other/archSpec-base.dita">
+  <topicref href="archSpec/archSpec-base.ditamap" navtitle="Architectural spec: Base topics"
+   format="ditamap"/>
+ </chapter>
+ <chapter href="other/langRef-base.dita">
+  <topicref href="langRef/quick-reference/base-elements-a-to-z.dita"/>
+  <topicref href="langRef/base-elements.ditamap" navtitle="Base elements" format="ditamap"/>
+  <mapref href="langRef/attributes/ditaref-commonatts.ditamap"/>
+ </chapter>
+ <chapter href="other/conformance.dita"/>
+ <appendix href="other/acknowledgments.dita"/>
+ <appendix format="ditamap" href="other/non-normative/non-normative-information.ditamap"/>
+ <backmatter>
+  <booklists>
+   <indexlist/>
+  </booklists>
+ </backmatter>
+</bookmap>

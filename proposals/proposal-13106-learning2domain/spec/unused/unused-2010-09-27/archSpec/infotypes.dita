@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+ "topic.dtd">
+<topic id="infotypes"  xml:lang="en-US">
+<title>Information typing</title>
+<shortdesc>Information typing is the practice of identifying types
+of topics that contain distinct   kinds information, such as concept,
+task, and reference information. Topics that answer different   reader
+questions (How ...? What is ...?) can be categorized with different
+information types. The base information types provided by various
+DITA specializations, i.e., technical communication, machine industry,
+learning and training, and so on, provide starter sets that can be
+adopted immediately by many technical and business-related organizations.</shortdesc>
+<body>
+<p>Classifying information    by type helps authors<ul>
+<li>develop new information more consistently </li>
+<li>ensure that the correct structure is used for closely related
+kinds of information      (retrieval-oriented structures like tables
+for reference information and simple sequences of      steps for task
+information) </li>
+<li>avoid mixing content types, thereby losing reader focus</li>
+<li>separate supporting concept and reference information from tasks
+so that it can be read if needed and ignored if not</li>
+<li>eliminate unimportant or redundant detail</li>
+<li>identify common and reusable subject matter</li>
+</ul></p>
+<p>Information typing has a long history of use in the technical documentation
+field to improve    information quality. It is based on extensive
+research and experience, including Robert Horn's    Information Mapping<tm
+tmtype="tm"></tm> and Hughes Aircraft's STOP (Sequential Thematic
+Organization    of Proposals) technique.</p>
+<p>Information types in DITA are expressed as topic types. The core
+topic types provided by DITA    specializations, such as the technical
+communication and learning and training specializations,    can be
+used as a basis for further specialization. Additional information
+types that require    unique structures and semantics can be supported
+by developing specialized topic types that    define the specific
+markup and structural rules required.</p>
+<p >Note that many additional topic types included in DITA
+1.1 and 1.2 are not    necessarily closely connected with traditional
+Information Mapping<tm tmtype="tm"></tm>.</p>
+</body>
+</topic>

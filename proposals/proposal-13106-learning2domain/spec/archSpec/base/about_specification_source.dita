@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="about-the-spec" xml:lang="en">
+ <title>About the specification source</title>
+ <shortdesc>The DITA specification is authored as a DITA content set and published using the DITA
+  Open Toolkit. It is an example of a complex document that is developed by a team of people and
+  uses many DITA features, including key references (keyrefs) and content references
+  (conrefs).</shortdesc>
+ <conbody>
+  <p>As a convenience for readers, the DITA specification is published in several packages which
+   contain different combinations of required and optional modules. The ability to easily define,
+   manage, and publish these packages is a result of using DITA for the specification source. The
+   source files for the DITA specification are managed in a version control repository that is
+   maintained by OASIS; they also can be downloaded from OASIS.</p>
+  <p >The PDF versions of the DITA specification were built using Antenna House
+   XSL Formatter and RenderX XEP.</p>
+  <p>
+   <draft-comment author="Kristen James Eberlein">Add link to URL where the DITA source can be
+    downloaded.</draft-comment>
+   <draft-comment author="Kristen James Eberlein">Update this topic to reflect the following:<ul>
+     <li>Content of official specification overview page</li>
+     <li>Decisions about packaging that the TC made in February 2010</li>
+    </ul></draft-comment>
+  </p>
+ </conbody>
+</concept>

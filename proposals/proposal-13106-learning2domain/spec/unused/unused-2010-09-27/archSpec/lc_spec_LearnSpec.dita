@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE learningContent PUBLIC "-//OASIS//DTD DITA Learning Content//EN"
+ "learningContent.dtd">
+<?Pub Sty _display FontColor="red"?>
+<?Pub Inc?>
+<learningContent id="LearnSpec" xml:lang="en-us">
+<title>The DITA learning and training content specialization</title>
+<shortdesc>This topic introduces the technical specifications for
+DITA learning and training content</shortdesc>
+<learningContentbody>
+<lcIntro> <p>The DITA for learning technical specifications provide
+a starting point for those professionals looking to take advantage
+of DITA and apply it to learning. The specifications were drawn up
+by a sub-committee of the OASIS DITA Technical Committee, composed
+of DITA experts and learning professionals, all with a keen interest
+in creating a specialization that addresses the unique needs of the
+learning community. These specifications are not meant to be the end
+point, but rather the launching pad and the foundation from which
+DITA extends itself into the world of learning and training.</p> </lcIntro>
+</learningContentbody>
+<concept id="_2">
+<title>Introducing the DITA for Learning Spec</title>
+<conbody>
+<section><title>The topic types</title><dl
+conref="lc_spec_Summary_of_landt_designs.dita#lc_spec_summary_of_landt_designs/lt_topic_types">
+<dlentry>
+<dt></dt>
+<dd></dd>
+</dlentry></dl></section>
+<section><title>The Interactions Domain</title><p>Although “Interactions”
+were built to support the notion of assessment they have been created
+as a DITA domain, and made available in the lcInteractions element
+in learningAssessmentbody.</p><p>Because the interactions are defined
+as a DITA domain, however, they can be made available for use in other
+topic types, if that is desirable. For example, you could make lcInteractions
+available for use in learning activities within the body of a learning
+content topic.</p><p
+conref="lc_spec_Summary_of_landt_designs.dita#lc_spec_summary_of_landt_designs/lt_interactions_domain"
+></p></section>
+<section><title>The learning map domain</title><p>The learning map
+domain defines the following set of specialized topicref elements:<dl
+conref="lc_spec_Summary_of_landt_designs.dita#lc_spec_summary_of_landt_designs/lt_map_domain">
+<dlentry>
+<dt></dt>
+<dd></dd>
+</dlentry></dl></p> <p>A DITA learning object in a map domain looks
+like the following:</p><pre>
+&lt;learningObject collection-type="sequence" href="top_Overview.dita" type="learningOverview">
+  &lt;learningPlanRef href="learningPlan_topic.dita" type="learningPlan"/>
+  &lt;learningOverviewRef href="lo_Overview.dita" type="learningOverview"/>
+  &lt;learningContentRef href="lo_Content.dita" type="learningContent"/>
+  &lt;learningPostAssessmentRef href="lo_Assess.dita" type="learningAssessment/">
+  &lt;learningSummaryRef href="lo_Summary.dita" type="learningSummary"/>
+&lt;learningObject>
+</pre></section>
+<section><title>Learning metadata</title><p>In addition to standard
+DITA metadata, learning-specific metadata is also available for use
+with learning topics and learning maps, through a DITA domain specialization.
+This learning metadata follows the IEEE LOM standard for learning
+objects metadata. </p> <p
+conref="lc_spec_Summary_of_landt_designs.dita#lc_spec_summary_of_landt_designs/lt_lcLom"></p
+><?Pub Caret1?><p
+conref="lc_spec_Summary_of_landt_designs.dita#lc_spec_summary_of_landt_designs/lt_metadata_domain"
+></p></section>
+</conbody>
+</concept>
+</learningContent>
+<?Pub *0000003345?>

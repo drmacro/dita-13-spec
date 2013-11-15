@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="usingmetadataattributes" xml:lang="en-us">
+    <title>Using select attributes</title>
+    <conbody>
+        <p>Each attribute takes zero or more space-delimited string values. For example, you can use
+            the product attribute to identify that an element applies to two particular products. </p>
+        <fig id="fig_4573A5A5D5C44DCDB153C37AF9A909CF">
+            <title>Example source</title>
+            <codeblock>
+&lt;p audience="administrator"&gt;Set the configuration options:
+    &lt;ul&gt;
+        &lt;li product="extendedprod"&gt;Set foo to bar&lt;/li&gt;
+        &lt;li product="basicprod extendedprod"&gt;Set your blink rate&lt;/li&gt;
+        &lt;li&gt;Do some other stuff&lt;/li&gt;
+        &lt;li platform="Linux"&gt;Do a special thing for Linux&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/p&gt;
+            </codeblock>
+        </fig>
+    </conbody>
+</concept>

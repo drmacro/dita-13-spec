@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Sty _display FontColor="red"?>
+<concept id="new-in-1.3" xml:lang="en-us" rev="DITA1.3">
+ <title>Changes from DITA 1.2 to DITA 1.3</title>
+ <shortdesc>(Non-normative) DITA 1.3 adds a number of new features to DITA, including
+  ...</shortdesc>
+ <conbody>
+  <section>
+   <title>New features</title>
+   <p>The following features are new in DITA 1.3:</p>
+  </section>
+  <section>
+   <title>New element types</title>
+   <p>The following base element types are new in DITA 1.3:</p>
+  </section>
+  <section>
+   <title>Refinements to maps</title>
+  </section>
+  <section>
+   <title>Refinements to content references</title>
+  </section>
+  <section>
+   <title>Refinements to topic elements</title>
+  </section>
+  <section>
+   <title>Refinements to specialization</title>
+  </section>
+  <section>
+   <title>Other refinements</title>
+  </section>
+ </conbody>
+</concept>
+<?Pub *0000008704?>

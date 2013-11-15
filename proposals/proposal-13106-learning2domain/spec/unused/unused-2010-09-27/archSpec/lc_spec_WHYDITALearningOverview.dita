@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2008, v.4002-->
+<!DOCTYPE learningOverview PUBLIC "-//OASIS//DTD DITA Learning Overview//EN"
+ "learningOverview.dtd">
+<learningOverview id="WHYDITALearning" xml:lang="en-us"><?Pub Caret1?>
+<title>Overview: Why DITA for learning and training content?</title>
+<shortdesc>The benefits of DITA for the learning and training community
+include all the advantages of structured authoring and more.</shortdesc>
+<learningOverviewbody>
+<lcObjectives><lcObjectivesStem>In this lesson you will learn:</lcObjectivesStem>
+<lcObjectivesGroup>
+<lcObjective>What are the core features of DITA</lcObjective>
+<lcObjective>What features of DITA support learning</lcObjective>
+<lcObjective>How can authoring and delivering learning and training
+content benefit from DITA</lcObjective>
+</lcObjectivesGroup>
+</lcObjectives>
+</learningOverviewbody>
+</learningOverview>
+<?Pub *0000000940?>

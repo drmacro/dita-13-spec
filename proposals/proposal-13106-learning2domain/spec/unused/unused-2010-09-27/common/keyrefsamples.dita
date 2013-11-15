@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="keyrefsamples"  xml:lang="en-us"><?Pub Caret?>
+<title>Sample uses for keyref</title>
+<shortdesc>These samples illustrate the various ways in which keyref
+may be used.</shortdesc>
+<refbody>
+<refsyn><fig><title>Redirect a link or xref</title>
+<ol>
+<li>Author 1 creates a map that associates keys with each topic, for
+example &lt;topicref keys="a" href="a1.dita"/></li>
+<li>Author 1 creates topic c.dita that contains a related link to
+a1.dita - but uses the keyref attribute: &lt;link keyref="a" href="a0.dita"/></li>
+<li>Author 2 reuses c.dita, but wants to redirect the link, so applies
+a different map with &lt;topicref  keys="a" href="a2.dita"/>. The
+link in c.dita now resolves to a2.dita when author 2 builds it (it
+continues to resolve to a1.dita when author 1 builds it)</li>
+<li>Author 3 also reuses c.dita, but wants the link to point to an
+external resource, so creates an external-pointing topicref to resolve
+the key: <codeblock>&lt;topicref  keys="a" href="http://www.a..." scope="external">
+  &lt;topicmeta>
+    &lt;linktext>This links to A2&lt;/linktext>
+    &lt;shortdesc>Because it does.&lt;/shortdesc>
+  &lt;/topicmeta>
+&lt;/topicref></codeblock><p>The link in c.dita  now resolves to an
+external URI when author 3 builds it (without affecting how it resolves
+for the other two reusers).</p></li>
+<li>Author 4 wants to get rid of the link, so creates an explicitly
+empty topicref to get rid of it: &lt;topicref  keys="a"/>. This gets
+rid of the link for author 4 without affecting the other reusers.</li>
+<li>Author 5 wants to turn the link into just plain text (not hypertext)
+- for example a citation of a print-only magazine article. <codeblock>&lt;topicref  keys="a">
+  &lt;topicmeta>
+    &lt;linktext>This is just text.&lt;/linktext>
+  &lt;/topicmeta>
+&lt;/topicref></codeblock> </li>
+<li>Author 6 reuses c.dita, but does not include a topicref that defines
+the key “a” in the map.  Topic a0.dita is used as the “fallback” related
+link.</li>
+</ol>
+</fig></refsyn>
+<refsyn><fig><title>Redirect conref</title>
+<ol>
+<li>Author 1 creates a map that associates a key with a topic that
+contains reusable elements, for example <codeph>&lt;topicref  keys="reuse"
+href="prodA/reuse.dita"/></codeph></li>
+<li>Author 1 uses the key instead of the full href whenever creating
+conrefs - for example <codeph>&lt;p conkeyref="reuse/para1"/></codeph></li>
+<li>Author 2 wants to reuse author 1's content, but swap in a different
+set of reusable content. So Author 2 associates the key "reuse" with
+a different topic: <codeph>&lt;topicref  keys="reuse" href="prodB/mytopic.dita"/></codeph>.
+So now <codeph>&lt;p conkeyref="reuse/para1"/></codeph> will resolve
+to a paragraph with the id “para1” in prodB/mytopic.dita  when author
+2 builds the content, while continuing to resolve to the para with
+the id “para1” in prodA/reuse.dita for author 1.</li>
+</ol>
+<note>The reusing author must create a parallel set of elements and
+ids in the replacement topic - this proposal does not remap the element
+ids within the topic, only the pointer to the topic container.</note>
+</fig></refsyn>
+<refsyn><fig><title>Create links from keywords, terms, or other elements</title>
+<ol>
+<li>Author 1 creates a map that contains glossary entries, and associates
+keys for each entry: <codeph>&lt;topicref keys="myterm" href="myterm.dita"/></codeph></li>
+<li>Author 1 then uses the keys to create links to the appropriate
+glossary entry from occurrences of terms in content: <codeph>&lt;term
+keyref="myterm">my term&lt;/term></codeph>.</li>
+</ol>
+</fig></refsyn>
+<refsyn><fig><title>Swap out variable content</title>
+<ol>
+<li>Author 1 creates a map for key words and phrases that tend to
+change, such as UI labels and product names. The topicrefs do not
+in this case contain any actual hrefs, just the text that should be
+used: <codeblock>&lt;topicref keys="prodname">
+  &lt;topicmeta>
+    &lt;linktext>My Product&lt;/linktext>
+  &lt;/topicmeta>
+&lt;/topicref></codeblock></li>
+<li>Author 1 then uses the keys to draw text into empty keywords: <codeph>&lt;keyword
+keyref="prodname"/></codeph></li>
+<li>Author 2 reuses the content but wants to use a different product
+name, so associates prodname with a different string: <codeblock>&lt;topicref keys="prodname">
+  &lt;topicmeta>
+    &lt;linktext>Another Product&lt;/linktext>
+  &lt;/topicmeta>
+&lt;/topicref></codeblock><p>The keyword now resolves to "Another
+Product" for author 2, while continuing to resolve to "My Product"
+for author 1.</p></li>
+</ol>
+<note>A processor should generate a warning message when a key reference
+on an empty element cannot be resolved, resulting in the element effectively
+being removed.</note>
+</fig></refsyn>
+<refsyn><fig><title>Splitting or combining targets</title>
+<ol>
+<li>Author 1 creates a map in which most branches have the same structure:
+intro, example, reference. But two branches have only very little
+content in them, because the product support is only minimal. But
+in anticipation of future elaboration, author 1 assigns 3 keys to
+the container under which more topics are expected in the future: <codeblock>&lt;topicref keys="blatoverview blatintro blatexample blatreference" 
+          href="blatoverview.dita"/></codeblock></li>
+<li>Author 2 references blatexample, and in the future when Author
+1 moves blatexample into a separate topic, author 2's link remains
+appropriate and valid and does not need to be reworked.</li>
+<li>Author 3 is reusing a bunch of author 1's content, but in a context
+where blats are not available, and are instead replaced by foobars.
+So author 3 simply adds the blat keys to their own foobar  topicref: <codeblock>&lt;topicref keys="blatoverview blatintro blatexample blatreference foobar" 
+          href="foobar.dita"/></codeblock></li>
+</ol>
+</fig></refsyn>
+</refbody>
+</reference>

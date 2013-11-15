@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="topicmodules"  xml:lang="en-us">
+ <title>Topic modules</title>
+ <shortdesc>Several modules contain the basic topic elements and attributes. Some are specific to
+  the generic topic and its specializations; others are shared with DITA maps. Both DTD and Schema
+  modules are included.</shortdesc>
+ <conbody>
+  <p>
+   <draft-comment>this topic should be moved to the general DITA introduction. JTH</draft-comment>
+  </p>
+  <dl>
+   <dlentry>
+    <dt>tblDecl.mod (DTD)</dt>
+    <dt>tblDeclMod.xsd, tblDeclGrp.xsd (Schema)</dt>
+    <dd>Defines the elements for authoring tables, based on the OASIS/CALS table model but with some
+     DITA-specific extensions.</dd>
+   </dlentry>
+   <dlentry>
+    <dt>metaDecl.mod (DTD)</dt>
+    <dt>metaDeclMod.xsd, metaDeclGrp.xsd (Schema)</dt>
+    <dd>Defines metadata elements, which can appear in both topics and in maps, where metadata can
+     be defined for multiple topics at once.</dd>
+   </dlentry>
+   <dlentry>
+    <dt>commonElements.mod, commonElements.ent (DTD</dt>
+    <dt>commonElementsGrp.xsd (Schema)</dt>
+    <dd>Defines common elements such as phrase or keyword that appear in both topics and maps.</dd>
+   </dlentry>
+   <dlentry>
+    <dt>topicAttr.mod, topicDefn.ent (DTD only - folded into other schema files))</dt>
+    <dd>Defines common DITA attributes and entities.</dd>
+   </dlentry>
+   <dlentry>
+    <dt>xml.xsd, ditaarch.xsd (Schema only - folded into other DTD files)</dt>
+    <dd>Defines common XML attributes and the DITA architecture version attribute.</dd>
+   </dlentry>
+   <dlentry>
+    <dt>topic.mod (DTD)</dt>
+    <dt>topicMod.xsd, topicGrp.xsd (Schema)</dt>
+    <dd>Defines the rest of the elements in a topic.</dd>
+   </dlentry>
+  </dl>
+ </conbody>
+</concept>
+<?Pub *0000001628?>
