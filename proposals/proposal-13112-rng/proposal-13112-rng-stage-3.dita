@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: 13112, RelaxNG For Vocabulary</title>
+    <shortdesc>Defines the coding requirements for RelaxNG DITA vocabulary and constraint modules and document type shells.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Champions: Eliot Kimber, Robert Anderson, Michael Priestly</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry/>
+            <stentry>Include links to DITA and HTML versions</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry/>
+            <stentry>Include link to meeting minutes</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Include names of reviewers</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>The requirement is to use RelaxNG as a recognized and codified schema language for DITA vocabulary and constraint definitions. As a schema syntax, RelaxNG offers a number of significant
+          advantages over both DTD and XSD, advantages that make RelaxNG ideally suited to DITA's modular vocabulary architecture. The syntax features of RelaxNG make defining vocabulary modules and
+          the document shells that use them about as easy as it can be, avoiding both the syntactic complexity and unfamiliarity of DTDs and the verbosity of XSD along with XSD's challenges with the
+          redefine feature. </p>
+        <p>An additional requirement is to use RelaxNG as the master form for all vocabulary definitions from which all other schema formats can be generated, reducing the effort required to maintain
+          multiple forms of DITA modules and document type shells. In short, the requirement is "let the creators and maintainers of DITA modules and shells use the best available tools for the task." </p>
+        <p>Any schema language used for DITA vocabulary must support defaulted attributes and must support the integration and configuration of vocabulary and constraint modules into working document
+          type shells.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>Is not dependent on any other proposals. </p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>Not applicable.</p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <table
+          frame="all"
+          id="table_zzc_j4w_4k">
+          <title>Modified Topics</title>
+          <tgroup
+            cols="4">
+            <colspec
+              colname="c1"
+              colnum="1"
+              colwidth="1.98*"/>
+            <colspec
+              colname="c2"
+              colnum="2"
+              colwidth="1.06*"/>
+            <colspec
+              colname="c3"
+              colnum="3"
+              colwidth="1*"/>
+            <colspec
+              colname="newCol4"
+              colnum="4"
+              colwidth="1.03*"/>
+            <thead>
+              <row>
+                <entry>Topic to Be Modified</entry>
+                <entry>DITA 1.2 Text</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Proposed 1.3 Text</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>archSpec/base/dita-terminology.dita</entry>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>DITA document-type shell</dt>
+                      <dd>A set of DTD or XSD declarations that implement a DITA document type... </dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <dl>
+                    <dlentry>
+                      <dt>DITA document-type shell</dt>
+                      <dd>A set of DTD, XSD, or RelaxNG declarations that implement a DITA document type... </dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry
+                  morerows="1">archSpec/base/fileext.dita</entry>
+                <entry>
+                  <dl>
+                    <dlentry>
+                      <dt>Document-type shell files</dt>
+                      <dd>
+                        <ul
+                          id="ul_3298f6ba-c3a1-419b-88e5-104eb24fe903">
+                          <li><varname>typename</varname>.dtd</li>
+                          <li><varname>typename</varname>.xsd</li>
+                        </ul>
+                      </dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <dl>
+                    <dlentry>
+                      <dt>Document-type shell files</dt>
+                      <dd>
+                        <ul
+                          id="ul_l52_zzd_2m">
+                          <li><varname>typename</varname>.dtd</li>
+                          <li><varname>typename</varname>.xsd</li>
+                          <li><varname>typename</varname>.rnc</li>
+                          <li><varname>typename</varname>.rng</li>
+                        </ul>
+                      </dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry>Add to end of definition list</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <dl>
+                    <dlentry>
+                      <dt>RelaxNG structural module files</dt>
+                      <dd>
+                        <ul
+                          id="ul_eefc504e-3109-4ab5-bbe9-91221b4ecf74">
+                          <li><varname>typename</varname>Mod.rnc</li>
+                          <li><varname>typename</varname>Mod.rng</li>
+                        </ul>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>RelaxNG domain module files</dt>
+                      <dd>
+                        <ul
+                          id="ul_odj_k12_2m">
+                          <li><varname>typename</varname>Domain.rnc</li>
+                          <li><varname>typename</varname>Domain.rng</li>
+                        </ul>
+                      </dd>
+                    </dlentry>
+                    <dlentry>
+                      <dt>RelaxNG constraint module files</dt>
+                      <dd>
+                        <ul
+                          id="ul_49a2afe7-c7d2-4c8f-967e-97c6c8ef207d">
+                          <li><varname>constraintname</varname>ConstraintMod.rnc</li>
+                          <li><varname>constraintname</varname>ConstraintMod.rng</li>
+                        </ul>
+                      </dd>
+                    </dlentry>
+                  </dl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/base/recognizedconstraintmechanisms.dita</entry>
+                <entry>
+                  <p>The DITA standard currently recognizes two XML document grammar mechanisms by which conforming DITA vocabulary modules and document types may be constructed: document type
+                    declarations (DTDs) and XML Schema declarations (XSDs).</p>
+                  <p>This specification defines implementation requirements for both of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other XML grammar
+                    languages might provide similar modularity and extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so
+                    their conformance cannot be determined.</p>
+                </entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <p>The DITA standard currently recognizes <ph
+                    rev="1.3">three</ph> XML document grammar mechanisms by which conforming DITA vocabulary modules and document types may be constructed: document type declarations (DTDs), XML
+                    Schema declarations (XSDs)<ph
+                    rev="1.3">, and RelaxNG grammars.</ph></p>
+                  <p>This specification defines implementation requirements for <ph
+                    rev="1.3">all</ph> of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other XML grammar languages might provide similar modularity and
+                    extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so their conformance cannot be determined.</p>
+                </entry>
+              </row>
+              <row>
+                <entry
+                  morerows="1">archSpec/base/createCustomDocType.dita</entry>
+                <entry>Thus, DITA <keyword>does not</keyword> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
+                  attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated using normal XML
+                  processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for
+                  DTDs and XML schema documents, conforming DITA documents <keyword>may</keyword> use other document type constraint languages, such as RelaxNG or Schematron.</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Thus, DITA <keyword>does not</keyword> require that conforming DITA documents have an associated DTD, XSD, <ph>RelaxNG, </ph>or other formal document type
+                  definition as long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD<ph
+                  rev="1.3">, RelaxNG grammar, or </ph>XML schema document by which the documents can be validated using normal XML processors and that can provide default values for the @domains and
+                  @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for DTDs<ph
+                  rev="1.3">, RelaxNG grammars, </ph>andXML schema documents, conforming DITA documents <keyword>may</keyword> use other document type constraint languages, such as Schematron.</entry>
+              </row>
+              <row>
+                <entry>For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (topic.dtd or topic.xsd) </entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (<ph
+                  rev="1.3">topic.rng, topic.rnc, topic.dtd,</ph> or topic.xsd)</entry>
+              </row>
+              <row>
+                <entry>New topic</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">RelaxNG document-type shell: Coding requirements (see below).</entry>
+              </row>
+              <row>
+                <entry>archSpec/base/classatt.dita</entry>
+                <entry>When the @class attribute is declared in a DTD or XSD</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">When the @class attribute is declared in a <ph
+                  rev="1.3">DTD, XSD, or RelaxNG grammar,</ph></entry>
+              </row>
+              <row>
+                <entry>archSpec/base/foreigncontentspec.dita</entry>
+                <entry>New example</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Add new example of RelaxNG foreign specialization (see below).</entry>
+              </row>
+              <row>
+                <entry>New topic</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">RelaxNG grammar specialization module coding requirements (see below)</entry>
+              </row>
+              <row>
+                <entry>New topic</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Constraint module RelaxNG coding requirements (see below)</entry>
+              </row>
+              <row>
+                <entry
+                  namest="c1"
+                  nameend="newCol4">For the Technical Content section, all the topics have trailing "Modules" sections that must be updated to reflect the RelaxNG modules. I have not bothered to show
+                  the original except for Concept, which establishes the pattern.</entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_concept_topic.dita</entry>
+                <entry>In section titled "Modules":<p>The following DITA modules are provided for the concept topic:</p><sl>
+                  <sli>concept.mod, concept.ent (DTD)</sli>
+                  <sli>conceptMod.xsd, conceptGrp.xsd (Schema)</sli>
+                  </sl></entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <p>The following DITA modules are provided for the concept topic:</p>
+                  <sl>
+                    <sli>concept.mod, concept.ent (DTD)</sli>
+                    <sli>conceptMod.xsd, conceptGrp.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_reference_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>reference.mod, reference.ent (DTD)</sli>
+                    <sli><ph
+                      rev="1.3">referenceMod.rnc (RelaxNG compact syntax)</ph></sli>
+                    <sli><ph
+                      rev="1.3">referenceMod.rng (RelaxNG XML syntax)</ph></sli>
+                    <sli>referenceMod.xsd, referenceGrp.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_generic_task_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>task.mod, task.ent(DTD)</sli>
+                    <sli><ph
+                      rev="1.3">taskMod.rnc (RelaxNG compact syntax)</ph></sli>
+                    <sli><ph
+                      rev="1.3">taskMod.rng (RelaxNG XML syntax)</ph></sli>
+                    <sli>taskMod.xsd, taskGrp.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_task_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>task.mod. task.ent, strictTaskbody constraint (DTD)</sli>
+                    <sli><ph
+                      rev="1.3">taskMod.rnc, strictTaskBodyConstraint.rnc (RelaxNG compact syntax)</ph></sli>
+                    <sli><ph
+                      rev="1.3">taskMod.rng, strictTaskBodyConstraint.rng (RelaxNG XML syntax)</ph></sli>
+                    <sli>taskMod.xsd, taskGrp.xsd, strictTaskbodyConstraintMod.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_machinerytask_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>machineryTask.dtd (DTD), machineryTaskbodyConstraint.mod</sli>
+                    <sli>machineryTask.rnc, machineryTaskbodyConstraint.rnc (RelaxNG compact syntax)</sli>
+                    <sli>machineryTask.rng, machineryTaskbodyConstraint.rng (RelaxNG XML syntax)</sli>
+                    <sli> machineryTask.xsd, machineryTaskbodyConstraintMod.xsd, machineryTaskbodyConstraintIntMod.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_glossary_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>glossentry.dtd, glossentry.ent, glossentry.mod (DTD)</sli>
+                    <sli>glossentry.rnc, glossentryMod.rnc (RelaxNG compact syntax)</sli>
+                    <sli>glossentry.rng, glossentryMod.rng (RelaxNG XML syntax)</sli>
+                    <sli>glossentryMod.xsd, glossentryGrp.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_glossarygroup_topic.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>glossgroup.dtd, glossgroup.ent, glossgroup.mod (DTD) </sli>
+                    <sli>glossgroup.rnc, glossgroupMod.rnc (RelaxNG compact syntax)</sli>
+                    <sli>glossgroup.rng, glossgroupMod.rng (RelaxNG XML syntax)</sli>
+                    <sli>glossgroup.xsd, (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+              <row>
+                <entry>archSpec/technicalContent/dita_spec_intro_bookmap.dita</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">
+                  <sl>
+                    <sli>bookmap.dtd, bookmap.ent, <?Pub Caret?>bookmap.mod (DTD)</sli>
+                    <sli>bookmap.rnc, bookmapMod.rnc (RelaxNG compact syntax)</sli>
+                    <sli>bookmap.rng, bookmapMod.rng (RelaxNG XML syntax)</sli>
+                    <sli>bookmap.xsd, bookmapGrp.xsd, bookmapMod.xsd (Schema)</sli>
+                  </sl>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+    </body>
+    <concept
+      id="concept_ecb_wg2_2m">
+      <title>RelaxNG document-type shell: Coding requirements</title>
+      <shortdesc/>
+      <conbody/>
+    </concept>
+    <concept id="concept_aqh_5zt_3h">
+      <title>Specializing foreign or unknown content</title>
+      <conbody>
+        <p>[Insert new example before XSD sample.]</p>
+        <example>
+          <title>Example of specializing foreign content using RelaxNG</title>
+          <p>The sample below describes how to create a domain declaration for the ???? element, but does not show how to integrate that declaration in a DITA document-type shell. For more specific
+            information on creating document-type shells, see <xref
+            href="relaxngmod.dita#modRelaxNG"
+            format="dita"/></p>
+        </example>
+      </conbody>
+    </concept>
+    <reference id="reference_aqh_5zt_3h">
+      <title>New language reference topic</title>
+      <shortdesc/>
+      <refbody>
+        <section>
+          <title>Inheritance</title>
+        </section>
+        <section>
+          <title>Example</title>
+        </section>
+        <section>
+          <title>Attributes</title>
+        </section>
+      </refbody>
+    </reference>
+  </topic>
+</dita>
