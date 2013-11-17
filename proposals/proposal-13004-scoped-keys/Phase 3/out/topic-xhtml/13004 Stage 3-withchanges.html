@@ -574,7 +574,7 @@
 
                     
                     
-                      <dt class="dt dlterm">key scope</dt>
+                      <dt class="dt dlterm" style="background-color:#eeeeee;">key scope</dt>
 
                       <dd class="dd">A root map or section of a map hierarchy associated with a unique key
                         space for purposes of key reference resolution.</dd>
@@ -583,7 +583,7 @@
                     
                       <dt class="dt dlterm">key space</dt>
 
-                      <dd class="dd">The set of unique key names that are defined for a
+                      <dd class="dd" style="background-color:#eeeeee;">The set of unique key names that are defined for a
                         given key scope. Within a given key scope, a key name has at most one
                         definition, as determined by the key definition precedence rules.</dd>
 
@@ -591,7 +591,7 @@
                     
                       <dt class="dt dlterm">key resolution context</dt>
 
-                      <dd class="dd">The key scope that establishes the context for
+                      <dd class="dd" style="background-color:#eeeeee;">The key scope that establishes the context for
                         resolving key references. For a given key-resolution instance, there is at
                         most one key scope that defines the effective key space, which in turn
                         provides the effective key definition.</dd>
@@ -632,7 +632,7 @@
 
                 <td class="entry" valign="top" width="50%" headers="d26e414 "><span class="ph">DITA maps are documents that organize topics and other resources into
                     structured collections of information. DITA maps specify hierarchy and the
-                    relationships among the topics; they also provide the <span class="ph">contexts</span> in which keys are defined and resolved. DITA maps
+                    relationships among the topics; they also provide the <span class="ph" style="background-color:#eeeeee;">contexts</span> in which keys are defined and resolved. DITA maps
                       <span class="keyword">should</span> have <span class="ph filepath">.ditamap</span> file
                     extensions.</span><div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>Chris Nitchie <br/>One-word change: 'context'
                     to 'contexts'</div>
@@ -650,7 +650,7 @@
                 </td>
 
                 <td class="entry" valign="top" width="50%" headers="d26e414 ">
-                  <p class="p">DITA maps also define keys and organize the <span class="ph">contexts</span> in which key references are resolved. <span class="ph">A &lt;topicref&gt; or &lt;map&gt; element, or any specialization, may be used to
+                  <p class="p">DITA maps also define keys and organize the <span class="ph" style="background-color:#eeeeee;">contexts</span> in which key references are resolved. <span class="ph" style="background-color:#eeeeee;">A &lt;topicref&gt; or &lt;map&gt; element, or any specialization, may be used to
                       create a new context for key definition and resolution. A &lt;topicref&gt;
                       element, or specialized &lt;topicref&gt; such as &lt;keydef&gt;, may also be used to
                       define a key which binds that key name to a specified resource for references
@@ -710,7 +710,7 @@
                 <td class="entry" valign="top" width="50%" headers="d26e492 ">
                   <dl class="dl">
                     
-                      <dt class="dt dlterm">Defining keys and key scopes</dt>
+                      <dt class="dt dlterm" style="background-color:#eeeeee;">Defining keys and key scopes</dt>
 
                       <dd class="dd">Maps can define keys, which provide an indirect addressing mechanism that
                         enhances portability of content. The keys are defined by &lt;topicref&gt;
@@ -725,9 +725,9 @@
                         </ul>
 </dd>
 
-                      <dd class="dd">Maps also define the context <span class="ph">or contexts</span> for
+                      <dd class="dd">Maps also define the context <span class="ph" style="background-color:#eeeeee;">or contexts</span> for
                         resolving key-based references, such as elements that specify the @keyref or
-                        @conkeyref attribute. <span class="ph">Elements within a map
+                        @conkeyref attribute. <span class="ph" style="background-color:#eeeeee;">Elements within a map
                           structure that specify a @keyscope attribute create a new context for key
                           reference resolution. Key references within such elements are resolved
                           against the set of effective key definitions for that scope.</span></dd>
@@ -770,7 +770,7 @@
                 <td class="entry" valign="top" width="50%" headers="d26e581 ">
                   <dl class="dl">
                     
-                      <dt class="dt dlterm">keyscope</dt>
+                      <dt class="dt dlterm" style="background-color:#eeeeee;">keyscope</dt>
 
                       <dd class="dd">Defines a new scope for key definition and resolution, and gives the scope
                         one or more names, separated by white space. Key definitions within a scope
@@ -816,7 +816,7 @@
                   keys with conditional processing.</td>
 
                 <td class="entry" valign="top" width="50%" headers="d26e634 ">To use key references, one must understand how keys are defined and bound to
-                  resources, how a map hierarchy <span class="ph">and key scopes establish
+                  resources, how a map hierarchy <span class="ph" style="background-color:#eeeeee;">and key scopes establish
                     key spaces</span>, and the interaction of keys with conditional
                   processing.</td>
 
@@ -872,7 +872,7 @@
                   <div class="note note"><span class="notetitle">Note:</span> Since a parent scope contains the scope-qualified keys from its child
                     scopes, and a child key scope inherits all key definitions from its parent
                     scope, a child scope also contains all of the qualified key names from itself,
-                    as well as its "sibling" scopes. <span class="ph">See <a class="xref" href="#findingKeyDefinitionsFromScopes" title="When searching for the effective definition for a given key name from within a scope, check each scope between the root scope and the referencing scope, inclusive, starting from the root. The first matching definition - including implicit scope-qualified key names contribued by child key scopes - should be used to resolve the reference.">Finding Effective Key Definitions for a Key Scope</a> for an example of
+                    as well as its "sibling" scopes. <span class="ph" style="background-color:#ffffee;">See <a class="xref" href="#findingKeyDefinitionsFromScopes" title="When searching for the effective definition for a given key name from within a scope, check each scope between the root scope and the referencing scope, inclusive, starting from the root. The first matching definition - including implicit scope-qualified key names contribued by child key scopes - should be used to resolve the reference.">Finding Effective Key Definitions for a Key Scope</a> for an example of
                     this.</span></div>
 
                   <p class="p">For purposes of key definition precedence within a scope, the implicit
@@ -911,20 +911,20 @@
                 <td class="entry" valign="top" width="50%" headers="d26e634 ">
                   <p class="p"><strong class="ph b">Key spaces</strong></p>
 
-                  <p class="p"><span class="ph">A key scope-defining element and its directly
+                  <p class="p"><span class="ph" style="background-color:#eeeeee;">A key scope-defining element and its directly
                       addressed, local scope descendant maps</span> establish a unique key space
                     within which each unique key name has exactly one binding to a set of
                     resources.</p>
 
                   <p class="p">For the purposes of determining the effective key definitions for the key space
-                    represented by a given <span class="ph">key scope</span>, a map tree is
+                    represented by a given <span class="ph" style="background-color:#eeeeee;">key scope</span>, a map tree is
                     determined by considering only directly addressed, local scope maps descending
-                    from the<span class="ph"> key scope-defining element</span>. The order of
+                    from the<span class="ph" style="background-color:#eeeeee;"> key scope-defining element</span>. The order of
                     subordinate maps is determined by the document order of the topicrefs that point
                     to them. Indirect references to maps with key references are necessarily ignored
                     until after the key space is determined.</p>
 
-                  <p class="p">Maps addressed by &lt;navref&gt; do not contribute to the key space of a <span class="ph">key scope</span>. Maps referenced by &lt;navref&gt; are
+                  <p class="p">Maps addressed by &lt;navref&gt; do not contribute to the key space of a <span class="ph" style="background-color:#eeeeee;">key scope</span>. Maps referenced by &lt;navref&gt; are
                     equivalent to maps referenced with a scope of "peer" or "external" and therefore
                     need not be present or available at the time the referencing map is processed
                     for purposes of key space construction.</p>
@@ -985,10 +985,10 @@
 
                   <p class="p">For a given key there is at most one effective definition within a key space. A
                     key definition is the effective definition for a given key if it is the first,
-                    in document order, within the <span class="ph">key scope-defining
-                      element</span> that contains it, and is the first in the map tree <span class="ph">beneath the scope-defining elemnt</span> in breadth-first
+                    in document order, within the <span class="ph" style="background-color:#eeeeee;">key scope-defining
+                      element</span> that contains it, and is the first in the map tree <span class="ph" style="background-color:#eeeeee;">beneath the scope-defining elemnt</span> in breadth-first
                     order. It is not an error for the same key name to be defined more than once
-                    within a map or <span class="ph">key scope</span>, and duplicate key
+                    within a map or <span class="ph" style="background-color:#eeeeee;">key scope</span>, and duplicate key
                     definitions <span class="keyword">should</span> be ignored without warning. </p>
 
                   <div class="note note"><span class="notetitle">Note:</span> A given &lt;topicref&gt; element that defines more than one key may be the
@@ -996,12 +996,12 @@
                     duplicate binding of a key name to its definition that is ignored, not the
                     key-defining topic reference as a whole.</div>
 
-                  <p class="p"><span class="ph">Key definitions are scoped by the key scope-defining
+                  <p class="p"><span class="ph" style="background-color:#eeeeee;">Key definitions are scoped by the key scope-defining
                       elements within which they occur.</span> Keys do not have to be declared before
-                    they are referenced. The key space is effective for the entire <span class="ph">key scope</span>, so the order of key definitions and key
-                    references relative to one another within the <span class="ph">hierarchy
-                      of a key scope</span> is not significant, and keys defined in any map in the <span class="ph">key scope</span> are available for use with key references
-                    from all maps and topics processed in the context of the <span class="ph">key scope</span>. </p>
+                    they are referenced. The key space is effective for the entire <span class="ph" style="background-color:#eeeeee;">key scope</span>, so the order of key definitions and key
+                    references relative to one another within the <span class="ph" style="background-color:#eeeeee;">hierarchy
+                      of a key scope</span> is not significant, and keys defined in any map in the <span class="ph" style="background-color:#eeeeee;">key scope</span> are available for use with key references
+                    from all maps and topics processed in the context of the <span class="ph" style="background-color:#eeeeee;">key scope</span>. </p>
 
                   <div class="note note"><span class="notetitle">Note:</span> These rules mean that key definitions higher in the map tree hierarchy take
                     precedence over key definitions lower in the map tree and that key definitions
@@ -1011,7 +1011,7 @@
                     any).</div>
 
                   <div class="note note"><span class="notetitle">Note:</span> Because keys are defined in maps, all key-based processing must be done in
-                    the context of a root map that establishes the <span class="ph">root key
+                    the context of a root map that establishes the <span class="ph" style="background-color:#eeeeee;">root key
                       scope and scope hierarchy, or a specific scope within such a map.</span></div>
 
                   <p class="p">For key definitions in a submap to be included in the key space, there must be
@@ -1135,7 +1135,7 @@
 
     </div>
 
-    <div class="topic concept nested1" id="findingKeyDefinitionsFromScopes">
+    <div class="topic concept nested1" style="background-color:#ffffee;" id="findingKeyDefinitionsFromScopes">
       <h2 class="title topictitle2">Finding Effective Key Definitions for a Key Scope</h2>
 
       
@@ -1145,7 +1145,7 @@
         key names contribued by child key scopes - should be used to resolve the
         reference.</p>
 
-        <div class="section">
+        <div class="section" style="background-color:#ffffee;">
           <p class="p">Consider the following map:</p>
 
           <pre class="pre codeblock">&lt;map&gt;
@@ -1264,7 +1264,7 @@
           new sections here instead of using the tabular format normally used for updates to
           existing topics.</div>
 
-        <div class="section"><h3 class="title sectiontitle">Topic reuse with varying key behavior</h3>
+        <div class="section" style="background-color:#eeeeee;"><h3 class="title sectiontitle">Topic reuse with varying key behavior</h3>
           
           <p class="p">In this example, the “oil change” procedures for Tractor X and Tractor Y are similar
             enough to reuse the same topic for both, but the name of the product is included in the
@@ -1303,7 +1303,7 @@
 
         </div>
 
-        <div class="section"><h3 class="title sectiontitle">Combination of standalone maps with their own key spaces</h3>
+        <div class="section" style="background-color:#eeeeee;"><h3 class="title sectiontitle">Combination of standalone maps with their own key spaces</h3>
           
           <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
   &lt;title&gt;Training Courses&lt;/title&gt;
@@ -1325,7 +1325,7 @@
 
         </div>
 
-        <div class="section"><h3 class="title sectiontitle">Examples of scope-qualified key references</h3>
+        <div class="section" style="background-color:#eeeeee;"><h3 class="title sectiontitle">Examples of scope-qualified key references</h3>
           
           <pre class="pre codeblock">&lt;map xml:lang="en"&gt;
   &lt;title&gt;Scoped Key Example&lt;/title&gt;
@@ -1385,7 +1385,7 @@
 
     </div>
 
-    <div class="topic concept nested1" id="the_keyscope_attribute">
+    <div class="topic concept nested1" style="background-color:#eeeeee;" id="the_keyscope_attribute">
       <h2 class="title topictitle2">The keyscope attribute</h2>
 
       
@@ -1397,7 +1397,7 @@
         referenceable from within the same scope. They can be referenced from the parent scope using
         the scope's name, followed by a period, followed by the key name.</p>
 
-        <div class="note note"><span class="notetitle">Note:</span> Within a given root map, two distinct key scopes with the same name have
+        <div class="note note" style="background-color:#ffffee;"><span class="notetitle">Note:</span> Within a given root map, two distinct key scopes with the same name have
           no relationship with each other aside from that implied by their relative locations in the
           key scope hierarchy. They do not, for example, share key definitions. There is no such
           thing as a non-contiguous key scope. The only processing impact of a key scope's names is

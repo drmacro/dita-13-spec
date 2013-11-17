@@ -507,23 +507,23 @@
                       <dd>A &lt;topicref> element or specialization of a &lt;topicref> element that
                         specifies the @keys attribute and defines one or more key names.</dd>
                     </dlentry>
-                    <dlentry>
+                    <dlentry rev="13004-proposal">
                       <dt>key scope</dt>
                       <dd>A root map or section of a map hierarchy associated with a unique key
                         space for purposes of key reference resolution.</dd>
                     </dlentry>
                     <dlentry>
                       <dt>key space</dt>
-                      <dd>The set of unique key names that are defined for a given key scope. Within
-                        a given key scope, a key name has at most one definition, as determined by
-                        the key definition precedence rules.</dd>
+                      <dd rev="13004-proposal">The set of unique key names that are defined for a
+                        given key scope. Within a given key scope, a key name has at most one
+                        definition, as determined by the key definition precedence rules.</dd>
                     </dlentry>
                     <dlentry>
                       <dt>key resolution context</dt>
-                      <dd>The key scope that establishes the context for resolving key references.
-                        For a given key-resolution instance, there is at most one key scope that
-                        defines the effective key space, which in turn provides the effective key
-                        definition.</dd>
+                      <dd rev="13004-proposal">The key scope that establishes the context for
+                        resolving key references. For a given key-resolution instance, there is at
+                        most one key scope that defines the effective key space, which in turn
+                        provides the effective key definition.</dd>
                     </dlentry>
                   </dl>
                 </entry>
@@ -551,11 +551,11 @@
                       <filepath>.ditamap</filepath> file extensions.</ph></entry>
                 <entry><ph>DITA maps are documents that organize topics and other resources into
                     structured collections of information. DITA maps specify hierarchy and the
-                    relationships among the topics; they also provide the contexts in which keys are
-                    defined and resolved. DITA maps <keyword>should</keyword> have
-                      <filepath>.ditamap</filepath> file extensions.</ph><draft-comment
-                    author="Chris Nitchie">One-word change: 'context' to
-                  'contexts'</draft-comment></entry>
+                    relationships among the topics; they also provide the <ph rev="13004-proposal"
+                      >contexts</ph> in which keys are defined and resolved. DITA maps
+                      <keyword>should</keyword> have <filepath>.ditamap</filepath> file
+                    extensions.</ph><draft-comment author="Chris Nitchie">One-word change: 'context'
+                    to 'contexts'</draft-comment></entry>
               </row>
               <row>
                 <entry>
@@ -565,12 +565,13 @@
                     specified resource.</p>
                 </entry>
                 <entry>
-                  <p>DITA maps also define keys and organize the contexts in which key references
-                    are resolved. A &lt;topicref> or &lt;map> element, or any specialization, may be
-                    used to create a new context for key definition and resolution. A &lt;topicref>
-                    element, or specialized &lt;topicref> such as &lt;keydef>, may also be used to
-                    define a key which binds that key name to a specified resource for references in
-                    the same key scope.</p>
+                  <p>DITA maps also define keys and organize the <ph rev="13004-proposal"
+                      >contexts</ph> in which key references are resolved. <ph rev="13004-proposal"
+                      >A &lt;topicref> or &lt;map> element, or any specialization, may be used to
+                      create a new context for key definition and resolution. A &lt;topicref>
+                      element, or specialized &lt;topicref> such as &lt;keydef>, may also be used to
+                      define a key which binds that key name to a specified resource for references
+                      in the same key scope.</ph></p>
                 </entry>
               </row>
             </tbody>
@@ -611,7 +612,7 @@
                 <entry>
                   <dl>
                     <dlentry>
-                      <dt>Defining keys and key scopes</dt>
+                      <dt rev="13004-proposal">Defining keys and key scopes</dt>
                       <dd>Maps can define keys, which provide an indirect addressing mechanism that
                         enhances portability of content. The keys are defined by &lt;topicref>
                         elements or specialization of &lt;topicref> elements, such as &lt;keydef>.
@@ -622,12 +623,12 @@
                           <li>A @processing-role attribute with a default value of
                             "resource-only".</li>
                         </ul></dd>
-                      <dd>Maps also define the context or contexts for resolving key-based
-                        references, such as elements that specify the @keyref or @conkeyref
-                        attribute. Elements within a map structure that specify a @keyscope
-                        attribute create a new context for key reference resolution. Key references
-                        within such elements are resolved against the set of effective key
-                        definitions for that scope.</dd>
+                      <dd>Maps also define the context <ph rev="13004-proposal">or contexts</ph> for
+                        resolving key-based references, such as elements that specify the @keyref or
+                        @conkeyref attribute. <ph rev="13004-proposal">Elements within a map
+                          structure that specify a @keyscope attribute create a new context for key
+                          reference resolution. Key references within such elements are resolved
+                          against the set of effective key definitions for that scope.</ph></dd>
                     </dlentry>
                   </dl>
                 </entry>
@@ -655,7 +656,7 @@
                 </entry>
                 <entry>
                   <dl>
-                    <dlentry>
+                    <dlentry rev="13004-proposal">
                       <dt>keyscope</dt>
                       <dd>Defines a new scope for key definition and resolution, and gives the scope
                         one or more names, separated by white space. Key definitions within a scope
@@ -691,12 +692,13 @@
                   resources, how a map hierarchy establishes a key space, and the interaction of
                   keys with conditional processing.</entry>
                 <entry>To use key references, one must understand how keys are defined and bound to
-                  resources, how a map hierarchy and key scopes establish key spaces, and the
-                  interaction of keys with conditional processing.</entry>
+                  resources, how a map hierarchy <ph rev="13004-proposal">and key scopes establish
+                    key spaces</ph>, and the interaction of keys with conditional
+                  processing.</entry>
               </row>
               <row>
                 <entry><i>New section: Key scopes</i></entry>
-                <entry>
+                <entry rev="13004-proposal">
                   <p><b>Key scopes</b></p>
                   <p>A key scope defines a key space associated with a segment of the map hierarchy,
                     the contents of which are described below. It also defineds a key reference
@@ -733,7 +735,9 @@
                   <note>Since a parent scope contains the scope-qualified keys from its child
                     scopes, and a child key scope inherits all key definitions from its parent
                     scope, a child scope also contains all of the qualified key names from itself,
-                    as well as its "sibling" scopes.</note>
+                    as well as its "sibling" scopes. <ph rev="October">See <xref
+                        href="#findingKeyDefinitionsFromScopes"/> for an example of
+                    this.</ph></note>
                   <p>For purposes of key definition precedence within a scope, the implicit
                     qualified key definitions a parent key scope derives from a child key scope are
                     considered to occur at the location of the child scope-defining element.</p>
@@ -760,20 +764,22 @@
                 </entry>
                 <entry>
                   <p><b>Key spaces</b></p>
-                  <p>A key scope-defining element and its directly addressed, local scope descendant
-                    maps establish a unique key space within which each unique key name has exactly
-                    one binding to a set of resources.</p>
+                  <p><ph rev="13004-proposal">A key scope-defining element and its directly
+                      addressed, local scope descendant maps</ph> establish a unique key space
+                    within which each unique key name has exactly one binding to a set of
+                    resources.</p>
                   <p>For the purposes of determining the effective key definitions for the key space
-                    represented by a given key scope, a map tree is determined by considering only
-                    directly addressed, local scope maps descending from the key scope-defining
-                    element. The order of subordinate maps is determined by the document order of
-                    the topicrefs that point to them. Indirect references to maps with key
-                    references are necessarily ignored until after the key space is determined.</p>
-                  <p>Maps addressed by &lt;navref> do not contribute to the key space of a key
-                    scope. Maps referenced by &lt;navref> are equivalent to maps referenced with a
-                    scope of "peer" or "external" and therefore need not be present or available at
-                    the time the referencing map is processed for purposes of key space
-                    construction.</p>
+                    represented by a given <ph rev="13004-proposal">key scope</ph>, a map tree is
+                    determined by considering only directly addressed, local scope maps descending
+                    from the<ph rev="13004-proposal"> key scope-defining element</ph>. The order of
+                    subordinate maps is determined by the document order of the topicrefs that point
+                    to them. Indirect references to maps with key references are necessarily ignored
+                    until after the key space is determined.</p>
+                  <p>Maps addressed by &lt;navref> do not contribute to the key space of a <ph
+                      rev="13004-proposal">key scope</ph>. Maps referenced by &lt;navref> are
+                    equivalent to maps referenced with a scope of "peer" or "external" and therefore
+                    need not be present or available at the time the referencing map is processed
+                    for purposes of key space construction.</p>
                 </entry>
               </row>
               <row>
@@ -827,22 +833,25 @@ in the map tree in a different position than they would if
                   <p><b>Effective key definitions</b></p>
                   <p>For a given key there is at most one effective definition within a key space. A
                     key definition is the effective definition for a given key if it is the first,
-                    in document order, within the key scope-defining element that contains it, and
-                    is the first in the map tree beneath the scope-defining elemnt in breadth-first
+                    in document order, within the <ph rev="13004-proposal">key scope-defining
+                      element</ph> that contains it, and is the first in the map tree <ph
+                      rev="13004-proposal">beneath the scope-defining elemnt</ph> in breadth-first
                     order. It is not an error for the same key name to be defined more than once
-                    within a map or key scope, and duplicate key definitions
-                      <keyword>should</keyword> be ignored without warning. </p>
+                    within a map or <ph rev="13004-proposal">key scope</ph>, and duplicate key
+                    definitions <keyword>should</keyword> be ignored without warning. </p>
                   <note>A given &lt;topicref> element that defines more than one key may be the
                     effective definition for some of its keys but not for others. It is the
                     duplicate binding of a key name to its definition that is ignored, not the
                     key-defining topic reference as a whole.</note>
-                  <p>Key definitions are scoped by the key scope-defining elements within which they
-                    occur. Keys do not have to be declared before they are referenced. The key space
-                    is effective for the entire key scope, so the order of key definitions and key
-                    references relative to one another within the hierarchy of a key scope is not
-                    significant, and keys defined in any map in the key scope are available for use
-                    with key references from all maps and topics processed in the context of the key
-                    scope. </p>
+                  <p><ph rev="13004-proposal">Key definitions are scoped by the key scope-defining
+                      elements within which they occur.</ph> Keys do not have to be declared before
+                    they are referenced. The key space is effective for the entire <ph
+                      rev="13004-proposal">key scope</ph>, so the order of key definitions and key
+                    references relative to one another within the <ph rev="13004-proposal">hierarchy
+                      of a key scope</ph> is not significant, and keys defined in any map in the <ph
+                      rev="13004-proposal">key scope</ph> are available for use with key references
+                    from all maps and topics processed in the context of the <ph
+                      rev="13004-proposal">key scope</ph>. </p>
                   <note>These rules mean that key definitions higher in the map tree hierarchy take
                     precedence over key definitions lower in the map tree and that key definitions
                     in referencing maps always take precedence over key definitions in referenced
@@ -850,8 +859,8 @@ in the map tree in a different position than they would if
                     any keys can be resolved to their ultimately-addressed resources (if
                     any).</note>
                   <note>Because keys are defined in maps, all key-based processing must be done in
-                    the context of a root map that establishes the root key scope and scope
-                    hierarchy, or a specific scope within such a map.</note>
+                    the context of a root map that establishes the <ph rev="13004-proposal">root key
+                      scope and scope hierarchy, or a specific scope within such a map.</ph></note>
                   <p>For key definitions in a submap to be included in the key space, there must be
                     a direct URI reference to that submap from another directly addressed map in the
                     map tree. However, if that same submap is referenced indirectly and has no
@@ -900,9 +909,9 @@ in the map tree in a different position than they would if
               <row>
                 <entry><i>New attribute table entry for 'keyscope', to be referenced from
                     topicref-atts.dita</i></entry>
-                <entry>Specifies that the element marks the boundaries of a key scope. See <xref
-                    href="#the_keyscope_attribute" format="dita"/> for details on how to use the
-                  keyscope attribute.</entry>
+                <entry rev="13004-proposal">Specifies that the element marks the boundaries of a key
+                  scope. See <xref href="#the_keyscope_attribute" format="dita"/> for details on how
+                  to use the keyscope attribute.</entry>
               </row>
             </tbody>
           </tgroup>
@@ -940,6 +949,96 @@ in the map tree in a different position than they would if
         </table>
       </section>
     </body>
+    <concept id="findingKeyDefinitionsFromScopes" rev="October">
+      <title>Finding Effective Key Definitions for a Key Scope</title>
+      <shortdesc>When searching for the effective definition for a given key name from within a
+        scope, check each scope between the root scope and the referencing scope, inclusive,
+        starting from the root. The first matching definition - including implicit scope-qualified
+        key names contribued by child key scopes - should be used to resolve the
+        reference.</shortdesc>
+      <conbody>
+        <section rev="October">
+          <p>Consider the following map:</p>
+          <codeblock>&lt;map>
+  &lt;title>Root Map&lt;/title>
+  
+  &lt;keydef keys="a"/>
+  
+  &lt;topicgroup keyscope="A">
+    &lt;keydef keys="b"/>
+    
+    &lt;topicgroup keyscope="A-1">
+      &lt;keydef keys="c"/>
+    &lt;/topicgroup>
+    
+    &lt;topicgroup keyscope="A-2">
+      &lt;keydef keys="d"/>
+    &lt;/topicgroup>
+  &lt;/topicgroup> &lt;!-- End scope A -->
+  
+  &lt;topicgroup keyscope="B">
+    &lt;keydef keys="a"/>
+    &lt;keydef keys="e"/>
+    
+    &lt;topicgroup keyscope="B-1">
+      &lt;keydef keys="f"/>
+    &lt;/topicgroup>
+    
+    &lt;topicgroup keyscope="B-2">
+      &lt;keydef keys="g"/>
+    &lt;/topicgroup>
+  &lt;/topicgroup> &lt;!-- End scope B -->
+&lt;/map></codeblock>
+          <p>The key scopes in this map form a tree structure.</p>
+          <fig>
+            <title>Sample Key Scope Structure</title>
+            <image id="image_jkb_x21_wl"
+              href="https://www.oasis-open.org/committees/download.php/51086/Keyscopes-Illustrated.png"
+            />
+          </fig>
+          <ul id="ul_xft_mg1_wl">
+            <li>Explicit key definitions are shown undecorated.</li>
+            <li>Implicit qualified key names contributed by child scopes are shown in
+              parentheses.</li>
+            <li>Keys overridden by their parent scopes are in square brackets.</li>
+            <li>The arrows denote parentage of each scope.</li>
+          </ul>
+          <p>Here are some examples of various potential key references in various scopes from the
+            above example.</p>
+          <ul id="ul_cjp_2j1_wl">
+            <li><b>Within Scope A-2</b><ul id="ul_mxs_fj1_wl">
+                <li><codeph>keyref="a"</codeph> resolves to the definition for "a" at the root
+                  scope.</li>
+                <li><codeph>keyref="d"</codeph> resolves to the local definition.</li>
+                <li><codeph>keyref="A-2.d"</codeph> also resolves to the local definition, because
+                  that qualified key name is available in the parent scope.</li>
+                <li><codeph>keyref="c"</codeph> does not resolve, because no definition for that key
+                  exists in any of the ancestor scopes.</li>
+                <li>However, <codeph>keyref="A-1.c"</codeph> does resolve, because that definition
+                  is available in the parent scope.</li>
+                <li>As does <codeph>keyref="A.A-1.c"</codeph>, because that definition is available
+                  at the root scope.</li>
+                <li>This scope can also reference key definitions within the "B" scope descending
+                  from the root, such as <codeph>keyref="B.e"</codeph> or
+                    <codeph>keyref="B.B-2.g"</codeph>, due to the presence of implicit qualified
+                  names for those keys at the root scope.</li>
+              </ul></li>
+            <li><b>Within Scope B</b><ul id="ul_s25_wj1_wl">
+                <li><codeph>keyref="e"</codeph> resolves to the local definition.</li>
+                <li><codeph>keyref="a"</codeph> resolves to the <i>root-level</i> definition of "a",
+                    <i>not</i> the local definition. Keys from the parent scope override any local
+                  definitions.</li>
+                <li>However, <codeph>keyref="B.a"</codeph> resolves to the <i>local</i> definition
+                  of "a", as inherited from the root scope.</li>
+                <li><codeph>keyref="g"</codeph> does not resolve, because no definition for that key
+                  exists in this or any parent scope.</li>
+                <li>However, <codeph>keyref="B-2.g"</codeph> will resolve due to the availablity of
+                  the implicit qualified definition in the current scope.</li>
+              </ul></li>
+          </ul>
+        </section>
+      </conbody>
+    </concept>
     <concept id="concept_w12_3ts_tk">
       <title>Examples of keys</title>
       <conbody>
@@ -947,7 +1046,7 @@ in the map tree in a different position than they would if
           to this topic are strictly additive - new sections with new examples - I've written up the
           new sections here instead of using the tabular format normally used for updates to
           existing topics.</draft-comment>
-        <section>
+        <section rev="13004-proposal">
           <title>Topic reuse with varying key behavior</title>
           <p>In this example, the “oil change” procedures for Tractor X and Tractor Y are similar
             enough to reuse the same topic for both, but the name of the product is included in the
@@ -982,7 +1081,7 @@ in the map tree in a different position than they would if
   &lt;!-- etc. -->
 &lt;/task></codeblock>
         </section>
-        <section>
+        <section rev="13004-proposal">
           <title>Combination of standalone maps with their own key spaces</title>
           <codeblock>&lt;map xml:lang="en">
   &lt;title>Training Courses&lt;/title>
@@ -1000,7 +1099,7 @@ in the map tree in a different position than they would if
             definition overrides any conflicting definition of <codeph>summary</codeph> in any of
             the referenced maps.</p>
         </section>
-        <section>
+        <section rev="13004-proposal">
           <title>Examples of scope-qualified key references</title>
           <codeblock>&lt;map xml:lang="en">
   &lt;title>Scoped Key Example&lt;/title>
@@ -1055,7 +1154,7 @@ in the map tree in a different position than they would if
         </section>
       </conbody>
     </concept>
-    <concept id="the_keyscope_attribute">
+    <concept id="the_keyscope_attribute" rev="13004-proposal">
       <title>The keyscope attribute</title>
       <shortdesc>The keyscope attribute consists of one or more space-separated key scope names. Map
         authors define the boundaries for key scopes by specifying the keyscope attribute on map
@@ -1064,9 +1163,20 @@ in the map tree in a different position than they would if
         are considered to be part of the scope. Keys defined within a scope are only directly
         referenceable from within the same scope. They can be referenced from the parent scope using
         the scope's name, followed by a period, followed by the key name.</shortdesc>
+      <conbody>
+        <note rev="October">Within a given root map, two distinct key scopes with the same name have
+          no relationship with each other aside from that implied by their relative locations in the
+          key scope hierarchy. They do not, for example, share key definitions. There is no such
+          thing as a non-contiguous key scope. The only processing impact of a key scope's names is
+          in defining the prefixes used when contributing qualified key names to the parent
+          scope.</note>
+      </conbody>
       <related-links>
-        <link>
+        <link href="#topic_aqh_5zt_3h">
           <linktext>Key-based addressing</linktext>
+        </link>
+        <link href="#findingKeyDefinitionsFromScopes">
+          <linktext>Finding Effective Key Definitions for a Key Scope</linktext>
         </link>
       </related-links>
     </concept>
