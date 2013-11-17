@@ -66,7 +66,13 @@
       </section>
       <section>
         <title>Modified DTDs</title>
-        <p>Not applicable.</p>
+        <p>New topic type, vocabularyModuleDesc, which is used within DITA RNG modules. This topic type is a specialization of &lt;topic>. It is required specifically to provide RNG module metadata
+          required to enable generation of other syntax forms of the module. It is not intended for use outside of this context. For that reason, it should not be considered part of the main
+          TC-defined DITA vocabulary, but part of the RNG facility. The markup is documented as part of the RNG facility (see xref TBD).</p>
+        <p>Vocabulary module description topic type:</p>
+        <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDescMod.rng"/></codeblock>
+        <p>Vocabulary module topic document type shell:</p>
+        <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDesc.rng"/></codeblock>
       </section>
       <section>
         <title>Modified specification documentation</title>
@@ -220,19 +226,28 @@
                 </entry>
               </row>
               <row>
-                <entry
-                  morerows="1">archSpec/base/createCustomDocType.dita</entry>
-                <entry>Thus, DITA <keyword>does not</keyword> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
-                  attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated using normal XML
-                  processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for
-                  DTDs and XML schema documents, conforming DITA documents <keyword>may</keyword> use other document type constraint languages, such as RelaxNG or Schematron.</entry>
+                <entry>New topic, generation of DTD and XSD schemas from RelaxNG</entry>
+                <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Thus, DITA <keyword>does not</keyword> require that conforming DITA documents have an associated DTD, XSD, <ph>RelaxNG, </ph>or other formal document type
+                  nameend="newCol4">Insert as second child of archSpec/base/ditaspecialization.dita. See <xref
+                  href="#concept_j3g_vm4_2m"
+                  format="dita"/></entry>
+              </row>
+              <row>
+                <entry
+                  morerows="1">archSpec/base/createCustomDocType.dita</entry>
+                <entry>Thus, DITA <term>does not</term> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
+                  attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated using normal XML
+                  processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for
+                  DTDs and XML schema documents, conforming DITA documents <term>may</term> use other document type constraint languages, such as RelaxNG or Schematron.</entry>
+                <entry
+                  namest="c3"
+                  nameend="newCol4">Thus, DITA <term>does not</term> require that conforming DITA documents have an associated DTD, XSD, <ph>RelaxNG, </ph>or other formal document type
                   definition as long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD<ph
                   rev="1.3">, RelaxNG grammar, or </ph>XML schema document by which the documents can be validated using normal XML processors and that can provide default values for the @domains and
                   @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for DTDs<ph
-                  rev="1.3">, RelaxNG grammars, </ph>andXML schema documents, conforming DITA documents <keyword>may</keyword> use other document type constraint languages, such as Schematron.</entry>
+                  rev="1.3">, RelaxNG grammars, </ph>andXML schema documents, conforming DITA documents <term>may</term> use other document type constraint languages, such as Schematron.</entry>
               </row>
               <row>
                 <entry>For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (topic.dtd or topic.xsd) </entry>
@@ -246,7 +261,9 @@
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">RelaxNG document-type shell: Coding requirements (see below).</entry>
+                  nameend="newCol4">RelaxNG document-type shell: Coding requirements (see <xref
+                  href="#concept_ecb_wg2_2m"
+                  format="dita"/>).</entry>
               </row>
               <row>
                 <entry>archSpec/base/classatt.dita</entry>
@@ -261,21 +278,27 @@
                 <entry>New example</entry>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Add new example of RelaxNG foreign specialization (see below).</entry>
+                  nameend="newCol4">Add new example of RelaxNG foreign specialization (see <xref
+                  href="#concept_aqh_5zt_3h"
+                  format="dita"/>).</entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">RelaxNG grammar specialization module coding requirements (see below)</entry>
+                  nameend="newCol4">RelaxNG grammar specialization module coding requirements (see <xref
+                  href="#concept_sbf_fn4_2m"
+                  format="dita"/>)</entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Constraint module RelaxNG coding requirements (see below)</entry>
+                  nameend="newCol4">Constraint module RelaxNG coding requirements (see <xref
+                  href="#concept_ebs_mn4_2m"
+                  format="dita"/>)</entry>
               </row>
               <row>
                 <entry
@@ -409,8 +432,244 @@
       </section>
     </body>
     <concept
+      id="concept_j3g_vm4_2m">
+      <title>Generating DTD and XSD Schemas from RelaxNG</title>
+      <shortdesc>RelaxNG XML syntax document type shells and modules may be used to generate DTD- and XSD-syntax document type shells and modules that conform to the DITA coding requirements when the
+        RelaxNG grammar document contains DITA-specific metadata that defines the module type, module header comment, and public identifiers for the components to be generated. All RelaxNG grammars
+        defined by the DITA standard include this metadata.</shortdesc>
+      <conbody>
+        <p>RelaxNG provides the simplest syntax for specifying the integration of vocabulary and constraint modules into document type shells. This makes RelaxNG ideally suited as the base format for
+          defining DITA vocabulary. However, many, if not most DITA-aware tools require the use of DTDs or XSD schemas as of version 1.3 of the DITA specification. Thus there is a practical
+          requirement to generate DTDs and XSD schemas from RelaxNG.</p>
+        <p>The generation of DTD and XSD modules requires additional metadata that is not inherent in the grammar definition:<ul
+          id="ul_vfp_sp4_2m">
+          <li>The module type (document type shell, vocabulary module, or constraint module)</li>
+          <li>The header comment for the file</li>
+          <li>The module short name for vocabulary and constraint modules</li>
+          <li>The public identifiers to use for each component file to be generated</li>
+          </ul></p>
+        <p>This metadata can be defined using the &lt;moduleDesc> element within a RelaxNG &lt;grammar> element.</p>
+      </conbody>
+      <concept
+        id="concept_lbt_ct4_2m">
+        <title>Module Description Markup for use in DITA-specific RelaxNG grammars</title>
+        <shortdesc>The &lt;moduleDesc> element enables specification of the metadata required in order to generate  from RelaxNG grammars DTD and XSD components that conform to the DITA coding
+          requirements. </shortdesc>
+        <conbody>
+          <p>The &lt;moduleDesc> element <term
+            outputclass="OASIS-terminology">must</term> be specified as a child of the RelaxNG &lt;grammar> element and <term
+            outputclass="OASIS-terminology">should</term> be the first child of &lt;grammar>. The &lt;moduleDesc> element functions as a foreign element as defined in the RelaxNG standard. As a
+            foreign element, it must be in a namespace that is different from the RelaxNG. The &lt;moduleDesc> element is defined as a specialization of &lt;topic>. Because it must be in a namespace,
+            it cannot be a strictly-conforming DITA topic as DITA elements may not be in a namespace. However, if the &lt;moduleDesc> element is processed in terms of the @class attributes it will be
+            recognized as a DITA topic and otherwise conforms to all rules for conforming topic specializations.</p>
+          <p>The &lt;moduleDesc> element type is defined in the vocabulary module file <filepath>rng/rng/vocabularyModuleDescMod.rng</filepath>.</p>
+          <section>
+            <title>Namespace</title>
+            <p>The &lt;moduleDesc> element is in the DITA architecture namespace, "<ph
+              outputclass="xmlnsname">http://dita.oasis-open.org/architecture/2005/</ph>"</p>
+          </section>
+          <section>
+            <title>&lt;moduleDesc> element type</title>
+            <dl>
+              <dlentry>
+                <dt>&lt;moduleDesc></dt>
+                <dd>Contains the module description metadata. Subelements:<dl>
+                  <dlentry>
+                    <dt>&lt;moduleTitle></dt>
+                    <dd>Provides a descriptive title for the module or document type shell. Content is text.</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>&lt;headerComment></dt>
+                    <dd>Contains the header comment for the module. The content is text with whitespace preserved (@xml:space of "preserve"). The header comment is used as the header for all generated
+                      components.</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>&lt;moduleMetadata></dt>
+                    <dd>Containers additional metadata for the module or document type shell. Subelements:<dl>
+                      <dlentry>
+                        <dt>&lt;moduleType></dt>
+                        <dd>Indicates the module type. Content is one of the following keywords:<dl>
+                          <dlentry>
+                            <dt>attributedomain</dt>
+                            <dd>The grammar defines an attribute domain</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>base</dt>
+                            <dd>The grammar is one of the DITA base modules. Base modules may only be defined by the DITA Technical Committee.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>constraint</dt>
+                            <dd>The grammar defines a constraint module.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>elementdomain</dt>
+                            <dd>The grammar defines an element domain.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>map</dt>
+                            <dd>The grammar defines a map type.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>mapshell</dt>
+                            <dd>The grammar is a document type shell for a map type.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>topic</dt>
+                            <dd>The grammar defines a topic type.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>topicshell</dt>
+                            <dd>The grammar is a document type shell for a topic type.</dd>
+                          </dlentry>
+                          </dl></dd>
+                      </dlentry>
+                      <dlentry>
+                        <dt>&lt;modulePublicIds></dt>
+                        <dd>For vocabulary and constraint modules, defines the public IDs for files generated from the grammar. Each subelement specifies the public identifier to use for a specific
+                          generated file. Subelements:<dl>
+                          <dlentry>
+                            <dt>&lt;dtdMod></dt>
+                            <dd>The public identifier for the DTD-syntax .mod file to be generated from the grammar.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;dtdEnt></dt>
+                            <dd>The public identifier for the DTD-syntax .ent file to be generated from the grammar. Required for element domain modules, not used for attribute domain modules.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;rncMod></dt>
+                            <dd>The public identifier for the RelaxNG compact syntax (RNC) module file to be generated from the grammar.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;rngMod></dt>
+                            <dd>The public identifier for the RelaxNG XML syntax (RNG) module file (the file that contains the &lt;moduleMetadata> element).</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;xsdMod></dt>
+                            <dd>The public identifier for the XSD schema module file to be generated from the grammar.</dd>
+                          </dlentry>
+                          </dl></dd>
+                      </dlentry>
+                      <dlentry>
+                        <dt>&lt;shellPublicIds></dt>
+                        <dd>For document type shells, defines the public IDs for files generated from the grammar. Each subelement specifies the public identifier to use for a specific generated file. Subelements:<dl>
+                          <dlentry>
+                            <dt>&lt;dtdShell></dt>
+                            <dd>The public identifier for the DTD document type shell to be generated from the grammar.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;rncShell></dt>
+                            <dd>The public identifier for the RelaxNG compact syntax (RNC) document type shell to be generated from the grammar.</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;rngShell></dt>
+                            <dd>The public identifier for the RNG document type shell (the file that contains the &lt;moduleMetadata> element)</dd>
+                          </dlentry>
+                          <dlentry>
+                            <dt>&lt;xsdShell></dt>
+                            <dd>The public identifier for the XSD schema document type shell to be generated from the grammar.</dd>
+                          </dlentry>
+                          </dl></dd>
+                      </dlentry>
+                      </dl></dd>
+                  </dlentry>
+                  </dl></dd>
+              </dlentry>
+            </dl>
+          </section>
+          <example>
+            <title>Example RelaxNG grammars with module metadata</title>
+            <p>A typical vocabulary module, in this case, a topic
+              type:<codeblock>&lt;grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
+ &lt;moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   &lt;moduleTitle>DITA Module Description Module&lt;/moduleTitle>
+   &lt;headerComment>&lt;![CDATA[
+============================================================= 
+                    HEADER                                     
+ ============================================================= 
+  MODULE:    DITA Module Description                             
+  VERSION:   1.3                                               
+  DATE:      September 2013                                     
+
+  ...
+]]&gt;&lt;/headerComment>
+   &lt;moduleMetadata>
+     &lt;moduleType>topic&lt;/moduleType>
+     &lt;moduleShortName>vocabularyModule&lt;/moduleShortName>
+     &lt;modulePublicIds>
+       &lt;dtdMod>-//OASIS//ELEMENTS DITA Vocabulary Module Description//EN&lt;/dtdMod>
+       &lt;dtdEnt>-//OASIS//ENTITIES DITA Vocabulary Module Description//EN&lt;/dtdEnt>
+       &lt;xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDescMod.xsd&lt;/xsdMod>
+       &lt;rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDescMod.rnc&lt;/rncMod>
+       &lt;rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng&lt;/rngMod>
+     &lt;/modulePublicIds>
+   &lt;/moduleMetadata>
+ &lt;/moduleDesc>
+ 
+ ...
+
+&lt;/grammar></codeblock></p>
+            <p>A typical document type shell, in this case, a topic
+              type:<codeblock>&lt;grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  &lt;moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   &lt;moduleTitle>DITA Module Description Module&lt;/moduleTitle>
+   &lt;headerComment>&lt;![CDATA[
+============================================================= 
+                    HEADER                                     
+ ============================================================= 
+  MODULE:    DITA Module Description Topic Type Shell                           
+  VERSION:   1.3                                               
+  DATE:      September 2013                                     
+
+  ...
+
+]]&gt;&lt;/headerComment>
+   &lt;moduleMetadata>
+     &lt;moduleType>topicshell&lt;/moduleType>
+     &lt;moduleShortName>vocabularyModule&lt;/moduleShortName>
+     &lt;modulePublicIds>
+       &lt;dtdMod>-//OASIS//DTD DITA Vocabulary Module Description//EN&lt;/dtdMod>
+       &lt;xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDesc.xsd&lt;/xsdMod>
+       &lt;rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDesc.rnc&lt;/rncMod>
+       &lt;rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng&lt;/rngMod>
+     &lt;/modulePublicIds>
+   &lt;/moduleMetadata>
+ &lt;/moduleDesc>
+
+ ...
+
+&lt;/grammar></codeblock></p>
+          </example>
+        </conbody>
+      </concept>
+    </concept>
+    <concept
       id="concept_ecb_wg2_2m">
       <title>RelaxNG document-type shell: Coding requirements</title>
+      <shortdesc>A document type shell integrates one or more topic type or map type modules, zero or more domain modules, and zero or more constraint modules. A RelaxNG document type shell is
+        organized into sections, where each section contains a specific type of declaration.</shortdesc>
+      <conbody>
+            <p>RelaxNG document type shells <term
+          outputclass="OASIS-terminology">may not</term> directly declare element types or attributes. A RelaxNG document type shell <term
+          outputclass="OASIS-terminology">must</term> conform to the following coding requirements.</p>
+      </conbody>
+    </concept>
+    <concept
+      id="concept_sbf_fn4_2m">
+      <title>RelaxNG grammar specialization module coding requirements</title>
+      <shortdesc/>
+      <conbody/>
+    </concept>
+    <concept
+      id="concept_ebs_mn4_2m">
+      <title>Constraint module RelaxNG coding requirements</title>
       <shortdesc/>
       <conbody/>
     </concept>

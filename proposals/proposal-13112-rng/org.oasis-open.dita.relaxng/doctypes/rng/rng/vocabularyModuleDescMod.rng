@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xxml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" 
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng" 
   schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
