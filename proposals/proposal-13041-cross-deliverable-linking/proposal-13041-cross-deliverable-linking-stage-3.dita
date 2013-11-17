@@ -42,12 +42,12 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry>17 Nov 2013</stentry>
+            <stentry>23 June 2013</stentry>
             <stentry>Chris Nitchie, Jim Tivy</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>17 November 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
@@ -151,24 +151,22 @@
           using the standard scope-qualified key names used for any other key scope (that is, one of the scope names, followed by a period, followed by the key name). However, references to keys
           defined in peer maps are processed differently from references to keys defined in the local map structure.</p>
         <note
-          type="note">Example: Given the map documents
-<!--          <note
+          type="note">Example: Given the map documents <!--          <note
           type="other"
           othertype="Example">Given the map documents
--->          <filepath>map-a.dita</filepath> and <filepath>map-b.dita</filepath>,
-          Map A can treat Map B as a peer root map using the key
+--> <filepath>map-a.dita</filepath> and
+          <filepath>map-b.dita</filepath>, Map A can treat Map B as a peer root map using the key
           definition:<codeblock>&lt;map>&lt;title>Map A&lt;/title>
-  &lt;keydef 
-    keys="map-b"
+  &lt;topicref 
     scope="peer"
     format="ditamap"
     keyscope="map-b"
     href="../map-b/map-b.ditamap"
+    processing-role="resource-only"
   />
   ...
 &lt;/map></codeblock><p>In
-          this example, the map document <filepath>map-b.ditamap</filepath> is
-          not a submap of Map A, it is a peer map. </p></note>
+          this example, the map document <filepath>map-b.ditamap</filepath> is not a submap of Map A, it is a peer map. </p></note>
         <p>Conforming DITA processors are not required to support the resolution of or delivery of key references to peer maps. Note, however, that the general implication of peer scope is that the
           peer resources are all available in the same processing or management context. This means that processors always have the potential to resolve peer key references when the peer resources are
           in fact managed together. There may, of course, be performance, scale, and user interface challenges in implementing such systems, but the fundamental ability to resolve any given reference
