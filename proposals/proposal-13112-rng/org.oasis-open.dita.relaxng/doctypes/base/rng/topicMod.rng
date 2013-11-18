@@ -90,6 +90,10 @@ ORIGINAL CREATION DATE:
     <value></value>
   </define>
   
+<!-- ============================================================= -->
+<!--                 ARCHITECTURE ATTRIBUTES                       -->
+<!-- ============================================================= -->
+
   <define name="arch-atts">
     <optional>
       <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
@@ -165,7 +169,7 @@ ORIGINAL CREATION DATE:
   <include href="metaDeclMod.rng"/>
   
 <!-- ============================================================= -->
-<!--                 COMMON ATTRIBUTE SETS                         -->
+<!--                 COMMON CONTENT MODEL PATTERNS                 -->
 <!-- ============================================================= -->
   
   <define name="abstract.cnt">

@@ -51,7 +51,7 @@
  </moduleDesc>  
   
 <!-- ============================================================= -->
-<!--                 DOMAIN ATTRIBUTE CONTRIBUTION                 -->
+<!--                 DOMAINS ATTRIBUTE CONTRIBUTION                -->
 <!-- ============================================================= -->
 
   <define name="domains-att-contribution" combine="choice">

@@ -1055,21 +1055,21 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
         <p>All vocabulary and constraint modules must include the following section:</p>
         <dl>
           <dlentry>
-            <dt>Domain attribute contribution</dt>
+            <dt>Domains attribute contribution</dt>
             <dd>
               <p>Vocabulary modules <term
-                outputclass="OASIS-terminology">must</term> define a @domain attribute contribution pattern named "domains-att-contribution" with a @combine value of "choice". The value of the pattern
-                <term>must</term> list the dependencies of the domain module in order of dependency from left to right within enclosing parentheses, starting with the topic module. Domain
+                outputclass="OASIS-terminology">must</term> define a @domains attribute contribution pattern named "domains-att-contribution" with a @combine value of "choice". The value of the
+                pattern <term>must</term> list the dependencies of the domain module in order of dependency from left to right within enclosing parentheses, starting with the topic module. Domain
                 abbreviations are used in the list, and the defining domain is the last item in the list. The following example declares the dependency of the highlight domain on the base topic
                 module.
                 <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 DOMAIN ATTRIBUTE CONTRIBUTION                 -->
+&lt;!--                 DOMAINS ATTRIBUTE CONTRIBUTION                -->
 &lt;!-- ============================================================= -->
 
   &lt;define name="domains-att-contribution" combine="choice">
     &lt;value>(topic hi-d)&lt;/value>
   &lt;/define></codeblock></p>
-              <p>The domain attribute contribution pattern is used to construct the effective value of the domains attribute for a map or topic type as configured in a document type shell.</p>
+              <p>The domains attribute contribution pattern is used to construct the effective value of the @domains attribute for a map or topic type as configured in a document type shell.</p>
             </dd>
           </dlentry>
         </dl>
@@ -1129,6 +1129,30 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
                     allowed.</p>
                   <p>The declarations <term>may</term> occur in any order. By convention, they are usually ordered alphabetically or grouped logically. </p>
                 </dd>
+              </dlentry>
+              <dlentry>
+                <dt>Common content model patterns</dt>
+                <dd>Structural and element domain modules <term
+                  outputclass="OASIS-terminology">may</term> include a "common content model patterns" section that defines patterns that contribute to the content models of the element types defined
+                  in the module. This section <term
+                  outputclass="OASIS-terminology">must</term> use the
+                  comment:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 COMMON CONTENT MODEL PATTERNS                 -->
+&lt;!-- ============================================================= --></codeblock><p>Common
+                  content model patterns <term
+                  outputclass="OASIS-terminology">should</term> use names that end with ".cnt", e.g. "body.cnt".</p></dd>
+              </dlentry>
+              <dlentry>
+                <dt>Common attribute sets</dt>
+                <dd>Structural and element domain modules <term
+                  outputclass="OASIS-terminology">may</term> include a "common attribute sets" section that defines patterns for attribute sets common to one or more of the element types defined in
+                  the module. This section <term
+                  outputclass="OASIS-terminology">must</term> use the
+                  comment:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 COMMON ATTRIBUTE SETS                         -->
+&lt;!-- ============================================================= --></codeblock><p>Common
+                  attribute set patterns <term
+                  outputclass="OASIS-terminology">should</term> use names that with "-atts", e.g. "topicref-atts".</p></dd>
               </dlentry>
               <dlentry>
                 <dt>Element type declarations</dt>
@@ -1278,14 +1302,75 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
       <concept
         id="concept_tcz_3zr_2m">
         <title>Structural module coding requirements</title>
+        <shortdesc>A structural vocabulary module defines a new topic or map type as a specialization of a base topic or map type. The purpose is usually to enhance the user's interaction by adapting
+          the topic or map type to its particular purposes.</shortdesc>
+        <conbody>
+          <p>A structural type module <term>must</term> conform to the following coding requirements in addition to the general module coding requirements: </p>
+          <section>
+            <title>Architecture attributes</title>
+            <p>The topic or map element type <term>must</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a reliable way to check the
+              architecture version. In addition, because the @DITAArchVersion attribute is in a DITA-defined namespace, it serves as an unambiguous signal that the element is a DITA element. </p>
+            <p>The archtictural attributes section <term
+              outputclass="OASIS-terminology">must</term> use the
+              comment:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 ARCHITECTURE ATTRIBUTES                       -->
+&lt;!-- ============================================================= --> </codeblock></p>
+            <p>The architectural attributes pattern <term
+              outputclass="OASIS-terminology">must</term> have the name "arch-atts" and <term
+              outputclass="OASIS-terminology">must</term> declare the @DITAArchVersion
+              attribute:<codeblock>  &lt;define name="arch-atts">
+    &lt;optional>
+      &lt;attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
+    &lt;/optional>
+  &lt;/define></codeblock></p>
+          </section>
+        </conbody>
       </concept>
       <concept
         id="concept_dsc_kzr_2m">
         <title>Topic type module coding requirements</title>
-      </concept>
-      <concept
-        id="concept_x5p_kzr_2m">
-        <title>Map type module coding requirements</title>
+        <shortdesc>Topic type vocabulary modules <term>must</term> conform to additional coding requirements for defining default topic nesting.</shortdesc>
+        <conbody>
+          <section
+            id="section_5E63C9E47F0D41EE83D5EB24F1617684">
+            <title>Default nested topics pattern</title>
+            <p>A topic type module <term>must</term> define a pattern to specify default subordinate topics. The pattern name <term>must</term> be the topic element name plus the
+              <codeph>-info-types</codeph> suffix. For example, the info-types pattern for the concept topic is <codeph>concept-info-types</codeph>. If the topic has default subordinate topics, this
+              pattern can refer to a list of topic element type name patterns. If not, the pattern can refer to the <codeph>info-types</codeph> pattern as in the following example:</p>
+            <codeblock>  &lt;define name="concept-info-types">
+    &lt;ref name="info-types"/>
+  &lt;/define></codeblock>
+            <p>A document type shell can then control how topics are allowed to nest by redefining the <codeph><varname>topictype</varname>-info-types</codeph> pattern for each topic type, or it can
+              efficiently create common nesting rules by redefining the main info-types pattern.</p>
+            <p>In the declaration of the root element of a topic type, the last position in the content model <term>must</term> be the <codeph><varname>topictype</varname>-info-types</codeph> nested
+              topics pattern, as in the following example:</p>
+            <codeblock>  &lt;!-- LONG NAME: Concept -->
+  &lt;define name="concept.content">
+    &lt;ref name="title"/>
+    &lt;optional>
+      &lt;ref name="titlealts"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;choice>
+        &lt;ref name="abstract"/>
+        &lt;ref name="shortdesc"/>
+      &lt;/choice>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="prolog"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="conbody"/>
+    &lt;/optional>
+    &lt;optional>
+      &lt;ref name="related-links"/>
+    &lt;/optional>
+    &lt;zeroOrMore>
+      &lt;ref name="concept-info-types"/>
+    &lt;/zeroOrMore>
+  &lt;/define></codeblock>
+          </section>
+        </conbody>
       </concept>
       <concept
         id="concept_jck_lzr_2m">
@@ -1295,7 +1380,7 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
             <title>Domain extension patterns</title>
             <p>The domain extension patterns serve to integrate domain modules into the base content models of the element types it extends when the module is included in a document type shell. This
               section <term
-              outputclass="OASIS-terminology">should</term> use the
+              outputclass="OASIS-terminology">must</term> use the
               comment:<codeblock>&lt;!-- ============================================================= -->
 &lt;!--                 DOMAIN EXTENSION PATTERNS                     -->
 &lt;!-- ============================================================= --></codeblock></p>
@@ -1329,13 +1414,97 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
       <concept
         id="concept_y21_mzr_2m">
         <title>Attribute domain module coding requirements</title>
+        <shortdesc>An attribute domain vocabulary module declares a new attribute specialized from either the @props or @base attribute. An attribute domain module defines exactly one new attribute
+          type.</shortdesc>
+        <conbody>
+          <p>An attribute domain's name is the name of the attribute plus "Att" to distinguish the attribute domain from any element domains with the same name. For example, for an attribute named
+            "new" the attribute domain name would be "newAtt". The attribute domain name is used to construct filenames and pattern names for the domain. </p>
+          <p>An attribute domain <term>must</term> consist of one file, whose name consists of the module name plus <filepath>DomainMod</filepath> plus the <filepath>rng</filepath> or
+            <filepath>rnc</filepath> extension. For example: <filepath>newAttDomainMod.rng</filepath> for an attribute named "new". </p>
+          <p>The file <term>must</term> have three parts:<dl>
+            <dlentry>
+              <dt>Domains attribute contribution pattern</dt>
+              <dd>
+                <p>The attribute domain is declared in @domains attribute values through a pattern that contains the attribute domain's domain declaration fragment. The pattern name <term
+                  outputclass="OASIS-terminology">must</term> be "domains-att-contribution". See <xref
+                  href="domainsatt.dita#domainsatt"
+                  format="dita"/> for details on attribute domain @domains values.</p>
+                <p>For example:</p>
+                <codeblock>  &lt;define name="domains-att-contribution" combine="choice">
+    &lt;value>a(props deliveryTarget)&lt;/value>
+  &lt;/define></codeblock>
+              </dd>
+            </dlentry>
+            <dlentry>
+              <dt>Attribute extension pattern</dt>
+              <dd>The attribute extension pattern extends either the @props or @base attribute set pattern to include the attribute specialization. </dd>
+              <dd>For specializations of @props the pattern <term
+                outputclass="OASIS-terminology">must</term> be named "props-attribute-extensions" and <term
+                outputclass="OASIS-terminology">must</term> specify a @combine value of "interleave". The content of the pattern <term
+                outputclass="OASIS-terminology">must</term> be a reference to the specialized attribute declaration pattern. For
+                example:<codeblock>  &lt;define name="props-attribute-extensions" combine="interleave">
+    &lt;ref name="deliveryTargetAtt-d-attribute"/>
+  &lt;/define></codeblock><p>For
+                specializations of @base the pattern <term
+                outputclass="OASIS-terminology">must</term> be named "base-attribute-extensions" and <term
+                outputclass="OASIS-terminology">must</term> specify a @combine value of "interleave" The content of the pattern <term
+                outputclass="OASIS-terminology">must</term> be a reference to the specialized attribute declaration pattern. For
+                example:</p><codeblock>  &lt;define name="base-attribute-extensions" combine="interleave">
+    &lt;ref name="myBaseSpecializationAtt-d-attribute"/>
+  &lt;/define></codeblock></dd>
+            </dlentry>
+            <dlentry>
+              <dt>Attribute declaration pattern</dt>
+              <dd>The specialized attribute <term
+                outputclass="OASIS-terminology">must</term> be declared in a pattern named <codeph><i>domainShortName</i>-d-attribute</codeph>. The attribute must be defined as optional. For
+                example:<codeblock>  &lt;define name="deliveryTargetAtt-d-attribute">
+    &lt;optional>
+      &lt;attribute name="deliveryTarget"/>
+    &lt;/optional>    
+  &lt;/define></codeblock></dd>
+            </dlentry>
+            </dl></p>
+        </conbody>
       </concept>
     </concept>
     <concept
       id="concept_ebs_mn4_2m">
       <title>Constraint module RelaxNG coding requirements</title>
-      <shortdesc/>
-      <conbody/>
+      <shortdesc>A structural constraint module defines the constraints for exactly one map or topic element type.</shortdesc>
+      <conbody>
+        <section>
+          <title>Requirements for structural constraint modules</title>
+          <p>Constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname> is specific to the constraints
+            module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>tagname</varname> is the name of the element type to which the constraints apply, e.g. "topic", "p",
+            "myNewTopicType", etc.</p>
+          <p>The constraint module <term
+            outputclass="OASIS-terminology">must</term> declare a @domains attribute contribution pattern named "domains-att-value" and <term
+            outputclass="OASIS-terminology">must</term> specify a @combine value of "choice". The value of the pattern <term
+            outputclass="OASIS-terminology">must</term> be of the form "(<varname>tagname</varname> <varname>qualifier</varname><varname>Tagname</varname>-c)", where <varname>tagname</varname> is the
+            name of the element type to which the constraints apply, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Tagname</varname> is the element type
+            name with an initial capital (e.g. "Topic"). The literal "-c" indicates that the name is the name of a constraints domain.  For example:</p>
+          <codeblock>  &lt;define name="domains-att-value" combine="choice">
+    &lt;value>(topic task strictTaskbody-c)&lt;/value>
+  &lt;/define></codeblock>
+        </section>
+        <section>
+          <title>Requirements for domain constraint modules</title>
+          <p>A domain constraint module defines the constraints for exactly one element domain module.</p>
+          <p>Domain constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod" with an extension of ".rng" or ".rnc", where
+            <varname>qualifier</varname> is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>domain</varname> is the name of the domain to
+            which the constraints apply, e.g. "hi-d", "pr-d", "mydomain-d", etc. For
+            example:<codeblock>  &lt;define name="domains-att-value" combine="choice">
+    &lt;value>(topic task taskreq-d)&lt;/value>
+  &lt;/define></codeblock></p>
+        </section>
+        <section>
+          <title>Requirements for shell document types</title>
+          <p>Constraint modules are integrated into document type shells by simply including the module into the shell document type. See <xref
+            href="#concept_ecb_wg2_2m"
+            format="dita"/>.</p>
+          <?Pub Caret -1?>
+        </section>
+      </conbody>
     </concept>
     <concept id="concept_aqh_5zt_3h">
       <title>Specializing foreign or unknown content</title>

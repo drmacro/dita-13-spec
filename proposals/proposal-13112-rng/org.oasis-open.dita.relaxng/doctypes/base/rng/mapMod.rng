@@ -79,7 +79,10 @@
     <ref name="topicmeta.element"/>
   </define>
   
-  <!-- COMMON ATTLIST SETS -->
+<!-- ============================================================= -->
+<!--                 COMMON ATTRIBUTE SETS                         -->
+<!-- ============================================================= -->
+
   <define name="topicref-atts">
     <optional>
       <attribute name="collection-type">
