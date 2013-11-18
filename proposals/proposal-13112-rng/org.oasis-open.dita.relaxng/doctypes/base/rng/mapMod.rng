@@ -25,8 +25,9 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <!-- Define the domain values of this module -->
-  <define name="domains-att-value" combine="choice">
-    <value></value>
+
+  <define name="domains-att">
+    <attribute name="domains" a:defaultValue="(map map)"/>    
   </define>
   
   <!-- Content elements common to map and topic -->

@@ -25,17 +25,7 @@
   <start>
     <ref name="topic.element"/>
   </start>
-  
-  <!-- The DITA domains attribute -->
-  <define name="domains-att" combine="interleave">
-    <optional>
-      <attribute name="domains" 
-        a:defaultValue="(topic hi-d) (topic ut-d)
-        (topic indexing-d) (topic hazard-d) (topic abbrev-d) 
-        (topic ui-d) (topic pr-d) (topic sw-d)"/>
-    </optional>    
-  </define>
-  
+    
   <!-- Include modules -->
   <include href="../../base/rng/topicMod.rng">
     <!--

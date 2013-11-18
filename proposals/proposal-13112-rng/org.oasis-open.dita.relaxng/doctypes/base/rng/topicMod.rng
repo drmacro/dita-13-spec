@@ -86,8 +86,12 @@ ORIGINAL CREATION DATE:
 <!--                 DOMAIN ATTRIBUTE CONTRIBUTION                 -->
 <!-- ============================================================= -->
 
-  <define name="domains-att-contribution" combine="choice">
-    <value></value>
+  <define name="domains-att" combine="interleave">
+    <optional>
+      <attribute name="domains"
+        a:defaultValue="(topic topic)"
+      />
+    </optional>    
   </define>
   
 <!-- ============================================================= -->

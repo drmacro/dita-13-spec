@@ -68,7 +68,9 @@
         <title>Modified DTDs</title>
         <p>New topic type, vocabularyModuleDesc, which is used within DITA RNG modules. This topic type is a specialization of &lt;topic>. It is required specifically to provide RNG module metadata
           required to enable generation of other syntax forms of the module. It is not intended for use outside of this context. For that reason, it should not be considered part of the main
-          TC-defined DITA vocabulary, but part of the RNG facility. The markup is documented as part of the RNG facility (see xref TBD).</p>
+          TC-defined DITA vocabulary, but part of the RNG facility. The markup is documented as part of the RNG facility (see <xref
+          href="#concept_lbt_ct4_2m"
+          format="dita"/>).</p>
         <p>Vocabulary module description topic type:</p>
         <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDescMod.rng"/></codeblock>
         <p>Vocabulary module topic document type shell:</p>
@@ -317,8 +319,8 @@
                   nameend="newCol4">
                   <p>The following DITA modules are provided for the concept topic:</p>
                   <sl>
-                    <sli>concept.mod, concept.ent (DTD)</sli>
-                    <sli>conceptMod.xsd, conceptGrp.xsd (Schema)</sli>
+                    <sli>concept.mod, concept.ent (DTD),</sli>
+                    <sli>conceptMod.xsd, conceptGrp.xsd (Schema), conceptMod.rnc (RelaxNG compact syntax), conceptMod.rng (RelaxNG XML syntax)</sli>
                   </sl>
                 </entry>
               </row>
@@ -329,7 +331,7 @@
                   namest="c3"
                   nameend="newCol4">
                   <sl>
-                    <sli>reference.mod, reference.ent (DTD)</sli>
+                    <sli>reference.mod, reference.ent (DTD), </sli>
                     <sli><ph
                       rev="1.3">referenceMod.rnc (RelaxNG compact syntax)</ph></sli>
                     <sli><ph
@@ -345,7 +347,7 @@
                   namest="c3"
                   nameend="newCol4">
                   <sl>
-                    <sli>task.mod, task.ent(DTD)</sli>
+                    <sli>task.mod, task.ent(DTD), </sli>
                     <sli><ph
                       rev="1.3">taskMod.rnc (RelaxNG compact syntax)</ph></sli>
                     <sli><ph
@@ -438,9 +440,9 @@
         RelaxNG grammar document contains DITA-specific metadata that defines the module type, module header comment, and public identifiers for the components to be generated. All RelaxNG grammars
         defined by the DITA standard include this metadata.</shortdesc>
       <conbody>
-        <p>RelaxNG provides the simplest syntax for specifying the integration of vocabulary and constraint modules into document type shells. This makes RelaxNG ideally suited as the base format for
-          defining DITA vocabulary. However, many, if not most DITA-aware tools require the use of DTDs or XSD schemas as of version 1.3 of the DITA specification. Thus there is a practical
-          requirement to generate DTDs and XSD schemas from RelaxNG.</p>
+        <p>Of the three DITA-recognized document constraint languages, RelaxNG provides the simplest syntax for specifying the integration of vocabulary and constraint modules into document type
+          shells. This makes RelaxNG ideally suited as the base format for defining DITA vocabulary. However, many, if not most DITA-aware tools require the use of DTDs or XSD schemas as of version
+          1.3 of the DITA specification. Thus there is a practical requirement to generate DTDs and XSD schemas from RelaxNG.</p>
         <p>The generation of DTD and XSD modules requires additional metadata that is not inherent in the grammar definition:<ul
           id="ul_vfp_sp4_2m">
           <li>The module type (document type shell, vocabulary module, or constraint module)</li>
@@ -459,10 +461,10 @@
           <p>When it is used, the &lt;moduleDesc> element <term
             outputclass="OASIS-terminology">must</term> be specified as a child of the RelaxNG &lt;grammar> element and <term
             outputclass="OASIS-terminology">should</term> be the first child of &lt;grammar>. The &lt;moduleDesc> element functions as a foreign element as defined in the RelaxNG standard. As a
-            foreign element, it must be in a namespace that is different from the RelaxNG. The &lt;moduleDesc> element is defined as a specialization of &lt;topic>. Because it must be in a namespace,
-            it cannot be a strictly-conforming DITA topic as DITA elements may not be in a namespace. However, if the &lt;moduleDesc> element is processed in terms of the @class attributes it will be
-            recognized as a DITA topic and otherwise conforms to all rules for conforming topic specializations.</p>
-          <p>The &lt;moduleDesc> element type is defined in the vocabulary module file <filepath>rng/rng/vocabularyModuleDescMod.rng</filepath>.</p>
+            foreign element, it must be in a namespace that is different from any RelaxNG namespaces. The &lt;moduleDesc> element is defined as a specialization of &lt;topic>. Because it must be in a
+            namespace, it cannot be a strictly-conforming DITA topic as DITA elements may not be in a namespace. However, if the &lt;moduleDesc> element is processed in terms of the @class attributes
+            it will be recognized as a DITA topic and otherwise conforms to all rules for conforming topic specializations.</p>
+          <p>The &lt;moduleDesc> element type is defined in the vocabulary module file <filepath>vocabularyModuleDescMod.rng</filepath>.</p>
           <section>
             <title>Namespace</title>
             <p>The &lt;moduleDesc> element is in the DITA architecture namespace, "<ph
@@ -480,12 +482,12 @@
                   </dlentry>
                   <dlentry>
                     <dt>&lt;headerComment></dt>
-                    <dd>Contains the header comment for the module. The content is text with whitespace preserved (@xml:space of "preserve"). The header comment is used as the header for all generated
-                      components.</dd>
+                    <dd>Contains the header comment for the module. The content is text with whitespace preserved (@xml:space value of "preserve"). The header comment is used as the header for all
+                      generated components.</dd>
                   </dlentry>
                   <dlentry>
                     <dt>&lt;moduleMetadata></dt>
-                    <dd>Containers additional metadata for the module or document type shell. Subelements:<dl>
+                    <dd>Contains additional metadata for the module or document type shell. Subelements:<dl>
                       <dlentry>
                         <dt>&lt;moduleType></dt>
                         <dd>Indicates the module type. Content is one of the following keywords:<dl>
@@ -661,9 +663,60 @@
           outputclass="OASIS-terminology">must</term> conform to the following coding requirements.</p>
         <p>RelaxNG modules are self-integrating such that document type shells need only include vocabulary modules, there is no separate specification required to integrate domain and nested topic
           elements into base content models. Likewise, constraint modules simply override the patterns they constraint directly in the constraint module itself.</p>
-        <p>In order to support patterns for elements that declare the @id attribute directly, rather than through the universal attributes or ID attributes patterns (pattern "univ-atts" or pattern
-          "id-atts"), the document type shell grammar must define a pattern named "any" that configures the attribute list pattern for those elements. The general structure of this pattern
-          is:<codeblock>&lt;define name="any">
+        <p>Constraint modules are used by importing the constraint module rather than the module the constraint modifies. Constraint modules refer to the base module to be constrained and redefine
+          patterns as needed to implement the constraint. In addition, you can disallow base types extended by domains by overriding the base type's pattern in the document type shell within the
+          reference to the domain module or constraint module for the domain. In this case, you <term
+          outputclass="OASIS-terminology">must</term> declare the constraint represented by the pattern redefinition in the @domains attribute. </p>
+        <p>Each section of the shell is introduced by a comment. Shells <term
+          outputclass="OASIS-terminology">should</term> use these comments to identify each section of the shell. Each section <term
+          outputclass="OASIS-terminology">should</term> be present in the shell grammar, even if the section contains no declarations, and <term
+          outputclass="OASIS-terminology">should</term> occur in the order they are presented here. Shells <term
+          outputclass="OASIS-terminology">should</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the shell and indicates the URNs or absolute URLs by which the
+          shell should be referenced in RelaxNG grammar references (see <xref
+          href="#concept_lbt_ct4_2m"
+          format="dita"/>).</p>
+        <dl>
+          <dlentry>
+            <dt>Root element declaration</dt>
+            <dd>
+              <p>Document type shells <term
+                outputclass="OASIS-terminology">must</term> use the RelaxNG start declaration to specify the allowed root element defined by the document type, either the root topic type or root map
+                type defined by the document type shell. The start declaration <term
+                outputclass="OASIS-terminology">must</term> specify exactly one allowed root element as a reference the <codeph><i>tagname</i>.element</codeph> pattern for the root element.</p>
+              <p>For example:</p>
+              <codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 ROOT ELEMENT DECLARATION                      -->
+&lt;!-- ============================================================= -->
+  &lt;start combine="choice">
+    &lt;ref name="topic.element"/>
+  &lt;/start></codeblock>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>Module inclusions</dt>
+            <dd>
+              <p>The document type shell must include at least the module for the map or topic type the shell is configuring. The module inclusion section must start with the
+                comment:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 MODULE INCLUSIONS                             -->
+&lt;!-- ============================================================= --></codeblock></p>
+              <p>For example:</p>
+              <codeblock>&lt;!-- ============================================================= -->
+&lt;!--                 MODULE INCLUSIONS                             -->
+&lt;!-- ============================================================= -->
+  &lt;include href="topicMod.rng"/>
+  &lt;include href="highlightDomainMod.rng"/>
+  &lt;include href="utilitiesDomainMod.rng"/>
+  &lt;include href="indexingDomainMod.rng"/>
+  &lt;include href="hazardstatementDomainMod.rng"/></codeblock>
+            </dd>
+          </dlentry>
+          <dlentry>
+            <dt>ID-defining-elements override</dt>
+            <dd>
+              <p>In order to support patterns for elements that declare the @id attribute directly, rather than through the universal attributes or ID attributes patterns (pattern "univ-atts" or
+                pattern "id-atts"), the document type shell grammar must define a pattern named "any" that configures the attribute list pattern for those elements. The general structure of this
+                pattern
+                is:<codeblock>&lt;define name="any">
     &lt;zeroOrMore>
       &lt;choice>
         &lt;ref name="<varname>tagname</varname>.element"/>
@@ -684,127 +737,13 @@
       &lt;/choice>
     &lt;/zeroOrMore>
   &lt;/define></codeblock></p>
-        <p>Where the &lt;ref> and &lt;name> elements are repeated for each element type used from the shell that defines the @id attribute directly. For topic types this will be any topic types used
-          from the shell (the root topic type and any allowed nested topic types). For maps this will be the map element type (&lt;map> or specializations of &lt;map>) and the &lt;anchor> element type
-          or any specialization of &lt;anchor>.</p>
-        <p>Constraint modules are used by importing the constraint module rather than the module the constraint modifies. Constraint modules refer to the base module to be constrained and redefine
-          patterns as needed to implement theconstraint. In addition, you can disallow base types extended by domains by overriding the base type's pattern in the document type shell within the
-          reference to the domain module or constraint module for the domain. In this case, you <term
-          outputclass="OASIS-terminology">must</term> declare the constraint represented by the pattern redefinition in the @domains attribute. </p>
-        <p>Each section of the shell is introduced by a comment. Shells <term
-          outputclass="OASIS-terminology">should</term> use these comments to identify each section of the shell. Each section <term
-          outputclass="OASIS-terminology">should</term> be present in the shell grammar, even if the section contains no declarations, and <term
-          outputclass="OASIS-terminology">should</term> occur in the order they are presented here. Shells <term
-          outputclass="OASIS-terminology">should</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the shell and indicates the public identifiers, URNs, or
-          absolute URLs by which the shell should be referenced in RelaxNG grammar references (see <xref
-          href="#concept_lbt_ct4_2m"
-          format="dita"/>).</p>
-        <dl>
-          <dlentry>
-            <dt>Root element declaration</dt>
-            <dd>
-              <p>RelaxNG XML syntax:</p>
-              <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ROOT ELEMENT DECLARATION                      -->
-&lt;!-- ============================================================= -->
-  &lt;start combine="choice">
-    &lt;ref name="topic.element"/>
-  &lt;/start></codeblock>
-              <p>RelaxNG compact
-                syntax:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ROOT ELEMENT DECLARATION                      -->
-&lt;!-- ============================================================= -->
-start |= topic.element</codeblock></p>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>Domains attribute declaration</dt>
-            <dd>
-              <p>RelaxNG XML syntax:</p>
-              <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 DITA DOMAINS ATTRIBUTE                        -->
-&lt;!-- ============================================================= -->
-  &lt;define name="domains-att" combine="interleave">
-    &lt;optional>
-      &lt;attribute name="domains"
-        a:defaultValue="(topic hi-d) (topic ut-d) (topic indexing-d) (topic hazard-d)"/>
-    &lt;/optional>
-  &lt;/define></codeblock>
-              <p>RelaxNG compact
-                syntax:<codeblock># =============================================================
-# DITA DOMAINS ATTRIBUTE
-# =============================================================
-domains-att &amp;=
-  [
-    a:defaultValue =
-      "(topic hi-d) (topic ut-d) (topic indexing-d) (topic hazard-d)"
-  ]
-  attribute domains { text }?
-</codeblock></p>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>Module inclusions</dt>
-            <dd>
-              <p>RelaxNG XML syntax:</p>
-              <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 MODULE INCLUSIONS                             -->
-&lt;!-- ============================================================= -->
-  &lt;include href="topicMod.rng"/>
-  &lt;include href="highlightDomainMod.rng"/>
-  &lt;include href="utilitiesDomainMod.rng"/>
-  &lt;include href="indexingDomainMod.rng"/>
-  &lt;include href="hazardstatementDomainMod.rng"/></codeblock>
-              <p>RelaxNG compact
-                syntax:<codeblock># =============================================================
-# MODULE INCLUSIONS
-# =============================================================
-include "topicMod.rnc"
-include "highlightDomainMod.rnc"
-include "utilitiesDomainMod.rnc"
-include "indexingDomainMod.rnc"
-include "hazardstatementDomainMod.rnc"</codeblock></p>
-            </dd>
-          </dlentry>
-          <dlentry>
-            <dt>ID-defining-elements override</dt>
-            <dd>
-              <p>RelaxNG XML syntax:</p>
-              <codeblock>&lt;!-- ============================================================= -->
+              <p>Where the &lt;ref> and &lt;name> elements are repeated for each element type used from the shell that defines the @id attribute directly. For topic types this will be any topic types
+                used from the shell (the root topic type and any allowed nested topic types). For maps this will be the map element type (&lt;map> or specializations of &lt;map>) and the &lt;anchor>
+                element type or any specialization of &lt;anchor>. Domains and constraint modules may also define patterns that define the @id attribute directly.</p>
+              <p>The ID-defining elements override section must use the
+                comment:<codeblock>&lt;!-- ============================================================= -->
 &lt;!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
-&lt;!-- ============================================================= -->
-  &lt;define name="any">
-    &lt;zeroOrMore>
-      &lt;choice>
-        &lt;ref name="topic.element"/>
-        &lt;element>
-          &lt;anyName>
-            &lt;except>
-              &lt;name>topic&lt;/name>
-            &lt;/except>
-          &lt;/anyName>
-          &lt;zeroOrMore>
-            &lt;attribute>
-              &lt;anyName/>
-            &lt;/attribute>
-          &lt;/zeroOrMore>
-          &lt;ref name="any"/>
-        &lt;/element>
-        &lt;text/>
-      &lt;/choice>
-    &lt;/zeroOrMore>
-  &lt;/define></codeblock>
-              <p>RelaxNG compact syntax:</p>
-              <codeblock># =============================================================
-# ID-DEFINING-ELEMENT OVERRIDES
-# =============================================================
-any =
-  (topic.element
-   | element * - topic {
-       attribute * { text }*,
-       any
-     }
-   | text)*</codeblock>
+&lt;!-- ============================================================= --></codeblock></p>
             </dd>
           </dlentry>
         </dl>
@@ -856,26 +795,14 @@ any =
   &lt;/start>
   
 &lt;!-- ============================================================= -->
-&lt;!--                 DITA DOMAINS ATTRIBUTE                        -->
-&lt;!-- ============================================================= -->
-  &lt;define name="domains-att" combine="interleave">
-    &lt;optional>
-      &lt;attribute name="domains" 
-        a:defaultValue="(topic task strictTaskbody-c) (topic task)
-        (topic hi-d) (topic ut-d)
-        (topic indexing-d) (topic hazard-d) (topic abbrev-d) 
-        (topic ui-d) (topic pr-d) (topic sw-d)"/>
-    &lt;/optional>    
-  &lt;/define>
-  
-&lt;!-- ============================================================= -->
 &lt;!--                 MODULE INCLUSIONS                             -->
 &lt;!-- ============================================================= -->
+
   &lt;include href="strictTaskbodyConstraintMod.rng">
-    &lt;!--
+    &lt;a:documentation>
       Redefine the infotype entity to exclude 
       other topic types and disallow nesting
-    -->
+    &lt;/a:documentation>
     &lt;define name="task-info-types">
       &lt;ref name="task.element"/>
     &lt;/define>
@@ -977,17 +904,6 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
   &lt;start>
     &lt;ref name="map.element"/>
   &lt;/start>
-
-&lt;!-- ============================================================= -->
-&lt;!--                 DITA DOMAINS ATTRIBUTE                        -->
-&lt;!-- ============================================================= -->
-  &lt;define name="domains-att" combine="interleave">
-    &lt;optional>
-      &lt;attribute name="domains" 
-        a:defaultValue="(topic delay-d) (topic indexing-d) (map mapgroup-d)
-        (topic hi-d) (topic ut-d) (topic hazard-d)"/>
-    &lt;/optional>    
-  &lt;/define>
 
 &lt;!-- ============================================================= -->
 &lt;!--                 MODULE INCLUSIONS                             -->
@@ -1519,20 +1435,5 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
         </example>
       </conbody>
     </concept>
-    <reference id="reference_aqh_5zt_3h">
-      <title>New language reference topic</title>
-      <shortdesc/>
-      <refbody>
-        <section>
-          <title>Inheritance</title>
-        </section>
-        <section>
-          <title>Example</title>
-        </section>
-        <section>
-          <title>Attributes</title>
-        </section>
-      </refbody>
-    </reference>
   </topic>
 </dita>
