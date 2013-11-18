@@ -64,12 +64,12 @@
    <moduleMetadata>
      <moduleType>topicshell</moduleType>
      <moduleShortName>vocabularyModule</moduleShortName>
-     <modulePublicIds>
-       <dtdMod>-//OASIS//DTD DITA Vocabulary Module Description//EN</dtdMod>
-       <xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDesc.xsd</xsdMod>
-       <rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDesc.rnc</rncMod>
-       <rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng</rngMod>
-     </modulePublicIds>
+     <shellPublicIds>
+       <dtdShell>-//OASIS//DTD DITA Vocabulary Module Description//EN</dtdShell>
+       <xsdShell>urn:oasis:names:tc:dita:xsd:vocabularyModuleDesc.xsd</xsdShell>
+       <rncShell>urn:oasis:names:tc:dita:rnc:vocabularyModuleDesc.rnc</rncShell>
+       <rngShell>urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng</rngShell>
+     </shellPublicIds>
    </moduleMetadata>
  </moduleDesc>
   <start>

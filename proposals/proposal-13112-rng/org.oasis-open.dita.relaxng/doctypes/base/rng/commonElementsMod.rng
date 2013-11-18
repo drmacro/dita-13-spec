@@ -77,7 +77,10 @@ ORIGINAL CREATION DATE:
      </modulePublicIds>
    </moduleMetadata>
  </moduleDesc>
-  <!-- Define patterns -->
+
+<!-- ============================================================= -->
+<!--                 ELEMENT TYPE NAME PATTERNS                    -->
+<!-- ============================================================= -->
   
   <define name="alt">
     <ref name="alt.element"/>

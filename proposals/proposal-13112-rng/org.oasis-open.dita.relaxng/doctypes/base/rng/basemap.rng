@@ -1,32 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- ============================================================= 
-     MODULE:    DITA Base MAP RNG (only base domains)
-     VERSION:   1.2
-     DATE:      October 2010
-     ============================================================= -->
-<!--
-     Refer to the latest version of this file by the following URI:
-     urn:dita-ng:dita:rng:basemap.rng
-     To refer to this specific version, you may use this value:
-     urn:dita-ng:dita:rng:basemap.rng:1.2
--->
-<!-- ============================================================= 
-     SYSTEM:     Darwin Information Typing Architecture (DITA)
-     PURPOSE:    Relax NG schema to describe DITA maps
-     ORIGINAL CREATION DATE:
-     September 2010
-     (C) Copyright Syncro Soft 2010-2011
-     All Rights Reserved.
-     ============================================================= -->
+<!--<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>-->
+<?xml-model href="../../rng/rng/vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <!-- Define the root elements -->
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>DITA Highlight Domain</moduleTitle>
+   <headerComment><!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA Base MAP DTD (only base domains)             -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      April 2010                                        -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                        TYPICAL INVOCATION                     -->
+<!--                                                               -->
+<!-- Refer to this file by the following public identifier or an
+     appropriate system identifier:
+PUBLIC "-//OASIS//DTD DITA Base Map//EN"
+     Delivered as file "basemap.dtd"                               -->
+
+<!-- The public ID above refers to the latest version of this DTD.
+     To refer to this specific version, you may use this value:
+PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe DITA maps                         -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             April 2010                                        -->
+<!--                                                               -->
+<!--             (C) Copyright OASIS Open 2010                     -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!--    2010.09.20 RDA: Add topic-based domains                    -->
+<!-- ============================================================= -->
+</headerComment>
+    <moduleMetadata>
+      <moduleType>mapshell</moduleType>
+      <moduleShortName>basemap</moduleShortName>
+      <shellPublicIds>
+       <dtdShell>-//OASIS//DTD DITA Base Map//EN</dtdShell>
+       <xsdShell>urn:oasis:names:tc:dita:xsd:basemap.xsd</xsdShell>
+       <rncShell>urn:oasis:names:tc:dita:rng:basemap.rnc</rncShell>
+       <rngShell>urn:oasis:names:tc:dita:rng:basemap.rng</rngShell>
+      </shellPublicIds>
+    </moduleMetadata>
+  </moduleDesc>
+<!-- ============================================================= -->
+<!--                 ROOT ELEMENT DECLARATION                      -->
+<!-- ============================================================= -->
   <start>
     <ref name="map.element"/>
   </start>
 
-  <!-- The DITA domains attribute -->
+<!-- ============================================================= -->
+<!--                 DITA DOMAINS ATTRIBUTE                        -->
+<!-- ============================================================= -->
   <define name="domains-att" combine="interleave">
     <optional>
       <attribute name="domains" 
@@ -35,7 +72,9 @@
     </optional>    
   </define>
 
-  <!-- Include modules -->
+<!-- ============================================================= -->
+<!--                 MODULE INCLUSIONS                             -->
+<!-- ============================================================= -->
   <include href="mapMod.rng"/>
   <include href="delayResolutionDomainMod.rng"/>
   <include href="indexingDomainMod.rng"/>
@@ -44,8 +83,9 @@
   <include href="utilitiesDomainMod.rng"/>
   <include href="hazardstatementDomainMod.rng"/>
   
-  <!-- Define the any pattern to exclude elements with ID attributes
-       from the wildcard and refer them expliceitely  -->
+<!-- ============================================================= -->
+<!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
+<!-- ============================================================= -->
   <define name="any">
     <zeroOrMore>
       <choice>

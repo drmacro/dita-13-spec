@@ -50,28 +50,59 @@
    </moduleMetadata>
  </moduleDesc>  
   
-  <!-- Define the domain attribute contribution for this module -->
+<!-- ============================================================= -->
+<!--                 DOMAIN ATTRIBUTE CONTRIBUTION                 -->
+<!-- ============================================================= -->
+
   <define name="domains-att-contribution" combine="choice">
     <value>(topic hi-d)</value>
   </define>
   
-  <!-- Define domain extension patterns -->
+<!-- ============================================================= -->
+<!--                 DOMAIN EXTENSION PATTERNS                     -->
+<!-- ============================================================= -->
+
   <define name="hi-d-ph">
     <choice>
-      <ref name="b.element"/>
-      <ref name="i.element"/>
-      <ref name="sup.element"/>
-      <ref name="sub.element"/>
-      <ref name="tt.element"/>
-      <ref name="u.element"/>
+      <ref name="b"/>
+      <ref name="i"/>
+      <ref name="sup"/>
+      <ref name="sub"/>
+      <ref name="tt"/>
+      <ref name="u"/>
     </choice>
   </define>
-  <!-- Extend the patterns with the domain contribution -->
+  
   <define name="ph" combine="choice">
     <ref name="hi-d-ph"/>
   </define>
   
-  <!-- Define elements content and attributes -->
+<!-- ============================================================= -->
+<!--                 ELEMENT TYPE NAME PATTERNS                    -->
+<!-- ============================================================= -->
+  
+  <define name="b">
+    <ref name="b.element"/>
+  </define>
+  <define name="i">
+    <ref name="i.element"/>
+  </define>
+  <define name="sup">
+    <ref name="sup.element"/>
+  </define>
+  <define name="sub">
+    <ref name="sub.element"/>
+  </define>
+  <define name="tt">
+    <ref name="tt.element"/>
+  </define>
+  <define name="u">
+    <ref name="u.element"/>
+  </define>
+
+<!-- ============================================================= -->
+<!--                    ELEMENT TYPE DECLARATIONS                  -->
+<!-- ============================================================= -->
   
   <define name="b.content">
     <zeroOrMore>
@@ -252,7 +283,9 @@
     <ref name="sub.attributes"/>
   </define>
   
-  <!-- Specialization attributes. Global attributes and class defaults -->
+<!-- ============================================================= -->
+<!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+<!-- ============================================================= -->
 
   <define name="b.attlist" combine="interleave">
     <ref name="global-atts"/>

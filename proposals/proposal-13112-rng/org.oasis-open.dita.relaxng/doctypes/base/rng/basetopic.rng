@@ -21,12 +21,17 @@
      ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <!-- Define the root elements -->
+
+<!-- ============================================================= -->
+<!--                 ROOT ELEMENT DECLARATION                      -->
+<!-- ============================================================= -->
   <start combine="choice">
     <ref name="topic.element"/>
   </start>
   
-  <!-- The DITA domains attribute -->
+<!-- ============================================================= -->
+<!--                 DITA DOMAINS ATTRIBUTE                        -->
+<!-- ============================================================= -->
   <define name="domains-att" combine="interleave">
     <optional>
       <attribute name="domains"
@@ -34,15 +39,18 @@
     </optional>
   </define>
   
-  <!-- Include modules -->
+<!-- ============================================================= -->
+<!--                 MODULE INCLUSIONS                             -->
+<!-- ============================================================= -->
   <include href="topicMod.rng"/>
   <include href="highlightDomainMod.rng"/>
   <include href="utilitiesDomainMod.rng"/>
   <include href="indexingDomainMod.rng"/>
   <include href="hazardstatementDomainMod.rng"/>
 
-  <!-- Define the any pattern to exclude elements with ID attributes
-    from the wildcard and refer them expliceitely  -->
+<!-- ============================================================= -->
+<!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
+<!-- ============================================================= -->
   <define name="any">
     <zeroOrMore>
       <choice>
