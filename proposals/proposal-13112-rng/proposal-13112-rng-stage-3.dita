@@ -253,17 +253,17 @@
               <row>
                 <entry
                   morerows="1">archSpec/base/createCustomDocType.dita</entry>
-                <entry>Thus, DITA <term>does not</term> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
+                <entry>Thus, DITA <term outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
                   attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated using normal XML
                   processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for
-                  DTDs and XML schema documents, conforming DITA documents <term>may</term> use other document type constraint languages, such as RelaxNG or Schematron.</entry>
+                  DTDs and XML schema documents, conforming DITA documents <term outputclass="OASIS-terminology">may</term> use other document type constraint languages, such as RelaxNG or Schematron.</entry>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Thus, DITA <term>does not</term> require that conforming DITA documents have an associated DTD, XSD, <ph>RelaxNG, </ph>or other formal document type
+                  nameend="newCol4">Thus, DITA <term outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, <ph>RelaxNG, </ph>or other formal document type
                   definition as long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD<ph
                   rev="1.3">, RelaxNG grammar, or </ph>XML schema document by which the documents can be validated using normal XML processors and that can provide default values for the @domains and
                   @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for DTDs<ph
-                  rev="1.3">, RelaxNG grammars, </ph>andXML schema documents, conforming DITA documents <term>may</term> use other document type constraint languages, such as Schematron.</entry>
+                  rev="1.3">, RelaxNG grammars, </ph>andXML schema documents, conforming DITA documents <term outputclass="OASIS-terminology">may</term> use other document type constraint languages, such as Schematron.</entry>
               </row>
               <row>
                 <entry>For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (topic.dtd or topic.xsd) </entry>
@@ -880,10 +880,10 @@
         <conbody>
           <section>
             <title>Module names</title>
-            <p>Each vocabulary module has a short name that is used to construct file names, pattern names, and other names used in associated declarations. Modules <term>may</term> also have
+            <p>Each vocabulary module has a short name that is used to construct file names, pattern names, and other names used in associated declarations. Modules <term outputclass="OASIS-terminology">may</term> also have
               abbreviated names that further shorten the short name, for example "sw" for the "software" domain, where "software" is the short name and "sw" is the abbreviated name. </p>
-            <p>For structural modules, the module name <term>must</term> be the element type name of the top-level topic or map type defined by the module, such as "concept" or "bookmap".</p>
-            <p>For element domain modules, the module name <term>must</term> be a name that reflects the subject domain to which the domain applies, such as "highlight", "software". Domain module
+            <p>For structural modules, the module name <term outputclass="OASIS-terminology">must</term> be the element type name of the top-level topic or map type defined by the module, such as "concept" or "bookmap".</p>
+            <p>For element domain modules, the module name <term outputclass="OASIS-terminology">must</term> be a name that reflects the subject domain to which the domain applies, such as "highlight", "software". Domain module
               names should be sufficiently unique that they are unlikely to conflict with any other domains.</p>
           </section>
           <section>
@@ -897,15 +897,15 @@
           <section
             id="section_AF5B8ABA77DA4474A0AF0DF0AFD8E018">
             <title>Element definitions</title>
-            <p>A structural or element domain vocabulary module <term>must</term> contain a declaration for each specialized element type named by the module. While the XML standard allows content
-              models to refer to undeclared element types, all element types named in content models or attribute list declarations within a vocabulary module <term>must</term> have a RelaxNG element
+            <p>A structural or element domain vocabulary module <term outputclass="OASIS-terminology">must</term> contain a declaration for each specialized element type named by the module. While the XML standard allows content
+              models to refer to undeclared element types, all element types named in content models or attribute list declarations within a vocabulary module <term outputclass="OASIS-terminology">must</term> have a RelaxNG element
               declaration, in one of:<ul
               id="ul_n1b_vbr_2m">
               <li>The vocabulary module</li>
               <li>A base module of which the vocabulary module is a direct or indirect specialization</li>
               <li>A required domain module (if the vocabulary module is a structural module).</li>
               </ul></p>
-            <p>The specialized elements <term>must</term> follow the rules of the architecture in defining content models and attributes.</p>
+            <p>The specialized elements <term outputclass="OASIS-terminology">must</term> follow the rules of the architecture in defining content models and attributes.</p>
             <p>The element type patterns are organized into the following sections:<dl>
               <dlentry>
                 <dt>Element type name patterns</dt>
@@ -928,7 +928,7 @@
                   <p>The element type name pattern provides a layer of abstraction that facilitates redefinition. The element type name patterns are referenced from content model and domain extension
                     patterns. Specialization modules can redeclare the patterns to include specializations of the type, allowing the specialized types in all contexts where the base type is
                     allowed.</p>
-                  <p>The declarations <term>may</term> occur in any order. By convention, they are usually ordered alphabetically or grouped logically. </p>
+                  <p>The declarations <term outputclass="OASIS-terminology">may</term> occur in any order. By convention, they are usually ordered alphabetically or grouped logically. </p>
                 </dd>
               </dlentry>
               <dlentry>
@@ -979,7 +979,7 @@
       &lt;/choice>
     &lt;/zeroOrMore>
   &lt;/define></codeblock>The
-                  content model pattern <term>may</term> be overridden in constraint modules to further constrain the content model for the element type.</p><p>Each element type <term
+                  content model pattern <term outputclass="OASIS-terminology">may</term> be overridden in constraint modules to further constrain the content model for the element type.</p><p>Each element type <term
                   outputclass="OASIS-terminology">must</term> have an attribute list pattern named <codeph><i>tagname</i>.attributes</codeph>. The pattern entity must declare all attributes used by
                   the element type (except for the attributes provided by the <codeph>global-atts</codeph> pattern, which is always referenced as part of the attribute list declaration for an
                   element's class attribute). For
@@ -1074,7 +1074,7 @@
               <dlentry>
                 <dt>Specialization attribute declarations</dt>
                 <dd>
-                  <p>A vocabulary module <term>must</term> define a @class attribute for every specialized element declared in the module.</p>
+                  <p>A vocabulary module <term outputclass="OASIS-terminology">must</term> define a @class attribute for every specialized element declared in the module.</p>
                   <p>This section declares the @class attributes for the element types defined in the module. This section <term
                     outputclass="OASIS-terminology">should</term> use the section header "SPECIALIZATION ATTRIBUTE DECLARATIONS":</p>
                   <codeblock>&lt;div>
@@ -1083,10 +1083,10 @@
 &lt;/div></codeblock>
                   <p>For each element type defined in the module there <term
                     outputclass="OASIS-terminology">must</term> be a pattern named <codeph><i>tagname</i>.attlist</codeph> that contains a reference to the attribute list pattern "global-atts" and
-                    defines an optional attribute named "class". The @class attribute default value <term>must</term> include the value of the @class attribute of the base element, and append to it
+                    defines an optional attribute named "class". The @class attribute default value <term outputclass="OASIS-terminology">must</term> include the value of the @class attribute of the base element, and append to it
                     the element name qualified by the topic element name with at least one leading and trailing space. The @class attribute for an element introduced by a structural specialization
-                    <term>must</term> start with a minus sign ("-"). The @class attribute for a domain specialization <term>must</term> start with a plus sign ("+"). The initial minus or plus sign
-                    <term>must</term> be followed by one or more spaces. The attribute value <term>must</term> end with one or more trailing spaces. </p>
+                    <term outputclass="OASIS-terminology">must</term> start with a minus sign ("-"). The @class attribute for a domain specialization <term outputclass="OASIS-terminology">must</term> start with a plus sign ("+"). The initial minus or plus sign
+                    <term outputclass="OASIS-terminology">must</term> be followed by one or more spaces. The attribute value <term outputclass="OASIS-terminology">must</term> end with one or more trailing spaces. </p>
                   <p>The attribute default value is declared using the @defaultValue attribute from the RelaxNG DTD compatibility namespace "http://relaxng.org/ns/compatibility/annotations/1.0" (by
                     convention bound to the prefix "a").</p>
                   <p>For
@@ -1098,7 +1098,7 @@
       />
     &lt;/optional>
   &lt;/define></codeblock></p>
-                  <p>The @class attribute declarations for a module <term>must</term> be grouped together at the end of the module after any other declarations. The declarations may occur in any
+                  <p>The @class attribute declarations for a module <term outputclass="OASIS-terminology">must</term> be grouped together at the end of the module after any other declarations. The declarations may occur in any
                     order. By convention they are often ordered alphabetically or grouped logically.</p>
                   <p>See <xref
                     href="classatt.dita#classatt"
@@ -1115,12 +1115,12 @@
         <shortdesc>A structural vocabulary module defines a new topic or map type as a specialization of a base topic or map type. The purpose is usually to enhance the user's interaction by adapting
           the topic or map type to its particular purposes.</shortdesc>
         <conbody>
-          <p>A structural type module <term>must</term> conform to the following coding requirements in addition to the general module coding requirements and the rules defined in <xref
+          <p>A structural type module <term outputclass="OASIS-terminology">must</term> conform to the following coding requirements in addition to the general module coding requirements and the rules defined in <xref
             href="#concept_j2w_cgk_fm"
             format="dita"/>.</p>
           <section>
             <title>Architecture attributes</title>
-            <p>The topic or map element type <term>must</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a reliable way to check the
+            <p>The topic or map element type <term outputclass="OASIS-terminology">must</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a reliable way to check the
               architecture version. In addition, because the @DITAArchVersion attribute is in a DITA-defined namespace, it serves as an unambiguous signal that the element is a DITA element. </p>
             <p>The architectural attributes section <term
               outputclass="OASIS-terminology">should</term> use the section header "ARCHITECTURE
@@ -1142,12 +1142,12 @@
       <concept
         id="concept_dsc_kzr_2m">
         <title>Topic type module coding requirements</title>
-        <shortdesc>Topic type vocabulary modules <term>must</term> conform to additional coding requirements for defining default topic nesting.</shortdesc>
+        <shortdesc>Topic type vocabulary modules <term outputclass="OASIS-terminology">must</term> conform to additional coding requirements for defining default topic nesting.</shortdesc>
         <conbody>
           <section
             id="section_5E63C9E47F0D41EE83D5EB24F1617684">
             <title>Default nested topics pattern</title>
-            <p>A topic type module <term>must</term> define a pattern to specify default subordinate topics. The pattern name <term>must</term> be the topic element name plus the
+            <p>A topic type module <term outputclass="OASIS-terminology">must</term> define a pattern to specify default subordinate topics. The pattern name <term outputclass="OASIS-terminology">must</term> be the topic element name plus the
               <codeph>-info-types</codeph> suffix. For example, the info-types pattern for the concept topic is <codeph>concept-info-types</codeph>. The info type pattern section should use the
               section header "INFO TYPES PATTERNS":<codeblock>&lt;div>
   &lt;a:documentation>INFO TYPES PATTERNS&lt;/a:documentation>
@@ -1165,7 +1165,7 @@
 &lt;/div></codeblock>
             <p>A document type shell can then control how topics are allowed to nest by redefining the <codeph><varname>topictype</varname>-info-types</codeph> pattern for each topic type, or it can
               efficiently create common nesting rules by redefining the main info-types pattern.</p>
-            <p>In the declaration of the root element of a topic type, the last position in the content model <term>must</term> be the <codeph><varname>topictype</varname>-info-types</codeph> nested
+            <p>In the declaration of the root element of a topic type, the last position in the content model <term outputclass="OASIS-terminology">must</term> be the <codeph><varname>topictype</varname>-info-types</codeph> nested
               topics pattern, as in the following example:</p>
             <codeblock>&lt;div>
   &lt;a:documentation>LONG NAME: Concept&lt;/a:documentation>
@@ -1246,9 +1246,9 @@
         <conbody>
           <p>An attribute domain's name is the name of the attribute plus "Att" to distinguish the attribute domain from any element domains with the same name. For example, for an attribute named
             "new" the attribute domain name would be "newAtt". The attribute domain name is used to construct filenames and pattern names for the domain. </p>
-          <p>An attribute domain <term>must</term> consist of one file, whose name consists of the module name plus <filepath>DomainMod</filepath> plus the <filepath>rng</filepath> or
+          <p>An attribute domain <term outputclass="OASIS-terminology">must</term> consist of one file, whose name consists of the module name plus <filepath>DomainMod</filepath> plus the <filepath>rng</filepath> or
             <filepath>rnc</filepath> extension. For example: <filepath>newAttDomainMod.rng</filepath> for an attribute named "new". </p>
-          <p>The file <term>must</term> have three sections:<dl>
+          <p>The file <term outputclass="OASIS-terminology">must</term> have three sections:<dl>
             <dlentry>
               <dt>Domains attribute contribution</dt>
               <dd>
@@ -1317,7 +1317,7 @@
       <conbody>
         <section>
           <title>Requirements for structural constraint modules</title>
-          <p>Constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname> is specific to the constraints
+          <p>Constraint modules <term outputclass="OASIS-terminology">should</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname> is specific to the constraints
             module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>tagname</varname> is the name of the element type to which the constraints apply, e.g. "topic", "p",
             "myNewTopicType", etc.</p>
           <p>The constraint module's @domains contribution pattern <term
@@ -1335,7 +1335,7 @@
         <section>
           <title>Requirements for domain constraint modules</title>
           <p>A domain constraint module defines the constraints for exactly one element domain module.</p>
-          <p>Domain constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod" with an extension of ".rng" or ".rnc", where
+          <p>Domain constraint modules <term outputclass="OASIS-terminology">should</term> be named "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod" with an extension of ".rng" or ".rnc", where
             <varname>qualifier</varname> is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>domain</varname> is the name of the domain to
             which the constraints apply, e.g. "hi-d", "pr-d", "mydomain-d", etc.</p>
           <p>The constraint module's @domains contribution pattern <term
