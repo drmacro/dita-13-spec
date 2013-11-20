@@ -42,6 +42,7 @@
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngtopic.rng"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/rng/topic-mathml-test.rng"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/xsd/topic-mathml.xsd"/>
             <file name="proposals/proposal-13112-rng/test/shells/rng/topic-mathmlDomain-test.rng"/>
@@ -54,7 +55,7 @@
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
             <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/topic.rng"/>
-            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDesc.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"/>
         </folder>
         <folder path="../../../../Applications/oxygen/frameworks/dita/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>

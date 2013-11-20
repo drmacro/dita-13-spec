@@ -84,23 +84,20 @@ ORIGINAL CREATION DATE:
  </moduleDesc>  
   <div>
     <a:documentation>ARCHITECTURE ATTRIBUTES</a:documentation>
-  
-  
-  
     <define name="arch-atts">
       <optional>
         <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
       </optional>
     </define>
-    
+  </div>
+  <div>
+    <a:documentation>INFO TYPES PATTERNS</a:documentation>
     <define name="topic-info-types">
       <ref name="info-types"/>
     </define>
     <define name="info-types">
       <ref name="topic.element"/>
     </define>
-  
-  
   </div>
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>

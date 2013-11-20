@@ -48,6 +48,7 @@ ORIGINAL CREATION DATE:
        <rncMod>urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomain.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng</rngMod>
      </modulePublicIds>
+     <domainsContribution>a(props deliveryTarget)</domainsContribution>
    </moduleMetadata>
  </moduleDesc>  
  

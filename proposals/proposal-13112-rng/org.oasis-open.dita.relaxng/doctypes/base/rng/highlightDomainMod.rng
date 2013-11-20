@@ -111,17 +111,14 @@
         </optional>
       </define>
       <define name="b.element">
-        <element
-          name="b"
-          ditaarch:longName="Bold">
+        <element name="b" ditaarch:longName="Bold">
           <a:documentation>The bold (&lt;b>) element is used to apply bold highlighting to the content of the element. Use this element only when there is not some other more proper element. For
             example, for specific items such as GUI controls, use the &lt;uicontrol> element. This element is part of the DITA highlighting domain. Category: Typographic elements</a:documentation>
           <ref name="b.attlist"/>
           <ref name="b.content"/>
         </element>
       </define>
-      <define
-        name="b.attlist"
+      <define name="b.attlist"
         combine="interleave">
         <ref name="b.attributes"/>
       </define>

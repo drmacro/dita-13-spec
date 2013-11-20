@@ -850,46 +850,27 @@
     <concept
       id="concept_sbf_fn4_2m">
       <title>RelaxNG grammar specialization module coding requirements</title>
-      <shortdesc>To be extensible and backward compatible, DITA requires that a RelaxNG implementation of structural and domain specialization modules conform to well-defined implementation (coding)
+      <shortdesc>To be extensible and backward compatible, DITA requires that RelaxNG implementations of structural and domain specialization modules conform to well-defined implementation (coding)
         requirements.</shortdesc>
       <conbody>
-        <p>These coding requirements implement the specialization architecture with the capabilities and within the limitations of the RelaxNG grammar. They are the coding requirements for structural
-          specializations, element domain specializations, and attribute domain specializations.</p>
+        <p>These coding requirements implement the specialization architecture with the capabilities and within the limitations of the RelaxNG grammar. Structural specializations, element domain
+          specializations, and attribute domain specializations <term
+          outputclass="OASIS-terminology">must</term> conform to these requirements  as well as the requirements defined in <xref
+          href="#concept_j2w_cgk_fm"
+          format="dita"/>.</p>
         <p>RelaxNG XML syntax modules that are intended to be used to generate corresponding DTD and XSD schema modules <term
           outputclass="OASIS-terminology">must</term> include the &lt;moduleDesc> element. See <xref
           href="#concept_lbt_ct4_2m"
           format="dita"/>.</p>
-        <p>Unlike DTD and XSD-schema modules, RelaxNG modules are self integrating such that document type shells need only include the module.</p>
+        <p>Unlike DTD and XSD-schema modules, RelaxNG modules are self integrating such that document type shells need only include the module and include the module's @domains contribution in the
+          declaration of the @domains attribute default value.</p>
         <p>RelaxNG is capable of expressing constraints that are more precise than is possible with either DTDs or XSDs. For example, RelaxNG patterns can be context specific such that the same
           element type may allow different content or attributes in different contexts. Where generation of DTD or XSD schema modules from RelaxNG modules is a requirement you must take care to avoid
           RelaxNG features that cannot be translated into DTD or XSD constructs.</p>
-        <p>The use of RelaxNG for DITA vocabularies depends on use of the <cite>RELAX NG DTD Compatibility</cite> specification, a companion standard to the RelaxNG specification. The DTD
-          compatibility specification defines a mechanism for specifying attribute default values and for including documentation equivalent to DTD comments. Elements and attributes defined by the DTD
-          compatibility specification are in the namespace "http://relaxng.org/ns/compatibility/annotations/1.0", by convention bound to the prefix "a". </p>
-        <p>Processors that operate on DITA documents governed by RelaxNG schemas and for which the defaulted attributes are not specified in the DITA documents must implement support for the attribute
-          default annotation in order to have access to values for the @domains and @class attributes. At the time of publication of version 1.3 of the DITA specification this support is available for
-          Java XML parsers and is integrated in the DITA Open Toolkit starting with version 1.6.</p>
-        <p>All vocabulary and constraint modules must include the following section:</p>
-        <dl>
-          <dlentry>
-            <dt>Domains attribute contribution</dt>
-            <dd>
-              <p>Vocabulary modules <term
-                outputclass="OASIS-terminology">must</term> define a @domains attribute contribution pattern named "domains-att-contribution" with a @combine value of "choice". The value of the
-                pattern <term>must</term> list the dependencies of the domain module in order of dependency from left to right within enclosing parentheses, starting with the topic module. Domain
-                abbreviations are used in the list, and the defining domain is the last item in the list. The following example declares the dependency of the highlight domain on the base topic
-                module.
-                <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 DOMAINS ATTRIBUTE CONTRIBUTION                -->
-&lt;!-- ============================================================= -->
-
-  &lt;define name="domains-att-contribution" combine="choice">
-    &lt;value>(topic hi-d)&lt;/value>
-  &lt;/define></codeblock></p>
-              <p>The domains attribute contribution pattern is used to construct the effective value of the @domains attribute for a map or topic type as configured in a document type shell.</p>
-            </dd>
-          </dlentry>
-        </dl>
+        <p>All vocabulary and constraint modules must document their @domains attribute contribution. This <term
+          outputclass="OASIS-terminology">may</term> be done using the &lt;domainsContribution> element within a &lt;moduleDesc> element or using a normal XML comment or &lt;a:documentation> element.
+          Grammars that are intended to be used for automatic generation of DTD- and XSD-syntax modules <term
+          outputclass="OASIS-terminology">must</term> use the &lt;domainsContribution> element.</p>
       </conbody>
       <concept
         id="concept_vmn_pbr_2m">
@@ -897,8 +878,6 @@
         <shortdesc>Structural and element domain vocabulary modules <term
           outputclass="OASIS-terminology">must</term> reflect the same coding requirements for element type declarations.</shortdesc>
         <conbody>
-          <note>The RelaxNG XML and compact syntaxes are equivalent for the purposes of validating documents. However, because only the XML syntax enables generation of other contraint language forms,
-            the expectation is that most modules will be defined using the XML syntax. Thus, most of the examples show the RelaxNG XML syntax.</note>
           <section>
             <title>Module names</title>
             <p>Each vocabulary module has a short name that is used to construct file names, pattern names, and other names used in associated declarations. Modules <term>may</term> also have
@@ -932,15 +911,20 @@
                 <dt>Element type name patterns</dt>
                 <dd>
                   <p>This section <term
-                    outputclass="OASIS-terminology">should</term> be introduced with the
-                    comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ELEMENT TYPE NAME PATTERNS                    -->
-&lt;!-- ============================================================= --></codeblock></p>
+                    outputclass="OASIS-terminology">should</term> have the section heading "ELEMENT TYPE NAME
+                    PATTERNS"<codeblock>&lt;div>
+  &lt;a:documentation>ELEMENT TYPE NAME PATTERNS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock></p>
                   <p>For each element type declared in the vocabulary module there <term
                     outputclass="OASIS-terminology">must</term> be a pattern whose name is the element type name and whose content is a reference to the element type's ".element" pattern. For
-                    example:<codeblock>  &lt;define name="b">
+                    example:<codeblock>&lt;div>
+  &lt;a:documentation>ELEMENT TYPE NAME PATTERNS&lt;/a:documentation>
+  &lt;define name="b">
     &lt;ref name="b.element"/>
-  &lt;/define></codeblock></p>
+  &lt;/define>
+  ...
+&lt;/div></codeblock></p>
                   <p>The element type name pattern provides a layer of abstraction that facilitates redefinition. The element type name patterns are referenced from content model and domain extension
                     patterns. Specialization modules can redeclare the patterns to include specializations of the type, allowing the specialized types in all contexts where the base type is
                     allowed.</p>
@@ -952,11 +936,11 @@
                 <dd>Structural and element domain modules <term
                   outputclass="OASIS-terminology">may</term> include a "common content model patterns" section that defines patterns that contribute to the content models of the element types defined
                   in the module. This section <term
-                  outputclass="OASIS-terminology">must</term> use the
-                  comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 COMMON CONTENT MODEL PATTERNS                 -->
-&lt;!-- ============================================================= --></codeblock><p>Common
-                  content model patterns <term
+                  outputclass="OASIS-terminology">should</term> use the section header "COMMON CONTENT MODEL
+                  PATTERNS":<codeblock>&lt;div>
+  &lt;a:documentation>COMMON CONTENT MODEL PATTERNS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock><p>Common content model patterns <term
                   outputclass="OASIS-terminology">should</term> use names that end with ".cnt", e.g. "body.cnt".</p></dd>
               </dlentry>
               <dlentry>
@@ -964,23 +948,25 @@
                 <dd>Structural and element domain modules <term
                   outputclass="OASIS-terminology">may</term> include a "common attribute sets" section that defines patterns for attribute sets common to one or more of the element types defined in
                   the module. This section <term
-                  outputclass="OASIS-terminology">must</term> use the
-                  comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 COMMON ATTRIBUTE SETS                         -->
-&lt;!-- ============================================================= --></codeblock><p>Common
-                  attribute set patterns <term
+                  outputclass="OASIS-terminology">should</term> use the section header "COMMON ATTRIBUTE
+                  SETS":<codeblock>&lt;div>
+  &lt;a:documentation>COMMON ATTRIBUTE SETS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock><p>Common attribute set patterns <term
                   outputclass="OASIS-terminology">should</term> use names that with "-atts", e.g. "topicref-atts".</p></dd>
               </dlentry>
               <dlentry>
                 <dt>Element type declarations</dt>
                 <dd>For each element type declared in the vocabulary module there <term
                   outputclass="OASIS-terminology">must</term> be a set of patterns that define the content model and attributes for the element type. Each set of patterns <term
-                  outputclass="OASIS-terminology">should</term> start with a descriptive comment of the
-                  form:<codeblock>&lt;!--                    LONG NAME: Topic Head                      --></codeblock><p>Each element type <term
+                  outputclass="OASIS-terminology">should</term> be grouped within a &lt;div> element and should start with a descriptive comment of the
+                  form:<codeblock>&lt;div>
+  &lt;a:documentation>LONG NAME: <i>Long Name</i>&lt;/a:documentation>
+  ...
+&lt;/div></codeblock><p>Each element type <term
                   outputclass="OASIS-terminology">must</term> have a content model pattern named <codeph><i>tagname</i>.content</codeph>. The value of the pattern must be the complete content model
                   definition. For
-                  example:<codeblock>  &lt;!-- LONG NAME: Topic Head -->
-  &lt;define name="topichead.content">
+                  example:<codeblock>  &lt;define name="topichead.content">
     &lt;optional>
       &lt;ref name="topicmeta"/>
     &lt;/optional>
@@ -994,7 +980,7 @@
     &lt;/zeroOrMore>
   &lt;/define></codeblock>The
                   content model pattern <term>may</term> be overridden in constraint modules to further constrain the content model for the element type.</p><p>Each element type <term
-                  outputclass="OASIS-terminology">must</term>  have an attribute list pattern named <codeph><i>tagname</i>.attributes</codeph>. The pattern entity must declare all attributes used by
+                  outputclass="OASIS-terminology">must</term> have an attribute list pattern named <codeph><i>tagname</i>.attributes</codeph>. The pattern entity must declare all attributes used by
                   the element type (except for the attributes provided by the <codeph>global-atts</codeph> pattern, which is always referenced as part of the attribute list declaration for an
                   element's class attribute). For
                   example:<codeblock>  &lt;define name="topichead.attributes">
@@ -1017,10 +1003,12 @@
                   outputclass="OASIS-terminology">may</term> be overridden in constraint modules to further constraint the attribute list for the element type.</p><p>Each element type <term
                   outputclass="OASIS-terminology">must</term> have a pattern named <codeph><i>tagname</i>.element</codeph> containing an &lt;element> element whose @name value is the element type name
                   and whose content is a reference to the <codeph><i>tagname</i>.attlist</codeph> and <codeph><i>tagname</i>.content</codeph> patterns. The &lt;element> element <term
-                  outputclass="OASIS-terminology">should</term> include a &lt;documentation> element in the RelaxNG compatibility "http://relaxng.org/ns/compatibility/annotations/1.0" namespace (by
-                  convention, bound to the prefix "a") containing a short description of the element type. The description should not include any unescaped XML markup. For
+                  outputclass="OASIS-terminology">should</term> include a &lt;a:documentation> element containing a short description of the element type. The description should not include any
+                  unescaped XML markup. For grammars intended for use in generating DTD- and XSD-syntax modules, the &lt;element> element <term
+                  outputclass="OASIS-terminology">should</term> specify the attribute "longName" in the DITA architecture name ("http://dita.oasis-open.org/architecture/2005/", by convention bound to
+                  the prefix "ditaarch"). For
                   example:<codeblock>  &lt;define name="topichead.element">
-    &lt;element name="topichead">
+    &lt;element name="topichead" ditarch:longName="Topic Head">
       &lt;a:documentation>The &amp;lt;topichead> element provides a title-only entry in a navigation map,
         as an alternative to the fully-linked title provided by the &amp;lt;topicref> element. 
         Category: Mapgroup elements&lt;/a:documentation>
@@ -1032,11 +1020,12 @@
                   <codeph><i>tagname</i>.attributes</codeph> pattern. For
                   example:<codeblock>  &lt;define name="topichead.attlist" combine="interleave">
     &lt;ref name="topichead.attributes"/>
-  &lt;/define></codeblock></p><p>The content model,
-                  attributes, element and attlist patterns <term
-                  outputclass="OASIS-terminology">should</term> be grouped together within the module. Each such group of patterns <term
-                  outputclass="OASIS-terminology">may</term> occur in any order within the module. For
-                  example:<codeblock>&lt;!-- LONG NAME: Topic Head -->
+  &lt;/define></codeblock></p><note
+                  type="other"
+                  othertype="example">
+                  <p>
+                    <codeblock>&lt;div>
+  &lt;a:documentation>LONG NAME: Topic Head&lt;/a:documentation>
   &lt;define name="topichead.content">
     &lt;optional>
       &lt;ref name="topicmeta"/>
@@ -1077,18 +1066,22 @@
   &lt;/define>
   &lt;define name="topichead.attlist" combine="interleave">
     &lt;ref name="topichead.attributes"/>
-  &lt;/define></codeblock></p></dd>
+  &lt;/define>
+&lt;/div></codeblock>
+                  </p>
+                  </note></dd>
               </dlentry>
               <dlentry>
                 <dt>Specialization attribute declarations</dt>
                 <dd>
                   <p>A vocabulary module <term>must</term> define a @class attribute for every specialized element declared in the module.</p>
                   <p>This section declares the @class attributes for the element types defined in the module. This section <term
-                    outputclass="OASIS-terminology">must</term> be introduced by the comment:</p>
-                  <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
-&lt;!-- ============================================================= --></codeblock>
-                  <p>For each element type defined in the  module there <term
+                    outputclass="OASIS-terminology">should</term> use the section header "SPECIALIZATION ATTRIBUTE DECLARATIONS":</p>
+                  <codeblock>&lt;div>
+  &lt;a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock>
+                  <p>For each element type defined in the module there <term
                     outputclass="OASIS-terminology">must</term> be a pattern named <codeph><i>tagname</i>.attlist</codeph> that contains a reference to the attribute list pattern "global-atts" and
                     defines an optional attribute named "class". The @class attribute default value <term>must</term> include the value of the @class attribute of the base element, and append to it
                     the element name qualified by the topic element name with at least one leading and trailing space. The @class attribute for an element introduced by a structural specialization
@@ -1122,20 +1115,23 @@
         <shortdesc>A structural vocabulary module defines a new topic or map type as a specialization of a base topic or map type. The purpose is usually to enhance the user's interaction by adapting
           the topic or map type to its particular purposes.</shortdesc>
         <conbody>
-          <p>A structural type module <term>must</term> conform to the following coding requirements in addition to the general module coding requirements: </p>
+          <p>A structural type module <term>must</term> conform to the following coding requirements in addition to the general module coding requirements and the rules defined in <xref
+            href="#concept_j2w_cgk_fm"
+            format="dita"/>.</p>
           <section>
             <title>Architecture attributes</title>
             <p>The topic or map element type <term>must</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a reliable way to check the
               architecture version. In addition, because the @DITAArchVersion attribute is in a DITA-defined namespace, it serves as an unambiguous signal that the element is a DITA element. </p>
-            <p>The archtictural attributes section <term
-              outputclass="OASIS-terminology">must</term> use the
-              comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ARCHITECTURE ATTRIBUTES                       -->
-&lt;!-- ============================================================= --> </codeblock></p>
+            <p>The architectural attributes section <term
+              outputclass="OASIS-terminology">should</term> use the section header "ARCHITECTURE
+              ATTRIBUTES":<codeblock>&lt;div>
+  &lt;a:documentation>ARCHITECTURE ATTRIBUTES&lt;/a:documentation>
+  ...
+&lt;/div></codeblock></p>
             <p>The architectural attributes pattern <term
               outputclass="OASIS-terminology">must</term> have the name "arch-atts" and <term
-              outputclass="OASIS-terminology">must</term> declare the @DITAArchVersion
-              attribute:<codeblock>  &lt;define name="arch-atts">
+              outputclass="OASIS-terminology">must</term> declare the @DITAArchVersion attribute in the DITA architecture namespace (by convention bound to the prefix
+              "ditaarch"):<codeblock>  &lt;define name="arch-atts">
     &lt;optional>
       &lt;attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
     &lt;/optional>
@@ -1152,16 +1148,27 @@
             id="section_5E63C9E47F0D41EE83D5EB24F1617684">
             <title>Default nested topics pattern</title>
             <p>A topic type module <term>must</term> define a pattern to specify default subordinate topics. The pattern name <term>must</term> be the topic element name plus the
-              <codeph>-info-types</codeph> suffix. For example, the info-types pattern for the concept topic is <codeph>concept-info-types</codeph>. If the topic has default subordinate topics, this
-              pattern can refer to a list of topic element type name patterns. If not, the pattern can refer to the <codeph>info-types</codeph> pattern as in the following example:</p>
-            <codeblock>  &lt;define name="concept-info-types">
+              <codeph>-info-types</codeph> suffix. For example, the info-types pattern for the concept topic is <codeph>concept-info-types</codeph>. The info type pattern section should use the
+              section header "INFO TYPES PATTERNS":<codeblock>&lt;div>
+  &lt;a:documentation>INFO TYPES PATTERNS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock></p>
+            <p>If the topic has default subordinate topics, this pattern <term
+              outputclass="OASIS-terminology">may</term> refer to a list of topic element type name patterns. If not, the pattern <term
+              outputclass="OASIS-terminology">should</term> refer to the <codeph>info-types</codeph> pattern as in the following example:</p>
+            <codeblock>&lt;div>
+  &lt;a:documentation>INFO TYPES PATTERNS&lt;/a:documentation>
+  &lt;define name="concept-info-types">
     &lt;ref name="info-types"/>
-  &lt;/define></codeblock>
+  &lt;/define>
+  ...
+&lt;/div></codeblock>
             <p>A document type shell can then control how topics are allowed to nest by redefining the <codeph><varname>topictype</varname>-info-types</codeph> pattern for each topic type, or it can
               efficiently create common nesting rules by redefining the main info-types pattern.</p>
             <p>In the declaration of the root element of a topic type, the last position in the content model <term>must</term> be the <codeph><varname>topictype</varname>-info-types</codeph> nested
               topics pattern, as in the following example:</p>
-            <codeblock>  &lt;!-- LONG NAME: Concept -->
+            <codeblock>&lt;div>
+  &lt;a:documentation>LONG NAME: Concept&lt;/a:documentation>
   &lt;define name="concept.content">
     &lt;ref name="title"/>
     &lt;optional>
@@ -1185,7 +1192,9 @@
     &lt;zeroOrMore>
       &lt;ref name="concept-info-types"/>
     &lt;/zeroOrMore>
-  &lt;/define></codeblock>
+  &lt;/define>
+  ...
+&lt;/div></codeblock>
           </section>
         </conbody>
       </concept>
@@ -1197,12 +1206,13 @@
             <title>Domain extension patterns</title>
             <p>The domain extension patterns serve to integrate domain modules into the base content models of the element types it extends when the module is included in a document type shell. This
               section <term
-              outputclass="OASIS-terminology">must</term> use the
-              comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 DOMAIN EXTENSION PATTERNS                     -->
-&lt;!-- ============================================================= --></codeblock></p>
+              outputclass="OASIS-terminology">should</term> use the section header "DOMAIN EXTENSION
+              PATTERNS":<codeblock>&lt;div>
+  &lt;a:documentation>DOMAIN EXTENSION PATTERNS&lt;/a:documentation>
+  ...
+&lt;/div></codeblock></p>
             <p>For each element type that is extended by the element domain module, the module <term
-              outputclass="OASIS-terminology">must</term> define a domain extension pattern consisting of a choice group of references to each element type name pattenrs of the domain-provided
+              outputclass="OASIS-terminology">must</term> define a domain extension pattern consisting of a choice group of references to the element type name patterns of the domain-provided
               extensions of the extended element type. The name of the pattern <term
               outputclass="OASIS-terminology">must</term> be constructed from the short name for the domain, "-d-", and the element type being extended. For example, this pattern extends the &lt;ph>
               element to add the highlight-domain-defined specializations of
@@ -1223,8 +1233,8 @@
               model:<codeblock>  &lt;define name="ph" combine="choice">
     &lt;ref name="hi-d-ph"/>
   &lt;/define></codeblock></p>
-            <p>Because the redefinition of the extended element type's pattern uses a @combine value of "choice", the effect is that the domain-provided elements are added to the effective content
-              model of the extended element in any grammar that includes the domain module.</p>
+            <p>Because the redefinition of the extended element type's pattern uses a @combine value of "choice", the effect is that the domain-provided elements are automatically added to the
+              effective content model of the extended element in any grammar that includes the domain module.</p>
           </section>
         </conbody>
       </concept>
@@ -1238,18 +1248,33 @@
             "new" the attribute domain name would be "newAtt". The attribute domain name is used to construct filenames and pattern names for the domain. </p>
           <p>An attribute domain <term>must</term> consist of one file, whose name consists of the module name plus <filepath>DomainMod</filepath> plus the <filepath>rng</filepath> or
             <filepath>rnc</filepath> extension. For example: <filepath>newAttDomainMod.rng</filepath> for an attribute named "new". </p>
-          <p>The file <term>must</term> have three parts:<dl>
+          <p>The file <term>must</term> have three sections:<dl>
             <dlentry>
-              <dt>Domains attribute contribution pattern</dt>
+              <dt>Domains attribute contribution</dt>
               <dd>
-                <p>The attribute domain is declared in @domains attribute values through a pattern that contains the attribute domain's domain declaration fragment. The pattern name <term
-                  outputclass="OASIS-terminology">must</term> be "domains-att-contribution". See <xref
-                  href="domainsatt.dita#domainsatt"
-                  format="dita"/> for details on attribute domain @domains values.</p>
-                <p>For example:</p>
-                <codeblock>  &lt;define name="domains-att-contribution" combine="choice">
-    &lt;value>a(props deliveryTarget)&lt;/value>
-  &lt;/define></codeblock>
+                <p>The @domains contribution for attribute domains uses the pattern "a(<i>baseAttributeName</i> <i>specializedAttributeNames</i>)" where <i>baseAttributeName</i> is either "base" or
+                  "props" and <i>specializedAttributeNames</i> is a space-separate list of attribute names reflecting the specialization hierarchy of the specialized attribute and ending with the name
+                  of the specialized attribute defined in the module.</p>
+                <note
+                  type="other"
+                  othertype="example">
+                  <p>An attribute specialized directly from @props:</p>
+                  <codeblock>&lt;moduleDesc>
+  ...
+  &lt;moduleMetadata>
+    ...   
+    &lt;domainsContribution>a(props deliveryTarget)&lt;/domainsContribution>
+  &lt;/moduleMetadata>
+&lt;/moduleDesc></codeblock>
+                  <p>An attribute "myDeliveryTarget" specialized from
+                    @deliveryTarget:<codeblock>&lt;moduleDesc>
+  ...
+  &lt;moduleMetadata>
+    ...   
+    &lt;domainsContribution>a(props deliveryTarget myDeliveryTarget)&lt;/domainsContribution>
+  &lt;/moduleMetadata>
+&lt;/moduleDesc></codeblock></p>
+                </note>
               </dd>
             </dlentry>
             <dlentry>
@@ -1287,38 +1312,50 @@
     <concept
       id="concept_ebs_mn4_2m">
       <title>Constraint module RelaxNG coding requirements</title>
-      <shortdesc>A structural constraint module defines the constraints for exactly one map or topic element type.</shortdesc>
+      <shortdesc>A structural constraint module defines the constraints for exactly one map or topic element type. A domain constraint module defines the constraints for exactly one element or
+        attribute domain.</shortdesc>
       <conbody>
         <section>
           <title>Requirements for structural constraint modules</title>
           <p>Constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname> is specific to the constraints
             module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>tagname</varname> is the name of the element type to which the constraints apply, e.g. "topic", "p",
             "myNewTopicType", etc.</p>
-          <p>The constraint module <term
-            outputclass="OASIS-terminology">must</term> declare a @domains attribute contribution pattern named "domains-att-value" and <term
-            outputclass="OASIS-terminology">must</term> specify a @combine value of "choice". The value of the pattern <term
+          <p>The constraint module's @domains contribution pattern <term
             outputclass="OASIS-terminology">must</term> be of the form "(<varname>tagname</varname> <varname>qualifier</varname><varname>Tagname</varname>-c)", where <varname>tagname</varname> is the
             name of the element type to which the constraints apply, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Tagname</varname> is the element type
-            name with an initial capital (e.g. "Topic"). The literal "-c" indicates that the name is the name of a constraints domain.  For example:</p>
-          <codeblock>  &lt;define name="domains-att-value" combine="choice">
-    &lt;value>(topic task strictTaskbody-c)&lt;/value>
-  &lt;/define></codeblock>
+            name with an initial capital (e.g. "Topic"). The literal "-c" indicates that the name is the name of a constraints domain. For example:</p>
+          <codeblock>&lt;moduleDesc>
+  ...
+  &lt;moduleMetadata>
+    ...   
+    &lt;domainsContribution>(topic task strictTaskbody-c)&lt;/domainsContribution>
+  &lt;/moduleMetadata>
+&lt;/moduleDesc></codeblock>
         </section>
         <section>
           <title>Requirements for domain constraint modules</title>
           <p>A domain constraint module defines the constraints for exactly one element domain module.</p>
           <p>Domain constraint modules <term>should</term> be named "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod" with an extension of ".rng" or ".rnc", where
             <varname>qualifier</varname> is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>domain</varname> is the name of the domain to
-            which the constraints apply, e.g. "hi-d", "pr-d", "mydomain-d", etc. For
-            example:<codeblock>  &lt;define name="domains-att-value" combine="choice">
-    &lt;value>(topic task taskreq-d)&lt;/value>
-  &lt;/define></codeblock></p>
+            which the constraints apply, e.g. "hi-d", "pr-d", "mydomain-d", etc.</p>
+          <p>The constraint module's @domains contribution pattern <term
+            outputclass="OASIS-terminology">must</term> be of the form "(<varname>domain</varname> <varname>qualifier</varname><varname>Domain</varname>-c)", where <varname>domain</varname> is the
+            name of the domain to which the constraints apply, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Domoain</varname> is the domain name with an
+            initial capital (e.g. "Taskreq"). The literal "-c" indicates that the name is the name of a constraints domain. For example:</p>
+          <codeblock>&lt;moduleDesc>
+  ...
+  &lt;moduleMetadata>
+    ...   
+    &lt;domainsContribution>(topic task taskreq-d)&lt;/domainsContribution>
+  &lt;/moduleMetadata>
+&lt;/moduleDesc></codeblock>
         </section>
         <section>
           <title>Requirements for shell document types</title>
           <p>Constraint modules are integrated into document type shells by simply including the module into the shell document type. See <xref
             href="#concept_ecb_wg2_2m"
-            format="dita"/>.</p>
+            format="dita"/>. The @domains contribution of the constraint module <term
+            outputclass="OASIS-terminology">must</term> be reflected in the @domains value for the root map or topic type configured by the document type shell.</p>
           <?Pub Caret -1?>
         </section>
       </conbody>
@@ -1329,10 +1366,99 @@
         <p>[Insert new example before XSD sample.]</p>
         <example>
           <title>Example of specializing foreign content using RelaxNG</title>
-          <p>The sample below describes how to create a domain declaration for the ???? element, but does not show how to integrate that declaration in a DITA document-type shell. For more specific
-            information on creating document-type shells, see <xref
-            href="relaxngmod.dita#modRelaxNG"
-            format="dita"/></p>
+          <p>The sample below describes how to create a domain declaration for the Relax NG grammar element, but does not show how to integrate that declaration in a DITA document-type shell. For more
+            specific information on creating document-type shells, see <xref
+            href="#concept_ecb_wg2_2m"
+            format="dita"/>.</p>
+          <p>Domain modules that include foreign grammars should use the &lt;externalRef> element to refer to the foreign grammar when the grammar specifies a &lt;start> element. When using the
+            &lt;externalRef> element, it is possible to safely include foreign vocabularies that are not in a namespace because the externally-referenced grammar's patterns are not merged with those
+            of the referencing grammar.</p>
+          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0">
+&lt;moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   &lt;moduleTitle>RelaxNG Foreign Domain&lt;/moduleTitle>
+   &lt;headerComment>
+============================================================= 
+Define the Relax NG XML syntax as a DITA foreign vocabulary
+=============================================================      
+&lt;/headerComment>
+   &lt;moduleMetadata>
+     &lt;moduleType>elementdomain&lt;/moduleType>
+     &lt;moduleShortName>rnggrammar-d&lt;/moduleShortName>
+     &lt;modulePublicIds>
+       &lt;dtdMod>urn:oasis.org:elements:dita:dtd:rnggrammarDomain.mod&lt;/dtdMod>
+       &lt;dtdEnt>urn:oasis.org:entities:dita:dtd:rnggrammarDomain.ent&lt;/dtdEnt>
+       &lt;xsdMod>urn:oasis.org:names:dita:xsd:rnggrammarDomain.xsd&lt;/xsdMod>
+       &lt;rncMod>urn:oasis.org:names:dita:rnc:rnggrammarDomain.rnc&lt;/rncMod>
+       &lt;rngMod>urn:oasis.org:names:dita:rng:rnggrammarDomain.rng&lt;/rngMod>
+     &lt;/modulePublicIds>
+     &lt;domainsContribution>(topic rnggrammar-d)&lt;/domainsContribution>
+   &lt;/moduleMetadata>
+ &lt;/moduleDesc>  
+  
+ &lt;div>
+   &lt;a:documentation>DOMAIN EXTENSION PATTERNS&lt;/a:documentation>
+ 
+  &lt;define name="rnggrammar-d-foreign">
+    &lt;choice>
+      &lt;ref name="rng_grammar"/>
+    &lt;/choice>
+  &lt;/define>
+  
+  &lt;define name="foreign" combine="choice">
+    &lt;ref name="rnggrammar-d-foreign"/>
+  &lt;/define>
+ &lt;/div>
+ &lt;div>
+   &lt;a:documentation>ELEMENT TYPE NAME PATTERNS&lt;/a:documentation>
+  &lt;define name="rng_grammar">
+    &lt;ref name="rng_grammar.element"/>
+  &lt;/define>
+ &lt;/div>
+ &lt;div>
+   &lt;a:documentation>ELEMENT TYPE DECLARATIONS&lt;/a:documentation>  
+    &lt;div>&lt;a:documentation>LONG NAME: RNG Grammar Container&lt;/a:documentation>
+      &lt;define name="rng_grammar.content">
+        &lt;zeroOrMore>
+          &lt;choice>
+            &lt;externalRef href="rngGrammar.rng"/>
+            &lt;ref name="data"/>
+            &lt;ref name="data-about"/>
+          &lt;/choice>
+        &lt;/zeroOrMore>
+      &lt;/define>
+      &lt;define
+        name="rng_grammar.attributes">
+        &lt;ref name="univ-atts"/>
+        &lt;optional>
+          &lt;attribute name="outputclass"/>
+        &lt;/optional>
+      &lt;/define>
+      &lt;define name="rng_grammar.element">
+        &lt;element name="rng_grammar" ditaarch:longName="Bold">
+          &lt;a:documentation>&lt;/a:documentation>
+          &lt;ref name="rng_grammar.attlist"/>
+          &lt;ref name="rng_grammar.content"/>
+        &lt;/element>
+      &lt;/define>
+      &lt;define name="rng_grammar.attlist"
+        combine="interleave">
+        &lt;ref name="rng_grammar.attributes"/>
+      &lt;/define>
+    &lt;/div>  
+ &lt;/div>
+ &lt;div>
+   &lt;a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS&lt;/a:documentation>
+  &lt;define name="rng_grammar.attlist" combine="interleave">
+    &lt;ref name="global-atts"/>
+    &lt;optional>
+      &lt;attribute name="class" a:defaultValue="+ topic/foreign rnggrammar-d/rng_grammar "/>
+    &lt;/optional>
+  &lt;/define>
+ &lt;/div>
+&lt;/grammar></codeblock>
         </example>
       </conbody>
     </concept>
