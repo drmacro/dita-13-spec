@@ -75,6 +75,7 @@ ORIGINAL CREATION DATE:
        <rncMod>urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:commonElementsMod.rng</rngMod>
      </modulePublicIds>
+     <domainsContribution/>
    </moduleMetadata>
  </moduleDesc>
 

@@ -73,7 +73,7 @@
    </moduleMetadata>
  </moduleDesc>
   <start>
-    <ref name="grammar.element"/>
+   <ref name="grammar.element"/>
   </start>
   
   <define name="grammar.element">

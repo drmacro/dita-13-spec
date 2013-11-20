@@ -87,11 +87,11 @@
             <colspec
               colname="c1"
               colnum="1"
-              colwidth="1.98*"/>
+              colwidth="2.02*"/>
             <colspec
               colname="c2"
               colnum="2"
-              colwidth="1.06*"/>
+              colwidth="1.13*"/>
             <colspec
               colname="c3"
               colnum="3"
@@ -99,7 +99,7 @@
             <colspec
               colname="newCol4"
               colnum="4"
-              colwidth="1.03*"/>
+              colwidth="1.05*"/>
             <thead>
               <row>
                 <entry>Topic to Be Modified</entry>
@@ -225,16 +225,30 @@
                   <p>This specification defines implementation requirements for <ph
                     rev="1.3">all</ph> of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other XML grammar languages might provide similar modularity and
                     extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so their conformance cannot be determined.</p>
+                  <p
+                    rev="DITA1.3 proposal-13112">Of these three document constraint mechanisms, Relax NG grammars offer the easiest-to-use syntax and the most expressive constraints. For this reason,
+                    the Relax NG definitions of the standard DITA vocabularies are the authoritative versions from which the DTD and XSD versions are automatically generated. Open-source tools are
+                    available for generating conforming DTD-syntax and XSD-syntax document type shells, vocabulary modules, and constraint modules from Relax NG grammars that conform to the coding
+                    requirements defined in this specification.</p>
                 </entry>
+              </row>
+              <row>
+                <entry>New topic: Using Relax NG for DITA document types, vocabulary modules, and constraint modules</entry>
+                <entry/>
+                <entry
+                  namest="c3"
+                  nameend="newCol4"><xref
+                  href="#concept_j2w_cgk_fm"
+                  format="dita"/><p>Insert as second child of archSpec/base/ditaspecialization.dita. </p></entry>
               </row>
               <row>
                 <entry>New topic, generation of DTD and XSD schemas from RelaxNG</entry>
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Insert as second child of archSpec/base/ditaspecialization.dita. See <xref
+                  nameend="newCol4"><xref
                   href="#concept_j3g_vm4_2m"
-                  format="dita"/></entry>
+                  format="dita"/><p>Insert as third child of archSpec/base/ditaspecialization.dita. </p></entry>
               </row>
               <row>
                 <entry
@@ -263,9 +277,9 @@
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">RelaxNG document-type shell: Coding requirements (see <xref
+                  nameend="newCol4"><xref
                   href="#concept_ecb_wg2_2m"
-                  format="dita"/>).</entry>
+                  format="dita"/></entry>
               </row>
               <row>
                 <entry>archSpec/base/classatt.dita</entry>
@@ -280,27 +294,27 @@
                 <entry>New example</entry>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Add new example of RelaxNG foreign specialization (see <xref
+                  nameend="newCol4">Add new example of RelaxNG foreign specialization: <xref
                   href="#concept_aqh_5zt_3h"
-                  format="dita"/>).</entry>
+                  format="dita"/></entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">RelaxNG grammar specialization module coding requirements (see <xref
+                  nameend="newCol4"><xref
                   href="#concept_sbf_fn4_2m"
-                  format="dita"/>)</entry>
+                  format="dita"/></entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
                 <entry
                   namest="c3"
-                  nameend="newCol4">Constraint module RelaxNG coding requirements (see <xref
+                  nameend="newCol4"><xref
                   href="#concept_ebs_mn4_2m"
-                  format="dita"/>)</entry>
+                  format="dita"/></entry>
               </row>
               <row>
                 <entry
@@ -434,9 +448,61 @@
       </section>
     </body>
     <concept
+      id="concept_j2w_cgk_fm">
+      <title>Using Relax NG for DITA document type shells, vocabulary modules, and constraint modules</title>
+      <conbody>
+        <p>The Relax NG standard defines two syntaxes for Relax NG grammars: the XML syntax and the compact syntax. The two syntaxes are functionally equivalent and either syntax may be reliably
+          converted into the other (e.g., using the open-source jing tool). However, the XML syntax, because it is XML based, allows the use of foreign markup within Relax NG grammars. The DITA coding
+          requirements depend on this feature of Relax NG in order to capture metadata about document type shells and modules required in order to generate DTD- and XSD-syntax versions of the files
+          that themselves conform to the DITA coding requirements. In addition, the foreign vocabulary feature can be used to include Schematron rules directly in Relax NG grammars. Schematron rules
+          can check rules that are not expressible with Relax NG directly or that would be inconvenient to express.</p>
+        <p>In addition, the Relax NG XML syntax provides a general grouping element type, &lt;div>, that allows for arbitrary organization and grouping of patterns within grammar documents. Such
+          grouping tends to make the grammar documents easier to work with, especially in XML-aware editors. The use or non-use of the Relax NG &lt;div> element cannot affect the meaning of the
+          patterns defined in a Relax NG schema. </p>
+        <p>For these reasons, the authoritative version of all OASIS-defined DITA document type shells, vocabulary modules, and constraint modules use the Relax NG XML syntax. The DITA Relax NG coding
+          requirements are defined for the Relax NG XML syntax. Conforming Relax NG compact syntax modules <term
+          outputclass="OASIS-terminology">must</term> reflect the same file naming and organization requirements as the Relax NG XML syntax requirements, substituting ".rnc" for ".rng" as the filename
+          extension. By definition, Relax NG compact syntax modules generated from conforming Relax NG XML syntax modules such there is a one-to-one correspondence between XML files and compact syntax
+          files are conforming. Likewise, generation of XML syntax modules from conforming compact syntax modules should result in minimally-conforming XML syntax modules (such modules will lack the
+          DITA-specific &lt;moduleDesc> element for which there is no defined compact syntax equivalent, see <xref
+          href="#concept_j3g_vm4_2m"
+          format="dita"/>).</p>
+        <p>The DITA use of Relax NG depends on the companion <cite>Relax NG DTD Compatibility</cite> specification, which provides a mechanism for defining default attribute values, as well as
+          embedded documentation. Processors that use Relax NG to get the full infoset for DITA documents for which not all required attributes are present in document instances must implement the DTD
+          compatibility specification in order to get default attribute values (e.g., values for @domains and @class). The DTD compatibility specification defines the namespace name
+          "http://relaxng.org/ns/compatibility/annotations/1.0" which is bound to the prefix "a" by convention, e.g. "&lt;a:documentation>" refers to the &lt;documentation> element type from the
+          "http://relaxng.org/ns/compatibility/annotations/1.0" namespace as defined the DTD compatibility specification.</p>
+        <p>Relax NG grammars for DITA document type shells, vocabulary modules, and constraint modules ("DITA grammars") <term
+          outputclass="OASIS-terminology">may</term> use the &lt;a:documentation> element anywhere foreign elements are allowed by Relax NG. DITA grammars <term
+          outputclass="OASIS-terminology">may</term> use &lt;div> to group pattern declarations without restriction.</p>
+        <p>Relax NG grammars for DITA markup <term
+          outputclass="OASIS-terminology">may</term> include embedded Schematron rules or any other foreign vocabulary. Processors <term
+          outputclass="OASIS-terminology">may</term> ignore any foreign vocabularies within DITA grammars not in the "http://relaxng.org/ns/compatibility/annotations/1.0" or
+          "http://dita.oasis-open.org/architecture/2005/" namespaces.</p>
+        <p>Each section of a DITA grammar document is either introduced by a comment or represented by a &lt;div> element with child &lt;a:documentation> element containing the section header.
+          Grammars <term
+          outputclass="OASIS-terminology">should</term> use these divs or comments to identify each section of the grammar. Sections <term
+          outputclass="OASIS-terminology">should</term> occur in the order specified in these coding requirements. Grammars <term
+          outputclass="OASIS-terminology">should</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the grammar document and indicates the URNs or absolute URLs by
+          which the grammar should be referenced in RelaxNG grammar references (see <xref
+          href="#concept_lbt_ct4_2m"
+          format="dita"/>).</p>
+        <p>Section titles using &lt;div> <term
+          outputclass="OASIS-terminology">should</term> have the form:<codeblock>&lt;div>
+  &lt;a:documentation><i>SECTION TITLE</i>&lt;/a:documentation>
+ ...
+&lt;/div></codeblock></p>
+        <p>Header comments <term
+          outputclass="OASIS-terminology">should</term> have the
+          form:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                <i>SECTION TITLE</i>                               -->
+&lt;!-- ============================================================= --></codeblock></p>
+      </conbody>
+    </concept>
+    <concept
       id="concept_j3g_vm4_2m">
       <title>Generating DTD and XSD Schemas from RelaxNG</title>
-      <shortdesc>RelaxNG XML syntax document type shells and modules may be used to generate DTD- and XSD-syntax document type shells and modules that conform to the DITA coding requirements when the
+      <shortdesc>RelaxNG XML syntax document type shells and modules can be used to generate DTD- and XSD-syntax document type shells and modules that conform to the DITA coding requirements when the
         RelaxNG grammar document contains DITA-specific metadata that defines the module type, module header comment, and public identifiers for the components to be generated. All RelaxNG grammars
         defined by the DITA standard include this metadata.</shortdesc>
       <conbody>
@@ -449,6 +515,7 @@
           <li>The header comment for the file</li>
           <li>The module short name for vocabulary and constraint modules</li>
           <li>The public identifiers to use for each component file to be generated</li>
+          <li>The @domains attribute contribution for vocabulary and constraint modules</li>
           </ul></p>
         <p>This metadata can be defined using the &lt;moduleDesc> element within a RelaxNG &lt;grammar> element.</p>
       </conbody>
@@ -458,8 +525,8 @@
         <shortdesc>The &lt;moduleDesc> element enables specification of the metadata required in order to generate from RelaxNG grammars DTD and XSD components that conform to the DITA coding
           requirements.</shortdesc>
         <conbody>
-          <p>When it is used, the &lt;moduleDesc> element <term
-            outputclass="OASIS-terminology">must</term> be specified as a child of the RelaxNG &lt;grammar> element and <term
+          <p>The use of &lt;moduleDesc> is not required. However, when it is used, the &lt;moduleDesc> element <term
+            outputclass="OASIS-terminology">must</term> be specified as a direct child of the RelaxNG &lt;grammar> element and <term
             outputclass="OASIS-terminology">should</term> be the first child of &lt;grammar>. The &lt;moduleDesc> element functions as a foreign element as defined in the RelaxNG standard. As a
             foreign element, it must be in a namespace that is different from any RelaxNG namespaces. The &lt;moduleDesc> element is defined as a specialization of &lt;topic>. Because it must be in a
             namespace, it cannot be a strictly-conforming DITA topic as DITA elements may not be in a namespace. However, if the &lt;moduleDesc> element is processed in terms of the @class attributes
@@ -552,6 +619,11 @@
                           </dl></dd>
                       </dlentry>
                       <dlentry>
+                        <dt>&lt;domainsContribution></dt>
+                        <dd>Required for modules, not used for shells. Defines the @domains attribute contribution for the module, e.g. "(topic hi-d)". This is the value that <term
+                          outputclass="OASIS-terminology">must</term> be added to the @domains value for root map or topic types that integrate the module.</dd>
+                      </dlentry>
+                      <dlentry>
                         <dt>&lt;shellPublicIds></dt>
                         <dd>For document type shells, defines the public IDs for files generated from the grammar. Each subelement specifies the public identifier to use for a specific generated file. Subelements:<dl>
                           <dlentry>
@@ -609,6 +681,7 @@
        &lt;rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDescMod.rnc&lt;/rncMod>
        &lt;rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng&lt;/rngMod>
      &lt;/modulePublicIds>
+     &lt;domainsContribution>(topic myTopicType)&lt;/domainsContribution>
    &lt;/moduleMetadata>
  &lt;/moduleDesc>
  
@@ -616,7 +689,7 @@
 
 &lt;/grammar></codeblock></p>
             <p>A typical document type shell, in this case, a topic
-              type:<codeblock>&lt;grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+              shell:<codeblock>&lt;grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
@@ -655,26 +728,40 @@
     <concept
       id="concept_ecb_wg2_2m">
       <title>RelaxNG document-type shell: Coding requirements</title>
-      <shortdesc>A document type shell integrates one or more topic type or map type modules, zero or more domain modules, and zero or more constraint modules. A RelaxNG document type shell is
-        organized into sections, where each section contains a specific type of declaration.</shortdesc>
+      <shortdesc>A document type shell integrates one or more topic type or map type modules, zero or more domain modules, and zero or more constraint modules.</shortdesc>
       <conbody>
         <p>RelaxNG document type shells <term
           outputclass="OASIS-terminology">may not</term> directly declare element types or attributes. A RelaxNG document type shell <term
-          outputclass="OASIS-terminology">must</term> conform to the following coding requirements.</p>
+          outputclass="OASIS-terminology">must</term> conform to the following coding requirements as well as the requirements defined in <xref
+          href="#concept_j2w_cgk_fm"
+          format="dita"/>.</p>
         <p>RelaxNG modules are self-integrating such that document type shells need only include vocabulary modules, there is no separate specification required to integrate domain and nested topic
-          elements into base content models. Likewise, constraint modules simply override the patterns they constraint directly in the constraint module itself.</p>
+          elements into base content models. Likewise, constraint modules simply override the patterns they constrain directly in the constraint module itself. However, the @domains attribute default
+          value cannot be automatically constructed using Relax NG facilities. Thus, the @domains attribute value must be directly specified in the document type shell.</p>
+        <note>For modules that use the &lt;moduleDesc> element, the module's @domains attribute contribution should be in the &lt;domainsContribution> element. When this is the case, it should be
+          possible for tools to automatically construct the @domains value in document type shells as an aid to document type shell authoring or automatic generation.</note>
         <p>Constraint modules are used by importing the constraint module rather than the module the constraint modifies. Constraint modules refer to the base module to be constrained and redefine
           patterns as needed to implement the constraint. In addition, you can disallow base types extended by domains by overriding the base type's pattern in the document type shell within the
-          reference to the domain module or constraint module for the domain. In this case, you <term
-          outputclass="OASIS-terminology">must</term> declare the constraint represented by the pattern redefinition in the @domains attribute. </p>
-        <p>Each section of the shell is introduced by a comment. Shells <term
-          outputclass="OASIS-terminology">should</term> use these comments to identify each section of the shell. Each section <term
-          outputclass="OASIS-terminology">should</term> be present in the shell grammar, even if the section contains no declarations, and <term
-          outputclass="OASIS-terminology">should</term> occur in the order they are presented here. Shells <term
-          outputclass="OASIS-terminology">should</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the shell and indicates the URNs or absolute URLs by which the
-          shell should be referenced in RelaxNG grammar references (see <xref
-          href="#concept_lbt_ct4_2m"
-          format="dita"/>).</p>
+          reference to the domain module for the domain. In this case, the constraint  represented by the pattern redefinition <term
+          outputclass="OASIS-terminology">must</term> be declared in the @domains attribute. The @domains contribution for the constraint may be documented using a &lt;domainsContribution> element
+          from the DITA namespace. For
+          example:<codeblock>  ...
+  &lt;div>
+    &lt;a:documentation>MODULE INCLUSIONS&lt;/a:documentation>
+    &lt;include href="topicMod.rng"/>
+    &lt;include href="hazardstatementDomainMod.rng"/>
+    &lt;include href="highlightDomainMod.rng">
+      &lt;domainsContribution xmlns="http://dita.oasis-open.org/architecture/2005/"
+        >(topic hi-d-noUnderline-c)&lt;/domainsContribution>
+      &lt;define name="u">
+        &lt;notAllowed>&lt;/notAllowed>
+      &lt;/define>
+    &lt;/include>
+    &lt;include href="indexingDomainMod.rng"/>
+    &lt;include href="utilitiesDomainMod.rng"/>
+  &lt;/div>
+  ...</codeblock></p>
+        <p> </p>
         <dl>
           <dlentry>
             <dt>Root element declaration</dt>
@@ -682,41 +769,44 @@
               <p>Document type shells <term
                 outputclass="OASIS-terminology">must</term> use the RelaxNG start declaration to specify the allowed root element defined by the document type, either the root topic type or root map
                 type defined by the document type shell. The start declaration <term
-                outputclass="OASIS-terminology">must</term> specify exactly one allowed root element as a reference the <codeph><i>tagname</i>.element</codeph> pattern for the root element.</p>
+                outputclass="OASIS-terminology">must</term> specify exactly one allowed root element as a reference the <codeph><i>tagname</i>.element</codeph> pattern for the root element. The root
+                element declaration <term
+                outputclass="OASIS-terminology">should</term> start with the header "ROOT ELEMENT DECLARATION".</p>
               <p>For example:</p>
-              <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ROOT ELEMENT DECLARATION                      -->
-&lt;!-- ============================================================= -->
+              <codeblock>&lt;div>
+  &lt;a:documentation>ROOT ELEMENT DECLARATION&lt;/a:documentation>
   &lt;start combine="choice">
     &lt;ref name="topic.element"/>
-  &lt;/start></codeblock>
+  &lt;/start>
+&lt;/div></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>Module inclusions</dt>
             <dd>
-              <p>The document type shell must include at least the module for the map or topic type the shell is configuring. The module inclusion section must start with the
-                comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 MODULE INCLUSIONS                             -->
-&lt;!-- ============================================================= --></codeblock></p>
+              <p>The document type shell must include at least the module for the map or topic type the shell is configuring. The module inclusion section <term
+                outputclass="OASIS-terminology">should</term>  start with the header "MODULE INCLUSIONS".</p>
               <p>For example:</p>
-              <codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 MODULE INCLUSIONS                             -->
-&lt;!-- ============================================================= -->
+              <codeblock>&lt;div>
+  &lt;a:documentation>MODULE INCLUSIONS&lt;/a:documentation>
   &lt;include href="topicMod.rng"/>
   &lt;include href="highlightDomainMod.rng"/>
   &lt;include href="utilitiesDomainMod.rng"/>
   &lt;include href="indexingDomainMod.rng"/>
-  &lt;include href="hazardstatementDomainMod.rng"/></codeblock>
+  &lt;include href="hazardstatementDomainMod.rng"/>
+&lt;/div></codeblock>
             </dd>
           </dlentry>
           <dlentry>
             <dt>ID-defining-elements override</dt>
             <dd>
               <p>In order to support patterns for elements that declare the @id attribute directly, rather than through the universal attributes or ID attributes patterns (pattern "univ-atts" or
-                pattern "id-atts"), the document type shell grammar must define a pattern named "any" that configures the attribute list pattern for those elements. The general structure of this
-                pattern
-                is:<codeblock>&lt;define name="any">
+                pattern "id-atts"), the document type shell grammar must define a pattern named "any" that configures the attribute list pattern for those elements. This section <term
+                outputclass="OASIS-terminology">should</term> start with the header "ID-DEFINING-ELEMENT OVERRIDES".</p>
+              <p>The general structure of this pattern
+                is:<codeblock>&lt;div>
+  &lt;a:documentation>ID-DEFINING-ELEMENT OVERRIDES&lt;/a:documentation>
+  &lt;define name="any">
     &lt;zeroOrMore>
       &lt;choice>
         &lt;ref name="<varname>tagname</varname>.element"/>
@@ -736,213 +826,24 @@
         &lt;text/>
       &lt;/choice>
     &lt;/zeroOrMore>
-  &lt;/define></codeblock></p>
+  &lt;/define>
+&lt;/div></codeblock></p>
               <p>Where the &lt;ref> and &lt;name> elements are repeated for each element type used from the shell that defines the @id attribute directly. For topic types this will be any topic types
                 used from the shell (the root topic type and any allowed nested topic types). For maps this will be the map element type (&lt;map> or specializations of &lt;map>) and the &lt;anchor>
                 element type or any specialization of &lt;anchor>. Domains and constraint modules may also define patterns that define the @id attribute directly.</p>
-              <p>The ID-defining elements override section must use the
-                comment:<codeblock>&lt;!-- ============================================================= -->
-&lt;!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
-&lt;!-- ============================================================= --></codeblock></p>
             </dd>
           </dlentry>
         </dl>
         <example>
           <title>Sample topic type shell</title>
           <p>Strict task document type shell:</p>
-          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;!-- ============================================================= 
-  MODULE:    DITA Task RNG
-  VERSION:   1.2
-  DATE:      November 2010
-  ============================================================= -->
-&lt;!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:task.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:task.rng:1.2
--->
-&lt;!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)
-  PURPOSE:    Relax NG schema to describe DITA Tasks
-  ORIGINAL CREATION DATE:
-  September 2010
-  (C) Copyright Syncro Soft 2010-2011
-  All Rights Reserved.
-  ============================================================= -->
-&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  &lt;moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    &lt;headerComment>
-&lt;/headerComment>
-   &lt;moduleMetadata>
-     &lt;moduleType>topicshell&lt;/moduleType>
-     &lt;moduleShortName>vocabularyModule&lt;/moduleShortName>
-     &lt;shellPublicIds>
-       &lt;dtdShell>-//OASIS//DTD DITA Topic//EN&lt;/dtdShell>
-       &lt;xsdShell>urn:oasis:names:tc:dita:xsd:topic.xsd&lt;/xsdShell>
-       &lt;rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc&lt;/rncShell>
-       &lt;rngShell>urn:oasis:names:tc:dita:rng:topic.rng&lt;/rngShell>
-     &lt;/shellPublicIds>
-   &lt;/moduleMetadata>
- &lt;/moduleDesc>  
-  
-&lt;!-- ============================================================= -->
-&lt;!--                 ROOT ELEMENT DECLARATION                      -->
-&lt;!-- ============================================================= -->
-  &lt;start>
-    &lt;ref name="task.element"/>
-  &lt;/start>
-  
-&lt;!-- ============================================================= -->
-&lt;!--                 MODULE INCLUSIONS                             -->
-&lt;!-- ============================================================= -->
-
-  &lt;include href="strictTaskbodyConstraintMod.rng">
-    &lt;a:documentation>
-      Redefine the infotype entity to exclude 
-      other topic types and disallow nesting
-    &lt;/a:documentation>
-    &lt;define name="task-info-types">
-      &lt;ref name="task.element"/>
-    &lt;/define>
-  &lt;/include>
-  &lt;include href="../../base/rng/highlightDomainMod.rng"/>
-  &lt;include href="../../base/rng/utilitiesDomainMod.rng"/>
-  &lt;include href="../../base/rng/indexingDomainMod.rng"/>
-  &lt;include href="../../base/rng/hazardstatementDomainMod.rng"/>
-  &lt;include href="abbreviateDomainMod.rng"/>
-  &lt;include href="uiDomainMod.rng"/>
-  &lt;include href="programmingDomainMod.rng"/>
-  &lt;include href="softwareDomainMod.rng"/>
- 
-&lt;!-- ============================================================= -->
-&lt;!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
-&lt;!-- ============================================================= -->
-  &lt;define name="any">
-    &lt;zeroOrMore>
-      &lt;choice>
-        &lt;ref name="task.element"/>
-        &lt;element>
-          &lt;anyName>
-            &lt;except>
-              &lt;name>task&lt;/name>
-            &lt;/except>
-          &lt;/anyName>
-          &lt;zeroOrMore>
-            &lt;attribute>
-              &lt;anyName/>
-            &lt;/attribute>
-          &lt;/zeroOrMore>
-          &lt;ref name="any"/>
-        &lt;/element>
-        &lt;text/>
-      &lt;/choice>
-    &lt;/zeroOrMore>
-  &lt;/define>
-&lt;/grammar></codeblock>
+          <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/task.rng"/></codeblock>
         </example>
         <example>
           <title>Sample map type shell</title>
           <p>Base map document type shell:</p>
-          <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  &lt;moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-   &lt;moduleTitle>DITA Highlight Domain&lt;/moduleTitle>
-   &lt;headerComment>&lt;!-- ============================================================= -->
-&lt;!--                    HEADER                                     -->
-&lt;!-- ============================================================= -->
-&lt;!--  MODULE:    DITA Base MAP DTD (only base domains)             -->
-&lt;!--  VERSION:   1.2                                               -->
-&lt;!--  DATE:      April 2010                                        -->
-&lt;!--                                                               -->
-&lt;!-- ============================================================= -->
-
-&lt;!-- ============================================================= -->
-&lt;!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
-&lt;!--                        TYPICAL INVOCATION                     -->
-&lt;!--                                                               -->
-&lt;!-- Refer to this file by the following public identifier or an
-     appropriate system identifier:
-PUBLIC "-//OASIS//DTD DITA Base Map//EN"
-     Delivered as file "basemap.dtd"                               -->
-
-&lt;!-- The public ID above refers to the latest version of this DTD.
-     To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                       -->
-
-&lt;!-- ============================================================= -->
-&lt;!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
-&lt;!--                                                               -->
-&lt;!-- PURPOSE:    DTD to describe DITA maps                         -->
-&lt;!--                                                               -->
-&lt;!-- ORIGINAL CREATION DATE:                                       -->
-&lt;!--             April 2010                                        -->
-&lt;!--                                                               -->
-&lt;!--             (C) Copyright OASIS Open 2010                     -->
-&lt;!--             All Rights Reserved.                              -->
-&lt;!--                                                               -->
-&lt;!--  UPDATES:                                                     -->
-&lt;!--    2010.09.20 RDA: Add topic-based domains                    -->
-&lt;!-- ============================================================= -->
-&lt;/headerComment>
-    &lt;moduleMetadata>
-      &lt;moduleType>mapshell&lt;/moduleType>
-      &lt;moduleShortName>basemap&lt;/moduleShortName>
-      &lt;shellPublicIds>
-       &lt;dtdShell>-//OASIS//DTD DITA Base Map//EN&lt;/dtdShell>
-       &lt;xsdShell>urn:oasis:names:tc:dita:xsd:basemap.xsd&lt;/xsdShell>
-       &lt;rncShell>urn:oasis:names:tc:dita:rng:basemap.rnc&lt;/rncShell>
-       &lt;rngShell>urn:oasis:names:tc:dita:rng:basemap.rng&lt;/rngShell>
-      &lt;/shellPublicIds>
-    &lt;/moduleMetadata>
-  &lt;/moduleDesc>
-&lt;!-- ============================================================= -->
-&lt;!--                 ROOT ELEMENT DECLARATION                      -->
-&lt;!-- ============================================================= -->
-  &lt;start>
-    &lt;ref name="map.element"/>
-  &lt;/start>
-
-&lt;!-- ============================================================= -->
-&lt;!--                 MODULE INCLUSIONS                             -->
-&lt;!-- ============================================================= -->
-  &lt;include href="mapMod.rng"/>
-  &lt;include href="delayResolutionDomainMod.rng"/>
-  &lt;include href="indexingDomainMod.rng"/>
-  &lt;include href="mapGroupMod.rng"/>
-  &lt;include href="highlightDomainMod.rng"/>
-  &lt;include href="utilitiesDomainMod.rng"/>
-  &lt;include href="hazardstatementDomainMod.rng"/>
-  
-&lt;!-- ============================================================= -->
-&lt;!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
-&lt;!-- ============================================================= -->
-  &lt;define name="any">
-    &lt;zeroOrMore>
-      &lt;choice>
-        &lt;ref name="map.element"/>
-        &lt;ref name="anchor.element"/>
-        &lt;element>
-          &lt;anyName>
-            &lt;except>
-              &lt;name>map&lt;/name>
-              &lt;name>anchor&lt;/name>
-            &lt;/except>
-          &lt;/anyName>
-          &lt;zeroOrMore>
-            &lt;attribute>
-              &lt;anyName/>
-            &lt;/attribute>
-          &lt;/zeroOrMore>
-          &lt;ref name="any"/>
-        &lt;/element>
-        &lt;text/>
-      &lt;/choice>
-    &lt;/zeroOrMore>
-  &lt;/define>
-&lt;/grammar></codeblock>
+          <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/base/rng/basemap.rng"/>
+          </codeblock>
         </example>
       </conbody>
     </concept>

@@ -10,10 +10,6 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
-                        <String>keys.context</String>
-                        <String>${pdu}/proposals/proposal-13106-learning2domain/proposal-13106-learning2domain.ditamap</String>
-                    </entry>
-                    <entry>
                         <String>search.resources.filter.history</String>
                         <filterPanelHistoryItems>
                             <field name="expressionsLists">
@@ -57,6 +53,7 @@
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
             <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/topic.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rng/rng/vocabularyModuleDesc.rng"/>
         </folder>
         <folder path="../../../../Applications/oxygen/frameworks/dita/"/>

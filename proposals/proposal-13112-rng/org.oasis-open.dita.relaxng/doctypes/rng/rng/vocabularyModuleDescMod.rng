@@ -65,12 +65,9 @@
        <rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDescMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng</rngMod>
      </modulePublicIds>
+     <domainsContribution>(topic moduleDesc)</domainsContribution>
    </moduleMetadata>
  </moduleDesc>
-  
-  <define name="domains-att-contribution" combine="choice">
-    <value>(topic moduleDesc)</value>
-  </define>
   
   <define name="moduleDesc-info-types">
     <empty/>
@@ -90,6 +87,9 @@
   </define>
   <define name="moduleShortName">
     <ref name="moduleShortName.element"/>
+  </define>
+  <define name="domainsContribution">
+    <ref name="domainsContribution.element"/>
   </define>
   <define name="modulePublicIds">
     <ref name="modulePublicIds.element"/>
@@ -188,8 +188,11 @@
     <group>
       <ref name="moduleType"/>
       <ref name="moduleShortName"/>
-      <choice>      
-        <ref name="modulePublicIds"/>
+      <choice> 
+        <group>
+          <ref name="modulePublicIds"/>
+          <ref name="domainsContribution"/>
+        </group>
         <ref name="shellPublicIds"/>
       </choice>
     </group>
@@ -341,6 +344,21 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     </element>
   </define>
 
+  <define name="domainsContribution.content">
+    <text/>
+  </define>
+  <define name="domainsContribution.attributes">
+    <empty/>
+  </define>
+  <define name="domainsContribution.element">
+    <a:documentation>The module's contribution to the @domains attribute</a:documentation>
+    <element name="dita:domainsContribution" 
+      ditaarch:longName="Domains attribute contribution">
+      <ref name="domainsContribution.content"/>
+      <ref name="domainsContribution.attributes"/>
+    </element>
+  </define>
+
   <define name="dtdMod.content">
     <text/>
   </define>
@@ -468,8 +486,7 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     <empty/>
   </define>
   <define name="xsdShell.element">
-    <a:documentation>Defines the public identifier to use for the 
-      XSD shell file.</a:documentation>
+    <a:documentation>Defines the public identifier to use for the XSD shell file.</a:documentation>
     <element name="dita:xsdShell" ditaarch:longName="XSD shell public ID">
       <ref name="xsdShell.content"/>
       <ref name="xsdShell.attributes"/>
@@ -524,6 +541,12 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     <ref name="global-atts"/>
     <optional>
       <attribute name="class" a:defaultValue="- topic/data moduleDesc/shellPublicIds "/>
+    </optional>
+  </define>
+  <define name="domainsContribution.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/domainsContribution "/>
     </optional>
   </define>
   <define name="dtdMod.attlist" combine="interleave">
