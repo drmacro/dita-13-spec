@@ -1,427 +1,415 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../rng/rng/vocabularyModuleDesc.rng"
-                         schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../../vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
-<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns="http://relaxng.org/ns/structure/1.0" 
+<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-   <moduleTitle>DITA Highlight Domain</moduleTitle>
-   <headerComment>
- ============================================================= 
- MODULE:    DITA Map RNG              
- VERSION:   1.2                                                
- DATE:      October 2010                                       
- =============================================================
-
- Refer to the latest version of this file by the following URI:
- urn:dita-ng:dita:rng:mapMod.rng
- To refer to this specific version, you may use this value:
- urn:dita-ng:dita:rng:mapMod.rng:1.2
-</headerComment>
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Map Module</moduleTitle>
+    <headerComment> ============================================================= MODULE: DITA Map RNG VERSION: 1.3 DATE: November 2013 =============================================================
+      Refer to the latest version of this file by the following URI: </headerComment>
     <moduleMetadata>
       <moduleType>map</moduleType>
       <moduleShortName>map</moduleShortName>
       <domainsContribution>(map map)</domainsContribution>
       <modulePublicIds>
-        <dtdMod></dtdMod>
-        <dtdEnt></dtdEnt>
-        <xsdMod></xsdMod>
-        <rncMod></rncMod>
-        <rngMod></rngMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA Map//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA Map//EN</dtdMod>
+        <xsdMod>urn:oasis:names:tc:dita:xsd:mapMod.xsd</xsdMod>
+        <rncMod>urn:oasis:names:tc:dita:rnc:mapMod.rnc</rncMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:mapMod.rng</rngMod>
       </modulePublicIds>
     </moduleMetadata>
-  </moduleDesc>  
-  
-<div>  
-  
-  <include href="commonElementsMod.rng">
-    <a:documentation>Content elements common to map and topic</a:documentation>
-  </include>
-  
-  <include href="metaDeclMod.rng">
-    <a:documentation>MetaData Elements</a:documentation>
-  </include>
-  
-</div>
-<div>  
-  <a:documentation>The DITA architecture version attribute</a:documentation>
-  <define name="arch-atts">
-    <optional>
-      <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.3"/>
-    </optional>
-  </define>
+  </moduleDesc>
 
-</div>
-<div>
-  <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
-  <define name="topicref">
-    <ref name="topicref.element"/> 
-  </define>
-  <define name="anchor">
-    <ref name="anchor.element"/>
-  </define>
-  <define name="linktext">
-    <ref name="linktext.element"/>
-  </define>
-  <define name="navref">
-    <ref name="navref.element"/>
-  </define>
-  <define name="relcell">
-    <ref name="relcell.element"/>
-  </define>
-  <define name="relcolspec">
-    <ref name="relcolspec.element"/>
-  </define>
-  <define name="relheader">
-    <ref name="relheader.element"/>
-  </define>
-  <define name="relrow">
-    <ref name="relrow.element"/>
-  </define>
-  <define name="reltable">
-    <ref name="reltable.element"/>
-  </define>
-  <define name="searchtitle">
-    <ref name="searchtitle.element"/>
-  </define>
-  <define name="shortdesc">
-    <ref name="shortdesc.element"/>
-  </define>
-  <define name="topicmeta">
-    <ref name="topicmeta.element"/>
-  </define>
-</div>  
+  <div>
+    <a:documentation>ARCHITECTURE ATTRIBUTES</a:documentation>
+    <define name="arch-atts">
+      <optional>
+        <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.3"/>
+      </optional>
+    </define>
 
-<div>  <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+  </div>
+  <div>
+    <a:documentation>COMMON CONTENT MODEL PATTERNS</a:documentation>
+    <include href="commonElementsMod.rng">
+      <a:documentation>Content elements common to map and topic</a:documentation>
+    </include>
 
-  <define name="topicref-atts">
-    <optional>
-      <attribute name="collection-type">
-        <choice>
-          <value>choice</value>
-          <value>family</value>
-          <value>sequence</value>
-          <value>unordered</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="type"/>
-    </optional>
-    <optional>
-      <attribute name="processing-role">
-        <choice>
-          <value>normal</value>
-          <value>resource-only</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="scope">
-        <choice>
-          <value>external</value>
-          <value>local</value>
-          <value>peer</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="locktitle">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="format"/>
-    </optional>
-    <optional>
-      <attribute name="linking">
-        <choice>
-          <value>none</value>
-          <value>normal</value>
-          <value>sourceonly</value>
-          <value>targetonly</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="toc">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="print">
-        <choice>
-          <value>no</value>
-          <value>printonly</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="search">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="chunk"/>
-    </optional>
-  </define>
-  <define name="topicref-atts-no-toc">
-    <optional>
-      <attribute name="collection-type">
-        <choice>
-          <value>choice</value>
-          <value>family</value>
-          <value>sequence</value>
-          <value>unordered</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="type"/>
-    </optional>
-    <optional>
-      <attribute name="processing-role">
-        <choice>
-          <value>normal</value>
-          <value>resource-only</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="scope">
-        <choice>
-          <value>external</value>
-          <value>local</value>
-          <value>peer</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="locktitle">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="format"/>
-    </optional>
-    <optional>
-      <attribute name="linking">
-        <choice>
-          <value>none</value>
-          <value>normal</value>
-          <value>sourceonly</value>
-          <value>targetonly</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="toc" a:defaultValue="no">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="print">
-        <choice>
-          <value>no</value>
-          <value>printonly</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="search">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="chunk"/>
-    </optional>
-  </define>
-  <define name="topicref-atts-without-format">
-    <optional>
-      <attribute name="collection-type">
-        <choice>
-          <value>choice</value>
-          <value>family</value>
-          <value>sequence</value>
-          <value>unordered</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="type"/>
-    </optional>
-    <optional>
-      <attribute name="processing-role">
-        <choice>
-          <value>normal</value>
-          <value>resource-only</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="scope">
-        <choice>
-          <value>external</value>
-          <value>local</value>
-          <value>peer</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="locktitle">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="linking">
-        <choice>
-          <value>none</value>
-          <value>normal</value>
-          <value>sourceonly</value>
-          <value>targetonly</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="toc">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="print">
-        <choice>
-          <value>no</value>
-          <value>printonly</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="search">
-        <choice>
-          <value>no</value>
-          <value>yes</value>
-          <value>-dita-use-conref-target</value>
-        </choice>
-      </attribute>
-    </optional>
-    <optional>
-      <attribute name="chunk"/>
-    </optional>
-  </define>
-</div>
-  
-<div><a:documentation>ELEMENT TYPE PATTERNS</a:documentation>
-  
-    <div><a:documentation>LONG NAME: Map</a:documentation>
-        <define name="map.content">
-          <optional>
-            <ref name="title"/>
-          </optional>
-          <optional>
-            <ref name="topicmeta"/>
-          </optional>
-          <zeroOrMore>
-            <choice>
-              <ref name="anchor"/>
-              <ref name="data.elements.incl"/>
-              <ref name="navref"/>
-              <ref name="reltable"/>
-              <ref name="topicref"/>
-            </choice>
-          </zeroOrMore>
-        </define>
-        <define name="map.attributes">
-          <optional>
-            <attribute name="title"/>
-          </optional>
-          <optional>
-            <attribute name="id">
-              <data type="ID"/>
-            </attribute>
-          </optional>
-          <ref name="conref-atts"/>
-          <optional>
-            <attribute name="anchorref"/>
-          </optional>
-          <optional>
-            <attribute name="outputclass"/>
-          </optional>
-          <ref name="localization-atts"/>
-          <ref name="topicref-atts"/>
-          <ref name="select-atts"/>
-        </define>
-        <define name="map.element">
-          <a:documentation>The &lt;map> element is used to define a map which describes the relationships
-            among a set of resources, such as DITA topics. Maps consist of references to topics and other
-            resources organized into hierarchies, groups, and tables. Maps provide a way to express these
-            relationships in a single common format that can be used for different outputs. 
-            Category: Map elements</a:documentation>
-          <element name="map">
-            <ref name="map.attlist"/>
-            <ref name="map.content"/>
-          </element>
-        </define>
-        <define name="map.attlist" combine="interleave">
-          <ref name="map.attributes"/>
-          <ref name="arch-atts"/>
-          <ref name="domains-att"/>
-        </define>
-        
+    <include href="metaDeclMod.rng">
+      <a:documentation>MetaData Elements</a:documentation>
+    </include>
+
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="topicref">
+      <ref name="topicref.element"/>
+    </define>
+    <define name="anchor">
+      <ref name="anchor.element"/>
+    </define>
+    <define name="linktext">
+      <ref name="linktext.element"/>
+    </define>
+    <define name="navref">
+      <ref name="navref.element"/>
+    </define>
+    <define name="relcell">
+      <ref name="relcell.element"/>
+    </define>
+    <define name="relcolspec">
+      <ref name="relcolspec.element"/>
+    </define>
+    <define name="relheader">
+      <ref name="relheader.element"/>
+    </define>
+    <define name="relrow">
+      <ref name="relrow.element"/>
+    </define>
+    <define name="reltable">
+      <ref name="reltable.element"/>
+    </define>
+    <define name="searchtitle">
+      <ref name="searchtitle.element"/>
+    </define>
+    <define name="shortdesc">
+      <ref name="shortdesc.element"/>
+    </define>
+    <define name="topicmeta">
+      <ref name="topicmeta.element"/>
+    </define>
+  </div>
+
+  <div>
+    <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+
+    <define name="topicref-atts">
+      <optional>
+        <attribute name="collection-type">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="processing-role">
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="locktitle">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>none</value>
+            <value>normal</value>
+            <value>sourceonly</value>
+            <value>targetonly</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>no</value>
+            <value>printonly</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="search">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk"/>
+      </optional>
+    </define>
+    <define name="topicref-atts-no-toc">
+      <optional>
+        <attribute name="collection-type">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="processing-role">
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="locktitle">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>none</value>
+            <value>normal</value>
+            <value>sourceonly</value>
+            <value>targetonly</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc" a:defaultValue="no">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>no</value>
+            <value>printonly</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="search">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk"/>
+      </optional>
+    </define>
+    <define name="topicref-atts-without-format">
+      <optional>
+        <attribute name="collection-type">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="processing-role">
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="locktitle">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>none</value>
+            <value>normal</value>
+            <value>sourceonly</value>
+            <value>targetonly</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>no</value>
+            <value>printonly</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="search">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk"/>
+      </optional>
+    </define>
+  </div>
+
+  <div>
+    <a:documentation>ELEMENT TYPE PATTERNS</a:documentation>
+
+    <div>
+      <a:documentation>LONG NAME: Map</a:documentation>
+      <define name="map.content">
+        <optional>
+          <ref name="title"/>
+        </optional>
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="anchor"/>
+            <ref name="data.elements.incl"/>
+            <ref name="navref"/>
+            <ref name="reltable"/>
+            <ref name="topicref"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="map.attributes">
+        <optional>
+          <attribute name="title"/>
+        </optional>
+        <optional>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
+        </optional>
+        <ref name="conref-atts"/>
+        <optional>
+          <attribute name="anchorref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="localization-atts"/>
+        <ref name="topicref-atts"/>
+        <ref name="select-atts"/>
+      </define>
+      <define name="map.element">
+        <a:documentation>The &lt;map> element is used to define a map which describes the relationships among a set of resources, such as DITA topics. Maps consist of references to topics and other
+          resources organized into hierarchies, groups, and tables. Maps provide a way to express these relationships in a single common format that can be used for different outputs. Category: Map
+          elements</a:documentation>
+        <element name="map" a:longName="Map">
+          <ref name="map.attlist"/>
+          <ref name="map.content"/>
+        </element>
+      </define>
+      <define name="map.attlist" combine="interleave">
+        <ref name="map.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+
     </div>
-    <div><a:documentation>LONG NAME: Navigation Reference</a:documentation>
+    <div>
+      <a:documentation>LONG NAME: Navigation Reference</a:documentation>
       <define name="navref.content">
         <empty/>
       </define>
@@ -438,11 +426,9 @@
         </optional>
       </define>
       <define name="navref.element">
-        <a:documentation> The &lt;navref> represents a pointer to another map which should be preserved
-          as a transcluding link rather than resolved. Output formats that support such linking will
-          integrate the target when displaying the referencing map to an end user. 
-          Category: Map elements </a:documentation>
-        <element name="navref">
+        <a:documentation> The &lt;navref> represents a pointer to another map which should be preserved as a transcluding link rather than resolved. Output formats that support such linking will
+          integrate the target when displaying the referencing map to an end user. Category: Map elements </a:documentation>
+        <element name="navref" a:longName="Navigation Reference">
           <ref name="navref.attlist"/>
           <ref name="navref.content"/>
         </element>
@@ -450,7 +436,7 @@
       <define name="navref.attlist" combine="interleave">
         <ref name="navref.attributes"/>
       </define>
-    
+
     </div>
     <div>
       <a:documentation>LONG NAME: Topic Reference</a:documentation>
@@ -493,17 +479,12 @@
         <ref name="univ-atts"/>
       </define>
       <define name="topicref.element">
-        <a:documentation> The &lt;topicref> element identifies a topic (such as a concept, task, or
-          reference) or other resource. A &lt;topicref> can contain other&lt;topicref> elements,
-          allowing you to express navigation or table-of-contents hierarchies, as well as implying
-          relationships between the containing &lt;topicref> and its children. You can set the
-          collection-type of a container &lt;topicref> to determine how its children are related to each
-          other. You can also express relationships among &lt;topicref>s using group and table
-          structures (using &lt;topicgroup> and &lt;reltable>). Relationships end up expressed as links
-          in the output (with each participant in a relationship having links to the other participants
-          by default). 
+        <a:documentation> The &lt;topicref> element identifies a topic (such as a concept, task, or reference) or other resource. A &lt;topicref> can contain other&lt;topicref> elements, allowing you
+          to express navigation or table-of-contents hierarchies, as well as implying relationships between the containing &lt;topicref> and its children. You can set the collection-type of a
+          container &lt;topicref> to determine how its children are related to each other. You can also express relationships among &lt;topicref>s using group and table structures (using
+          &lt;topicgroup> and &lt;reltable>). Relationships end up expressed as links in the output (with each participant in a relationship having links to the other participants by default).
           Category: Map elements </a:documentation>
-        <element name="topicref">
+        <element name="topicref" a:longName="Topic Reference">
           <ref name="topicref.attlist"/>
           <ref name="topicref.content"/>
         </element>
@@ -511,7 +492,7 @@
       <define name="topicref.attlist" combine="interleave">
         <ref name="topicref.attributes"/>
       </define>
-    
+
     </div>
     <div>
       <a:documentation>LONG NAME: Anchor</a:documentation>
@@ -530,13 +511,10 @@
         <ref name="select-atts"/>
       </define>
       <define name="anchor.element">
-        <a:documentation>The &lt;anchor> element is used for runtime integration of navigation. It
-          provides an integration point that another map can point to in order to insert its navigation
-          into the current navigation tree. For those familiar with Eclipse help systems, this serves
-          the same purpose as the &lt;anchor> element in that system. It may not be supported for all
-          output formats. 
-          Category: Map elements</a:documentation>
-        <element name="anchor">
+        <a:documentation>The &lt;anchor> element is used for runtime integration of navigation. It provides an integration point that another map can point to in order to insert its navigation into
+          the current navigation tree. For those familiar with Eclipse help systems, this serves the same purpose as the &lt;anchor> element in that system. It may not be supported for all output
+          formats. Category: Map elements</a:documentation>
+        <element name="anchor" a:longName="Anchor">
           <ref name="anchor.attlist"/>
           <ref name="anchor.content"/>
         </element>
@@ -544,7 +522,7 @@
       <define name="anchor.attlist" combine="interleave">
         <ref name="anchor.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Relationship Table</a:documentation>
@@ -573,15 +551,11 @@
         <ref name="univ-atts"/>
       </define>
       <define name="reltable.element">
-        <a:documentation>The relationship table (&lt;reltable>) defines relationships between topics,
-          based on the familiar table model of rows (&lt;relrow>), columns (&lt;relheader>), and cells
-          (&lt;relcell>). The &lt;relcell> elements can contain &lt;topicref> elements, which are then
-          related to other &lt;topicref> elements in the same row (although not necessarily in the same
-          cell). By default, the contents of a &lt;reltable> element are not output for navigation or
-          TOC purposes, and are used only to define relationships that can be expressed as
-          topic-to-topic links. 
-          Category: Map elements</a:documentation>
-        <element name="reltable">
+        <a:documentation>The relationship table (&lt;reltable>) defines relationships between topics, based on the familiar table model of rows (&lt;relrow>), columns (&lt;relheader>), and cells
+          (&lt;relcell>). The &lt;relcell> elements can contain &lt;topicref> elements, which are then related to other &lt;topicref> elements in the same row (although not necessarily in the same
+          cell). By default, the contents of a &lt;reltable> element are not output for navigation or TOC purposes, and are used only to define relationships that can be expressed as topic-to-topic
+          links. Category: Map elements</a:documentation>
+        <element name="reltable" a:longName="Relationship Table">
           <ref name="reltable.attlist"/>
           <ref name="reltable.content"/>
         </element>
@@ -589,7 +563,7 @@
       <define name="reltable.attlist" combine="interleave">
         <ref name="reltable.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Relationship Header</a:documentation>
@@ -602,10 +576,9 @@
         <ref name="univ-atts"/>
       </define>
       <define name="relheader.element">
-        <a:documentation>The &lt;relheader> element is a row of column definitions (&lt;relcolspec>
-          elements) in a relationship table. Each table can have only one set of column definitions.
-          Category: Map elements</a:documentation>
-        <element name="relheader">
+        <a:documentation>The &lt;relheader> element is a row of column definitions (&lt;relcolspec> elements) in a relationship table. Each table can have only one set of column definitions. Category:
+          Map elements</a:documentation>
+        <element name="relheader" a:longName="Relationship Header">
           <ref name="relheader.attlist"/>
           <ref name="relheader.content"/>
         </element>
@@ -613,7 +586,7 @@
       <define name="relheader.attlist" combine="interleave">
         <ref name="relheader.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Relationship Column Specification</a:documentation>
@@ -636,12 +609,9 @@
         <ref name="univ-atts"/>
       </define>
       <define name="relcolspec.element">
-        <a:documentation>A column definition in the relationship table. You can use &lt;relcolspec>
-          column definitions to set defaults for the attributes of &lt;topicref> elements in the column.
-          For example, you can set type="concept" to treat all untyped &lt;topicref> elements in the
-          column as concepts. 
-          Category: Map elements</a:documentation>
-        <element name="relcolspec">
+        <a:documentation>A column definition in the relationship table. You can use &lt;relcolspec> column definitions to set defaults for the attributes of &lt;topicref> elements in the column. For
+          example, you can set type="concept" to treat all untyped &lt;topicref> elements in the column as concepts. Category: Map elements</a:documentation>
+        <element name="relcolspec" a:longName="Relationship Column Specification">
           <ref name="relcolspec.attlist"/>
           <ref name="relcolspec.content"/>
         </element>
@@ -649,7 +619,7 @@
       <define name="relcolspec.attlist" combine="interleave">
         <ref name="relcolspec.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Relationship Table Row</a:documentation>
@@ -665,11 +635,9 @@
         <ref name="univ-atts"/>
       </define>
       <define name="relrow.element">
-        <a:documentation> A &lt;relrow> is a row in the relationship table. This creates a relationship
-          between the cells in the row, which will end up expressed as links among the &lt;topicref>
-          elements in the cells. 
-          Category: Map elements </a:documentation>
-        <element name="relrow">
+        <a:documentation> A &lt;relrow> is a row in the relationship table. This creates a relationship between the cells in the row, which will end up expressed as links among the &lt;topicref>
+          elements in the cells. Category: Map elements </a:documentation>
+        <element name="relrow" a:longName="Relationship Table Row">
           <ref name="relrow.attlist"/>
           <ref name="relrow.content"/>
         </element>
@@ -677,7 +645,7 @@
       <define name="relrow.attlist" combine="interleave">
         <ref name="relrow.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Relationship Table Cell</a:documentation>
@@ -697,12 +665,10 @@
         <ref name="univ-atts"/>
       </define>
       <define name="relcell.element">
-        <a:documentation>A &lt;relcell> element is a cell in the relationship table. The &lt;topicref>
-          elements it contains will be related to topicrefs in other cells of the same row. By default,
-          topicrefs in the same cell are not related to each other, unless you change the relcell's
-          collection-type attribute to indicate that they are related. 
-          Category: Map elements</a:documentation>
-        <element name="relcell">
+        <a:documentation>A &lt;relcell> element is a cell in the relationship table. The &lt;topicref> elements it contains will be related to topicrefs in other cells of the same row. By default,
+          topicrefs in the same cell are not related to each other, unless you change the relcell's collection-type attribute to indicate that they are related. Category: Map
+          elements</a:documentation>
+        <element name="relcell" a:longName="Relationship Table Cell">
           <ref name="relcell.attlist"/>
           <ref name="relcell.content"/>
         </element>
@@ -710,7 +676,7 @@
       <define name="relcell.attlist" combine="interleave">
         <ref name="relcell.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Topic Metadata</a:documentation>
@@ -786,13 +752,10 @@
         <ref name="univ-atts"/>
       </define>
       <define name="topicmeta.element">
-        <a:documentation>The &lt;topicmeta> element defines the metadata that applies to a topic when it
-          appears in a map, and to the other topics in the map that are contained by the same element
-          that contains the &lt;topicmeta> element. When creating links, it can also be used to override
-          the title and short description of the topic. In addition, it can be used to add index entries
-          to referenced content using the &lt;keywords> element. 
-          Category: Map elements</a:documentation>
-        <element name="topicmeta">
+        <a:documentation>The &lt;topicmeta> element defines the metadata that applies to a topic when it appears in a map, and to the other topics in the map that are contained by the same element
+          that contains the &lt;topicmeta> element. When creating links, it can also be used to override the title and short description of the topic. In addition, it can be used to add index entries
+          to referenced content using the &lt;keywords> element. Category: Map elements</a:documentation>
+        <element name="topicmeta" a:longName="Topic Metadata">
           <ref name="topicmeta.attlist"/>
           <ref name="topicmeta.content"/>
         </element>
@@ -800,7 +763,7 @@
       <define name="topicmeta.attlist" combine="interleave">
         <ref name="topicmeta.attributes"/>
       </define>
-      
+
     </div>
     <div>
       <a:documentation>LONG NAME: Link Text</a:documentation>
@@ -819,15 +782,11 @@
         <ref name="univ-atts"/>
       </define>
       <define name="linktext.element">
-        <a:documentation>The &lt;linktext> element provides the literal label or line of text for a
-          link. In most cases, the text of a link can be resolved during processing by cross reference
-          with the target resource. Use the &lt;linktext> element only when the target cannot be
-          reached, such as when it is a peer or external link, or the target is local but not in DITA
-          format. When used inside a topic, it will be used as the text for the specified link; when
-          used within a map, it will be used as the text for generated links that point to the specified
-          topic. 
-          Category: Related Links elements</a:documentation>
-        <element name="linktext">
+        <a:documentation>The &lt;linktext> element provides the literal label or line of text for a link. In most cases, the text of a link can be resolved during processing by cross reference with
+          the target resource. Use the &lt;linktext> element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format. When
+          used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic. Category:
+          Related Links elements</a:documentation>
+        <element name="linktext" a:longName="Link Text">
           <ref name="linktext.attlist"/>
           <ref name="linktext.content"/>
         </element>
@@ -835,131 +794,116 @@
       <define name="linktext.attlist" combine="interleave">
         <ref name="linktext.attributes"/>
       </define>
-    
+
     </div>
     <div>
       <a:documentation>LONG NAME: Search Title</a:documentation>
-      <define
-        name="searchtitle.content">
+      <define name="searchtitle.content">
         <zeroOrMore>
-          <ref
-            name="words.cnt"/>
+          <ref name="words.cnt"/>
         </zeroOrMore>
       </define>
-      <define
-        name="searchtitle.attributes">
+      <define name="searchtitle.attributes">
         <optional>
-          <attribute
-            name="outputclass"/>
+          <attribute name="outputclass"/>
         </optional>
-        <ref
-          name="univ-atts"/>
+        <ref name="univ-atts"/>
       </define>
-      <define
-        name="searchtitle.element">
+      <define name="searchtitle.element">
         <a:documentation>When your DITA topic is transformed to XHTML, the &lt;searchtitle> element is used to create a title element at the top of the resulting HTML file. This title is normally used
           in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content (which may
           not be as well optimized for search summaries). Category: Topic elements</a:documentation>
-        <element
-          name="searchtitle">
-          <ref
-            name="searchtitle.attlist"/>
-          <ref
-            name="searchtitle.content"/>
+        <element name="searchtitle" a:longName="Search Title">
+          <ref name="searchtitle.attlist"/>
+          <ref name="searchtitle.content"/>
         </element>
       </define>
-      <define
-        name="searchtitle.attlist"
-        combine="interleave">
-        <ref
-          name="searchtitle.attributes"/>
+      <define name="searchtitle.attlist" combine="interleave">
+        <ref name="searchtitle.attributes"/>
       </define>
     </div>
-</div>
-<div>
-  <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
-  
-  <define name="map.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/map "/>
-    </optional>
-  </define>
-  <define name="navref.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/navref "/>
-    </optional>
-  </define>
-  <define name="topicref.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/topicref "/>
-    </optional>
-  </define>
-  <define name="anchor.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/anchor "/>
-    </optional>
-  </define>
-  <define name="reltable.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/reltable "/>
-    </optional>
-  </define>
-  <define name="relheader.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/relheader "/>
-    </optional>
-  </define>
-  <define name="relcolspec.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/relcolspec "/>
-    </optional>
-  </define>
-  <define name="relrow.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/relrow "/>
-    </optional>
-  </define>
-  <define name="relcell.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/relcell "/>
-    </optional>
-  </define>
-  <define name="topicmeta.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/topicmeta "/>
-    </optional>
-  </define>
-  <define name="linktext.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/linktext "/>
-    </optional>
-  </define>
-  <define name="searchtitle.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/searchtitle "/>
-    </optional>
-  </define>
-  <define name="shortdesc.attlist" combine="interleave">
-    <a:documentation>
-    Shortdesc in topic uses topic/shortdesc so this one must be 
-    included, even though the element is common.
-    </a:documentation>
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="- map/shortdesc "/>
-    </optional>
-  </define>
-</div>
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
+
+    <define name="map.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/map "/>
+      </optional>
+    </define>
+    <define name="navref.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/navref "/>
+      </optional>
+    </define>
+    <define name="topicref.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/topicref "/>
+      </optional>
+    </define>
+    <define name="anchor.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/anchor "/>
+      </optional>
+    </define>
+    <define name="reltable.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/reltable "/>
+      </optional>
+    </define>
+    <define name="relheader.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/relheader "/>
+      </optional>
+    </define>
+    <define name="relcolspec.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/relcolspec "/>
+      </optional>
+    </define>
+    <define name="relrow.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/relrow "/>
+      </optional>
+    </define>
+    <define name="relcell.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/relcell "/>
+      </optional>
+    </define>
+    <define name="topicmeta.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/topicmeta "/>
+      </optional>
+    </define>
+    <define name="linktext.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/linktext "/>
+      </optional>
+    </define>
+    <define name="searchtitle.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/searchtitle "/>
+      </optional>
+    </define>
+    <define name="shortdesc.attlist" combine="interleave">
+      <a:documentation> Shortdesc in topic uses topic/shortdesc so this one must be included, even though the element is common. </a:documentation>
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/shortdesc "/>
+      </optional>
+    </define>
+  </div>
 </grammar>
