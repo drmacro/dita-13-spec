@@ -12,7 +12,7 @@ MODULE:    Test RNG DTD Shell
 =============================================================
  ]]></headerComment>
    <moduleMetadata>
-     <moduleType>topic</moduleType>
+     <moduleType>topicshell</moduleType>
      <moduleShortName>topic-mathmlDomain</moduleShortName>
      <shellPublicIds>
        <dtdShell>-//OASIS//DTD Test With MathML RNG Shell//EN</dtdShell>

@@ -96,6 +96,7 @@ For <entry>, add:
        <rncMod>urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:tblDeclMod.rng</rngMod>
      </modulePublicIds>
+     <domainsContribution/>
    </moduleMetadata>
  </moduleDesc>  
   <!-- Define type patterns -->
@@ -289,7 +290,7 @@ For <entry>, add:
     <ref name="dita.table.attributes"/>
   </define>
   <define name="table.element">
-    <element name="table">
+    <element name="table" a:longName="Table">
       <ref name="table.attlist"/>
       <ref name="table.content"/>
     </element>
@@ -332,7 +333,7 @@ For <entry>, add:
     <ref name="dita.tgroup.attributes"/>
   </define>
   <define name="tgroup.element">
-    <element name="tgroup">
+    <element name="tgroup" a:longName="Table Group">
       <a:documentation>The &lt;tgroup> element in a table contains column, row, spanning, header and
         footer specifications, and the body (&lt;tbody>) of the table. 
         Category: Table elements</a:documentation>
@@ -396,7 +397,7 @@ For <entry>, add:
     <ref name="dita.colspec.attributes"/>
   </define>
   <define name="colspec.element">
-    <element name="colspec">
+    <element name="colspec" a:longName="Column Specification">
       <a:documentation>The &lt;colspec> element contains a column specification for a table,
         including assigning a column name and number, cell content alignment, and column width.
         Category: Table elements</a:documentation>
@@ -429,7 +430,7 @@ For <entry>, add:
     <ref name="dita.thead.attributes"/>
   </define>
   <define name="thead.element">
-    <element name="thead">
+    <element name="thead" a:longName="Table Header">
       <a:documentation>The table header (&lt;thead>) element precedes the table body (&lt;tbody>)
         element in a complex table. 
         Category: Table elements</a:documentation>
@@ -462,7 +463,7 @@ For <entry>, add:
     <ref name="dita.tbody.attributes"/>
   </define>
   <define name="tbody.element">
-    <element name="tbody">
+    <element name="tbody" a:longName="Table Body">
       <a:documentation>The &lt;tbody> element contains the rows in a table. 
         Category: Table elements</a:documentation>
       <ref name="tbody.attlist"/>
@@ -497,7 +498,7 @@ For <entry>, add:
     <ref name="dita.row.attributes"/>
   </define>
   <define name="row.element">
-    <element name="row">
+    <element name="row" a:longName="Table Row">
       <a:documentation>The &lt;row> element contains a single row in a table &lt;tgroup>. 
         Category: Table elements</a:documentation>
       <ref name="row.attlist"/>
@@ -577,7 +578,7 @@ For <entry>, add:
     <ref name="dita.entry.attributes"/>
   </define>
   <define name="entry.element">
-    <element name="entry">
+    <element name="entry" a:longName="Table Row Entry">
       <a:documentation>The &lt;entry> element defines a single cell in a table. 
         Category: Table elements</a:documentation>
       <ref name="entry.attlist"/>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <grammar
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
@@ -10,14 +11,14 @@
     <headerComment>
 ============================================================= 
 MODULE:    DITA Topic Base RNG (only base domains)             
-VERSION:   1.2                                                
-DATE:      October 2010                                       
-============================================================= -->
+VERSION:   1.3
+DATE:      November 2012                                       
+=============================================================
 
 Refer to the latest version of this file by the following URI:
 urn:dita-ng:dita:rng:basetopic.rng
 To refer to this specific version, you may use this value:
-urn:dita-ng:dita:rng:basetopic.rng:1.2
+urn:dita-ng:dita:rng:basetopic.rng:1.3
 </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>

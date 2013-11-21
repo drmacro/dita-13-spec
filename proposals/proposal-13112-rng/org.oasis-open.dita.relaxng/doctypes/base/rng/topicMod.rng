@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0" 
@@ -101,8 +102,6 @@ ORIGINAL CREATION DATE:
   </div>
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
-  
-  
     
     <define name="abstract">
       <ref name="abstract.element"/>
@@ -152,19 +151,18 @@ ORIGINAL CREATION DATE:
     <define name="titlealts">
       <ref name="titlealts.element"/>
     </define>
-    
-    
-    
-    
-    <!-- Content elements common to map and topic -->
-    <include href="commonElementsMod.rng"/>
-    <!-- MetaData Elements, plus indexterm -->
-    <include href="metaDeclMod.rng"/>
-    
+
   
   </div>
   <div>
     <a:documentation>COMMON CONTENT MODEL PATTERNS</a:documentation>
+    
+    <include href="commonElementsMod.rng">
+      <a:documentation>Content elements common to map and topic</a:documentation>
+    </include>
+    <include href="metaDeclMod.rng">
+      <a:documentation>MetaData Elements, plus indexterm</a:documentation>
+    </include>
     
     <define name="abstract.cnt">
       <choice>
@@ -282,17 +280,12 @@ ORIGINAL CREATION DATE:
         <attribute name="otherrole"/>
       </optional>
     </define>
-    
-  
   </div>
   <div>
     <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
   
-  
-  
     <div>
-      <a:documentation>LONG NAME: Topic</a:documentation>
-    
+      <a:documentation>LONG NAME: Topic</a:documentation>   
       <define name="topic.content">
         <ref name="title"/>
         <optional>
