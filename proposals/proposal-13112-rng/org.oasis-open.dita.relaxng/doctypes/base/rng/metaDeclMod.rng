@@ -69,25 +69,26 @@ ORIGINAL CREATION DATE:
        <rncMod>urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:metaDeclMod.rng</rngMod>
      </modulePublicIds>
+     <domainsContribution/>
    </moduleMetadata>
  </moduleDesc>
-  <!-- Define type patterns -->
+<div>
+  <a:documentation>Define type patterns</a:documentation>
   <define name="date-format">
     <data type="string"/>
   </define>
   
-  <!-- Define elements content and attributes -->
+  </div>
+<div>
+  <a:documentation>Define elements content and attributes</a:documentation>
   
-  <!-- LONG NAME: Author -->
+  <div>
+  <a:documentation>LONG NAME: Author</a:documentation>
   <define name="author.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
     </zeroOrMore>
   </define>
-  <!--
-    20080128: Removed enumeration for @type for DITA 1.2. Previous values:
-    contributor, creator, -dita-use-conref-target
-  -->
   <define name="author.attributes">
     <ref name="univ-atts"/>
     <optional>
@@ -114,7 +115,7 @@ ORIGINAL CREATION DATE:
     </optional>
   </define>
   <define name="author.element">
-    <element name="author">
+    <element name="author" a:longName="Author">
       <a:documentation>The &lt;author> metadata element contains the name of the topic's author.
         Category: Prolog elements</a:documentation>
       <ref name="author.attlist"/>
@@ -125,7 +126,9 @@ ORIGINAL CREATION DATE:
     <ref name="author.attributes"/>
   </define>
   
-  <!-- LONG NAME: Source -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Source</a:documentation>
   <define name="source.content">
     <zeroOrMore>
       <choice>
@@ -160,7 +163,7 @@ ORIGINAL CREATION DATE:
     </optional>
   </define>
   <define name="source.element">
-    <element name="source">
+    <element name="source" a:longName="Source">
       <a:documentation>The &lt;source> element contains a reference to a resource from which the
         present topic is derived, either completely or in part. The element can contain a
         description of the resource; the href reference can be a string or a URL that points to it.
@@ -173,7 +176,9 @@ ORIGINAL CREATION DATE:
     <ref name="source.attributes"/>
   </define>
   
-  <!-- LONG NAME: Publisher -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Publisher</a:documentation>
   <define name="publisher.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -205,7 +210,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="publisher.element">
-    <element name="publisher">
+    <element name="publisher" a:longName="Publisher">
       <a:documentation>The &lt;publisher> metadata element contains the name of the person, company,
         or organization responsible for making the content or subject of the topic available.
         Category: Prolog elements</a:documentation>
@@ -217,17 +222,15 @@ ORIGINAL CREATION DATE:
     <ref name="publisher.attributes"/>
   </define>
   
-  <!-- LONG NAME: Copyright -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Copyright</a:documentation>
   <define name="copyright.content">
     <oneOrMore>
       <ref name="copyryear"/>
     </oneOrMore>
     <ref name="copyrholder"/>
   </define>
-  <!--
-    20080128: Removed enumeration for @type for DITA 1.2. Previous values:
-    primary, secondary, -dita-use-conref-target
-  -->
   <define name="copyright.attributes">
     <ref name="univ-atts"/>
     <optional>
@@ -235,7 +238,7 @@ ORIGINAL CREATION DATE:
     </optional>
   </define>
   <define name="copyright.element">
-    <element name="copyright">
+    <element name="copyright" a:longName="Copyright">
       <a:documentation>The &lt;copyright> element is used for a single copyright entry. It includes
         the copyright years and the copyright holder. Multiple &lt;copyright> statements are
         allowed. 
@@ -248,7 +251,9 @@ ORIGINAL CREATION DATE:
     <ref name="copyright.attributes"/>
   </define>
   
-  <!-- LONG NAME: Copyright Year -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Copyright Year</a:documentation>
   <define name="copyryear.content">
     <empty/>
   </define>
@@ -259,7 +264,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="copyryear.element">
-    <element name="copyryear">
+    <element name="copyryear" a:longName="Copyright Year">
       <a:documentation>The &lt;copyryear> element contains the copyright year as specified by the
         year attribute.
         Category: Prolog elements</a:documentation>
@@ -271,7 +276,9 @@ ORIGINAL CREATION DATE:
     <ref name="copyryear.attributes"/>
   </define>
   
-  <!-- LONG NAME: Copyright Holder -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Copyright Holder</a:documentation>
   <define name="copyrholder.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -281,7 +288,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="copyrholder.element">
-    <element name="copyrholder">
+    <element name="copyrholder" a:longName="Copyright Holder">
       <a:documentation>The copyright holder (&lt;copyrholder>) element names the entity that holds
         legal rights to the material contained in the topic. 
         Category: Prolog elements</a:documentation>
@@ -293,7 +300,9 @@ ORIGINAL CREATION DATE:
     <ref name="copyrholder.attributes"/>
   </define>
   
-  <!-- LONG NAME: Critical Dates -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Critical Dates</a:documentation>
   <define name="critdates.content">
     <optional>
       <ref name="created"/>
@@ -306,7 +315,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="critdates.element">
-    <element name="critdates">
+    <element name="critdates" a:longName="Critical Dates">
       <a:documentation>The &lt;critdates> element contains the critical dates in a document life
         cycle, such as the creation date and multiple revision dates. 
         Category: Prolog elements</a:documentation>
@@ -318,7 +327,9 @@ ORIGINAL CREATION DATE:
     <ref name="critdates.attributes"/>
   </define>
   
-  <!-- LONG NAME: Created Date -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Created Date</a:documentation>
   <define name="created.content">
     <empty/>
   </define>
@@ -339,7 +350,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="created.element">
-    <element name="created">
+    <element name="created" a:longName="Created Date">
       <a:documentation>The &lt;created> element specifies the document creation date using the date
         attribute. 
         Category: Prolog elements</a:documentation>
@@ -351,7 +362,9 @@ ORIGINAL CREATION DATE:
     <ref name="created.attributes"/>
   </define>
   
-  <!-- LONG NAME: Revised Date -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Revised Date</a:documentation>
   <define name="revised.content">
     <empty/>
   </define>
@@ -372,7 +385,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="revised.element">
-    <element name="revised">
+    <element name="revised" a:longName="Revised Date">
       <a:documentation>The &lt;revised> element in the prolog is used to maintain tracking dates
         that are important in a topic development cycle, such as the last modification date, the
         original availability date, and the expiration date. 
@@ -385,20 +398,18 @@ ORIGINAL CREATION DATE:
     <ref name="revised.attributes"/>
   </define>
   
-  <!-- LONG NAME: Permissions -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Permissions</a:documentation>
   <define name="permissions.content">
     <empty/>
   </define>
-  <!--
-    20080128: Removed enumeration for @type for DITA 1.2. Previous values:
-    all, classified, entitled, internal, -dita-use-conref-target
-  -->
   <define name="permissions.attributes">
     <ref name="univ-atts"/>
     <attribute name="view"/>
   </define>
   <define name="permissions.element">
-    <element name="permissions">
+    <element name="permissions" a:longName="Permissions">
       <a:documentation>The &lt;permissions> prolog element can indicate any preferred controls for
         access to a topic. Topics can be filtered based on the permissions element. This capability
         depends on your output formatting process. 
@@ -411,7 +422,9 @@ ORIGINAL CREATION DATE:
     <ref name="permissions.attributes"/>
   </define>
   
-  <!-- LONG NAME: Category -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Category</a:documentation>
   <define name="category.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -421,7 +434,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="category.element">
-    <element name="category">
+    <element name="category" a:longName="Category">
       <a:documentation>The &lt;category> element can represent any category by which a topic might
         be classified for retrieval or navigation; for example, the categories could be used to
         group topics in a generated navigation bar. Topics can belong to multiple categories.
@@ -434,7 +447,9 @@ ORIGINAL CREATION DATE:
     <ref name="category.attributes"/>
   </define>
   
-  <!-- LONG NAME: Metadata -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Metadata</a:documentation>
   <define name="metadata.content">
     <zeroOrMore>
       <ref name="audience"/>
@@ -465,7 +480,7 @@ ORIGINAL CREATION DATE:
     </optional>
   </define>
   <define name="metadata.element">
-    <element name="metadata">
+    <element name="metadata" a:longName="Metadata">
       <a:documentation>The &lt;metadata> section of the prolog contains information about a topic
         such as audience and product information. Metadata can be used by computational processes to
         select particular topics or to prepare search indexes or to customize navigation. Elements
@@ -481,19 +496,12 @@ ORIGINAL CREATION DATE:
     <ref name="metadata.attributes"/>
   </define>
   
-  <!-- LONG NAME: Audience -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Audience</a:documentation>
   <define name="audience.content">
     <empty/>
   </define>
-  <!--
-    20080128: Removed enumerations for DITA 1.2. Previous values:
-    @type: administrator, executive, other, purchaser, programmer, 
-           services, user, -dita-use-conref-target
-    @job: administering, customizing, evaluating, installing,
-          maintaining, migrating, other, planning, programming,
-          troubleshooting, using, -dita-use-conref-target
-    @experiencelevel: expert, general, novice, -dita-use-conref-target
-  -->
   <define name="audience.attributes">
     <optional>
       <attribute name="type"/>
@@ -518,7 +526,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="audience.element">
-    <element name="audience">
+    <element name="audience" a:longName="Audience">
       <a:documentation>The &lt;audience> metadata element indicates, through the value of its type
         attribute, the intended audience for a topic. Since a topic can have multiple audiences, you
         can include multiple audience elements. For each audience you specify, you can identify the
@@ -534,7 +542,9 @@ ORIGINAL CREATION DATE:
     <ref name="audience.attributes"/>
   </define>
   
-  <!-- LONG NAME: Keywords -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Keywords</a:documentation>
   <define name="keywords.content">
     <zeroOrMore>
       <choice>
@@ -547,7 +557,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="keywords.element">
-    <element name="keywords">
+    <element name="keywords" a:longName="Keywords">
       <a:documentation>The &lt;keywords> element contains a list of key words (using &lt;indexterm>
         or &lt;keyword> markup) that can be used by a search engine. 
         Category: Prolog elements</a:documentation>
@@ -559,7 +569,9 @@ ORIGINAL CREATION DATE:
     <ref name="keywords.attributes"/>
   </define>
   
-  <!-- LONG NAME: Product Information -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Product Information</a:documentation>
   <define name="prodinfo.content">
     <ref name="prodname"/>
     <ref name="vrmlist"/>
@@ -578,7 +590,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="prodinfo.element">
-    <element name="prodinfo">
+    <element name="prodinfo" a:longName="Product Information">
       <a:documentation>The &lt;prodinfo> metadata element in the prolog contains information about
         the product or products that are the subject matter of the current topic. The prodinfo
         element may be used to provide a more detailed definition of values used throughout the map
@@ -592,7 +604,9 @@ ORIGINAL CREATION DATE:
     <ref name="prodinfo.attributes"/>
   </define>
   
-  <!-- LONG NAME: Product Name -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Product Name</a:documentation>
   <define name="prodname.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -602,7 +616,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="prodname.element">
-    <element name="prodname">
+    <element name="prodname" a:longName="Product Name">
       <a:documentation>The &lt;prodname> metadata element contains the name of the product that is
         supported by the information in this topic. 
         Category: Prolog elements</a:documentation>
@@ -614,7 +628,9 @@ ORIGINAL CREATION DATE:
     <ref name="prodname.attributes"/>
   </define>
   
-  <!-- LONG NAME: Version Release and Modification List -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Version Release and Modification List</a:documentation>
   <define name="vrmlist.content">
     <oneOrMore>
       <ref name="vrm"/>
@@ -624,7 +640,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="vrmlist.element">
-    <element name="vrmlist">
+    <element name="vrmlist" a:longName="Version Release and Modification List">
       <a:documentation>The &lt;vrmlist> element contains a set of &lt;vrm> elements for logging the
         version, release, and modification information for multiple products or versions of products
         to which the topic applies. 
@@ -637,7 +653,9 @@ ORIGINAL CREATION DATE:
     <ref name="vrmlist.attributes"/>
   </define>
   
-  <!-- LONG NAME: Version Release and Modification -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Version Release and Modification</a:documentation>
   <define name="vrm.content">
     <empty/>
   </define>
@@ -652,7 +670,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="vrm.element">
-    <element name="vrm">
+    <element name="vrm" a:longName="Version Release and Modification">
       <a:documentation>The vrm empty element contains information about a single product's version,
         modification, and release, to which the current topic applies. 
         Category: Prolog elements</a:documentation>
@@ -664,7 +682,9 @@ ORIGINAL CREATION DATE:
     <ref name="vrm.attributes"/>
   </define>
   
-  <!-- LONG NAME: Brand -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Brand</a:documentation>
   <define name="brand.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -674,7 +694,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="brand.element">
-    <element name="brand">
+    <element name="brand" a:longName="Brand">
       <a:documentation>The &lt;brand> element indicates the manufacturer or brand associated with
         the product described by the parent &lt;prodinfo> element. 
         Category: Prolog elements</a:documentation>
@@ -686,7 +706,9 @@ ORIGINAL CREATION DATE:
     <ref name="brand.attributes"/>
   </define>
   
-  <!-- LONG NAME: Series -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Series</a:documentation>
   <define name="series.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -696,7 +718,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="series.element">
-    <element name="series">
+    <element name="series" a:longName="Series">
       <a:documentation>The &lt;series> metadata element contains information about the product
         series that the topic supports. 
         Category: Prolog elements</a:documentation>
@@ -708,7 +730,9 @@ ORIGINAL CREATION DATE:
     <ref name="series.attributes"/>
   </define>
   
-  <!-- LONG NAME: Platform -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Platform</a:documentation>
   <define name="platform.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -718,7 +742,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="platform.element">
-    <element name="platform">
+    <element name="platform" a:longName="Platform">
       <a:documentation>The &lt;platform> metadata element contains a description of the operating
         system and/or hardware related to the product being described by the &lt;prodinfo> element.
         The platform element may be used to provide a more detailed definition of values used
@@ -732,7 +756,9 @@ ORIGINAL CREATION DATE:
     <ref name="platform.attributes"/>
   </define>
   
-  <!-- LONG NAME: Program Number -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Program Number</a:documentation>
   <define name="prognum.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -742,7 +768,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="prognum.element">
-    <element name="prognum">
+    <element name="prognum" a:longName="Program Number">
       <a:documentation>The &lt;prognum> metadata element identifies the program number of the
         associated program product. This is typically an order number or a product tracking code
         that could be replaced by an order number when a product completes development. 
@@ -755,7 +781,9 @@ ORIGINAL CREATION DATE:
     <ref name="prognum.attributes"/>
   </define>
   
-  <!-- LONG NAME: Feature Number -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Feature Number</a:documentation>
   <define name="featnum.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -765,7 +793,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="featnum.element">
-    <element name="featnum">
+    <element name="featnum" a:longName="Feature Number">
       <a:documentation>The &lt;featnum> element contains the feature number of a product in the
         metadata. 
         Category: Prolog elements</a:documentation>
@@ -777,7 +805,9 @@ ORIGINAL CREATION DATE:
     <ref name="featnum.attributes"/>
   </define>
   
-  <!-- LONG NAME: Component -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Component</a:documentation>
   <define name="component.content">
     <zeroOrMore>
       <ref name="words.cnt"/>
@@ -787,7 +817,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="component.element">
-    <element name="component">
+    <element name="component" a:longName="Component">
       <a:documentation>The &lt;component> element describes the component of the product that this
         topic is concerned with. For example, a product might be made up of many components, each of
         which is installable separately. Components might also be shared by several products so that
@@ -805,8 +835,12 @@ ORIGINAL CREATION DATE:
     <ref name="component.attributes"/>
   </define>
   
-  <!-- LONG NAME: Other Metadata -->
-  <!-- NOTE: needs to be HTML-equiv, at least -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Other Metadata
+  
+  NOTE: needs to be HTML-equiv, at least
+  </a:documentation>
   <define name="othermeta.content">
     <empty/>
   </define>
@@ -825,7 +859,7 @@ ORIGINAL CREATION DATE:
     <ref name="univ-atts"/>
   </define>
   <define name="othermeta.element">
-    <element name="othermeta">
+    <element name="othermeta" a:longName="Other Metadata">
       <a:documentation>The &lt;othermeta> element can be used to identify properties not otherwise
         included in &lt;metadata> and assign name/content values to those properties. The name
         attribute identifies the property and the content attribute specifies the property's value.
@@ -840,7 +874,9 @@ ORIGINAL CREATION DATE:
     <ref name="othermeta.attributes"/>
   </define>
   
-  <!-- LONG NAME: Resource Identifier -->
+  </div>
+<div>
+  <a:documentation>LONG NAME: Resource Identifier</a:documentation>
   <define name="resourceid.content">
     <empty/>
   </define>
@@ -854,7 +890,7 @@ ORIGINAL CREATION DATE:
     </optional>
   </define>
   <define name="resourceid.element">
-    <element name="resourceid">
+    <element name="resourceid" a:longName="Resource Identifier">
       <a:documentation>The &lt;resourceid> element provides an identifier for applications that
         require them in a particular format, when the normal id attribute of the topic can't be
         used. Each resourceid entry should be unique. It is one of the metadata elements that can be
@@ -869,7 +905,10 @@ ORIGINAL CREATION DATE:
     <ref name="resourceid.attributes"/>
   </define>
   
-  <!-- Specialization attributes. Global attributes and class defaults -->
+  </div>
+</div>
+<div>
+  <a:documentation>Specialization attributes. Global attributes and class defaults</a:documentation>
   
   <define name="author.attlist" combine="interleave">
     <ref name="global-atts"/>
@@ -1027,4 +1066,5 @@ ORIGINAL CREATION DATE:
       <attribute name="class" a:defaultValue="- topic/resourceid "/>
     </optional>
   </define>
+</div>
 </grammar>
