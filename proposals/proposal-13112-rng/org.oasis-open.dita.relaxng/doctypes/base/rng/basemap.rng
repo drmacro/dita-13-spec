@@ -69,11 +69,12 @@ ORIGINAL CREATION DATE:
       <attribute name="domains" 
         a:defaultValue="
         (topic delay-d) 
+        (topic hazard-d)
+        (topic hi-d) 
         (topic indexing-d) 
         (map mapgroup-d)
-        (topic hi-d) 
         (topic ut-d) 
-        (topic hazard-d)"/>
+        "/>
     </optional>    
   </define>
 

@@ -55,17 +55,17 @@ Test of RNG Grammar foreign specialization
   </div>
   <div>
     <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
-    <define
+  <define
       name="any">
       <zeroOrMore>
         <choice>
-          <ref
-            name="topic.element"/>
+          <ref name="topic.element"/>
           <element>
             <anyName>
               <except>
                 <name>topic</name>
                 <nsName ns="http://relaxng.org/ns/structure/1.0"/>
+                <nsName ns="http://relaxng.org/ns/compatibility/annotations/1.0"/>
               </except>
             </anyName>
             <zeroOrMore>
@@ -73,8 +73,7 @@ Test of RNG Grammar foreign specialization
                 <anyName/>
               </attribute>
             </zeroOrMore>
-            <ref
-              name="any"/>
+            <ref name="any"/>
           </element>
           <text/>
         </choice>

@@ -43,6 +43,7 @@
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngtopic.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/task.rng"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/rng/topic-mathml-test.rng"/>
             <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/xsd/topic-mathml.xsd"/>
             <file name="proposals/proposal-13112-rng/test/shells/rng/topic-mathmlDomain-test.rng"/>
@@ -51,6 +52,7 @@
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/rnc/topic-rubydomain-test.rnc"/>
             <file name="proposals/proposal-13118-ruby/org.oasis-open.dita.ruby.test/doctypes/xsd/topic-rubydomain-test.xsd"/>
             <file name="proposals/proposal-13119-svg/org.oasis-open.dita.svg.test/doctypes/rng/topic-svg-test-prefixed.rng"/>
+            <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.doctypes/doctypes/rng/topic-with-mathml.rng"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
             <file name="org.dita-ng.doctypes/rng/technicalContent/rng/topic.rng"/>
