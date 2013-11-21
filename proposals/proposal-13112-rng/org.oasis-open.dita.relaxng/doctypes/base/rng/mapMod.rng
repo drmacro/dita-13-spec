@@ -5,8 +5,10 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Map Module</moduleTitle>
-    <headerComment> ============================================================= MODULE: DITA Map RNG VERSION: 1.3 DATE: November 2013 =============================================================
-      Refer to the latest version of this file by the following URI: </headerComment>
+    <headerComment> 
+      MODULE: DITA Map RNG 
+      VERSION: 1.3 DATE: November 2013 
+</headerComment>
     <moduleMetadata>
       <moduleType>map</moduleType>
       <moduleShortName>map</moduleShortName>
