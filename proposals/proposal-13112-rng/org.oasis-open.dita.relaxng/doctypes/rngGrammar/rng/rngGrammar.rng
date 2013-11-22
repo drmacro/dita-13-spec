@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
   ns="http://relaxng.org/ns/structure/1.0"
   xmlns="http://relaxng.org/ns/structure/1.0">
@@ -291,6 +292,27 @@
     </zeroOrMore>
   </define>
 
+  <define name="other">
+    <zeroOrMore>
+      <element>
+        <anyName>
+          <except>
+            <nsName/>
+          </except>
+        </anyName>
+        <zeroOrMore>
+          <choice>
+            <attribute>
+              <anyName/>
+            </attribute>
+            <text/>
+            <ref name="any"/>
+          </choice>
+        </zeroOrMore>
+      </element>
+    </zeroOrMore>
+  </define>
+
   <define name="any">
     <element>
       <anyName/>
@@ -305,24 +327,5 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="other">
-   <zeroOrMore>
-     <element>
-       <anyName>
-         <except>
-           <nsName/>
-         </except>
-       </anyName>
-       <zeroOrMore>
-         <choice>
-           <attribute>
-             <anyName/>
-           </attribute>
-           <text/>
-           <ref name="any"/>
-         </choice>
-       </zeroOrMore>
-     </element>
-   </zeroOrMore>
- </define>
+
 </grammar>

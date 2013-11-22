@@ -122,7 +122,12 @@
                      CDATA
                             #IMPLIED
                  ua-source-priority
-                     (topic-and-map | topic-only | map-only | map-takes-priority | topic-takes-priority | -dita-use-conref-target)
+                     (topic-and-map | 
+                      topic-only | 
+                      map-only | 
+                      map-takes-priority | 
+                      topic-takes-priority | 
+                      -dita-use-conref-target)
                             topic-and-map
                  ua-windowref 
                      CDATA
