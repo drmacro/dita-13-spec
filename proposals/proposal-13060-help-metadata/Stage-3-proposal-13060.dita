@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature #13060</title>
+    <shortdesc>Allow context sensitive Help metadata to be defined in topics and maps by expanding
+      the <synph>resourceid</synph> element's attribute set.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>This proposal was developed and championed by the DITA Help Subcommittee, under the
+          direction of Tony Self and Stan Doherty.</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>2 August 2011</stentry>
+            <stentry><xref href="https://lists.oasis-open.org/archives/dita/201108/msg00004.html"
+                format="html" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>26 August 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50453/dita-proposal-csh_13060.html"
+                format="html" scope="external">HTML</xref>, <xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50454/dita-proposal-csh_13060.dita"
+                scope="external" format="html">DITA</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>27 August 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50502/minutes20130827.txt"
+                format="txt" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>3 September 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/50570/minutes20130903.txt"
+                format="txt" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>17 October 2013</stentry>
+            <stentry>DHSC</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>The <synph>resourceid</synph> element would need to be modified in the DTD/Schema files
+          to incorporate new attributes of <synph>context-string</synph>,
+            <synph>source-priority</synph>, and <synph>ua-windowref</synph>. The <synph>data</synph>
+          and <synph>data-about</synph> elements should also be allowed within
+            <synph>resourceid</synph>. A related new <synph>ditamap</synph> element defining the
+          window referenced in the <synph>ua-windowref</synph> attribute would be required (see
+          Proposal 13061).</p>
+      </section>
+      <section><title>Dependencies or interrelated proposals</title>This proposal is interrelated to
+        Proposal 13061 (window specifications). This Proposal is also related to Proposal 13008,
+        which proposes one of the changes incorporated in this Proposal.</section>
+      <section>
+        <title>Containment</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0*" id="simpletable_btd_sxd_1m">
+          <sthead>
+            <stentry>Container(s)</stentry>
+            <stentry>Application</stentry>
+          </sthead>
+          <strow>
+            <stentry>map/topicmeta/resourceid</stentry>
+            <stentry>Not applicable</stentry>
+          </strow>
+          <strow>
+            <stentry>map/topicref/topicmeta/resourceid</stentry>
+            <stentry>The referenced topic</stentry>
+          </strow>
+          <strow>
+            <stentry>topic/topicmeta/resourceid</stentry>
+            <stentry>The topic</stentry>
+          </strow>
+          <strow>
+            <stentry>map/mapref/resourceid</stentry>
+            <stentry>Not applicable</stentry>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>Changes impact metaDecl.mod (and equivalent Schema file). Modified lines in bold:</p>
+        <codeblock><b>&lt;!ENTITY % resourceid.content 
+                "(%data.elements.incl;)*"
+> 
+</b>
+&lt;!ENTITY % resourceid.attributes
+                "%select-atts;
+                 %localization-atts;
+                 id
+                    CDATA
+                            #IMPLIED
+                 %conref-atts;
+                 appname
+                     CDATA
+                            #IMPLIED
+                 appid
+                     CDATA
+                            #IMPLIED
+<b>                ua-context-string
+                     CDATA
+                            #IMPLIED
+                 ua-source-priority
+                     (topic-and-map | topic-only | map-only | map-takes-priority | topic-takes-priority | -dita-use-conref-target)
+                            topic-and-map
+                 ua-windowref 
+                     CDATA
+                            #IMPLIED</b>"
+  >
+</codeblock>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>The specification changes for this proposal affect only one topic in the Specification:
+            <xref
+            href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/resourceid.html#resourceid"
+            format="html" scope="external">3.1.3.1.22 resourceid</xref>. The table below shows the
+          changes required in the Specification in addition to those changes already proposed in
+          Proposal 13008.</p>
+        <table id="table_d2j_gbn_vl">
+          <tgroup cols="4">
+            <colspec colnum="1" colname="col1"/>
+            <colspec colnum="2" colname="col2"/>
+            <colspec colnum="3" colname="col3"/>
+            <colspec colnum="4" colname="col4"/>
+            <thead>
+              <row>
+                <entry id="d61e121">Location</entry>
+                <entry id="d61e123">Text in 1.2</entry>
+                <entry id="d61e125">Proposed changes for related Proposal 13008</entry>
+                <entry>Proposed additions to Proposal 13008 changes</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>Short description and introductory text</entry>
+                <entry>
+                  <p>The <systemoutput>&lt;resourceid&gt;</systemoutput> element provides an
+                    identifier for applications that require them in a particular format, when the
+                    normal id attribute of the topic cannot be used.</p>
+                  <p>Each resourceid entry should be unique. While DITA only requires IDs to be
+                    unique within a single topic or map, applications using the resourceid will
+                    generally require IDs to be universally unique or unique within a given
+                    collection of topics.</p>
+                </entry>
+                <entry>
+                  <p>The <systemoutput>&lt;resourceid&gt;</systemoutput> element provides an
+                    identifier for applications that must use their own identifier scheme, such as
+                    context-sensitive help systems and databases.</p>
+                  <p>Multiple <synph>appid</synph> values may be associated with a single
+                      <synph>appname</synph> value, and multiple <synph>appname</synph> values may
+                    be associated with a single <synph>appid </synph>value. Because the values for
+                    the <synph>appid</synph> and <synph>appname</synph> attributes work in
+                    combination to specify a specific ID for a specific application, each
+                    combination of values for the <synph>appid</synph> and <synph>appname</synph>
+                    attributes <i>should</i> be unique. </p>
+                  <p>Versions of DITA before 1.3 used the <synph>id</synph> attribute on the
+                      <systemoutput>&lt;resourceid&gt;</systemoutput> element to specify an ID for
+                    an external application. This use of the <synph>id</synph> attribute is
+                    deprecated in favor of using the <synph>appid</synph> attribute.</p>
+                </entry>
+                <entry/>
+              </row>
+              <row>
+                <entry><b>Example</b> section</entry>
+                <entry>
+                  <codeblock>&lt;prolog&gt;   &lt;resourceid id="sqlid00375"
+                      appname="dbaccess"/&gt; &lt;/prolog&gt;</codeblock>
+                </entry>
+                <entry><p>In the following example, a topic is referenced by three
+                    applications.</p><codeblock>&lt;prolog>
+   &lt;resourceid appid="sqlid00375" appname="dbaccess"/>
+   &lt;resourceid appid="sample" appname="otherApp1"/>
+   &lt;resourceid appid="sample" appname="otherApp2"/>
+&lt;/prolog></codeblock><p>A
+                    database application with a value of "dbaccess" for the <synph>appname</synph>
+                    attribute references the topic using the ID "sqlid00375". Two other applications
+                    use the ID "sample"; differing values for the <synph>appname</synph> attribute
+                    distinguish between these two applications and the &lt;resourceid> elements that
+                    are associated with them.</p>If this topic is reused by another author, that
+                  author may associate additional <synph>&lt;resourceid></synph> elements with the
+                  topic by placing them in the map. For example, the following entry in the
+                    <synph>&lt;topicmeta></synph> indicates that (in addition to the values already
+                  specified in the topic), an application with the value of "Author-B-App"
+                  references the topic using the ID
+                  "FunNewId":<codeblock>&lt;topicref href="sample.dita">
+  &lt;topicmeta>
+     &lt;navtitle>Sample: adding a resourceid externally&lt;/navtitle>
+     &lt;resourceid appname="Author-B-App" appid="FunNewId"/>
+  &lt;/topicmeta&gt;
+&lt;/topicref></codeblock></entry>
+                <entry>
+                  <p>In the following example, user assistance context hooks are being applied to
+                    three topics. The second topic has two hooks for the same topic.</p>
+                  <codeblock>&lt;map title="Widget Help">
+ &lt;topicref href="file_ops.dita" type="concept">
+   &lt;topicref href="saving.dita" type="task">
+     &lt;topicmeta>
+     <b>&lt;resourceid id="ab12" appname="ua" appid="1234" ua-context-string="idh_filesave"
+     ua-source-priority="topic-only" /></b>
+     &lt;/topicmeta>
+   &lt;/topicref>
+   &lt;topicref href="deleting.dita" type="task">
+     &lt;topicmeta>
+      <b>&lt;resourceid id="ab34" appname="ua" 
+           appid="2345" ua-context-string="idh_filedelete" /&gt;</b>
+      <b>&lt;resourceid id="ab56" appname="ua" 
+           appid="6789" ua-context-string="idh_filekill" /&gt;</b>
+     &lt;topicmeta>
+   &lt;/topicref>
+   &lt;topicref href="editing.dita" type="task">
+     &lt;topicmeta>
+       <b>&lt;resourceid id="ab78" appname="ua" 
+            appid="5432" ua-context-string="idh_fileedit" ua-windowref="csh"  /&gt;</b>
+     &lt;topicmeta>
+   &lt;/topicref>
+&lt;/topicref>
+&lt;/map></codeblock>
+                  <p>In the following example, a user assistance context hook, made up of a context
+                    ID (appid) and a context string (ua-context-string) pair, is defined in the
+                    prolog of a task topic. A user assistance window is also referenced for this
+                    topic. </p>
+                  <codeblock>&lt;task id="fedt">
+ &lt;title>Editing a File&lt;/title>
+ &lt;prolog>
+   <b>&lt;resourceid id="cd12" appname="ua" 
+         appid="5432" ua-context-string="idh_fileedit" ua-windowref="csh" /></b>
+ &lt;/prolog>
+ &lt;taskbody>
+  &lt;context>After you have created a new file, you can edit it.&lt;/context> 
+  &lt;steps>
+   &lt;step>&lt;cmd>Open...&lt;/cmd>&lt;/step>
+   &lt;step>&lt;cmd>Edit...&lt;/cmd>&lt;/step>
+   &lt;step>&lt;cmd>Save...&lt;/cmd>&lt;/step>
+  &lt;/steps>
+ &lt;/taskbody>
+&lt;/task></codeblock>
+                </entry>
+              </row>
+              <row>
+                <entry><b>Contains</b> section </entry>
+                <entry/>
+                <entry/>
+                <entry>For all Doctypes, Content Model will
+                  be:<codeblock>(data or data-about) (any number)</codeblock>
+                </entry>
+              </row>
+              <row>
+                <entry><synph>id</synph> attribute definition</entry>
+                <entry>
+                  <ul id="ul_z2j_gbn_vl">
+                    <li>Description: "The value used by a specific application to identify the
+                      topic."</li>
+                    <li>Default Value: "#REQUIRED"</li>
+                    <li>Required?: "Yes"</li>
+                  </ul>
+                </entry>
+                <entry>
+                  <ul id="ul_cfj_gbn_vl">
+                    <li>Description: conref the description of <synph>id</synph> used by other
+                      elements; followed by another paragraph: "Prior to DITA 1.3, this attribute
+                      specified a value used by a specific application to identify the topic. That
+                      usage is deprecated in favor of using the <synph>appid</synph>
+                      attribute."</li>
+                    <li>Default Value: "#IMPLIED"</li>
+                    <li>Required?: "No"</li>
+                  </ul>
+                </entry>
+                <entry/>
+              </row>
+              <row>
+                <entry><synph>appname</synph> attribute</entry>
+                <entry>Contains the name of the application that will use the resource id to
+                  identify the topic.</entry>
+                <entry>A name for the external application that references the topic.</entry>
+                <entry/>
+              </row>
+              <row>
+                <entry><synph>appid</synph> attribute definition</entry>
+                <entry>n/a</entry>
+                <entry>
+                  <ul id="ul_ffj_gbn_vl">
+                    <li>Description: "An ID used by an application to identify the topic."</li>
+                    <li>Data Type: CDATA</li>
+                    <li>Default Value: "#IMPLIED"</li>
+                    <li>Required?: "No"</li>
+                  </ul>
+                </entry>
+                <entry/>
+              </row>
+              <row>
+                <entry><synph>ua-context-string</synph> attribute </entry>
+                <entry>n/a</entry>
+                <entry/>
+                <entry>
+                  <ul id="ul_j1v_lcn_vl">
+                    <li>Description: Contains the value of a user assistance (Help) context-string
+                      used to identify the topic.</li>
+                    <li>Data Type: CDATA</li>
+                    <li>Default Value: "#IMPLIED"</li>
+                    <li>Required?: "No"</li>
+                  </ul>
+                </entry>
+              </row>
+              <row>
+                <entry><synph>ua-source-priority</synph> attribute</entry>
+                <entry>n/a</entry>
+                <entry/>
+                <entry>
+                  <ul id="ul_usw_lcn_vl">
+                    <li>Description: Contains a value which indicates the precedence of context
+                      hooks in the map and context hooks in the topic. (This attribute is only valid
+                      when used within a <synph>topicref</synph> in a <synph>map</synph>.)</li>
+                    <li>Data Type: (topic-and-map | topic-only | map-only | map-takes-priority |
+                      topic-takes-priority | -dita-use-conref-target)</li>
+                    <li>Default Value: topic-and-map</li>
+                    <li>Required?: "No"</li>
+                  </ul>
+                </entry>
+              </row>
+              <row>
+                <entry><synph>ua-windowref</synph> attribute</entry>
+                <entry>n/a</entry>
+                <entry/>
+                <entry>
+                  <ul id="ul_u3z_lcn_vl">
+                    <li>Description: Contains the name of the ua-window element which will be used
+                      to display this topic when called from a Help API.</li>
+                    <li>Data Type: CDATA</li>
+                    <li>Default Value: "#IMPLIED"</li>
+                    <li>Required?: "No"</li>
+                  </ul>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <p>The consolidated Attributes section would therefore be as in the following table.</p>
+        <simpletable id="navref_attr" relcolwidth="2* 3* 1* 1* 1*">
+          <sthead>
+            <stentry>Name</stentry>
+            <stentry>Description</stentry>
+            <stentry>Data Type</stentry>
+            <stentry>Default Value</stentry>
+            <stentry>Required?</stentry>
+          </sthead>
+          <strow>
+            <stentry>id</stentry>
+            <stentry>
+              <p>An anchor point. This ID is the target for references by href and conref attributes
+                and for external applications that refer to DITA content. See ID attribute in the
+                Architectural Specification for more details.</p>
+              <p>Prior to DITA 1.3, this attribute specified a value used by a specific application
+                to identify the topic. That usage is deprecated in favor of using the appid
+                attribute.</p>
+            </stentry>
+            <stentry>NMTOKEN</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>appname</stentry>
+            <stentry>A name for the external application that references the topic.</stentry>
+            <stentry>CDATA</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>Yes</stentry>
+          </strow>
+          <strow>
+            <stentry>appid</stentry>
+            <stentry>An ID used by an application to identify the topic.</stentry>
+            <stentry>CDATA</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>ua-context-string</stentry>
+            <stentry>Contains the value of a user assistance (Help) context-string used to identify
+              the topic.</stentry>
+            <stentry>CDATA</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>ua-source-priority</stentry>
+            <stentry>Contains a value which indicates the precedence of context hooks in the map and
+              context hooks in the topic. (This usage is defined when the attribute is used on
+              resourceid within a DITA map; using this attribute on resourceid within a topic is
+              undefined and reserved for future use.) </stentry>
+            <stentry>(topic-and-map | topic-only | map-only | map-takes-priority |
+              topic-takes-priority | -dita-use-conref-target)</stentry>
+            <stentry>topic-and-map</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>ua-windowref</stentry>
+            <stentry>Contains the name of the ua-window element which will be used to display this
+              topic when called from a Help API.</stentry>
+            <stentry>CDATA</stentry>
+            <stentry>#IMPLIED</stentry>
+            <stentry>No</stentry>
+          </strow>
+          <strow>
+            <stentry>%select-atts; attributes</stentry>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>%localization-atts; attributes</stentry>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>%global-atts; attributes</stentry>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+          </strow>
+          <strow>
+            <stentry>class</stentry>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+    </body>
+  </topic>
+  <concept id="concept_aqh_5zt_3h" rev="DITA1.3 proposal-13060">
+    <title>New architectural specification topic (after 2.1.3.8) - Help systems and other User
+      Assistance</title>
+    <shortdesc>Help systems for software applications, and other types of User Assistance content
+      such as <term>tooltips</term>, use context strings and context identifiers as a means to
+      associate a specific Help topic with a part of the software application. Although such
+        <term>context hooks</term> differ across applications, and across Help platforms, they can
+      always be considered as metadata. Including context hook metadata in the
+        &lt;<synph>resourceid</synph>> element in the DITA map (topicref) or in the topic metadata
+      allows processors to generate the header, map, alias and other types of support files required
+      to integrate the user assistance with the application. Some user assistance topics may be
+      required to display in a specific named window or viewport, and this windowing metadata can be
+      defined in the DITA map within the &lt;<synph>ua-window</synph>> element.</shortdesc>
+    <conbody>
+      <p>Software application user interfaces can be linked to user assistance information (such as
+        Help systems and <term>tooltips</term>) using <term>context hooks</term>. These hooks are
+        simply identifiers that associate a part of the user interface with the location of a Help
+        topic. Context hooks are sometimes direct links to URLs, but are more often indirect links
+        that use numeric context identifiers and/or context strings in conjunction with an
+        intermediary mapping file that associates the context hook with the location of the Help
+        topic. A similar mapping file is used in the software application to associate the user
+        interface controls with the context hook. A Help <term>API (Application Programming
+          Interface)</term> is typically used to simplify the process for both software developer
+        and Help author.The mapping files used to associate user interface controls and context
+        hooks, and context hooks and Help topics, are known as header files, map files, or alias
+        files, depending upon the Help API.</p>
+      <p>Context identifiers can define one-to-one relationships with user interface controls and
+        topics, or one-to-many relationship (one Help topic is associated with many user interface
+        controls).</p>
+      <p>In some Help systems, information topics may be required to display in a specifically sized
+        or featured window. For example, a Help topic may need to be displayed immediately adjacent
+        to the user interface control it supports, in a window of a specific size that always
+        remains on top regardless of the focus within the operating system. </p>
+      <p>Context hook information can be defined within DITA topics and/or within DITA maps, as
+        attributes of the &lt;<synph>resourceid</synph>> element.</p>
+      <p>The attributes that are used for context hooks are: <dl>
+          <dlentry>
+            <dt>@<synph>appid</synph></dt>
+            <dd>An ID used by an application to identify the topic.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>@<synph>ua-context-string</synph></dt>
+            <dd>Contains the value of a user assistance (Help) context-string used to identify the
+              topic.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>@<synph>ua-source-priority</synph></dt>
+            <dd>Contains a value which indicates the precedence of context hooks in the map and
+              context hooks in the topic. (This usage is defined when the attribute is used on
+                <synph>resourceid</synph> within a DITA map; using this attribute on
+                <synph>resourceid</synph> within a topic is undefined and reserved for future use.) </dd>
+          </dlentry>
+          <dlentry>
+            <dt>@<synph>ua-windowref</synph></dt>
+            <dd>Contains the name of the window to be used to display the Help topic, with that
+              window's characteristics separately defined in a &lt;<synph>ua-window</synph>> element
+              in the DITA map.</dd>
+          </dlentry>
+        </dl></p>
+      <p>The &lt;<synph>ua-window</synph>> element provides attributes of @<synph>top</synph>,
+          @<synph>left</synph>, @<synph>height</synph>, @<synph>width</synph>,
+          @<synph>on-top</synph>, @<synph>features</synph>, @<synph>relative</synph>, and
+          @<synph>full-screen</synph>.</p>
+      <p>To avoid problems where context hooks defined in the DITA map potentially conflict with
+        those defined in the topics, a @<synph>ua-source-priority</synph> attribute can be used to
+        indicate how these potential conflicts should be resolved. This attribute can only be
+        defined in the DITA map.</p>
+      <p>Context hook and windowing information is ignored if the processor (the software producing
+        the output Help or user assistance files) does not support this metadata. </p>
+    </conbody>
+  </concept>
+</dita>
