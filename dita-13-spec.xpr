@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="15.1">
+    <meta>
+        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized version="15.1" xml:space="preserve">
+                <map>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>search.resources.filter.history</String>
+                        <filterPanelHistoryItems>
+                            <field name="expressionsLists">
+                                <list>
+                                    <String>*.dtd</String>
+                                </list>
+                            </field>
+                        </filterPanelHistoryItems>
+                    </entry>
+                    <entry>
+                        <String>validation.scenarios</String>
+                        <validationScenario-array/>
+                    </entry>
+                </map>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="dita-13-spec.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/base/rng/basemap.rng"/>
+            <file name="org.dita-ng.doctypes/rng/base/rng/basetopic.rng"/>
+            <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
+            <file name="proposals/proposal-13089-learningObjectMap/org.dita.doctypes.learning/dtd/learning/dtd/learningMap.dtd"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng.transforms/xsl/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="../../workspace_37/dita-ng/xslt/rng2ditadtd/rng2ditashelldtd.xsl"/>
+            <file name="proposals/proposal-13111-mathml/org.oasis-open.dita.mathml.test/doctypes/xsd/topic-mathml.xsd"/>
+            <file name="proposals/proposal-13102-release-management/test/topic-release-mgmt-local.dtd"/>
+            <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
+            <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
+        </folder>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
+        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
+        <folder path="."/>
+        <folder path="proposals/proposal-13106-learning2domain/spec/"/>
+        <folder path="../dita-utilities/"/>
+        <folder path="../DITA_TC_work/"/>
+        <folder path="../../workspace_40/dita-12-spec/"/>
+        <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
+        <folder path="../../workspace_40/dita_13_specwork/"/>
+    </projectTree>
+</project>
