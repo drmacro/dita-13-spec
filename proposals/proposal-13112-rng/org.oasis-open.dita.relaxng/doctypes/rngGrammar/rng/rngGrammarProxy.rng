@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  ns="http://relaxng.org/ns/structure/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  <include href="rngGrammar.rng">
+    <define name="other">
+      <zeroOrMore>
+        <choice>
+          <ref name="topic.element"/>
+          <element>
+            <anyName>
+              <except>
+                <name ns="">topic</name>
+                <nsName/>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <choice>
+                <attribute>
+                  <anyName/>
+                </attribute>
+                <text/>
+                <ref name="any"/>
+              </choice>
+            </zeroOrMore>
+          </element>  
+        </choice>
+      </zeroOrMore>
+    </define>
+    
+    <define name="any">
+      <choice>
+        <ref name="topic.element"></ref>      
+        <element>
+          <anyName>
+            <except><name ns="">topic</name></except>
+          </anyName>
+          <zeroOrMore>
+            <choice>
+              <attribute>
+                <anyName/>
+              </attribute>
+              <text/>
+              <ref name="any"/>
+            </choice>
+          </zeroOrMore>
+        </element>
+      </choice>
+    </define>
+  </include>
+  
+  <define name="topic.element">
+    <element name="topic" ns="">
+      <ref name="any"/>
+      <choice>
+        <attribute name="id" ns=""><data type="ID"/></attribute>
+        <zeroOrMore>
+          <attribute>
+            <anyName>
+              <except>
+                <name ns="">id</name>
+              </except>
+            </anyName>
+          </attribute>
+        </zeroOrMore>
+      </choice>
+    </element>
+  </define>
+</grammar>
