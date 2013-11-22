@@ -30,8 +30,87 @@
                         </filterPanelHistoryItems>
                     </entry>
                     <entry>
+                        <String>validation.scenario.associations</String>
+                        <scenarioAssociation-array>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngGrammarProxy.rng</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>rngGrammar</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngGrammar.rng</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>rngGrammar</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                        </scenarioAssociation-array>
+                    </entry>
+                    <entry>
                         <String>validation.scenarios</String>
-                        <validationScenario-array/>
+                        <validationScenario-array>
+                            <validationScenario>
+                                <field name="pairs">
+                                    <list>
+                                        <validationUnit>
+                                            <field name="validationType">
+                                                <validationUnitType>
+                                                    <field name="validationInputType">
+                                                        <String>text/rng</String>
+                                                    </field>
+                                                </validationUnitType>
+                                            </field>
+                                            <field name="url">
+                                                <String>file:/Users/george/Documents/workspace/dita-13-spec/proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngtopic.rng</String>
+                                            </field>
+                                            <field name="validationEngine">
+                                                <validationEngine>
+                                                    <field name="engineType">
+                                                        <String>&lt;Default engine></String>
+                                                    </field>
+                                                    <field name="allowsAutomaticValidation">
+                                                        <Boolean>true</Boolean>
+                                                    </field>
+                                                </validationEngine>
+                                            </field>
+                                            <field name="allowAutomaticValidation">
+                                                <Boolean>true</Boolean>
+                                            </field>
+                                            <field name="extensions">
+                                                <null/>
+                                            </field>
+                                            <field name="validationSchema">
+                                                <null/>
+                                            </field>
+                                        </validationUnit>
+                                    </list>
+                                </field>
+                                <field name="type">
+                                    <String>Validation_scenario</String>
+                                </field>
+                                <field name="name">
+                                    <String>rngGrammar</String>
+                                </field>
+                            </validationScenario>
+                        </validationScenario-array>
                     </entry>
                 </map>
             </serialized>
@@ -52,16 +131,6 @@
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/rnc/topic-xmldomain-test.rnc"/>
             <file name="proposals/proposal-13035-xmldomain/org.oasis-open.dita.xmldomain.test/doctypes/xsd/topic-xmldomain.xsd"/>
         </folder>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/"/>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
         <folder path="."/>
-        <folder path="proposals/proposal-13106-learning2domain/spec/"/>
-        <folder path="../dita-utilities/"/>
-        <folder path="../DITA_TC_work/"/>
-        <folder path="../../workspace_40/dita-12-spec/"/>
-        <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
-        <folder path="../../workspace_40/dita_13_specwork/"/>
     </projectTree>
 </project>
