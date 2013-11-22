@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="topic-mathmlDomain-test.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topicid">
+  <title>Test of RNG Shell</title>
+  <body>
+    <p>Test of hi-p-d constraint: <b>bold</b>, <i>italic</i>. Only bold and italic should be allowed.</p>
+    <p>Test of delivery target attribute <ph
+      deliveryTarget="PDF">this is for PDF only</ph><ph
+      deliveryTarget="EPUB">this is for EPUB only</ph>.</p>
+    <p>XML construct domain: <xmlelement>xmlelement</xmlelement>, <xmlatt>xmlatt</xmlatt>, <parameterentity>parameter entity</parameterentity>, <rngpattern>rng pattern</rngpattern>.</p>
+    <p>Some MathML Stuff:</p>
+    <equation-figure>
+      <title>An Equation Figure</title>
+      <equation-block><mathml>
+        <math
+          xmlns="http://www.w3.org/1998/Math/MathML">
+          <mstyle>
+            <mi>f</mi>
+            <mrow>
+              <mo>(</mo>
+              <mi>a</mi>
+              <mo>)</mo>
+            </mrow>
+            <mo>=</mo>
+            <mfrac>
+              <mn>1</mn>
+              <mrow>
+                <mn>2</mn>
+                <mi>π<!-- π --></mi>
+                <mi>i</mi>
+              </mrow>
+            </mfrac>
+            <msub>
+              <mo>∮</mo>
+              <mrow>
+                <mi>γ</mi>
+              </mrow>
+            </msub>
+            <mfrac>
+              <mrow>
+                <mi>f</mi>
+                <mo>(</mo>
+                <mi>z</mi>
+                <mo>)</mo>
+              </mrow>
+              <mrow>
+                <mi>z</mi>
+                <mo>−</mo>
+                <mi>a</mi>
+              </mrow>
+            </mfrac>
+            <mi>d</mi>
+            <mi>z</mi>
+          </mstyle>
+        </math>
+        </mathml></equation-block>
+    </equation-figure>
+  </body>
+</topic>

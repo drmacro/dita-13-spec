@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<val>
+    <prop action="flag" att="rev" backcolor="#eeeeee" val="13004-proposal"/>
+    <prop action="flag" att="rev" backcolor="#ffffee" val="October" />
+    <!--<revprop action="flag" val="13004-proposal"/>-->
+</val>

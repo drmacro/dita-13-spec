@@ -5,7 +5,6 @@
   xmlns:svg = "http://www.w3.org/2000/svg"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
-  <include href="svg-full-1.2/Full-1.2.rng"/>
   
   <define name="domains-atts-value" combine="choice">
     <value>(topic svg-d)</value>
@@ -15,10 +14,39 @@
     <ref name="svg_container.element"/> 
   </define>
 
+  <define
+    name="svg_container.element">
+    <element
+      name="svg_container">
+      <ref
+        name="svg_container.attlist"/>
+      <ref
+        name="svg_container.content"/>
+    </element>
+  </define>
+  <define name="svg_container.attlist" combine="interleave">
+    <ref name="svg_container.attributes"/>
+  </define>
+  
+  <define
+    name="svg_container.attributes">
+    <ref
+      name="univ-atts"/>
+    <optional>
+      <attribute
+        name="outputclass"/>
+    </optional>
+  </define>
+  
+  <define name="svg_container.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/foreign svg-d/svg_container "/>
+    </optional>
+  </define>
   <define name="svg_container.content">
     <choice>
-      <ref name="svg:svg">
-      </ref>
+        <externalRef href="svg-full-1.2/Full-1.2.rng"/>      
     </choice>
   </define>
   

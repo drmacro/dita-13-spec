@@ -21,7 +21,8 @@ PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
 <!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
 <!--                                                               -->
 <!-- PURPOSE:    Declaring the substitution context and domain     -->
-<!--             entity declarations for the User Interface Domain -->
+<!--             entity declarations for the Delivery Target       -->
+<!--             Attribute Domain                                  -->
 <!--                                                               -->
 <!-- ORIGINAL CREATION DATE:                                       -->
 <!--             June 2013                                         -->

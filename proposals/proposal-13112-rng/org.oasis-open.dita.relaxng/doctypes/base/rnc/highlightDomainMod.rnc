@@ -1,0 +1,212 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ditaarch = "http://dita.oasis-open.org/architecture/2005/"
+
+ditaarch:moduleDesc [
+  "\x{a}" ~
+  "   "
+  ditaarch:moduleTitle [ "DITA Highlight Domain" ]
+  "\x{a}" ~
+  "   "
+  ditaarch:headerComment [
+    "\x{a}" ~
+    "============================================================= \x{a}" ~
+    "                    HEADER                                     \x{a}" ~
+    " ============================================================= \x{a}" ~
+    "  MODULE:    DITA Highlight Domain                             \x{a}" ~
+    "  VERSION:   1.2                                               \x{a}" ~
+    "  DATE:      November 2009                                     \x{a}" ~
+    "                                                               \x{a}" ~
+    " ============================================================= \x{a}" ~
+    "\x{a}" ~
+    " ============================================================= \x{a}" ~
+    " SYSTEM:     Darwin Information Typing Architecture (DITA)     \x{a}" ~
+    "                                                               \x{a}" ~
+    " PURPOSE:    Define elements and specialization attributes     \x{a}" ~
+    "             for Highlight Domain                              \x{a}" ~
+    "                                                               \x{a}" ~
+    " ORIGINAL CREATION DATE:                                       \x{a}" ~
+    "             March 2001                                        \x{a}" ~
+    "                                                               \x{a}" ~
+    "             (C) Copyright OASIS Open 2005, 2009.              \x{a}" ~
+    "             (C) Copyright IBM Corporation 2001, 2004.         \x{a}" ~
+    "             All Rights Reserved.                              \x{a}" ~
+    "                                                               \x{a}" ~
+    "  UPDATES:                                                     \x{a}" ~
+    "    2005.11.15 RDA: Corrected descriptive names for all        \x{a}" ~
+    "                    elements except bold                       \x{a}" ~
+    '    2005.11.15 RDA: Corrected the "Delivered as" system ID     \x{a}' ~
+    "    2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       \x{a}" ~
+    "    2008.02.13 RDA: Create .content and .attributes entities   \x{a}" ~
+    " =============================================================      \x{a}" ~
+    " "
+  ]
+  "\x{a}" ~
+  "   "
+  ditaarch:moduleMetadata [
+    "\x{a}" ~
+    "     "
+    ditaarch:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "     "
+    ditaarch:moduleShortName [ "hi-d" ]
+    "\x{a}" ~
+    "     "
+    ditaarch:modulePublicIds [
+      "\x{a}" ~
+      "       "
+      ditaarch:dtdMod [ "-//OASIS//ELEMENTS DITA Highlight Domain//EN" ]
+      "\x{a}" ~
+      "       "
+      ditaarch:dtdEnt [ "-//OASIS//ENTITIES DITA Highlight Domain//EN" ]
+      "\x{a}" ~
+      "       "
+      ditaarch:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:highlightDomain.xsd"
+      ]
+      "\x{a}" ~
+      "       "
+      ditaarch:rncMod [
+        "urn:oasis:names:tc:dita:rnc:highlightDomain.rnc"
+      ]
+      "\x{a}" ~
+      "       "
+      ditaarch:rngMod [
+        "urn:oasis:names:tc:dita:rng:highlightDomain.rng"
+      ]
+      "\x{a}" ~
+      "     "
+    ]
+    "\x{a}" ~
+    "   "
+  ]
+  "\x{a}" ~
+  " "
+]
+# =============================================================
+
+# DOMAIN ATTRIBUTE CONTRIBUTION
+
+# =============================================================
+domains-att-contribution |= "(topic hi-d)"
+# =============================================================
+
+# DOMAIN EXTENSION PATTERNS
+
+# =============================================================
+hi-d-ph =
+  b.element
+  | i.element
+  | sup.element
+  | sub.element
+  | tt.element
+  | u.element
+ph |= hi-d-ph
+# =============================================================
+
+# ELEMENT DECLARATIONS
+
+# =============================================================
+b.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+b.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+b.element =
+  
+  ## The bold (<b>) element is used to apply bold highlighting to the content
+  ##         of the element. Use this element only when there is not some other more proper element. For
+  ##         example, for specific items such as GUI controls, use the <uicontrol> element. This
+  ##         element is part of the DITA highlighting domain. 
+  ##         Category: Typographic elements
+  [ ditaarch:longName = "Bold" ] element b { b.attlist, b.content }
+b.attlist &= b.attributes
+u.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+u.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+u.element =
+  
+  ## The underline (<u>) element is used to apply underline highlighting to the
+  ##         content of the element. 
+  ##         Category: Typographic elements
+  [ ditaarch:longName = "Underlined" ]
+  element u { u.attlist, u.content }
+u.attlist &= u.attributes
+i.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+i.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+i.element =
+  
+  ## The italic (<i>) element is used to apply italic highlighting to the
+  ##         content of the element. 
+  ##         Category: Typographic elements
+  [ ditaarch:longName = "Italic" ] element i { i.attlist, i.content }
+i.attlist &= i.attributes
+tt.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+tt.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+tt.element =
+  
+  ##  The teletype (<tt>) element is used to apply monospaced highlighting to
+  ##         the content of the element. 
+  ##         Category: Typographic elements 
+  [ ditaarch:longName = "Teletype (monospaced)" ]
+  element tt { tt.attlist, tt.content }
+tt.attlist &= tt.attributes
+sup.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+sup.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+sup.element =
+  
+  ## The superscript (<sup>) element indicates that text should be
+  ##         superscripted, or vertically raised in relationship to the surrounding text. Superscripts
+  ##         are usually a smaller font than the surrounding text. Use this element only when there is
+  ##         not some other more proper tag. This element is part of the DITA highlighting domain.
+  ##         Category: Typographic elements
+  [ ditaarch:longName = "Superscript" ]
+  element sup { sup.attlist, sup.content }
+sup.attlist &= sup.attributes
+sub.content =
+  (text | basic.ph | data.elements.incl | foreign.unknown.incl)*
+sub.attributes =
+  univ-atts,
+  attribute outputclass { text }?
+sub.element =
+  
+  ## A subscript (<sub>) indicates that text should be subscripted, or placed
+  ##         lower in relationship to the surrounding text. Subscripted text is often a smaller font than
+  ##         the surrounding text. Formatting may vary depending on your output process. This element is
+  ##         part of the DITA highlighting domain. Category: Typographic elements
+  [ ditaarch:longName = "Subscript" ]
+  element sub { sub.attlist, sub.content }
+sub.attlist &= sub.attributes
+# =============================================================
+
+# SPECIALIZATION ATTRIBUTE DECLARATIONS
+
+# =============================================================
+b.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/b " ] attribute class { text }?
+i.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/i " ] attribute class { text }?
+sub.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/sub " ] attribute class { text }?
+sup.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/sup " ] attribute class { text }?
+tt.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/tt " ] attribute class { text }?
+u.attlist &=
+  global-atts,
+  [ a:defaultValue = "+ topic/ph hi-d/u " ] attribute class { text }?

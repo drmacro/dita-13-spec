@@ -54,12 +54,12 @@
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>10 Sept 2013</stentry>
+            <stentry>Richard Hamilton, Robert Anderson</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
-            <stentry/>
+            <stentry>14 November 2013</stentry>
             <stentry/>
           </strow>
         </simpletable>
@@ -267,7 +267,7 @@
                     <dt>Description</dt>
                     <dd>Key reference to the data for the object, as for @data. When specified and the key is resolvable, the key-provided URI is used. If @data is specified, it is used as a fallback
                       if the key cannot be resolved to a resource. A key that has no associated resource, only link text, is considered to be unresolved for the purpose of the @datakeyref
-                      element.</dd>
+                      attribute.</dd>
                   </dlentry>
                   <dlentry>
                     <dt>Data Type</dt>
@@ -337,7 +337,7 @@
   id="E5123_026.mp4"
   width="300"
   height="300">
-  &lt;param name="poster:
+  &lt;param name="poster"
      <b>keyref="E5123_026_poster"</b>
   />
   &lt;param name="source"
@@ -420,7 +420,7 @@ flash/swflash.cab#version=6,0,0,0"
                     </dd>
                     <dd>When @keyref is specified, it implies a value of "ref" for @valuetype if @valuetype is not specified. If @valuetype is specified with a value other than "ref", @keyref is
                       ignored. <p>When the effective value of @valuetype is "ref" and @keyref is specified, the @value attribute value, if specified, is used as the fallback URI when the key reference
-                      cannot be resolved. A key that has no associated resource, only link text, is considered to be unresolved for the purpose of the @keyref element.</p></dd>
+                      cannot be resolved. A key that has no associated resource, only link text, is considered to be unresolved for the purpose of the @keyref attribute.</p></dd>
                   </dlentry>
                   <dlentry>
                     <dt>Data Type</dt>
@@ -438,9 +438,9 @@ flash/swflash.cab#version=6,0,0,0"
               </row>
               <row>
                 <entry>param.dita</entry>
-                <entry>[In attribute description table]<p>This attribute specifies the content type of the resource designated by the value attribute only in the case where valuetype is set to "ref".
-                  This attribute specifies for the user agent the type of values that will be found at the URI designated by value. Note that this differs from the type attribute on many other DITA
-                  elements.</p></entry>
+                <entry>[In attribute description table, discussion of @type attribute:]<p>This attribute specifies the content type of the resource designated by the value attribute only in the case
+                  where valuetype is set to "ref". This attribute specifies for the user agent the type of values that will be found at the URI designated by value. Note that this differs from the
+                  type attribute on many other DITA elements.</p></entry>
                 <entry>
                   <p>This attribute specifies the content type of the resource designated by the value or keyref attribute only in the case where valuetype is set to "ref". This attribute specifies
                     for the user agent the type of values that will be found at the URI designated by value. Note that this differs from the type attribute on many other DITA elements. If type is not

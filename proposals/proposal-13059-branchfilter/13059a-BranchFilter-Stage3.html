@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2013" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2013" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Stage 3 proposal: Feature #13059a" />
+<meta name="abstract" content="Provide a way to associate one or more set of independent DITAVAL conditions with a single branch of content in a map." />
+<meta name="Description" content="Provide a way to associate one or more set of independent DITAVAL conditions with a single branch of content in a map." />
+<meta name="DC.subject" content="domains, ditaval reference domain, ditavalref, conditional processing, subset of a map, ditavalmeta, noFileRenaming" />
+<meta name="keywords" content="domains, ditaval reference domain, ditavalref, conditional processing, subset of a map, ditavalmeta, noFileRenaming" />
+<meta name="DC.Date" scheme="iso8601" content="2013-11-01" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="proposal13059a" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<title>Stage 3 proposal: Feature #13059a</title>
+</head>
+<body role="main">
+<div class="nested0" id="proposal13059a"><h1 class="title topictitle1">Stage 3 proposal: Feature #13059a</h1>
+<div class="body"><p class="shortdesc">Provide a way to associate one or more set of independent DITAVAL conditions with a
+      single branch of content in a map. </p>
+<div class="section"><h2 class="title sectiontitle">Champion</h2>        
+        <p class="p">Robert D Anderson</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Tracking information</h2>        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e23" class="stentry" width="14.285714285714286%">Event</th>
+<th valign="bottom" align="left" id="d67e25" class="stentry" width="14.285714285714286%">Date</th>
+<th valign="bottom" align="left" id="d67e27" class="stentry" width="71.42857142857143%">Links</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 1 proposal accepted</td>
+<td valign="top" headers="d67e25" class="stentry">August 2, 2011 (13059 eventually split into 2 parts)</td>
+<td valign="top" headers="d67e27" class="stentry">https://www.oasis-open.org/apps/org/workgroup/dita/email/archives/201108/msg00004.html</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal submitted</td>
+<td valign="top" headers="d67e25" class="stentry">June 3, 2013</td>
+<td valign="top" headers="d67e27" class="stentry">HTML: <a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest</a>;
+              DITA: <a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal discussed</td>
+<td valign="top" headers="d67e25" class="stentry">discussion before stage 2 completed: May 21, 2013; discussion of stage 2
+              proposal June 11, 2013</td>
+<td valign="top" headers="d67e27" class="stentry">Aggregated minutes: <a class="xref" href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal approved</td>
+<td valign="top" headers="d67e25" class="stentry">June 18, 2013</td>
+<td valign="top" headers="d67e27" class="stentry">Aggregated minutes: <a class="xref" href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 3 proposal submitted to reviewers</td>
+<td valign="top" headers="d67e25" class="stentry"> </td>
+<td valign="top" headers="d67e27" class="stentry">Kris Eberlein, Eliot Kimber, Seth Park</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 3 proposal (this document) submitted</td>
+<td valign="top" headers="d67e25" class="stentry"> </td>
+<td valign="top" headers="d67e27" class="stentry"> </td>
+</tr>
+</table>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>        
+        <p class="p">Add a new &lt;ditavalref&gt; element that is used to reference a DITAVAL document.</p>
+
+        <ul class="ul"><li class="li">When a &lt;ditavalref&gt; element is specified in a map, the conditions from the
+            referenced DITAVAL will be processed for each topic in that branch of the map. The
+            &lt;ditavalref&gt; will also be used for that branch itself, so that if the branch uses a
+            topicref with otherprops="hide", and the &lt;ditavalref&gt; excludes otherprops="hide",
+            that topicref and its children should be removed.</li>
+<li class="li">When multiple &lt;ditavalref&gt; elements are specified at the same level of a map
+            branch, the content will be copied once per ditaval, with each copy using one of the
+            conditions. For example, if 3 &lt;ditavalref&gt; elements are specified as peers in the
+            same branch, that branch of content should produce three distinct versions of the
+            content, with each version using one of the &lt;ditavalref&gt; elements to set conditions,
+            as described in the previous bullet.</li>
+<li class="li">When copies are created due to the previous function, generated output files for
+            formats such as HTML must be renamed. This is not an issue for monolithic formats such
+            as PDF or for systems that may produce dynamic filtered content without predetermined
+            file names. For situations where file names are important, this proposal
+              <em class="ph i">recommends</em> that the names be based on the copy-to attribute, which can specify
+            a token to add to the name. For example, if the DITA document is
+              <span class="ph filepath">sample.dita</span>, and the copy-to attribute is
+              <samp class="ph codeph">copy-to="token"</samp>, the generated XHTML document would be
+              <span class="ph filepath">sample-token.html</span>. If the copy-to attribute is not specified,
+            this proposal <em class="ph i">recommends</em> that processors fall back to the base name of the
+            DITAVAL file (for example, "linux" when using the ditaval document
+              "<span class="ph filepath">linux.ditaval</span>"). If the author wishes to keep one set of content
+            with the original name, the &lt;noFileRenaming&gt; element (described below) may be
+            used.</li>
+</ul>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>        
+        <p class="p">COMMENTS: INCLUDE IMPLICATIONS OF PROCESSING ORDER</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>        
+        <p class="p">List the files that must be modified and provide the exact code modifications. </p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified specification documentation</h2>        
+        <p class="p">New language spec topics will be placed in a new group for this domain, in the "base"
+          section of the lang spec, as a peer to the groups for Typographic and Utilities elements.
+          New topics for ditavalref, ditavalmeta, and noFileRenaming are included below, following
+          the new grouping topic.</p>
+
+        <p class="p">A new topic for the architectural specification will be created to cover this feature;
+          suggest placing it after the existing "Conditional processing (profiling)" topic. That
+          topic is included below. </p>
+
+      </div>
+</div>
+</div>
+<div class="topic reference nested0" xml:lang="en-us" id="reference_g4g_ll2_1m"><h1 class="title topictitle1">DITAVAL reference domain</h1>
+<p class="shortdesc">The DITAVAL reference domain is used to reference a DITAVAL file with conditions that
+  apply to only one portion of a content source. It is also used to publish a subset of one content
+  source for multiple audiences.</p>
+</div>
+<div class="topic reference nested0" xml:lang="en-us" id="reference_g4b_ml2_1m"><h1 class="title topictitle1">ditavalref</h1>
+<div class="body refbody"><p class="shortdesc">The &lt;<span class="keyword">ditavalref</span>&gt; element references a DITAVAL document, in order
+    to specify filter conditions that may be used to process only a subset of the content in a map.
+    Additionally, the &lt;ditavalref&gt; element may be used to create multiple copies of some content
+    in the map, while applying a different set of conditions to each copy.</p>
+<div class="section">      <div class="p">When a &lt;ditavalref&gt; element is included in a map, the conditions in the referenced
+        DITAVAL document are used to filter the other elements in that branch, the parent element
+        that included the &lt;ditavalref&gt;, and the topic level content referenced within that
+        branch. In the simple case, a map may use the &lt;ditavalref&gt; as
+        follows:<pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Simple usage of ditavalref&lt;/title&gt;
+  &lt;topicref href="sampleBranch.dita" audience="admin"&gt;
+    &lt;topicmeta&gt;&lt;navtitle&gt;Sample branch&lt;/navtitle&gt;&lt;/topicmeta&gt;
+    &lt;ditavalref href="conditions.ditaval"/&gt;
+    &lt;topicref href="insideBranch.dita" platform="win linux mac"/&gt;
+    &lt;!-- ... other topicrefs ... --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- other branches not affected by conditions.ditaval --&gt;
+&lt;/map&gt;</code></pre>
+</div>
+
+      <div class="p">The filter conditions from <span class="ph filepath">conditions.ditaval</span> apply to the following:<ul class="ul"><li class="li">The &lt;topicref&gt; that references <span class="ph filepath">sampleBranch.dita</span>, and all
+            elements within that branch</li>
+<li class="li">The topic <span class="ph filepath">sampleBranch.dita</span></li>
+<li class="li">The topic <span class="ph filepath">insideBranch.dita</span></li>
+<li class="li">All other topics referenced within this branch</li>
+</ul>
+</div>
+
+      <p class="p">When more than one &lt;ditavalref&gt; is specified in the same branch at the same level, this
+        results in multiple copies of that branch when the content is rendered. If the sample above
+        contains a reference to <span class="ph filepath">otherConditions.ditaval</span> as a peer to the
+        existing &lt;ditavalref&gt;, the rendered version of this map would contain two copies of
+        "Sample branch"; one copy is created using the conditions in
+          <span class="ph filepath">conditions.ditaval</span>, while the other copy uses conditions from
+          <span class="ph filepath">otherConditions.ditaval</span>.</p>
+
+    </div>
+<div class="section"><h2 class="title sectiontitle">Limitations</h2>      
+      <p class="p">The following limitations apply when using the &lt;ditavalref&gt; element, which cannot be
+        enforced through the DTD or Schema.</p>
+
+      <div class="p" id="reference_g4b_ml2_1m__d14e68">When one or more &lt;ditavalref&gt; elements are used on a branch, no other
+        &lt;ditavalref&gt; element may be included in the same branch at a point lower in the element
+        hierarchy. For example, the following should be treated as an error condition:
+        <pre class="pre codeblock"><code>&lt;topicref href="a.dita"&gt;
+  &lt;ditavalref href="some.ditaval"/&gt;
+  &lt;topicref href="b.dita"&gt;
+    &lt;ditavalref href="other.ditaval"/&gt;
+    ...</code></pre>
+</div>
+
+      <div class="p">It is an error condition for multiple &lt;ditavalref&gt; elements to result in conflicting
+        file names for different content. Processors may (but need not) recover by using an
+        alternate naming scheme for the conflicting copies. For example, in the following map
+        fragment, the copy-to attribute would result in two conflicting copies of
+          <span class="ph filepath">c.dita</span> using the same file
+        name:<pre class="pre codeblock"><code>&lt;topicref href="c.dita"&gt;
+  &lt;ditavalref href="one.ditaval" copy-to="token"/&gt;
+  &lt;ditavalref href="two.ditaval" copy-to="token"/&gt;
+&lt;/topicref&gt;</code></pre>
+
+      </div>
+
+    </div>
+<div class="section" id="reference_g4b_ml2_1m__d14e82"><h2 class="title sectiontitle">Contains</h2>      
+      <p class="p">Contains optional &lt;ditavalmeta&gt;</p>
+
+    </div>
+<div class="section" id="reference_g4b_ml2_1m__d14e90"><h2 class="title sectiontitle">Contained By</h2>      
+      <p class="p">(to be generated)</p>
+
+    </div>
+<div class="section" id="reference_g4b_ml2_1m__d14e98"><h2 class="title sectiontitle">Inheritance</h2>      
+      <p class="p">+ map/topicref ditaval-d/ditavalref </p>
+
+    </div>
+<div class="example" id="reference_g4b_ml2_1m__d14e106"><h2 class="title sectiontitle">Example: one &lt;ditavalref&gt; specific to a branch</h2>      
+      <pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="novice.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;topicref href="do-stuff.dita"/&gt;
+    &lt;topicref href="advanced-stuff.dita" audience="admin"/&gt;
+    &lt;!-- more topics --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;
+
+novice.ditaval:
+&lt;val&gt;
+  &lt;prop att="audience" val="novice" action="include"/&gt;
+  &lt;prop att="audience" val="admin" action="exclude"/&gt;
+&lt;/val&gt;</code></pre>
+
+      <div class="p">If this sample is published, the following processing will take place:<ul class="ul"><li class="li">The first topic (<span class="ph filepath">intro.dita</span>) does not use any of the conditions
+            that are specified in <span class="ph filepath">novice.ditaval</span>. It is published normally,
+            potentially using other ditaval conditions that were specified externally.</li>
+<li class="li">The second topic (<span class="ph filepath">install.dita</span>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <span class="ph filepath">novice.ditaval</span>.</li>
+<li class="li">The third topic (<span class="ph filepath">do-stuff.dita</span>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <span class="ph filepath">novice.ditaval</span>.</li>
+<li class="li">The fourth topicref (to <span class="ph filepath">advanced-stuff.dita</span>) is removed from the
+            map entirely, because it is filtered out with the conditions specified for this
+            branch.</li>
+</ul>
+</div>
+
+      <p class="p">None of the files filtered by <span class="ph filepath">novice.ditaval</span> will be renamed due to
+        the filtering, because of the &lt;noFileRenaming/&gt; element inside of the &lt;ditavalmeta&gt;.
+        This ensures that external links to those topics are stable, regardless of whether the
+        DITAVAL is used.</p>
+
+    </div>
+<div class="example" id="reference_g4b_ml2_1m__d14e153"><h2 class="title sectiontitle">Example: multiple &lt;ditavalref&gt; elements to create multiple branches</h2>      
+      <pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="win.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/&gt;
+    &lt;ditavalref href="linux.ditaval"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;
+
+win.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="include"/&gt;
+  &lt;prop att="platform" val="mac" action="exclude"/&gt;
+  &lt;prop att="platform" val="linux" action="exclude"/&gt;
+&lt;/val&gt;
+
+mac.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="exclude"/&gt;
+  &lt;prop att="platform" val="mac" action="include"/&gt;
+  &lt;prop att="platform" val="linux" action="exclude"/&gt;
+&lt;/val&gt;
+
+linux.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="exclude"/&gt;
+  &lt;prop att="platform" val="mac" action="exclude"/&gt;
+  &lt;prop att="platform" val="linux" action="include"/&gt;
+&lt;/val&gt;</code></pre>
+
+      <div class="p">If this sample is published to XHTML (where output file naming is important), the following
+        processing will take place:<ul class="ul"><li class="li">The first topic (<span class="ph filepath">intro.dita</span>) is published normally, potentially
+            using other ditaval conditions that were specified externally.</li>
+<li class="li">The install branch appears three times, once for each ditaval. The branches are
+            created as follows:<ul class="ul"><li class="li">The first branch uses the first ditaval file (<span class="ph filepath">win.ditaval</span>).
+                Output files are not renamed, due to the presence of &lt;noFileRenaming/&gt;; this is
+                typically best for the most common or default branch. The file
+                  "<span class="ph filepath">mac-specific-stuff.dita</span>" is removed from this hierarchy
+                based on <span class="ph filepath">win.ditaval</span>. The generated files for this copy of the
+                branch, with indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install.html
+   do-stuff.html
+     ...more topics and nested branches...
+   cleanup.html</code></pre>
+</li>
+<li class="li">The second branch uses the second ditaval file (<span class="ph filepath">mac.ditaval</span>).
+                Output files are renamed based on the @copy-to attribute. The file
+                  "<span class="ph filepath">mac-specific-stuff.dita</span>" is included in this hierarchy based
+                on <span class="ph filepath">mac.ditaval</span>. The generated files for this copy, with
+                indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install-apple.html
+   do-stuff-apple.html
+      mac-specific-stuff-apple.html
+      ...more topics and nested branches...
+   cleanup-apple.html</code></pre>
+</li>
+<li class="li">The third branch uses the last ditaval file (<span class="ph filepath">linux.ditaval</span>).
+                Output files are renamed, using the ditaval file name because @copy-to is not used.
+                The file "<span class="ph filepath">mac-specific-stuff.dita</span>" is removed from this
+                hierarchy based on <span class="ph filepath">linux.ditaval</span>. The generated files for this
+                copy, with indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install-linux.html
+   do-stuff-linux.html
+     ...more topics and nested branches...
+   cleanup-linux.html</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+      <div class="p">This example used three ditaval files to avoid triple maintenance of the install branch in
+        a map; the following map is functionally equivalent, but requires maintaining each branch in
+        parallel:<pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="win.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="linux.ditaval"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;</code></pre>
+</div>
+
+    </div>
+<div class="section" id="reference_g4b_ml2_1m__d14e217"><h2 class="title sectiontitle">Attributes</h2>      
+      <table cellpadding="4" cellspacing="0" summary="" id="reference_g4b_ml2_1m__d14e222" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e375" class="stentry" width="25%">Name</th>
+<th valign="bottom" align="left" id="d67e377" class="stentry" width="37.5%">Description</th>
+<th valign="bottom" align="left" id="d67e379" class="stentry" width="12.5%">Data Type</th>
+<th valign="bottom" align="left" id="d67e381" class="stentry" width="12.5%">Default Value</th>
+<th valign="bottom" align="left" id="d67e383" class="stentry" width="12.5%">Required?</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">href</td>
+<td valign="top" headers="d67e377" class="stentry">Provides a reference to a DITAVAL document. See <a class="xref" href="../langref/attributes/thehrefattribute.html">**** MISSING FILE ****</a> for general information on the
+            format and processing implications of the href attribute.</td>
+<td valign="top" headers="d67e379" class="stentry">CDATA</td>
+<td valign="top" headers="d67e381" class="stentry">#IMPLIED</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">copy-to</td>
+<td valign="top" headers="d67e377" class="stentry">Specifies a token to be used in renaming files, when creating multiple copies of
+            a branch. In situations where file naming is important, processors are recommended to
+            add the token from @copy-to onto the end of the file name, before the extension. For
+            example, when copy-to="admin" is used with a branch that references
+              <span class="ph filepath">installing.dita</span>", the resulting copy should be named
+              <span class="ph filepath">installing-admin.dita</span>.</td>
+<td valign="top" headers="d67e379" class="stentry">CDATA</td>
+<td valign="top" headers="d67e381" class="stentry">#IMPLIED</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">format</td>
+<td valign="top" headers="d67e377" class="stentry">Format of the target document, which should be a DITAVAL document.</td>
+<td valign="top" headers="d67e379" class="stentry">CDATA</td>
+<td valign="top" headers="d67e381" class="stentry">ditaval</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">toc</td>
+<td valign="top" headers="d67e377" class="stentry">Specifies whether the DITAVAL document appears in the TOC; fixed to
+            "no".</td>
+<td valign="top" headers="d67e379" class="stentry">(no)</td>
+<td valign="top" headers="d67e381" class="stentry">no</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">print</td>
+<td valign="top" headers="d67e377" class="stentry">Specifies whether the DITAVAL document appears in a print-oriented version of the
+            content; fixed to "no".</td>
+<td valign="top" headers="d67e379" class="stentry">(no)</td>
+<td valign="top" headers="d67e381" class="stentry">no</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">linking</td>
+<td valign="top" headers="d67e377" class="stentry">Defines linking characteristics for the DITAVAL document. By default, the DITAVAL
+            will not be the target of any links.</td>
+<td valign="top" headers="d67e379" class="stentry">(none)</td>
+<td valign="top" headers="d67e381" class="stentry">none</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e375" class="stentry">processing-role</td>
+<td valign="top" headers="d67e377" class="stentry">The processing role defaults to "resource-only" for DITAVAL documents, which are
+            only used for processing, and do not contain content.</td>
+<td valign="top" headers="d67e379" class="stentry">(resource-only)</td>
+<td valign="top" headers="d67e381" class="stentry">resource-only</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+<tr id="reference_g4b_ml2_1m__d14e319" class="strow"><td valign="top" headers="d67e375" class="stentry">scope</td>
+<td valign="top" headers="d67e377" class="stentry">The scope attribute identifies the closeness of the relationship between the
+            current document and the target resource. See <a class="xref" href="../langref/attributes/thescopeattribute.html">**** MISSING FILE ****</a> for more information on values.
+            Defaults to "local" for &lt;ditavalref&gt;.</td>
+<td valign="top" headers="d67e379" class="stentry">(local | peer | external | -dita-use-​conref-​target)</td>
+<td valign="top" headers="d67e381" class="stentry">local</td>
+<td valign="top" headers="d67e383" class="stentry">No</td>
+</tr>
+</table>
+
+    </div>
+</div>
+</div>
+<div class="topic reference nested0" xml:lang="en-us" id="reference_wdb_nl2_1m"><h1 class="title topictitle1">ditavalmeta</h1>
+<div class="body refbody"><p class="shortdesc">The &lt;<span class="keyword">ditavalmeta</span>&gt; element defines metadata associated with a
+    DITAVAL document used for one branch of a map.</p>
+<div class="section">Because the referenced DITAVAL document is used for processing (it is not published as
+      part of the content), metadata inside of &lt;ditavalmeta&gt; is generally informational in nature
+      and does not have an impact on processing. The element is primarily used to specify the
+      optional &lt;noFileRenaming/&gt; element, as a way to manage content processed with the
+      referenced DITAVAL document.</div>
+<div class="section" id="reference_wdb_nl2_1m__d37e17"><h2 class="title sectiontitle">Contains</h2>      
+      <p class="p">To be generated; matches topicmeta, with extra child &lt;noFileRenaming/&gt;</p>
+
+    </div>
+<div class="section" id="reference_wdb_nl2_1m__d37e25"><h2 class="title sectiontitle">Contained By</h2>      
+      <p class="p">ditavalref</p>
+
+    </div>
+<div class="section" id="reference_wdb_nl2_1m__d37e33"><h2 class="title sectiontitle">Inheritance</h2>      
+      <p class="p">+ map/topicmeta ditaval-d/ditavalmeta </p>
+
+    </div>
+<div class="example" id="reference_wdb_nl2_1m__d37e41"><h2 class="title sectiontitle">Example</h2>      
+      <p class="p">See <a class="xref" href="ditavalref.html#ditavalref" title="The &lt;ditavalref&gt; element references a DITAVAL document, in order to specify filter conditions that may be used to process only a subset of the content in a map. Additionally, the &lt;ditavalref&gt; element may be used to create multiple copies of some content in the map, while applying a different set of conditions to each copy.">ditavalref</a>.</p>
+
+      
+    </div>
+<div class="section" id="reference_wdb_nl2_1m__d37e51"><h2 class="title sectiontitle">Attributes</h2>      
+      <table cellpadding="4" cellspacing="0" summary="" id="reference_wdb_nl2_1m__d37e56" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e549" class="stentry" width="25%">Name</th>
+<th valign="bottom" align="left" id="d67e551" class="stentry" width="37.5%">Description</th>
+<th valign="bottom" align="left" id="d67e553" class="stentry" width="12.5%">Data Type</th>
+<th valign="bottom" align="left" id="d67e555" class="stentry" width="12.5%">Default Value</th>
+<th valign="bottom" align="left" id="d67e557" class="stentry" width="12.5%">Required?</th>
+</tr>
+</table>
+
+    </div>
+</div>
+</div>
+<div class="topic reference nested0" xml:lang="en-us" id="reference_kx3_pl2_1m"><h1 class="title topictitle1">noFileRenaming</h1>
+<div class="body refbody"><p class="shortdesc">The &lt;<span class="keyword">noFileRenaming</span>&gt; element is used to prevent renaming of topic
+    files when using &lt;ditavalref&gt; to filter a subset of content in a map. It is considered an
+    error if multiple &lt;ditavalref&gt; elements include this token, <em class="ph i">and</em> this usage results in
+    conflicting copies of the same DITA topic.</p>
+<div class="section" id="reference_kx3_pl2_1m__d53e18"><h2 class="title sectiontitle">Contains</h2>      
+      <p class="p">EMPTY</p>
+
+    </div>
+<div class="section" id="reference_kx3_pl2_1m__d53e26"><h2 class="title sectiontitle">Contained By</h2>      
+      <p class="p">ditavalmeta</p>
+
+    </div>
+<div class="section" id="reference_kx3_pl2_1m__d53e34"><h2 class="title sectiontitle">Inheritance</h2>      
+      <p class="p">+ topic/data ditaval-d/noFileRenaming </p>
+
+    </div>
+<div class="example" id="reference_kx3_pl2_1m__d53e42"><h2 class="title sectiontitle">Example</h2>      
+      <p class="p">See <a class="xref" href="ditavalref.html#ditavalref" title="The &lt;ditavalref&gt; element references a DITAVAL document, in order to specify filter conditions that may be used to process only a subset of the content in a map. Additionally, the &lt;ditavalref&gt; element may be used to create multiple copies of some content in the map, while applying a different set of conditions to each copy.">ditavalref</a>.</p>
+
+    </div>
+<div class="section" id="reference_kx3_pl2_1m__d53e52"><h2 class="title sectiontitle">Attributes</h2>      
+      <table cellpadding="4" cellspacing="0" summary="" id="reference_kx3_pl2_1m__d53e57" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e624" class="stentry" width="25%">Name</th>
+<th valign="bottom" align="left" id="d67e626" class="stentry" width="37.5%">Description</th>
+<th valign="bottom" align="left" id="d67e628" class="stentry" width="12.5%">Data Type</th>
+<th valign="bottom" align="left" id="d67e630" class="stentry" width="12.5%">Default Value</th>
+<th valign="bottom" align="left" id="d67e632" class="stentry" width="12.5%">Required?</th>
+</tr>
+</table>
+
+    </div>
+</div>
+</div>
+<div class="topic concept nested0" xml:lang="en-us" id="concept_xb2_rl2_1m"><h1 class="title topictitle1">Conditional processing (profiling) on a subset of content</h1>
+<div class="body conbody"><p class="shortdesc"><div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>robander <br />Considering a conref of the ditavalref short
+            description here?</div>
+The DITAVAL format provides a way to specify a set of
+        conditions that are used to conditionally process DITA content. While these conditions are
+        often stored outside of the content and applied globally by a processor, the
+            &lt;<span class="keyword">ditavalref</span>&gt; element may be used to reference a DITAVAL document
+        in order to filter only a subset of content within a map. This also provides the ability to
+        create multiple copies of a branch of content within a map, while applying unique conditions
+        to each copy of the branch. If a separate set of DITAVAL conditions is applied globally to
+        the content, those take precedence over any conditions specified within a DITAVAL referenced
+        by &lt;<span class="keyword">ditavalref</span>&gt;.</p>
+<div class="p">There are two primary situations where the &lt;ditavalref&gt; element is intended to help
+            manage conditional processing:<ol class="ol"><li class="li">Typically, a set of DITAVAL conditions is applied globally within a content set.
+                    In some cases, there is a need to apply specific conditions to one subset of
+                    information, which do not apply elsewhere. This may be especially useful when
+                    mixing content from different sources, where the author may not have control
+                    over the conditions specified in much of the content. In this case, the
+                    &lt;ditavalref&gt; element may be used to selectively filter a subset of the
+                    overall content, without affecting the rest of the content.</li>
+<li class="li">In some cases, a set of content may contain a large amount of information common
+                    to all users, along with a subset that varies based on audience or platform. In
+                    this case, there is often a need to repeat that subset once for each audience.
+                    For example, a set of software documentation may have information that is almost
+                    always common to every user, but also contains installation instructions that
+                    vary by operating system. With the &lt;ditavalref&gt; element, it is possible to
+                    define the sequence of installation instructions once, while publishing one copy
+                    specific to each operating system (among the common information, which is not
+                    repeated).</li>
+</ol>
+</div>
+<div class="p">In order to provide consistency for the second case, processors are recommended to follow
+            a standard naming scheme for topics that are duplicated (in publication formats where
+            file naming is important). The recommended naming scheme is:<ol class="ol"><li class="li">If &lt;noFileRenaming&gt; is found within a &lt;ditavalref&gt; element inside of
+                    &lt;ditavalmeta&gt;, the file must not be renamed.</li>
+<li class="li">Otherwise, if @copy-to is specified on &lt;ditavalref&gt;, it should provide a
+                    token to be used with renaming. For example, if the &lt;ditavalref&gt; specifies
+                        <samp class="ph codeph">copy-to="token"</samp>, and the branch references a file named
+                        <span class="ph filepath">sample.dita</span>, this should result in a generated XHTML
+                    file with a name such as <span class="ph filepath">sample-token.html</span>.</li>
+<li class="li">Otherwise, the recommended source for the token comes from the name of the
+                    DITAVAL document, excluding any path or extension. For example, if the
+                    &lt;ditavalref&gt; references <span class="ph filepath">linux.ditaval</span>, then "linux"
+                    would be treated as the token to be used in file names.</li>
+</ol>
+</div>
+<p class="p">One or more &lt;ditavalref&gt; elements may appear as a child of the &lt;map&gt;, and results
+            in the filters being applied to the entire map. Using the &lt;ditavalref&gt; as a child of
+            a reference to a map (such as within &lt;mapref&gt;) is similar, and results in the
+            conditions being applied to the referenced map; see samples of both usages below.</p>
+<p class="p">It is an error if following these rules results in conflicting copies of a result
+            document with the same name; see sample error conditions below.</p>
+<div class="example"><h2 class="title sectiontitle">Example: one &lt;ditavalref&gt; specific to a branch</h2>      
+      <pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="novice.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;topicref href="do-stuff.dita"/&gt;
+    &lt;topicref href="advanced-stuff.dita" audience="admin"/&gt;
+    &lt;!-- more topics --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;
+
+novice.ditaval:
+&lt;val&gt;
+  &lt;prop att="audience" val="novice" action="include"/&gt;
+  &lt;prop att="audience" val="admin" action="exclude"/&gt;
+&lt;/val&gt;</code></pre>
+
+      <div class="p">If this sample is published, the following processing will take place:<ul class="ul"><li class="li">The first topic (<span class="ph filepath">intro.dita</span>) does not use any of the conditions
+            that are specified in <span class="ph filepath">novice.ditaval</span>. It is published normally,
+            potentially using other ditaval conditions that were specified externally.</li>
+<li class="li">The second topic (<span class="ph filepath">install.dita</span>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <span class="ph filepath">novice.ditaval</span>.</li>
+<li class="li">The third topic (<span class="ph filepath">do-stuff.dita</span>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <span class="ph filepath">novice.ditaval</span>.</li>
+<li class="li">The fourth topicref (to <span class="ph filepath">advanced-stuff.dita</span>) is removed from the
+            map entirely, because it is filtered out with the conditions specified for this
+            branch.</li>
+</ul>
+</div>
+
+      <p class="p">None of the files filtered by <span class="ph filepath">novice.ditaval</span> will be renamed due to
+        the filtering, because of the &lt;noFileRenaming/&gt; element inside of the &lt;ditavalmeta&gt;.
+        This ensures that external links to those topics are stable, regardless of whether the
+        DITAVAL is used.</p>
+
+    </div>
+<div class="example"><h2 class="title sectiontitle">Example: multiple &lt;ditavalref&gt; elements to create multiple branches</h2>      
+      <pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="win.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/&gt;
+    &lt;ditavalref href="linux.ditaval"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;
+
+win.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="include"/&gt;
+  &lt;prop att="platform" val="mac" action="exclude"/&gt;
+  &lt;prop att="platform" val="linux" action="exclude"/&gt;
+&lt;/val&gt;
+
+mac.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="exclude"/&gt;
+  &lt;prop att="platform" val="mac" action="include"/&gt;
+  &lt;prop att="platform" val="linux" action="exclude"/&gt;
+&lt;/val&gt;
+
+linux.ditaval:
+&lt;val&gt;
+  &lt;prop att="platform" val="win" action="exclude"/&gt;
+  &lt;prop att="platform" val="mac" action="exclude"/&gt;
+  &lt;prop att="platform" val="linux" action="include"/&gt;
+&lt;/val&gt;</code></pre>
+
+      <div class="p">If this sample is published to XHTML (where output file naming is important), the following
+        processing will take place:<ul class="ul"><li class="li">The first topic (<span class="ph filepath">intro.dita</span>) is published normally, potentially
+            using other ditaval conditions that were specified externally.</li>
+<li class="li">The install branch appears three times, once for each ditaval. The branches are
+            created as follows:<ul class="ul"><li class="li">The first branch uses the first ditaval file (<span class="ph filepath">win.ditaval</span>).
+                Output files are not renamed, due to the presence of &lt;noFileRenaming/&gt;; this is
+                typically best for the most common or default branch. The file
+                  "<span class="ph filepath">mac-specific-stuff.dita</span>" is removed from this hierarchy
+                based on <span class="ph filepath">win.ditaval</span>. The generated files for this copy of the
+                branch, with indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install.html
+   do-stuff.html
+     ...more topics and nested branches...
+   cleanup.html</code></pre>
+</li>
+<li class="li">The second branch uses the second ditaval file (<span class="ph filepath">mac.ditaval</span>).
+                Output files are renamed based on the @copy-to attribute. The file
+                  "<span class="ph filepath">mac-specific-stuff.dita</span>" is included in this hierarchy based
+                on <span class="ph filepath">mac.ditaval</span>. The generated files for this copy, with
+                indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install-apple.html
+   do-stuff-apple.html
+      mac-specific-stuff-apple.html
+      ...more topics and nested branches...
+   cleanup-apple.html</code></pre>
+</li>
+<li class="li">The third branch uses the last ditaval file (<span class="ph filepath">linux.ditaval</span>).
+                Output files are renamed, using the ditaval file name because @copy-to is not used.
+                The file "<span class="ph filepath">mac-specific-stuff.dita</span>" is removed from this
+                hierarchy based on <span class="ph filepath">linux.ditaval</span>. The generated files for this
+                copy, with indenting to show hierarchy, are:
+                <pre class="pre codeblock"><code>install-linux.html
+   do-stuff-linux.html
+     ...more topics and nested branches...
+   cleanup-linux.html</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+      <div class="p">This example used three ditaval files to avoid triple maintenance of the install branch in
+        a map; the following map is functionally equivalent, but requires maintaining each branch in
+        parallel:<pre class="pre codeblock"><code>input.ditamap:
+&lt;map&gt;
+  &lt;topicref href="intro.dita"/&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="win.ditaval"&gt;
+      &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="install.dita"&gt;
+    &lt;ditavalref href="linux.ditaval"/&gt;
+    &lt;topicref href="do-stuff.dita"&gt;
+      &lt;!-- more topics and nested branches --&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="cleanup.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- Several chapters worth of other material --&gt;
+&lt;/map&gt;</code></pre>
+</div>
+
+    </div>
+<div class="example"><h2 class="title sectiontitle">Example: using &lt;ditavalref&gt; as a child of &lt;map&gt;, or in a reference to a
+                map</h2>            
+            <p class="p">The following map is equivalent to processing all contents of the map with the
+                conditions in <span class="ph filepath">novice.ditaval</span>. If additional conditions are
+                provided external to the map (such as a parameter to the publication process), those
+                global conditions are processed first.</p>
+
+            <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Sample map&lt;/title&gt;
+  &lt;ditavalref href="novice.ditaval"&gt;
+    &lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;!-- lots of content --&gt;
+&lt;/map&gt;</code></pre>
+
+            <p class="p">Similarly, in the following sample, <span class="ph filepath">other.ditamap</span> is pulled into
+                another map. The &lt;ditavalref&gt; indicates that all of the content in
+                    <span class="ph filepath">other.ditamap</span> should be filtered using the conditions in
+                    <span class="ph filepath">some.ditaval</span>.</p>
+
+            <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
+  &lt;topicref href="other.ditamap" format="ditamap"&gt;
+    &lt;ditavalref href="some.ditaval"/&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;
+
+other.ditamap:
+&lt;map&gt;
+  &lt;topicref href="nestedTopic1.dita"&gt;
+    &lt;topicref href="nestedTopic2.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="nestedTopic3.dita"/&gt;
+&lt;/map&gt;</code></pre>
+
+            <div class="p">That usage is functionally equivalent to applying the conditions in
+                    <span class="ph filepath">some.ditaval</span> to the topics referenced in the nested map.
+                For the purposes of filtering, it could be rewritten as:
+                <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
+  &lt;topicref&gt;
+    &lt;ditavalref href="some.ditaval"/&gt;
+    &lt;topicref href="nestedTopic1.dita"&gt;
+      &lt;topicref href="nestedTopic2.dita"/&gt;
+    &lt;/topicref&gt;
+    &lt;topicref href="nestedTopic3.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+</div>
+
+            <div class="p">For the purposes of filtering, this map could also be rewritten
+                as:<pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
+  &lt;topicref href="nestedTopic1.dita"&gt;
+    &lt;ditavalref href="some.ditaval"/&gt;
+    &lt;topicref href="nestedTopic2.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="nestedTopic3.dita"&gt;
+    &lt;ditavalref href="some.ditaval"/&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+</div>
+
+        </div>
+<div class="example"><h2 class="title sectiontitle">Error condition: using &lt;ditavalref&gt; within a branch that already uses
+                &lt;ditavalref&gt;</h2>            
+            
+            <div class="p">When one or more &lt;ditavalref&gt; elements are used on a branch, no other
+        &lt;ditavalref&gt; element may be included in the same branch at a point lower in the element
+        hierarchy. For example, the following should be treated as an error condition:
+        <pre class="pre codeblock"><code>&lt;topicref href="a.dita"&gt;
+  &lt;ditavalref href="some.ditaval"/&gt;
+  &lt;topicref href="b.dita"&gt;
+    &lt;ditavalref href="other.ditaval"/&gt;
+    ...</code></pre>
+</div>
+
+        </div>
+<div class="example"><h2 class="title sectiontitle">Error condition: multiple non-equivalent copies of the same file copied to the
+                same name</h2>            
+            <p class="p">The following sample contains several error conditions that result in name
+                clashes.</p>
+
+            <pre class="pre codeblock"><code>&lt;topicref href="a.dita"&gt;
+  &lt;ditavalref href="one.ditaval"&gt;&lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+  &lt;ditavalref href="two.ditaval"&gt;&lt;ditavalmeta&gt;&lt;noFileRenaming/&gt;&lt;/ditavalmeta&gt;
+  &lt;topicref href="b.dita"/&gt;
+&lt;/topicref&gt;
+&lt;topicref href="a.dita"/&gt;
+&lt;topicref href="c.dita"&gt;
+  &lt;ditavalref href="one.ditaval" copy-to="token"/&gt;
+  &lt;ditavalref href="two.ditaval" copy-to="token"/&gt;
+&lt;/topicref&gt;</code></pre>
+
+            
+            <div class="p">When generating XHTML:<ol class="ol"><li class="li"><span class="ph filepath">a.dita</span> will generate <span class="ph filepath">a.html</span> using
+                        3 alternate set of conditions -- one.ditaval, two.ditaval, and no
+                        ditaval.</li>
+<li class="li"><span class="ph filepath">b.dita</span> will generate <span class="ph filepath">b.html</span> using
+                        2 alternate set of conditions -- one.ditaval and two.ditaval.</li>
+<li class="li"><span class="ph filepath">c.dita</span> will generate <span class="ph filepath">c-token.html</span>
+                        using both extra sets of conditions.</li>
+</ol>
+</div>
+
+            <p class="p">In this situation, processors may (but need not) recover by using an alternate naming
+                scheme for the conflicting copies.</p>
+
+        </div>
+<div class="section"><h2 class="title sectiontitle">Implications of processing order</h2>            
+            <p class="p">In general the DITA specification shies away from mandating processing orders for
+                different functions, and publicaiton results may vary slightly by tweaking the order
+                in which processes are carried out. In this case, any DITAVAL conditions specified
+                external to the map, such as with a parameter to a publication proces, take
+                precedence over conditions referenced with a &lt;ditavalref&gt;. For example, if the
+                value <samp class="ph codeph">audience="admin"</samp> is globally excluded by the publication
+                process, that content will be excluded even from a branch where a &lt;ditavalref&gt;
+                reference attempts to set <samp class="ph codeph">audience="admin"</samp> to "include".</p>
+
+            <p class="p">There is explicitly <em class="ph i">no requirement</em> that global filters and filters specified
+                with &lt;ditavalref&gt; be applied at the same time in a publication process. </p>
+
+            
+            <div class="p">Processors should consider the following when determining a processing order for
+                other operations:<ul class="ul"><li class="li">If links are generated based on the map hierarchy, this should be done after
+                        any branches are duplicated, to ensure links are consistent with the final
+                        duplicated-branch structure.</li>
+<li class="li">If conref is resolved before &lt;ditavalref&gt; is evaluated, content applying
+                        to multiple audiences may be brought in that can then be selectively
+                        filtered by branch. For example, if a set of install steps is pulled in with
+                        conref (from outside the branch), it may contain information that is later
+                        filtered by platform during the &lt;ditavalref&gt; evaluation - resulting in a
+                        copy of the steps specific to each OS. If conref is processed after the
+                        &lt;ditavalref&gt;, content may be pulled in that has not been appropriately
+                        filtered for the new context.</li>
+<li class="li">The same scenario applies to conref values that push content into the
+                        branch; pushing content prior to resolving the &lt;ditavalref&gt; allows
+                        content for multiple conditions to be pushed into the branch, and then
+                        filtered by branch based on the &lt;ditavalref&gt; conditions. If the branch
+                        using &lt;ditavalref&gt; pushes content elsewhere, resolving &lt;ditavalref&gt;
+                        first could result in multiple copies of the content to be pushed (one for
+                        each branch), resulting in multiple potentially conflicting copies pushed to
+                        the new destination.</li>
+</ul>
+</div>
+
+            <div class="draft-comment" style="background-color: #99FF99; border: 1pt black solid;"><strong>Draft comment: </strong>robander <br />Need input from Eliot on how this would / should be
+                    handled:<pre class="pre codeblock"><code>&lt;topicref href="some.dita" keys="some"&gt;
+  &lt;ditavalref href="one.ditaval"/&gt;
+  &lt;ditavalref href="two.ditaval"/&gt;
+  &lt;topicref href="nest.dita" keys="nest"/&gt;
+&lt;/topicref&gt;</code></pre>
+<div class="p">After
+                    branching is evaluated, using recommended naming, you'd end up with
+                    this:<pre class="pre codeblock"><code>&lt;topicref href="some-one.dita" keys="some"&gt;
+  &lt;topicref href="nest-one.dita" keys="nest"/&gt;
+&lt;/topicref&gt;
+&lt;topicref href="some-two.dita" keys="some"/&gt;
+  &lt;topicref href="nest-two.dita" keys="nest"/&gt;
+&lt;/topicref&gt;</code></pre>
+</div>
+<p class="p">So
+                    ... discomfort here ... without the file renaming, seems clear that the keys
+                    would still go to first instance, matching the original instance. With the file
+                    renaming ...?</p>
+</div>
+
+        </div>
+</div>
+</div>
+</body>
+</html>

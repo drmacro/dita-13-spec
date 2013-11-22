@@ -8,7 +8,8 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch"
+  xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
   version="2.0">
 
   <xd:doc scope="stylesheet">
@@ -22,13 +23,14 @@
         DTD coding requirements.
       </xd:p>
       <xd:p>The primary output is a conversion manifest, which simply
-        lists the files generated. Each module is generated separately
-        using xsl:result-document.
+        lists the files generated. Each module and document type shell
+        is generated separately using xsl:result-document.
       </xd:p>
     </xd:desc>
   </xd:doc>
 
   <xsl:include href="../lib/relpath_util.xsl" />
+  <xsl:include href="rng2functions.xsl"/>
   <xsl:include href="rng2ditashelldtd.xsl"/>
   <xsl:include href="rng2ditaent.xsl" />
   <xsl:include href="rng2ditamod.xsl" />
@@ -166,6 +168,10 @@
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="string(base-uri(.))"
     />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
+        select="$rngModuleUrl"/>"</xsl:message>
+    </xsl:if>
     <!-- Use the RNG module's grandparent directory name to construct output
          dir so the DTD module organization mirrors the RNG organization.
          This should always do the right thing for the OASIS-provided 
@@ -190,19 +196,27 @@
     <xsl:variable name="resultDir"
       select="relpath:newFile(relpath:newFile($moduleOutputDir, $rngParentDirName), 'dtd')"
     />
+    <xsl:message> + [DEBUG] generate-modules: resultDir="<xsl:sequence select="$resultDir"/>"</xsl:message>
 
-    <!-- The RNG modules have two "extensions": .xxx.rng -->
     <xsl:variable name="rngModuleName" as="xs:string"
       select="relpath:getNamePart($rngModuleUrl)" />
     <xsl:variable name="moduleBaseName" as="xs:string"
       select="if (ends-with($rngModuleName, 'Mod')) 
-      then substring($rngModuleName, 1, string-length($rngModuleName) - 3) 
+      then substring-before($rngModuleName, 'Mod') 
       else $rngModuleName"
     />
     <xsl:variable name="entFilename" as="xs:string"
-      select="concat(relpath:getNamePart($moduleBaseName), '.ent')" />
+      select="rngfunc:getEntityFilename(./*, 'ent')"
+    />
     <xsl:variable name="modFilename" as="xs:string"
-      select="concat(relpath:getNamePart($moduleBaseName), '.mod')" />
+      select="rngfunc:getEntityFilename(./*, 'mod')"
+    />
+    <xsl:variable name="moduleType" as="xs:string"
+      select="rngfunc:getModuleType(./*)"
+    />
+    <xsl:variable name="moduleShortName" as="xs:string"
+      select="rngfunc:getModuleShortName(./*)"
+    />
     <xsl:variable name="entResultUrl"
       select="relpath:newFile($resultDir, $entFilename)" />
     <xsl:variable name="modResultUrl"
@@ -216,17 +230,26 @@
       <modFile><xsl:sequence select="$modResultUrl" /></modFile>
     </moduleFiles>
     <!-- Generate the .ent file: -->
-    <xsl:result-document href="{$entResultUrl}" format="dtd">
-      <xsl:apply-templates mode="entityFile">
-        <xsl:with-param name="thisFile" select="$entResultUrl" tunnel="yes" as="xs:string" />
-      </xsl:apply-templates>
-    </xsl:result-document>
-    <!-- Generate the .mod file: -->
-    <xsl:result-document href="{$modResultUrl}" format="dtd">
-      <xsl:apply-templates mode="moduleFile" >
-        <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
-      </xsl:apply-templates>
-    </xsl:result-document>
+    <!-- NOTE: Not all base modules have .ent files -->
+    <xsl:if test="
+      $moduleShortName != 'tblDecl' and 
+      $moduleShortName != 'metaDecl' and 
+      $moduleShortName != 'map'"
+      >    
+      <xsl:result-document href="{$entResultUrl}" format="dtd">
+          <xsl:apply-templates mode="entityFile">
+            <xsl:with-param name="thisFile" select="$entResultUrl" tunnel="yes" as="xs:string" />
+          </xsl:apply-templates>
+        </xsl:result-document>
+    </xsl:if>
+    <!-- Generate the .mod file: NOTE: Attribute modules only have .ent files -->
+    <xsl:if test="$moduleType != 'attributedomain'">
+      <xsl:result-document href="{$modResultUrl}" format="dtd">
+        <xsl:apply-templates mode="moduleFile" >
+          <xsl:with-param name="thisFile" select="$modResultUrl" tunnel="yes" as="xs:string" />
+        </xsl:apply-templates>
+      </xsl:result-document>
+    </xsl:if>
     
   </xsl:template>
 
@@ -273,25 +296,5 @@
   <xsl:template match="rng:*" priority="-1" mode="class-att-decls">
     <xsl:message> - [WARN] class-att-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
   </xsl:template>
-
- <!-- See http://markmail.org/message/fhbwfe67amcjoelm?q=xslt+printf+list:com%2Emulberrytech%2Elists%2Exsl-list&page=1 -->
-  
- <xsl:function name="str:pad" as="xs:string">
-   <!-- Pad a string with len trailing characters -->
-   <xsl:param    name="str" as="xs:string"/>
-   <xsl:param    name="len" as="xs:integer"/>
-   <xsl:variable name="lstr" select="string-length($str)"/>
-   <xsl:variable name="pad"
-                 select="string-join((for $i in 1 to $len - $lstr return ' '),'')"/>
-   <xsl:sequence select="concat($str,$pad)"/>  
- </xsl:function>
-
- <xsl:function name="str:indent" as="xs:string">
-   <!-- Generate a sequence of blanks of the specified length -->
-   <xsl:param    name="len" as="xs:integer"/>
-   <xsl:variable name="indent"
-                 select="string-join((for $i in 1 to $len return ' '),'')"/>
-   <xsl:sequence select="$indent"/>  
- </xsl:function>
 
 </xsl:stylesheet>

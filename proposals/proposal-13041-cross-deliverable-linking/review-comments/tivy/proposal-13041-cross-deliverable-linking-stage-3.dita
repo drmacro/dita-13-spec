@@ -175,26 +175,23 @@
           referencing map. The key space defined by a peer map is a <term>peer key space</term>. A
           peer key space is identified by the root map from which the key space is constructed. Peer
           key spaces are not merged.</p>
-        <note>Every peer map referenced by a given map is treated as the root of a separate key
-          space, even if one of the referenced maps happens to also be a sub map of another
-          referenced
-            map.<?oxy_insert_start author="jimt" timestamp="20130702T170603-0700"?><draft-comment
-            author="jimt">It is not clear here what the relationship between a peer map and a target
-            deliverable is.  Are you assuming each separate peer map (along with its keyspace)
-            constitutes a single target deliverable, or if you reference a submap under a new
-            keyspace is that somehow part of the same target deliverable as its parent, although a
-            second keyspace.</draft-comment><?oxy_insert_end?>
-        </note>
+        <note>Every peer map referenced by a given map is treated as the root of a separate key space, even if one of the referenced maps happens to also be a sub map of another referenced map.<?oxy_insert_start author="jimt" timestamp="20130702T170603-0700"?><draft-comment
+          author="jimt">It is not clear here what the relationship between a peer map and a target deliverable is. Are you assuming each separate peer map (along with its keyspace) constitutes a
+          single target deliverable, or if you reference a submap under a new keyspace is that somehow part of the same target deliverable as its parent, although a second keyspace.</draft-comment><?oxy_insert_end?><?oxy_insert_start author="ekimber" timestamp="20131117T051458+0100"?><draft-comment
+          author="ekimber">Calling this proposal "cross-deliverable linking" is now a bit inaccurate. It would be better titled "cross-publication linking" but the history of proposal is that we
+          focused on the deliverable generation aspects of it. For the purposes of authoring the links, the relationship between root map and deliverables produced from it is not relevant (that is,
+          the links as authored are independent of any deliverables that might be produced from the maps involved). The relationship of maps to deliverables produced from them and how that affects the
+          *rendering* of links between maps is the subject of the companion proposal 13120, vocabulary for publishing process details.</draft-comment><?oxy_insert_end?> </note>
         <p>In order to refer to keys in a peer map the peer map must be bound to
           a key scope so that its keys can be qualified in key references from
           the referencing map.</p>
-        <note type="note">Example: Given the map documents <!--          <note
+        <note
+          type="note">Example: Given the map documents <!--          <note
           type="other"
           othertype="Example">Given the map documents
--->
-          <filepath>map-a.dita</filepath> and <filepath>map-b.dita</filepath>, Map A can treat Map B
-          as a peer root map using the key
-            definition:<codeblock>&lt;map>&lt;title>Map A&lt;/title>
+--> <filepath>map-a.dita</filepath> and
+          <filepath>map-b.dita</filepath>, Map A can treat Map B as a peer root map using the key
+          definition:<codeblock>&lt;map>&lt;title>Map A&lt;/title>
   &lt;keydef 
     keys="map-b"
     scope="peer"
@@ -204,37 +201,26 @@
   />
   ...
 &lt;/map></codeblock><p>In
-            this example, the map document <filepath>map-b.ditamap</filepath> is not a submap of Map
-            A, it is a peer map.
-            </p><?oxy_insert_start author="jimt" timestamp="20130702T173639-0700"?><draft-comment
-            author="jimt">I do not understand this example.  what is the difference between the use
-            of a topicref, mapref or keydef in these cases - since they are all topicrefs?  Why did
-            you choose keydef here.  Also, what does it say to set
-          keys="map-b".</draft-comment><?oxy_insert_end?></note>
-        <p>Conforming DITA processors are not required to support the resolution of or delivery of
-          key references to peer maps. Note, however, that the general implication of peer scope is
-          that the peer resources are all available in the same processing or management context.
-          This means that processors always have the potential to resolve peer key references when
-          the peer resources are in fact managed together. There may, of course, be performance,
-          scale, and user interface challenges in implementing such systems, but the fundamental
-          ability to resolve any given reference is ensured when the source files are physically
-          accessible. That is, given a correctly-specified key definition to a peer map, if the map
-          itself is accessible it must then be possible to process that map in order to resolve keys
-          defined by it, if it is also possible to resolve keys in the map making the peer map
-            reference.<?oxy_insert_start author="jimt" timestamp="20130702T171304-0700"?><draft-comment
-            author="jimt">Strikes me that the term "processor" is not fully distinguished as "author
-            time processors" (like oxygen) and "deliverable build processors" (like OT). For
-            example, author time processors may be able to see the keyref targets for setting up
-            cross deliverable links. </draft-comment><?oxy_insert_end?></p>
-        <p>Note also the inverse implication: if the peer resource is not available then it is
-          necessarily impossible to resolve the key reference.<?oxy_insert_start author="jimt" timestamp="20130702T172153-0700"?>
-          <draft-comment author="jimt">Is this true - what if you have an export file of links -
-            then having the actual content is not necessary to resolve a key
-            reference.</draft-comment><?oxy_insert_end?> For that reason, processors must be
-          prepared to provide appropriate messages or other indicators when a peer resource cannot
-          be resolved for a particular processing purpose. Depending on how a given set of DITA
-          resources is authored, managed, and processed, peer resources may be resolvable or not at
-          different points in the content's life cycle.</p>
+          this example, the map document <filepath>map-b.ditamap</filepath> is not a submap of Map A, it is a peer map. </p><?oxy_insert_start author="jimt" timestamp="20130702T173639-0700"?><draft-comment
+          author="jimt">I do not understand this example. what is the difference between the use of a topicref, mapref or keydef in these cases - since they are all topicrefs? Why did you choose
+          keydef here. Also, what does it say to set keys="map-b".</draft-comment><?oxy_insert_end?><?oxy_insert_start author="ekimber" timestamp="20131117T052108+0100"?><draft-comment
+          author="ekimber">I have changed &lt;keydef> to &lt;topicref>, removed the @keys attribute, and added explicit @processing-role of "resource-only".</draft-comment><?oxy_insert_end?></note>
+        <p>Conforming DITA processors are not required to support the resolution of or delivery of key references to peer maps. Note, however, that the general implication of peer scope is that the
+          peer resources are all available in the same processing or management context. This means that processors always have the potential to resolve peer key references when the peer resources are
+          in fact managed together. There may, of course, be performance, scale, and user interface challenges in implementing such systems, but the fundamental ability to resolve any given reference
+          is ensured when the source files are physically accessible. That is, given a correctly-specified key definition to a peer map, if the map itself is accessible it must then be possible to
+          process that map in order to resolve keys defined by it, if it is also possible to resolve keys in the map making the peer map reference.<?oxy_insert_start author="jimt" timestamp="20130702T171304-0700"?><draft-comment
+          author="jimt">Strikes me that the term "processor" is not fully distinguished as "author time processors" (like oxygen) and "deliverable build processors" (like OT). For example, author time
+          processors may be able to see the keyref targets for setting up cross deliverable links. </draft-comment><?oxy_insert_end?><?oxy_insert_start author="ekimber" timestamp="20131117T052152+0100"?><draft-comment
+          author="ekimber">I don't think the processor details are relevant here. I'm simply trying to make clear that certain things are computationally possible under specific
+          conditions.</draft-comment><?oxy_insert_end?></p>
+        <p>Note also the inverse implication: if the peer resource is not available then it is necessarily impossible to resolve the key
+          reference.<?oxy_insert_start author="jimt" timestamp="20130702T172153-0700"?> <draft-comment
+          author="jimt">Is this true - what if you have an export file of links - then having the actual content is not necessary to resolve a key reference.</draft-comment><?oxy_insert_end?><?oxy_insert_start author="ekimber" timestamp="20131117T052338+0100"?><draft-comment
+          author="ekimber">By "resolve" I mean "go to the thing linked". Clearly you cannot get to the thing if you don't have it. Just having the link details (e.g., the keys and link text associated
+          with the target resource) is not sufficient.</draft-comment><?oxy_insert_end?> For that reason, processors must be prepared to provide appropriate messages or other indicators when a peer
+          resource cannot be resolved for a particular processing purpose. Depending on how a given set of DITA resources is authored, managed, and processed, peer resources may be resolvable or not
+          at different points in the content's life cycle.</p>
         <p>The referenced peer map may specify @keyscope on its root element. In
           that case, the @keyscope on the peer map is ignored for the purpose of
           resolving scoped key references from the referencing map. This avoids
@@ -263,19 +249,15 @@
           because it is explicitly ignored, in the second because the key
           reference will necessarily be within the scope "scope-b" and therefore
           does not need to be scope qualified.</p></note></p>
-        <p>For local-scope map references, the @keyscope attribute values on the map reference and
-          the map element are merged, meaning that both the scopes named on the map reference and on
-          the map will be resolvable for key references processed in the context of the referencing
-          parent root map. The referenced map does not create another level of scope hierarchy when
-          referenced as a sub map.<note>This rule ensures that the same key reference (e.g.,
-            "scope-b.somekey") will resolve to the same resource whether the referenced map is
-            referenced as a local map (sub map) or a peer
-            map.</note><?oxy_insert_start author="jimt" timestamp="20130702T173119-0700"?><draft-comment
-            author="jimt">Is there some discussion on how local keyscope in the target map works
-            when referenced from a linkor map. I think we were going for hiearchial names - for
-            example there can be two tractor scopes, one in local keyscope Tractor-X and one in
-            local keyscope Tractor-Y.  Given a peer scope of PubA would you support
-            PubA.Tractor-Y.key1 in a keyref.</draft-comment><?oxy_insert_end?></p>
+        <p>For local-scope map references, the @keyscope attribute values on the map reference and the map element are merged, meaning that both the scopes named on the map reference and on the map
+          will be resolvable for key references processed in the context of the referencing parent root map. The referenced map does not create another level of scope hierarchy when referenced as a
+          sub map.<note>This rule ensures that the same key reference (e.g., "scope-b.somekey") will resolve to the same resource whether the referenced map is referenced as a local map (sub map) or a
+          peer map.</note><?oxy_insert_start author="jimt" timestamp="20130702T173119-0700"?><draft-comment
+          author="jimt">Is there some discussion on how local keyscope in the target map works when referenced from a linkor map. I think we were going for hiearchial names - for example there can be
+          two tractor scopes, one in local keyscope Tractor-X and one in local keyscope Tractor-Y. Given a peer scope of PubA would you support PubA.Tractor-Y.key1 in a keyref.</draft-comment><?oxy_insert_end?><?oxy_insert_start author="ekimber" timestamp="20131117T053045+0100"?><draft-comment
+          author="ekimber">I believe this is inherent in the scoped keys proposal. Chris corrected some of my language to make it clear that, from the point of view of the referencing map, the peer
+          map is just another key scope, so within that context, you would be able to refer to scopes defined within that peer map just as you would any other key scope, by using the fully-qualified
+          scope name, e.g. "map-b.tractory-y.somekey"</draft-comment><?oxy_insert_end?></p>
       </conbody>
     </concept>
   </topic>

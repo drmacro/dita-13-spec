@@ -1,1 +1,1 @@
-Plugin for HTML support for MathML domain.
+Plugin for HTML support for SVG domain.

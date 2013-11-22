@@ -1,0 +1,34 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+dc:title [ "The RuleML object meta-knowledge element" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:subject [ "RuleML, object identifier" ]
+dc:description [
+  "This is the Core Schema module for in-place meta-knowledge in RuleML."
+]
+dc:date [ "2012-04-03" ]
+dc:language [ "en" ]
+dcterms:rights [ "LGPL-3.0" ]
+dc:relation [ "http://wiki.ruleml.org/index.php/Relax_NG" ]
+start |= meta.edge.def
+edge.choice |= meta.edge.def
+# This module declares the following RuleML elements and attributes:
+#            * <meta>
+
+## an extension point for stripe skipping as well as alternate spellings and internationalization of the meta-knowledge tag name.  
+metaKnowledge-edge.choice |= meta.edge.def
+
+## An optional container for meta-knowledge about a Node.
+meta.edge.def =
+  
+  ## <meta>: a container for meta-knowledge. See 
+  ## http://www.ruleml.org/1.0/glossary/#gloss-meta
+  element meta {
+    formula_AssertRetract.attlist? & formula_AssertRetract.content
+  }
+# The meta-knowledge content model is equivalent to that of <formula> in <Assert>.
+# See performative_expansion_module .
+
+## The header for Nodes allows an arbitrary number of <meta> elements.
+Node.header &= metaKnowledge-edge.choice*

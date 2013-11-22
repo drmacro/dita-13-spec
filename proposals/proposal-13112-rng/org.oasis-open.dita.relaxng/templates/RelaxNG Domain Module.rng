@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0">
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+   <moduleTitle>ModuleTitle</moduleTitle>
+   <headerComment>
+============================================================= 
+Header comment
+=============================================================      
+</headerComment>
+   <moduleMetadata>
+     <moduleType>elementdomain</moduleType>
+     <moduleShortName>mydomain-d</moduleShortName>
+     <modulePublicIds>
+       <dtdMod></dtdMod>
+       <dtdEnt></dtdEnt>
+       <xsdMod>urn:example.org:names:dita:xsd:mydomainDomain.xsd</xsdMod>
+       <rncMod>urn:example.org:names:dita:rnc:mydomainDomain.rnc</rncMod>
+       <rngMod>urn:example.org:names:dita:rng:mydomainDomain.rng</rngMod>
+     </modulePublicIds>
+     <domainsContribution>(topic mydom-d)</domainsContribution>
+   </moduleMetadata>
+ </moduleDesc>  
+  
+ <div>
+   <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+ 
+  <define name="mydom-d-ph">
+    <choice>
+      <ref name="b"/>
+    </choice>
+  </define>
+  
+  <define name="ph" combine="choice">
+    <ref name="mydom-d-ph"/>
+  </define>
+ </div>
+ <div>
+   <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+  <define name="b">
+    <ref name="b.element"/>
+  </define>
+ </div>
+ <div>
+   <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>  
+    <div><a:documentation>LONG NAME: Bold</a:documentation>
+      <define name="b.content">
+        <zeroOrMore>
+          <choice>
+            <text/>
+            <ref name="basic.ph"/>
+            <ref name="data.elements.incl"/>
+            <ref name="foreign.unknown.incl"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define
+        name="b.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="b.element">
+        <element name="b" ditaarch:longName="Bold">
+          <a:documentation></a:documentation>
+          <ref name="b.attlist"/>
+          <ref name="b.content"/>
+        </element>
+      </define>
+      <define name="b.attlist"
+        combine="interleave">
+        <ref name="b.attributes"/>
+      </define>
+    </div>  
+ </div>
+ <div>
+   <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+  <define name="b.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="+ topic/ph mydom-d/b "/>
+    </optional>
+  </define>
+ </div>
+</grammar>

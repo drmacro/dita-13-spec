@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <system systemId="urn:oasis:names:tc:dita:rng:svgDomainMod.rng" uri="svgDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:svgDomainMod.rng:1.x" uri="svgDomainMod.rng"/>
+  <system systemId="urn:oasis:names:tc:dita:rng:svgDomainMod.rng:1.3" uri="svgDomainMod.rng"/>
+  <uri name="urn:oasis:names:tc:dita:rng:svgDomainMod.rng" uri="svgDomainMod.rng"/>
+  <uri name="urn:oasis:names:tc:dita:rng:svgDomainMod.rng:1.x" uri="svgDomainMod.rng"/>
+  <uri name="urn:oasis:names:tc:dita:rng:svgDomainMod.rng:1.3" uri="svgDomainMod.rng"/>
+</catalog>  

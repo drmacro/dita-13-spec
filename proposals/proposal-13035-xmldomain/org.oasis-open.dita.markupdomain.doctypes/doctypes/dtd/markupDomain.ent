@@ -1,0 +1,28 @@
+<!-- =============================================================
+
+     Markup domain
+
+     Provides a generic, phrase-level element for identifying
+     mentions of markup constructs: element types, attributes,
+     etc.
+
+     Copyright (c) 2013 OASIS Open
+
+
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    XML DOMAIN ENTITIES                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % markup-d-keyword
+  "markupname
+  "
+  >
+
+<!ENTITY   markup-d-att     "(topic markup-d)"
+>
+
+
+<!-- ================== End XML Domain Entities ============ -->

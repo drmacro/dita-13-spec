@@ -7,7 +7,6 @@
   -->
 <plugin id="org.oasis-open.dita.mathml.html">
   <require plugin="org.oasis-open.dita.mathml.doctypes"/> 
-  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
   <feature extension="dita.xsl.xhtml"
       value="xsl/math-d2html.xsl" type="file"/>
       

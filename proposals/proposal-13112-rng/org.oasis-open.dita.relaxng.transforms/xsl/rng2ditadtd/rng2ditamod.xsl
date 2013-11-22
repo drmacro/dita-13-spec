@@ -9,7 +9,9 @@
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
+  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc"
   version="2.0"  >
 
   <xd:doc scope="stylesheet">
@@ -40,10 +42,11 @@
     <xsl:param name="thisFile" tunnel="yes" as="xs:string" />
 
     <xsl:variable name="moduleTitle" 
-      select="if (a:documentation) 
-      then string(a:documentation/@ditaarch:moduleTitle)
-      else relpath:getNamePart(base-uri(.))" 
+      select="rngfunc:getModuleTitle(.)" 
       as="xs:string"/>
+    <xsl:variable name="moduleShortName" as="xs:string"
+      select="rngfunc:getModuleShortName(.)"
+    />
     <xsl:variable name="domainValue" select="rng:define[@name='domains-atts-value']/rng:value[1]"/>
     <xsl:variable name="domainPrefix"> 
       <xsl:if test="$domainValue and not($domainValue='')">
@@ -55,18 +58,20 @@
     
     <!-- Module-header comments should be in an <a:documentation> element that is the first child
          of the <grammar> element -->
-    <xsl:apply-templates select="a:documentation[position() = 1]" mode="header-comment"/>
+    <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
     
-<xsl:text>
+    <xsl:if test="$moduleShortName != 'commonElements'">
+      <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                   ELEMENT NAME ENTITIES                       -->
 &lt;!-- ============================================================= -->
 
 </xsl:text>
 
-    <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
-    
-<xsl:text>
+        <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
+    </xsl:if>    
+
+    <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    ELEMENT DECLARATIONS                       -->
 &lt;!-- ============================================================= -->
@@ -602,12 +607,21 @@
        Mode header-comment
        ==================== -->
 
-  <xsl:template match="rnga:documentation" mode="header-comment">
+  <xsl:template match="dita:moduleDesc" mode="header-comment">
+    <xsl:apply-templates select="dita:headerComment" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="dita:headerComment" mode="header-comment">
+    <!-- Note that the header comment is a single string with
+         space preserved.
+      -->
     <xsl:choose>
       <xsl:when test="$headerCommentStyle = 'comment-per-line'">
         <xsl:analyze-string select="." regex="^.+$" flags="m">
           <xsl:matching-substring>
-            <xsl:text>&lt;!-- </xsl:text><xsl:sequence select="."/><xsl:text>-->&#x0a;</xsl:text>
+            <xsl:text>&lt;!-- </xsl:text>
+            <xsl:sequence select="str:pad(., 61)"/>
+            <xsl:text> -->&#x0a;</xsl:text>
           </xsl:matching-substring>
           <xsl:non-matching-substring>
             <xsl:sequence select="if (normalize-space(.) != '') then concat('&lt;-- ', ., ' -->') else ''"/>             

@@ -1,0 +1,24 @@
+namespace dc = "http://purl.org/dc/elements/1.1/"
+namespace dcterms = "http://purl.org/dc/terms/"
+
+
+dc:title [ "RuleML Data Terms - Simple" ]
+dc:version [ "1.0.01" ]
+dc:creator [ "Tara Athan (taraathan AT gmail.com" ]
+dc:subject [ "RuleML, term, data, simple" ]
+dc:description [ "The expansion module for simple data terms." ]
+dc:date [ "2012-03-27" ]
+dc:language [ "en" ]
+dcterms:rights [ "LGPL-3.0" ] 
+dc:relation [ "http://wiki.ruleml.org/index.php/Relax_NG" ]
+start |= notAllowed
+# This module extends the following RuleML elements, attributes and patterns:
+#            DataTerm.choice
+
+## Data terms may have simple content.
+## Because of a Trang bug 
+## (http://code.google.com/p/jing-trang/issues/detail?id=132&q=xsi&colspec=ID%20Type%20Status%20Priority%20Stars%20Module%20Summary)
+## this module should not be included when translating from RNC to XSD.
+##
+DataTerm.choice |= Data_simple-node.choice
+# For the declaration of simple data terms, see the simple data modules (data_simple_content_expansion_module).

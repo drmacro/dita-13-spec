@@ -1,5 +1,11 @@
 /DITA1-1.2-xsds
-/temp
+temp
+out
 /doctypes
 /org.dita-ng.doctypes
 .DS_Store
+
+*.zip
+
+*.log
+proposals/proposal-13106-learning2domain/spec/

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="topic-withdomains-test.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<topic id="topicid">
+  <title>Test of RNG Shell</title>
+  <body>
+    <p>Test of hi-p-d constraint: <b>bold</b>, <i>italic</i>. Only bold and italic should be allowed.</p>
+    <p>XML construct domain: <xmlelement>xmlelement</xmlelement>, <xmlatt>xmlatt</xmlatt>, <parameterentity>parameter entity</parameterentity>, <rngpattern>rng pattern</rngpattern>.</p>
+  </body>
+</topic>

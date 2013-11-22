@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../doctypes/rnc/topic-xmldomain-test.rng" type="application/relax-ng-compact-syntax"?>
+<topic id="xmldomain-test-topic-02"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  >
+  <title>XML Domain Test (RNC)</title>
+  <body>
+    <dl>
+      <dlentry>
+        <dt>numcharref</dt>
+        <dd>
+          <p><numcharref>x0a</numcharref>.</p>
+        </dd>
+      </dlentry>
+      <dlentry>
+        <dt>parameterentity</dt>
+        <dd>
+          <p><parameterentity>p.content</parameterentity></p>
+        </dd>
+      </dlentry>
+      <dlentry>
+        <dt>rngpattern</dt>
+        <dd><rngpattern>p.content</rngpattern></dd>
+      </dlentry>
+      <dlentry>
+        <dt>textentity</dt>
+        <dd>
+          <p><textentity>hi-d-att</textentity></p>
+        </dd>
+      </dlentry>
+      <dlentry>
+        <dt>xmlatt</dt>
+        <dd><xmlatt>class</xmlatt></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xmlelement</dt>
+        <dd><xmlelement>foreign</xmlelement></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xmlnsname</dt>
+        <dd><xmlnsname>http://www.w3.org/2000/svg</xmlnsname></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xmlpi</dt>
+        <dd><xmlpi>dbhtml_background-color</xmlpi></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xsdattgroup</dt>
+        <dd><xsdattgroup>p.attributes</xsdattgroup></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xsdcomplextype</dt>
+        <dd><xsdcomplextype>p.class</xsdcomplextype></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xsdgroup</dt>
+        <dd><xsdgroup>p.content</xsdgroup></dd>
+      </dlentry>
+      <dlentry>
+        <dt>xsdsimpletype</dt>
+        <dd><xsdsimpletype>type-tmtype-att.class</xsdsimpletype></dd>
+      </dlentry>
+    </dl>  </body>
+</topic>

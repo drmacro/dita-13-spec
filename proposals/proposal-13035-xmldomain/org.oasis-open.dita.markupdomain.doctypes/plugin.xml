@@ -1,0 +1,9 @@
+<!-- 
+  Plugin descriptor for the Markup domain module
+  
+  Copyright (c) 2013 OASIS Open
+  
+  -->
+<plugin id="org.oasis-open.dita.markupdomain.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

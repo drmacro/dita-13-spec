@@ -41,6 +41,10 @@
         <dd><xmlnsname>http://www.w3.org/2000/svg</xmlnsname></dd>
       </dlentry>
       <dlentry>
+        <dt>xmlpi</dt>
+        <dd><xmlpi>dbhtml_background-color</xmlpi></dd>
+      </dlentry>
+      <dlentry>
         <dt>xsdattgroup</dt>
         <dd><xsdattgroup>p.attributes</xsdattgroup></dd>
       </dlentry>

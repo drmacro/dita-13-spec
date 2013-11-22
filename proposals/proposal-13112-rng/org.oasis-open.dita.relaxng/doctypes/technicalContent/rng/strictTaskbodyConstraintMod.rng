@@ -23,7 +23,6 @@
   <!-- Define the domain values of this module -->
   <define name="domains-att-value" combine="choice">
     <value>(topic task strictTaskbody-c)</value>
-    <value>(topic task)</value>
   </define>
   
   <include href="../../base/rng/topicMod.rng">
