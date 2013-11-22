@@ -19,28 +19,32 @@
           </sthead>
           <strow>
             <stentry>Stage 1 proposal accepted</stentry>
-            <stentry/>
-            <stentry>Include link to meeting minutes</stentry>
+            <stentry>5 June 2012</stentry>
+            <stentry><xref href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=46183" format="html" scope="external"
+              >https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=46183</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
-            <stentry/>
-            <stentry>Include links to DITA and HTML versions</stentry>
+            <stentry>19 June 2013</stentry>
+            <stentry>HTML: <xref href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49607" format="html" scope="external"
+              >https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49607</xref>, DITA source: <xref
+              href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49606" format="html" scope="external"
+              >https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49606</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
             <stentry>20 August 2013</stentry>
-            <stentry>http://markmail.org/message/twdyijhlafuwpdwd</stentry>
+            <stentry><xref href="http://markmail.org/message/twdyijhlafuwpdwd" format="html" scope="external">http://markmail.org/message/twdyijhlafuwpdwd</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>26 August 2013</stentry>
-            <stentry>http://markmail.org/message/dvxgc6ug7o6h6s2u</stentry>
+            <stentry><xref href="http://markmail.org/message/twdyijhlafuwpdwd" format="html" scope="external">http://markmail.org/message/dvxgc6ug7o6h6s2u</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
-            <stentry/>
-            <stentry>Include names of reviewers</stentry>
+            <stentry>22 Nov 2013</stentry>
+            <stentry>Scott Hudson, Robert Anderson</stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal (this document) submitted</stentry>
