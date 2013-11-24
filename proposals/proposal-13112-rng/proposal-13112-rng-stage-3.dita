@@ -69,12 +69,20 @@
         <p>Is not dependent on any other proposals. </p>
       </section>
       <section>
-        <title>Modified DTDs</title>
-        <p>New topic type, vocabularyModuleDesc, which is used within DITA RNG modules. This topic type is a specialization of &lt;topic>. It is required specifically to provide RNG module metadata
-          required to enable generation of other syntax forms of the module. It is not intended for use outside of this context. For that reason, it should not be considered part of the main
-          TC-defined DITA vocabulary, but part of the RNG facility. The markup is documented as part of the RNG facility (see <xref
-          href="#concept_lbt_ct4_2m"
-          format="dita"/>).</p>
+        <title><?oxy_comment_start author="george" timestamp="20131123T190554+0200" comment="I do not understand the title in relation to the content of this section. Maybe we can call it Module description vocabulary?"?>Modified
+          DTDs<?oxy_comment_end?></title>
+        <p>New topic type, vocabularyModuleDesc, which is used within
+          DITA RNG
+          modules<?oxy_insert_start author="george" timestamp="20131123T191158+0200" comment="To clarify how this vocabulary is used."?>,
+          as annotations<?oxy_insert_end?>. This topic type is a
+          specialization of &lt;topic>. It is required specifically to
+          provide RNG module metadata required to enable generation of
+          other syntax forms of the module. It is not intended for use
+          outside of this context. For that reason, it should not be
+          considered part of the main TC-defined DITA vocabulary, but
+          part of the RNG facility. The markup is documented as part of
+          the RNG facility (see <xref href="#concept_lbt_ct4_2m"
+            format="dita"/>).</p>
         <p>Vocabulary module description topic type:</p>
         <codeblock><coderef href="org.oasis-open.dita.relaxng/doctypes/vocabularyModuleDesc/rng/vocabularyModuleDescMod.rng"/></codeblock>
         <p>Vocabulary module topic document type shell:</p>
@@ -457,22 +465,123 @@
       id="concept_j2w_cgk_fm">
       <title>Using RELAX NG for DITA document type shells, vocabulary modules, and constraint modules</title>
       <conbody>
-        <p>The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the compact syntax. The two syntaxes are functionally equivalent and either syntax may be reliably
-          converted into the other (e.g., using the open-source jing tool). However, the XML syntax, because it is XML based, allows the use of foreign markup within RELAX NG grammars. The DITA coding
-          requirements depend on this feature of RELAX NG in order to capture metadata about document type shells and modules required in order to generate DTD- and XSD-syntax versions of the files
-          that themselves conform to the DITA coding requirements. In addition, the foreign vocabulary feature can be used to include Schematron rules directly in RELAX NG grammars. Schematron rules
-          can check rules that are not expressible with RELAX NG directly or that would be inconvenient to express.</p>
-        <p>In addition, the RELAX NG XML syntax provides a general grouping element type, &lt;div>, that allows for arbitrary organization and grouping of patterns within grammar documents. Such
-          grouping tends to make the grammar documents easier to work with, especially in XML-aware editors. The use or non-use of the RELAX NG &lt;div> element cannot affect the meaning of the
-          patterns defined in a RELAX NG schema. </p>
-        <p>For these reasons, the authoritative version of all OASIS-defined DITA document type shells, vocabulary modules, and constraint modules use the RELAX NG XML syntax. The DITA RELAX NG coding
-          requirements are defined for the RELAX NG XML syntax. Conforming RELAX NG compact syntax modules <term
-          outputclass="OASIS-terminology">must</term> reflect the same file naming and organization requirements as the RELAX NG XML syntax requirements, substituting ".rnc" for ".rng" as the filename
-          extension. By definition, RELAX NG compact syntax modules generated from conforming RELAX NG XML syntax modules such that there is a one-to-one correspondence between XML files and compact
-          syntax files are conforming. Likewise, generation of XML syntax modules from conforming compact syntax modules should result in minimally-conforming XML syntax modules (such modules will
-          lack the DITA-specific &lt;moduleDesc> element for which there is no defined compact syntax equivalent, see <xref
-          href="#concept_j3g_vm4_2m"
-          format="dita"/>).</p>
+        <p>The RELAX NG specification defines two syntaxes for RELAX NG
+          grammars: the XML syntax and the compact syntax. The two
+          syntaxes are functionally equivalent and either syntax may be
+          reliably converted into the other (e.g., using the open-source
+          <?oxy_delete author="george" timestamp="20131124T211736+0200" content="jing" comment="See http://code.google.com/p/jing-trang/ 
+Jing is an application for validating an XML document against a RELAX NG schema, in either the XML or the compact syntax. Trang is an application for converting different XML schema languages to and from RELAX NG. "?><?oxy_insert_start author="george" timestamp="20131124T211738+0200"?>Trang<?oxy_insert_end?>
+          tool).
+          <?oxy_comment_start author="george" timestamp="20131124T212000+0200" comment="Also the compact syntax allows the use of foreign markup, but the coding of that is more dificult to be maintained by hand - see the converted annoations from a RNG schema into RNC. Also it will be gifficult to extract these annotations from compact syntax, so we have to use RNG as the master format."?>However,
+          the XML syntax, because it is XML based, allows the use of
+          foreign markup within RELAX NG grammars.<?oxy_comment_end?>
+          The DITA coding requirements depend on this feature of RELAX
+          NG in order to capture metadata about document type shells and
+          modules required in order to generate DTD- and XSD-syntax
+          versions of the files that themselves conform to the DITA
+          coding requirements. In addition, the foreign vocabulary
+          feature can be used to include Schematron rules directly in
+          RELAX NG grammars. Schematron rules can check rules that are
+          not expressible with RELAX NG directly or that would be
+          inconvenient to express.</p>
+        <p>In addition, the RELAX NG XML syntax provides a general
+          grouping element type, &lt;div>, that allows for arbitrary
+          organization and grouping of patterns within grammar
+          documents. Such grouping tends to make the grammar documents
+          easier to work with, especially in XML-aware editors. The use
+          or non-use of the RELAX NG &lt;div> element
+          <?oxy_comment_start author="george" timestamp="20131124T224504+0200" comment="Shall we use &quot;does not&quot; instead of &quot;cannot&quot;?"?>cannot<?oxy_comment_end?>
+          affect the meaning of the patterns defined in a RELAX NG
+          schema. </p>
+        <p>For these reasons, the authoritative version of all
+          OASIS-defined DITA document type shells, vocabulary modules,
+          and constraint modules use the RELAX NG XML syntax. The DITA
+          RELAX NG coding requirements are defined for the RELAX NG XML
+          syntax. Conforming RELAX NG compact syntax modules <term
+            outputclass="OASIS-terminology">must</term> reflect the same
+          file naming and organization requirements as the RELAX NG XML
+          syntax requirements, substituting ".rnc" for ".rng" as the
+          filename extension. By definition, RELAX NG compact syntax
+          modules generated from conforming RELAX NG XML syntax modules
+          such that there is a one-to-one correspondence between XML
+          files and compact syntax files are conforming.
+          <?oxy_comment_start author="george" timestamp="20131124T225105+0200" comment="As I mentioned above the compact syntax also stores annotations, for example
+
+&lt;moduleDesc xmlns=&quot;http://dita.oasis-open.org/architecture/2005/&quot;&gt;
+    &lt;moduleTitle/&gt;
+    &lt;headerComment xml:space=&quot;preserve&quot;&gt;
+      
+    &lt;/headerComment&gt;
+    &lt;moduleMetadata&gt;
+      &lt;moduleType&gt;mapshell&lt;/moduleType&gt;
+      &lt;moduleShortName&gt;bookmap&lt;/moduleShortName&gt;
+      &lt;shellPublicIds&gt;
+        &lt;dtdShell&gt;-//OASIS//DTD DITA Book Map//EN&lt;/dtdShell&gt;
+        &lt;rncShell&gt;urn:oasis:names:tc:dita:rnc:bookmap&lt;/rncShell&gt;
+        &lt;rngShell&gt;urn:oasis:names:tc:dita:rng:bookmap&lt;/rngShell&gt;
+        &lt;xsdShell&gt;urn:oasis:names:tc:dita:xsd:bookmap&lt;/xsdShell&gt;
+      &lt;/shellPublicIds&gt;
+    &lt;/moduleMetadata&gt;
+  &lt;/moduleDesc&gt;
+
+will be converted by Trang to:
+
+namespace ns1 = &quot;http://dita.oasis-open.org/architecture/2005/&quot;
+
+ns1:moduleDesc [
+  &quot;\x{a}&quot; ~
+  &quot;    &quot;
+  ns1:moduleTitle [ ]
+  &quot;\x{a}&quot; ~
+  &quot;    &quot;
+  ns1:headerComment [
+    xml:space = &quot;preserve&quot;
+    &quot;\x{a}&quot; ~
+    &quot;      \x{a}&quot; ~
+    &quot;    &quot;
+  ]
+  &quot;\x{a}&quot; ~
+  &quot;    &quot;
+  ns1:moduleMetadata [
+    &quot;\x{a}&quot; ~
+    &quot;      &quot;
+    ns1:moduleType [ &quot;mapshell&quot; ]
+    &quot;\x{a}&quot; ~
+    &quot;      &quot;
+    ns1:moduleShortName [ &quot;bookmap&quot; ]
+    &quot;\x{a}&quot; ~
+    &quot;      &quot;
+    ns1:shellPublicIds [
+      &quot;\x{a}&quot; ~
+      &quot;        &quot;
+      ns1:dtdShell [ &quot;-//OASIS//DTD DITA Book Map//EN&quot; ]
+      &quot;\x{a}&quot; ~
+      &quot;        &quot;
+      ns1:rncShell [ &quot;urn:oasis:names:tc:dita:rnc:bookmap&quot; ]
+      &quot;\x{a}&quot; ~
+      &quot;        &quot;
+      ns1:rngShell [ &quot;urn:oasis:names:tc:dita:rng:bookmap&quot; ]
+      &quot;\x{a}&quot; ~
+      &quot;        &quot;
+      ns1:xsdShell [ &quot;urn:oasis:names:tc:dita:xsd:bookmap&quot; ]
+      &quot;\x{a}&quot; ~
+      &quot;      &quot;
+    ]
+    &quot;\x{a}&quot; ~
+    &quot;    &quot;
+  ]
+  &quot;\x{a}&quot; ~
+  &quot;  &quot;
+]
+
+If you want you can have a requirement to have the module description information in this format. However, as we do not require this information for the XSD and DTD formats, I think we should not require this for RNC as well. Only the RNG should be required to have that information.
+"?>Likewise,
+          generation of XML syntax modules from conforming compact
+          syntax modules should result in minimally-conforming XML
+          syntax modules (such modules will lack the DITA-specific
+          &lt;moduleDesc> element for which there is no defined compact
+          syntax equivalent, see <xref href="#concept_j3g_vm4_2m"
+            format="dita"/>).<?oxy_comment_end?></p>
         <p>The DITA use of RELAX NG depends on the companion <cite>RELAX NG DTD Compatibility</cite> specification, which provides a mechanism for defining default attribute values, as well as
           embedded documentation. Processors that use RELAX NG to get the full infoset for DITA documents for which not all required attributes are present in document instances must implement the DTD
           compatibility specification in order to get default attribute values (e.g., values for @domains and @class). The DTD compatibility specification defines the namespace name
@@ -503,10 +612,21 @@
           form:<codeblock>&lt;!-- ============================================================= -->
 &lt;!--                 <i>SECTION TITLE</i>                                 -->
 &lt;!-- ============================================================= --></codeblock></p>
-        <p>RELAX NG is capable of expressing constraints that are more precise than is possible with either DTDs or XSDs. For example, RELAX NG patterns can be context specific such that the same
-          element type may allow different content or attributes in different contexts. Where generation of DTD or XSD schema modules from RELAX NG modules is a requirement care must be taken to avoid
-          RELAX NG features that cannot be translated into DTD or XSD constructs. When RELAX NG is used directly for DITA document validation, the document type shells for those documents <term
-          outputclass="OASIS-terminology">may</term> integrate constraint modules that use the full power of RELAX NG to enforce constraints that cannot be enforced by DTDs or XSD schemas.</p>
+        <p>RELAX NG is capable of expressing constraints that are more
+          precise than is possible with either DTDs or XSDs. For
+          example, RELAX NG patterns can be context specific such that
+          the same element type may allow different content or
+          attributes in different contexts. Where generation of DTD or
+          XSD schema modules from RELAX NG modules is a requirement care
+          must be taken to avoid RELAX NG features that cannot be
+          translated into DTD or XSD constructs.
+          <?oxy_comment_start author="george" timestamp="20131124T230338+0200" comment="That is interesting, but have you thought how this can be applied practically? Shall we have the bookmap.rng schema from the spec and then define a new schema that includes bookmap.rng and redefines some patterns to better enforce their definitions as in the spec?"?>When
+          RELAX NG is used directly for DITA document validation, the
+          document type shells for those documents <term
+            outputclass="OASIS-terminology">may</term> integrate
+          constraint modules that use the full power of RELAX NG to
+          enforce constraints that cannot be enforced by DTDs or XSD
+          schemas.<?oxy_comment_end?></p>
       </conbody>
     </concept>
     <concept
@@ -1473,3 +1593,4 @@ Define the RELAX NG XML syntax as a DITA foreign vocabulary
     </concept>
   </topic>
 </dita>
+<?oxy_options track_changes="on"?>
