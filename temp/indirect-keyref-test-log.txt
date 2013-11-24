@@ -1,0 +1,356 @@
+Executing:
+"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java" -Xmx384m "-Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.ditang.relaxng.defaults.RelaxDefaultsParserConfiguration" -classpath "/Applications/oxygen/tools/ant/lib/ant-launcher.jar" "-Dant.home=/Applications/oxygen/tools/ant" org.apache.tools.ant.launch.Launcher -lib "/Applications/oxygen/classes" -lib "/Applications/oxygen/lib/oxygen.jar" -lib "/Applications/oxygen/lib/oxygenAuthor.jar" -lib "/Applications/oxygen/lib/oxygenDeveloper.jar" -lib "/Applications/oxygen/lib/oxygenEclipse.jar" -lib "/Applications/oxygen/lib/oxygenAuthorEclipse.jar" -lib "/Applications/oxygen/lib/oxygenDeveloperEclipse.jar" -lib "/Applications/oxygen/lib/resolver.jar" -lib "/Applications/oxygen/lib/org.eclipse.wst.xml.xpath2.processor_1.2.0.jar" -lib "/Applications/oxygen/lib/xml-apis.jar" -lib "/Applications/oxygen/lib/xercesImpl.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2" -lib "/Applications/oxygen/lib/commons-io-1.3.1.jar" -lib "/Applications/oxygen/lib/commons-logging-1.1.1.jar" -lib "/Applications/oxygen/lib/log4j.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/lib/dost-patches.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/lib" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/lib/dost.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/lib/commons-codec-1.4.jar" -lib "/Applications/oxygen/lib/jing.jar" -lib "/Applications/oxygen/lib/saxon9ee.jar" -lib "/Applications/oxygen/lib/saxon.jar" -lib "/Applications/oxygen/lib/xmlgraphics-commons-1.5.jar" -lib "/Applications/oxygen/lib/fop.jar" -lib "/Applications/oxygen/lib/batik-all-1.7.jar" -lib "/Applications/oxygen/lib/xml-apis-ext.jar" -lib "/Applications/oxygen/lib/avalon-framework-4.2.0.jar" -lib "/Applications/oxygen/lib/jeuclid-core.jar" -lib "/Applications/oxygen/lib/jeuclid-fop.jar" -lib "/Applications/oxygen/lib/jh.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/lib/jsearch.jar" -lib "/Applications/oxygen/lib/lucene-analyzers-common-4.0.0.jar" -lib "/Applications/oxygen/lib/lucene-core-4.0.0.jar" -lib "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/com.oxygenxml.webhelp/lib/xhtml-indexer.jar" -f "/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/build.xml" "-Dtranstype=xhtml" "-Dbasedir=/Users/ekimber/workspace/dita-13-spec/temp" "-Doutput.dir=/Users/ekimber/workspace/dita-13-spec/temp/out/xhtml" "-Dwebhelp.trial.license=no" "-Ddita.temp.dir=/Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml" "-Ddita.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2" "-Dargs.input=/Users/ekimber/workspace/dita-13-spec/temp/indirect-keyref-test.ditamap" "-DbaseJVMArgLine=-Xmx384m"
+
+Buildfile: /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/build.xml
+
+init:
+
+start-process:
+
+init-logger:
+
+init-URIResolver:
+
+use-init:
+
+check-arg:
+    [mkdir] Created dir: /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+     [echo] *****************************************************************
+     [echo] * basedir = /Users/ekimber/workspace/dita-13-spec/temp
+     [echo] * dita.dir = /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2
+     [echo] * input = /Users/ekimber/workspace/dita-13-spec/temp/indirect-keyref-test.ditamap
+     [echo] * inputdir = /Users/ekimber/workspace/dita-13-spec/temp
+     [echo] * transtype = xhtml
+     [echo] * tempdir = /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+     [echo] * outputdir = /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml
+     [echo] * extname = ${dita.ext}
+     [echo] * clean.temp = true
+     [echo] * DITA-OT version = 1.8.M2
+     [echo] * XML parser = Xerces
+     [echo] * XSLT processor = Saxon
+     [echo] * collator = ICU
+     [echo] *****************************************************************
+     [echo] #Ant properties
+     [echo] #Sat Nov 23 17:52:17 CST 2013
+     [echo] args.css.file.temp=${args.css}
+     [echo] args.css.real=${args.css}
+     [echo] args.grammar.cache=yes
+     [echo] args.input=/Users/ekimber/workspace/dita-13-spec/temp/indirect-keyref-test.ditamap
+     [echo] args.logdir=/Users/ekimber/workspace/dita-13-spec/temp/out/xhtml
+     [echo] args.xml.systemid.set=yes
+     [echo] dita.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2
+     [echo] dita.input.dirname=/Users/ekimber/workspace/dita-13-spec/temp
+     [echo] dita.input.filename=indirect-keyref-test.ditamap
+     [echo] dita.map.filename.root=indirect-keyref-test
+     [echo] dita.plugin.com.sophos.tocjs.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/com.sophos.tocjs
+     [echo] dita.plugin.org.dita.base.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2
+     [echo] dita.plugin.org.dita.docbook.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.docbook
+     [echo] dita.plugin.org.dita.eclipsecontent.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.eclipsecontent
+     [echo] dita.plugin.org.dita.eclipsehelp.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.eclipsehelp
+     [echo] dita.plugin.org.dita.htmlhelp.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.htmlhelp
+     [echo] dita.plugin.org.dita.javahelp.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.javahelp
+     [echo] dita.plugin.org.dita.legacypdf.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/legacypdf
+     [echo] dita.plugin.org.dita.odt.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.odt
+     [echo] dita.plugin.org.dita.pdf.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.pdf
+     [echo] dita.plugin.org.dita.pdf2.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.pdf2
+     [echo] dita.plugin.org.dita.specialization.dita11.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.specialization.dita11
+     [echo] dita.plugin.org.dita.specialization.dita132.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.specialization.dita132
+     [echo] dita.plugin.org.dita.specialization.eclipsemap.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.specialization.eclipsemap
+     [echo] dita.plugin.org.dita.specialization.h2d.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/h2d
+     [echo] dita.plugin.org.dita.troff.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.troff
+     [echo] dita.plugin.org.dita.wordrtf.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.wordrtf
+     [echo] dita.plugin.org.dita.xhtml.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.xhtml
+     [echo] dita.plugin.org.oasis-open.dita.deliveryTargetAttDomain.doctypes.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.deliveryTargetAttDomain
+     [echo] dita.plugin.org.oasis-open.dita.markupdomain.doctypes.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.markupdomain.doctypes
+     [echo] dita.plugin.org.oasis-open.dita.mathml.doctypes.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.mathml.doctypes
+     [echo] dita.plugin.org.oasis-open.dita.mathml.html.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.mathml.html
+     [echo] dita.plugin.org.oasis-open.dita.mathml.test.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.mathml.test
+     [echo] dita.plugin.org.oasis-open.dita.svg.doctypes.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.svg.doctypes
+     [echo] dita.plugin.org.oasis-open.dita.svg.test.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.svg.test
+     [echo] dita.plugin.org.oasis-open.dita.xmldomain.doctypes.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.xmldomain.doctypes
+     [echo] dita.plugin.org.oasis-open.dita.xmldomain.fo.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.xmldomain.fo
+     [echo] dita.plugin.org.oasis-open.dita.xmldomain.html.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.xmldomain.html
+     [echo] dita.plugin.org.oasis-open.dita.xmldomain.test.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.xmldomain.test
+     [echo] dita.plugin.org.oasis.dita.relaxng.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis-open.dita.relaxng
+     [echo] dita.plugin.org.oasis.specification.common.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis.specification.common
+     [echo] dita.plugin.org.oasis.specification.fo.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis.specification.fo
+     [echo] dita.plugin.org.oasis.specification.htmlhelp.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis.specification.chm
+     [echo] dita.plugin.org.oasis.specification.xhtml.dir=/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.oasis.specification.xhtml
+     [echo] dita.preprocess.reloadstylesheet=false
+     [echo] dita.temp.dir=/Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+     [echo] dita.topic.filename.root=indirect-keyref-test.ditamap
+     [echo] *****************************************************************
+
+output-css-warn-message:
+
+output-msg:
+
+build-init:
+
+gen-list:
+ [gen-list] GenMapAndTopicListModule.execute(): Starting...
+ [gen-list] Using Xerces grammar pool for DTD and schema caching.
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/indirect-keyref-test.ditamap
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/keydef-map-level-01.ditamap
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/xrefs-to-topics.dita
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/root-topic.dita
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-01.dita
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-02.dita
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/keydef-map-level-02.ditamap
+ [gen-list] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-03.dita
+ [gen-list] Serializing job specification
+ [gen-list] GenMapAndTopicListModule.execute(): Execution time: 0.86 seconds
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/outditafiles.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditamapandtopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditatopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditamap.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/hrefditatopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conref.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/image.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/flagimage.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/html.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/hreftargets.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/canditopics.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/skipchunk.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/subjectscheme.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conreftargets.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/copytosource.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/subtargets.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conrefpush.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/keyref.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/coderef.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/resourceonly.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+
+debug-filter:
+   [filter] DebugAndFilterModule.execute(): Starting...
+   [filter] Using Xerces grammar pool for DTD and schema caching.
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-02.dita
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/root-topic.dita
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/xrefs-to-topics.dita
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-03.dita
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/keydef-map-level-01.ditamap
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/topic-01.dita
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/indirect-keyref-test.ditamap
+   [filter] Processing /Users/ekimber/workspace/dita-13-spec/temp/topics/keydef-map-level-02.ditamap
+   [filter] Execution time: 75 milliseconds
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/user.input.file.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/hreftargets.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conref.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/hrefditatopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditatopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditamapandtopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conreftargets.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/conrefpush.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/keyref.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/skipchunk.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/canditopics.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/resourceonly.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+
+copy-image-check:
+
+copy-image-uplevels:
+
+copy-image-noraml:
+
+copy-image:
+
+copy-html-check:
+
+copy-html:
+
+copy-flag-check:
+
+copy-flag:
+
+copy-subsidiary-check:
+
+copy-subsidiary:
+
+copy-generated-files:
+     [copy] Copying 2 files to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml
+
+copy-files:
+
+conrefpush-check:
+
+conrefpush:
+
+conref-check:
+
+conref:
+
+move-meta-entries-check:
+
+move-meta-entries:
+[move-meta] Reading /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-01.ditamap
+[move-meta] Reading /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap
+[move-meta] Reading /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap
+
+keyref-check:
+
+keyref:
+   [keyref] Reading /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap
+   [keyref] Reading /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap
+   [keyref] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/xrefs-to-topics.dita
+   [keyref] /Users/ekimber/workspace/dita-13-spec/temp/topics/xrefs-to-topics.dita:10:73: [DOTJ047I][INFO] Unable to find key definition for keyref="topic-03-nav", href may be used as fallback if it exists.
+   [keyref] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap
+
+coderef-check:
+
+coderef:
+
+mapref-check:
+
+mapref:
+   [mapref] Transforming into /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+   [mapref] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap.ref
+   [mapref] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/preprocess/mapref.xsl
+   [mapref] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-01.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-01.ditamap.ref
+   [mapref] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap.ref
+     [move] Moving 3 files to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+
+mappull-check:
+
+mappull:
+  [mappull] Transforming into /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+  [mappull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap.pull
+  [mappull] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/preprocess/mappull.xsl
+  [mappull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-01.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-01.ditamap.pull
+  [mappull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/keydef-map-level-02.ditamap.pull
+     [move] Moving 3 files to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+
+chunk-check:
+
+chunk:
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditatopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditamap.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/fullditamapandtopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/chunkedditamap.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/chunkedtopic.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/resourceonly.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/copytosource.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+[job-helper] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/.job.xml to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/copytotarget2sourcemap.list
+[job-helper] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/job-helper.xsl
+
+maplink-check:
+
+maplink:
+  [maplink] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/maplinks.unordered
+  [maplink] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/preprocess/maplink.xsl
+
+move-links-check:
+
+move-links:
+[move-links] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/root-topic.dita
+[move-links] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-01.dita
+[move-links] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-03.dita
+[move-links] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-02.dita
+[move-links] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/xrefs-to-topics.dita
+
+topicpull-check:
+
+topicpull:
+[topicpull] Transforming into /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+[topicpull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/root-topic.dita to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/root-topic.dita.pull
+[topicpull] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/preprocess/topicpull.xsl
+[topicpull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-01.dita to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-01.dita.pull
+[topicpull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-02.dita to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-02.dita.pull
+[topicpull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-03.dita to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-03.dita.pull
+[topicpull] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/xrefs-to-topics.dita to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/xrefs-to-topics.dita.pull
+     [move] Moving 5 files to /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml
+
+flag-module-check:
+
+flag-module:
+
+preprocess:
+
+xhtml.image-metadata-check:
+
+xhtml.image-metadata:
+
+dita.xhtml.init:
+
+dita.map.xhtml.init:
+
+dita.map.xhtml.toc:
+
+dita.out.map.xhtml.toc:
+     [xslt] Transforming into /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/indirect-keyref-test.ditamap to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/index.html
+     [xslt] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.xhtml/xsl/map2xhtmtoc.xsl
+     [xslt] : Warning! Stylesheet module plugin:org.dita.base:xsl/common/output-message.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+     [xslt] : Warning! Stylesheet module plugin:org.dita.base:xsl/common/dita-utilities.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+     [xslt] : Warning! Stylesheet module plugin:org.dita.base:xsl/common/dita-textonly.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+     [xslt] : Warning! Stylesheet module file:/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/common/topic2textonly.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+     [xslt] : Warning! Stylesheet module file:/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/common/map2textonly.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+     [xslt] : Warning! Stylesheet module file:/Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/xsl/common/ui-d2textonly.xsl is included or imported more than once. This is permitted, but may lead to errors or unexpected behavior
+
+dita.map.xhtml:
+
+copy-css:
+
+copy-css-user:
+
+dita.topics.xhtml:
+
+dita.inner.topics.xhtml:
+     [xslt] Transforming into /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/root-topic.dita to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/topics/root-topic.html
+     [xslt] Loading stylesheet /Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/plugins/org.dita.xhtml/xsl/dita2xhtml.xsl
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-01.dita to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/topics/topic-01.html
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-02.dita to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/topics/topic-02.html
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/topic-03.dita to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/topics/topic-03.html
+     [xslt] Processing /Users/ekimber/workspace/dita-13-spec/temp/temp/xhtml/topics/xrefs-to-topics.dita to /Users/ekimber/workspace/dita-13-spec/temp/out/xhtml/topics/xrefs-to-topics.html
+
+checkouterTransform:
+
+dita.outer.topics.xhtml:
+
+dita2xhtml:
+
+clean-temp:
+
+BUILD SUCCESSFUL
+Total time: 5 seconds
+
+The process finished with exit code: 0
