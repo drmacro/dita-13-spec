@@ -607,9 +607,10 @@ If you want you can have a requirement to have the module description informatio
   &lt;a:documentation><i>SECTION TITLE</i>&lt;/a:documentation>
  ...
 &lt;/div></codeblock></p>
-        <p>Header comments <term
-          outputclass="OASIS-terminology">should</term> have the
-          form:<codeblock>&lt;!-- ============================================================= -->
+        <p><?oxy_comment_start author="george" timestamp="20131125T102309+0200" comment="I think we should not allow both div annotations and header comments, that will make processing difficult. If you intend to have header comments in the generated schemas only then this should be clarified."?>Header
+          comments <term outputclass="OASIS-terminology">should</term>
+          have the
+          form:<?oxy_comment_end?><codeblock>&lt;!-- ============================================================= -->
 &lt;!--                 <i>SECTION TITLE</i>                                 -->
 &lt;!-- ============================================================= --></codeblock></p>
         <p>RELAX NG is capable of expressing constraints that are more
@@ -656,12 +657,43 @@ If you want you can have a requirement to have the module description informatio
         <shortdesc>The &lt;moduleDesc> element enables specification of the metadata required in order to generate from RELAX NG grammars DTD and XSD components that conform to the DITA coding
           requirements.</shortdesc>
         <conbody>
-          <p>The use of &lt;moduleDesc> is not required. However, when it is used, the &lt;moduleDesc> element <term
-          outputclass="OASIS-terminology">must</term> be specified as a direct child of the RELAX NG &lt;grammar> element and <term
-          outputclass="OASIS-terminology">should</term> be the first child of &lt;grammar>. The &lt;moduleDesc> element functions as a foreign element as defined in the RELAX NG specification. As a
-          foreign element, it is required by RELAX NG rules to be in a namespace that is different from any RELAX NG namespaces. The &lt;moduleDesc> element is defined as a specialization of
-          &lt;topic>. Because it must be in a namespace, it cannot be a strictly-conforming DITA topic as DITA elements may not be in a namespace. However, if the &lt;moduleDesc> element is processed
-          in terms of the @class attributes it will be recognized as a DITA topic and otherwise conforms to all rules for conforming topic specializations.</p>
+          <p>The use of &lt;moduleDesc> is not required. However, when
+          it is used, the &lt;moduleDesc> element <term
+            outputclass="OASIS-terminology">must</term> be specified as
+          a direct child of the RELAX NG &lt;grammar> element and <term
+            outputclass="OASIS-terminology">should</term> be the first
+          child of &lt;grammar>. The &lt;moduleDesc> element functions
+          as a foreign element as defined in the RELAX NG specification.
+          As a foreign element, it is required by RELAX NG rules to be
+          in a namespace that is different from any RELAX NG namespaces.
+          The &lt;moduleDesc> element is defined as a specialization of
+          &lt;topic>.<?oxy_comment_start author="george" timestamp="20131125T103609+0200" comment="No namespace is fine in Relax NG as annotation, but because in general a Relax NG schema defines the default namespace to point to the Relax NG schema namespace then you have to expliitely go back to no namespace in the annotation, for example you can write:
+
+&lt;moduleDesc xmlns=&quot;&quot;&gt;
+    &lt;moduleTitle/&gt;
+    &lt;headerComment xml:space=&quot;preserve&quot;&gt;
+      
+    &lt;/headerComment&gt;
+    &lt;moduleMetadata&gt;
+      &lt;moduleType&gt;mapshell&lt;/moduleType&gt;
+      &lt;moduleShortName&gt;bookmap&lt;/moduleShortName&gt;
+      &lt;shellPublicIds&gt;
+        &lt;dtdShell&gt;-//OASIS//DTD DITA Book Map//EN&lt;/dtdShell&gt;
+        &lt;rncShell&gt;urn:oasis:names:tc:dita:rnc:bookmap&lt;/rncShell&gt;
+        &lt;rngShell&gt;urn:oasis:names:tc:dita:rng:bookmap&lt;/rngShell&gt;
+        &lt;xsdShell&gt;urn:oasis:names:tc:dita:xsd:bookmap&lt;/xsdShell&gt;
+      &lt;/shellPublicIds&gt;
+    &lt;/moduleMetadata&gt;
+  &lt;/moduleDesc&gt;
+  
+This means you can have a conforming DITA topic (in no namespace) specialization as annotation markup in a Relax NG schema, unless you find it useful to be in the DITA erchitecture namespace.
+  "?>
+          Because it must be in a namespace, it cannot be a
+          strictly-conforming DITA topic as DITA elements may not be in
+          a namespace. However, if the &lt;moduleDesc> element is
+          processed in terms of the @class attributes it will be
+          recognized as a DITA topic and otherwise conforms to all rules
+          for conforming topic specializations.<?oxy_comment_end?></p>
           <p>The &lt;moduleDesc> element type is defined in the vocabulary module file <filepath>vocabularyModuleDescMod.rng</filepath>.</p>
           <section>
             <title>Namespace</title>
