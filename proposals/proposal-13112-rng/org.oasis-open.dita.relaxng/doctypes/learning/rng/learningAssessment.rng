@@ -48,7 +48,6 @@
   </define>
   
   <!-- Include modules -->
-  <include href="../../base/rng/topicMod.rng"/>
   <include href="learningBaseMod.rng"/>
   <include href="learningAssessmentMod.rng"/>
   <include href="../../base/rng/highlightDomainMod.rng"/>
