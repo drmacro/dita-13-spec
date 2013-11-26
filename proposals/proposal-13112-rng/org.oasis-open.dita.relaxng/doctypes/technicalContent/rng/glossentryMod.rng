@@ -25,6 +25,10 @@
     <value>(topic concept glossentry)</value>
   </define>
   
+  <define name="glossentry-info-types">
+    <notAllowed/>
+  </define>
+  
   <!-- Define patterns -->
   <define name="glossAbbreviation">
     <ref name="glossAbbreviation.element"/>

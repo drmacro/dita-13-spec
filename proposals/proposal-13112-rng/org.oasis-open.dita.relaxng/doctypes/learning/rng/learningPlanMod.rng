@@ -28,6 +28,11 @@
     <value>(topic learningBase learningPlan)</value>
   </define>
   
+  <define name="learningPlan-info-types">
+    <ref name="info-types"/>
+  </define>
+  
+
   
   <define name="learningPlanbody">
     <ref name="learningPlanbody.element"/>
