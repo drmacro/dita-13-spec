@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2013" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2013" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Stage 3 proposal: Feature #13056" />
+<meta name="abstract" content="Add the ability to group information within conditional processing attributes" />
+<meta name="Description" content="Add the ability to group information within conditional processing attributes" />
+<meta name="DC.Date" scheme="iso8601" content="2013-10-30" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="proposal13056" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<title>Stage 3 proposal: Feature #13056</title>
+</head>
+<body role="main">
+<div class="nested0" id="proposal13056"><h1 class="title topictitle1">Stage 3 proposal: Feature #13056</h1>
+<div class="body"><p class="shortdesc">Add the ability to group information within conditional processing attributes</p>
+<div class="section"><h2 class="title sectiontitle">Champion</h2>        
+        <p class="p">Robert D Anderson</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Tracking information</h2>        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e23" class="stentry" width="16.666666666666668%">Event</th>
+<th valign="bottom" align="left" id="d67e25" class="stentry" width="16.666666666666668%">Date</th>
+<th valign="bottom" align="left" id="d67e27" class="stentry" width="66.66666666666667%">Links</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 1 proposal accepted</td>
+<td valign="top" headers="d67e25" class="stentry">Jan 3 2012</td>
+<td valign="top" headers="d67e27" class="stentry"><a class="xref" href="https://www.oasis-open.org/committees/download.php/44749/minutes20120103.txt" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/44749/minutes20120103.txt</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal submitted</td>
+<td valign="top" headers="d67e25" class="stentry">Feb 28 (first draft), March 8, 2013 (second draft)</td>
+<td valign="top" headers="d67e27" class="stentry">Second draft - HTML: <a class="xref" href="https://www.oasis-open.org/committees/download.php/48508/13056-AttributeGroup-Stage2.html" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/48508/13056-AttributeGroup-Stage2.html</a>;
+              DITA: <a class="xref" href="https://www.oasis-open.org/committees/document.php?document_id=48507" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/document.php?document_id=48507</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal discussed</td>
+<td valign="top" headers="d67e25" class="stentry">March 5, 2013</td>
+<td valign="top" headers="d67e27" class="stentry">Merged: <a class="xref" href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 2 proposal approved</td>
+<td valign="top" headers="d67e25" class="stentry">March 12, 2013</td>
+<td valign="top" headers="d67e27" class="stentry">Merged: <a class="xref" href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" target="_blank" title="(Opens in a new tab or window)">https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 3 proposal submitted to reviewers</td>
+<td valign="top" headers="d67e25" class="stentry"> </td>
+<td valign="top" headers="d67e27" class="stentry">Deb Bissantz, Dick Hamilton, Kris Eberlein, Eliot Kimber</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e23" class="stentry">Stage 3 proposal (this document) submitted</td>
+<td valign="top" headers="d67e25" class="stentry"> </td>
+<td valign="top" headers="d67e27" class="stentry"> </td>
+</tr>
+</table>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>        
+        <p class="p">Allow the four original property attributes (audience, platform, product, and otherprops)
+          to accept grouped values, using the same syntax for generalized attribute values within
+          @props and @base. Each group is to be treated as an independent attribute for the purposes
+          of filtering. For eample, the groups "appserver" and "db" could be used within @product to
+          create two sets of product conditions, one for related databases and another for related
+          application servers. This allows content to be filtered out when all listed databases are
+          filtered, without regard to specified application servers.</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>        
+        <p class="p">None.</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>        
+        <p class="p">No change to DTDs / Schemas. </p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified specification documentation</h2>        
+        <p class="p">This update results in several changes to the topic <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/condproc.html" target="_blank" title="(Opens in a new tab or window)">http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/condproc.html</a>. That topic
+          is rendered below with revisions marked.</p>
+
+        <div class="p">The following changes will be made to <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/conditional-processing-attributes.html" target="_blank" title="(Opens in a new tab or window)">http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/conditional-processing-attributes.html</a>:<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e121" class="stentry" width="50%">DITA 1.2</th>
+<th valign="bottom" align="left" id="d67e123" class="stentry" width="50%">Revised for DITA 1.3</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e121" class="stentry">In general, a conditional processing attribute provides a list of one or more
+                values separated with whitespace. For instance, <samp class="ph codeph">audience="administrator
+                  programmer"</samp> qualifies the content as applying to administrators and
+                programmers.</td>
+<td valign="top" headers="d67e123" class="stentry">In general, a conditional processing attribute provides a list of one or more
+                values separated with whitespace, <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> or it contains one or more groups
+                  that subcategorize the attribute <img src="./deltaend.gif" alt="End of change" /></span>. For instance,
+                  <samp class="ph codeph">audience="administrator programmer"</samp> qualifies the content as
+                applying to administrators and programmers. <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> Using groups,
+                    <samp class="ph codeph">product="database(A B) appserver(C)"</samp> qualifies the content as
+                  applying to databases A and B, as well as to application server C. <img src="./deltaend.gif" alt="End of change" /></span></td>
+</tr>
+</table>
+</div>
+
+        <div class="p">The following change will be made to the definition of the "att" attribute on the
+          &lt;prop&gt; element inside of the DITAVAL markup (<a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-prop.html" target="_blank" title="(Opens in a new tab or window)">http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-prop.html</a>):<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d67e172" class="stentry" width="50%">DITA 1.2</th>
+<th valign="bottom" align="left" id="d67e174" class="stentry" width="50%">Revised for DITA 1.3</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d67e172" class="stentry">The attribute to be acted upon. Must be one of props, audience, platform,
+                product, otherprops, or a specialization of props. If the att attribute is absent,
+                then the prop element declares a default behavior for any conditional processing
+                attribute.</td>
+<td valign="top" headers="d67e174" class="stentry">The attribute to be acted upon. <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> If using a literal attribute
+                  name, it must be one of props, audience, platform, product, otherprops, or a
+                  specialization of props. Otherwise, the value should be the name of a group used
+                  within the audience, platform, product, or otherprops attributes. <img src="./deltaend.gif" alt="End of change" /></span> If the att
+                attribute is absent, then the prop element declares a default behavior for any
+                conditional processing attribute.</td>
+</tr>
+</table>
+</div>
+
+        <p class="p">The following new example should be added to the DITAVAL language spec topic that
+          currently gives sample DITAVAL markup (<a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-val.html" target="_blank" title="(Opens in a new tab or window)">http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-val.html</a>).</p>
+
+        <div class="fig fignone" id="proposal13056__fig_w4p_rxj_zl"><span class="figcap">Figure 1. DITAVAL with conditions for groups</span><pre class="pre codeblock"><code>&lt;val&gt;
+   &lt;prop action="exclude" att="product" val="appserver"/&gt;
+   &lt;prop action="include" att="product" val="mySERVER"/&gt;
+   &lt;prop action="include" att="database" val="dbFIRST"/&gt;
+   &lt;prop action="include" att="database" val="dbSECOND"/&gt;
+   &lt;prop action="exclude" att="database" val="newDB"/&gt;
+&lt;/val&gt;</code></pre>
+<div class="p">Assume that "database" and "appserver" are used as group names within the product
+            attribute. In that case, the sample DITAVAL above performs the following actions:<ul class="ul"><li class="li">The first prop element excludes the value "appserver" when used within the product
+                attribute. It also sets a default of "exclude" for values within any appserver()
+                group inside of the product attribute.</li>
+<li class="li">The second prop element sets "mySERVER" to include; this applies whether mySERVER
+                appears alone in the product attribute (<samp class="ph codeph">product="mySERVER"</samp>) or
+                inside of any group (<samp class="ph codeph">product="appserver(mySERVER)"</samp> or
+                  <samp class="ph codeph">product="otherGroup(mySERVER)"</samp>).</li>
+<li class="li">The third and fourth prop elements set the database values "dbFIRST" and
+                "dbSECOND" to include. If those values appear inside of a "database" group, they are
+                explicitly set to "include". If they appear elsewhere in a conditional attribute
+                (such as <samp class="ph codeph">product="dbFIRST"</samp> or
+                <samp class="ph codeph">platform="dbSECOND"</samp>), this rule does not apply.</li>
+<li class="li">The final prop element sets the database value "newDB" to exclude. If that value
+                appears inside of a database group, it is explicitly set to "exclude". If it appears
+                in any other group or attribute, this rule does not apply.</li>
+</ul>
+</div>
+<div class="p">Remember that with groups, if all values inside of a single group evaluate to
+            "exclude", that is equivalent to an entire attribute evaluating to "exclude", which
+            results in the removal of the content. Using this sample DITAVAL:<ul class="ul"><li class="li"><samp class="ph codeph">&lt;p product="appserver"&gt;</samp> is filtered out, because this value is
+                excluded.</li>
+<li class="li"><samp class="ph codeph">&lt;p product="appserver(A B)"&gt;</samp> is filtered out, because there is
+                no explicit rule for A or B, and values in the "appserver" group inside of @product
+                default to exclude.</li>
+<li class="li"><samp class="ph codeph">&lt;p product="appserver(A B mySERVER)"&gt;</samp> is included, because
+                product="mySERVER" evaluates to "include", which means the entire group evaluates to
+                "include".</li>
+<li class="li"><samp class="ph codeph">&lt;p product="newDB"&gt;</samp> is included, because no rule in the
+                DITAVAL applies, so the "newDB" token defaults to "include".</li>
+<li class="li"><samp class="ph codeph">&lt;p product="database(newDB)"&gt;</samp> is filtered out, because the
+                token "newDB" is excluded when found in the database group.</li>
+<li class="li"><samp class="ph codeph">&lt;p product="database(dbFIRST dbSECOND newDB)"&gt;</samp> is included,
+                because both "dbFIRST" and "dbSECOND" are included, so the group evaluates to
+                include.</li>
+<li class="li"><samp class="ph codeph">&lt;p product="database(newDB) appserver(mySERVER)"&gt;</samp> is filtered
+                out, because the token "newDB" is excluded when found in the database group. The
+                entire "database" group on this paragraph evaluates to "exclude", so the element is
+                excluded, regardless of how the "appserver" group evaluates.</li>
+</ul>
+</div>
+</div>
+
+      </div>
+</div>
+</div>
+<div class="topic concept nested0" xml:lang="en-us" id="conrefcondproc"><h1 class="title topictitle1">Conditional processing (profiling)</h1>
+<div class="body conbody"><p class="shortdesc">Attribute-based
+        profiling, also known as conditional processing or applicability, is the use of classifying
+        metadata that enables the filtering, flagging, searching, indexing, and other processing
+        based on the association of an element with one or more values in a specific classification
+        domain.</p>
+<p class="p">DITA defines attributes that are specifically intended to enable
+filtering or flagging of individual elements. Those attributes are
+@audience, @platform, @product, @otherprops, @props, <span class="ph">and @rev (flagging only).</span> This enables
+the creation of topics and maps that can be dynamically configured
+at  processing time to reflect a specific set of conditions, using
+the DITA-defined conditional processing profile (DITAVAL).</p>
+<p class="p">Processors should be able to perform filtering and flagging using
+the attributes listed above. Although metatdata elements exist with
+similar names, such as the &lt;audience&gt;       element, processors
+are not required to perform conditional processing using metadata
+      elements. The @props attribute can be specialized to create
+new attributes, and processors       should be able to perform conditional
+processing on specializations of @props.</p>
+<div class="section" id="conrefcondproc__d10e14"><h2 class="title sectiontitle">Conditional processing attributes</h2>              <p class="p">For a topic or topicref, the audience, platform, and product
+metadata can be expressed with         attributes on the topic or
+topicref element or with elements within the topic prolog or     
+   topicmeta element. While the metadata elements are more expressive,
+the meaning of the         values is the same, and can be used in
+coordination. For example, the prolog elements can         fully define
+the audiences for a topic, and then metadata attributes can be used
+within the         content to identify parts that apply to only some
+of those audiences.</p>
+       <dl class="dl"><dt class="dt dlterm">audience</dt>
+<dd class="dd">The values in the audience attribute may also be used to reference a more complete description
+                        of an audience in an audience element. Use the name of the audience in the
+                        audience element when referring to the same audience in an audience
+                            attribute.<p class="p">The audience attribute takes a space-delimited list of
+                            values, which may or may not match the name value of any audience
+                            elements. <span style="color:blue;background-color:silver;" class="ph" id="conrefcondproc__d10e30"><img src="./delta.gif" alt="Start of change" /> The attribute may also include
+                                groups of values specified using the same syntax as generalized
+                                attributes within @props; see <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a> for
+                                details on grouping syntax. <img src="./deltaend.gif" alt="End of change" /></span></p>
+
+                    </dd>
+<dt class="dt dlterm">platform</dt>
+<dd class="dd">The platform might be the operating system, hardware, or other
+environment. This             attribute is equivalent to the platform
+element for the topic metadata.</dd>
+<dd class="dd">             <p class="p">The platform attribute takes a space-delimited list of values, which may or may not
+                            match the content of a platform element in the prolog. <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> The attribute may also include
+                                groups of values specified using the same syntax as generalized
+                                attributes within @props; see <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a> for
+                                details on grouping syntax. <img src="./deltaend.gif" alt="End of change" /></span></p>
+           </dd>
+<dt class="dt dlterm">product</dt>
+<dd class="dd">The product or component name, version, brand, or internal code
+or number. This             attribute is equivalent to the prodinfo
+element for the topic metadata.</dd>
+<dd class="dd">             <p class="p">The product attribute takes a space-delimited list of values, which may or may not
+                            match the value of the prodname element in the prolog. <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> The attribute may also include
+                                groups of values specified using the same syntax as generalized
+                                attributes within @props; see <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a> for
+                                details on grouping syntax. <img src="./deltaend.gif" alt="End of change" /></span></p>
+           </dd>
+<dt class="dt dlterm">rev</dt>
+<dd class="dd">The identifier for the revision level. For example, if a paragraph
+was changed or             added during revision 1.1, the rev attribute
+might contain the value "1.1". </dd>
+<dt class="dt dlterm">otherprops</dt>
+<dd class="dd">A catch-all for metadata qualification values about the content. This attribute is
+                        equivalent to the othermeta element for the topic metadata. <p class="p">The attribute
+                            takes a space-delimited list of values, which may or may not match the
+                            values of othermeta elements in the prolog. <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> The attribute may also include
+                                groups of values specified using the same syntax as generalized
+                                attributes within @props; see <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a> for
+                                details on grouping syntax. <img src="./deltaend.gif" alt="End of change" /></span>
+                            <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> The grouping syntax matches the original @otherprops
+                                grouping syntax defined in DITA 1.0 and 1.1. That usage was reserved
+                                exclusively for @otherprops, and was deprecated in DITA
+                            1.2. <img src="./deltaend.gif" alt="End of change" /></span></p>
+
+                    </dd>
+<dt class="dt dlterm">props</dt>
+<dd class="dd">A generic attribute for conditional processing values. Starting with DITA 1.1, the props attribute can be specialized to create new conditional processing attributes. <span class="ph">See <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a>.</span></dd>
+</dl>
+     </div>
+<div class="section" id="conrefcondproc__d10e108"><h2 class="title sectiontitle">Using conditional processing attributes</h2>            
+            <p class="p">Each attribute takes zero or more space-delimited string values <span style="color:blue;background-color:silver;" class="ph"><img src="./delta.gif" alt="Start of change" /> or
+                    grouped values <img src="./deltaend.gif" alt="End of change" /></span>. For example, you can use the product attribute to identify
+                that an element applies to two particular products. </p>
+
+            <div class="fig fignone"><span class="figcap">Figure 2. Example source</span><pre class="pre codeblock"><code>&lt;p audience="administrator"&gt;Set the configuration options:
+    &lt;ul&gt;
+        &lt;li product="extendedprod"&gt;Set foo to bar&lt;/li&gt;
+        &lt;li product="basicprod extendedprod"&gt;Set your blink rate&lt;/li&gt;
+        &lt;li&gt;Do some other stuff&lt;/li&gt;
+        &lt;li platform="Linux"&gt;Do a special thing for Linux&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/p&gt;
+            </code></pre>
+</div>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> Groups may be defined using the generalized attribute syntax found in
+                    <a class="xref" href="attributegeneralize.html#attributegeneralize">attributegeneralize.html#attributegeneralize</a>. This
+                is intended to provide subcategories of the attribute; for example, the following
+                could be used to indicate that a step applies to one application server and two
+                databases. Each group consists of one or more space-delimited string values; groups
+                cannot be nested. <img src="./deltaend.gif" alt="End of change" /></p>
+
+            <img src="./delta.gif" alt="Start of change" /> <div class="fig fignone" style="color:blue;background-color:silver;" id="conrefcondproc__d10e130"><span class="figcap">Figure 3. Grouped values in @product</span><pre class="pre codeblock" id="conrefcondproc__d10e133"><code>&lt;steps&gt;
+  &lt;step&gt;&lt;cmd&gt;Common step&lt;/cmd&gt;&lt;/step&gt;
+  &lt;step product="appserver(mySERVER) database(ABC dbOtherName)"&gt;
+    &lt;cmd&gt;Do something special for databases ABC or OtherName when installing on mySERVER&lt;/cmd&gt;
+  &lt;/step&gt;
+  &lt;!-- additional steps --&gt;
+&lt;/steps&gt;</code></pre>
+</div> <img src="./deltaend.gif" alt="End of change" />
+
+            <div class="p" style="color:blue;background-color:silver;"><img src="./delta.gif" alt="Start of change" /> If both grouped values and ungrouped values are found in a single
+                attribute, the ungrouped values must be treated as a single group. The following
+                product attributes are equivalent:
+                <pre class="pre codeblock"><code>product="a database(dbA dbB) b appserver(mySERVER) c"
+product="product(a b c) database(dbA dbB) appserver(mySERVER)"</code></pre>
+ <img src="./deltaend.gif" alt="End of change" /></div>
+
+            <div class="p" style="color:blue;background-color:silver;"><img src="./delta.gif" alt="Start of change" /> If two groups with the same name are found in a single attribute, they
+                should be treated as if all values are specified in the same group. The following
+                product attributes are
+                equivalent:<pre class="pre codeblock"><code>product="database(a b) database(c) appserver(APPNAME)"
+product="database(a b c) appserver(APPNAME)"</code></pre>
+ <img src="./deltaend.gif" alt="End of change" /></div>
+
+        </div>
+<div class="section" id="conrefcondproc__d10e147"><h2 class="title sectiontitle">Evaluating conditional processing
+attributes</h2>              <p class="p">At processing time, a DITAVAL conditional
+processing profile may be used to specify values         you want
+to include, exclude, or flag. </p>
+       <div class="p">For example, a publisher
+producing information for a mixed audience using the basic product
+        could choose to flag information that applies to administrators,
+and exclude information         that applies to the extended product,
+by defining a conditional processing profile like         this:<pre class="pre codeblock"><code>&lt;val&gt;
+  &lt;prop att="audience" val="administrator" action="flag"&gt;
+    &lt;startflag&gt;&lt;alt-text&gt;ADMIN&lt;/alt-text&gt;&lt;/startflag&gt;
+  &lt;/prop&gt;
+  &lt;prop att="product" val="extendedprod" action="exclude"/&gt;
+&lt;/val&gt;</code></pre>
+</div>
+       <p class="p">At output time, the paragraph is
+flagged, and the first list item is excluded (since it         applies
+to extendedprod), but the second list item is still included (even
+though it does         apply to extendedprod, it also applies to basicprod,
+which was not excluded).</p>
+       <div class="p">The result should look something
+like: <div class="fig fignone"><div class="p"><strong class="ph b">ADMIN</strong> Set the configuration options: <ul class="ul"><li class="li">Set your blink rate</li>
+<li class="li">Do some other stuff </li>
+<li class="li">Do a special thing for Linux</li>
+</ul>
+</div>
+</div>
+</div>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> If a conditional processing attribute is set to an empty value
+                    (<samp class="ph codeph">product=""</samp>), this is equivalent to an unspecified attribute.
+                An empty group within an attribute is equivalent to an unspecified group. For
+                example, <samp class="ph codeph">product="database()"</samp> is equivalent to
+                    <samp class="ph codeph">product=""</samp>, and <samp class="ph codeph">product="database() A"</samp> is
+                equivalent to <samp class="ph codeph">product="A"</samp>. <img src="./deltaend.gif" alt="End of change" /></p>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> If two groups of the same name exist on different attributes, each group
+                will evaluate the same way. Subject schemes may be used to define the same group
+                name differently for two different attributes, but for the purposes of DITAVAL
+                filtering or flagging, there is no way to distinguish. If there is a need to
+                distinguish between a similarly named group on different attributes, the best
+                practice is to use more specific group names such as platformGroupname and
+                productGroupname. Alternatively, DITAVAL rules can be specified based on the
+                attribute name rather than the group name. <img src="./deltaend.gif" alt="End of change" /></p>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> Note that in the case where the same group name is used in different
+                attributes, a complex scenario could be created where different defaults are
+                specified for different attributes, with no rule set for a group or individual
+                value. In this case a value may end up evaluating differently in the different
+                attributes. For example, a DITAVAL may set a default of "exclude" for @platform and
+                a default of "include" for @product. If no rules are specified for group oddgroup(),
+                or for the value <samp class="ph codeph">oddgroup="edgecase"</samp>, the attribute
+                    <samp class="ph codeph">platform="oddgroup(edgecase)"</samp> will evaluate to "exclude" while
+                    <samp class="ph codeph">product="oddgroup(edgecase)"</samp> will resolve to "include". <img src="./deltaend.gif" alt="End of change" /></p>
+     </div>
+<div class="section" id="conrefcondproc__d10e212"><h2 class="title sectiontitle">Filtering logic</h2>            
+            <p class="p">By default, values in conditional processing attributes that are not defined in a
+                DITAVAL profile evaluate to "include". For example, if the value audience="novice"
+                is used on a paragraph, but this value is not defined in a DITAVAL profile, the
+                attribute evaluates to "include". However, the DITAVAL profile may change this
+                default to "exclude", so that any value not explicitly defined in the DITAVAL
+                profile will evaluate to "exclude". The profile may also be used to change the
+                default for a single attribute; for example, it may declare that values in the
+                platform attribute default to exclude while those in the product attribute default
+                to include. See <a class="xref" href="../langref/containers/ditaval-elements.html">**** MISSING FILE ****</a> for
+                information on how to set up a DITAVAL profile and how to change default
+                behaviors.</p>
+
+            <div class="p">When deciding whether to include or exclude a particular element, a processor should
+                evaluate each attribute, and then evaluate the set of attributes. <ul class="ul"><li class="li">If <strong class="ph b">all</strong> the values in a single attribute evaluate to "exclude", the
+                        attribute evaluates to "exclude".</li>
+<li style="color:blue;background-color:silver;" class="li"><img src="./delta.gif" alt="Start of change" /> If <strong class="ph b">all</strong> thje values in <strong class="ph b">any single group</strong> within an
+                        attribute evaluate to "exclude", the attribute evaluates to "exclude". <img src="./deltaend.gif" alt="End of change" /></li>
+<li class="li">If <strong class="ph b">any single attribute</strong> evaluates to exclude, the element is
+                        excluded.</li>
+</ul>
+</div>
+
+            <p class="p">For example, if a paragraph applies to three products and the publisher has chosen to
+                exclude all of them, the processor should exclude the paragraph. This is true even
+                if the paragraph applies to an audience or platform that is not excluded. But if the
+                paragraph applies to an additional product that has not been excluded, then its
+                content is still relevant for the intended output and should be preserved.</p>
+
+            <div class="p" style="color:blue;background-color:silver;"><img src="./delta.gif" alt="Start of change" /> Similarly, with groups, a step may apply to one application server and
+                two databases, as in the sample above:
+                <pre class="pre codeblock"><code>&lt;steps&gt;
+  &lt;step&gt;&lt;cmd&gt;Common step&lt;/cmd&gt;&lt;/step&gt;
+  &lt;step product="appserver(mySERVER) database(ABC dbOtherName)"&gt;
+    &lt;cmd&gt;Do something special for databases ABC or OtherName when installing on mySERVER&lt;/cmd&gt;
+  &lt;/step&gt;
+  &lt;!-- additional steps --&gt;
+&lt;/steps&gt;</code></pre>
+ <img src="./deltaend.gif" alt="End of change" /></div>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> If a publisher decides to exclude the application server mySERVER, then
+                the appserver() group evaluates to exclude. This may be done by setting
+                product="mySERVER" to exclude <em class="ph i">or</em> by setting appserver="mySERVER" to exclude.
+                This means the step should be excluded, regardless of how the values "db2" or
+                "oracle" evaluate. If a rule is specified for both product="mySERVER" and
+                appserver="mySERVER", the rule for the more specific group name "appserver" takes
+                precedence. <img src="./deltaend.gif" alt="End of change" /></p>
+
+            <p style="color:blue;background-color:silver;" class="p"><img src="./delta.gif" alt="Start of change" /> Similarly, if both "db2" and "oracle" evaluate to exclude, then the
+                database() group evaluates to exclude and the element should be excluded regardless
+                of how the "WAS" value is set. <img src="./deltaend.gif" alt="End of change" /></p>
+
+            <div class="p" style="color:blue;background-color:silver;"><img src="./delta.gif" alt="Start of change" /> In more advanced usage, a DITAVAL may be used to specify a rule for a
+                group name. For example, an author could create a DITAVAL rule that sets
+                    <samp class="ph codeph">product="database"</samp> to "exclude". This is equivalent to setting
+                a default of "exclude" for any value in a database group (it would also exclude the
+                more common usage of "database" as a single token within the product attribute).
+                Thus when the token "db2" appears in a database() group within the product
+                attribute, the full precedence for determining whether to include or exclude the
+                value is as follows: <ol class="ol"><li class="li">Check for a DITAVAL rule for database="db2"</li>
+<li class="li">Check for a DITAVAL rule for product="db2"</li>
+<li class="li">Check for a DITAVAL rule for product="database" (default for the database
+                        group)</li>
+<li class="li">Check for a DITAVAL rule for "product" (default for the product
+                        attribute)</li>
+<li class="li">Check for a default rule for all conditions</li>
+<li class="li">Otherwise, evaluate to "include"</li>
+</ol>
+ <img src="./deltaend.gif" alt="End of change" /></div>
+
+        </div>
+<div class="section" id="conrefcondproc__d10e280"><h2 class="title sectiontitle">Flagging logic</h2>            
+ <p class="p">When deciding whether to flag a particular element, a processor
+should evaluate each value.         Wherever a value that has been
+set as flagged appears in its attribute (for example,         audience="administrator")
+the process should add the flag. When multiple flags apply to a  
+      single element, multiple flags should be rendered, typically
+in the order they are         encountered.</p>
+       <p class="p">Flagging could
+be done using text (for example, bold text against a colored background)
+or         using images. When the same element evaluates as both flagged
+and filtered (for example,         flagged because of an audience
+attribute value and filtered because of its product attribute    
+    values), the element should be filtered.</p>
+     </div>
+</div>
+</div>
+</body>
+</html>

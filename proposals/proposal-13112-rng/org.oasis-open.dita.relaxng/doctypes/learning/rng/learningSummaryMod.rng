@@ -28,6 +28,11 @@
     <value>(topic learningBase learningSummary)</value>
   </define>
   
+  <define name="learningSummary-info-types">
+    <ref name="info-types"/>
+  </define>
+  
+
   
   <!-- Define patterns -->
   <define name="learningSummary">

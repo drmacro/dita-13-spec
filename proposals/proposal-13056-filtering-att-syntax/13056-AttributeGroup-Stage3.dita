@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita xml:lang="en-us">
+  <topic id="proposal13056">
+    <title>Stage 3 proposal: Feature #13056</title>
+    <shortdesc>Add the ability to group information within conditional processing attributes</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Robert D Anderson</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 4.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>Jan 3 2012</stentry>
+            <stentry><xref format="html"
+                href="https://www.oasis-open.org/committees/download.php/44749/minutes20120103.txt"
+                scope="external"
+                >https://www.oasis-open.org/committees/download.php/44749/minutes20120103.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>Feb 28 (first draft), March 8, 2013 (second draft)</stentry>
+            <stentry>Second draft - HTML: <xref scope="external" format="html"
+                href="https://www.oasis-open.org/committees/download.php/48508/13056-AttributeGroup-Stage2.html"
+                >https://www.oasis-open.org/committees/download.php/48508/13056-AttributeGroup-Stage2.html</xref>;
+              DITA: <xref scope="external" format="html"
+                href="https://www.oasis-open.org/committees/document.php?document_id=48507"
+                >https://www.oasis-open.org/committees/document.php?document_id=48507</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>March 5, 2013</stentry>
+            <stentry>Merged: <xref format="html"
+                href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt"
+                scope="external"
+                >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>March 12, 2013</stentry>
+            <stentry>Merged: <xref format="html"
+                href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt"
+                scope="external"
+                >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry/>
+            <stentry>Deb Bissantz, Dick Hamilton, Kris Eberlein, Eliot Kimber</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry/>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <p>Allow the four original property attributes (audience, platform, product, and otherprops)
+          to accept grouped values, using the same syntax for generalized attribute values within
+          @props and @base. Each group is to be treated as an independent attribute for the purposes
+          of filtering. For eample, the groups "appserver" and "db" could be used within @product to
+          create two sets of product conditions, one for related databases and another for related
+          application servers. This allows content to be filtered out when all listed databases are
+          filtered, without regard to specified application servers.</p>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>None.</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>No change to DTDs / Schemas. </p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>This update results in several changes to the topic <xref format="html"
+            href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/condproc.html"
+            scope="external"
+            >http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/condproc.html</xref>. That topic
+          is rendered below with revisions marked.</p>
+        <p>The following changes will be made to <xref
+            href="http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/conditional-processing-attributes.html"
+            format="html" scope="external"
+            >http://docs.oasis-open.org/dita/v1.2/os/spec/archSpec/conditional-processing-attributes.html</xref>:<simpletable
+            frame="all" relcolwidth="1.0* 1.0*">
+            <sthead>
+              <stentry>DITA 1.2</stentry>
+              <stentry>Revised for DITA 1.3</stentry>
+            </sthead>
+            <strow>
+              <stentry>In general, a conditional processing attribute provides a list of one or more
+                values separated with whitespace. For instance, <codeph>audience="administrator
+                  programmer"</codeph> qualifies the content as applying to administrators and
+                programmers.</stentry>
+              <stentry>In general, a conditional processing attribute provides a list of one or more
+                values separated with whitespace, <ph rev="13056">or it contains one or more groups
+                  that subcategorize the attribute</ph>. For instance,
+                  <codeph>audience="administrator programmer"</codeph> qualifies the content as
+                applying to administrators and programmers. <ph rev="13056">Using groups,
+                    <codeph>product="database(A B) appserver(C)"</codeph> qualifies the content as
+                  applying to databases A and B, as well as to application server C.</ph></stentry>
+            </strow>
+          </simpletable></p>
+        <p>The following change will be made to the definition of the "att" attribute on the
+          &lt;prop> element inside of the DITAVAL markup (<xref
+            href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-prop.html"
+            format="html" scope="external"
+            >http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-prop.html</xref>):<simpletable
+            frame="all" relcolwidth="1.0* 1.0*">
+            <sthead>
+              <stentry>DITA 1.2</stentry>
+              <stentry>Revised for DITA 1.3</stentry>
+            </sthead>
+            <strow>
+              <stentry>The attribute to be acted upon. Must be one of props, audience, platform,
+                product, otherprops, or a specialization of props. If the att attribute is absent,
+                then the prop element declares a default behavior for any conditional processing
+                attribute.</stentry>
+              <stentry>The attribute to be acted upon. <ph rev="13056">If using a literal attribute
+                  name, it must be one of props, audience, platform, product, otherprops, or a
+                  specialization of props. Otherwise, the value should be the name of a group used
+                  within the audience, platform, product, or otherprops attributes.</ph> If the att
+                attribute is absent, then the prop element declares a default behavior for any
+                conditional processing attribute.</stentry>
+            </strow>
+          </simpletable></p>
+        <p>The following new example should be added to the DITAVAL language spec topic that
+          currently gives sample DITAVAL markup (<xref
+            href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-val.html"
+            format="html" scope="external"
+            >http://docs.oasis-open.org/dita/v1.2/os/spec/langref/ditaval-val.html</xref>).</p>
+        <fig id="fig_w4p_rxj_zl">
+          <title>DITAVAL with conditions for groups</title>
+          <codeblock>&lt;val>
+   &lt;prop action="exclude" att="product" val="appserver"/>
+   &lt;prop action="include" att="product" val="mySERVER"/>
+   &lt;prop action="include" att="database" val="dbFIRST"/>
+   &lt;prop action="include" att="database" val="dbSECOND"/>
+   &lt;prop action="exclude" att="database" val="newDB"/>
+&lt;/val></codeblock>
+          <p>Assume that "database" and "appserver" are used as group names within the product
+            attribute. In that case, the sample DITAVAL above performs the following actions:<ul>
+              <li>The first prop element excludes the value "appserver" when used within the product
+                attribute. It also sets a default of "exclude" for values within any appserver()
+                group inside of the product attribute.</li>
+              <li>The second prop element sets "mySERVER" to include; this applies whether mySERVER
+                appears alone in the product attribute (<codeph>product="mySERVER"</codeph>) or
+                inside of any group (<codeph>product="appserver(mySERVER)"</codeph> or
+                  <codeph>product="otherGroup(mySERVER)"</codeph>).</li>
+              <li>The third and fourth prop elements set the database values "dbFIRST" and
+                "dbSECOND" to include. If those values appear inside of a "database" group, they are
+                explicitly set to "include". If they appear elsewhere in a conditional attribute
+                (such as <codeph>product="dbFIRST"</codeph> or
+                <codeph>platform="dbSECOND"</codeph>), this rule does not apply.</li>
+              <li>The final prop element sets the database value "newDB" to exclude. If that value
+                appears inside of a database group, it is explicitly set to "exclude". If it appears
+                in any other group or attribute, this rule does not apply.</li>
+            </ul></p>
+          <p>Remember that with groups, if all values inside of a single group evaluate to
+            "exclude", that is equivalent to an entire attribute evaluating to "exclude", which
+            results in the removal of the content. Using this sample DITAVAL:<ul>
+              <li><codeph>&lt;p product="appserver"></codeph> is filtered out, because this value is
+                excluded.</li>
+              <li><codeph>&lt;p product="appserver(A B)"></codeph> is filtered out, because there is
+                no explicit rule for A or B, and values in the "appserver" group inside of @product
+                default to exclude.</li>
+              <li><codeph>&lt;p product="appserver(A B mySERVER)"></codeph> is included, because
+                product="mySERVER" evaluates to "include", which means the entire group evaluates to
+                "include".</li>
+              <li><codeph>&lt;p product="newDB"></codeph> is included, because no rule in the
+                DITAVAL applies, so the "newDB" token defaults to "include".</li>
+              <li><codeph>&lt;p product="database(newDB)"></codeph> is filtered out, because the
+                token "newDB" is excluded when found in the database group.</li>
+              <li><codeph>&lt;p product="database(dbFIRST dbSECOND newDB)"></codeph> is included,
+                because both "dbFIRST" and "dbSECOND" are included, so the group evaluates to
+                include.</li>
+              <li><codeph>&lt;p product="database(newDB) appserver(mySERVER)"></codeph> is filtered
+                out, because the token "newDB" is excluded when found in the database group. The
+                entire "database" group on this paragraph evaluates to "exclude", so the element is
+                excluded, regardless of how the "appserver" group evaluates.</li>
+            </ul></p>
+        </fig>
+      </section>
+    </body>
+  </topic>
+  <concept id="conrefcondproc" conref="condproc.dita#condproc">
+  <title/>
+  </concept>
+</dita>

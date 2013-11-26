@@ -77,14 +77,6 @@
   </define>
     
   <!-- Include modules -->
-  <include href="../../base/rng/topicMod.rng">
-    <!-- Redefine the infotype entity to disallow nesting -->
-    <define name="topic-info-types">
-      <optional>
-        <ref name="no-topic-nesting.element"/>
-      </optional>
-    </define>
-  </include>
   <include href="learningBaseMod.rng"/>
   <include href="../../technicalContent/rng/taskMod.rng">
     <!-- Redefine the infotype entity to disallow nesting -->
