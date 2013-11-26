@@ -26,6 +26,10 @@
     <value>(topic learningBase learningOverview)</value>
   </define>
   
+  <define name="learningOverview-info-types">
+    <ref name="info-types"/>
+  </define>
+    
   <!-- Define patterns -->
   <define name="learningOverview">
     <ref name="learningOverview.element"/>

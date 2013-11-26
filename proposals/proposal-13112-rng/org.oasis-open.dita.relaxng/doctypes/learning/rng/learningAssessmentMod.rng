@@ -25,6 +25,11 @@
     <value>(topic learningBase+learningInteractionBase-d learningAssessment)</value>
   </define>
   
+  <define name="learningAssessment-info-types">
+    <ref name="info-types"/>
+  </define>
+  
+  
   <!-- Define patterns -->
   <define name="learningAssessment">
     <ref name="learningAssessment.element"/>
