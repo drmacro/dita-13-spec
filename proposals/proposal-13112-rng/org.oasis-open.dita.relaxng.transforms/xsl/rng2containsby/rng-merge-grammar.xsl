@@ -4,12 +4,12 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns:rnga="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:rng2ditadtd="http://dita.org/rng2ditadtd"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rnga relpath str ditaarch rngfunc"
+  xmlns:sch="http://purl.oclc.org/dsdl/schematron" 
+  exclude-result-prefixes="xs xd rnga relpath str ditaarch rngfunc sch"
   version="2.0">
   
   <xsl:template match="rng:grammar" mode="merge-grammar" priority="10">
@@ -43,6 +43,11 @@
         <xsl:apply-templates select="/rng:grammar/rng:start" mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="merge-grammar" match="rng:div">
+    <!-- Remove all <rng:div> elements -->
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <xsl:template match="text()" mode="merge-grammar">

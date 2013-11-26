@@ -17624,19 +17624,6 @@ UPDATES:
                <attribute name="class" a:defaultValue="- map/topicmeta "/>
             </optional>
          </define>
-         <define name="linktext.attlist" combine="interleave">
-            <ref name="global-atts"/>
-            <optional>
-               <attribute name="class" a:defaultValue="- map/linktext "/>
-            </optional>
-         </define>
-         <define name="shortdesc.attlist" combine="interleave">
-            <a:documentation> Shortdesc in topic uses topic/shortdesc so this one must be included, even though the element is common. </a:documentation>
-            <ref name="global-atts"/>
-            <optional>
-               <attribute name="class" a:defaultValue="- map/shortdesc "/>
-            </optional>
-         </define>
       </div>
    </div>
    <div>

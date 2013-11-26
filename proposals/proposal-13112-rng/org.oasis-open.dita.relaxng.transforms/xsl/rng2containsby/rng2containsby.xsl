@@ -4,7 +4,6 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns:rnga="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:rng2ditadtd="http://dita.org/rng2ditadtd"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -24,9 +23,14 @@
   </xd:doc>
 
   <xsl:include href="../lib/relpath_util.xsl" />
+  <!--
+    <!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+    -->
   <xsl:output 
     method="xml"
     indent="yes"
+    doctype-public="-//OASIS//DTD DITA Composite//EN"
+    doctype-system="ditabase.dtd"
   />
 
   <xsl:param name="debug" as="xs:string" select="'false'"/>
@@ -35,9 +39,10 @@
 
   <xsl:strip-space elements="*"/>
   
-  <xsl:key name="definesByName" match="rng:define" use="@name" />
+  <xsl:key name="patternsByName" match="rng:define" use="@name" />
   <xsl:key name="attlistIndex" match="rng:element" use="rng:ref[ends-with(@name, '.attlist')]/@name" />
   
+  <xsl:include href="rng-utils.xsl"/>
   <xsl:include href="rng-merge-grammar.xsl"/>
   <xsl:include href="rng-make-alpha-nav-topics.xsl"/>
   <xsl:include href="rng-make-tables.xsl"/>

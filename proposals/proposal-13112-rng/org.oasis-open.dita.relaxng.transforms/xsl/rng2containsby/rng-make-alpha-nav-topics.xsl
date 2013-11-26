@@ -4,7 +4,6 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:rng="http://relaxng.org/ns/structure/1.0" 
   xmlns:rnga="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns:rng2ditadtd="http://dita.org/rng2ditadtd"
   xmlns:relpath="http://dita2indesign/functions/relpath" 
   xmlns:str="http://local/stringfunctions" 
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
