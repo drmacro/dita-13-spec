@@ -50,7 +50,7 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
       <define name="rng_grammar.content">
         <zeroOrMore>
           <choice>
-            <externalRef href="rngGrammar.rng"/>
+            <externalRef href="rngGrammarProxy.rng"/>
             <ref name="data"/>
             <ref name="data-about"/>
           </choice>
