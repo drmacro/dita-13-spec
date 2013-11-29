@@ -1567,37 +1567,63 @@ So, basically there is similar flexibility with how you can use multiple ATTLIST
       <conbody>
         <section>
           <title>Requirements for structural constraint modules</title>
-          <p>Constraint modules <term outputclass="OASIS-terminology">should</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname> is specific to the constraints
-            module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>tagname</varname> is the name of the element type to which the constraints apply, e.g. "topic", "p",
-            "myNewTopicType", etc.</p>
+          <p>Constraint modules <term outputclass="OASIS-terminology"
+              >should</term> be named
+              "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod",
+            where <varname>qualifier</varname> is specific to the
+            constraints module and characterizes it, e.g. "strict",
+            "requiredTitle", etc. and <varname>tagname</varname> is the
+            name of the element type to which the constraints apply,
+            e.g. "topic", "p", "myNewTopicType", etc.</p>
           <p>The constraint module's @domains contribution pattern <term
-            outputclass="OASIS-terminology">must</term> be of the form "(<varname>tagname</varname> <varname>qualifier</varname><varname>Tagname</varname>-c)", where <varname>tagname</varname> is the
-            name of the element type to which the constraints apply, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Tagname</varname> is the element type
-            name with an initial capital (e.g. "Topic"). The literal "-c" indicates that the name is the name of a constraints domain. For example:</p>
+              outputclass="OASIS-terminology">must</term> be of the form
+              "<?oxy_comment_start author="george" timestamp="20131129T154652+0200" comment="The pattern (tagname qualifierTagname-c) does not match the example (topic task strictTaskbody-c)"?>(<varname>tagname</varname>
+            <varname>qualifier</varname><varname>Tagname</varname>-c)",
+            where <varname>tagname</varname> is the name of the element
+            type to which the constraints apply,
+              <varname>qualifier</varname> is as for the module filename
+            (e.g., "strict"), and <varname>Tagname</varname> is the
+            element type name with an initial capital (e.g. "Topic").
+            The literal "-c" indicates that the name is the name of a
+            constraints domain. For example:</p>
           <codeblock>&lt;moduleDesc>
   ...
   &lt;moduleMetadata>
     ...   
-    &lt;domainsContribution>(topic task strictTaskbody-c)&lt;/domainsContribution>
+    &lt;domainsContribution>(topic task strictTaskbody-c)<?oxy_comment_end?>&lt;/domainsContribution>
   &lt;/moduleMetadata>
 &lt;/moduleDesc></codeblock>
         </section>
         <section>
           <title>Requirements for domain constraint modules</title>
-          <p>A domain constraint module defines the constraints for exactly one element or attribute domain module.</p>
+          <p>A domain constraint module defines the constraints for
+            exactly one element or attribute domain module.</p>
           <p>Domain constraint modules <term
-            outputclass="OASIS-terminology">should</term> be named "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod" with an extension of ".rng" or ".rnc", where
-            <varname>qualifier</varname> is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>domain</varname> is the name of the domain to
-            which the constraints apply, e.g. "hi-d", "pr-d", "mydomain-d", "deliveryTargetAtt-d", etc.</p>
+              outputclass="OASIS-terminology">should</term> be named
+              "<varname>qualifier</varname><varname>domain</varname>DomainConstraintsMod"
+            with an extension of ".rng" or ".rnc", where
+              <varname>qualifier</varname> is specific to the
+            constraints module and characterizes it, e.g. "strict",
+            "requiredTitle", etc. and <varname>domain</varname> is the
+            name of the domain to which the constraints apply, e.g.
+            "hi-d", "pr-d", "mydomain-d", "deliveryTargetAtt-d",
+            etc.</p>
           <p>The constraint module's @domains contribution pattern <term
-            outputclass="OASIS-terminology">must</term> be of the form "(<varname>domain</varname> <varname>qualifier</varname><varname>Domain</varname>-c)", where <varname>domain</varname> is the
-            name of the domain to which the constraints apply, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Domain</varname> is the domain name with an
-            initial capital (e.g. "Taskreq"). The literal "-c" indicates that the name is the name of a constraints domain. For example:</p>
+              outputclass="OASIS-terminology">must</term> be of the form
+              "<?oxy_comment_start author="george" timestamp="20131129T155048+0200" comment="Again, the pattern does not match the example value. Also note the -c suffix in the pattern and the -d suffix in the example."?>(<varname>domain</varname>
+            <varname>qualifier</varname><varname>Domain</varname>-c)",
+            where <varname>domain</varname> is the name of the domain to
+            which the constraints apply, <varname>qualifier</varname> is
+            as for the module filename (e.g., "strict"), and
+              <varname>Domain</varname> is the domain name with an
+            initial capital (e.g. "Taskreq"). The literal "-c" indicates
+            that the name is the name of a constraints domain. For
+            example:</p>
           <codeblock>&lt;moduleDesc>
   ...
   &lt;moduleMetadata>
     ...   
-    &lt;domainsContribution>(topic task taskreq-d)&lt;/domainsContribution>
+    &lt;domainsContribution>(topic task taskreq-d)<?oxy_comment_end?>&lt;/domainsContribution>
   &lt;/moduleMetadata>
 &lt;/moduleDesc></codeblock>
         </section>
@@ -1688,8 +1714,8 @@ Define the RELAX NG XML syntax as a DITA foreign vocabulary
         &lt;/optional>
       &lt;/define>
       &lt;define name="rng_grammar.element">
-        &lt;element name="rng_grammar" ditaarch:longName="Bold">
-          &lt;a:documentation>&lt;/a:documentation>
+        &lt;element name="rng_grammar" ditaarch:longName="<?oxy_insert_start author="george" timestamp="20131129T155655+0200"?>RNG Grammar Container<?oxy_insert_end?><?oxy_delete author="george" timestamp="20131129T155620+0200" content="Bold"?>">
+          &lt;a:documentation><?oxy_insert_start author="george" timestamp="20131129T155714+0200"?>A container element that contains Relac NG grammars.<?oxy_insert_end?>&lt;/a:documentation>
           &lt;ref name="rng_grammar.attlist"/>
           &lt;ref name="rng_grammar.content"/>
         &lt;/element>
