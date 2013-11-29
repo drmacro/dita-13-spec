@@ -960,7 +960,10 @@ This means you can have a conforming DITA topic (in no namespace) specialization
             </dd>
           </dlentry>
           <dlentry>
-            <dt>ID-defining-elements override</dt>
+            <dt><?oxy_comment_start author="george" timestamp="20131129T102509+0200" comment="I am not sure how much we should go into the exact details of the ID issues but here it is some feedback on this ---  
+The any pattern is used as content for foreign, unknown and required-cleanup elements. This pattern should accept anything, any element with any content without a real validation. Now, the problem with ID values is that being a DTD compatibility check they need to be consistent, in the sense that if an element/@attribute is matched by two patterns, the actual element/@attribute declaration and such an any wildcard then they shuld both agree on the ID type (ID, IDREF, IDREFS or none) for that attribute. Thus, because the generic any pattern says match any element with any attribute name, this will match attribute saying that the ID type is none, while a topic for example will say that it has an id attribute with the ID type equal ID, thus resulting the conflicting ID types for the topic element. The solution is to exclude the element from the wildcard and provide a definition that specifies the id attribute as ID, one simple way is to refer to the existing elemetn declaration like we do now.
+Now, I do not understand the title very well, &quot;ID-defining-elements override&quot; in this context that I described above, but it may be just me and my knowledge of English. What about &quot;Consistent ID usage&quot; where we can explain also the issue as I mentioned above, and in this way people may better understand what the actual problem is, why they are excluding the topic for example, not that they just need to follow some coding scheme?"?>ID-defining-elements
+              override<?oxy_comment_end?></dt>
             <dd>
               <p>In order to support patterns for elements that declare the @id attribute directly, rather than through the universal attributes or ID attributes patterns (pattern "univ-atts" or
                 pattern "id-atts"), the document type shell grammar must define a pattern named "any" that configures the attribute list pattern for those elements. This section <term
@@ -1113,16 +1116,24 @@ This means you can have a conforming DITA topic (in no namespace) specialization
               </dlentry>
               <dlentry>
                 <dt>Element type declarations</dt>
-                <dd>For each element type declared in the vocabulary module there <term
-                  outputclass="OASIS-terminology">must</term> be a set of patterns that define the content model and attributes for the element type. Each set of patterns <term
-                  outputclass="OASIS-terminology">should</term> be grouped within a &lt;div> element and should start with a descriptive comment of the
-                  form:<codeblock>&lt;div>
-  &lt;a:documentation>LONG NAME: <i>Long Name</i>&lt;/a:documentation>
+                <dd>For each element type declared in the vocabulary
+                    module there <term outputclass="OASIS-terminology"
+                      >must</term> be a set of patterns that define the
+                    content model and attributes for the element type.
+                    Each set of patterns <term
+                      outputclass="OASIS-terminology">should</term> be
+                    grouped within a &lt;div> element and should start
+                    with a descriptive comment of the
+                      form:<codeblock>&lt;div>
+  <?oxy_comment_start author="george" timestamp="20131129T145149+0200" comment="Shall we use specific annotations instead of a:documentation, for example: &lt;longname&gt;Long Name&lt;/longname&gt;"?>&lt;a:documentation>LONG NAME: <i>Long Name</i>&lt;/a:documentation><?oxy_comment_end?>
   ...
-&lt;/div></codeblock><p>Each element type <term
-                  outputclass="OASIS-terminology">must</term> have a content model pattern named <codeph><i>tagname</i>.content</codeph>. The value of the pattern must be the complete content model
-                  definition. For
-                  example:<codeblock>  &lt;define name="topichead.content">
+&lt;/div></codeblock><p>Each
+                      element type <term outputclass="OASIS-terminology"
+                        >must</term> have a content model pattern named
+                          <codeph><i>tagname</i>.content</codeph>. The
+                      value of the pattern must be the complete content
+                      model definition. For
+                      example:<codeblock>  &lt;define name="topichead.content">
     &lt;optional>
       &lt;ref name="topicmeta"/>
     &lt;/optional>
@@ -1135,11 +1146,21 @@ This means you can have a conforming DITA topic (in no namespace) specialization
       &lt;/choice>
     &lt;/zeroOrMore>
   &lt;/define></codeblock>The
-                  content model pattern <term outputclass="OASIS-terminology">may</term> be overridden in constraint modules to further constrain the content model for the element type.</p><p>Each element type <term
-                  outputclass="OASIS-terminology">must</term> have an attribute list pattern named <codeph><i>tagname</i>.attributes</codeph>. The pattern entity must declare all attributes used by
-                  the element type (except for the attributes provided by the <codeph>global-atts</codeph> pattern, which is always referenced as part of the attribute list declaration for an
-                  element's class attribute). For
-                  example:<codeblock>  &lt;define name="topichead.attributes">
+                      content model pattern <term
+                        outputclass="OASIS-terminology">may</term> be
+                      overridden in constraint modules to further
+                      constrain the content model for the element
+                      type.</p><p>Each element type <term
+                        outputclass="OASIS-terminology">must</term> have
+                      an attribute list pattern named
+                          <codeph><i>tagname</i>.attributes</codeph>.
+                      The pattern entity must declare all attributes
+                      used by the element type (except for the
+                      attributes provided by the
+                        <codeph>global-atts</codeph> pattern, which is
+                      always referenced as part of the attribute list
+                      declaration for an element's class attribute). For
+                      example:<codeblock>  &lt;define name="topichead.attributes">
     &lt;optional>
       &lt;attribute name="navtitle"/>
     &lt;/optional>
@@ -1155,16 +1176,37 @@ This means you can have a conforming DITA topic (in no namespace) specialization
     &lt;ref name="topicref-atts"/>
     &lt;ref name="univ-atts"/>
   &lt;/define></codeblock></p><p>The
-                  attribute list declaration <term
-                  outputclass="OASIS-terminology">may</term> be overridden in constraint modules to further constraint the attribute list for the element type.</p><p>Each element type <term
-                  outputclass="OASIS-terminology">must</term> have a pattern named <codeph><i>tagname</i>.element</codeph> containing an &lt;element> element whose @name value is the element type name
-                  and whose content is a reference to the <codeph><i>tagname</i>.attlist</codeph> and <codeph><i>tagname</i>.content</codeph> patterns. The &lt;element> element <term
-                  outputclass="OASIS-terminology">should</term> include a &lt;a:documentation> element containing a short description of the element type. The description should not include any
-                  unescaped XML markup. For grammars intended for use in generating DTD- and XSD-syntax modules, the &lt;element> element <term
-                  outputclass="OASIS-terminology">should</term> specify the attribute "longName" in the DITA architecture name ("http://dita.oasis-open.org/architecture/2005/", by convention bound to
-                  the prefix "ditaarch"). For
-                  example:<codeblock>  &lt;define name="topichead.element">
-    &lt;element name="topichead" ditarch:longName="Topic Head">
+                      attribute list declaration <term
+                        outputclass="OASIS-terminology">may</term> be
+                      overridden in constraint modules to further
+                      constraint the attribute list for the element
+                      type.</p><p>Each element type <term
+                        outputclass="OASIS-terminology">must</term> have
+                      a pattern named
+                        <codeph><i>tagname</i>.element</codeph>
+                      containing an &lt;element> element whose @name
+                      value is the element type name and whose content
+                      is a reference to the
+                        <codeph><i>tagname</i>.attlist</codeph> and
+                          <codeph><i>tagname</i>.content</codeph>
+                      patterns. The &lt;element> element <term
+                        outputclass="OASIS-terminology">should</term>
+                      include a &lt;a:documentation> element containing
+                      a short description of the element type. The
+                      description should not include any unescaped XML
+                      markup. For grammars intended for use in
+                      generating DTD- and XSD-syntax modules, the
+                      &lt;element> element <term
+                        outputclass="OASIS-terminology">should</term>
+                      specify the attribute "longName" in the DITA
+                      architecture name
+                      ("http://dita.oasis-open.org/architecture/2005/",
+                      by convention bound to the prefix "ditaarch"). For
+                      example:<codeblock>  &lt;define name="topichead.element">
+    &lt;element name="topichead" <?oxy_comment_start author="george" timestamp="20131129T150017+0200" comment="This relates to the previous comment where I suggested &lt;longname&gt;Long Name&lt;/longname&gt; instead of &lt;a:documentation&gt;LONG NAME: Long Name&lt;/a:documentation&gt;
+Using an attribute annotation like this we can better encode the long name of the element so I prefer this over  a:documentation with some convention inside. 
+Doesn&apos;t this overlap with the previous annotation that also specifies long name? 
+"?>ditarch:longName="Topic Head"<?oxy_comment_end?>>
       &lt;a:documentation>The &amp;lt;topichead> element provides a title-only entry in a navigation map,
         as an alternative to the fully-linked title provided by the &amp;lt;topicref> element. 
         Category: Mapgroup elements&lt;/a:documentation>
@@ -1172,15 +1214,18 @@ This means you can have a conforming DITA topic (in no namespace) specialization
       &lt;ref name="topichead.content"/>
     &lt;/element>
   &lt;/define></codeblock></p><p>Each
-                  element type must have a pattern named <codeph><i>tagname</i>.attlist</codeph> with a @combine value of "interleave" containing only a reference to the
-                  <codeph><i>tagname</i>.attributes</codeph> pattern. For
-                  example:<codeblock>  &lt;define name="topichead.attlist" combine="interleave">
+                      element type must have a pattern named
+                          <codeph><i>tagname</i>.attlist</codeph> with a
+                      @combine value of "interleave" containing only a
+                      reference to the
+                        <codeph><i>tagname</i>.attributes</codeph>
+                      pattern. For
+                      example:<codeblock>  &lt;define name="topichead.attlist" combine="interleave">
     &lt;ref name="topichead.attributes"/>
   &lt;/define></codeblock></p><note
-                  type="other"
-                  othertype="example">
-                  <p>
-                    <codeblock>&lt;div>
+                      type="other" othertype="example">
+                      <p>
+                        <codeblock>&lt;div>
   &lt;a:documentation>LONG NAME: Topic Head&lt;/a:documentation>
   &lt;define name="topichead.content">
     &lt;optional>
@@ -1224,8 +1269,8 @@ This means you can have a conforming DITA topic (in no namespace) specialization
     &lt;ref name="topichead.attributes"/>
   &lt;/define>
 &lt;/div></codeblock>
-                  </p>
-                  </note></dd>
+                      </p>
+                    </note></dd>
               </dlentry>
               <dlentry>
                 <dt>Specialization attribute declarations</dt>
@@ -1246,14 +1291,34 @@ This means you can have a conforming DITA topic (in no namespace) specialization
                   <p>The attribute default value is declared using the @defaultValue attribute from the RELAX NG DTD compatibility namespace "http://relaxng.org/ns/compatibility/annotations/1.0" (by
                     convention bound to the prefix "a").</p>
                   <p>For
-                    example:<codeblock>  &lt;define name="anchorref.attlist" combine="interleave">
+                      example:<codeblock>  <?oxy_comment_start author="george" timestamp="20131129T150758+0200" comment="We may merge this with the other definition of the element.attlist pattern if you want so everything stays within the same div that declares the element.
+In Relax NG
+&lt;define name=&quot;x&quot; combine=&quot;interleave&quot;&gt;
+  pattern1
+&lt;/define&gt;
+
+&lt;define name=&quot;x&quot; combine=&quot;interleave&quot;&gt;
+  pattern2
+&lt;/define&gt;
+
+is equivalent to
+
+&lt;define name=&quot;x&quot;&gt;
+  &lt;interleave&gt;
+     pattern1
+     pattern2
+   &lt;/interleave&gt;
+&lt;/define&gt;
+
+and similar for combine=&quot;choice&quot;.
+So, basically there is similar flexibility with how you can use multiple ATTLIST in DTDs to add attributes to an element from multiple places in the DTD."?>&lt;define name="anchorref.attlist" combine="interleave">
     &lt;ref name="global-atts"/>
     &lt;optional>
       &lt;attribute name="class" 
         a:defaultValue="+ map/topicref mapgroup-d/anchorref "
       />
     &lt;/optional>
-  &lt;/define></codeblock></p>
+  &lt;/define><?oxy_comment_end?></codeblock></p>
                   <p>The @class attribute declarations for a module <term outputclass="OASIS-terminology">must</term> be grouped together at the end of the module after any other declarations. The declarations may occur in any
                     order. By convention they are often ordered alphabetically or grouped logically.</p>
                   <p>See <xref
