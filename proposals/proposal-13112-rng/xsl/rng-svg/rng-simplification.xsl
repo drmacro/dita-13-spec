@@ -273,7 +273,7 @@ exclude-result-prefixes = "xs rng">
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
   <xsl:message> + [DEBUG]] rng:include: uriRef = "<xsl:sequence select="$uriRef"/>"</xsl:message>
   <xsl:message> + [DEBUG]] rng:include: baseUri(root(.)) = "<xsl:sequence select="base-uri(root(.))"/>"</xsl:message>
-  <xsl:variable name="doc" select="document($uriRef, .)" as="document-node()"/>
+  <xsl:variable name="doc" select="document($uriRef, .)" as="document-node()?"/>
 	<xsl:variable name="ref-rtf">
 		<xsl:apply-templates select="$doc">
 			<xsl:with-param name="out" select="0"/>
