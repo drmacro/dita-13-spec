@@ -1,0 +1,1491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--4.2-->
+<!--4.3-->
+<!--4.4-->
+<!--4.5-->
+<!--4.6-->
+<!--4.7-->
+<!--4.8-->
+<!--4.9-->
+<!--4.10. QNames-->
+<!--4.11. div element-->
+<!--4.12. Number of child elements-->
+<!--4.13. mixed element-->
+<!--4.14. optional element-->
+<!--4.15. zeroOrMore element-->
+<!--4.17. combine attribute-->
+<!--4.18. grammar element-->
+<!--4.19. define and ref elements-->
+<!--4.21. empty element-->
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+   <start xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+      <ref name="map.element-"/>
+   </start>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="topichead.element-d256e77">
+      <element>
+         <name ns="">topichead</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">navtitle</name>
+                                    <text/>
+                                 </attribute>
+                              </choice>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">outputclass</name>
+                                    <text/>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <choice>
+                              <empty/>
+                              <attribute>
+                                 <name ns="">keys</name>
+                                 <text/>
+                              </attribute>
+                           </choice>
+                        </group>
+                        <choice>
+                           <empty/>
+                           <attribute>
+                              <name ns="">copy-to</name>
+                              <text/>
+                           </attribute>
+                        </choice>
+                     </group>
+                     <ref name="topicref-atts-"/>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <choice>
+                           <choice>
+                              <ref name="anchor-"/>
+                              <ref name="data.elements.incl-"/>
+                           </choice>
+                           <ref name="navref-"/>
+                        </choice>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="topicgroup.element-d256e122">
+      <element>
+         <name ns="">topicgroup</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <choice>
+                        <empty/>
+                        <attribute>
+                           <name ns="">outputclass</name>
+                           <text/>
+                        </attribute>
+                     </choice>
+                     <ref name="topicref-atts-"/>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <choice>
+                           <choice>
+                              <ref name="anchor-"/>
+                              <ref name="data.elements.incl-"/>
+                           </choice>
+                           <ref name="navref-"/>
+                        </choice>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="anchorref.element-d256e353">
+      <element>
+         <name ns="">anchorref</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <group>
+                                 <group>
+                                    <group>
+                                       <group>
+                                          <group>
+                                             <group>
+                                                <group>
+                                                   <group>
+                                                      <group>
+                                                         <group>
+                                                            <group>
+                                                               <group>
+                                                                  <group>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">navtitle</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">href</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                  </group>
+                                                                  <choice>
+                                                                     <empty/>
+                                                                     <attribute>
+                                                                        <name ns="">keyref</name>
+                                                                        <text/>
+                                                                     </attribute>
+                                                                  </choice>
+                                                               </group>
+                                                               <choice>
+                                                                  <empty/>
+                                                                  <attribute>
+                                                                     <name ns="">keys</name>
+                                                                     <text/>
+                                                                  </attribute>
+                                                               </choice>
+                                                            </group>
+                                                            <choice>
+                                                               <empty/>
+                                                               <attribute>
+                                                                  <name ns="">query</name>
+                                                                  <text/>
+                                                               </attribute>
+                                                            </choice>
+                                                         </group>
+                                                         <choice>
+                                                            <empty/>
+                                                            <attribute>
+                                                               <name ns="">copy-to</name>
+                                                               <text/>
+                                                            </attribute>
+                                                         </choice>
+                                                      </group>
+                                                      <choice>
+                                                         <empty/>
+                                                         <attribute>
+                                                            <name ns="">outputclass</name>
+                                                            <text/>
+                                                         </attribute>
+                                                      </choice>
+                                                   </group>
+                                                   <choice>
+                                                      <empty/>
+                                                      <attribute>
+                                                         <name ns="">collection-type</name>
+                                                         <choice>
+                                                            <choice>
+                                                               <choice>
+                                                                  <choice>
+                                                                     <value ns="" type="token" datatypeLibrary="">choice</value>
+                                                                     <value ns="" type="token" datatypeLibrary="">family</value>
+                                                                  </choice>
+                                                                  <value ns="" type="token" datatypeLibrary="">sequence</value>
+                                                               </choice>
+                                                               <value ns="" type="token" datatypeLibrary="">unordered</value>
+                                                            </choice>
+                                                            <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                         </choice>
+                                                      </attribute>
+                                                   </choice>
+                                                </group>
+                                                <choice>
+                                                   <empty/>
+                                                   <attribute>
+                                                      <name ns="">processing-role</name>
+                                                      <choice>
+                                                         <choice>
+                                                            <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                            <value ns="" type="token" datatypeLibrary="">resource-only</value>
+                                                         </choice>
+                                                         <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                      </choice>
+                                                   </attribute>
+                                                </choice>
+                                             </group>
+                                             <choice>
+                                                <empty/>
+                                                <attribute>
+                                                   <name ns="">type</name>
+                                                   <text/>
+                                                </attribute>
+                                             </choice>
+                                          </group>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">scope</name>
+                                                <choice>
+                                                   <choice>
+                                                      <choice>
+                                                         <value ns="" type="token" datatypeLibrary="">external</value>
+                                                         <value ns="" type="token" datatypeLibrary="">local</value>
+                                                      </choice>
+                                                      <value ns="" type="token" datatypeLibrary="">peer</value>
+                                                   </choice>
+                                                   <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                </choice>
+                                             </attribute>
+                                          </choice>
+                                       </group>
+                                       <choice>
+                                          <empty/>
+                                          <attribute>
+                                             <name ns="">locktitle</name>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">no</value>
+                                                   <value ns="" type="token" datatypeLibrary="">yes</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                             </choice>
+                                          </attribute>
+                                       </choice>
+                                    </group>
+                                    <choice>
+                                       <empty/>
+                                       <attribute>
+                                          <name ns="">format</name>
+                                          <text/>
+                                       </attribute>
+                                    </choice>
+                                 </group>
+                                 <choice>
+                                    <empty/>
+                                    <attribute>
+                                       <name ns="">linking</name>
+                                       <choice>
+                                          <choice>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">none</value>
+                                                   <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">sourceonly</value>
+                                             </choice>
+                                             <value ns="" type="token" datatypeLibrary="">targetonly</value>
+                                          </choice>
+                                          <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                       </choice>
+                                    </attribute>
+                                 </choice>
+                              </group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">toc</name>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">yes</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                    </choice>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <choice>
+                              <empty/>
+                              <attribute>
+                                 <name ns="">print</name>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">printonly</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">yes</value>
+                                    </choice>
+                                    <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                 </choice>
+                              </attribute>
+                           </choice>
+                        </group>
+                        <choice>
+                           <empty/>
+                           <attribute>
+                              <name ns="">search</name>
+                              <choice>
+                                 <choice>
+                                    <value ns="" type="token" datatypeLibrary="">no</value>
+                                    <value ns="" type="token" datatypeLibrary="">yes</value>
+                                 </choice>
+                                 <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                              </choice>
+                           </attribute>
+                        </choice>
+                     </group>
+                     <choice>
+                        <empty/>
+                        <attribute>
+                           <name ns="">chunk</name>
+                           <text/>
+                        </attribute>
+                     </choice>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <ref name="data.elements.incl-"/>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="mapref.element-d256e440">
+      <element>
+         <name ns="">mapref</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <group>
+                                 <group>
+                                    <group>
+                                       <group>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">navtitle</name>
+                                                <text/>
+                                             </attribute>
+                                          </choice>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">href</name>
+                                                <text/>
+                                             </attribute>
+                                          </choice>
+                                       </group>
+                                       <choice>
+                                          <empty/>
+                                          <attribute>
+                                             <name ns="">keyref</name>
+                                             <text/>
+                                          </attribute>
+                                       </choice>
+                                    </group>
+                                    <choice>
+                                       <empty/>
+                                       <attribute>
+                                          <name ns="">keys</name>
+                                          <text/>
+                                       </attribute>
+                                    </choice>
+                                 </group>
+                                 <choice>
+                                    <empty/>
+                                    <attribute>
+                                       <name ns="">query</name>
+                                       <text/>
+                                    </attribute>
+                                 </choice>
+                              </group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">copy-to</name>
+                                    <text/>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <choice>
+                              <empty/>
+                              <attribute>
+                                 <name ns="">outputclass</name>
+                                 <text/>
+                              </attribute>
+                           </choice>
+                        </group>
+                        <choice>
+                           <empty/>
+                           <attribute>
+                              <name ns="">format</name>
+                              <text/>
+                           </attribute>
+                        </choice>
+                     </group>
+                     <ref name="topicref-atts-without-format-"/>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <ref name="data.elements.incl-"/>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="topicset.element-d256e685">
+      <element>
+         <name ns="">topicset</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <group>
+                                 <group>
+                                    <group>
+                                       <group>
+                                          <group>
+                                             <group>
+                                                <group>
+                                                   <group>
+                                                      <group>
+                                                         <group>
+                                                            <group>
+                                                               <group>
+                                                                  <group>
+                                                                     <group>
+                                                                        <group>
+                                                                           <group>
+                                                                              <choice>
+                                                                                 <empty/>
+                                                                                 <attribute>
+                                                                                    <name ns="">navtitle</name>
+                                                                                    <text/>
+                                                                                 </attribute>
+                                                                              </choice>
+                                                                              <choice>
+                                                                                 <empty/>
+                                                                                 <attribute>
+                                                                                    <name ns="">href</name>
+                                                                                    <text/>
+                                                                                 </attribute>
+                                                                              </choice>
+                                                                           </group>
+                                                                           <choice>
+                                                                              <empty/>
+                                                                              <attribute>
+                                                                                 <name ns="">keyref</name>
+                                                                                 <text/>
+                                                                              </attribute>
+                                                                           </choice>
+                                                                        </group>
+                                                                        <choice>
+                                                                           <empty/>
+                                                                           <attribute>
+                                                                              <name ns="">keys</name>
+                                                                              <text/>
+                                                                           </attribute>
+                                                                        </choice>
+                                                                     </group>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">query</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                  </group>
+                                                                  <choice>
+                                                                     <empty/>
+                                                                     <attribute>
+                                                                        <name ns="">copy-to</name>
+                                                                        <text/>
+                                                                     </attribute>
+                                                                  </choice>
+                                                               </group>
+                                                               <choice>
+                                                                  <empty/>
+                                                                  <attribute>
+                                                                     <name ns="">outputclass</name>
+                                                                     <text/>
+                                                                  </attribute>
+                                                               </choice>
+                                                            </group>
+                                                            <choice>
+                                                               <empty/>
+                                                               <attribute>
+                                                                  <name ns="">collection-type</name>
+                                                                  <choice>
+                                                                     <choice>
+                                                                        <choice>
+                                                                           <choice>
+                                                                              <value ns="" type="token" datatypeLibrary="">choice</value>
+                                                                              <value ns="" type="token" datatypeLibrary="">family</value>
+                                                                           </choice>
+                                                                           <value ns="" type="token" datatypeLibrary="">sequence</value>
+                                                                        </choice>
+                                                                        <value ns="" type="token" datatypeLibrary="">unordered</value>
+                                                                     </choice>
+                                                                     <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                                  </choice>
+                                                               </attribute>
+                                                            </choice>
+                                                         </group>
+                                                         <choice>
+                                                            <empty/>
+                                                            <attribute>
+                                                               <name ns="">processing-role</name>
+                                                               <choice>
+                                                                  <choice>
+                                                                     <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                                     <value ns="" type="token" datatypeLibrary="">resource-only</value>
+                                                                  </choice>
+                                                                  <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                               </choice>
+                                                            </attribute>
+                                                         </choice>
+                                                      </group>
+                                                      <choice>
+                                                         <empty/>
+                                                         <attribute>
+                                                            <name ns="">type</name>
+                                                            <text/>
+                                                         </attribute>
+                                                      </choice>
+                                                   </group>
+                                                   <choice>
+                                                      <empty/>
+                                                      <attribute>
+                                                         <name ns="">scope</name>
+                                                         <choice>
+                                                            <choice>
+                                                               <choice>
+                                                                  <value ns="" type="token" datatypeLibrary="">external</value>
+                                                                  <value ns="" type="token" datatypeLibrary="">local</value>
+                                                               </choice>
+                                                               <value ns="" type="token" datatypeLibrary="">peer</value>
+                                                            </choice>
+                                                            <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                         </choice>
+                                                      </attribute>
+                                                   </choice>
+                                                </group>
+                                                <choice>
+                                                   <empty/>
+                                                   <attribute>
+                                                      <name ns="">locktitle</name>
+                                                      <choice>
+                                                         <choice>
+                                                            <value ns="" type="token" datatypeLibrary="">no</value>
+                                                            <value ns="" type="token" datatypeLibrary="">yes</value>
+                                                         </choice>
+                                                         <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                      </choice>
+                                                   </attribute>
+                                                </choice>
+                                             </group>
+                                             <choice>
+                                                <empty/>
+                                                <attribute>
+                                                   <name ns="">format</name>
+                                                   <text/>
+                                                </attribute>
+                                             </choice>
+                                          </group>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">linking</name>
+                                                <choice>
+                                                   <choice>
+                                                      <choice>
+                                                         <choice>
+                                                            <value ns="" type="token" datatypeLibrary="">none</value>
+                                                            <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                         </choice>
+                                                         <value ns="" type="token" datatypeLibrary="">sourceonly</value>
+                                                      </choice>
+                                                      <value ns="" type="token" datatypeLibrary="">targetonly</value>
+                                                   </choice>
+                                                   <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                </choice>
+                                             </attribute>
+                                          </choice>
+                                       </group>
+                                       <choice>
+                                          <empty/>
+                                          <attribute>
+                                             <name ns="">toc</name>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">no</value>
+                                                   <value ns="" type="token" datatypeLibrary="">yes</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                             </choice>
+                                          </attribute>
+                                       </choice>
+                                    </group>
+                                    <choice>
+                                       <empty/>
+                                       <attribute>
+                                          <name ns="">print</name>
+                                          <choice>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">no</value>
+                                                   <value ns="" type="token" datatypeLibrary="">printonly</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">yes</value>
+                                             </choice>
+                                             <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                          </choice>
+                                       </attribute>
+                                    </choice>
+                                 </group>
+                                 <choice>
+                                    <empty/>
+                                    <attribute>
+                                       <name ns="">search</name>
+                                       <choice>
+                                          <choice>
+                                             <value ns="" type="token" datatypeLibrary="">no</value>
+                                             <value ns="" type="token" datatypeLibrary="">yes</value>
+                                          </choice>
+                                          <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                       </choice>
+                                    </attribute>
+                                 </choice>
+                              </group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">chunk</name>
+                                    <text/>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <attribute>
+                              <name ns="">id</name>
+                              <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="NMTOKEN"/>
+                           </attribute>
+                        </group>
+                        <ref name="conref-atts-"/>
+                     </group>
+                     <ref name="select-atts-"/>
+                  </group>
+                  <ref name="localization-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <choice>
+                           <choice>
+                              <ref name="anchor-"/>
+                              <ref name="data.elements.incl-"/>
+                           </choice>
+                           <ref name="navref-"/>
+                        </choice>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="topicsetref.element-d256e916">
+      <element>
+         <name ns="">topicsetref</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <group>
+                                 <group>
+                                    <group>
+                                       <group>
+                                          <group>
+                                             <group>
+                                                <group>
+                                                   <group>
+                                                      <group>
+                                                         <group>
+                                                            <group>
+                                                               <group>
+                                                                  <group>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">navtitle</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">href</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                  </group>
+                                                                  <choice>
+                                                                     <empty/>
+                                                                     <attribute>
+                                                                        <name ns="">keyref</name>
+                                                                        <text/>
+                                                                     </attribute>
+                                                                  </choice>
+                                                               </group>
+                                                               <choice>
+                                                                  <empty/>
+                                                                  <attribute>
+                                                                     <name ns="">keys</name>
+                                                                     <text/>
+                                                                  </attribute>
+                                                               </choice>
+                                                            </group>
+                                                            <choice>
+                                                               <empty/>
+                                                               <attribute>
+                                                                  <name ns="">query</name>
+                                                                  <text/>
+                                                               </attribute>
+                                                            </choice>
+                                                         </group>
+                                                         <choice>
+                                                            <empty/>
+                                                            <attribute>
+                                                               <name ns="">copy-to</name>
+                                                               <text/>
+                                                            </attribute>
+                                                         </choice>
+                                                      </group>
+                                                      <choice>
+                                                         <empty/>
+                                                         <attribute>
+                                                            <name ns="">outputclass</name>
+                                                            <text/>
+                                                         </attribute>
+                                                      </choice>
+                                                   </group>
+                                                   <choice>
+                                                      <empty/>
+                                                      <attribute>
+                                                         <name ns="">collection-type</name>
+                                                         <choice>
+                                                            <choice>
+                                                               <choice>
+                                                                  <choice>
+                                                                     <value ns="" type="token" datatypeLibrary="">choice</value>
+                                                                     <value ns="" type="token" datatypeLibrary="">family</value>
+                                                                  </choice>
+                                                                  <value ns="" type="token" datatypeLibrary="">sequence</value>
+                                                               </choice>
+                                                               <value ns="" type="token" datatypeLibrary="">unordered</value>
+                                                            </choice>
+                                                            <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                         </choice>
+                                                      </attribute>
+                                                   </choice>
+                                                </group>
+                                                <choice>
+                                                   <empty/>
+                                                   <attribute>
+                                                      <name ns="">processing-role</name>
+                                                      <choice>
+                                                         <choice>
+                                                            <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                            <value ns="" type="token" datatypeLibrary="">resource-only</value>
+                                                         </choice>
+                                                         <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                      </choice>
+                                                   </attribute>
+                                                </choice>
+                                             </group>
+                                             <choice>
+                                                <empty/>
+                                                <attribute>
+                                                   <name ns="">type</name>
+                                                   <text/>
+                                                </attribute>
+                                             </choice>
+                                          </group>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">scope</name>
+                                                <choice>
+                                                   <choice>
+                                                      <choice>
+                                                         <value ns="" type="token" datatypeLibrary="">external</value>
+                                                         <value ns="" type="token" datatypeLibrary="">local</value>
+                                                      </choice>
+                                                      <value ns="" type="token" datatypeLibrary="">peer</value>
+                                                   </choice>
+                                                   <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                </choice>
+                                             </attribute>
+                                          </choice>
+                                       </group>
+                                       <choice>
+                                          <empty/>
+                                          <attribute>
+                                             <name ns="">locktitle</name>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">no</value>
+                                                   <value ns="" type="token" datatypeLibrary="">yes</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                             </choice>
+                                          </attribute>
+                                       </choice>
+                                    </group>
+                                    <choice>
+                                       <empty/>
+                                       <attribute>
+                                          <name ns="">format</name>
+                                          <text/>
+                                       </attribute>
+                                    </choice>
+                                 </group>
+                                 <choice>
+                                    <empty/>
+                                    <attribute>
+                                       <name ns="">linking</name>
+                                       <choice>
+                                          <choice>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">none</value>
+                                                   <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">sourceonly</value>
+                                             </choice>
+                                             <value ns="" type="token" datatypeLibrary="">targetonly</value>
+                                          </choice>
+                                          <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                       </choice>
+                                    </attribute>
+                                 </choice>
+                              </group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">toc</name>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">yes</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                    </choice>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <choice>
+                              <empty/>
+                              <attribute>
+                                 <name ns="">print</name>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">printonly</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">yes</value>
+                                    </choice>
+                                    <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                 </choice>
+                              </attribute>
+                           </choice>
+                        </group>
+                        <choice>
+                           <empty/>
+                           <attribute>
+                              <name ns="">search</name>
+                              <choice>
+                                 <choice>
+                                    <value ns="" type="token" datatypeLibrary="">no</value>
+                                    <value ns="" type="token" datatypeLibrary="">yes</value>
+                                 </choice>
+                                 <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                              </choice>
+                           </attribute>
+                        </choice>
+                     </group>
+                     <choice>
+                        <empty/>
+                        <attribute>
+                           <name ns="">chunk</name>
+                           <text/>
+                        </attribute>
+                     </choice>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <ref name="data.elements.incl-"/>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+           name="keydef.element-d256e1149">
+      <element>
+         <name ns="">keydef</name>
+         <group>
+            <interleave>
+               <group>
+                  <group>
+                     <group>
+                        <group>
+                           <group>
+                              <group>
+                                 <group>
+                                    <group>
+                                       <group>
+                                          <group>
+                                             <group>
+                                                <group>
+                                                   <group>
+                                                      <group>
+                                                         <group>
+                                                            <group>
+                                                               <group>
+                                                                  <group>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">navtitle</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                     <choice>
+                                                                        <empty/>
+                                                                        <attribute>
+                                                                           <name ns="">href</name>
+                                                                           <text/>
+                                                                        </attribute>
+                                                                     </choice>
+                                                                  </group>
+                                                                  <choice>
+                                                                     <empty/>
+                                                                     <attribute>
+                                                                        <name ns="">keyref</name>
+                                                                        <text/>
+                                                                     </attribute>
+                                                                  </choice>
+                                                               </group>
+                                                               <attribute>
+                                                                  <name ns="">keys</name>
+                                                                  <text/>
+                                                               </attribute>
+                                                            </group>
+                                                            <choice>
+                                                               <empty/>
+                                                               <attribute>
+                                                                  <name ns="">query</name>
+                                                                  <text/>
+                                                               </attribute>
+                                                            </choice>
+                                                         </group>
+                                                         <choice>
+                                                            <empty/>
+                                                            <attribute>
+                                                               <name ns="">copy-to</name>
+                                                               <text/>
+                                                            </attribute>
+                                                         </choice>
+                                                      </group>
+                                                      <choice>
+                                                         <empty/>
+                                                         <attribute>
+                                                            <name ns="">outputclass</name>
+                                                            <text/>
+                                                         </attribute>
+                                                      </choice>
+                                                   </group>
+                                                   <choice>
+                                                      <empty/>
+                                                      <attribute>
+                                                         <name ns="">collection-type</name>
+                                                         <choice>
+                                                            <choice>
+                                                               <choice>
+                                                                  <choice>
+                                                                     <value ns="" type="token" datatypeLibrary="">choice</value>
+                                                                     <value ns="" type="token" datatypeLibrary="">family</value>
+                                                                  </choice>
+                                                                  <value ns="" type="token" datatypeLibrary="">sequence</value>
+                                                               </choice>
+                                                               <value ns="" type="token" datatypeLibrary="">unordered</value>
+                                                            </choice>
+                                                            <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                         </choice>
+                                                      </attribute>
+                                                   </choice>
+                                                </group>
+                                                <choice>
+                                                   <empty/>
+                                                   <attribute>
+                                                      <name ns="">processing-role</name>
+                                                      <choice>
+                                                         <choice>
+                                                            <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                            <value ns="" type="token" datatypeLibrary="">resource-only</value>
+                                                         </choice>
+                                                         <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                      </choice>
+                                                   </attribute>
+                                                </choice>
+                                             </group>
+                                             <choice>
+                                                <empty/>
+                                                <attribute>
+                                                   <name ns="">type</name>
+                                                   <text/>
+                                                </attribute>
+                                             </choice>
+                                          </group>
+                                          <choice>
+                                             <empty/>
+                                             <attribute>
+                                                <name ns="">scope</name>
+                                                <choice>
+                                                   <choice>
+                                                      <choice>
+                                                         <value ns="" type="token" datatypeLibrary="">external</value>
+                                                         <value ns="" type="token" datatypeLibrary="">local</value>
+                                                      </choice>
+                                                      <value ns="" type="token" datatypeLibrary="">peer</value>
+                                                   </choice>
+                                                   <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                                </choice>
+                                             </attribute>
+                                          </choice>
+                                       </group>
+                                       <choice>
+                                          <empty/>
+                                          <attribute>
+                                             <name ns="">locktitle</name>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">no</value>
+                                                   <value ns="" type="token" datatypeLibrary="">yes</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                             </choice>
+                                          </attribute>
+                                       </choice>
+                                    </group>
+                                    <choice>
+                                       <empty/>
+                                       <attribute>
+                                          <name ns="">format</name>
+                                          <text/>
+                                       </attribute>
+                                    </choice>
+                                 </group>
+                                 <choice>
+                                    <empty/>
+                                    <attribute>
+                                       <name ns="">linking</name>
+                                       <choice>
+                                          <choice>
+                                             <choice>
+                                                <choice>
+                                                   <value ns="" type="token" datatypeLibrary="">none</value>
+                                                   <value ns="" type="token" datatypeLibrary="">normal</value>
+                                                </choice>
+                                                <value ns="" type="token" datatypeLibrary="">sourceonly</value>
+                                             </choice>
+                                             <value ns="" type="token" datatypeLibrary="">targetonly</value>
+                                          </choice>
+                                          <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                       </choice>
+                                    </attribute>
+                                 </choice>
+                              </group>
+                              <choice>
+                                 <empty/>
+                                 <attribute>
+                                    <name ns="">toc</name>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">yes</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                    </choice>
+                                 </attribute>
+                              </choice>
+                           </group>
+                           <choice>
+                              <empty/>
+                              <attribute>
+                                 <name ns="">print</name>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <value ns="" type="token" datatypeLibrary="">no</value>
+                                          <value ns="" type="token" datatypeLibrary="">printonly</value>
+                                       </choice>
+                                       <value ns="" type="token" datatypeLibrary="">yes</value>
+                                    </choice>
+                                    <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                                 </choice>
+                              </attribute>
+                           </choice>
+                        </group>
+                        <choice>
+                           <empty/>
+                           <attribute>
+                              <name ns="">search</name>
+                              <choice>
+                                 <choice>
+                                    <value ns="" type="token" datatypeLibrary="">no</value>
+                                    <value ns="" type="token" datatypeLibrary="">yes</value>
+                                 </choice>
+                                 <value ns="" type="token" datatypeLibrary="">-dita-use-conref-target</value>
+                              </choice>
+                           </attribute>
+                        </choice>
+                     </group>
+                     <choice>
+                        <empty/>
+                        <attribute>
+                           <name ns="">chunk</name>
+                           <text/>
+                        </attribute>
+                     </choice>
+                  </group>
+                  <ref name="univ-atts-"/>
+               </group>
+               <group>
+                  <ref name="global-atts-"/>
+                  <choice>
+                     <empty/>
+                     <attribute>
+                        <name ns="">class</name>
+                        <text/>
+                     </attribute>
+                  </choice>
+               </group>
+            </interleave>
+            <group>
+               <choice>
+                  <empty/>
+                  <ref name="topicmeta-"/>
+               </choice>
+               <choice>
+                  <empty/>
+                  <oneOrMore>
+                     <choice>
+                        <choice>
+                           <choice>
+                              <ref name="anchor-"/>
+                              <ref name="data.elements.incl-"/>
+                           </choice>
+                           <ref name="navref-"/>
+                        </choice>
+                        <choice>
+                           <choice>
+                              <choice>
+                                 <choice>
+                                    <choice>
+                                       <choice>
+                                          <ref name="anchorref.element-d256e353"/>
+                                          <ref name="keydef.element-d256e1149"/>
+                                       </choice>
+                                       <ref name="mapref.element-d256e440"/>
+                                    </choice>
+                                    <ref name="topicgroup.element-d256e122"/>
+                                 </choice>
+                                 <ref name="topichead.element-d256e77"/>
+                              </choice>
+                              <ref name="topicset.element-d256e685"/>
+                           </choice>
+                           <ref name="topicsetref.element-d256e916"/>
+                        </choice>
+                     </choice>
+                  </oneOrMore>
+               </choice>
+            </group>
+         </group>
+      </element>
+   </define>
+   <define name="__-elt-d257e1176">
+      <element xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+         <anyName>
+            <except>
+               <choice>
+                  <name ns="">map</name>
+                  <name ns="">anchor</name>
+               </choice>
+            </except>
+         </anyName>
+         <group>
+            <choice>
+               <empty/>
+               <oneOrMore>
+                  <attribute>
+                     <anyName/>
+                     <text/>
+                  </attribute>
+               </oneOrMore>
+            </choice>
+            <choice>
+               <empty/>
+               <oneOrMore>
+                  <choice>
+                     <choice>
+                        <choice>
+                           <ref name="map.element-"/>
+                           <ref name="anchor.element-"/>
+                        </choice>
+                        <ref name="__-elt-d257e1176"/>
+                     </choice>
+                     <text/>
+                  </choice>
+               </oneOrMore>
+            </choice>
+         </group>
+      </element>
+   </define>
+</grammar>

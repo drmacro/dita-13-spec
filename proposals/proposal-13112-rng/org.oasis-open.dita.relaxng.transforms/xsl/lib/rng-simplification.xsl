@@ -332,8 +332,9 @@ exclude-result-prefixes = "xs rng local">
 <xsl:template match="rng:include" mode="step4.07">
   <xsl:param name="origDoc" as="document-node()" tunnel="yes"/>
   <xsl:variable name="uriRef" as="xs:string" select="@href"/>
-  <xsl:message> + [DEBUG]] rng:include: uriRef = "<xsl:sequence select="$uriRef"/>"</xsl:message>
-  <xsl:message> + [DEBUG]] rng:include: baseUri($origDoc) = "<xsl:sequence select="base-uri($origDoc)"/>"</xsl:message>
+  <xsl:message> + [INFO] ======</xsl:message>
+  <xsl:message> + [INFO] Processing included schema "<xsl:sequence select="$uriRef"/>"</xsl:message>
+  <xsl:message> + [INFO] ======</xsl:message>
   <xsl:variable name="doc" select="document($uriRef, $origDoc)" as="document-node()?"/>
   <xsl:choose>
     <xsl:when test="not($doc)">
@@ -342,17 +343,28 @@ exclude-result-prefixes = "xs rng local">
     </xsl:when>
     <xsl:otherwise>
       <xsl:variable name="ref" as="node()*">
-    		<xsl:apply-templates select="$doc">
-    			<xsl:with-param name="out" select="false()" as="xs:boolean"/>
-    			<xsl:with-param name="stop-after" select="'step4.8'"/>
-    		</xsl:apply-templates>
+        <xsl:document>
+      		<xsl:apply-templates select="$doc">
+      			<xsl:with-param name="out" select="false()" as="xs:boolean"/>
+      			<xsl:with-param name="stop-after" select="'step4.8'"/>
+      		</xsl:apply-templates>
+        </xsl:document>
     	</xsl:variable>
     	<div>
     		<xsl:sequence select="@*[name() != 'href']"/>
     		<xsl:sequence select="*"/>
-    		<xsl:sequence select="$ref/rng:grammar/rng:start[not(current()/rng:start)]"/>
-    		<xsl:sequence select="$ref/rng:grammar/rng:define[not(@name = current()/rng:define/@name)]"/>
-    	</div>
+    	  <!-- These two work (in that stuff from the included grammar shows up) but
+    	       I don't know if they are correct because they are not as constrained
+    	       as the original.
+    	    -->
+    	  <xsl:sequence select="$ref/rng:grammar/rng:start[not(current()/rng:start)]"/>
+    	  <xsl:sequence select="$ref/rng:grammar/* except (rng:start)"/>
+<!--
+    	    This is the original from Eric, which selects nothing in my tests:
+    	    
+    	    <xsl:sequence select="$ref/rng:grammar/rng:start[not(current()/rng:start)]"/>
+    		<xsl:sequence select="$ref//rng:grammar/rng:define[not(@name = current()/rng:define/@name)]"/>
+-->    	</div>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -1002,7 +1014,7 @@ exclude-result-prefixes = "xs rng local">
 <xsl:template match="rng:ref" mode="step4.18">
 	<xsl:copy>
 		<xsl:attribute name="name"
-		   select="concat(@name, '-', generate-id(ancestor::rng:grammar[1]/rng:define[@name=current()/@name]))"
+		   select="concat(@name, '-', generate-id(ancestor::rng:grammar[1]/rng:define[string(@name)=string(current()/@name)]))"
 		 />
 		<xsl:apply-templates select="@*, node()" mode="step4.18"/>
 	</xsl:copy>
@@ -1078,7 +1090,7 @@ exclude-result-prefixes = "xs rng local">
 <xsl:template match="rng:define[not(rng:element)]" mode="step4.19"/>
 
 <xsl:template match="rng:ref[@name=/*/rng:define[not(rng:element)]/@name]" mode="step4.19">
-	<xsl:apply-templates select="/*/rng:define[@name=current()/@name]/*" mode="step4.19"/>
+	<xsl:apply-templates select="/*/rng:define[string(@name)=string(current()/@name)]/*" mode="step4.19"/>
 </xsl:template>
 
 <!-- 4.21. empty element -->
