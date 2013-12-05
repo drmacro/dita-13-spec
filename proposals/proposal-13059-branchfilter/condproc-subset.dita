@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?Pub Sty _display FontColor="red"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="condproc-subset" xml:lang="en-us" rev="13059a">
+    <title>Conditional processing (profiling) on a subset of content</title>
+    <shortdesc><draft-comment author="robander">Considering a conref of the ditavalref short
+            description here?</draft-comment>The DITAVAL format provides a way to specify a set of
+        conditions that are used to conditionally process DITA content. While these conditions are
+        often stored outside of the content and applied globally by a processor, the
+            &lt;<keyword>ditavalref</keyword>> element may be used to reference a DITAVAL document
+        in order to filter only a subset of content within a map. This also provides the ability to
+        create multiple copies of a branch of content within a map, while applying unique conditions
+        to each copy of the branch. If a separate set of DITAVAL conditions is applied globally to
+        the content, those take precedence over any conditions specified within a DITAVAL referenced
+        by &lt;<keyword>ditavalref</keyword>>.</shortdesc>
+    <conbody>
+        <p>There are two primary situations where the &lt;ditavalref> element is intended to help
+            manage conditional processing:<ol>
+                <li>Typically, a set of DITAVAL conditions is applied globally within a content set.
+                    In some cases, there is a need to apply specific conditions to one subset of
+                    information, which do not apply elsewhere. This may be especially useful when
+                    mixing content from different sources, where the author may not have control
+                    over the conditions specified in much of the content. In this case, the
+                    &lt;ditavalref> element may be used to selectively filter a subset of the
+                    overall content, without affecting the rest of the content.</li>
+                <li>In some cases, a set of content may contain a large amount of information common
+                    to all users, along with a subset that varies based on audience or platform. In
+                    this case, there is often a need to repeat that subset once for each audience.
+                    For example, a set of software documentation may have information that is almost
+                    always common to every user, but also contains installation instructions that
+                    vary by operating system. With the &lt;ditavalref> element, it is possible to
+                    define the sequence of installation instructions once, while publishing one copy
+                    specific to each operating system (among the common information, which is not
+                    repeated).</li>
+            </ol></p>
+        <p>In order to provide consistency for the second case, processors are recommended to follow
+            a standard naming scheme for topics that are duplicated (in publication formats where
+            file naming is important). The recommended naming scheme is:<ol>
+                <li>If &lt;noFileRenaming> is found within a &lt;ditavalref> element inside of
+                    &lt;ditavalmeta>, the file must not be renamed.</li>
+                <li>Otherwise, if @copy-to is specified on &lt;ditavalref>, it should provide a
+                    token to be used with renaming. For example, if the &lt;ditavalref> specifies
+                        <codeph>copy-to="token"</codeph>, and the branch references a file named
+                        <filepath>sample.dita</filepath>, this should result in a generated XHTML
+                    file with a name such as <filepath>sample-token.html</filepath>.</li>
+                <li>Otherwise, the recommended source for the token comes from the name of the
+                    DITAVAL document, excluding any path or extension. For example, if the
+                    &lt;ditavalref> references <filepath>linux.ditaval</filepath>, then "linux"
+                    would be treated as the token to be used in file names.</li>
+            </ol></p>
+        <p>One or more &lt;ditavalref> elements may appear as a child of the &lt;map>, and results
+            in the filters being applied to the entire map. Using the &lt;ditavalref> as a child of
+            a reference to a map (such as within &lt;mapref>) is similar, and results in the
+            conditions being applied to the referenced map; see samples of both usages below.</p>
+        <p>It is an error if following these rules results in conflicting copies of a result
+            document with the same name; see sample error conditions below.</p>
+        <example conref="ditavalref.dita#ditavalref/example"/>
+        <example conref="ditavalref.dita#ditavalref/example-branches"/>
+        <example>
+            <title>Example: using &lt;ditavalref> as a child of &lt;map>, or in a reference to a
+                map</title>
+            <p>The following map is equivalent to processing all contents of the map with the
+                conditions in <filepath>novice.ditaval</filepath>. If additional conditions are
+                provided external to the map (such as a parameter to the publication process), those
+                global conditions are processed first.</p>
+            <codeblock>&lt;map>
+  &lt;title>Sample map&lt;/title>
+  &lt;ditavalref href="novice.ditaval">
+    &lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+  &lt;/ditavalref>
+  &lt;!-- lots of content -->
+&lt;/map></codeblock>
+            <p>Similarly, in the following sample, <filepath>other.ditamap</filepath> is pulled into
+                another map. The &lt;ditavalref> indicates that all of the content in
+                    <filepath>other.ditamap</filepath> should be filtered using the conditions in
+                    <filepath>some.ditaval</filepath>.</p>
+            <codeblock>&lt;topicref href="parent.dita">
+  &lt;topicref href="other.ditamap" format="ditamap">
+    &lt;ditavalref href="some.ditaval"/>
+  &lt;/topicref>
+&lt;/topicref>
+
+other.ditamap:
+&lt;map>
+  &lt;topicref href="nestedTopic1.dita">
+    &lt;topicref href="nestedTopic2.dita"/>
+  &lt;/topicref>
+  &lt;topicref href="nestedTopic3.dita"/>
+&lt;/map></codeblock>
+            <p>That usage is functionally equivalent to applying the conditions in
+                    <filepath>some.ditaval</filepath> to the topics referenced in the nested map.
+                For the purposes of filtering, it could be rewritten as:
+                <codeblock>&lt;topicref href="parent.dita">
+  &lt;topicref>
+    &lt;ditavalref href="some.ditaval"/>
+    &lt;topicref href="nestedTopic1.dita">
+      &lt;topicref href="nestedTopic2.dita"/>
+    &lt;/topicref>
+    &lt;topicref href="nestedTopic3.dita"/>
+  &lt;/topicref>
+&lt;/topicref>
+</codeblock></p>
+            <p>For the purposes of filtering, this map could also be rewritten
+                as:<codeblock>&lt;topicref href="parent.dita">
+  &lt;topicref href="nestedTopic1.dita">
+    &lt;ditavalref href="some.ditaval"/>
+    &lt;topicref href="nestedTopic2.dita"/>
+  &lt;/topicref>
+  &lt;topicref href="nestedTopic3.dita">
+    &lt;ditavalref href="some.ditaval"/>
+  &lt;/topicref>
+&lt;/topicref>
+</codeblock></p>
+        </example>
+        <example>
+            <title>Error condition: using &lt;ditavalref> within a branch that already uses
+                &lt;ditavalref></title>
+            <?Pub Caret -2?>
+            <p conref="ditavalref.dita#ditavalref/limit-nesting"/>
+        </example>
+        <example>
+            <title>Error condition: multiple non-equivalent copies of the same file copied to the
+                same name</title>
+            <p>The following sample contains several error conditions that result in name
+                clashes.</p>
+            <codeblock>&lt;topicref href="a.dita">
+  &lt;ditavalref href="one.ditaval">&lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+  &lt;ditavalref href="two.ditaval">&lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+  &lt;topicref href="b.dita"/>
+&lt;/topicref>
+&lt;topicref href="a.dita"/>
+&lt;topicref href="c.dita">
+  &lt;ditavalref href="one.ditaval" copy-to="token"/>
+  &lt;ditavalref href="two.ditaval" copy-to="token"/>
+&lt;/topicref>
+</codeblock>
+            <?Pub Caret -2?>
+            <p>When generating XHTML:<ol>
+                    <li><filepath>a.dita</filepath> will generate <filepath>a.html</filepath> using
+                        3 alternate set of conditions -- one.ditaval, two.ditaval, and no
+                        ditaval.</li>
+                    <li><filepath>b.dita</filepath> will generate <filepath>b.html</filepath> using
+                        2 alternate set of conditions -- one.ditaval and two.ditaval.</li>
+                    <li><filepath>c.dita</filepath> will generate <filepath>c-token.html</filepath>
+                        using both extra sets of conditions.</li>
+                </ol></p>
+            <p>In this situation, processors may (but need not) recover by using an alternate naming
+                scheme for the conflicting copies.</p>
+        </example>
+        <section>
+            <title>Implications of processing order</title>
+            <p>In general the DITA specification shies away from mandating processing orders for
+                different functions, and publicaiton results may vary slightly by tweaking the order
+                in which processes are carried out. In this case, any DITAVAL conditions specified
+                external to the map, such as with a parameter to a publication proces, take
+                precedence over conditions referenced with a &lt;ditavalref>. For example, if the
+                value <codeph>audience="admin"</codeph> is globally excluded by the publication
+                process, that content will be excluded even from a branch where a &lt;ditavalref>
+                reference attempts to set <codeph>audience="admin"</codeph> to "include".</p>
+            <p>There is explicitly <i>no requirement</i> that global filters and filters specified
+                with &lt;ditavalref> be applied at the same time in a publication process. </p>
+            <!--<p>It is <i>recommended</i> that processors create each independent copy of a branch
+                prior to determining map-based links.</p>-->
+            <p>Processors should consider the following when determining a processing order for
+                other operations:<ul>
+                    <li>If links are generated based on the map hierarchy, this should be done after
+                        any branches are duplicated, to ensure links are consistent with the final
+                        duplicated-branch structure.</li>
+                    <li>If conref is resolved before &lt;ditavalref> is evaluated, content applying
+                        to multiple audiences may be brought in that can then be selectively
+                        filtered by branch. For example, if a set of install steps is pulled in with
+                        conref (from outside the branch), it may contain information that is later
+                        filtered by platform during the &lt;ditavalref> evaluation - resulting in a
+                        copy of the steps specific to each OS. If conref is processed after the
+                        &lt;ditavalref>, content may be pulled in that has not been appropriately
+                        filtered for the new context.</li>
+                    <li>The same scenario applies to conref values that push content into the
+                        branch; pushing content prior to resolving the &lt;ditavalref> allows
+                        content for multiple conditions to be pushed into the branch, and then
+                        filtered by branch based on the &lt;ditavalref> conditions. If the branch
+                        using &lt;ditavalref> pushes content elsewhere, resolving &lt;ditavalref>
+                        first could result in multiple copies of the content to be pushed (one for
+                        each branch), resulting in multiple potentially conflicting copies pushed to
+                        the new destination.</li>
+                </ul></p>
+            <draft-comment author="robander">Need input from Eliot on how this would / should be
+                    handled:<codeblock>&lt;topicref href="some.dita" keys="some">
+  &lt;ditavalref href="one.ditaval"/>
+  &lt;ditavalref href="two.ditaval"/>
+  &lt;topicref href="nest.dita" keys="nest"/>
+&lt;/topicref></codeblock><p>After
+                    branching is evaluated, using recommended naming, you'd end up with
+                    this:<codeblock>&lt;topicref href="some-one.dita" keys="some">
+  &lt;topicref href="nest-one.dita" keys="nest"/>
+&lt;/topicref>
+&lt;topicref href="some-two.dita" keys="some"/>
+  &lt;topicref href="nest-two.dita" keys="nest"/>
+&lt;/topicref></codeblock></p><p>So
+                    ... discomfort here ... without the file renaming, seems clear that the keys
+                    would still go to first instance, matching the original instance. With the file
+                    renaming ...?</p></draft-comment>
+        </section>
+        <?Pub Caret 186?>
+    </conbody>
+</concept>
+<?Pub *0000010338?>

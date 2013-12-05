@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="ditavalmeta" xml:lang="en-us" rev="13059a">
+  <title>ditavalmeta</title>
+  <shortdesc>The &lt;<keyword>ditavalmeta</keyword>> element defines metadata associated with a
+    DITAVAL document used for one branch of a map.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>ditavalmeta</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>Because the referenced DITAVAL document is used for processing (it is not published as
+      part of the content), metadata inside of &lt;ditavalmeta> is generally informational in nature
+      and does not have an impact on processing. The element is primarily used to specify the
+      optional &lt;noFileRenaming/> element, as a way to manage content processed with the
+      referenced DITAVAL document.</section>
+    <section id="contains" otherprops="contains">
+      <title>Contains</title>
+      <p>To be generated; matches topicmeta, with extra child &lt;noFileRenaming/></p>
+    </section>
+    <section id="containedby" otherprops="containedby">
+      <title>Contained By</title>
+      <p>ditavalref</p>
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ map/topicmeta ditaval-d/ditavalmeta </p>
+    </section>
+    <example id="example">
+      <title>Example</title>
+      <p>See <xref href="ditavalref.dita#ditavalref"/>.</p>
+      <?Pub Caret 0?>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="topicmeta_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/lockmeta">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classonly">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>
+<?Pub *0000004584?>

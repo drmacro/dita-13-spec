@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="ditavalref" xml:lang="en-us" rev="13059a">
+  <title>ditavalref</title>
+  <shortdesc>The &lt;<keyword>ditavalref</keyword>> element references a DITAVAL document, in order
+    to specify filter conditions that may be used to process only a subset of the content in a map.
+    Additionally, the &lt;ditavalref> element may be used to create multiple copies of some content
+    in the map, while applying a different set of conditions to each copy.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>ditavalref</indexterm>
+        <indexterm>conditional processing<indexterm>subset of a map</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>When a &lt;ditavalref> element is included in a map, the conditions in the referenced
+        DITAVAL document are used to filter the other elements in that branch, the parent element
+        that included the &lt;ditavalref>, and the topic level content referenced within that
+        branch. In the simple case, a map may use the &lt;ditavalref> as
+        follows:<codeblock>&lt;map>
+  &lt;title>Simple usage of ditavalref&lt;/title>
+  &lt;topicref href="sampleBranch.dita" audience="admin">
+    &lt;topicmeta>&lt;navtitle>Sample branch&lt;/navtitle>&lt;/topicmeta>
+    &lt;ditavalref href="conditions.ditaval"/>
+    &lt;topicref href="insideBranch.dita" platform="win linux mac"/>
+    &lt;!-- ... other topicrefs ... -->
+  &lt;/topicref>
+  &lt;!-- other branches not affected by conditions.ditaval -->
+&lt;/map></codeblock></p>
+      <p>The filter conditions from <filepath>conditions.ditaval</filepath> apply to the following:<ul>
+          <li>The &lt;topicref> that references <filepath>sampleBranch.dita</filepath>, and all
+            elements within that branch</li>
+          <li>The topic <filepath>sampleBranch.dita</filepath></li>
+          <li>The topic <filepath>insideBranch.dita</filepath></li>
+          <li>All other topics referenced within this branch</li>
+        </ul></p>
+      <p>When more than one &lt;ditavalref> is specified in the same branch at the same level, this
+        results in multiple copies of that branch when the content is rendered. If the sample above
+        contains a reference to <filepath>otherConditions.ditaval</filepath> as a peer to the
+        existing &lt;ditavalref>, the rendered version of this map would contain two copies of
+        "Sample branch"; one copy is created using the conditions in
+          <filepath>conditions.ditaval</filepath>, while the other copy uses conditions from
+          <filepath>otherConditions.ditaval</filepath>.</p>
+    </section>
+    <section>
+      <title>Limitations</title>
+      <p>The following limitations apply when using the &lt;ditavalref> element, which cannot be
+        enforced through the DTD or Schema.</p>
+      <p id="limit-nesting">When one or more &lt;ditavalref> elements are used on a branch, no other
+        &lt;ditavalref> element may be included in the same branch at a point lower in the element
+        hierarchy. For example, the following should be treated as an error condition:
+        <codeblock>&lt;topicref href="a.dita">
+  &lt;ditavalref href="some.ditaval"/>
+  &lt;topicref href="b.dita">
+    &lt;ditavalref href="other.ditaval"/>
+    ...</codeblock></p>
+      <p>It is an error condition for multiple &lt;ditavalref> elements to result in conflicting
+        file names for different content. Processors may (but need not) recover by using an
+        alternate naming scheme for the conflicting copies. For example, in the following map
+        fragment, the copy-to attribute would result in two conflicting copies of
+          <filepath>c.dita</filepath> using the same file
+        name:<codeblock>&lt;topicref href="c.dita">
+  &lt;ditavalref href="one.ditaval" copy-to="token"/>
+  &lt;ditavalref href="two.ditaval" copy-to="token"/>
+&lt;/topicref>
+</codeblock>
+      </p>
+    </section>
+    <?Pub Caret 214?>
+    <section id="contains" otherprops="contains">
+      <title>Contains</title>
+      <p>Contains optional &lt;ditavalmeta></p>
+    </section>
+    <section id="containedby" otherprops="containedby">
+      <title>Contained By</title>
+      <p>(to be generated)</p>
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ map/topicref ditaval-d/ditavalref </p>
+    </section>
+    <example id="example">
+      <title>Example: one &lt;ditavalref> specific to a branch</title>
+      <codeblock>input.ditamap:
+&lt;map>
+  &lt;topicref href="intro.dita"/>
+  &lt;topicref href="install.dita">
+    &lt;ditavalref href="novice.ditaval">
+      &lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+    &lt;/ditavalref>
+    &lt;topicref href="do-stuff.dita"/>
+    &lt;topicref href="advanced-stuff.dita" audience="admin"/>
+    &lt;!-- more topics -->
+  &lt;/topicref>
+  &lt;!-- Several chapters worth of other material -->
+&lt;/map>
+
+novice.ditaval:
+&lt;val>
+  &lt;prop att="audience" val="novice" action="include"/>
+  &lt;prop att="audience" val="admin" action="exclude"/>
+&lt;/val>
+</codeblock>
+      <p>If this sample is published, the following processing will take place:<ul>
+          <li>The first topic (<filepath>intro.dita</filepath>) does not use any of the conditions
+            that are specified in <filepath>novice.ditaval</filepath>. It is published normally,
+            potentially using other ditaval conditions that were specified externally.</li>
+          <li>The second topic (<filepath>install.dita</filepath>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <filepath>novice.ditaval</filepath>.</li>
+          <li>The third topic (<filepath>do-stuff.dita</filepath>) is filtered first using any
+            external conditions, and is then filtered using the conditions in
+              <filepath>novice.ditaval</filepath>.</li>
+          <li>The fourth topicref (to <filepath>advanced-stuff.dita</filepath>) is removed from the
+            map entirely, because it is filtered out with the conditions specified for this
+            branch.</li>
+        </ul></p>
+      <p>None of the files filtered by <filepath>novice.ditaval</filepath> will be renamed due to
+        the filtering, because of the &lt;noFileRenaming/> element inside of the &lt;ditavalmeta>.
+        This ensures that external links to those topics are stable, regardless of whether the
+        DITAVAL is used.</p>
+    </example>
+    <example id="example-branches">
+      <title>Example: multiple &lt;ditavalref> elements to create multiple branches</title>
+      <codeblock>input.ditamap:
+&lt;map>
+  &lt;topicref href="intro.dita"/>
+  &lt;topicref href="install.dita">
+    &lt;ditavalref href="win.ditaval">
+      &lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+    &lt;/ditavalref>
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/>
+    &lt;ditavalref href="linux.ditaval"/>
+    &lt;topicref href="do-stuff.dita">
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/>
+      &lt;!-- more topics and nested branches -->
+    &lt;/topicref>
+    &lt;topicref href="cleanup.dita"/>
+  &lt;/topicref>
+  &lt;!-- Several chapters worth of other material -->
+&lt;/map>
+
+win.ditaval:
+&lt;val>
+  &lt;prop att="platform" val="win" action="include"/>
+  &lt;prop att="platform" val="mac" action="exclude"/>
+  &lt;prop att="platform" val="linux" action="exclude"/>
+&lt;/val>
+
+mac.ditaval:
+&lt;val>
+  &lt;prop att="platform" val="win" action="exclude"/>
+  &lt;prop att="platform" val="mac" action="include"/>
+  &lt;prop att="platform" val="linux" action="exclude"/>
+&lt;/val>
+
+linux.ditaval:
+&lt;val>
+  &lt;prop att="platform" val="win" action="exclude"/>
+  &lt;prop att="platform" val="mac" action="exclude"/>
+  &lt;prop att="platform" val="linux" action="include"/>
+&lt;/val></codeblock>
+      <p>If this sample is published to XHTML (where output file naming is important), the following
+        processing will take place:<ul>
+          <li>The first topic (<filepath>intro.dita</filepath>) is published normally, potentially
+            using other ditaval conditions that were specified externally.</li>
+          <li>The install branch appears three times, once for each ditaval. The branches are
+            created as follows:<ul>
+              <li>The first branch uses the first ditaval file (<filepath>win.ditaval</filepath>).
+                Output files are not renamed, due to the presence of &lt;noFileRenaming/>; this is
+                typically best for the most common or default branch. The file
+                  "<filepath>mac-specific-stuff.dita</filepath>" is removed from this hierarchy
+                based on <filepath>win.ditaval</filepath>. The generated files for this copy of the
+                branch, with indenting to show hierarchy, are:
+                <codeblock>install.html
+   do-stuff.html
+     ...more topics and nested branches...
+   cleanup.html
+</codeblock></li>
+              <li>The second branch uses the second ditaval file (<filepath>mac.ditaval</filepath>).
+                Output files are renamed based on the @copy-to attribute. The file
+                  "<filepath>mac-specific-stuff.dita</filepath>" is included in this hierarchy based
+                on <filepath>mac.ditaval</filepath>. The generated files for this copy, with
+                indenting to show hierarchy, are:
+                <codeblock>install-apple.html
+   do-stuff-apple.html
+      mac-specific-stuff-apple.html
+      ...more topics and nested branches...
+   cleanup-apple.html
+</codeblock></li>
+              <li>The third branch uses the last ditaval file (<filepath>linux.ditaval</filepath>).
+                Output files are renamed, using the ditaval file name because @copy-to is not used.
+                The file "<filepath>mac-specific-stuff.dita</filepath>" is removed from this
+                hierarchy based on <filepath>linux.ditaval</filepath>. The generated files for this
+                copy, with indenting to show hierarchy, are:
+                <codeblock>install-linux.html
+   do-stuff-linux.html
+     ...more topics and nested branches...
+   cleanup-linux.html
+</codeblock></li>
+            </ul></li>
+        </ul></p>
+      <p>This example used three ditaval files to avoid triple maintenance of the install branch in
+        a map; the following map is functionally equivalent, but requires maintaining each branch in
+        parallel:<codeblock>input.ditamap:
+&lt;map>
+  &lt;topicref href="intro.dita"/>
+  &lt;topicref href="install.dita">
+    &lt;ditavalref href="win.ditaval">
+      &lt;ditavalmeta>&lt;noFileRenaming/>&lt;/ditavalmeta>
+    &lt;/ditavalref>
+    &lt;topicref href="do-stuff.dita">
+      &lt;!-- more topics and nested branches -->
+    &lt;/topicref>
+    &lt;topicref href="cleanup.dita"/>
+  &lt;/topicref>
+  &lt;topicref href="install.dita">
+    &lt;ditavalref href="mac.ditaval" copy-to="apple"/>
+    &lt;topicref href="do-stuff.dita">
+      &lt;topicref href="mac-specific-stuff.dita" platform="mac"/>
+      &lt;!-- more topics and nested branches -->
+    &lt;/topicref>
+    &lt;topicref href="cleanup.dita"/>
+  &lt;/topicref>
+  &lt;topicref href="install.dita">
+    &lt;ditavalref href="linux.ditaval"/>
+    &lt;topicref href="do-stuff.dita">
+      &lt;!-- more topics and nested branches -->
+    &lt;/topicref>
+    &lt;topicref href="cleanup.dita"/>
+  &lt;/topicref>
+  &lt;!-- Several chapters worth of other material -->
+&lt;/map></codeblock></p>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="topichead_attr" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow>
+          <stentry>href</stentry>
+          <stentry>Provides a reference to a DITAVAL document. See <xref
+              href="../langref/attributes/thehrefattribute.dita"/> for general information on the
+            format and processing implications of the href attribute.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>#IMPLIED</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>copy-to</stentry>
+          <stentry>Specifies a token to be used in renaming files, when creating multiple copies of
+            a branch. In situations where file naming is important, processors are recommended to
+            add the token from @copy-to onto the end of the file name, before the extension. For
+            example, when copy-to="admin" is used with a branch that references
+              <filepath>installing.dita</filepath>", the resulting copy should be named
+              <filepath>installing-admin.dita</filepath>.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>#IMPLIED</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>format</stentry>
+          <stentry>Format of the target document, which should be a DITAVAL document.</stentry>
+          <stentry>CDATA</stentry>
+          <stentry>ditaval</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>toc</stentry>
+          <stentry>Specifies whether the DITAVAL document appears in the TOC; fixed to
+            "no".</stentry>
+          <stentry>(no)</stentry>
+          <stentry>no</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>print</stentry>
+          <stentry>Specifies whether the DITAVAL document appears in a print-oriented version of the
+            content; fixed to "no".</stentry>
+          <stentry>(no)</stentry>
+          <stentry>no</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>linking</stentry>
+          <stentry>Defines linking characteristics for the DITAVAL document. By default, the DITAVAL
+            will not be the target of any links.</stentry>
+          <stentry>(none)</stentry>
+          <stentry>none</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow>
+          <stentry>processing-role</stentry>
+          <stentry>The processing role defaults to "resource-only" for DITAVAL documents, which are
+            only used for processing, and do not contain content.</stentry>
+          <stentry>(resource-only)</stentry>
+          <stentry>resource-only</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow id="scope">
+          <stentry>scope</stentry>
+          <stentry>The scope attribute identifies the closeness of the relationship between the
+            current document and the target resource. See <xref
+              href="../langref/attributes/thescopeattribute.dita"/> for more information on values.
+            Defaults to "local" for &lt;ditavalref&gt;.</stentry>
+          <stentry>(local | peer | external | -dita-use-​conref-​target)</stentry>
+          <stentry>local</stentry>
+          <stentry>No</stentry>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/keys">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/keyref">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/query">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/univ-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/classandout">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>
+<?Pub *0000004151?>
