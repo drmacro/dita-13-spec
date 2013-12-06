@@ -15,14 +15,13 @@
     </metadata>
   </prolog>
   <refbody>
-    <section>Because the referenced DITAVAL document is used for processing (it is not published as
-      part of the content), metadata inside of &lt;ditavalmeta> is generally informational in nature
-      and does not have an impact on processing. The element is primarily used to specify the
-      optional &lt;noFileRenaming/> element, as a way to manage content processed with the
-      referenced DITAVAL document.</section>
+    <section>Because the referenced DITAVAL document is used for processing (it is not published as part of the content), metadata inside of &lt;ditavalmeta> is generally informational in nature and
+      does not have an impact on processing. The element is primarily used to specify prefixes and suffixes used to construct effective resource file names, key scope names, and key names within the
+      map branch implied by the parent &lt;ditavalref> element.</section>
     <section id="contains" otherprops="contains">
       <title>Contains</title>
-      <p>To be generated; matches topicmeta, with extra child &lt;noFileRenaming/></p>
+      <p>To be generated; contains optional navtitle then any of &lt;dvr-resourcePrefix>, &lt;dvr-resourceSuffix>, &lt;dvr-keyscopePrefix>, &lt;dvr-keyscopeSuffix>, &lt;dvr-keynamePrefix>, or
+        &lt;dvr-keynameSuffix>.</p>
     </section>
     <section id="containedby" otherprops="containedby">
       <title>Contained By</title>
@@ -30,7 +29,7 @@
     </section>
     <section id="inheritance" otherprops="inheritance">
       <title>Inheritance</title>
-      <p>+ map/topicmeta ditaval-d/ditavalmeta </p>
+      <p>+ map/topicmeta ditavalref-d/ditavalmeta </p>
     </section>
     <example id="example">
       <title>Example</title>

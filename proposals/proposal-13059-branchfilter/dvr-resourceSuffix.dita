@@ -4,20 +4,20 @@
  "reference.dtd">
 <?Pub Sty _display FontColor="red"?>
 <reference id="noFileRenaming" xml:lang="en-us" rev="13059a">
-  <title>dvr-resourcePrefix</title>
-  <shortdesc>The &lt;<keyword>dvr-resourcePrefix</keyword>> element specifies the prefix to use when constructing the effective file names of resources referenced from within the map branch implied by
+  <title>dvr-resourceSuffix</title>
+  <shortdesc>The &lt;<keyword>dvr-resourceSuffix</keyword>> element specifies the suffix to use when constructing the effective file names of resources referenced from within the map branch implied by
     the ancestor &lt;<keyword>ditavalref</keyword>> element.</shortdesc>
   <prolog>
     <metadata>
       <keywords>
-        <indexterm>dvr-resourcePrefix</indexterm>
+        <indexterm>dvr-resourceSuffix</indexterm>
       </keywords>
     </metadata>
   </prolog>
   <refbody>
     <section>
-      <p>For map branches implied by &lt;ditavalref> elements, the value of the &lt;dvr-resourcePrefix> element contributes to the effective file names of resources referenced within the branch such
-        that the effective resource file name starts with the value of the &lt;dvr-resourcePrefix> element.</p>
+      <p>For map branches implied by &lt;ditavalref> elements, the value of the &lt;dvr-resourceSuffix> element contributes to the effective file names of resources referenced within the branch such
+        that the base part of the effective resource file name ends with the value of the &lt;dvr-resourceSuffix> element.</p>
     </section>
     <section id="contains" otherprops="contains">
       <title>Contains</title>
@@ -29,18 +29,18 @@
     </section>
     <section id="inheritance" otherprops="inheritance">
       <title>Inheritance</title>
-      <p>+ topic/data ditavalref-d/dvr-resourcePrefix </p>
+      <p>+ topic/data ditavalref-d/dvr-resourceSuffix </p>
     </section>
-    <example id="example"> <title>Example</title><p>If the the &lt;dvr-resourcePrefix> is specified
+    <example id="example"> <title>Example</title><p>If the the &lt;dvr-resourceSuffix> is specified
       as:<codeblock>&lt;topicref href="branch-01.dita">
   &lt;ditavalref href="condition-01.ditaval">
     &lt;ditavalmeta>
-      &lt;dvr-resourcePrefix>cond01-&lt;/dvr-resourcePrefix>
+      &lt;dvr-resourceSuffix>-cond01&lt;/dvr-resourceSuffix>
     &lt;/ditavalmeta>
   &lt;/ditavalref>
   &lt;topicref href="topics/subtopic-01.dita"/>
 &lt;/topicref></codeblock></p>then
-      the effective file name of resource "subtopic-01.dita" in the context of the branch implied by the &lt;ditavalref> element is "cond01-subtopic-01.dita", as though the @copy-to attribute had been
+      the effective file name of resource "subtopic-01.dita" in the context of the branch implied by the &lt;ditavalref> element is "subtopic-01-cond01.dita", as though the @copy-to attribute had been
       specified with that value on the topicref to "subtopic-01.dita". </example>
     <section id="attributes">
       <title>Attributes</title>
@@ -56,7 +56,7 @@
           <stentry>name</stentry>
           <stentry>The name of the metadata item</stentry>
           <stentry>string</stentry>
-          <stentry>dvr-resourcePrefix</stentry>
+          <stentry>dvr-resourceSuffix</stentry>
           <stentry/>
         </strow>
       </simpletable>

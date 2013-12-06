@@ -4,10 +4,13 @@
 <?Pub Sty _display FontColor="red"?>
 <reference id="ditavalref" xml:lang="en-us" rev="13059a">
   <title>ditavalref</title>
-  <shortdesc>The &lt;<keyword>ditavalref</keyword>> element references a DITAVAL document, in order
-    to specify filter conditions that may be used to process only a subset of the content in a map.
-    Additionally, the &lt;ditavalref> element may be used to create multiple copies of some content
-    in the map, while applying a different set of conditions to each copy.</shortdesc>
+  <shortdesc>The &lt;<keyword>ditavalref</keyword>> element references a DITAVAL document<?oxy_delete author="ekimber" timestamp="20131206T071059-0600" content=","?> in order to specify filter
+    conditions that may be used to process only a subset of the content in a map. Additionally, <?oxy_delete author="ekimber" timestamp="20131206T071405-0600" content="the "?>&lt;ditavalref>
+    element<?oxy_insert_start author="ekimber" timestamp="20131206T071407-0600"?>s<?oxy_insert_end?> may be used to
+    <?oxy_delete author="ekimber" timestamp="20131206T071129-0600" content="create multiple"?><?oxy_insert_start author="ekimber" timestamp="20131206T071129-0600"?>imply multiple<?oxy_insert_end?>
+    copies of <?oxy_delete author="ekimber" timestamp="20131206T071153-0600" content="some content"?><?oxy_insert_start author="ekimber" timestamp="20131206T071153-0600"?>the map branch that contains
+    them, <?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131206T071414-0600" content=" in the map,"?>
+    <?oxy_delete author="ekimber" timestamp="20131206T071207-0600" content="while "?>applying a different set of conditions to each copy.</shortdesc>
   <prolog>
     <metadata>
       <keywords>
@@ -18,10 +21,13 @@
   </prolog>
   <refbody>
     <section>
-      <p>When a &lt;ditavalref> element is included in a map, the conditions in the referenced
-        DITAVAL document are used to filter the other elements in that branch, the parent element
-        that included the &lt;ditavalref>, and the topic level content referenced within that
-        branch. In the simple case, a map may use the &lt;ditavalref> as
+      <p>When a &lt;ditavalref> element is included in a map, the conditions in the referenced DITAVAL document are used to filter the other elements in that
+        branch<?oxy_insert_start author="ekimber" timestamp="20131206T071240-0600"?>
+        <?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131206T071240-0600" content=", "?><?oxy_insert_start author="ekimber" timestamp="20131206T071243-0600"?>(<?oxy_insert_end?>the
+        parent element that included the
+        &lt;ditavalref><?oxy_insert_start author="ekimber" timestamp="20131206T071246-0600"?>)<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131206T071245-0600" content=","?> and the
+        <?oxy_delete author="ekimber" timestamp="20131206T071305-0600" content="topic level content"?><?oxy_insert_start author="ekimber" timestamp="20131206T071305-0600"?>resources<?oxy_insert_end?>
+        referenced within that branch. In the simple case, a map may use<?oxy_delete author="ekimber" timestamp="20131206T071316-0600" content=" the"?> &lt;ditavalref> as
         follows:<codeblock>&lt;map>
   &lt;title>Simple usage of ditavalref&lt;/title>
   &lt;topicref href="sampleBranch.dita" audience="admin">
@@ -39,13 +45,16 @@
           <li>The topic <filepath>insideBranch.dita</filepath></li>
           <li>All other topics referenced within this branch</li>
         </ul></p>
-      <p>When more than one &lt;ditavalref> is specified in the same branch at the same level, this
-        results in multiple copies of that branch when the content is rendered. If the sample above
-        contains a reference to <filepath>otherConditions.ditaval</filepath> as a peer to the
-        existing &lt;ditavalref>, the rendered version of this map would contain two copies of
-        "Sample branch"; one copy is created using the conditions in
-          <filepath>conditions.ditaval</filepath>, while the other copy uses conditions from
-          <filepath>otherConditions.ditaval</filepath>.</p>
+      <p>When more than one &lt;ditavalref> is specified in the same branch at the same level,
+        <?oxy_delete author="ekimber" timestamp="20131206T071752-0600" content="this results in multiple copies of that"?><?oxy_insert_start author="ekimber" timestamp="20131206T071752-0600"?>the
+        effective result is one copy of the branch for each
+        &lt;ditavalref><?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131206T071824-0600" content=" branch when the content is rendered"?>. If the sample above contains a reference to
+        <filepath>otherConditions.ditaval</filepath> as a peer to the existing &lt;ditavalref>, the rendered version of this map would
+        <?oxy_delete author="ekimber" timestamp="20131206T071836-0600" content="contain"?><?oxy_insert_start author="ekimber" timestamp="20131206T071836-0600"?>reflect<?oxy_insert_end?> two copies of
+        "Sample branch"<?oxy_insert_start author="ekimber" timestamp="20131206T071848-0600"?>, each reflecting the conditions specified the corresponding DITAVAL
+        document.<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131206T071909-0600" content="; o"?><?oxy_insert_start author="ekimber" timestamp="20131206T071909-0600"?>
+        O<?oxy_insert_end?>ne copy is created using the conditions in <filepath>conditions.ditaval</filepath><?oxy_delete author="ekimber" timestamp="20131206T071928-0600" content=","?> while the
+        other copy uses conditions from <filepath>otherConditions.ditaval</filepath>.</p>
     </section>
     <section>
       <title>Limitations</title>
@@ -364,3 +373,4 @@ linux.ditaval:
   </refbody>
 </reference>
 <?Pub *0000004151?>
+<?oxy_options track_changes="on"?>

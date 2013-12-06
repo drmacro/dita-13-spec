@@ -3,8 +3,7 @@
 <dita>
   <topic id="proposal13059a">
     <title>Stage 3 proposal: Feature #13059a</title>
-    <shortdesc>Provide a way to associate one or more set of independent DITAVAL conditions with a
-      single branch of content in a map. </shortdesc>
+    <shortdesc>Provide a way to associate one or more set of independent DITAVAL conditions with a single branch of content in a map. </shortdesc>
     <body>
       <section>
         <title>Champion</title>
@@ -26,31 +25,21 @@
           <strow>
             <stentry>Stage 2 proposal submitted</stentry>
             <stentry>June 3, 2013</stentry>
-            <stentry>HTML: <xref
-                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest"
-                format="html" scope="external"
-                >https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest</xref>;
-              DITA: <xref
-                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest"
-                format="html" scope="external"
-                >https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest</xref></stentry>
+            <stentry>HTML: <xref href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest" format="html" scope="external"
+              >https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49395/latest</xref>; DITA: <xref href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest"
+              format="html" scope="external">https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49394/latest</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal discussed</stentry>
-            <stentry>discussion before stage 2 completed: May 21, 2013; discussion of stage 2
-              proposal June 11, 2013</stentry>
-            <stentry>Aggregated minutes: <xref
-                href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt"
-                format="txt" scope="external"
-                >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
+            <stentry>discussion before stage 2 completed: May 21, 2013; discussion of stage 2 proposal June 11, 2013</stentry>
+            <stentry>Aggregated minutes: <xref href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" format="txt" scope="external"
+              >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 2 proposal approved</stentry>
             <stentry>June 18, 2013</stentry>
-            <stentry>Aggregated minutes: <xref
-                href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt"
-                format="txt" scope="external"
-                >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
+            <stentry>Aggregated minutes: <xref href="https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt" format="txt" scope="external"
+              >https://www.oasis-open.org/committees/download.php/49823/minutes2013-q12.txt</xref></stentry>
           </strow>
           <strow>
             <stentry>Stage 3 proposal submitted to reviewers</stentry>
@@ -68,31 +57,18 @@
         <title>Approved technical requirements</title>
         <p>Add a new &lt;ditavalref> element that is used to reference a DITAVAL document.</p>
         <ul>
-          <li>When a &lt;ditavalref> element is specified in a map, the conditions from the
-            referenced DITAVAL will be processed for each topic in that branch of the map. The
-            &lt;ditavalref> will also be used for that branch itself, so that if the branch uses a
-            topicref with otherprops="hide", and the &lt;ditavalref> excludes otherprops="hide",
-            that topicref and its children should be removed.</li>
-          <li>When multiple &lt;ditavalref> elements are specified at the same level of a map
-            branch, the content will be copied once per ditaval, with each copy using one of the
-            conditions. For example, if 3 &lt;ditavalref> elements are specified as peers in the
-            same branch, that branch of content should produce three distinct versions of the
-            content, with each version using one of the &lt;ditavalref> elements to set conditions,
-            as described in the previous bullet.</li>
-          <li>When copies are created due to the previous function, generated output files for
-            formats such as HTML must be renamed. This is not an issue for monolithic formats such
-            as PDF or for systems that may produce dynamic filtered content without predetermined
-            file names. For situations where file names are important, this proposal
-              <i>recommends</i> that the names be based on the copy-to attribute, which can specify
-            a token to add to the name. For example, if the DITA document is
-              <filepath>sample.dita</filepath>, and the copy-to attribute is
-              <codeph>copy-to="token"</codeph>, the generated XHTML document would be
-              <filepath>sample-token.html</filepath>. If the copy-to attribute is not specified,
-            this proposal <i>recommends</i> that processors fall back to the base name of the
-            DITAVAL file (for example, "linux" when using the ditaval document
-              "<filepath>linux.ditaval</filepath>"). If the author wishes to keep one set of content
-            with the original name, the &lt;noFileRenaming> element (described below) may be
-            used.</li>
+          <li>When a &lt;ditavalref> element is specified in a map, the conditions from the referenced DITAVAL will be processed for each topic in that branch of the map. The &lt;ditavalref> will also
+            be used for that branch itself, so that if the branch uses a topicref with otherprops="hide", and the &lt;ditavalref> excludes otherprops="hide", that topicref and its children should be
+            removed.</li>
+          <li>When multiple &lt;ditavalref> elements are specified at the same level of a map branch, the content will be copied once per ditaval, with each copy using one of the conditions. For
+            example, if 3 &lt;ditavalref> elements are specified as peers in the same branch, that branch of content should produce three distinct versions of the content, with each version using one
+            of the &lt;ditavalref> elements to set conditions, as described in the previous bullet.</li>
+          <li>When copies are created due to the previous function, generated output files for formats such as HTML must be renamed. This is not an issue for monolithic formats such as PDF or for
+            systems that may produce dynamic filtered content without predetermined file names. For situations where file names are important, this proposal <i>recommends</i> that the names be based
+            on the copy-to attribute, which can specify a token to add to the name. For example, if the DITA document is <filepath>sample.dita</filepath>, and the copy-to attribute is
+            <codeph>copy-to="token"</codeph>, the generated XHTML document would be <filepath>sample-token.html</filepath>. If the copy-to attribute is not specified, this proposal <i>recommends</i>
+            that processors fall back to the base name of the DITAVAL file (for example, "linux" when using the ditaval document "<filepath>linux.ditaval</filepath>"). If the author wishes to keep one
+            set of content with the original name, the &lt;noFileRenaming> element (described below) may be used.</li>
         </ul>
       </section>
       <section>
@@ -105,27 +81,45 @@
       </section>
       <section>
         <title>Modified specification documentation</title>
-        <p>New language spec topics will be placed in a new group for this domain, in the "base"
-          section of the lang spec, as a peer to the groups for Typographic and Utilities elements.
-          New topics for ditavalref, ditavalmeta, and noFileRenaming are included below, following
-          the new grouping topic.</p>
-        <p>A new topic for the architectural specification will be created to cover this feature;
-          suggest placing it after the existing "Conditional processing (profiling)" topic. That
-          topic is included below. </p>
+        <p>New language spec topics will be placed in a new group for this domain, in the "base" section of the lang spec, as a peer to the groups for Typographic and Utilities elements. New topics
+          for ditavalref, ditavalmeta, and noFileRenaming are included below, following the new grouping topic.</p>
+        <p>A new topic for the architectural specification will be created to cover this feature; suggest placing it after the existing "Conditional processing (profiling)" topic. That topic is
+          included below. </p>
       </section>
     </body>
   </topic>
-  <reference id="reference_g4g_ll2_1m" conref="ditaval-d.dita#ditaval-d"><title/></reference>
+  <reference id="reference_g4g_ll2_1m" conref="ditaval-d.dita#ditaval-d">
+    <title/>
+  </reference>
   <reference id="reference_g4b_ml2_1m" conref="ditavalref.dita#ditavalref">
     <title/>
   </reference>
   <reference id="reference_wdb_nl2_1m" conref="ditavalmeta.dita#ditavalmeta">
     <title/>
   </reference>
-  <reference id="reference_kx3_pl2_1m" conref="noFileRenaming.dita#noFileRenaming">
+  <reference conref="dvr-resourcePrefix.dita" id="reference_fvd_lxx_jm">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_1m" conref="dvr-resourcePrefix.dita">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_2m" conref="dvr-resourceSuffix.dita">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_3m" conref="dvr-keyscopePrefix.dita">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_4m" conref="dvr-keyscopeSuffix.dita">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_5m" conref="dvr-keynamePrefix.dita">
+    <title/>
+  </reference>
+  <reference id="reference_kx3_pl2_6m" conref="dvr-keynameSuffix.dita">
     <title/>
   </reference>
   <concept id="concept_xb2_rl2_1m" conref="condproc-subset.dita#condproc-subset">
     <title/>
   </concept>
 </dita>
+
