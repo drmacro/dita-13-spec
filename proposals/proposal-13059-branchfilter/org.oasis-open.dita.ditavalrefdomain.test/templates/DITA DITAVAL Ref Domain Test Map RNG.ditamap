@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../doctypes/rng/map-ditavalref-test.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map id="ditavalref-test-01">
+  <title>DITAVAL Reference Domain Test (RNG)</title>
+  <topicref keys="ditaval-01" href="ditavals/windows-only.ditaval" format="ditaval"/>
+  <topicref keys="ditaval-02" href="ditavals/mac-only.ditaval" format="ditaval"/>
+  <topicref>
+    <topicmeta>
+      <navtitle>Root of the map tree</navtitle>
+    </topicmeta>
+    <topicref>
+      <topicmeta><navtitle>Branch 01</navtitle></topicmeta>
+      <ditavalref keyref="ditaval-01">
+        <ditavalmeta>
+          <navtitle></navtitle>
+          <dvr-resourcePrefix>xxx<text>foo</text>xxx</dvr-resourcePrefix>
+          <dvr-resourceSuffix></dvr-resourceSuffix>
+          <dvr-keyscopePrefix>bar</dvr-keyscopePrefix>
+          <dvr-keynamePrefix>foo</dvr-keynamePrefix>         
+        </ditavalmeta>
+      </ditavalref>
+      <ditavalref keyref="ditaval-02">
+        <ditavalmeta>
+          <navtitle></navtitle>
+          <dvr-resourcePrefix>xxx<text>foo</text>xxx</dvr-resourcePrefix>
+          <dvr-resourceSuffix></dvr-resourceSuffix>
+          <dvr-keyscopePrefix>bar</dvr-keyscopePrefix>
+          <dvr-keynamePrefix>foo</dvr-keynamePrefix>         
+        </ditavalmeta>
+      </ditavalref>
+    </topicref>
+    <topicref>
+      <topicmeta><navtitle>Branch 02</navtitle></topicmeta>
+    </topicref>
+  </topicref>
+</map>

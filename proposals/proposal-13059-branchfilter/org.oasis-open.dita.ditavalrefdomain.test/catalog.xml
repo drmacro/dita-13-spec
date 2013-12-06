@@ -6,9 +6,6 @@
              exist within the plug-in's directory.
     -->
   
-  <nextCatalog catalog="doctypes/rng/catalog.xml"/>
-  <nextCatalog catalog="doctypes/dtd/catalog.xml"/>
-  <nextCatalog catalog="doctypes/rnc/catalog.xml"/>
-  <nextCatalog catalog="doctypes/xsd/catalog.xml"/>
+  <nextCatalog catalog="doctypes/catalog.xml"/>
   
 </catalog>

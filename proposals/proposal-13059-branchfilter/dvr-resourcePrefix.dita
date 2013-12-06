@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Sty _display FontColor="red"?>
+<reference id="noFileRenaming" xml:lang="en-us" rev="13059a">
+  <title>dvr-resourcePrefix</title>
+  <shortdesc>The &lt;<keyword>dvr-resourcePrefix</keyword>> element specifies the prefix to use when constructing the effective filenames of resources referenced from within the map branch implied by
+    the parent &lt;<keyword>ditavalref</keyword>> element.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>dvr-resourcePrefix</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section id="contains" otherprops="contains">
+      <title>Contains</title>
+      <p>text content or &lt;text></p>
+    </section>
+    <section id="containedby" otherprops="containedby">
+      <title>Contained By</title>
+      <p>ditavalmeta</p>
+    </section>
+    <section id="inheritance" otherprops="inheritance">
+      <title>Inheritance</title>
+      <p>+ topic/data ditaval-d/noFileRenaming </p>
+    </section>
+    <example id="example">
+      <title>Example</title>
+      <p>See <xref href="ditavalref.dita#ditavalref"/>.</p>
+    </example>
+    <section id="attributes">
+      <title>Attributes</title>
+      <simpletable id="attribute_table" relcolwidth="2* 3* 1* 1* 1*">
+        <sthead>
+          <stentry>Name</stentry>
+          <stentry>Description</stentry>
+          <stentry>Data Type</stentry>
+          <stentry>Default Value</stentry>
+          <stentry>Required?</stentry>
+        </sthead>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/audience">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/platform">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/product">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/otherprops">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/props">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/base">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/global-atts">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+        <strow conref="../../common/commonLRdefs.dita#commonLRdefs/class">
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+          <stentry/>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>
+<?Pub *0000010963?>

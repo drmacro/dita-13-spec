@@ -1,0 +1,51 @@
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA IBM Map Utilities Domain Entities            -->
+<!--  VERSION:   1.1                                               -->
+<!--  DATE:      May 2011                                          -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identfier or an 
+      appropriate system identifier 
+PUBLIC "-//IBM//ENTITIES DITA IBM Map Utilities Domain//EN"
+      Delivered as file "ibmMapUtilitiesDomain.ent"                -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the substitution context and domain     -->
+<!--             entity declarations                               -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             May 2005                                          -->
+<!--                                                               -->
+<!--             Copyright IBM Corporation 2005, 2011.             -->
+<!--                                                               -->
+<!-- UPDATES:                                                      -->
+<!--   2011.05.13 RDA: Add support for ditavalref                  -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      -->
+<!-- ============================================================= -->
+
+<!ENTITY % ibmmu-d-linktext  "overrideTitle"                         >
+<!ENTITY % ibmmu-d-shortdesc "overrideShortdesc"                     >
+<!ENTITY % ibmmu-d-keywords  "retrievalKeys"                         >
+<!ENTITY % ibmmu-d-topicref  "ditavalref"                            >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATION                  -->
+<!-- ============================================================= -->
+
+<!ENTITY ibmmu-d-att "(map ibmmu-d)"                                 >
+
+
+<!-- ================== End IBM Map Utilities Domain Entities ==== -->

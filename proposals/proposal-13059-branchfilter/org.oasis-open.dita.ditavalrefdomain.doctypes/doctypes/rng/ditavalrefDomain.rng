@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITAVAL Reference Domain</moduleTitle>
+    <headerComment> ============================================================= DITAVAL Reference Domain ============================================================= </headerComment>
+    <moduleMetadata>
+      <moduleType>elementdomain</moduleType>
+      <moduleShortName>ditavalref-d</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>-//OASIS//ELEMENTS DITA DITAVAL Ref Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA DITAVAL Ref Domain//EN</dtdEnt>
+        <xsdMod>urn:example.org:names:dita:xsd:ditavalrefDomain.xsd</xsdMod>
+        <rncMod>urn:example.org:names:dita:rnc:ditavalrefDomain.rnc</rncMod>
+        <rngMod>urn:example.org:names:dita:rng:ditavalrefDomain.rng</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic ditavalref-d)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+
+  <div>
+    <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+
+    <define name="ditavalref-d-topicref">
+      <choice>
+        <ref name="ditavalref"/>
+      </choice>
+    </define>
+
+    <define name="topicref" combine="choice">
+      <ref name="ditavalref-d-topicref"/>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="ditavalref">
+      <ref name="ditavalref.element"/>
+    </define>
+    <define name="ditavalmeta">
+      <ref name="ditavalmeta.element"/>
+    </define>
+    <define name="dvr-resourcePrefix">
+      <ref name="dvr-resourcePrefix.element"/>
+    </define>
+    <define name="dvr-resourceSuffix">
+      <ref name="dvr-resourceSuffix.element"/>
+    </define>
+    <define name="dvr-keyscopePrefix">
+      <ref name="dvr-keyscopePrefix.element"/>
+    </define>
+    <define name="dvr-keyscopeSuffix">
+      <ref name="dvr-keyscopeSuffix.element"/>
+    </define>
+    <define name="dvr-keynamePrefix">
+      <ref name="dvr-keynamePrefix.element"/>
+    </define>
+    <define name="dvr-keynameSuffix">
+      <ref name="dvr-keynameSuffix.element"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+    <div>
+      <a:documentation>LONG NAME: DITAVAL Reference</a:documentation>
+      <define name="ditavalref.content">
+        <zeroOrMore>
+          <choice>
+            <ref name="ditavalmeta"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="ditavalref.attributes">
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+        <optional>
+          <attribute name="href"/>
+        </optional>
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+
+        <group>
+          <a:documentation>From topicref-atts:</a:documentation>
+          <optional>
+            <attribute name="scope">
+              <choice>
+                <value>external</value>
+                <value>local</value>
+                <value>peer</value>
+                <value>-dita-use-conref-target</value>
+              </choice>
+            </attribute>
+          </optional>
+          <optional>
+            <attribute name="format" a:defaultValue="ditaval"/>
+          </optional>
+          <optional>
+            <attribute name="processing-role" a:defaultValue="resource-only"/>
+          </optional>
+        </group>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="ditavalref.element">
+        <element name="ditavalref" ditaarch:longName="DITAVAL Reference">
+          <a:documentation/>
+          <ref name="ditavalref.attlist"/>
+          <ref name="ditavalref.content"/>
+        </element>
+      </define>
+      <define name="ditavalref.attlist" combine="interleave">
+        <ref name="ditavalref.attributes"/>
+      </define>
+    </div>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITAVAL Ref Metadata</a:documentation>
+    <define name="ditavalmeta.content">
+      <group>
+        <optional>
+          <ref name="navtitle"/>
+        </optional>
+        <group>
+          <optional>
+            <ref name="dvr-resourcePrefix"/>
+          </optional>
+          <optional>
+            <ref name="dvr-resourceSuffix"/>
+          </optional>
+          <optional>
+            <ref name="dvr-keyscopePrefix"/>
+          </optional>
+          <optional>
+            <ref name="dvr-keyscopeSuffix"/>
+          </optional>
+          <optional>
+            <ref name="dvr-keynamePrefix"/>
+          </optional>
+          <optional>
+            <ref name="dvr-keynameSuffix"/>
+          </optional>
+        </group>
+      </group>
+    </define>
+    <define name="ditavalmeta.attributes">
+      <optional>
+        <attribute name="lockmeta">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="ditavalmeta.element">
+      <a:documentation>The &lt;ditavalmeta> element ...</a:documentation>
+      <element name="ditavalmeta" a:longName="DITAVAL Ref Metadata">
+        <ref name="ditavalmeta.attlist"/>
+        <ref name="ditavalmeta.content"/>
+      </element>
+    </define>
+    <define name="ditavalmeta.attlist" combine="interleave">
+      <ref name="ditavalmeta.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Resource Prefix</a:documentation>
+    <define name="dvr-resourcePrefix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-resourcePrefix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-resourcePrefix">
+          <choice>
+            <value>dvr-resourcePrefix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-resourcePrefix.element">
+      <a:documentation>The &lt;dvr-resourcePrefix> element ...</a:documentation>
+      <element name="dvr-resourcePrefix" a:longName="DITVAL Ref Resource Prefix">
+        <ref name="dvr-resourcePrefix.attlist"/>
+        <ref name="dvr-resourcePrefix.content"/>
+      </element>
+    </define>
+    <define name="dvr-resourcePrefix.attlist" combine="interleave">
+      <ref name="dvr-resourcePrefix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Resource Suffix</a:documentation>
+    <define name="dvr-resourceSuffix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-resourceSuffix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-resourceSuffix">
+          <choice>
+            <value>dvr-resourceSuffix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-resourceSuffix.element">
+      <a:documentation>The &lt;dvr-resourceSuffix> element ...</a:documentation>
+      <element name="dvr-resourceSuffix" a:longName="DITVAL Ref Resource Suffix">
+        <ref name="dvr-resourceSuffix.attlist"/>
+        <ref name="dvr-resourceSuffix.content"/>
+      </element>
+    </define>
+    <define name="dvr-resourceSuffix.attlist" combine="interleave">
+      <ref name="dvr-resourceSuffix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Key Scope Prefix</a:documentation>
+    <define name="dvr-keyscopePrefix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-keyscopePrefix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-keyscopePrefix">
+          <choice>
+            <value>dvr-keyscopePrefix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-keyscopePrefix.element">
+      <a:documentation>The &lt;dvr-keyscopePrefix> element ...</a:documentation>
+      <element name="dvr-keyscopePrefix" a:longName="DITVAL Ref Key Scope Prefix">
+        <ref name="dvr-keyscopePrefix.attlist"/>
+        <ref name="dvr-keyscopePrefix.content"/>
+      </element>
+    </define>
+    <define name="dvr-keyscopePrefix.attlist" combine="interleave">
+      <ref name="dvr-keyscopePrefix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Key Scope Suffix</a:documentation>
+    <define name="dvr-keyscopeSuffix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-keyscopeSuffix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-keyscopeSuffix">
+          <choice>
+            <value>dvr-keyscopeSuffix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-keyscopeSuffix.element">
+      <a:documentation>The &lt;dvr-keyscopeSuffix> element ...</a:documentation>
+      <element name="dvr-keyscopeSuffix" a:longName="DITVAL Ref Resource Suffix">
+        <ref name="dvr-keyscopeSuffix.attlist"/>
+        <ref name="dvr-keyscopeSuffix.content"/>
+      </element>
+    </define>
+    <define name="dvr-keyscopeSuffix.attlist" combine="interleave">
+      <ref name="dvr-keyscopeSuffix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Key Name Prefix</a:documentation>
+    <define name="dvr-keynamePrefix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-keynamePrefix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-keynamePrefix">
+          <choice>
+            <value>dvr-keynamePrefix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-keynamePrefix.element">
+      <a:documentation>The &lt;dvr-keynamePrefix> element ...</a:documentation>
+      <element name="dvr-keynamePrefix" a:longName="DITVAL Ref Key Name Prefix">
+        <ref name="dvr-keynamePrefix.attlist"/>
+        <ref name="dvr-keynamePrefix.content"/>
+      </element>
+    </define>
+    <define name="dvr-keynamePrefix.attlist" combine="interleave">
+      <ref name="dvr-keynamePrefix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>LONG NAME: DITVAL Ref Key Name Suffix</a:documentation>
+    <define name="dvr-keynameSuffix.content">
+      <zeroOrMore>
+        <choice>
+          <text/>
+          <ref name="text"/>
+        </choice>
+      </zeroOrMore>
+    </define>
+    <define name="dvr-keynameSuffix.attributes">
+      <optional>
+        <attribute name="name" a:defaultValue="dvr-keynameSuffix">
+          <choice>
+            <value>dvr-keynameSuffix</value>
+          </choice>
+        </attribute>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+    <define name="dvr-keynameSuffix.element">
+      <a:documentation>The &lt;dvr-keynameSuffix> element ...</a:documentation>
+      <element name="dvr-keynameSuffix" a:longName="DITVAL Ref Key Name Suffix">
+        <ref name="dvr-keynameSuffix.attlist"/>
+        <ref name="dvr-keynameSuffix.content"/>
+      </element>
+    </define>
+    <define name="dvr-keynameSuffix.attlist" combine="interleave">
+      <ref name="dvr-keynameSuffix.attributes"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+    <define name="ditavalref.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref ditavalref-d/ditavalref "/>
+      </optional>
+    </define>
+    <define name="ditavalmeta.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicmeta ditavalref-d/ditavalmeta "/>
+      </optional>
+    </define>
+    <define name="dvr-resourcePrefix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-resourcePrefix "/>
+      </optional>
+    </define>
+    <define name="dvr-resourceSuffix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-resourceSuffix "/>
+      </optional>
+    </define>
+    <define name="dvr-keyscopePrefix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-keyscopePrefix "/>
+      </optional>
+    </define>
+    <define name="dvr-keyscopeSuffix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-keyscopeSuffix "/>
+      </optional>
+    </define>
+    <define name="dvr-keynamePrefix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-keynamePrefix "/>
+      </optional>
+    </define>
+    <define name="dvr-keynameSuffix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ditavalref-d/dvr-keynameSuffix "/>
+      </optional>
+    </define>
+  </div>
+</grammar>
