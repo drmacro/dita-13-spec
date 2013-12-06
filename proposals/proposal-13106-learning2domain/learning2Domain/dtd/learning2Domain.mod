@@ -55,7 +55,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN"
 <!ENTITY % lcQuestion2               "lcQuestion2">
 <!ENTITY % lcOpenAnswer2             "lcOpenAnswer2">
 <!ENTITY % lcAnswerOptionGroup2    "lcAnswerOptionGroup2">
-<!--<!ENTITY % lcAsset                  "lcAsset">-->
 <!ENTITY % lcFeedbackCorrect2        "lcFeedbackCorrect2">
 <!ENTITY % lcFeedbackIncorrect2      "lcFeedbackIncorrect2">
 <!ENTITY % lcAnswerOption2         "lcAnswerOption2">
