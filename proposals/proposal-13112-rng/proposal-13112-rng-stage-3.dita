@@ -113,6 +113,40 @@
               </row>
             </thead>
             <tbody>
+              <?oxy_insert_start author="ekimber" timestamp="20131207T091539-0600"?>
+              <row>
+                <entry>introduction/normative-references.dita</entry>
+                <entry/>
+                <entry namest="c3" nameend="newCol4">Add entries for RELAX NG and RELAX NG DTD compatibility:<dl>
+                  <dlentry>
+                    <dt>[RNG]</dt>
+                    <dd>J. Clark, Makato Murata, <cite>RELAX NG Specification</cite>, <xref href="http://www.oasis-open.org/committees/relax-ng/spec-20011203.html" format="html" scope="external"
+                      >http://www.oasis-open.org/committees/relax-ng/spec-20011203.html</xref>, OASIS committee specification, December 3, 2001.</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>[RNG Compact Syntax]</dt>
+                    <dd>J. Clark, <cite>RELAX NG Compact Syntax</cite>, <xref href="http://www.oasis-open.org/committees/relax-ng/compact-20021121.html" format="html" scope="external"
+                      >http://www.oasis-open.org/committees/relax-ng/compact-20021121.html</xref>, Committee Specification, November , 21 2002.</dd>
+                  </dlentry>
+                  <dlentry>
+                    <dt>[RNG DTD Compatibility]</dt>
+                    <dd>J. Clark, Makato Murata, <cite>RELAX NG DTD Compatibility</cite>, <xref href="http://www.oasis-open.org/committees/relax-ng/compatibility-20011203.html" format="html"
+                      scope="external">http://www.oasis-open.org/committees/relax-ng/compatibility-20011203.html</xref>, OASIS Committee Specification, 3 December 2001.</dd>
+                  </dlentry>
+                  </dl></entry>
+              </row>
+              <row>
+                <entry>introduction/non-normative-references.dita</entry>
+                <entry/>
+                <entry namest="c3" nameend="newCol4">Add entry for RNG-to-DTD and XSD utilities:<dl>
+                  <dlentry>
+                    <dt>[DITA RNG2DTDXSD]</dt>
+                    <dd>DITA Editors. Utilities for generating conforming DITA DTD and XSD document type shells and modules from DITA RELAX NG grammars. {Location to be determined, but likely a GitHub
+                      repository}.</dd>
+                  </dlentry>
+                  </dl></entry>
+              </row>
+              <?oxy_insert_end?>
               <row>
                 <entry>archSpec/base/dita-terminology.dita</entry>
                 <entry>
@@ -123,9 +157,7 @@
                     </dlentry>
                   </dl>
                 </entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <dl>
                     <dlentry>
                       <dt>DITA document-type shell</dt>
@@ -135,15 +167,13 @@
                 </entry>
               </row>
               <row>
-                <entry
-                  morerows="1">archSpec/base/fileext.dita</entry>
+                <entry morerows="1">archSpec/base/fileext.dita</entry>
                 <entry>
                   <dl>
                     <dlentry>
                       <dt>Document-type shell files</dt>
                       <dd>
-                        <ul
-                          id="ul_3298f6ba-c3a1-419b-88e5-104eb24fe903">
+                        <ul id="ul_3298f6ba-c3a1-419b-88e5-104eb24fe903">
                           <li><varname>typename</varname>.dtd</li>
                           <li><varname>typename</varname>.xsd</li>
                         </ul>
@@ -151,15 +181,12 @@
                     </dlentry>
                   </dl>
                 </entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <dl>
                     <dlentry>
                       <dt>Document-type shell files</dt>
                       <dd>
-                        <ul
-                          id="ul_l52_zzd_2m">
+                        <ul id="ul_l52_zzd_2m">
                           <li><varname>typename</varname>.dtd</li>
                           <li><varname>typename</varname>.xsd</li>
                           <li><varname>typename</varname>.rnc</li>
@@ -172,15 +199,12 @@
               </row>
               <row>
                 <entry>Add to end of definition list</entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <dl>
                     <dlentry>
                       <dt>RELAX NG structural module files</dt>
                       <dd>
-                        <ul
-                          id="ul_eefc504e-3109-4ab5-bbe9-91221b4ecf74">
+                        <ul id="ul_eefc504e-3109-4ab5-bbe9-91221b4ecf74">
                           <li><varname>typename</varname>Mod.rnc</li>
                           <li><varname>typename</varname>Mod.rng</li>
                         </ul>
@@ -189,8 +213,7 @@
                     <dlentry>
                       <dt>RELAX NG domain module files</dt>
                       <dd>
-                        <ul
-                          id="ul_odj_k12_2m">
+                        <ul id="ul_odj_k12_2m">
                           <li><varname>typename</varname>Domain.rnc</li>
                           <li><varname>typename</varname>Domain.rng</li>
                         </ul>
@@ -199,8 +222,7 @@
                     <dlentry>
                       <dt>RELAX NG constraint module files</dt>
                       <dd>
-                        <ul
-                          id="ul_49a2afe7-c7d2-4c8f-967e-97c6c8ef207d">
+                        <ul id="ul_49a2afe7-c7d2-4c8f-967e-97c6c8ef207d">
                           <li><varname>constraintname</varname>ConstraintMod.rnc</li>
                           <li><varname>constraintname</varname>ConstraintMod.rng</li>
                         </ul>
@@ -218,16 +240,12 @@
                     languages might provide similar modularity and extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so
                     their conformance cannot be determined.</p>
                 </entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
-                  <p>The DITA specification currently recognizes <ph
-                    rev="1.3">three</ph> XML document grammar mechanisms by which conforming DITA vocabulary modules and document types may be constructed: document type declarations (DTDs), XML
-                    Schema declarations (XSDs)<ph
-                    rev="1.3">, and RELAX NG grammars.</ph></p>
-                  <p>This specification defines implementation requirements for <ph
-                    rev="1.3">all</ph> of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other XML grammar languages might provide similar modularity and
-                    extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so their conformance cannot be determined.</p>
+                <entry namest="c3" nameend="newCol4">
+                  <p>The DITA specification currently recognizes <ph rev="1.3">three</ph> XML document grammar mechanisms by which conforming DITA vocabulary modules and document types may be
+                    constructed: document type declarations (DTDs), XML Schema declarations (XSDs)<ph rev="1.3">, and RELAX NG grammars.</ph></p>
+                  <p>This specification defines implementation requirements for <ph rev="1.3">all</ph> of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other
+                    XML grammar languages might provide similar modularity and extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those
+                    languages so their conformance cannot be determined.</p>
                   <p rev="DITA1.3 proposal-13112">Of these three document constraint mechanisms, RELAX NG grammars offer the easiest-to-use syntax and the most expressive constraints. For this reason,
                     the RELAX NG definitions of the standard DITA vocabularies are the
                     <?oxy_delete author="ekimber" timestamp="20131207T082929-0600" content="authoritative"?><?oxy_insert_start author="ekimber" timestamp="20131207T082929-0600"?>normative<?oxy_insert_end?>
@@ -238,94 +256,59 @@
               <row>
                 <entry>New topic: Using RELAX NG for DITA document types, vocabulary modules, and constraint modules</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4"><xref
-                  href="#concept_j2w_cgk_fm"
-                  format="dita"/><p>Insert as second child of archSpec/base/ditaspecialization.dita. </p></entry>
+                <entry namest="c3" nameend="newCol4"><xref href="#concept_j2w_cgk_fm" format="dita"/><p>Insert as second child of archSpec/base/ditaspecialization.dita. </p></entry>
               </row>
               <row>
                 <entry>New topic, generation of DTD and XSD schemas from RELAX NG</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4"><xref
-                  href="#concept_j3g_vm4_2m"
-                  format="dita"/><p>Insert as third child of archSpec/base/ditaspecialization.dita. </p></entry>
+                <entry namest="c3" nameend="newCol4"><xref href="#concept_j3g_vm4_2m" format="dita"/><p>Insert as third child of archSpec/base/ditaspecialization.dita. </p></entry>
               </row>
               <row>
-                <entry
-                  morerows="1">archSpec/base/createCustomDocType.dita</entry>
-                <entry>Thus, DITA <term outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as long as all required
-                  attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated using normal XML
-                  processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for
-                  DTDs and XML schema documents, conforming DITA documents <term outputclass="OASIS-terminology">MAY</term> use other document type constraint languages, such as RELAX NG or Schematron.</entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">Thus, DITA <term
-                  outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, <ph>RELAX NG, </ph>or other formal document type definition as
-                  long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD<ph
-                  rev="1.3">, RELAX NG grammar, or </ph>XML schema document by which the documents can be validated using normal XML processors and that can provide default values for the @domains and
-                  @class attributes, in particular. In addition, while the DITA specification only defines coding requirements for DTDs<ph
-                  rev="1.3">, RELAX NG grammars, </ph>and XML schema documents, conforming DITA documents <term
-                  outputclass="OASIS-terminology">MAY</term> use other document type constraint languages, such as Schematron.</entry>
+                <entry morerows="1">archSpec/base/createCustomDocType.dita</entry>
+                <entry>Thus, DITA <term outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, or other formal document type definition as
+                  long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD or XML schema document by which the documents can be validated
+                  using normal XML processors and that can provide default values for the @domains and @class attributes, in particular. In addition, while the DITA specification only defines coding
+                  requirements for DTDs and XML schema documents, conforming DITA documents <term outputclass="OASIS-terminology">MAY</term> use other document type constraint languages, such as RELAX
+                  NG or Schematron.</entry>
+                <entry namest="c3" nameend="newCol4">Thus, DITA <term outputclass="OASIS-terminology">does not</term> require that conforming DITA documents have an associated DTD, XSD, <ph>RELAX NG,
+                  </ph>or other formal document type definition as long as all required attributes are explicit in document instances. However, most DITA documents have an associated DTD<ph rev="1.3"
+                  >, RELAX NG grammar, or </ph>XML schema document by which the documents can be validated using normal XML processors and that can provide default values for the @domains and @class
+                  attributes, in particular. In addition, while the DITA specification only defines coding requirements for DTDs<ph rev="1.3">, RELAX NG grammars, </ph>and XML schema documents,
+                  conforming DITA documents <term outputclass="OASIS-terminology">MAY</term> use other document type constraint languages, such as Schematron.</entry>
               </row>
               <row>
                 <entry>For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (topic.dtd or topic.xsd) </entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (<ph
-                  rev="1.3">topic.rng, topic.rnc, topic.dtd,</ph> or topic.xsd)</entry>
+                <entry namest="c3" nameend="newCol4">For example, a shell document type that is an unmodified copy of the OASIS-provided topic document type shell (<ph rev="1.3">topic.rng, topic.rnc,
+                  topic.dtd,</ph> or topic.xsd)</entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4"><xref
-                  href="#concept_ecb_wg2_2m"
-                  format="dita"/></entry>
+                <entry namest="c3" nameend="newCol4"><xref href="#concept_ecb_wg2_2m" format="dita"/></entry>
               </row>
               <row>
                 <entry>archSpec/base/classatt.dita</entry>
                 <entry>When the @class attribute is declared in a DTD or XSD</entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">When the @class attribute is declared in a <ph
-                  rev="1.3">DTD, XSD, or RELAX NG grammar,</ph></entry>
+                <entry namest="c3" nameend="newCol4">When the @class attribute is declared in a <ph rev="1.3">DTD, XSD, or RELAX NG grammar,</ph></entry>
               </row>
               <row>
                 <entry>archSpec/base/foreigncontentspec.dita</entry>
                 <entry>New example</entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">Add new example of RELAX NG foreign specialization: <xref
-                  href="#concept_aqh_5zt_3h"
-                  format="dita"/></entry>
+                <entry namest="c3" nameend="newCol4">Add new example of RELAX NG foreign specialization: <xref href="#concept_aqh_5zt_3h" format="dita"/></entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4"><xref
-                  href="#concept_sbf_fn4_2m"
-                  format="dita"/></entry>
+                <entry namest="c3" nameend="newCol4"><xref href="#concept_sbf_fn4_2m" format="dita"/></entry>
               </row>
               <row>
                 <entry>New topic</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4"><xref
-                  href="#concept_ebs_mn4_2m"
-                  format="dita"/></entry>
+                <entry namest="c3" nameend="newCol4"><xref href="#concept_ebs_mn4_2m" format="dita"/></entry>
               </row>
               <row>
-                <entry
-                  namest="c1"
-                  nameend="newCol4">For the Technical Content section, all the topics have trailing "Modules" sections that must be updated to reflect the RELAX NG modules. I have not bothered to show
-                  the original except for Concept, which establishes the pattern.</entry>
+                <entry namest="c1" nameend="newCol4">For the Technical Content section, all the topics have trailing "Modules" sections that must be updated to reflect the RELAX NG modules. I have not
+                  bothered to show the original except for Concept, which establishes the pattern.</entry>
               </row>
               <row>
                 <entry>archSpec/technicalContent/dita_concept_topic.dita</entry>
@@ -333,9 +316,7 @@
                   <sli>concept.mod, concept.ent (DTD)</sli>
                   <sli>conceptMod.xsd, conceptGrp.xsd (Schema)</sli>
                   </sl></entry>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <p>The following DITA modules are provided for the concept topic:</p>
                   <sl>
                     <sli>concept.mod, concept.ent (DTD),</sli>
@@ -346,15 +327,11 @@
               <row>
                 <entry>archSpec/technicalContent/dita_reference_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>reference.mod, reference.ent (DTD), </sli>
-                    <sli><ph
-                      rev="1.3">referenceMod.rnc (RELAX NG compact syntax)</ph></sli>
-                    <sli><ph
-                      rev="1.3">referenceMod.rng (RELAX NG XML syntax)</ph></sli>
+                    <sli><ph rev="1.3">referenceMod.rnc (RELAX NG compact syntax)</ph></sli>
+                    <sli><ph rev="1.3">referenceMod.rng (RELAX NG XML syntax)</ph></sli>
                     <sli>referenceMod.xsd, referenceGrp.xsd (Schema)</sli>
                   </sl>
                 </entry>
@@ -362,15 +339,11 @@
               <row>
                 <entry>archSpec/technicalContent/dita_generic_task_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>task.mod, task.ent(DTD), </sli>
-                    <sli><ph
-                      rev="1.3">taskMod.rnc (RELAX NG compact syntax)</ph></sli>
-                    <sli><ph
-                      rev="1.3">taskMod.rng (RELAX NG XML syntax)</ph></sli>
+                    <sli><ph rev="1.3">taskMod.rnc (RELAX NG compact syntax)</ph></sli>
+                    <sli><ph rev="1.3">taskMod.rng (RELAX NG XML syntax)</ph></sli>
                     <sli>taskMod.xsd, taskGrp.xsd (Schema)</sli>
                   </sl>
                 </entry>
@@ -378,15 +351,11 @@
               <row>
                 <entry>archSpec/technicalContent/dita_task_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>task.mod. task.ent, strictTaskbody constraint (DTD)</sli>
-                    <sli><ph
-                      rev="1.3">taskMod.rnc, strictTaskBodyConstraint.rnc (RELAX NG compact syntax)</ph></sli>
-                    <sli><ph
-                      rev="1.3">taskMod.rng, strictTaskBodyConstraint.rng (RELAX NG XML syntax)</ph></sli>
+                    <sli><ph rev="1.3">taskMod.rnc, strictTaskBodyConstraint.rnc (RELAX NG compact syntax)</ph></sli>
+                    <sli><ph rev="1.3">taskMod.rng, strictTaskBodyConstraint.rng (RELAX NG XML syntax)</ph></sli>
                     <sli>taskMod.xsd, taskGrp.xsd, strictTaskbodyConstraintMod.xsd (Schema)</sli>
                   </sl>
                 </entry>
@@ -394,9 +363,7 @@
               <row>
                 <entry>archSpec/technicalContent/dita_machinerytask_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>machineryTask.dtd (DTD), machineryTaskbodyConstraint.mod</sli>
                     <sli>machineryTask.rnc, machineryTaskbodyConstraint.rnc (RELAX NG compact syntax)</sli>
@@ -408,9 +375,7 @@
               <row>
                 <entry>archSpec/technicalContent/dita_glossary_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>glossentry.dtd, glossentry.ent, glossentry.mod (DTD)</sli>
                     <sli>glossentry.rnc, glossentryMod.rnc (RELAX NG compact syntax)</sli>
@@ -422,9 +387,7 @@
               <row>
                 <entry>archSpec/technicalContent/dita_glossarygroup_topic.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>glossgroup.dtd, glossgroup.ent, glossgroup.mod (DTD) </sli>
                     <sli>glossgroup.rnc, glossgroupMod.rnc (RELAX NG compact syntax)</sli>
@@ -436,9 +399,7 @@
               <row>
                 <entry>archSpec/technicalContent/dita_spec_intro_bookmap.dita</entry>
                 <entry/>
-                <entry
-                  namest="c3"
-                  nameend="newCol4">
+                <entry namest="c3" nameend="newCol4">
                   <sl>
                     <sli>bookmap.dtd, bookmap.ent, <?Pub Caret?>bookmap.mod (DTD)</sli>
                     <sli>bookmap.rnc, bookmapMod.rnc (RELAX NG compact syntax)</sli>
@@ -456,13 +417,16 @@
       id="concept_j2w_cgk_fm">
       <title>Using RELAX NG for DITA document type shells, vocabulary modules, and constraint modules</title>
       <conbody>
-        <p>The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the compact syntax. The two syntaxes are functionally equivalent and either syntax may be reliably
-          converted into the other (e.g., using the open-source Trang tool). However, the XML syntax, because it is
+        <p>The RELAX NG specification <?oxy_insert_start author="ekimber" timestamp="20131207T092121-0600"?>[RNG] <?oxy_insert_end?>defines two syntaxes for RELAX NG grammars: the XML syntax and the
+          compact syntax<?oxy_insert_start author="ekimber" timestamp="20131207T093122-0600"?> [RNG Compact Syntax]<?oxy_insert_end?>. The two syntaxes are functionally equivalent and either syntax
+          may be reliably converted into the other (e.g., using the open-source Trang tool). However, the XML syntax, because it is
           XML<?oxy_delete author="ekimber" timestamp="20131207T083009-0600" content=" "?><?oxy_insert_start author="ekimber" timestamp="20131207T083009-0600"?>-<?oxy_insert_end?>based, allows the easy
           use of foreign markup within RELAX NG grammars (the RELAX NG compact syntax allows the use of foreign vocabularies but it's processing is not as convenient as it is for the RELAX NG XML
           syntax). The DITA coding requirements depend on this feature of RELAX NG in order to capture metadata about document type shells and modules required in order to generate DTD- and XSD-syntax
           versions of the files that themselves conform to the DITA coding requirements. In addition, the foreign vocabulary feature can be used to include Schematron rules directly in RELAX NG
-          grammars. Schematron rules can check rules that are not expressible with RELAX NG directly or that would be inconvenient to express.</p>
+          grammars. Schematron rules can check rules that are not expressible with RELAX NG directly or that would be inconvenient to
+          express.<?oxy_insert_start author="ekimber" timestamp="20131207T093158-0600"?><note>The DITA specification editors maintain utilities for generating conforming DITA DTD- and XSD-syntax
+          document type shells and modules from DITA RELAX NG grammars. See [DITA RNG2DTDXSD].</note><?oxy_insert_end?></p>
         <p>In addition, the RELAX NG XML syntax provides a general grouping element type, &lt;div>, that allows for arbitrary organization and grouping of patterns within grammar documents. Such
           grouping tends to make the grammar documents easier to work with, especially in XML-aware editors. The use or non-use of the RELAX NG &lt;div> element does not affect the meaning of the
           patterns defined in a RELAX NG schema. </p>
@@ -482,11 +446,9 @@
           convention<?oxy_insert_start author="ekimber" timestamp="20131207T083321-0600"?>.<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131207T083318-0600" content=", e.g."?>
           <?oxy_insert_start author="ekimber" timestamp="20131207T083328-0600"?>The tag <?oxy_insert_end?>"&lt;a:documentation>" refers to the &lt;documentation> element type from the
           "http://relaxng.org/ns/compatibility/annotations/1.0" namespace as defined by the DTD compatibility specification.</p>
-        <p>RELAX NG grammars for DITA document type shells, vocabulary modules, and constraint modules ("DITA grammars") <term
-          outputclass="OASIS-terminology">MAY</term> use the &lt;a:documentation> element anywhere foreign elements are allowed by RELAX NG. DITA grammars <term
-          outputclass="OASIS-terminology">MAY</term> use &lt;div> to group pattern declarations without restriction.</p>
-        <p>RELAX NG grammars for DITA markup <term
-          outputclass="OASIS-terminology">MAY</term> include embedded Schematron rules or any other foreign vocabulary. Processors <term
+        <p>RELAX NG grammars for DITA document type shells, vocabulary modules, and constraint modules ("DITA grammars") <term outputclass="OASIS-terminology">MAY</term> use the &lt;a:documentation>
+          element anywhere foreign elements are allowed by RELAX NG. DITA grammars <term outputclass="OASIS-terminology">MAY</term> use &lt;div> to group pattern declarations without restriction.</p>
+        <p>RELAX NG grammars for DITA markup <term outputclass="OASIS-terminology">MAY</term> include embedded Schematron rules or any other foreign vocabulary. Processors <term
           outputclass="OASIS-terminology">MAY</term> ignore any foreign vocabularies within DITA grammars not in the "http://relaxng.org/ns/compatibility/annotations/1.0" or
           "http://dita.oasis-open.org/architecture/2005/" namespaces.</p>
         <p>Each section of a DITA grammar document is either introduced by a comment or represented by a &lt;div> element with <?oxy_insert_start author="ekimber" timestamp="20131207T083437-0600"?>a
@@ -494,12 +456,12 @@
           section of the grammar. Sections <term outputclass="OASIS-terminology">SHOULD</term> occur in the order specified in these coding requirements. Grammars <term outputclass="OASIS-terminology"
           >SHOULD</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the grammar document and indicates the URNs or absolute URLs by which the grammar should be
           referenced in RELAX NG grammar references (see <xref href="#concept_lbt_ct4_2m" format="dita"/>).</p>
-        <p>Section titles using &lt;div> <term
-          outputclass="OASIS-terminology">SHOULD</term> have the form:<codeblock>&lt;div>
+        <p>Section titles using &lt;div> <term outputclass="OASIS-terminology">SHOULD</term> have the
+          form:<codeblock>&lt;div>
   &lt;a:documentation><i>SECTION TITLE</i>&lt;/a:documentation>
  ...
 &lt;/div></codeblock></p>
-        <p/>
+        <?oxy_delete author="ekimber" timestamp="20131207T093335-0600" content="&lt;p/&gt;"?>
         <p>RELAX NG is capable of expressing constraints that are more precise than is possible with either DTDs or XSDs. For example, RELAX NG patterns can be context specific such that the same
           element type may allow different content or attributes in different contexts. Where generation of DTD or XSD schema modules from RELAX NG modules is a requirement care
           <?oxy_delete author="ekimber" timestamp="20131207T080825-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T080825-0600"?>should<?oxy_insert_end?> be taken to
@@ -517,9 +479,8 @@
         <p>Of the three DITA-recognized document constraint languages, RELAX NG provides the simplest syntax for specifying the integration of vocabulary and constraint modules into document type
           shells. This makes RELAX NG ideally suited as the base format for defining DITA vocabulary. However, many, if not most DITA-aware tools require the use of DTDs or XSD schemas as of version
           1.3 of the DITA specification. Thus there is a practical requirement to generate DTDs and XSD schemas from RELAX
-          NG.<?oxy_insert_start author="ekimber" timestamp="20131207T083619-0600"?><note>The editors of the DITA specification have developed tools for generating conforming DTDs and XSDs from
-          conforming DITA RELAX NG modules and document type shells. These tools are available as open source as a convenience to the DITA community. See {xref to non-normative references
-          section}.</note><?oxy_insert_end?></p>
+          NG.<?oxy_insert_start author="ekimber" timestamp="20131207T093436-0600"?><note>The DITA specification editors maintain utilities for generating conforming DITA DTD- and XSD-syntax document
+          type shells and modules from DITA RELAX NG grammars. See [DITA RNG2DTDXSD].</note><?oxy_insert_end?></p>
         <p>The generation of DTD and XSD modules requires additional metadata that is not inherent in the grammar definition:<ul id="ul_vfp_sp4_2m">
           <li>The module type (document type shell, vocabulary module, or constraint module)</li>
           <li>The header comment for the file</li>
@@ -1245,8 +1206,7 @@
           <section>
             <title>Domain extension patterns</title>
             <p>The domain extension patterns serve to integrate domain modules into the base content models of the element types the module extends when the module is included in a document type
-              shell. This section <term
-              outputclass="OASIS-terminology">SHOULD</term> use the section header "DOMAIN EXTENSION
+              shell. This section <term outputclass="OASIS-terminology">SHOULD</term> use the section header "DOMAIN EXTENSION
               PATTERNS":<codeblock>&lt;div>
   &lt;a:documentation>DOMAIN EXTENSION PATTERNS&lt;/a:documentation>
   ...
@@ -1266,14 +1226,39 @@
     &lt;/choice>
   &lt;/define>
 </codeblock></p>
-            <p>For each element type that is extended by the element domain module, the module <term outputclass="OASIS-terminology">MUST</term> extend  the element type's pattern with a @combine
-              value of "choice" containing a reference to the domain extension pattern. For example, this pattern adds the highlight domain specializations of &lt;ph> to the &lt;ph> content
+            <p>For each element type that is extended by the element domain module, the module <term outputclass="OASIS-terminology">MUST</term> extend the element type's pattern with a @combine value
+              of "choice" containing a reference to the domain extension pattern. For example, this pattern adds the highlight domain specializations of &lt;ph> to the &lt;ph> content
               model:<codeblock>  &lt;define name="ph" combine="choice">
     &lt;ref name="hi-d-ph"/>
   &lt;/define></codeblock></p>
             <p>Because the extension of the element type's pattern uses a @combine value of "choice", the effect is that the domain-provided elements are automatically added to the effective content
               model of the extended element in any grammar that includes the domain module.</p>
           </section>
+          <?oxy_insert_start author="ekimber" timestamp="20131207T085649-0600"?>
+          <section>
+            <title>Inclusion of foreign vocabularies</title>
+            <p>Domain modules that include foreign vocabularies using the &lt;externalRef> element <term outputclass="OASIS-terminology">SHOULD</term> specify the attributes @a:dtdURI and @a:xsdURI
+              with the values of the DTD-syntax and XSD-syntax files to reference for the foreign vocabulary. These attributes allow generation of DTD-syntax and XSD-syntax versions of the RELAX NG
+              vocabulary. The attribute values <term outputclass="OASIS-terminology">SHOULD</term> be the URIs as they will need to be in the generated output, normally, a URI that will resolve
+              relative to the location of the generated DTD or XSD file.</p>
+            <p>For
+              example:<codeblock>...
+    &lt;div>&lt;a:documentation>LONG NAME: RNG Grammar Container&lt;/a:documentation>
+      &lt;define name="rng_grammar.content">
+        &lt;zeroOrMore>
+          &lt;choice>
+            &lt;externalRef href="rngGrammarProxy.rng"
+              a:dtdURI="rngGrammar.dtd"
+              a:xsdURI="rngGrammar.xsd"
+            />
+            &lt;ref name="data"/>
+            &lt;ref name="data-about"/>
+          &lt;/choice>
+        &lt;/zeroOrMore>
+      &lt;/define>
+...</codeblock></p>
+          </section>
+          <?oxy_insert_end?>
         </conbody>
       </concept>
       <concept
