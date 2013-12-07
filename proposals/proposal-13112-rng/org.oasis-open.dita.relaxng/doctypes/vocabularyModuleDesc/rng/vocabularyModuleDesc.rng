@@ -123,7 +123,7 @@
   <include href="vocabularyModuleDescMod.rng"/>
   
     <!-- Define the any pattern to exclude elements with ID attributes
-    from the wildcard and refer them expliceitely  -->
+    from the wildcard and refer them explicitely  -->
   <define name="any">
     <zeroOrMore>
       <choice>

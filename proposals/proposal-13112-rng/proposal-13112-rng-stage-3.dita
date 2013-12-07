@@ -228,11 +228,11 @@
                   <p>This specification defines implementation requirements for <ph
                     rev="1.3">all</ph> of these document constraint mechanisms. The OASIS DITA Technical Committee recognizes that other XML grammar languages might provide similar modularity and
                     extensibility mechanisms. However, the Technical Committee has not yet defined implementation requirements for those languages so their conformance cannot be determined.</p>
-                  <p
-                    rev="DITA1.3 proposal-13112">Of these three document constraint mechanisms, RELAX NG grammars offer the easiest-to-use syntax and the most expressive constraints. For this reason,
-                    the RELAX NG definitions of the standard DITA vocabularies are the authoritative versions from which the DTD and XSD versions are automatically generated. Open-source tools are
-                    available for generating conforming DTD-syntax and XSD-syntax document type shells, vocabulary modules, and constraint modules from RELAX NG grammars that conform to the coding
-                    requirements defined in this specification.</p>
+                  <p rev="DITA1.3 proposal-13112">Of these three document constraint mechanisms, RELAX NG grammars offer the easiest-to-use syntax and the most expressive constraints. For this reason,
+                    the RELAX NG definitions of the standard DITA vocabularies are the
+                    <?oxy_delete author="ekimber" timestamp="20131207T082929-0600" content="authoritative"?><?oxy_insert_start author="ekimber" timestamp="20131207T082929-0600"?>normative<?oxy_insert_end?>
+                    versions from which the DTD and XSD versions are automatically generated. Open-source tools are available for generating conforming DTD-syntax and XSD-syntax document type shells,
+                    vocabulary modules, and constraint modules from RELAX NG grammars that conform to the coding requirements defined in this specification.</p>
                 </entry>
               </row>
               <row>
@@ -457,25 +457,30 @@
       <title>Using RELAX NG for DITA document type shells, vocabulary modules, and constraint modules</title>
       <conbody>
         <p>The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the compact syntax. The two syntaxes are functionally equivalent and either syntax may be reliably
-          converted into the other (e.g., using the open-source Trang tool). However, the XML syntax, because it is XML based, allows the easy use of foreign markup within RELAX NG grammars (the RELAX
-          NG compact syntax allows the use of foreign vocabularies but it's processing is not as convenient as it is for the RELAX NG XML syntax). The DITA coding requirements depend on this feature
-          of RELAX NG in order to capture metadata about document type shells and modules required in order to generate DTD- and XSD-syntax versions of the files that themselves conform to the DITA
-          coding requirements. In addition, the foreign vocabulary feature can be used to include Schematron rules directly in RELAX NG grammars. Schematron rules can check rules that are not
-          expressible with RELAX NG directly or that would be inconvenient to express.</p>
+          converted into the other (e.g., using the open-source Trang tool). However, the XML syntax, because it is
+          XML<?oxy_delete author="ekimber" timestamp="20131207T083009-0600" content=" "?><?oxy_insert_start author="ekimber" timestamp="20131207T083009-0600"?>-<?oxy_insert_end?>based, allows the easy
+          use of foreign markup within RELAX NG grammars (the RELAX NG compact syntax allows the use of foreign vocabularies but it's processing is not as convenient as it is for the RELAX NG XML
+          syntax). The DITA coding requirements depend on this feature of RELAX NG in order to capture metadata about document type shells and modules required in order to generate DTD- and XSD-syntax
+          versions of the files that themselves conform to the DITA coding requirements. In addition, the foreign vocabulary feature can be used to include Schematron rules directly in RELAX NG
+          grammars. Schematron rules can check rules that are not expressible with RELAX NG directly or that would be inconvenient to express.</p>
         <p>In addition, the RELAX NG XML syntax provides a general grouping element type, &lt;div>, that allows for arbitrary organization and grouping of patterns within grammar documents. Such
           grouping tends to make the grammar documents easier to work with, especially in XML-aware editors. The use or non-use of the RELAX NG &lt;div> element does not affect the meaning of the
           patterns defined in a RELAX NG schema. </p>
-        <p>For these reasons, the authoritative version of all OASIS-defined DITA document type shells, vocabulary modules, and constraint modules use the RELAX NG XML syntax. The DITA RELAX NG coding
-          requirements are defined for the RELAX NG XML syntax. Conforming RELAX NG compact syntax modules <term outputclass="OASIS-terminology">MUST</term> reflect the same file naming and
-          organization requirements as the RELAX NG XML syntax requirements, substituting ".rnc" for ".rng" as the filename extension. By definition, RELAX NG compact syntax modules generated from
-          conforming RELAX NG XML syntax modules such that there is a one-to-one correspondence between XML files and compact syntax files are conforming. While the resulting compact syntax files are
-          able to include the information from foreign vocabularies and annotations, there is no requirement to be able to process those annotations when generating XML-syntax RELAX NG declarations.
-          Thus, generation of XML syntax modules from conforming compact syntax modules need only  result in minimally-conforming XML syntax modules..</p>
+        <p>For these reasons, the
+          <?oxy_delete author="ekimber" timestamp="20131207T083144-0600" content="authoritative"?><?oxy_insert_start author="ekimber" timestamp="20131207T083144-0600"?>normative<?oxy_insert_end?>
+          version of all OASIS-defined DITA document type shells, vocabulary modules, and constraint modules use the RELAX NG XML syntax. The DITA RELAX NG coding requirements are defined for the
+          RELAX NG XML syntax. Conforming RELAX NG compact syntax modules <term outputclass="OASIS-terminology">MUST</term> reflect the same file naming and organization requirements as the RELAX NG
+          XML syntax requirements, substituting ".rnc" for ".rng" as the filename extension. By definition, RELAX NG compact syntax modules generated from conforming RELAX NG XML syntax modules such
+          that there is a one-to-one correspondence between XML files and compact syntax files are conforming. While the resulting compact syntax files are able to include the information from foreign
+          vocabularies and annotations, there is no requirement to be able to process those annotations when generating XML-syntax RELAX NG declarations. Thus, generation of XML syntax modules from
+          conforming compact syntax modules need only result in minimally-conforming XML syntax modules..</p>
         <p>The DITA use of RELAX NG depends on the companion <cite>RELAX NG DTD Compatibility</cite> specification, which provides a mechanism for defining default attribute values, as well as
           embedded documentation. Processors that use RELAX NG to get the full infoset for DITA documents for which not all required attributes are present in document instances
           <?oxy_delete author="ekimber" timestamp="20131207T082039-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T082039-0600"?>has to<?oxy_insert_end?> implement the
           DTD compatibility specification in order to get default attribute values (e.g., values for @domains and @class). The DTD compatibility specification defines the namespace name
-          "http://relaxng.org/ns/compatibility/annotations/1.0" which is bound to the prefix "a" by convention, e.g. "&lt;a:documentation>" refers to the &lt;documentation> element type from the
+          "http://relaxng.org/ns/compatibility/annotations/1.0" which is bound to the prefix "a" by
+          convention<?oxy_insert_start author="ekimber" timestamp="20131207T083321-0600"?>.<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131207T083318-0600" content=", e.g."?>
+          <?oxy_insert_start author="ekimber" timestamp="20131207T083328-0600"?>The tag <?oxy_insert_end?>"&lt;a:documentation>" refers to the &lt;documentation> element type from the
           "http://relaxng.org/ns/compatibility/annotations/1.0" namespace as defined by the DTD compatibility specification.</p>
         <p>RELAX NG grammars for DITA document type shells, vocabulary modules, and constraint modules ("DITA grammars") <term
           outputclass="OASIS-terminology">MAY</term> use the &lt;a:documentation> element anywhere foreign elements are allowed by RELAX NG. DITA grammars <term
@@ -484,14 +489,11 @@
           outputclass="OASIS-terminology">MAY</term> include embedded Schematron rules or any other foreign vocabulary. Processors <term
           outputclass="OASIS-terminology">MAY</term> ignore any foreign vocabularies within DITA grammars not in the "http://relaxng.org/ns/compatibility/annotations/1.0" or
           "http://dita.oasis-open.org/architecture/2005/" namespaces.</p>
-        <p>Each section of a DITA grammar document is either introduced by a comment or represented by a &lt;div> element with child &lt;a:documentation> element containing the section header.
-          Grammars <term
-          outputclass="OASIS-terminology">SHOULD</term> use these divs or comments to identify each section of the grammar. Sections <term
-          outputclass="OASIS-terminology">SHOULD</term> occur in the order specified in these coding requirements. Grammars <term
-          outputclass="OASIS-terminology">SHOULD</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the grammar document and indicates the URNs or absolute URLs by
-          which the grammar should be referenced in RELAX NG grammar references (see <xref
-          href="#concept_lbt_ct4_2m"
-          format="dita"/>).</p>
+        <p>Each section of a DITA grammar document is either introduced by a comment or represented by a &lt;div> element with <?oxy_insert_start author="ekimber" timestamp="20131207T083437-0600"?>a
+          <?oxy_insert_end?>child &lt;a:documentation> element containing the section header. Grammars <term outputclass="OASIS-terminology">SHOULD</term> use these divs or comments to identify each
+          section of the grammar. Sections <term outputclass="OASIS-terminology">SHOULD</term> occur in the order specified in these coding requirements. Grammars <term outputclass="OASIS-terminology"
+          >SHOULD</term> have an initial set of comments or a &lt;moduleMetadata> element that describes the grammar document and indicates the URNs or absolute URLs by which the grammar should be
+          referenced in RELAX NG grammar references (see <xref href="#concept_lbt_ct4_2m" format="dita"/>).</p>
         <p>Section titles using &lt;div> <term
           outputclass="OASIS-terminology">SHOULD</term> have the form:<codeblock>&lt;div>
   &lt;a:documentation><i>SECTION TITLE</i>&lt;/a:documentation>
@@ -514,14 +516,19 @@
       <conbody>
         <p>Of the three DITA-recognized document constraint languages, RELAX NG provides the simplest syntax for specifying the integration of vocabulary and constraint modules into document type
           shells. This makes RELAX NG ideally suited as the base format for defining DITA vocabulary. However, many, if not most DITA-aware tools require the use of DTDs or XSD schemas as of version
-          1.3 of the DITA specification. Thus there is a practical requirement to generate DTDs and XSD schemas from RELAX NG.</p>
-        <p>The generation of DTD and XSD modules requires additional metadata that is not inherent in the grammar definition:<ul
-          id="ul_vfp_sp4_2m">
+          1.3 of the DITA specification. Thus there is a practical requirement to generate DTDs and XSD schemas from RELAX
+          NG.<?oxy_insert_start author="ekimber" timestamp="20131207T083619-0600"?><note>The editors of the DITA specification have developed tools for generating conforming DTDs and XSDs from
+          conforming DITA RELAX NG modules and document type shells. These tools are available as open source as a convenience to the DITA community. See {xref to non-normative references
+          section}.</note><?oxy_insert_end?></p>
+        <p>The generation of DTD and XSD modules requires additional metadata that is not inherent in the grammar definition:<ul id="ul_vfp_sp4_2m">
           <li>The module type (document type shell, vocabulary module, or constraint module)</li>
           <li>The header comment for the file</li>
           <li>The module short name for vocabulary and constraint modules</li>
           <li>The public identifiers to use for each component file to be generated</li>
           <li>The @domains attribute contribution for vocabulary and constraint modules</li>
+          <?oxy_insert_start author="ekimber" timestamp="20131207T083831-0600"?>
+          <li>For foreign vocabularies, the DTD and XSD files to include for those vocabularies</li>
+          <?oxy_insert_end?>
           </ul></p>
         <p>This metadata can be defined using the &lt;moduleDesc> element within a RELAX NG &lt;grammar> element.</p>
       </conbody>
@@ -577,7 +584,12 @@
                           </dlentry>
                           <dlentry>
                             <dt>base</dt>
-                            <dd>The grammar is one of the DITA base modules. Base modules may only be defined by the DITA Technical Committee.</dd>
+                            <dd>The grammar is one of the DITA base modules. Base modules
+                            <?oxy_delete author="ekimber" timestamp="20131207T084129-0600" content="may "?><?oxy_insert_start author="ekimber" timestamp="20131207T084129-0600"?><term
+                            outputclass="OASIS-terminology">MAY</term>
+                            <?oxy_insert_end?>only be defined by the DITA Technical Committee<?oxy_insert_start author="ekimber" timestamp="20131207T084022-0600"?> (e.g., the
+                            <filepath>commonElementsMod.rng</filepath> and <filepath>metaDeclMod.rng</filepath>
+                            modules)<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131207T084021-0600" content="."?></dd>
                           </dlentry>
                           <dlentry>
                             <dt>constraint</dt>
@@ -915,18 +927,18 @@
           <section>
             <title>Module files</title>
             <p>A RELAX NG vocabulary module consists of a single module file. </p>
-            <p>For structural modules, the file name is the module name plus "Mod" plus an extension of either ".rng" for RELAX NG XML syntax modules or ".rnc" for RELAX NG compact syntax modules, e.g.,
-              "conceptMod.rng", "glossentryMod.rnc".</p>
+            <p>For structural modules, the file name is the module name plus "Mod" plus an extension of either ".rng" for RELAX NG XML syntax modules or ".rnc" for RELAX NG compact syntax modules,
+              e.g., "<filepath>conceptMod.rng</filepath>", "<filepath>glossentryMod.rnc</filepath>".</p>
             <p>For domain modules, the file name is the domain name plus <filepath>DomainMod</filepath> plus an extension of either ".rng" for RELAX NG XML syntax modules or ".rnc" for RELAX NG
               compact syntax modules, e.g. <filepath>highlightDomainMod.rng</filepath>, <filepath>programmingDomainMod.rnc</filepath>.</p>
           </section>
           <section
             id="section_AF5B8ABA77DA4474A0AF0DF0AFD8E018">
             <title>Element definitions</title>
-            <p>A structural or element domain vocabulary module <term outputclass="OASIS-terminology">MUST</term> contain a declaration for each specialized element type named by the module. While the XML standard allows content
-              models to refer to undeclared element types, all element types named in content models or attribute list declarations within a vocabulary module <term outputclass="OASIS-terminology">MUST</term> have a RELAX NG element
-              declaration, in one of:<ul
-              id="ul_n1b_vbr_2m">
+            <p>A structural or element domain vocabulary module <term outputclass="OASIS-terminology">MUST</term> contain a declaration for each specialized element type named by the module. While the
+              XML standard allows content models to refer to undeclared element types, all element types named in content models or attribute list declarations within a vocabulary module <term
+              outputclass="OASIS-terminology">MUST</term> have a RELAX NG element declaration, in one of<?oxy_insert_start author="ekimber" timestamp="20131207T084411-0600"?> the
+              following<?oxy_insert_end?>:<ul id="ul_n1b_vbr_2m">
               <li>The vocabulary module</li>
               <li>A base module of which the vocabulary module is a direct or indirect specialization</li>
               <li>A required domain module (if the vocabulary module is a structural module).</li>
