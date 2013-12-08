@@ -11,6 +11,9 @@
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
   version="2.0">
 
+  <xsl:import href="../lib/rng-simplification.xsl"/>
+  <xsl:import href="../lib/relpath_util.xsl" />
+
   <xd:doc scope="stylesheet">
     <xd:desc>
       <xd:p>RNG to Contains/Contained By Table Generator</xd:p>
@@ -22,7 +25,6 @@
     </xd:desc>
   </xd:doc>
 
-  <xsl:include href="../lib/relpath_util.xsl" />
   <!--
     <!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
     -->
@@ -50,7 +52,7 @@
   <xsl:template match="/">
     <!-- Process:
       
-         0. Merge the RNG content into a single tree
+         0. Construct the simplified grammar
       
          1. Gather the set of unique element types.
          
@@ -59,8 +61,13 @@
             
      -->
     
-    <xsl:variable name="mergedGrammar" as="document-node()">
-      <xsl:apply-templates select="*" mode="merge-grammar"/>
+    <xsl:variable name="simplifiedGrammar" as="document-node()">
+      <xsl:document>
+        <xsl:apply-templates select="." mode="rng-simplification">
+          <!-- Don't generate intermediate debugging files: -->
+          <xsl:with-param name="out" select="false()" as="xs:boolean"/>
+        </xsl:apply-templates>
+      </xsl:document>
     </xsl:variable>
     
     <xsl:if test="$doDebug">
@@ -69,13 +76,13 @@
       />
       <xsl:message> + [DEBUG] Writing merged grammar to "<xsl:value-of select="$mergedUri"/>"</xsl:message>
       <xsl:result-document href="{$mergedUri}" method="xml">
-        <xsl:sequence select="$mergedGrammar"/>
+        <xsl:sequence select="$simplifiedGrammar"/>
       </xsl:result-document>
     </xsl:if>
     
     <dita>
-      <xsl:apply-templates mode="make-alpha-nav-topics" select="$mergedGrammar"/>
-      <xsl:apply-templates mode="make-tables" select="$mergedGrammar"/>
+      <xsl:apply-templates mode="make-alpha-nav-topics" select="$simplifiedGrammar"/>
+      <xsl:apply-templates mode="make-tables" select="$simplifiedGrammar"/>
     </dita>
     
   </xsl:template>

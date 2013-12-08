@@ -32,14 +32,21 @@ exclude-result-prefixes = "xs rng local">
 <xsl:strip-space elements="*"/>
 
 <xsl:param name="out-name" select="'simplified'" as="xs:string"/>
+  
+<xsl:template match="/">
+	<xsl:param name="out" select="true()" as="xs:boolean"/>
+  <xsl:apply-templates select="." mode="rng-simplification">
+    <xsl:with-param name="out" select="$out" as="xs:boolean"/>
+  </xsl:apply-templates>
+</xsl:template>
 
 <!-- 4.2. Whitespace-->
 
-<xsl:template match="/">  
+<xsl:template match="/" mode="rng-simplification">  
 	<xsl:param name="out" select="true()" as="xs:boolean"/>
 	<xsl:param name="stop-after" select="''" as="xs:string"/>
   <xsl:message> + [INFO] Step 4.2. Whitespace</xsl:message>
-	<xsl:comment>4.2</xsl:comment>
+	<xsl:comment>4.2 Whitespace</xsl:comment>
 	<xsl:variable name="step" as="document-node()">
 	  <xsl:document><xsl:apply-templates mode="step4.02"/></xsl:document>
 	</xsl:variable>
@@ -1098,7 +1105,6 @@ exclude-result-prefixes = "xs rng local">
 <xsl:template match="/" mode="step4.21">
 	<xsl:param name="out" select="true()" as="xs:boolean"/>
 	<xsl:param name="stop-after" select="''"/>
-  <xsl:message> + [INFO] Step 4.21. empty element</xsl:message>
 	<xsl:comment>4.21. empty element</xsl:comment>
 	<xsl:variable name="step" as="node()*">
 		<xsl:document><xsl:apply-templates mode="step4.21"/></xsl:document>
@@ -1114,7 +1120,6 @@ exclude-result-prefixes = "xs rng local">
 
 <xsl:template match="*" mode="step4.21" priority="-1">
 	<xsl:param name="updated" select="false()" as="xs:boolean"/>
-  <xsl:message> + [DEBUG] step4.21: <xsl:sequence select="concat(name(..), '/', name(.))"/></xsl:message>
 	<xsl:copy>
 		<xsl:if test="$updated">
 			<xsl:attribute name="updated" select="$updated"/>

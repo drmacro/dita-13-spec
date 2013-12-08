@@ -9,3 +9,5 @@ out
 
 *.log
 proposals/proposal-13106-learning2domain/spec/
+*-merged.rng
+simplified/
