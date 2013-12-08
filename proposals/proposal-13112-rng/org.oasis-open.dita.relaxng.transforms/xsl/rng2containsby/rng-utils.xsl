@@ -24,15 +24,24 @@
     construct-content-model
     resolve-refs
     ">
-    <xsl:variable name="pattern" as="element()*"
-      select="key('patternsByName', @name)"
-    />
+    <xsl:param name="handledRefs" as="xs:string" tunnel="yes" select="''"/>
+    <xsl:variable name="handledKey" select="concat('^', @name, '^')" as="xs:string"/>
     <xsl:choose>
-      <xsl:when test="not($pattern)">
-        <xsl:message> - [WARN] rng:ref - Unable to find pattern "<xsl:value-of select="@name"/>"</xsl:message>
+      <xsl:when test="contains($handledRefs, $handledKey)">
+        <xsl:message> + [DEBUG]     ref handled, skipping.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="$pattern" mode="#current"/>
+        <xsl:variable name="pattern" as="element()*"
+          select="key('patternsByName', @name)"
+        />
+        <xsl:choose>
+          <xsl:when test="not($pattern)">
+            <xsl:message> - [WARN] rng:ref - Unable to find pattern "<xsl:value-of select="@name"/>"</xsl:message>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="$pattern" mode="#current"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

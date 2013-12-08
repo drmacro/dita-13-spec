@@ -9,8 +9,19 @@
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:sch="http://purl.oclc.org/dsdl/schematron" 
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   exclude-result-prefixes="xs xd rnga relpath str ditaarch rngfunc sch"
   version="2.0">
+  <!-- ===============================
+       Merge the grammars referenced from a starting root grammar
+       into a single grammar instance.
+       
+       This logic is specific to the DITA grammars in that it
+       assumes there are no <start> elements in any grammar except
+       the root one, which is the DITA pattern. This makes it a 
+       little different from the merge processed used for
+       grammar simplification per the RELAX NG specification.
+       =============================== -->
   
   <xsl:template match="rng:grammar" mode="merge-grammar" priority="10">
     <xsl:document>

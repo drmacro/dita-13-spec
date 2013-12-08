@@ -11,7 +11,6 @@
   exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
   version="2.0">
 
-  <xsl:import href="../lib/rng-simplification.xsl"/>
   <xsl:import href="../lib/relpath_util.xsl" />
 
   <xd:doc scope="stylesheet">
@@ -34,6 +33,10 @@
     doctype-public="-//OASIS//DTD DITA Composite//EN"
     doctype-system="ditabase.dtd"
   />
+  <xsl:output name="grammar"
+    method="xml"
+    indent="yes"
+  />
 
   <xsl:param name="debug" as="xs:string" select="'false'"/>
   
@@ -46,27 +49,27 @@
   
   <xsl:include href="rng-utils.xsl"/>
   <xsl:include href="rng-merge-grammar.xsl"/>
+  <xsl:include href="rng-normalize-grammar.xsl"/>
   <xsl:include href="rng-make-alpha-nav-topics.xsl"/>
   <xsl:include href="rng-make-tables.xsl"/>
 
   <xsl:template match="/">
     <!-- Process:
       
-         0. Construct the simplified grammar
-      
-         1. Gather the set of unique element types.
+         0. Merge the grammar documents
          
-         2. For each element type, calculate its content and
+         1. Normalize the content models
+      
+         2. Gather the set of unique element types.
+         
+         3. For each element type, calculate its content and
             containment.
             
      -->
     
-    <xsl:variable name="simplifiedGrammar" as="document-node()">
+    <xsl:variable name="mergedGrammar" as="document-node()">
       <xsl:document>
-        <xsl:apply-templates select="." mode="rng-simplification">
-          <!-- Don't generate intermediate debugging files: -->
-          <xsl:with-param name="out" select="false()" as="xs:boolean"/>
-        </xsl:apply-templates>
+        <xsl:apply-templates select="." mode="merge-grammar"/>        
       </xsl:document>
     </xsl:variable>
     
@@ -75,14 +78,29 @@
         select="relpath:newFile(relpath:getParent(document-uri(.)), concat(relpath:getName(document-uri(.)), '-merged.rng'))"
       />
       <xsl:message> + [DEBUG] Writing merged grammar to "<xsl:value-of select="$mergedUri"/>"</xsl:message>
-      <xsl:result-document href="{$mergedUri}" method="xml">
-        <xsl:sequence select="$simplifiedGrammar"/>
+      <xsl:result-document href="{$mergedUri}" format="grammar">
+        <xsl:sequence select="$mergedGrammar"/>
       </xsl:result-document>
     </xsl:if>
     
+    <xsl:variable name="normalizedGrammar" as="document-node()">
+      <xsl:document>
+        <xsl:apply-templates select="$mergedGrammar" mode="normalize-grammar"/>
+      </xsl:document>
+    </xsl:variable>
+    
+    <xsl:if test="$doDebug">
+      <xsl:variable name="normalizedUri" as="xs:string"
+        select="relpath:newFile(relpath:getParent(document-uri(.)), concat(relpath:getName(document-uri(.)), '-normalized.rng'))"
+      />
+      <xsl:message> + [DEBUG] Writing normalized grammar to "<xsl:value-of select="$normalizedUri"/>"</xsl:message>
+      <xsl:result-document href="{$normalizedUri}" format="grammar">
+        <xsl:sequence select="$normalizedGrammar"/>
+      </xsl:result-document>
+    </xsl:if>
     <dita>
-      <xsl:apply-templates mode="make-alpha-nav-topics" select="$simplifiedGrammar"/>
-      <xsl:apply-templates mode="make-tables" select="$simplifiedGrammar"/>
+      <xsl:apply-templates mode="make-alpha-nav-topics" select="$normalizedGrammar"/>
+      <!--<xsl:apply-templates mode="make-tables" select="$normalizedGrammar"/>-->
     </dita>
     
   </xsl:template>

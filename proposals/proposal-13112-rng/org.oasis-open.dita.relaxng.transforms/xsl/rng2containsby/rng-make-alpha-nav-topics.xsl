@@ -22,21 +22,26 @@
       <title>All Elements A-Z</title>
       <body>
         <ul>
-        <xsl:apply-templates select="//rng:element[@name]" mode="#current">
+        <xsl:for-each-group select="//rng:element[@name]" group-by="@name">
           <xsl:sort select="@name"/>
-        </xsl:apply-templates>
+          <xsl:variable name="pos" select="position()" as="xs:integer"/>
+          <xsl:apply-templates select="current-group()[1]" mode="#current">
+            <xsl:with-param name="position" as="xs:integer" select="$pos"/>
+          </xsl:apply-templates>          
+        </xsl:for-each-group>
         </ul>
       </body>
     </topic>
   </xsl:template>
 
   <xsl:template match="rng:element[@name]" mode="make-alpha-nav-topics">
+    <xsl:param name="position" as="xs:integer"/>
     <!-- For each unique element type, we generate a reference topic
          that contains just the contains and contained-by tables.
       -->
     <xsl:variable name="tagname" as="xs:string" select="@name"/>
    
-    <li id="{$tagname}"><xsl:comment>[<xsl:sequence select="position()"/>"]</xsl:comment><xref keyref="{$tagname}"><xsl:sequence select="$tagname"/></xref></li>
+    <li id="{$tagname}"><xsl:comment>[<xsl:sequence select="$position"/>"]</xsl:comment><xref keyref="{$tagname}"><xsl:sequence select="$tagname"/></xref></li>
 
   </xsl:template>
   
