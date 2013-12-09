@@ -3,6 +3,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:rng="http://relaxng.org/ns/structure/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:rnga="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:str="http://local/stringfunctions"
@@ -30,6 +31,7 @@
        =============================== -->
   
   <xsl:template match="rng:grammar" mode="normalize-grammar" priority="10">
+    <xsl:param name="origDoc" as="document-node()" tunnel="yes"/>
     <!-- First, normalize all the references so each top-level <element> 
          declaration contains stub versions of each child element along
          with the groups.
@@ -39,6 +41,16 @@
         <xsl:apply-templates select="." mode="normalize-refs"/>
       </xsl:document>
     </xsl:variable>
+    <xsl:if test="$doDebug">
+      <xsl:variable name="resolvedUri" as="xs:string"
+        select="relpath:newFile(relpath:getParent(document-uri($origDoc)), concat(relpath:getName(document-uri($origDoc)), '-resolved.rng'))"
+      />
+      <xsl:message> + [DEBUG] Writing ref-resolved grammar to "<xsl:value-of select="$resolvedUri"/>"</xsl:message>
+      <xsl:result-document href="{$resolvedUri}" format="grammar">
+        <xsl:sequence select="$grammarResolved"/>
+      </xsl:result-document>
+
+    </xsl:if>
     <!-- Now process the result to filter out unnecessary groups -->
     <xsl:document>
       <xsl:for-each select="$grammarResolved/rng:grammar">
@@ -74,7 +86,10 @@
           </xsl:apply-templates>
         </xsl:when>
         <xsl:otherwise>
-          <rng:empty/><!-- Make the stub <element> element nominally valid -->
+            <xsl:if test="not(@name)">
+              <anyName/><!-- Must be an "any" pattern -->
+            </xsl:if>
+            <empty/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:copy>
@@ -90,10 +105,20 @@
   <xsl:template mode="normalize-grammar" match="rng:choice/rng:choice" priority="10">
     <xsl:apply-templates mode="#current"/>    
   </xsl:template>
+  
+  <xsl:template mode="normalize-grammar" match="rng:define[not(rng:element)]" priority="20">
+    <!-- We don't care about defines that are not directly defining element patterns. -->
+  </xsl:template>
+
+  <xsl:template mode="normalize-grammar" match="rng:define[preceding::rng:define[rng:element/@name = current()/rng:element/@name]]" priority="20">
+    <!-- Only process the first definition of a given element type -->
+  </xsl:template>
 
   <!-- Ignore things that contain only attributes and attributes -->
   <xsl:template mode="normalize-grammar" match="rng:optional[rng:attribute]"/>
   <xsl:template mode="normalize-grammar" match="rng:attribute"/>
+  
+  <xsl:template match="a:* | @a:*" mode="normalize-grammar" priority="10"/><!-- Don't care about annotations -->
   
   <xsl:template match="*" mode="normalize-grammar normalize-refs">
     <xsl:copy>

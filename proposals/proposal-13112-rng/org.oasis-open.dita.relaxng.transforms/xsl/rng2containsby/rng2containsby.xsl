@@ -66,10 +66,12 @@
             containment.
             
      -->
-    
+    <xsl:message> + [INFO] Merging grammar...</xsl:message>
     <xsl:variable name="mergedGrammar" as="document-node()">
       <xsl:document>
-        <xsl:apply-templates select="." mode="merge-grammar"/>        
+        <xsl:apply-templates select="." mode="merge-grammar">
+          <xsl:with-param name="origDoc" as="document-node()" select="root(.)" tunnel="yes"/>
+        </xsl:apply-templates> 
       </xsl:document>
     </xsl:variable>
     
@@ -83,9 +85,12 @@
       </xsl:result-document>
     </xsl:if>
     
+    <xsl:message> + [INFO] Normalizing grammar...</xsl:message>
     <xsl:variable name="normalizedGrammar" as="document-node()">
       <xsl:document>
-        <xsl:apply-templates select="$mergedGrammar" mode="normalize-grammar"/>
+        <xsl:apply-templates select="$mergedGrammar" mode="normalize-grammar">
+          <xsl:with-param name="origDoc" as="document-node()" select="root(.)" tunnel="yes"/>
+        </xsl:apply-templates>
       </xsl:document>
     </xsl:variable>
     
@@ -98,10 +103,13 @@
         <xsl:sequence select="$normalizedGrammar"/>
       </xsl:result-document>
     </xsl:if>
+    
+    <xsl:message> + [INFO] Generating contains-by tables...</xsl:message>
     <dita>
       <xsl:apply-templates mode="make-alpha-nav-topics" select="$normalizedGrammar"/>
-      <!--<xsl:apply-templates mode="make-tables" select="$normalizedGrammar"/>-->
+      <xsl:apply-templates mode="make-tables" select="$normalizedGrammar"/>
     </dita>
+    <xsl:message> + [INFO] Done.</xsl:message>
     
   </xsl:template>
   

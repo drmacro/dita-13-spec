@@ -19,14 +19,14 @@
     <xsl:variable name="rootElements">
       <xsl:apply-templates select="rng:start" mode="make-tables"/>
     </xsl:variable>
-    <xsl:apply-templates select="//rng:element[@name]" mode="#current">
+    <xsl:apply-templates select="//rng:define/rng:element[@name]" mode="#current">
       <xsl:sort select="@name"/>
       <xsl:with-param name="rootElements" select="$rootElements"/>
     </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="rng:element[@name]" mode="make-tables">
-    <!-- For each unique elemen type, we generate a reference topic
+    <!-- For each unique element type, we generate a reference topic
          that contains just the contains and contained-by tables.
       -->
     
@@ -64,7 +64,13 @@
             </sthead>
             <strow>
               <stentry><xsl:apply-templates select="/rng:grammar/rng:start" mode="#current"/></stentry>
-              <stentry>{list of xrefs to element types here}
+              <stentry>
+                <xsl:for-each select="/*/rng:define/rng:element[.//rng:element[@name = $tagname]]">
+                  <xsl:if test="position() > 1">
+                    <xsl:text>, </xsl:text>
+                  </xsl:if>
+                  <xref href="{@name}"><xsl:value-of select="@name"/></xref>
+                </xsl:for-each>
               </stentry>
             </strow>
           </simpletable>
@@ -79,17 +85,8 @@
   </xsl:template>
   
   <xsl:template mode="generate-contains-entry" match="rng:element">
-    <xsl:message> + [DEBUG] generate-contains-entry: element="<xsl:value-of select="@name"/>"</xsl:message>
-    <xsl:variable name="resolvedPattern" as="element()">
-      <rng:element>
-        <xsl:sequence select="@*"/>
-        <xsl:apply-templates mode="resolve-refs"/>
-      </rng:element>
-    </xsl:variable>
-    <xsl:message> + [DEBUG] resolvedPattern: <xsl:sequence select="$resolvedPattern"/></xsl:message>
-    <xsl:apply-templates mode="construct-content-model" 
-      select="$resolvedPattern">
-    </xsl:apply-templates>
+    <!--<xsl:message> + [DEBUG] generate-contains-entry: element="<xsl:value-of select="@name"/>"</xsl:message>-->
+    <xsl:apply-templates mode="construct-content-model"/>    
   </xsl:template>
   
   <xsl:template mode="make-tables" match="text()"/>
@@ -103,7 +100,7 @@
   <xsl:template mode="construct-content-model" match="rng:element[@name]">
     <xsl:param name="sep" as="xs:string" tunnel="yes" select="' or '"/>
     <xsl:variable name="tagname" select="@name" as="xs:string"/>
-    <xsl:message> + [DEBUG] construct-content-model: tagname="<xsl:sequence select="$tagname"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] construct-content-model: tagname="<xsl:sequence select="$tagname"/>"</xsl:message>-->
     <xref keyref="{$tagname}"><xsl:sequence select="$tagname"/></xref>
     <xsl:sequence select="$sep"/>
   </xsl:template>
