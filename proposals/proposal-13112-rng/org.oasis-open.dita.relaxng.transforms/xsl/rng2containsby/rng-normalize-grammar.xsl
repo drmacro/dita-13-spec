@@ -87,11 +87,10 @@
     <xsl:sequence select="."/>
   </xsl:template>
   
-  <xsl:template mode="normalize-grammar" match="rng:choice[count(rng:choice) = count(rng:*)]/rng:choice">
-    <!-- If a choice is a child of a parent choice with only choices, we don't need the child choice containers -->
+  <xsl:template mode="normalize-grammar" match="rng:choice/rng:choice" priority="10">
     <xsl:apply-templates mode="#current"/>    
   </xsl:template>
-  
+
   <!-- Ignore things that contain only attributes and attributes -->
   <xsl:template mode="normalize-grammar" match="rng:optional[rng:attribute]"/>
   <xsl:template mode="normalize-grammar" match="rng:attribute"/>
