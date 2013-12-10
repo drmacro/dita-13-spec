@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2013" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2013" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Stage 3 proposal: Feature #13121" />
+<meta name="abstract" content="Enable parts of structural specializations to be reused by other structural specializations without requiring one to be specialized from the other. For example, allow the &lt;steps&gt; structure from &lt;task&gt; to be reused in place of an &lt;ol&gt; within a &lt;troubleshootingsteps&gt; section of the &lt;troubleshooting&gt; topic type." />
+<meta name="Description" content="Enable parts of structural specializations to be reused by other structural specializations without requiring one to be specialized from the other. For example, allow the &lt;steps&gt; structure from &lt;task&gt; to be reused in place of an &lt;ol&gt; within a &lt;troubleshootingsteps&gt; section of the &lt;troubleshooting&gt; topic type." />
+<meta name="DC.Date" scheme="iso8601" content="2013-12-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="topic_aqh_5zt_3h" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<title>Stage 3 proposal: Feature #13121</title>
+</head>
+<body role="main">
+<div class="nested0" id="topic_aqh_5zt_3h"><h1 class="title topictitle1">Stage 3 proposal: Feature #13121</h1>
+<div class="body"><p class="shortdesc">Enable parts of structural specializations to be reused by other structural
+      specializations without requiring one to be specialized from the other. For example, allow the
+      &lt;steps&gt; structure from &lt;task&gt; to be reused in place of an &lt;ol&gt; within a
+      &lt;troubleshootingsteps&gt; section of the &lt;troubleshooting&gt; topic type.</p>
+<div class="section"><h2 class="title sectiontitle">Champion</h2>        
+        <p class="p">Michael Priestley</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Tracking information</h2>        
+        <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d66e23" class="stentry" width="33.333333333333336%">Event</th>
+<th valign="bottom" align="left" id="d66e25" class="stentry" width="33.333333333333336%">Date</th>
+<th valign="bottom" align="left" id="d66e27" class="stentry" width="33.333333333333336%">Links</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 1 proposal accepted</td>
+<td valign="top" headers="d66e25" class="stentry">14 August 2012</td>
+<td valign="top" headers="d66e27" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46689/minutes20120814.txt" target="_blank" title="(Opens in a new tab or window)">Minutes</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 2 proposal submitted</td>
+<td valign="top" headers="d66e25" class="stentry">17 June 2013</td>
+<td valign="top" headers="d66e27" class="stentry">              <ul class="sl simple"><li class="sli"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49574" target="_blank" title="(Opens in a new tab or window)">DITA</a></li>
+<li class="sli"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49575" target="_blank" title="(Opens in a new tab or window)">HTML</a></li>
+</ul>
+
+            </td>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 2 proposal discussed</td>
+<td valign="top" headers="d66e25" class="stentry">25 July 2013</td>
+<td valign="top" headers="d66e27" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49782/minutes20130625.txt" target="_blank" title="(Opens in a new tab or window)">Minutes</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 2 proposal approved</td>
+<td valign="top" headers="d66e25" class="stentry">2 July 2013</td>
+<td valign="top" headers="d66e27" class="stentry"><a class="xref" href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49815/minutes20130702.txt" target="_blank" title="(Opens in a new tab or window)">Minutes</a></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 3 proposal submitted to reviewers</td>
+<td valign="top" headers="d66e25" class="stentry">              <ul class="sl simple"><li class="sli">1 November 2013</li>
+<li class="sli">28 November 2013</li>
+</ul>
+
+            </td>
+<td valign="top" headers="d66e27" class="stentry">Robert Anderson, Bob Thomas, Kris Eberlein</td>
+</tr>
+<tr class="strow"><td valign="top" headers="d66e23" class="stentry">Stage 3 proposal (this document) submitted</td>
+<td valign="top" headers="d66e25" class="stentry">3 December 2013</td>
+<td valign="top" headers="d66e27" class="stentry"> </td>
+</tr>
+</table>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Approved technical requirements</h2>        
+        <ul class="ul"><li class="li">Listing of domain modules in a document-type shell</li>
+<li class="li">Declaration of the domain dependency (and each source specialization) in the domains
+            attribute</li>
+<li class="li">Limitations as to where the reused specializations can be included in structural
+            modules</li>
+<li class="li">Corrections to documentation of domain attribute syntax, to reflect the approved DITA
+            1.2 proposal 12010</li>
+<li class="li">New syntax for declaring the reuse of a structural specialization fragment as a domain
+            dependency</li>
+<li class="li">Changes to documentation about generalization to address the use case of generalizing
+            to a structural ancestor that does not contain the structural fragment as a domain
+            dependency</li>
+</ul>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Dependencies or interrelated proposals</h2>        
+        <p class="p">13097: New troubleshooting topic</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified DTDs</h2>        
+        <p class="p">None</p>
+
+      </div>
+<div class="section"><h2 class="title sectiontitle">Modified specification documentation</h2>        
+        <p class="p">The following topics require modification:</p>
+
+        <ul class="ul"><li class="li">2.1.4.2.1 DTD document-type shell: Coding requirements
+            (shell-dtd-coding-reqs.dita)</li>
+<li class="li">2.1.4.2.2 XSD document-type shell: Coding requirements
+            (xsdShellDoctypeCodeReq.dita)</li>
+<li class="li">2.1.4.3.1 Vocabulary modules (vocabularymodules.dita)</li>
+<li class="li">2.1.4.3.4 Domain usage declaration (the @domains attribute) (domainsatt.dita)</li>
+<li class="li">2.1.4.3.5 Generalization (generalize.dita)</li>
+</ul>
+
+        <p class="p">The following topics need to be added:</p>
+
+        <ul class="ul"><li class="li">"Sharing elements across specialization" (sharing-elements-across-modules.dita)</li>
+<li class="li">"Generalization with cross-specialization dependencies"
+            (generalization-w-cross-specialization-dependencies.dita)</li>
+<li class="li">"Domain attribute syntax for cross-specialization dependencies"
+            (domain-attribute-syntax-cross-specialization-dependencies.dita)</li>
+</ul>
+
+      </div>
+</div>
+<div class="topic concept nested1" id="concept_phc_wmx_3m"><h2 class="title topictitle2">Modified architectural specification topics</h2>
+<div class="body conbody"><p class="p">The revisions to the DITA 1.2 topics are marked using <samp class="ph codeph">rev="DITA1.3
+            proposal-13121"</samp>.</p>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_fdw_knx_3m"><h3 class="title topictitle3">Vocabulary modules</h3>
+<div class="body conbody"><p class="shortdesc">Vocabulary modules are atomic units of XML vocabulary definition (element types and
+    attributes). A given DITA element type or attribute is declared in exactly one vocabulary
+    module.</p>
+<p class="p">Vocabulary modules <dfn class="term">must</dfn> reflect the implementation requirements defined in this
+      specification for each recognized constraint mechanism. These requirements ensure that all
+      vocabulary modules of a given type follow the same basic coding patterns for how their
+      components are named and organized.</p>
+<p class="p">Vocabulary modules intended to be used outside of a narrowly-restricted context
+        <dfn class="term">should</dfn> have one or more associated globally-unique names (public IDs, URNs, or
+      absolute URLs) by which modules can be referenced without regard to their local storage
+      location.</p>
+<div class="p">There are three types of vocabulary module:<dl class="dl"><dt class="dt dlterm">structural</dt>
+<dd class="dd">A vocabulary module that defines exactly one top-level map or topic type. <span style="color:red;" class="ph">Structural modules also can define specializations of, or
+              reuse elements from, domain or other structural modules, creating dependencies on
+              these other modules.</span> Structural modules are either <dfn class="term">topic modules</dfn> or
+              <dfn class="term">map modules</dfn>.<p class="p">A topic vocabulary module <dfn class="term">must</dfn> define exactly
+              one top-level topic type. It <dfn class="term">may</dfn> define additional topic types that are
+              then allowed to occur as subordinate topics within the top-level topic. However, such
+              subordinate topic types <dfn class="term">may not</dfn> be used as the root elements of
+              conforming DITA documents. For example, a given top-level topic type may require the
+              use of subordinate topic types that would only ever be meaningful in the context of
+              their containing type and thus would never be candidates for standalone authoring or
+              aggregation via maps. In that case, the subordinate topic type may be declared in the
+              module for the top-level topic type that uses it. However, in most cases, potential
+              subordinate topics <dfn class="term">should</dfn> be defined in their own vocabulary
+              modules.</p>
+<p class="p">A map vocabulary module <dfn class="term">must</dfn> define exactly one element
+              type that specializes map.</p>
+</dd>
+<dt class="dt dlterm">element domain</dt>
+<dd class="dd">A vocabulary module that defines one or more element types that specialize element
+            types used within maps or topics. </dd>
+<dt class="dt dlterm">attribute domain</dt>
+<dd class="dd">A vocabulary module that defines exactly one specialization of either the @base or
+            @props attribute.</dd>
+</dl>
+</div>
+<p class="p">A given vocabulary module exists in an exclusive hierarchy relative to its ancestor modules.
+      For example, the &lt;concept&gt; topic type is defined in the concept topic module and is itself
+      derived from the topic topic module (that is, the topic-defining structural module that
+      defines the topic type &lt;topic&gt;). Likewise, the &lt;task&gt; topic type is defined in the task
+      topic module and is derived from the &lt;topic&gt; topic type. Thus the concept and task topic
+      types are children of the &lt;topic&gt; topic type in the module hierarchy rooted at the
+      &lt;topic&gt; topic vocabulary module.</p>
+<p class="p">All topic types <dfn class="term">must</dfn> ultimately be specialized from &lt;topic&gt;. All map types
+        <dfn class="term">must</dfn> ultimately be specialized from &lt;map&gt;. Domain elements intended for use
+      in topics <dfn class="term">must</dfn> ultimately be specialized from elements defined in the topic
+      module. Domain elements intended for use in maps <dfn class="term">must</dfn> ultimately be specialized
+      from elements defined by or used in the map module (maps share some element types with topics
+      but no map-specific elements may be used within topics). Domain attributes <dfn class="term">must</dfn>
+      ultimately be specialized from either the @base or @props attribute.</p>
+<p class="p">Each vocabulary module has an associated short name, which is used to identify the module in
+      @class and @domains attribute values. While module names need not be globally unique, module
+      names <dfn class="term">must</dfn> be unique within the scope of a given specialization hierarchy. The
+      short name <dfn class="term">must</dfn> be a valid XML name token. </p>
+<p class="p">For structural types, the module name <dfn class="term">must</dfn> be the same as the root element. For
+      example, "task" is the name of the structural vocabulary module whose root element is
+      &lt;task&gt;. For domains, the name is assigned by the developer of the vocabulary module. By
+      convention, domain names end with "-d" and are kept short; for example, "ui-d" for the user
+      interface domain and "pr-d" for the programming domain. </p>
+<p class="p">When integrated into concrete document types, vocabulary modules <dfn class="term">may</dfn> be further
+      constrained through the use of constraint modules. See <a class="xref" href="createConstraintsDomainSpec.html">**** MISSING FILE ****</a>.</p>
+</div>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_odr_m4x_3m"><h3 class="title topictitle3">Domain usage declaration (the @domains attribute)</h3>
+<div class="body conbody"><p style="color:red;" class="shortdesc">Structural types <dfn class="term">must</dfn> declare the domain
+    vocabulary modules and constraint modules they use, as well as any dependencies they have on
+    elements from other (non-ancestor) structural modules. This is done with the @domains attribute,
+    whose value is a sequence of parenthesized module ancestry specifications. The @domains
+    attribute is declared on the root element for each topic or map type. Structural modules
+      <dfn class="term">should</dfn> declare their structural ancestry, and <dfn class="term">must</dfn> do so if they
+    have dependencies on other structural modules other than their ancestors.</p>
+<p class="p">Each structural, element, and attribute domain defines its module ancestry as a parenthesized sequence of space-separated module names from root module to provided module. </p>
+<div class="p">For element domains, the group syntax is:<pre class="pre codeblock"><code> '(', <var class="keyword varname">modulename</var>, (' ', <var class="keyword varname">modulename</var>)+, ')'</code></pre>
+</div>
+<div class="p">For attribute domains, the group syntax is:<pre class="pre codeblock"><code> 'a(', <var class="keyword varname">attname</var>, (' ', <var class="keyword varname">attname</var>)+, ')'</code></pre>
+The module ancestry specifications are added to the effective value of the @domains attribute to form a set of specifications, one for each domain used by the topic or map type.</div>
+<div class="p">The @domains values for the different module types are as follows:<dl class="dl"><dt class="dt dlterm" style="color:red;">structural modules</dt>
+<dd style="color:red;" class="dd">            <p class="p">The structural type ancestry. For example: <samp class="ph codeph">(topic concept
+                glossentry)</samp>. </p>
+
+            <p class="p">When a structural module has elements that directly reference or specialize elements
+              from another structural, domain, or attribute module, the structural module's @domains
+              specification <dfn class="term">must</dfn> include the names of the other modules as dependencies
+              following the name of the structural domain.</p>
+
+            <p class="p">Dependencies on domain or attribute specialization modules are appended to the
+              reusing module's value, or to previous dependencies, separated by "+". Dependencies on
+              structural specialization modules are appended to the reusing module's value, or to
+              previous dependencies, separated by "++". A dependency can be on an attribute domain
+              module, binding an attribute to a particular element as part of the element
+              specialization, or on an element domain module or structural module, including an
+              element or branch of elements as part of the content model for an element
+              specialization.</p>
+
+            <p class="p"> For example, a cppAPIRef specialization that has a dependency on the cpp-d element
+              domain and compilerTypeAtt-d attribute domain would need to include a domain value
+              that showed the dependencies as follows: <samp class="ph codeph">(topic reference
+                cppApiRef+cpp-d+compilerTypeAtt-d)</samp>. A codeChecklist specialization that has
+              a dependency on the pr-d domain and the task structural specialization would show
+              dependencies as follows: <samp class="ph codeph">(topic reference
+              codeChecklist+pr-d++task)</samp></p>
+
+          </dd>
+<dt class="dt dlterm" style="color:red;">structural module dependencies</dt>
+<dd style="color:red;" class="dd">            <p class="p">The structural type ancestry of the structural type whose elements are being reused.
+              For example, if a troubleshooting module reuses elements from the task structural
+              module, then it must include both a dependency on task in the troubleshooting ancestry
+              value, and the ancestry of task in a separate value: <samp class="ph codeph">(topic
+                troubleshooting++task) (topic task)</samp></p>
+
+            <p class="p">For more information on the syntax for expressing structural module dependencies see
+                <a class="xref" href="sharing-elements-across-modules.html#topic_tm3_dlh_zl">.</a></p>
+
+          </dd>
+<dt class="dt dlterm">constraint modules</dt>
+<dd class="dd">The structural type ancestry followed by the name of the constraint domain. For example: <samp class="ph codeph">(topic task strictTaskbody-c)</samp>. </dd>
+<dt class="dt dlterm">element domains</dt>
+<dd class="dd">The structural type ancestry and, if applicable, the domain module ancestry from which the domain is specialized. For example: <samp class="ph codeph">(topic hi-d)</samp>
+          <samp class="ph codeph">(topic pr-d cpp-d)</samp>.</dd>
+<dt class="dt dlterm">attribute domains</dt>
+<dd class="dd">The attribute specialization hierarchy. For example: <samp class="ph codeph">a(props mySelectAttribute)</samp>. </dd>
+</dl>
+</div>
+<p class="p">The @domains attribute allows processors to determine whether or
+not two elements use       compatible domains. For example, when pasting
+content from one topic into another topic within       an editor,
+the editor can use the @domains attribute to determine if the paste
+target topic's       domains are compatible with the paste source
+topic's domains and therefore whether or not the       pasted content
+needs to be generalized before it can be pasted. Likewise, processors
+can use       the value of the @domains attribute to determine if
+they have whatever may be necessary to       support a particular
+domain.</p>
+<p class="p">Another example is when an element references an element that is a more specialized version
+      of the element, for example. a &lt;li&gt; element of concept topic references a &lt;step&gt; element
+      in a task topic. During processing, the &lt;step&gt; element will be generalized back to a
+      &lt;li&gt; element.</p>
+<p class="p">The effective value of the @domains attribute is constructed using
+integration mechanisms       specific to each XML document constraint
+language. Each domain and constraint module         <span class="keyword">must</span> provide
+a @domains attribute value fragment that can be used by DITA     
+ document types to construct the effective @domains attribute value.
+Each structural vocabulary       module <span class="keyword">should</span> provide
+a @domains attribute value fragment. See <a class="xref" href="createCustomDocType.html#createCustomDocType">createCustomDocType.html#createCustomDocType</a>.</p>
+<div class="example"><h4 class="title sectiontitle">Example: task with multiple domains</h4>       <pre class="pre codeblock"><code>&lt;task id="mytask" class="- topic/topic task/task " 
+	domains="(topic ui-d) (topic sw-d) (topic pr-d)"&gt;
+...
+&lt;/task&gt;</code></pre>
+<p class="p">In this example, the task allows the use
+of elements for describing user interfaces (ui-d),         software
+(sw-d), and also programming (pr-d).</p>
+<p class="p">If the document used a
+specialization of the programming domain to describe C++ programming,
+the new domain would need a separate entry in the @domains attribute,
+e.g.:</p>
+<pre class="pre codeblock"><code>&lt;task id="mytask" class="- topic/topic task/task " 
+	domains="(topic ui-d) (topic sw-d) (topic pr-d) (topic pr-d cpp-d)"&gt;
+...
+&lt;/task&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_avh_4tx_3m"><h3 class="title topictitle3">Generalization</h3>
+<div class="body conbody"><p class="shortdesc">Specialized content can be generalized to any ancestor type. The generalization process
+    can preserve information about the former level of specialization to allow round-tripping
+    between specialized and unspecialized forms of the same content.</p>
+<div class="p">Among the purposes of generalization: <ul class="ul" id="id_avh_4tx_3m__d18e9"><li class="li">Migration of content (for example, when retiring an unsuccessful specialization), </li>
+<li class="li">Temporary round-tripping (for example, when moving content through a process that is not
+          specialization aware and has only been enabled for instances of the base structural type), </li>
+<li class="li">Reuse of specialized content in an environment that does not support one or more of its
+          specializations (which may be thought of as a special case of round-tripping). </li>
+</ul>
+</div>
+<p class="p">When generalizing for migration, the @class attribute and @domains attribute should be absent
+      from the generalized instance document so that the default values in the DITA document type
+      shell will be used. When generalizing for round-tripping, the @class attribute and @domains
+      attribute <span class="keyword">should</span> retain the original specialized values in the generalized
+      instance document.</p>
+<p class="p">All DITA documents contain a mix of markup from at least one structural type and zero or more
+      domains. When generalizing the document, the generalizer may choose to leave a structural type
+      or domain as-is, or may choose to generalize that type or domain to any of its ancestors.</p>
+<p class="p">The generalizer can supply the source and target modules for each generalization, for
+      example, "generalize from reference to topic". The generalizer can specify multiple target
+      modules, for example, "generalize from reference to topic and from ui-d to topic". When the
+      source and target modules are not supplied, generalization is assumed to be from all
+      structural types to the base (topic or map), and no generalization is performed for domains. </p>
+<p class="p">The generalizer can also supply the target DITA document type shell. When the target document
+      type is not supplied, the generalized document will not contain a reference to a DITA
+      document-type shell. With the exception of topic nesting constraints, it is possible to
+      generate a document type shell based on the @class and @domains attributes in the specialized
+      documents. If the@ domains attribute includes all structural, domain, and constraint modules
+      used, the @domains attribute alone is sufficient to enable generation of a document type
+      shell.</p>
+<div class="p">A generalization process <span class="keyword">should</span> be able to handle cases where it is given:
+        <ul class="ul" id="id_avh_4tx_3m__d18e32"><li class="li">Just source modules for generalization (in which case the designated source types are
+          generalized to topic or map), </li>
+<li class="li">Just target modules for generalization (in which case all descendants of the target are
+          generalized to that target), or </li>
+<li class="li">Both (in which case only the specified descendants of the target are generalized to that
+          target).</li>
+</ul>
+</div>
+<p class="p">For each structural type instance, the generalization process checks whether the structural
+      type instance is a candidate for generalization, or whether it has domains that are candidates
+      for generalization. It is important to be selective about which structural type instances to
+      process; if the process simply generalizes every element based on its @class attribute values,
+      an instruction to generalize "reference" to "topic" could leave an APIReference topic with an
+      invalid content model, since any elements it reuses from "reference" would have been renamed
+      to topic-level equivalents.</p>
+<p class="p">For specific concerns when generalizing structural types with
+      dependencies on non-ancestor modules, see <a class="xref" href="generalization-w-cross-specialization-dependencies.html#generalization-w-cross-specialization-dependencies" title="Dependencies across specializations limit generalization targets to those that either preserve the dependency or eliminate them. Some generalization targets will not be valid and should be detected before generalization occurs.">Generalization with cross-specialization dependencies</a> .</p>
+<p style="color:red;" class="p">For specific  concerns when generalizing attributes, see <a class="xref" href="attributegeneralize.html">**** MISSING FILE ****</a>.</p>
+<div class="p">The @class attribute for the root element of the structural type is checked before
+      generalizing structural types:<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d66e480" class="stentry"> </th>
+<th valign="bottom" align="left" id="d66e481" class="stentry">Source module unspecified</th>
+<th valign="bottom" align="left" id="d66e483" class="stentry">Source module specified</th>
+</tr>
+<tr class="strow"><td valign="top" id="d66e486" headers="d66e480" class="stentry"><strong>Target module unspecified</strong></td>
+<td valign="top" headers="d66e481 d66e486" class="stentry">Generalize this structural type to its base ancestor</td>
+<td valign="top" headers="d66e483 d66e486" class="stentry">Check whether the root element of the topic type matches a specified source
+            module; generalize to its base ancestor if it does, otherwise ignore the structural type
+            instance unless it has domains to generalize.</td>
+</tr>
+<tr class="strow"><td valign="top" id="d66e493" headers="d66e480" class="stentry"><strong>Target module specified</strong></td>
+<td valign="top" headers="d66e481 d66e493" class="stentry">Check whether the @class attribute contains the target module.  If it does
+            contain the target, rename the element to the value associated with the target module.
+            Otherwise, ignore the element.</td>
+<td valign="top" headers="d66e483 d66e493" class="stentry">It is an error if the root element matches a specified source but its @class
+            attribute does not contain the target. If the root element matches a specified source
+            module and its @class attribute does contain the target module, generalize to the target
+            module. Otherwise, ignore the structural type instance unless it has domains to
+            generalize.</td>
+</tr>
+</table>
+</div>
+<div class="p">The @domains attribute for the root element of the structural type is checked before
+      generalizing domains:<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d66e503" class="stentry"> </th>
+<th valign="bottom" align="left" id="d66e504" class="stentry">Source module unspecified</th>
+<th valign="bottom" align="left" id="d66e506" class="stentry">Source module specified</th>
+</tr>
+<tr class="strow"><td valign="top" id="d66e509" headers="d66e503" class="stentry"><strong>Target module unspecified</strong></td>
+<td valign="top" headers="d66e504 d66e509" class="stentry">Do not generalize domain specializations in this structural type.</td>
+<td valign="top" headers="d66e506 d66e509" class="stentry">Check whether the @domains attribute lists the specified domain; proceed with
+            generalization if it does, otherwise ignore the structural type instance unless it is
+            itself a candidate for generalization.</td>
+</tr>
+<tr class="strow"><td valign="top" id="d66e516" headers="d66e503" class="stentry"><strong>Target module specified</strong></td>
+<td valign="top" headers="d66e504 d66e516" class="stentry">Check whether the @domains attribute contains the target module. If it does,
+            generalize to the target module. Otherwise, skip the structural type instance unless it
+            is itself a candidate for generalization.</td>
+<td valign="top" headers="d66e506 d66e516" class="stentry">It is an error if the @domains attribute matches a specified source but the
+            domain value string does not contain the target. If the @domains attribute matches a
+            specified source module and the domain value string does contain the target module,
+            generalize to the target module. Otherwise, ignore the structural type instance unless
+            it is itself a candidate for generalization.</td>
+</tr>
+</table>
+</div>
+<div class="p">For each element in a candidate structural type instance:<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d66e527" class="stentry"> </th>
+<th valign="bottom" align="left" id="d66e528" class="stentry">Source module unspecified</th>
+<th valign="bottom" align="left" id="d66e530" class="stentry">Source module specified</th>
+</tr>
+<tr class="strow"><td valign="top" id="d66e533" headers="d66e527" class="stentry"><strong>Target module unspecified</strong></td>
+<td valign="top" headers="d66e528 d66e533" class="stentry">If the @class attribute starts with "-" (part of a structural type), rename the
+            element to its base ancestor equivalent. Otherwise ignore it.</td>
+<td valign="top" headers="d66e530 d66e533" class="stentry">Check whether the last value of the @class attribute matches a specified source;
+            generalize to its base ancestor if it does, otherwise ignore the element.</td>
+</tr>
+<tr class="strow"><td valign="top" id="d66e540" headers="d66e527" class="stentry"><strong>Target module specified</strong></td>
+<td valign="top" headers="d66e528 d66e540" class="stentry">Check whether the @class attribute contains the target module; rename the element
+            to the value associated with the target module if it does contain the target, otherwise
+            ignore the element.</td>
+<td valign="top" headers="d66e530 d66e540" class="stentry">It is an error if the last value in the @class attribute matches a specified
+            source but the previous values do not include the target. If the last value in the
+            @class attribute matches a specified source module and the previous values do include
+            the target module, rename the element to the value associated with the target module.
+            Otherwise, ignore the element.</td>
+</tr>
+</table>
+When renaming elements during round-trip generalization, the generalization
+      process <span class="keyword">should</span> preserve the values of all attributes. When renaming
+      elements during one-way or migration generalization, the process <span class="keyword">should</span>
+      preserve the values of all attributes except the @class and @domains attribute, both of which
+      should be supplied by the target document type.</div>
+</div>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_gfg_kyx_3m"><h3 class="title topictitle3">DTD document-type shell: Coding requirements</h3>
+<div class="body conbody"><p class="shortdesc">A document type shell integrates one or more topic type or map type modules, zero or
+    more domain modules, and zero or more constraint modules. A DTD document type shell is organized
+    into sections, where each section contains a specific type of declaration.</p>
+<p class="p"> DTD document type shells <span class="keyword">may not</span> directly declare element types or
+      attributes. A DTD document type shell <span class="keyword">must</span> conform to the following coding
+      requirements.</p>
+<p class="p">Each section of the shell is introduced by a comment. Shells <span class="keyword">should</span> use
+      these comments to identify each section of the shell. Each section <span class="keyword">should</span>
+      be present in the shell DTD, even if the section contains no declarations, and
+        <span class="keyword">must</span> occur in the order they are presented here. The ordering is required
+      by the XML rules for entity declaration precedence and also serve to enable automatic shell
+      creation and modification. Shells <span class="keyword">should</span> have an initial set of comments
+      that describe the shell and indicate the public identifiers, URNs, or absolute URLs by which
+      the shell should be referenced in DOCTYPE declarations. </p>
+<dl class="dl"><dt class="dt dlterm">Topic or map entity inclusions</dt>
+<dd class="dd">The topic or map entity declarations section includes the <span class="ph filepath">.ent</span> file
+          for the top-level topic or map type the shell is configuring. </dd>
+<dd class="dd">          <div class="p">Topic shells <span class="keyword">should</span> use the comment:
+            <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC ENTITY DECLARATIONS                  --&gt;
+&lt;!-- ============================================================= --&gt;  </code></pre>
+</div>
+
+          <div class="p">Map shells <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    MAP ENTITY DECLARATIONS                    --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <div class="p">This section <span class="keyword">must</span> declare and reference as an external parameter
+            entity the <span class="ph filepath">.ent</span> file for the topic or map module where the entity
+            is named <samp class="ph codeph">%<em class="ph i">typename</em>-dec</samp>. For
+            example:<pre class="pre codeblock"><code>&lt;!ENTITY % concept-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Concept//EN" 
+         "concept.ent"
+&gt;%concept-dec;</code></pre>
+</div>
+
+          <p style="color:red;" class="p">This section <span class="keyword">must</span> declare and reference
+            as an external parameter entity the <span class="ph filepath">.ent</span> file for any additional
+            structural specialization modules on which the primary specialization depends; the
+            entity is named <samp class="ph codeph">%<em class="ph i">typename</em>-dec</samp>. For example, if a troubleshooting
+            specialization is specialized from topic but includes elements from task, it will need
+            to include the <span class="ph filepath">.ent</span> file for task:</p>
+
+          <pre class="pre codeblock" style="color:red;"><code>&lt;!ENTITY % task-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.3 Task//EN" 
+         "task.ent"
+&gt;%task-dec;</code></pre>
+
+        </dd>
+<dt class="dt dlterm">Domain entity inclusions</dt>
+<dd class="dd">          <div class="p">The domain entity inclusions section includes the entity declaration files for each
+            element domain integrated by the document type<span style="color:red;" class="ph">, as well
+              as for structural modules whose ancestry needs to be declared in the domains
+              attribute</span>. This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ENTITY DECLARATIONS                 --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">For each element domain included in the shell, this section <span class="keyword">must</span>
+            declare an external parameter entity for the domain's entity declaration file and
+            immediately reference the entity. The entity name for the domain declaration consists of
+            the domain name plus the <samp class="ph codeph">dec</samp> suffix. In the following example, the
+            entity file for the highlight domain is included in the document type shell:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % hi-d-dec PUBLIC
+    "-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+    "highlightDomain.ent"
+&gt;%hi-d-dec;</code></pre>
+
+        </dd>
+<dt class="dt dlterm">Domain attribute inclusions</dt>
+<dd class="dd">          <p class="p">The domain attribute inclusions section includes the entity declaration files for each
+            attribute domain integrated by the document type. This section <span class="keyword">should</span>
+            use the comment:</p>
+
+          <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ATTRIBUTE DECLARATIONS              --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+
+          <p class="p">For each attribute domain included in the shell, this section <span class="keyword">must</span>
+            declare an external parameter entity for the domain's entity declaration file and
+            immediately reference the entity. The entity name for the domain declaration consists of
+            the domain name plus the <samp class="ph codeph">ent</samp> suffix. In the following example, the
+            entity file for a new attribute domain is included in the document type shell:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % newAtt-d-dec PUBLIC
+    "-//My Company//ENTITIES New Attribute Domain//EN"
+    "newAttDomain.ent"
+&gt;%newAtt-d-dec;</code></pre>
+
+        </dd>
+<dt class="dt dlterm">Element extension redefinitions</dt>
+<dd class="dd">          <div class="p">The element extension redefinition section contains redefinitions of element name
+            parameter entities to reflect the integration of domain-provided element types into base
+            content models. This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN EXTENSIONS                          --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">For each element that is extended by one or more domains, the document type shell
+            redefines the entity for the element. The new definition is a disjunctive list of
+            alternatives comprising the literal name of the element followed by the element
+            extension entity from each domain that is providing specializations. In the following
+            example, the entity for the &lt;pre&gt; element is redefined to allow specializations
+            from the programming, software, and user interface domains:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % pre
+    "pre        | 
+     %pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre>
+
+          <div class="p">The value of the entity <span class="keyword">may</span> omit any base types from which other
+            types listed are specialized. For example, the preceding example could omit the &lt;pre&gt;
+            element, effectively allowing only specializations of &lt;pre&gt;, but not &lt;pre&gt; itself:<pre class="pre codeblock"><code>&lt;!ENTITY % pre
+    "%pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre>
+</div>
+
+          <div class="note note"><span class="notetitle">Note:</span> Omitting base types from domain extensions constitutes a form of constraint. The
+            constraint <span class="keyword">must</span> be represented by a constraint module that declares
+            the @domains attribute declaration for the constraint. For the omission of &lt;pre&gt; in
+            the preceding example the constraint might be called "noBasePre-c" and would be declared
+            in a file named "noBasePreConstraint.mod", containing the following declarations:
+            <pre class="pre codeblock"><code>&lt;!ENTITY noBasePre-c-pre  "%pr-d-pre; | %sw-d-pre; | %ui-d-pre;"&gt;
+&lt;!ENTITY noBasePre-c-att  "(topic noBasePre-c)" &gt;
+&lt;!ENTITY % pre          “%noBasePre-c-pre ;“&gt;</code></pre>
+</div>
+
+        </dd>
+<dt class="dt dlterm">Attribute extension redefinitions</dt>
+<dd class="dd">          <div class="p">The attribute extension redefinition section integrates the declarations of
+            specializations of the base and props attributes (defined in attribute domain modules
+            included in the attribute domain inclusion section). This section must use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">The entities for extending the props and base attributes have a null value by
+            default:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % props-attribute-extensions  "" &gt;
+&lt;!ENTITY % base-attribute-extensions   "" &gt;</code></pre>
+
+          <p class="p">For each attribute domain included by the shell, the shell <span class="keyword">must</span>
+            redefine the entity that is extended. The new definition is a list of the attribute
+            extension entities for the domains that are providing specializations. </p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % props-attribute-extensions
+        "%newAtt-d-attribute; 
+         %othernewAtt-d-attribute;"&gt;
+&lt;!ENTITY % base-attribute-extensions
+        "%newfrombaseAtt-d-attribute; 
+         %othernewfrombaseAtt-d-attribute;"&gt;</code></pre>
+
+        </dd>
+<dt class="dt dlterm">Topic nesting redefinitions</dt>
+<dd class="dd">          <div class="p">The topic nesting section contains redefinitions of the topic nesting control parameter
+            entities defined by the topic modules integrated in the shell. This section
+              <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC NESTING OVERRIDES                    --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">For each topic type integrated in the shell, the document type shell
+              <span class="keyword">may</span> control nesting of subtopics by redefining the
+                <samp class="ph codeph"><var class="keyword varname">topictype</var>-info-types</samp> entity. The definition is
+            usually an OR list of topic types that can be nested in the corresponding parent topic
+            type. Use the literal root element name of each topic, not the corresponding element
+            entity, as in the following example:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % concept-info-types "concept | myTopicType"&gt;</code></pre>
+
+          <div class="p">The document type shell <span class="keyword">may</span> also set the default for most topic
+            types by defining the global <samp class="ph codeph">info-types</samp> entity, for example:
+            <pre class="pre codeblock"><code>&lt;!ENTITY % info-types "concept | myTopicType"&gt;</code></pre>
+</div>
+
+        </dd>
+<dt class="dt dlterm">Domain declaration redefinition</dt>
+<dd class="dd">          <div class="p">The domain declaration redefinition section sets the effective value of the @domains
+            attribute for the topic or map type modules integrated into the shell. This section
+              <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAINS ATTRIBUTE OVERRIDE                 --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p style="color:red;" class="p">The document type shell <span class="keyword">must</span> redefine
+            the <samp class="ph codeph">included-domains</samp> entity to list the values for element and
+            attribute domains, constraints, and structural specializations that are either included
+            in the document type or have elements that are reused in the document type. In the
+            following example, entities are included for both the troubleshooting specialization and
+            for the task specialization on which troubleshooting depends; for the element domains
+            hi-d, ut-d, ui-d, pr-d, and sw-d; for the attribute domain newAtt-d; for the constraint
+            noBasePre-c; and; :</p>
+
+          <pre class="pre codeblock" style="color:red;"><code>&lt;!ENTITY included-domains
+    "&amp;troubleshooting-att;
+     &amp;task-att;
+     &amp;hi-d-att; 
+     &amp;ut-d-att; 
+     &amp;ui-d-att; 
+     &amp;pr-d-att; 
+     &amp;sw-d-att; 
+     &amp;newAtt-d-att;
+     &amp;noBasePre-c-ph;
+   "
+&gt;</code></pre>
+
+          <p class="p">For a domain or structural module, the domains attribute value entity is declared in
+            the .ent file. For constraint modules, the domains attribute value entity is declared in
+            the module's .mod file since constraint modules do not use separate .ent files.</p>
+
+        </dd>
+<dt class="dt dlterm">Content constraint module inclusions</dt>
+<dd class="dd">The content constraint module inclusion section includes constraint modules that
+          override the base content models for structural or domain types integrated in the shell.
+          This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    CONTENT CONSTRAINT INTEGRATION             --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+<div class="p">For
+            each constraint module integrated in the shell, the shell <span class="keyword">must</span>
+            declare an external parameter entity for the constraint's <span class="ph filepath">.mod</span> file
+            and immediately reference the entity. The entity name for the constraint declaration
+            consists of the constraint module name plus the <samp class="ph codeph">-c-def</samp> suffix. For example, this constraint inclusion for the task topic
+            type constrains the DITA 1.2 relaxed task content model to match the more constrained
+            DITA 1.1 task content
+            model:<pre class="pre codeblock"><code>&lt;!ENTITY % strictTaskbody-c-def  
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Strict Taskbody Constraint//EN" 
+  "strictTaskbodyConstraint.mod"
+&gt;%strictTaskbody-c-def;</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Structural definition inclusions</dt>
+<dd class="dd">          <div class="p">The structural definition inclusion section includes the element type declaration
+              (<span class="ph filepath">.mod</span>) files for each topic or map type integrated into the
+            shell. For topic shells, this section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC ELEMENT INTEGRATION                  --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <div class="p">For map shells, this section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    MAP ELEMENT INTEGRATION                    --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">For each structural type integrated in the document type, the document type shell
+              <span class="keyword">must</span> declare and reference an external parameter entity for the
+            structural type module's <span class="ph filepath">.mod</span> file. The entity name consists of the
+            name of the structural type plus a <samp class="ph codeph">-type</samp> suffix. For example:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % topic-type PUBLIC
+    "-//OASIS//ELEMENTS DITA Topic//EN" 
+    "topic.mod"
+&gt;%topic-type;</code></pre>
+
+          <p style="color:red;" class="p">Modules should be included in ancestry order, starting
+            with topic or map. Where modules need to be included for non-ancestor dependencies, they
+            should be declared immediately before the structural type module that references
+            them.</p>
+
+          <p style="color:red;" class="p">For example, a specialization called cppAPIRef that
+            specialized from reference would include the modules for topic, reference, and cppAPIRef
+            in that order. </p>
+
+          <p style="color:red;" class="p">When a structural module includes a dependency on elements
+            from another module that is not part of its ancestry, then the module it depends on
+            should be included immediately before the module that depends on it, along with any
+            ancestor modules not already included. For example, If a specialization called
+            cppProgrammingTask specialized from task and needed to include some elements from
+            cppAPIRef, then it would include the modules for topic, task, referemce cppAPIRef, and
+            cppProgrammingTask in that order.</p>
+
+        </dd>
+<dt class="dt dlterm">Element domain definition inclusions</dt>
+<dd class="dd">          <div class="p">The element domain definition inclusion section includes the element definition files
+            for each element domain integrated into the shell. This section
+              <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ELEMENT INTEGRATION                 --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <p class="p">For each element domain used in the document type, the document type shell
+              <span class="keyword">must</span> declare and reference an external parameter entity for the
+            domain definition module file (<span class="ph filepath">.mod</span>). The entity name consists of
+            the domain name plus a <samp class="ph codeph">-def</samp> suffix. For example:</p>
+
+          <pre class="pre codeblock"><code>&lt;!ENTITY % hi-d-def PUBLIC
+    "-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+    "highlightDomain.mod"
+&gt;%hi-d-def;</code></pre>
+
+        </dd>
+</dl>
+</div>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_crr_vy4_km"><h3 class="title topictitle3">Structural specialization coding requirements</h3>
+<div class="body conbody"><p class="shortdesc">An XSD structural module declares a top-level map or topic type, implemented as a pair
+    of XSD documents, one that defines groups used to integrate and override the type and one that
+    defines the element types specific to the type.</p>
+<p class="p">A structural type module <span class="keyword">must</span> conform to the following coding requirements in
+      addition to the general module coding requirements: </p>
+<div class="section"><h4 class="title sectiontitle">Module files</h4>      
+      <p class="p">A structural vocabulary module <dfn class="term">must</dfn> have two files:</p>
+
+      <ul class="ul" id="id_crr_vy4_km__d26e23"><li class="li" id="id_crr_vy4_km__d26e24">A module schema document. The file name is the
+          name of the root structural element plus <span class="ph filepath">Mod</span> plus the
+            <span class="ph filepath">.xsd</span> extension. For example, <span class="ph filepath">conceptMod.xsd</span> is
+          the module schema document for the concept topic type.</li>
+<li class="li" id="id_crr_vy4_km__d26e35">A module group definition schema document. The
+          file name is the name of the root structural element plus <span class="ph filepath">Grp</span> plus
+          the <span class="ph filepath">.xsd</span> extension. For example, <span class="ph filepath">conceptGrp.xsd</span>
+          is the module group definition schema document for the concept topic type.</li>
+</ul>
+
+    </div>
+<div class="section" id="id_crr_vy4_km__d26e47"><h4 class="title sectiontitle">Structural module schema document</h4>      
+      <p class="p">The root element <span class="keyword">must</span> reference the @DITAArchVersion attribute and the
+        @domains attribute. These attributes give processors a reliable way to check the
+        architecture version and look up the list of domains available in the document type. The
+        @DITAArchVersion attribute is referenced as in the following example:</p>
+
+      <pre class="pre codeblock"><code>&lt;xs:attribute name="id" type="xs:ID" use="required"/&gt;
+&lt;xs:attribute ref="ditaarch:DITAArchVersion" /&gt;</code></pre>
+
+      <p class="p">See <a class="xref" href="xsdShellDoctypeCodeReq.html#topicShellPattern" title="A shell document type integrates one or more topic type or map type modules, zero or more domain modules, and zero or more constraint modules. A shell XSD is organized into sections, where each section contains a specific type of declaration.">XSD document-type shell: Coding requirements</a> for
+        information on how to set the values for the <samp class="ph codeph">domains</samp> attibute for XSD
+        shells. </p>
+
+      <p class="p">For topic modules, the last position in the content model <span class="keyword">must</span> be the
+            <samp class="ph codeph"><var class="keyword varname">topictype</var>-info-types</samp> nested topics group as in the
+        following example of the root element of the concept topic:</p>
+
+      <pre class="pre codeblock"><code>&lt;xs:complexType name="concept.class"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:group ref="title"/&gt;
+    &lt;xs:group ref="titlealts" minOccurs="0"/&gt;
+    &lt;xs:choice minOccurs="0"&gt;
+      &lt;xs:group ref="shortdesc" /&gt;
+      &lt;xs:group ref="abstract" /&gt;
+    &lt;/xs:choice&gt;
+    &lt;xs:group ref="prolog" minOccurs="0"/&gt;
+    &lt;xs:group ref="conbody" minOccurs="0"/&gt;
+    &lt;xs:group ref="related-links" minOccurs="0"/&gt;
+    &lt;xs:group ref="concept-info-types" minOccurs="0" maxOccurs="unbounded"/&gt;
+  &lt;/xs:sequence&gt;
+  ...
+&lt;/xs:complexType&gt;</code></pre>
+
+    </div>
+<div class="section"><h4 class="title sectiontitle">Topic module schema document</h4>      
+      <div class="p">For topic modules, the module schema document must define an info-type model group. The
+        name of this group is the topic element name plus <samp class="ph codeph">-info-types</samp>. Thus, the
+        info-type model group for the concept topic type is <samp class="ph codeph">concept-info-types</samp>. The
+        following example shows how this group is defined in <span class="ph filepath">conceptMod.xsd</span>:
+        <pre class="pre codeblock" id="id_crr_vy4_km__d26e100"><code>&lt;xs:group name="concept-info-types"&gt;
+  &lt;xs:choice&gt;
+    &lt;xs:group ref="concept" minOccurs="0"/&gt;
+    &lt;xs:group ref="info-types" minOccurs="0"/&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:group&gt;</code></pre>
+</div>
+
+    </div>
+<div class="section" style="color:red;"><h4 class="title sectiontitle">Domains attribute information for the XML Schema document-type shell integration</h4>     
+      <p class="p">A structural vocabulary module <span class="keyword">should</span> include the a value for the
+          <em class="ph i">domain usage declarations</em> that's used in the @domains attribute in the XML Schema
+        document-type shell in the modules. It <span class="keyword">must</span> be defined using the element
+        &lt;dita:domainsModule&gt;. For the XML Schema's the &lt;/dita:domainsModule&gt; element, in
+        the structural vocabulary module, is equivalent to @domains attribute definition in the
+          <span class="ph filepath">.ent</span> files for the DTDs.  Fo</p>
+
+      <p class="p">For example:</p>
+
+      <pre class="pre codeblock"><code> &lt;xs:annotation&gt;
+    &lt;xs:appinfo&gt;
+       &lt;dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/"&gt;(topic task)&lt;/dita:domainsModule&gt;
+    &lt;/xs:appinfo&gt;
+    &lt;xs:documentation&gt;&lt;/xs:documentation&gt;
+ &lt;/xs:annotation&gt;</code></pre>
+
+    </div>
+</div>
+</div>
+<div class="topic concept nested2" xml:lang="en-us" id="id_qnh_xy4_km"><h3 class="title topictitle3">XSD document-type shell: Coding requirements</h3>
+<div class="body conbody"><p class="shortdesc">A shell document type integrates one or more topic type or map type modules, zero or
+    more domain modules, and zero or more constraint modules. A shell XSD is organized into
+    sections, where each section contains a specific type of declaration.</p>
+<p class="p">An XSD document type shell <span class="keyword">must</span> conform to the following coding
+      requirements. XSD document type shells <span class="keyword">may not</span> directly declare element
+      types or attributes (except for the @domains attribute, which always reflects the details of
+      the domains and structural types integrated by the shell).</p>
+<p class="p">DITA XSDs use the XML Schema redefine feature (xs:redefine) to override base group
+      definitions for content models and attribute lists. This facility is analogous to the
+      parameter entities used for DTDs. Unlike DTD parameter entities, an xs:redefine both includes
+      the XSD file it redefines and holds the redefinition applied to the groups in the included XSD
+      file. Thus, for XSD files that define groups, the file may be included via xs:include if it is
+      used without modification or via xs:redefine if any of its groups are redefined.</p>
+<p class="p">Shell XSDs are organized into sections. Each section of the shell XSD is introduced by a
+      comment. Shells <span class="keyword">should</span> use these comments to identify each section of the
+      shell. Each section <span class="keyword">should</span> be present in the shell XSD, even if the section
+      contains no declarations, and <span class="keyword">should</span> occur in the order they are presented
+      here. Shell XSDs <span class="keyword">should</span> have an initial set of comments that describe the
+      shell and indicate the URNs or absolute URLs by which the shell should be referenced from
+      document instances or otherwise associated with documents. Shell XSDs <span class="keyword">may</span>
+      use the XSD appinfo and documentation elements to contain additional documentation about the
+      shell.</p>
+<dl class="dl"><dt class="dt dlterm">Element domain inclusions</dt>
+<dd class="dd">          <p class="p">The element domain inclusion section contains includes of each element domain
+            integrated by the shell. This section <span class="keyword">should</span> use the comment:</p>
+
+          <pre class="pre codeblock"><code>&lt;!--  ================ ELEMENT DOMAINS =====================  --&gt;</code></pre>
+
+          <div class="p">For each element domain used by the map or topic type, the shell XSD must have an
+            xs:include element that includes the XSD module for that domain. For
+            example:<pre class="pre codeblock"><code>&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardstatementDomain.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2" /&gt;</code></pre>
+</div>
+
+        </dd>
+<dt class="dt dlterm">Attribute domain inclusions</dt>
+<dd class="dd">The attribute domain inclusion section contains includes of each attribute domain
+          integrated by the shell. This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!--  ================ ATTRIBUTE DOMAINS =====================  --&gt;</code></pre>
+<div class="p">For
+            each attribute domain used by the map or topic type, the shell XSD must have an
+            xs:include element that includes the XSD module for that domain. For
+            example:<pre class="pre codeblock"><code>&lt;xs:include schemaLocation="urn:example.com:dita:domains:newAtt.xsd" /&gt;</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Group inclusions</dt>
+<dd class="dd">The group inclusion section contains includes or redefinitions of the group definitions
+          for the structural types integrated in the shell. Group redefinitions are used to
+          integrate domain-provided element and attribute types into base content models. This
+          section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!--  ================ GROUP DEFINITIONS =====================  --&gt;</code></pre>
+<p class="p">For
+            both map and topic shells, this section <span class="keyword">must</span> include or redefine the
+            common element group, the metadata declaration group, and the table model group.
+            </p>
+<div class="p">For topic shells, this section <span class="keyword">must</span> include or redefine the
+            group XSD for each topic type used by the shell. For example, from a shell for the task
+            topic
+            type:<pre class="pre codeblock"><code>&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:taskGrp.xsd:1.2" /&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclGrp.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:topicGrp.xsd:1.2"/&gt;</code></pre>
+</div>
+<div class="p">For
+            map shells, this section <span class="keyword">must</span> include or redefine the group XSD for
+            each map type used by the shell (that is, the module for the specialization of &lt;map&gt;
+            the shell uses, as well as any ancestor map types from which the shell's map element is
+            specialized). For example, from the learningMap
+            shell:<pre class="pre codeblock"><code>    &lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclGrp.xsd:1.2"/&gt;
+    &lt;xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:mapGrp.xsd:1.2"&gt;
+      &lt;xs:group name="topicref"&gt;
+        &lt;xs:choice&gt;
+          &lt;xs:group ref="topicref"/&gt;
+          &lt;xs:group ref="mapgroup-d-topicref"/&gt;
+          &lt;xs:group ref="learningmap-d-topicref"/&gt;
+        &lt;/xs:choice&gt;
+      &lt;/xs:group&gt;
+    &lt;/xs:redefine&gt;
+  
+    &lt;xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementGrp.xsd:1.2"&gt;
+      &lt;xs:group name="index-base"&gt;
+        &lt;xs:choice&gt;
+          &lt;xs:group ref="index-base"/&gt;
+          &lt;xs:group ref="indexing-d-index-base"/&gt;
+        &lt;/xs:choice&gt;
+      &lt;/xs:group&gt;
+      
+    &lt;/xs:redefine&gt;
+    
+    
+    &lt;xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclGrp.xsd:1.2"&gt;
+      &lt;xs:group name="metadata"&gt;
+        &lt;xs:choice&gt;
+          &lt;xs:group ref="metadata"/&gt;
+          &lt;xs:group ref="learningmeta-d-metadata"/&gt;
+        &lt;/xs:choice&gt;
+      &lt;/xs:group&gt;
+      &lt;xs:group name="keywords"&gt;
+        &lt;xs:choice&gt;
+          &lt;xs:group ref="keywords"/&gt;
+          &lt;xs:group ref="delay-d-keywords"/&gt;
+        &lt;/xs:choice&gt;
+      &lt;/xs:group&gt;
+    &lt;/xs:redefine&gt;</code></pre>
+</div>
+<div class="p">For
+            each element extended by one or more domains, the document type shell
+              <span class="keyword">must</span> redefine the model group for the element to a list of
+            alternatives including the literal name of the element and the element extension model
+            group from each domain that is providing specializations. To integrate a new domain in
+            the document type shell use the schema &lt;redefine&gt; mechanism to manage the number
+            of domains used by the document type shell. The model group requires a reference to
+            itself to extend the base model group. To see an example, look at the
+              <span class="ph filepath">topic.xsd</span> schema document.
+            <pre class="pre codeblock"><code>&lt;xs:group name="pre"&gt;   
+  &lt;xs:choice&gt;       
+    &lt;xs:group ref="pre" /&gt;
+    &lt;xs:group ref="pr-d-pre" /&gt;
+    &lt;xs:group ref="ui-d-pre" /&gt;
+    &lt;xs:group ref="sw-d-pre" /&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:group&gt;</code></pre>
+</div>
+<div class="p">To
+            add domains to a new structural type you can copy the contents of the parent structural
+            type domains schema document into the document type shell. Add or remove the model group
+            from the new domain to the appropriate named
+            group.<pre class="pre codeblock"><code>&lt;xs:group name="pre"&gt;
+  &lt;xs:choice&gt;
+    &lt;xs:group ref="pre"/&gt;
+    &lt;xs:group ref="pr-d-pre" /&gt;
+    &lt;xs:group ref="domainName-d-element"/&gt;
+  &lt;/xs:choice&gt; 
+&lt;/xs:group&gt;</code></pre>
+</div>
+<div class="p">For
+            each attribute extended by one or more domains, the document type shell
+              <span class="keyword">must</span> redefine the attribute extension model group for the attribute
+            to a list of alternatives including the literal name of the attribute and the attribute
+            extension model group from each domain that is providing specializations. To integrate a
+            new attribute domain in the document type shell use the schema &lt;redefine&gt;
+            mechanism to manage the number of attribute domains used by the document type
+            shell.<pre class="pre codeblock"><code>&lt;xs:attributeGroup name="props-attribute-extensions"&gt;
+  &lt;xs:attributeGroup ref="props-attribute-extensions"/&gt;
+  &lt;xs:attributeGroup ref="newAtt-d-attribute"/&gt;
+  &lt;xs:attributeGroup ref="othernewAtt-d-attribute"/&gt;
+&lt;/xs:attributeGroup&gt;
+          
+&lt;xs:attributeGroup name="base-attribute-extensions"&gt;
+  &lt;xs:attributeGroup ref="base-attribute-extensions"/&gt;
+  &lt;xs:attributeGroup ref="newfrombaseAtt-d-attribute"/&gt;
+  &lt;xs:attributeGroup ref="othernewfrombaseAtt-d-attribute"/&gt;
+&lt;/xs:attributeGroup&gt;        </code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Module inclusions</dt>
+<dd class="dd">The module inclusion section includes the module XSD files for the structural types used
+          in the shell. This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- =================  MODULE INCLUDE DEFINITION  ==================  --&gt;</code></pre>
+<div class="p">For
+            each map or topic type used by the shell, this section <span class="keyword">must</span> include
+            either the module XSD file for that type or a constraint module for that type . It
+              <span class="keyword">must</span> also include any other module XSD files required by the topic
+            or map types, normally the common element module, meta declaration module, and table
+            declaration module. For
+            example:<pre class="pre codeblock"><code>&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:commonElementMod.xsd:1.2"/&gt;
+&lt;!-- ======== Table elements ======== --&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:tblDeclMod.xsd:1.2"/&gt;    
+&lt;!-- ======= MetaData elements, plus keyword and indexterm ======= --&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd:1.2"/&gt;
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:topicMod.xsd:1.2" /&gt;  
+&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:conceptMod.xsd:1.2" /&gt;</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm" style="color:red;">Structural definition inclusions</dt>
+<dd style="color:red;" class="dd">          <div class="p">The structural definition inclusion section includes the element type declaration
+            (<span class="ph filepath">*Mod.xsd</span>) files for each topic or map type integrated into the
+            shell. For topic shells, this section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC ELEMENT INTEGRATION                  --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          <div class="p">For map shells, this section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    MAP ELEMENT INTEGRATION                    --&gt;
+&lt;!-- ============================================================= --&gt;</code></pre>
+</div>
+
+          
+          <p class="p">For example, if a troubleshooting specialization is specialized from topic but includes
+            elements from task, then the task structural model <span class="keyword">must</span> be included
+            in the document shell as well as it's structrual dependency on the domains attribute.
+            See <a class="xref" href="domainsatt.html#domainsatt" title="Structural types must declare the domain vocabulary modules and constraint modules they use, as well as any dependencies they have on elements from other (non-ancestor) structural modules. This is done with the @domains attribute, whose value is a sequence of parenthesized module ancestry specifications. The @domains attribute is declared on the root element for each topic or map type. Structural modules should declare their structural ancestry, and must do so if they have dependencies on other structural modules other than their ancestors.">Domain usage declaration (the @domains attribute)</a> for details.</p>
+
+          <pre class="pre codeblock"><code>&lt;xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:taskMod.xsd:1.2" /&gt;</code></pre>
+
+          <div class="note note"><span class="notetitle">Note:</span> When getting the @domains attribute value from the &lt;dita:domainsModule&gt; from
+            the <span class="ph filepath">*Mod.xsd</span> files you will need to add the element type hierarchy
+            information for the structural definition to the base value.  For instance in the
+            troubleshooting specialization case you would need to add the following to the domains
+            attribute (topic troubleshooting+task) (topic
+            task):<pre class="pre codeblock"><code>&lt;xs:attributeGroup name="domains-att"&gt;
+  &lt;xs:attribute name="domains" type="xs:string"
+     default="(topic troubleshooting+task) (topic task) 
+              etc... 
+             "
+  /&gt;
+&lt;/xs:attributeGroup&gt;</code></pre>
+</div>
+
+        </dd>
+<dt class="dt dlterm">Domains attribute declaration</dt>
+<dd class="dd">The @domains attribute declaration section contains the declaration of the domains
+          attribute for the shell. This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- =================  DOMAINS ATTRIBUTE DECLARATION  ==================  --&gt;</code></pre>
+<div class="p">The
+            shell must declare the @domains attribute such that the @domains attribute value
+            reflects each vocabulary module and constraint module integrated by the shell. The
+            declaration has the
+            form:<pre class="pre codeblock"><code>&lt;xs:attributeGroup name="domains-att"&gt;
+   &lt;xs:attribute name="domains" type="xs:string"
+        default="<em class="ph i">domain usage declarations</em>"
+   /&gt;
+&lt;/xs:attributeGroup&gt;</code></pre>
+</div>
+<div class="p">Where
+              <em class="ph i">domain usage declarations</em> is a sequence of domain usage specifications (see
+              <a class="xref" href="domainsatt.html#domainsatt" title="Structural types must declare the domain vocabulary modules and constraint modules they use, as well as any dependencies they have on elements from other (non-ancestor) structural modules. This is done with the @domains attribute, whose value is a sequence of parenthesized module ancestry specifications. The @domains attribute is declared on the root element for each topic or map type. Structural modules should declare their structural ancestry, and must do so if they have dependencies on other structural modules other than their ancestors.">Domain usage declaration (the @domains attribute)</a> for details). For example,
+            from the learningMap
+            shell:<pre class="pre codeblock"><code>&lt;xs:attributeGroup name="domains-att"&gt;
+  &lt;xs:attribute name="domains" type="xs:string"
+     default="(map mapgroup-d) 
+              (topic delay-d)  
+              (topic indexing-d) 
+              (topic learningmeta-d) 
+              (map learningmap-d) "
+  /&gt;
+&lt;/xs:attributeGroup&gt;</code></pre>
+</div>
+</dd>
+<dt class="dt dlterm">Info types definition</dt>
+<dd class="dd">Each topic type defines an info types group that defines the default set of allowed
+          subordinate topics for that topic type. Topic shells may redefine this group to change the
+          effective set of allowed subordinate topics. <div class="p">The info types section contains the
+            definition of the effective value of the info types groups for topics used by the shell.
+            This section <span class="keyword">should</span> use the
+            comment:<pre class="pre codeblock"><code>&lt;!-- =================  INFO TYPES DEFINITION  ==================  --&gt;</code></pre>
+</div>
+<p class="p">This
+            section <span class="keyword">must not</span> be included in map shells.</p>
+<div class="p">The shell
+              <span class="keyword">must</span> define a model group with the name
+            <samp class="ph codeph">info-types</samp>. This model group <span class="keyword">may</span> define a list of
+            allowed subordinate topics. If the topic type should not allow subordinate topics, then
+            the default value for the <samp class="ph codeph">info-types</samp> model group
+              <span class="keyword">must</span> be defined as an empty group, as
+            follows:<pre class="pre codeblock"><code>&lt;xs:group name="info-types"&gt;
+  &lt;xs:sequence/&gt;
+&lt;/xs:group&gt;</code></pre>
+</div>
+<div class="p">The
+            document type shell <span class="keyword">may</span> control how topics are allowed to nest within
+            specific topic types by redefining the topic-type-specific info types group, named
+                <samp class="ph codeph"><var class="keyword varname">topictype</var>-info-types</samp>. The info-types group is
+            declared in the module XSD file for a given topic type. For example, in a shell for the
+            concept topic type, allowing concept or generic topic to nest within
+            concept:<pre class="pre codeblock"><code>&lt;xs:redefine schemaLocation="urn:oasis:names:tc:dita:xsd:conceptMod.xsd:1.2" &gt;
+  &lt;xs:group name="concept-info-types"&gt;
+    &lt;xs:choice&gt;
+      &lt;xs:group ref="concept-info-types"/&gt;
+      &lt;xs:group ref="topic"/&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:group&gt;
+&lt;/xs:redefine&gt;</code></pre>
+</div>
+<p class="p">Note
+            that XSD rules require that the redefined group include a reference to itself in
+            addition to any other components specified for the redefined group.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="topic concept nested1" id="concept_aqh_5zt_3h"><h2 class="title topictitle2">New architectural specification topics</h2>
+<div class="body conbody"><p class="shortdesc"></p>
+</div>
+<div class="topic concept nested2" style="color:red;" id="id_jvf_nlx_3m"><h3 class="title topictitle3">Sharing elements across specializations</h3>
+<div class="body conbody"><p class="shortdesc">The process of specialization enables easy reuse of elements from ancestor
+    specializations; however, it is also possible to reuse elements from non-ancestor
+    specializations, as long as the dependency is properly declared to prevent invalid
+    generalization or conref processing.</p>
+<p class="p">A structural specialization can incorporate elements from unrelated domains or other
+      structural specializations by referencing them in the content model of a specialized element.
+      For example, a specialized reference topic could declare a specialized list &lt;apilist&gt; in
+      which each &lt;apilistitem&gt; contains an &lt;apiname&gt; element, which is borrowed from the
+      programming domain. Or a specialized concept topic could declare a specialized &lt;process&gt;
+      section that contains the &lt;steps&gt; elements borrowed from task. </p>
+<p class="p">The elements included in this manner must be specialized from ancestor content that is valid
+      in the new context. For example, a specialized element can include the &lt;steps&gt; elements in
+      its content model if it could validly include &lt;ol&gt;, because &lt;steps&gt; is specialized from
+      &lt;ol&gt;. If the reusing and reused specializations share common ancestry, the reused elements
+      must be valid in the reusing context at every level they share in common. </p>
+<p class="p">For example, suppose there are two specializations of &lt;task&gt;: &lt;mytask&gt; and
+      &lt;yourtask&gt;. The specializer of &lt;mytask&gt; wants to borrow &lt;yoursteps&gt; from
+      &lt;yourtask&gt; instead of creating their own equivalent specialization. The &lt;yoursteps&gt;
+      element is specialized from &lt;steps&gt; in &lt;task&gt;. The specializer of &lt;mytask&gt; can only
+      include &lt;yoursteps&gt; where &lt;steps&gt; would be allowed; they cannot incorporate it anywhere
+      &lt;ol&gt; is allowed, even though &lt;ol&gt; is in its ancestry, because the two specializations
+      share &lt;task&gt; in their ancestry as well, and we need to maintain the validity of &lt;task&gt;
+      as a generalization target. If we allowed &lt;mytask&gt; to transplant specializations of
+      &lt;steps&gt; anywhere they wanted in the &lt;mytask&gt; model, then &lt;mytask&gt; would cease to be a
+      valid specialization of &lt;task&gt;. </p>
+<p class="p">For example, suppose that &lt;yourtask&gt; is a valid specialization of &lt;task&gt; and that the
+      &lt;yoursteps&gt; element in &lt;yourtask&gt; is a specialization of the &lt;steps&gt; element from
+      &lt;task&gt;. The &lt;yoursteps&gt; ancestry is <samp class="ph codeph">- topic/ol task/steps
+        yourtask/yoursteps</samp>. Consquently, &lt;yoursteps&gt; must only appear in a context in
+      &lt;yourtask&gt; that can be generalized back to &lt;steps&gt; in &lt;task&gt;. Now, suppose that
+      another specializer wants to create a second specialization of &lt;task&gt;, called &lt;mytask&gt;.
+      The specializer borrows the &lt;yoursteps&gt; element from the &lt;yourtask&gt; specialization for
+      use in &lt;mytask&gt;, because &lt;yoursteps&gt; is exactly what is needed. As was the case in
+      &lt;yourtask&gt;, the placement of &lt;yoursteps&gt; in &lt;mytask&gt; must also appear in a context
+      that can be generalized back to &lt;steps&gt; in &lt;task&gt;. This is because the ancestry for
+      &lt;yoursteps&gt; is still <samp class="ph codeph">- topic/ol task/steps yourtask/yoursteps</samp>, even though
+      &lt;yoursteps&gt; is being used in the &lt;mytask&gt; specialization.</p>
+<p class="p">Although a well-designed structural specialization hierarchy with controlled use of domains
+      is still the primary means of sharing and reusing elements in DITA, the ability to also share
+      elements declared elsewhere in the hierarchy allows for situations where relevant markup comes
+      from multiple sources and would otherwise be developed redundantly.</p>
+</div>
+</div>
+<div class="topic concept nested2" style="color:red;" id="id_ybx_tsx_3m"><h3 class="title topictitle3">Generalization with cross-specialization dependencies</h3>
+<div class="body conbody"><p class="shortdesc">Dependencies across specializations limit generalization targets to those that either
+  preserve the dependency or eliminate them. Some generalization targets will not be valid and
+  should be detected before generalization occurs.</p>
+<p class="p">When a structural specialization has a dependency on a domain specialization, then the domain
+   cannot be generalized without also generalizing the reusing structural specialization. </p>
+<p class="p">For example, if programming domain elements in codeConcept were generalized to their topic
+   equivalents without also generalizing codeConcept elements, then the places where the content
+   model of a codeConcept element includes programming domain elements would become invalid.
+   However, codeConcept could be generalized to concept or topic, without generalizing programming
+   domain elements, as long as the target document type includes the programming domain.</p>
+<p class="p">When a structural specialization has a dependency on another structural specialization, then
+   both must be generalized together to a common ancestor. </p>
+<p class="p">For example, if the task elements in checklist were generalized without also generalizing
+   checklist elements, then the checklist content models that referenced task elements would be
+   broken. And if the checklist elements were generalized to topic without also generalizing the
+   task elements, then the task elements would be out of place, since they cannot be validly present
+   in topic. However, checklist and task can be generalized together to any ancestor they have in
+   common: in this case topic. </p>
+<p class="p">Generalizing processes should detect invalid generalization target combinations and report them
+   as errors.</p>
+</div>
+</div>
+<div class="topic concept nested2" style="color:red;" id="id_l3s_kby_3m"><h3 class="title topictitle3">Domain attribute syntax for cross-specialization dependencies</h3>
+<div class="body conbody"><p class="shortdesc">When a structural specialization reuses elements from another structural or domain
+  specialization, it has a dependency on the source specialization module that must be declared in
+  the domains attribute in order for conref and generalization processing to function
+  correctly.</p>
+<p class="p">The domains attribute must include a parenthetical expression that lists the ancestry for the
+   current specialization. The final value, for the current specialization, must include the modules
+   it depends on, separated by either a "+" for a dependency on a domain specialization or a "++"
+   for a dependency on another structural specialization.</p>
+<p class="p">In addition, it must include a separate parenthetical expression for each reused domain or
+   structural specialization that lists the ancestry of the reused specialization.</p>
+<div class="section"><h4 class="title sectiontitle">Dependency on a domain specialization</h4>   
+   <p class="p">For example, a codeConcept specialization could specialize from a concept and include elements
+    from the programming domain. Its ancestry, and the ancestry of the domain specialization it
+    reuses from, would be declared as: </p>
+
+   <pre class="pre codeblock"><code>domains="...(topic concept codeConcept+pr-d) (topic pr-d)"</code></pre>
+
+  </div>
+<div class="section"><h4 class="title sectiontitle">Dependency on a structural specialization</h4>   
+   <p class="p">For example, a checklist specialization could specialize from reference and include elements
+    from task. Its ancestry, and the ancestry of the structural specialization it reuses from, would
+    be declared as:</p>
+
+   <pre class="pre codeblock"><code>domains="...(topic reference checklist++task) (topic task)"</code></pre>
+
+  </div>
+<div class="section"><h4 class="title sectiontitle">Dependency on multiple specializations</h4>   
+   <p class="p">For example, a codeChecklist specialization could specialize from reference and include
+    elements from both task and the programming domain. Its ancestry, and the ancestry of the domain
+    and structural specializations it reuses from, would be declared as:</p>
+
+   <pre class="pre codeblock"><code>domains="...(topic reference checklist++task+pr-d) (topic task) (topic pr-d)"</code></pre>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd">
+<dita>
+  <topic id="topic_aqh_5zt_3h">
+    <title>Stage 3 proposal: Feature #13121</title>
+    <shortdesc>Enable parts of structural specializations to be reused by other structural
+      specializations without requiring one to be specialized from the other. For example, allow the
+      &lt;steps> structure from &lt;task> to be reused in place of an &lt;ol> within a
+      &lt;troubleshootingsteps> section of the &lt;troubleshooting> topic type.</shortdesc>
+    <body>
+      <section>
+        <title>Champion</title>
+        <p>Michael Priestley</p>
+      </section>
+      <section>
+        <title>Tracking information</title>
+        <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
+          <sthead>
+            <stentry>Event</stentry>
+            <stentry>Date</stentry>
+            <stentry>Links</stentry>
+          </sthead>
+          <strow>
+            <stentry>Stage 1 proposal accepted</stentry>
+            <stentry>14 August 2012</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/46689/minutes20120814.txt"
+                format="txt" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal submitted</stentry>
+            <stentry>17 June 2013</stentry>
+            <stentry>
+              <sl>
+                <sli><xref
+                    href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49574"
+                    format="php" scope="external">DITA</xref></sli>
+                <sli><xref
+                    href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php?document_id=49575"
+                    format="php" scope="external">HTML</xref></sli>
+              </sl>
+            </stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal discussed</stentry>
+            <stentry>25 July 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49782/minutes20130625.txt"
+                format="txt" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 2 proposal approved</stentry>
+            <stentry>2 July 2013</stentry>
+            <stentry><xref
+                href="https://www.oasis-open.org/apps/org/workgroup/dita/download.php/49815/minutes20130702.txt"
+                format="txt" scope="external">Minutes</xref></stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal submitted to reviewers</stentry>
+            <stentry>
+              <sl>
+                <sli>1 November 2013</sli>
+                <sli>28 November 2013</sli>
+              </sl>
+            </stentry>
+            <stentry>Robert Anderson, Bob Thomas, Kris Eberlein</stentry>
+          </strow>
+          <strow>
+            <stentry>Stage 3 proposal (this document) submitted</stentry>
+            <stentry>3 December 2013</stentry>
+            <stentry/>
+          </strow>
+        </simpletable>
+      </section>
+      <section>
+        <title>Approved technical requirements</title>
+        <ul>
+          <li>Listing of domain modules in a document-type shell</li>
+          <li>Declaration of the domain dependency (and each source specialization) in the domains
+            attribute</li>
+          <li>Limitations as to where the reused specializations can be included in structural
+            modules</li>
+          <li>Corrections to documentation of domain attribute syntax, to reflect the approved DITA
+            1.2 proposal 12010</li>
+          <li>New syntax for declaring the reuse of a structural specialization fragment as a domain
+            dependency</li>
+          <li>Changes to documentation about generalization to address the use case of generalizing
+            to a structural ancestor that does not contain the structural fragment as a domain
+            dependency</li>
+        </ul>
+      </section>
+      <section>
+        <title>Dependencies or interrelated proposals</title>
+        <p>13097: New troubleshooting topic</p>
+      </section>
+      <section>
+        <title>Modified DTDs</title>
+        <p>None</p>
+      </section>
+      <section>
+        <title>Modified specification documentation</title>
+        <p>The following topics require modification:</p>
+        <ul>
+          <li>2.1.4.2.1 DTD document-type shell: Coding requirements
+            (shell-dtd-coding-reqs.dita)</li>
+          <li>2.1.4.2.2 XSD document-type shell: Coding requirements
+            (xsdShellDoctypeCodeReq.dita)</li>
+          <li>2.1.4.3.1 Vocabulary modules (vocabularymodules.dita)</li>
+          <li>2.1.4.3.4 Domain usage declaration (the @domains attribute) (domainsatt.dita)</li>
+          <li>2.1.4.3.5 Generalization (generalize.dita)</li>
+        </ul>
+        <p>The following topics need to be added:</p>
+        <ul>
+          <li>"Sharing elements across specialization" (sharing-elements-across-modules.dita)</li>
+          <li>"Generalization with cross-specialization dependencies"
+            (generalization-w-cross-specialization-dependencies.dita)</li>
+          <li>"Domain attribute syntax for cross-specialization dependencies"
+            (domain-attribute-syntax-cross-specialization-dependencies.dita)</li>
+        </ul>
+      </section>
+    </body>
+    <concept id="concept_phc_wmx_3m">
+      <title>Modified architectural specification topics</title>
+      <conbody>
+        <p>The revisions to the DITA 1.2 topics are marked using <codeph>rev="DITA1.3
+            proposal-13121"</codeph>.</p>
+      </conbody>
+      <concept id="id_fdw_knx_3m" conref="vocabularymodules.dita#vocabularymodules">
+        <title/>
+      </concept>
+      <concept id="id_odr_m4x_3m" conref="domainsatt.dita#domainsatt">
+        <title/>
+      </concept>
+      <concept id="id_avh_4tx_3m" conref="generalize.dita#generalize">
+        <title/>
+      </concept>
+      <concept id="id_gfg_kyx_3m" conref="shell-dtd-coding-reqs.dita#shell-dtd-coding-reqs">
+        <title/>
+      </concept>
+      <concept id="id_crr_vy4_km"
+        conref="xsdStructuralSpecializationReqs.dita#xsdStructuralSpecializationReqs">
+        <title/>
+      </concept>
+      <concept id="id_qnh_xy4_km" conref="xsdShellDoctypeCodeReq.dita#topicShellPattern">
+        <title/>
+      </concept>
+    </concept>
+
+    <concept id="concept_aqh_5zt_3h">
+      <title>New architectural specification topics</title>
+      <shortdesc/>
+      <conbody/>
+      <concept id="id_jvf_nlx_3m" conref="sharing-elements-across-modules.dita#topic_nt3_b12_zl">
+        <title/>
+      </concept>
+      <concept id="id_ybx_tsx_3m"
+        conref="generalization-w-cross-specialization-dependencies.dita#generalization-w-cross-specialization-dependencies">
+        <title/>
+      </concept>
+      <concept id="id_l3s_kby_3m"
+        conref="domain-attribute-syntax-cross-specialization-dependencies.dita#domain-attribute-syntax-cross-specialization-dependencies">
+        <title/>
+      </concept>
+    </concept>
+  </topic>
+</dita>

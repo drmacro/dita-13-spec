@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="topic_nt3_b12_zl" rev="DITA1.3 proposal-13121">
+  <title>Sharing elements across specializations</title>
+  <shortdesc>The process of specialization enables easy reuse of elements from ancestor
+    specializations; however, it is also possible to reuse elements from non-ancestor
+    specializations, as long as the dependency is properly declared to prevent invalid
+    generalization or conref processing.</shortdesc>
+  <conbody>
+    <p>A structural specialization can incorporate elements from unrelated domains or other
+      structural specializations by referencing them in the content model of a specialized element.
+      For example, a specialized reference topic could declare a specialized list &lt;apilist> in
+      which each &lt;apilistitem> contains an &lt;apiname> element, which is borrowed from the
+      programming domain. Or a specialized concept topic could declare a specialized &lt;process>
+      section that contains the &lt;steps> elements borrowed from task. </p>
+    <p>The elements included in this manner must be specialized from ancestor content that is valid
+      in the new context. For example, a specialized element can include the &lt;steps> elements in
+      its content model if it could validly include &lt;ol>, because &lt;steps> is specialized from
+      &lt;ol>. If the reusing and reused specializations share common ancestry, the reused elements
+      must be valid in the reusing context at every level they share in common. </p>
+    <p>For example, suppose there are two specializations of &lt;task>: &lt;mytask> and
+      &lt;yourtask>. The specializer of &lt;mytask> wants to borrow &lt;yoursteps> from
+      &lt;yourtask> instead of creating their own equivalent specialization. The &lt;yoursteps>
+      element is specialized from &lt;steps> in &lt;task>. The specializer of &lt;mytask> can only
+      include &lt;yoursteps> where &lt;steps> would be allowed; they cannot incorporate it anywhere
+      &lt;ol> is allowed, even though &lt;ol> is in its ancestry, because the two specializations
+      share &lt;task> in their ancestry as well, and we need to maintain the validity of &lt;task>
+      as a generalization target. If we allowed &lt;mytask> to transplant specializations of
+      &lt;steps> anywhere they wanted in the &lt;mytask> model, then &lt;mytask> would cease to be a
+      valid specialization of &lt;task>. </p>
+    <p>For example, suppose that &lt;yourtask> is a valid specialization of &lt;task> and that the
+      &lt;yoursteps> element in &lt;yourtask> is a specialization of the &lt;steps> element from
+      &lt;task>. The &lt;yoursteps> ancestry is <codeph>- topic/ol task/steps
+        yourtask/yoursteps</codeph>. Consquently, &lt;yoursteps> must only appear in a context in
+      &lt;yourtask> that can be generalized back to &lt;steps> in &lt;task>. Now, suppose that
+      another specializer wants to create a second specialization of &lt;task>, called &lt;mytask>.
+      The specializer borrows the &lt;yoursteps> element from the &lt;yourtask> specialization for
+      use in &lt;mytask>, because &lt;yoursteps> is exactly what is needed. As was the case in
+      &lt;yourtask>, the placement of &lt;yoursteps> in &lt;mytask> must also appear in a context
+      that can be generalized back to &lt;steps> in &lt;task>. This is because the ancestry for
+      &lt;yoursteps> is still <codeph>- topic/ol task/steps yourtask/yoursteps</codeph>, even though
+      &lt;yoursteps> is being used in the &lt;mytask> specialization.</p>
+    <p>Although a well-designed structural specialization hierarchy with controlled use of domains
+      is still the primary means of sharing and reusing elements in DITA, the ability to also share
+      elements declared elsewhere in the hierarchy allows for situations where relevant markup comes
+      from multiple sources and would otherwise be developed redundantly.</p>
+  </conbody>
+</concept>

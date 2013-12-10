@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="domain-attribute-syntax-cross-specialization-dependencies" rev="DITA1.3 proposal-13121">
+ <title>Domain attribute syntax for cross-specialization dependencies</title>
+ <shortdesc>When a structural specialization reuses elements from another structural or domain
+  specialization, it has a dependency on the source specialization module that must be declared in
+  the domains attribute in order for conref and generalization processing to function
+  correctly.</shortdesc>
+ <conbody>
+  <p>The domains attribute must include a parenthetical expression that lists the ancestry for the
+   current specialization. The final value, for the current specialization, must include the modules
+   it depends on, separated by either a "+" for a dependency on a domain specialization or a "++"
+   for a dependency on another structural specialization.</p>
+  <p>In addition, it must include a separate parenthetical expression for each reused domain or
+   structural specialization that lists the ancestry of the reused specialization.</p>
+  <section>
+   <title>Dependency on a domain specialization</title>
+   <p>For example, a codeConcept specialization could specialize from a concept and include elements
+    from the programming domain. Its ancestry, and the ancestry of the domain specialization it
+    reuses from, would be declared as: </p>
+   <codeblock>domains="...(topic concept codeConcept+pr-d) (topic pr-d)"</codeblock>
+  </section>
+  <section>
+   <title>Dependency on a structural specialization</title>
+   <p>For example, a checklist specialization could specialize from reference and include elements
+    from task. Its ancestry, and the ancestry of the structural specialization it reuses from, would
+    be declared as:</p>
+   <codeblock>domains="...(topic reference checklist++task) (topic task)"</codeblock>
+  </section>
+  <section>
+   <title>Dependency on multiple specializations</title>
+   <p>For example, a codeChecklist specialization could specialize from reference and include
+    elements from both task and the programming domain. Its ancestry, and the ancestry of the domain
+    and structural specializations it reuses from, would be declared as:</p>
+   <codeblock>domains="...(topic reference checklist++task+pr-d) (topic task) (topic pr-d)"</codeblock>
+  </section>
+ </conbody>
+</concept>
