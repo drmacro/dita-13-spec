@@ -419,8 +419,9 @@
           </strow>
           <strow>
             <stentry>ua-windowref</stentry>
-            <stentry>Contains the name of the ua-window element which will be used to display this
-              topic when called from a Help API.</stentry>
+            <stentry>Contains the name of the ua-window element which will be used to display this topic when called from a Help
+              API.<?oxy_insert_start author="ekimber" timestamp="20131213T103659-0600"?> When there are multiple ua-window elements with that name the element selected is the one that is first, in
+              document order, within the map document that contains it, and is the first in the map tree in breadth-first order.<?oxy_insert_end?></stentry>
             <stentry>CDATA</stentry>
             <stentry>#IMPLIED</stentry>
             <stentry>No</stentry>
@@ -471,25 +472,18 @@
       required to display in a specific named window or viewport, and this windowing metadata can be
       defined in the DITA map within the &lt;<synph>ua-window</synph>> element.</shortdesc>
     <conbody>
-      <p>Software application user interfaces can be linked to user assistance information (such as
-        Help systems and <term>tooltips</term>) using <term>context hooks</term>. These hooks are
-        simply identifiers that associate a part of the user interface with the location of a Help
-        topic. Context hooks are sometimes direct links to URLs, but are more often indirect links
-        that use numeric context identifiers and/or context strings in conjunction with an
-        intermediary mapping file that associates the context hook with the location of the Help
-        topic. A similar mapping file is used in the software application to associate the user
-        interface controls with the context hook. A Help <term>API (Application Programming
-          Interface)</term> is typically used to simplify the process for both software developer
-        and Help author.The mapping files used to associate user interface controls and context
-        hooks, and context hooks and Help topics, are known as header files, map files, or alias
-        files, depending upon the Help API.</p>
-      <p>Context identifiers can define one-to-one relationships with user interface controls and
-        topics, or one-to-many relationship (one Help topic is associated with many user interface
-        controls).</p>
-      <p>In some Help systems, information topics may be required to display in a specifically sized
-        or featured window. For example, a Help topic may need to be displayed immediately adjacent
-        to the user interface control it supports, in a window of a specific size that always
-        remains on top regardless of the focus within the operating system. </p>
+      <p>Software application user interfaces can be linked to user assistance information (such as Help systems and <term>tooltips</term>) using <term>context hooks</term>. These hooks are simply
+        identifiers that associate a part of the user interface with the location of a Help topic. Context hooks are sometimes direct links to URLs, but are more often indirect links that use numeric
+        context identifiers and/or context strings in conjunction with an intermediary mapping file that associates the context hook with the location of the Help topic. A similar mapping file is used
+        in the software application to associate the user interface controls with the context hook. A Help <term>API (Application Programming Interface)</term> is typically used to simplify the
+        process for both software developer and Help author.<?oxy_insert_start author="ekimber" timestamp="20131213T104628-0600"?>
+        <?oxy_insert_end?>The mapping files used to associate user interface controls and context hooks, and context hooks and Help topics, are known as header files, map files, or alias files,
+        depending upon the Help API.</p>
+      <p>Context identifiers can define one-to-one relationships with user interface controls and topics, or one-to-many
+        relationship<?oxy_insert_start author="ekimber" timestamp="20131213T104646-0600"?>s<?oxy_insert_end?> (one Help topic is associated with many user interface controls).</p>
+      <p>In some Help systems, information topics may be required to display in a specifically sized or featured window. For example, a Help topic may need to be displayed immediately adjacent to the
+        user interface control it supports<?oxy_delete author="ekimber" timestamp="20131213T104724-0600" content=","?> in a window of a specific size that always remains on top regardless of the focus
+        within the operating system. </p>
       <p>Context hook information can be defined within DITA topics and/or within DITA maps, as
         attributes of the &lt;<synph>resourceid</synph>> element.</p>
       <p>The attributes that are used for context hooks are: <dl>
@@ -504,10 +498,10 @@
           </dlentry>
           <dlentry>
             <dt>@<synph>ua-source-priority</synph></dt>
-            <dd>Contains a value which indicates the precedence of context hooks in the map and
-              context hooks in the topic. (This usage is defined when the attribute is used on
-                <synph>resourceid</synph> within a DITA map; using this attribute on
-                <synph>resourceid</synph> within a topic is undefined and reserved for future use.) </dd>
+            <dd>Contains a value
+            <?oxy_delete author="ekimber" timestamp="20131213T104432-0600" content="which"?><?oxy_insert_start author="ekimber" timestamp="20131213T104432-0600"?>that<?oxy_insert_end?> indicates the
+            precedence of context hooks in the map and context hooks in the topic. (This usage is defined when the attribute is used on <synph>resourceid</synph> within a DITA map; using this
+            attribute on <synph>resourceid</synph> within a topic is undefined and reserved for future use.) </dd>
           </dlentry>
           <dlentry>
             <dt>@<synph>ua-windowref</synph></dt>
@@ -520,12 +514,12 @@
           @<synph>left</synph>, @<synph>height</synph>, @<synph>width</synph>,
           @<synph>on-top</synph>, @<synph>features</synph>, @<synph>relative</synph>, and
           @<synph>full-screen</synph>.</p>
-      <p>To avoid problems where context hooks defined in the DITA map potentially conflict with
-        those defined in the topics, a @<synph>ua-source-priority</synph> attribute can be used to
-        indicate how these potential conflicts should be resolved. This attribute can only be
-        defined in the DITA map.</p>
+      <p>To avoid problems where context hooks defined in the DITA map potentially conflict with those defined in the topics, a @<synph>ua-source-priority</synph> attribute can be used to indicate how
+        these potential conflicts should be resolved. This attribute <?oxy_insert_start author="ekimber" timestamp="20131213T104505-0600"?><term outputclass="OASIS-terminology"
+        >MAY</term><?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131213T104449-0600" content="can"?> only be defined in the DITA map.</p>
       <p>Context hook and windowing information is ignored if the processor (the software producing
         the output Help or user assistance files) does not support this metadata. </p>
     </conbody>
   </concept>
 </dita>
+<?oxy_options track_changes="on"?>

@@ -9,14 +9,14 @@
   
   <xsl:template match="*[contains(@class, ' equation-d/equation-inline ')]">
     <xsl:message> + [DEBUG] equation-d/equation-inline </xsl:message>
-    <fo:inline use-attribute-sets="equation-inline"><xsl:apply-templates>
+    <fo:inline><xsl:apply-templates>
       <xsl:with-param name="blockOrInline" tunnel="yes" select="'inline'"/>
     </xsl:apply-templates></fo:inline>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' equation-d/equation-block ')]">
     <xsl:message> + [DEBUG] equation-d/equation-block </xsl:message>
-    <fo:block use-attribute-sets="equation-block">
+    <fo:block>
       <xsl:apply-templates>
         <xsl:with-param name="blockOrInline" tunnel="yes" select="'block'"/>
       </xsl:apply-templates>
@@ -106,7 +106,7 @@
   <xsl:template match="*[contains(@class, ' equation-d/equation-figure ')]/*[contains(@class, ' mathml-d/mathml ')]"
     priority="10"
     >
-    <fo:block use-attribute-sets="equation-figure">
+    <fo:block>
       <xsl:apply-templates>
         <xsl:with-param name="blockOrInline" tunnel="yes" select="'block'"/>
       </xsl:apply-templates>
