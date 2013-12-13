@@ -6,6 +6,7 @@
   DATE:      November 2010
   ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <headerComment>

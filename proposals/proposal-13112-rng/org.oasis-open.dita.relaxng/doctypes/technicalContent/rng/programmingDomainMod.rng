@@ -19,7 +19,9 @@
   (C) Copyright Syncro Soft 2010-2011                                
   All Rights Reserved.                                          
   ============================================================= -->
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0">
   <!-- Define the domain values of this module -->
   <define name="domains-att-value" combine="choice">
     <value>(topic pr-d)</value>

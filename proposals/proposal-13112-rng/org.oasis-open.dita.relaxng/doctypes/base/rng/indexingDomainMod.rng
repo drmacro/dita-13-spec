@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Indexing Domain</moduleTitle>
     <headerComment/>
@@ -49,7 +51,7 @@
         <ref name="univ-atts"/>
       </define>
       <define name="index-see.element">
-        <element name="index-see" a:longName="Index See">
+        <element name="index-see" ditaarch:longName="Index See">
           <a:documentation>An &lt;index-see> element within an &lt;indexterm> redirects the reader to another index entry that the reader should reference instead of the current one. Category:
             Indexing domain elements</a:documentation>
           <ref name="index-see.attlist"/>
@@ -79,7 +81,7 @@
         <ref name="univ-atts"/>
       </define>
       <define name="index-see-also.element">
-        <element name="index-see-also" a:longName="Index See Also">
+        <element name="index-see-also" ditaarch:longName="Index See Also">
           <a:documentation>An &lt;index-see-also> element within an &lt;indexterm> redirects the reader to another index entry that the reader should reference in addition to the current one.
             Category: Indexing domain elements</a:documentation>
           <ref name="index-see-also.attlist"/>
@@ -105,7 +107,7 @@
         <ref name="univ-atts"/>
       </define>
       <define name="index-sort-as.element">
-        <element name="index-sort-as" a:longName="Index Sort As">
+        <element name="index-sort-as" ditaarch:longName="Index Sort As">
           <a:documentation>The &lt;index-sort-as> element specifies a sort phrase under which an index entry would be sorted. Category: Indexing domain elements</a:documentation>
           <ref name="index-sort-as.attlist"/>
           <ref name="index-sort-as.content"/>

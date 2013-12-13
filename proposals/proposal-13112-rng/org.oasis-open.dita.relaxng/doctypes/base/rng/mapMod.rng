@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../vocabularyModuleDesc/rng/vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
-<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Map Module</moduleTitle>
@@ -398,7 +400,7 @@
         <a:documentation>The &lt;map> element is used to define a map which describes the relationships among a set of resources, such as DITA topics. Maps consist of references to topics and other
           resources organized into hierarchies, groups, and tables. Maps provide a way to express these relationships in a single common format that can be used for different outputs. Category: Map
           elements</a:documentation>
-        <element name="map" a:longName="Map">
+        <element name="map" ditaarch:longName="Map">
           <ref name="map.attlist"/>
           <ref name="map.content"/>
         </element>
@@ -430,7 +432,7 @@
       <define name="navref.element">
         <a:documentation> The &lt;navref> represents a pointer to another map which should be preserved as a transcluding link rather than resolved. Output formats that support such linking will
           integrate the target when displaying the referencing map to an end user. Category: Map elements </a:documentation>
-        <element name="navref" a:longName="Navigation Reference">
+        <element name="navref" ditaarch:longName="Navigation Reference">
           <ref name="navref.attlist"/>
           <ref name="navref.content"/>
         </element>
@@ -486,7 +488,7 @@
           container &lt;topicref> to determine how its children are related to each other. You can also express relationships among &lt;topicref>s using group and table structures (using
           &lt;topicgroup> and &lt;reltable>). Relationships end up expressed as links in the output (with each participant in a relationship having links to the other participants by default).
           Category: Map elements </a:documentation>
-        <element name="topicref" a:longName="Topic Reference">
+        <element name="topicref" ditaarch:longName="Topic Reference">
           <ref name="topicref.attlist"/>
           <ref name="topicref.content"/>
         </element>
@@ -516,7 +518,7 @@
         <a:documentation>The &lt;anchor> element is used for runtime integration of navigation. It provides an integration point that another map can point to in order to insert its navigation into
           the current navigation tree. For those familiar with Eclipse help systems, this serves the same purpose as the &lt;anchor> element in that system. It may not be supported for all output
           formats. Category: Map elements</a:documentation>
-        <element name="anchor" a:longName="Anchor">
+        <element name="anchor" ditaarch:longName="Anchor">
           <ref name="anchor.attlist"/>
           <ref name="anchor.content"/>
         </element>
@@ -557,7 +559,7 @@
           (&lt;relcell>). The &lt;relcell> elements can contain &lt;topicref> elements, which are then related to other &lt;topicref> elements in the same row (although not necessarily in the same
           cell). By default, the contents of a &lt;reltable> element are not output for navigation or TOC purposes, and are used only to define relationships that can be expressed as topic-to-topic
           links. Category: Map elements</a:documentation>
-        <element name="reltable" a:longName="Relationship Table">
+        <element name="reltable" ditaarch:longName="Relationship Table">
           <ref name="reltable.attlist"/>
           <ref name="reltable.content"/>
         </element>
@@ -580,7 +582,7 @@
       <define name="relheader.element">
         <a:documentation>The &lt;relheader> element is a row of column definitions (&lt;relcolspec> elements) in a relationship table. Each table can have only one set of column definitions. Category:
           Map elements</a:documentation>
-        <element name="relheader" a:longName="Relationship Header">
+        <element name="relheader" ditaarch:longName="Relationship Header">
           <ref name="relheader.attlist"/>
           <ref name="relheader.content"/>
         </element>
@@ -613,7 +615,7 @@
       <define name="relcolspec.element">
         <a:documentation>A column definition in the relationship table. You can use &lt;relcolspec> column definitions to set defaults for the attributes of &lt;topicref> elements in the column. For
           example, you can set type="concept" to treat all untyped &lt;topicref> elements in the column as concepts. Category: Map elements</a:documentation>
-        <element name="relcolspec" a:longName="Relationship Column Specification">
+        <element name="relcolspec" ditaarch:longName="Relationship Column Specification">
           <ref name="relcolspec.attlist"/>
           <ref name="relcolspec.content"/>
         </element>
@@ -639,7 +641,7 @@
       <define name="relrow.element">
         <a:documentation> A &lt;relrow> is a row in the relationship table. This creates a relationship between the cells in the row, which will end up expressed as links among the &lt;topicref>
           elements in the cells. Category: Map elements </a:documentation>
-        <element name="relrow" a:longName="Relationship Table Row">
+        <element name="relrow" ditaarch:longName="Relationship Table Row">
           <ref name="relrow.attlist"/>
           <ref name="relrow.content"/>
         </element>
@@ -670,7 +672,7 @@
         <a:documentation>A &lt;relcell> element is a cell in the relationship table. The &lt;topicref> elements it contains will be related to topicrefs in other cells of the same row. By default,
           topicrefs in the same cell are not related to each other, unless you change the relcell's collection-type attribute to indicate that they are related. Category: Map
           elements</a:documentation>
-        <element name="relcell" a:longName="Relationship Table Cell">
+        <element name="relcell" ditaarch:longName="Relationship Table Cell">
           <ref name="relcell.attlist"/>
           <ref name="relcell.content"/>
         </element>
@@ -757,7 +759,7 @@
         <a:documentation>The &lt;topicmeta> element defines the metadata that applies to a topic when it appears in a map, and to the other topics in the map that are contained by the same element
           that contains the &lt;topicmeta> element. When creating links, it can also be used to override the title and short description of the topic. In addition, it can be used to add index entries
           to referenced content using the &lt;keywords> element. Category: Map elements</a:documentation>
-        <element name="topicmeta" a:longName="Topic Metadata">
+        <element name="topicmeta" ditaarch:longName="Topic Metadata">
           <ref name="topicmeta.attlist"/>
           <ref name="topicmeta.content"/>
         </element>
@@ -788,7 +790,7 @@
           the target resource. Use the &lt;linktext> element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format. When
           used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic. Category:
           Related Links elements</a:documentation>
-        <element name="linktext" a:longName="Link Text">
+        <element name="linktext" ditaarch:longName="Link Text">
           <ref name="linktext.attlist"/>
           <ref name="linktext.content"/>
         </element>
@@ -815,7 +817,7 @@
         <a:documentation>When your DITA topic is transformed to XHTML, the &lt;searchtitle> element is used to create a title element at the top of the resulting HTML file. This title is normally used
           in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content (which may
           not be as well optimized for search summaries). Category: Topic elements</a:documentation>
-        <element name="searchtitle" a:longName="Search Title">
+        <element name="searchtitle" ditaarch:longName="Search Title">
           <ref name="searchtitle.attlist"/>
           <ref name="searchtitle.content"/>
         </element>

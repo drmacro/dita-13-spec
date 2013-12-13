@@ -22,14 +22,14 @@
     />
     <!-- Checks for document type shells: -->
     <pattern id="checkDomainsDefault">
-        <rule context="/rng:grammar[$isShell]">
+        <rule context="/rng:grammar[ends-with(/rng:grammar/ditaarch:moduleDesc/ditaarch:moduleMetadata/ditaarch:moduleType, 'shell')]">
             <assert test="rng:define[@name='domains-att']">
                 The domains-att pattern should de defined.
             </assert>            
         </rule>
-        <rule context="rng:define[$isShell][@name='domains-att']">
-            <assert test="$domains!=''">
-                The domains-att pattern should define an optional domains attribute with a default value.
+        <rule context="rng:define[ends-with(/rng:grammar/ditaarch:moduleDesc/ditaarch:moduleMetadata/ditaarch:moduleType, 'shell')][@name='domains-att']">
+            <assert test="/rng:grammar/rng:define[@name='domains-atts']/rng:optional/rng:attribute[@name='domains']/@a:defaultValue = ''">
+                The domains-att pattern should define an optional @domains attribute with a default value.
             </assert>            
         </rule>
     </pattern>
@@ -51,8 +51,8 @@
     </pattern>
     <pattern id="checkLongName">
         <rule context="rng:element[not($isShell)]">
-            <assert test="@a:longName != ''">
-                The element element should specify the element type long name using @a:longName.
+            <assert test="@ditaarch:longName != ''">
+                The element element should specify the element type long name using @ditaarch:longName.
             </assert>            
         </rule>        
     </pattern>

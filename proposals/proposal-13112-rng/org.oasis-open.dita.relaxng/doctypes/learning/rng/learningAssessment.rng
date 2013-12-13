@@ -20,6 +20,7 @@
   All Rights Reserved.                                          
   ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <!-- Define the root elements -->
   <start>
@@ -44,12 +45,13 @@
   -->
   <!-- Redefine the infotype entity to exclude other topic types and disallow nesting -->
   <define name="learningAssessment-info-types">
-    <ref name="no-topic-nesting.element"/>
+    <empty/>
   </define>
   
   <!-- Include modules -->
   <include href="learningBaseMod.rng"/>
   <include href="learningAssessmentMod.rng"/>
+  <include href="../../base/rng/topicMod.rng"/>
   <include href="../../base/rng/highlightDomainMod.rng"/>
   <include href="../../base/rng/utilitiesDomainMod.rng"/>
   <include href="../../base/rng/indexingDomainMod.rng"/>
@@ -66,6 +68,7 @@
         <element>
           <anyName>
             <except>
+              <name>topic</name>
               <name>learningAssessment</name>
             </except>
           </anyName>

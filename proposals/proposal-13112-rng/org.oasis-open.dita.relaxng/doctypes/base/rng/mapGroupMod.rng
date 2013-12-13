@@ -21,6 +21,7 @@
      ============================================================= -->
 
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
@@ -303,7 +304,7 @@
     <ref name="univ-atts"/>
   </define>
   <define name="mapref.element">
-    <element name="mapref">
+    <element name="mapref" ditaarch:longName="Map reference">
       <a:documentation>The &lt;mapref> element is a convenience element that has the same meaning as
         a &lt;topicref> element that explicitly sets the format attribute to &#34;ditamap&#34;. The
         hierarchy of the referenced map is merged into the container map at the position of the

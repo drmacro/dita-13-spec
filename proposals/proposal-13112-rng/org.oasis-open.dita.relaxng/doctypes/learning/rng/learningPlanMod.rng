@@ -21,6 +21,7 @@
   ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns="http://relaxng.org/ns/structure/1.0" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   
   <!-- Define the domain values of this module -->
@@ -28,7 +29,7 @@
     <value>(topic learningBase learningPlan)</value>
   </define>
   
-  <define name="learningPlan-info-types">
+  <define name="learningPlan-info-types" combine="choice">
     <ref name="info-types"/>
   </define>
   

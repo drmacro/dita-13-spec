@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Hazard Statement Domain</moduleTitle>
     <headerComment/>
@@ -94,7 +96,7 @@
         </optional>
       </define>
       <define name="hazardstatement.element">
-        <element name="hazardstatement" a:longName="Hazard Statement">
+        <element name="hazardstatement" ditaarch:longName="Hazard Statement">
           <a:documentation>The &lt;hazardstatement> element contains hazard warning information. It is based on the regulations of the ANSI Z535 and the ISO 3864 standards. It gives the author the
             opportunity to select the hazard statement, to add one or more safety signs and to add the required phrases.</a:documentation>
           <ref name="hazardstatement.attlist"/>
@@ -176,7 +178,7 @@
         </optional>
       </define>
       <define name="hazardsymbol.element">
-        <element name="hazardsymbol" a:longName="Hazard Symbol">
+        <element name="hazardsymbol" ditaarch:longName="Hazard Symbol">
           <a:documentation>A graphic representation intended to convey a message without the use of words. It may represent a hazard, a hazardous situation, a precaution to avoid a hazard, a result of
             not avoiding a hazard, or any combination of these messages.</a:documentation>
           <ref name="hazardsymbol.attlist"/>
@@ -209,7 +211,7 @@
         </optional>
       </define>
       <define name="messagepanel.element">
-        <element name="messagepanel" a:longName="Hazard Message panel">
+        <element name="messagepanel" ditaarch:longName="Hazard Message panel">
           <a:documentation>The &lt;messagepanel> element describes the area of a safety sign or label that contains the word message which identifies a hazard, indicates how to avoid the hazard, and
             advises of the probable consequences of not avoiding the hazard.</a:documentation>
           <ref name="messagepanel.attlist"/>
@@ -239,7 +241,7 @@
         </optional>
       </define>
       <define name="typeofhazard.element">
-        <element name="typeofhazard" a:longName="The Type of Hazard">
+        <element name="typeofhazard" ditaarch:longName="The Type of Hazard">
           <a:documentation>&lt;typeofhazard> element is the container for the first text entry of a safety label. It contains the description of the type of hazard, such as &#34;Moving parts can crush
             and cut&#34;.</a:documentation>
           <ref name="typeofhazard.attlist"/>
@@ -269,7 +271,7 @@
         </optional>
       </define>
       <define name="consequence.element">
-        <element name="consequence" a:longName="Consequences of not Avoiding the Hazard">
+        <element name="consequence" ditaarch:longName="Consequences of not Avoiding the Hazard">
           <a:documentation>The &lt;consequence> element is the container for the second text entry of a safety label. It contains the description of the consequences of not avoiding the hazard, such
             as &#34;Keep guard in place&#34;.</a:documentation>
           <ref name="consequence.attlist"/>
@@ -300,7 +302,7 @@
         </optional>
       </define>
       <define name="howtoavoid.element">
-        <element name="howtoavoid" a:longName="How to Avoid the Hazard">
+        <element name="howtoavoid" ditaarch:longName="How to Avoid the Hazard">
           <a:documentation>The &lt;howtoavoid> element is the container for the third text entry of a safety label. It contains the description of how to avoid the hazard, such as &#34;Lock out power
             before servicing&#34;.</a:documentation>
           <ref name="howtoavoid.attlist"/>

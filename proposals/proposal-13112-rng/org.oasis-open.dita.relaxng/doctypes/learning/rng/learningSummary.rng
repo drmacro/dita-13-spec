@@ -20,6 +20,7 @@
   All Rights Reserved.                                          
   ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <!-- Define the root elements -->
   <start>
@@ -44,7 +45,7 @@
   -->
   <!-- Redefine the infotype entity to exclude other topic types and disallow nesting -->
   <define name="learningSummary-info-types">
-    <ref name="no-topic-nesting.element"/>
+    <empty/>
   </define>
 
   <!-- Include modules -->
