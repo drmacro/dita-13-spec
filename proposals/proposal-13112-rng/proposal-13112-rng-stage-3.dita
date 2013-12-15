@@ -1004,9 +1004,10 @@
                   @name value is the element type name and whose content is a reference to the <codeph><i>tagname</i>.attlist</codeph> and <codeph><i>tagname</i>.content</codeph> patterns. The
                   &lt;element> element <term outputclass="OASIS-terminology">SHOULD</term> include a &lt;a:documentation> element containing a short description of the element type. The description
                   should not include any unescaped XML markup. For grammars intended for use in generating DTD- and XSD-syntax modules, the &lt;element> element <term outputclass="OASIS-terminology"
-                  >SHOULD</term> specify the attribute "longName" in the DITA architecture name ("http://dita.oasis-open.org/architecture/2005/", by convention bound to the prefix "ditaarch"). For
+                  >SHOULD</term> specify the attribute "longName" in the DITA architecture name<?oxy_insert_start author="ekimber" timestamp="20131215T075959-0600"?>space<?oxy_insert_end?>
+                  ("http://dita.oasis-open.org/architecture/2005/", by convention bound to the prefix "ditaarch"). For
                   example:<codeblock>  &lt;define name="topichead.element">
-    &lt;element name="topichead" ditarch:longName="Topic Head">
+    &lt;element name="topichead" dit<?oxy_insert_start author="ekimber" timestamp="20131215T080055-0600"?>a<?oxy_insert_end?>arch:longName="Topic Head">
       &lt;a:documentation>The &amp;lt;topichead> element provides a title-only entry in a navigation map,
         as an alternative to the fully-linked title provided by the &amp;lt;topicref> element. 
         Category: Mapgroup elements&lt;/a:documentation>
@@ -1054,7 +1055,7 @@
     &lt;ref name="univ-atts"/>
   &lt;/define>
   &lt;define name="topichead.element">
-    &lt;element name="topichead">
+    &lt;element name="topichead"<?oxy_insert_start author="ekimber" timestamp="20131215T080113-0600"?> ditaarch:longName="Topic head"<?oxy_insert_end?>>
       &lt;a:documentation>The &amp;lt;topichead> element provides a title-only entry in a navigation map,
         as an alternative to the fully-linked title provided by the &amp;lt;topicref> element. 
         Category: Mapgroup elements&lt;/a:documentation>
@@ -1237,10 +1238,12 @@
           <?oxy_insert_start author="ekimber" timestamp="20131207T085649-0600"?>
           <section>
             <title>Inclusion of foreign vocabularies</title>
-            <p>Domain modules that include foreign vocabularies using the &lt;externalRef> element <term outputclass="OASIS-terminology">SHOULD</term> specify the attributes @a:dtdURI and @a:xsdURI
-              with the values of the DTD-syntax and XSD-syntax files to reference for the foreign vocabulary. These attributes allow generation of DTD-syntax and XSD-syntax versions of the RELAX NG
-              vocabulary. The attribute values <term outputclass="OASIS-terminology">SHOULD</term> be the URIs as they will need to be in the generated output, normally, a URI that will resolve
-              relative to the location of the generated DTD or XSD file.</p>
+            <p>In order to enable generation of DTD- and XSD-syntax versions of the RELAX NG vocabulary, domain modules that include foreign vocabularies using the &lt;externalRef> element <term
+              outputclass="OASIS-terminology">SHOULD</term> specify the attributes @ditaarch:dtdSystemId and @ditaarch:xsdURI and, optionally, ditaarch:dtdPublicId. The @ditaarch:dtdSystemId attribute
+              specifies the system ID URI to use for the DTD-syntax version of the foreign vocabulary as it should be specified on the external parameter entity reference to the foreign vocabulary
+              module in the generated DTD-syntax module. The @ditaarch:dtdPublicId attribute specifies the public ID or URN to use for the DTD-syntax version of the foreign vocabulary as it should be
+              specified on the external parameter entity reference to the foreign vocabulary module in the generated DTD-syntax module. The @ditaarch:xsdURI attribute specifies the URI reference as it
+              should be specified on the XSD &lt;import> or &lt;include> element's @schemalLocation attribute in the generated XSD-syntax module.</p>
             <p>For
               example:<codeblock>...
     &lt;div>&lt;a:documentation>LONG NAME: RNG Grammar Container&lt;/a:documentation>
@@ -1248,8 +1251,9 @@
         &lt;zeroOrMore>
           &lt;choice>
             &lt;externalRef href="rngGrammarProxy.rng"
-              a:dtdURI="rngGrammar.dtd"
-              a:xsdURI="rngGrammar.xsd"
+              ditaarch:dtdPublicId="-//OASIS//DTD DITA RNG Grammar//EN"
+              ditaarch:dtdSystemId="rngGrammar.dtd"
+              ditaarch:xsdURI="rngGrammar.xsd"
             />
             &lt;ref name="data"/>
             &lt;ref name="data-about"/>
@@ -1387,8 +1391,7 @@
     <concept id="concept_aqh_5zt_3h">
       <title>Specializing foreign or unknown content</title>
       <conbody>
-        <draft-comment
-          author="ekimber">[Insert new example before XSD sample.]</draft-comment>
+        <draft-comment author="ekimber">[Insert<?oxy_insert_start author="ekimber" timestamp="20131215T081658-0600"?> this<?oxy_insert_end?> new example before XSD sample.]</draft-comment>
         <example>
           <title>Example of specializing foreign content using RELAX NG</title>
           <p>The sample below describes how to create a domain declaration for the RELAX NG grammar element and integrate it into a document type shell. </p>
@@ -1450,7 +1453,11 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
       &lt;define name="rng_grammar.content">
         &lt;zeroOrMore>
           &lt;choice>
-            &lt;externalRef href="rngGrammarProxy.rng"/>
+            &lt;externalRef href="rngGrammarProxy.rng"<?oxy_insert_start author="ekimber" timestamp="20131215T081757-0600"?>
+              ditaarch:dtdPublicId="-//OASIS//DTD DITA RNG Grammar//EN"
+              ditaarch:dtdSystemId="rngGrammar.dtd"
+              ditaarch:xsdURI="rngGrammar.xsd"
+            <?oxy_insert_end?>/>
             &lt;ref name="data"/>
             &lt;ref name="data-about"/>
           &lt;/choice>
@@ -1464,9 +1471,9 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
         &lt;/optional>
       &lt;/define>
       &lt;define name="rng_grammar.element">
-        &lt;element name="rng_grammar" ditaarch:longName="Bold">
-          &lt;a:documentation>&lt;/a:documentation>
-          &lt;ref name="rng_grammar.attlist"/>
+        &lt;element name="rng_grammar" ditaarch:longName="<?oxy_delete author="ekimber" timestamp="20131215T081727-0600" content="Bold"?><?oxy_insert_start author="ekimber" timestamp="20131215T081727-0600"?>RNG grammar<?oxy_insert_end?>">
+<?oxy_delete author="ekimber" timestamp="20131215T081723-0600" content="          &amp;lt;a:documentation&gt;&amp;lt;/a:documentation&gt;
+"?>          &lt;ref name="rng_grammar.attlist"/>
           &lt;ref name="rng_grammar.content"/>
         &lt;/element>
       &lt;/define>
