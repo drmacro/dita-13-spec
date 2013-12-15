@@ -87,7 +87,7 @@ ORIGINAL CREATION DATE:
     <include href="mapMod.rng"/>
     <include href="delayResolutionDomainMod.rng"/>
     <include href="indexingDomainMod.rng"/>
-    <include href="mapGroupMod.rng"/>
+    <include href="mapGroupDomainMod.rng"/>
     <include href="highlightDomainMod.rng"/>
     <include href="utilitiesDomainMod.rng"/>
     <include href="hazardstatementDomainMod.rng"/>

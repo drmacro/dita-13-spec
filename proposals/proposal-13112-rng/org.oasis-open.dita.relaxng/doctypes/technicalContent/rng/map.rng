@@ -32,7 +32,7 @@
   <include href="../../base/rng/delayResolutionDomainMod.rng"/>
   <include href="glossrefDomainMod.rng"/>
   <include href="../../base/rng/indexingDomainMod.rng"/>
-  <include href="../../base/rng/mapGroupMod.rng"/>
+  <include href="../../base/rng/mapGroupDomainMod.rng"/>
   <include href="../../base/rng/highlightDomainMod.rng"/>
   <include href="../../base/rng/utilitiesDomainMod.rng"/>
   <include href="../../base/rng/hazardstatementDomainMod.rng"/>
