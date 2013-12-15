@@ -796,16 +796,21 @@
             <dd>
               <p>The "any" pattern is used as content for the <keyword>foreign</keyword>, <keyword>unknown</keyword> and <keyword>required-cleanup</keyword> elements. The "any" pattern should accept
                 any element with any content or attributes. The RELAX NG DTD compatibility processing requires that any elements that match this pattern have consistent declarations for all
-                attributes. In DITA, &lt;topic> and all specializations of &lt;topic>, &lt;map > and all specializations of &lt;map>, and &lt;anchor> declare the @id attribute as an XML ID (datatype
-                "ID"), making their declarations inconsistent with the base declaration defined in the id-atts pattern. This requires that shells override the "any" pattern to exclude these element
-                types from the "anyName" pattern and add those element types explicitly to the choice group that defines the "any" pattern. The set of element types that
+                attributes. In DITA, &lt;topic> and all specializations of &lt;topic>, &lt;map > and all specializations of &lt;map>, and &lt;anchor>
+                <?oxy_insert_start author="ekimber" timestamp="20131215T101400-0600"?>and all specializations of &lt;anchor> <?oxy_insert_end?>declare the @id attribute as an XML ID (datatype "ID"),
+                making their declarations inconsistent with the base declaration defined in the id-atts pattern. This requires that shells override the "any" pattern to exclude these element types
+                from the "anyName" pattern and add those element types explicitly to the choice group that defines the "any" pattern. The set of element types that
                 <?oxy_delete author="ekimber" timestamp="20131207T081817-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081817-0600"?>have to<?oxy_insert_end?> be
                 reflected in this pattern depends on the set of map or topic types and domains integrated by the shell, but at a minimum, any topic types or map types
-                <?oxy_delete author="ekimber" timestamp="20131207T081824-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081824-0600"?>has to<?oxy_insert_end?> be listed.
-                For maps, the &lt;anchor> element and any specializations of &lt;anchor>
-                <?oxy_delete author="ekimber" timestamp="20131207T081831-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081831-0600"?>has to<?oxy_insert_end?> be listed.
-                In addition, foreign vocabularies intregrated through specializations of &lt;foreign> may also define similar patterns that require the same accommodation (see <xref
+                <?oxy_delete author="ekimber" timestamp="20131207T081824-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081824-0600"?>have to<?oxy_insert_end?> be
+                listed. For maps, the &lt;anchor> element and any specializations of &lt;anchor>
+                <?oxy_delete author="ekimber" timestamp="20131207T081831-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081831-0600"?>have to<?oxy_insert_end?> be
+                listed. In addition, foreign vocabularies intregrated through specializations of &lt;foreign> may also define similar patterns that require the same accommodation (see <xref
                 href="#concept_aqh_5zt_3h" format="dita"/>).</p>
+              <?oxy_insert_start author="ekimber" timestamp="20131215T101453-0600"?>
+              <p>The pattern "idElements" is defined in the commonElementsMod.rng module as an empty pattern. Modules that define element types with @id attributes of type ID then contribute to this
+                pattern (see <xref href="#concept_vmn_pbr_2m" format="dita"/>).</p>
+              <?oxy_insert_end?>
               <p>This section <term outputclass="OASIS-terminology">SHOULD</term> start with the header "OVERRIDE OF "any" PATTERNS".</p>
               <p>The general structure of this pattern
                 is:<codeblock>&lt;div>
@@ -813,7 +818,7 @@
   &lt;define name="any">
     &lt;zeroOrMore>
       &lt;choice>
-        &lt;ref name="<varname>tagname</varname>.element"/>
+        &lt;ref name="<?oxy_insert_start author="ekimber" timestamp="20131215T101650-0600"?>idElements<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131215T101649-0600" content="&lt;varname&gt;tagname&lt;/varname&gt;.element"?>"/>
         &lt;element>
           &lt;anyName>
             &lt;except>
@@ -832,7 +837,11 @@
     &lt;/zeroOrMore>
   &lt;/define>
 &lt;/div></codeblock></p>
-              <p>Where the &lt;ref> and &lt;name> elements are repeated for each element type used from the shell that defines the @id attribute directly.</p>
+              <p>Where the <?oxy_delete author="ekimber" timestamp="20131215T101702-0600" content="&amp;lt;ref&gt; and "?>&lt;name>
+                element<?oxy_delete author="ekimber" timestamp="20131215T101706-0600" content="s"?>
+                <?oxy_delete author="ekimber" timestamp="20131215T101708-0600" content="are"?><?oxy_insert_start author="ekimber" timestamp="20131215T101708-0600"?>is<?oxy_insert_end?> repeated for
+                each element type used from the shell that defines the @id attribute <?oxy_insert_start author="ekimber" timestamp="20131215T101717-0600"?>as type
+                "ID".<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20131215T101715-0600" content="directly."?></p>
             </dd>
           </dlentry>
         </dl>
@@ -909,14 +918,13 @@
               <dlentry>
                 <dt>Element type name patterns</dt>
                 <dd>
-                  <p>This section <term
-                    outputclass="OASIS-terminology">SHOULD</term> have the section heading "ELEMENT TYPE NAME
+                  <p>This section <term outputclass="OASIS-terminology">SHOULD</term> have the section heading "ELEMENT TYPE NAME
                     PATTERNS"<codeblock>&lt;div>
   &lt;a:documentation>ELEMENT TYPE NAME PATTERNS&lt;/a:documentation>
   ...
 &lt;/div></codeblock></p>
-                  <p>For each element type declared in the vocabulary module there <term
-                    outputclass="OASIS-terminology">MUST</term> be a pattern whose name is the element type name and whose content is a reference to the element type's ".element" pattern. For
+                  <p>For each element type declared in the vocabulary module there <term outputclass="OASIS-terminology">MUST</term> be a pattern whose name is the element type name and whose content
+                    is a reference to the element type's ".element" pattern. For
                     example:<codeblock>&lt;div>
   &lt;a:documentation>ELEMENT TYPE NAME PATTERNS&lt;/a:documentation>
   &lt;define name="b">
@@ -932,10 +940,8 @@
               </dlentry>
               <dlentry>
                 <dt>Common content model patterns</dt>
-                <dd>Structural and element domain modules <term
-                  outputclass="OASIS-terminology">MAY</term> include a "common content model patterns" section that defines patterns that contribute to the content models of the element types defined
-                  in the module. This section <term
-                  outputclass="OASIS-terminology">SHOULD</term> use the section header "COMMON CONTENT MODEL
+                <dd>Structural and element domain modules <term outputclass="OASIS-terminology">MAY</term> include a "common content model patterns" section that defines patterns that contribute to
+                  the content models of the element types defined in the module. This section <term outputclass="OASIS-terminology">SHOULD</term> use the section header "COMMON CONTENT MODEL
                   PATTERNS":<codeblock>&lt;div>
   &lt;a:documentation>COMMON CONTENT MODEL PATTERNS&lt;/a:documentation>
   ...
@@ -944,10 +950,8 @@
               </dlentry>
               <dlentry>
                 <dt>Common attribute sets</dt>
-                <dd>Structural and element domain modules <term
-                  outputclass="OASIS-terminology">MAY</term> include a "common attribute sets" section that defines patterns for attribute sets common to one or more of the element types defined in
-                  the module. This section <term
-                  outputclass="OASIS-terminology">SHOULD</term> use the section header "COMMON ATTRIBUTE
+                <dd>Structural and element domain modules <term outputclass="OASIS-terminology">MAY</term> include a "common attribute sets" section that defines patterns for attribute sets common to
+                  one or more of the element types defined in the module. This section <term outputclass="OASIS-terminology">SHOULD</term> use the section header "COMMON ATTRIBUTE
                   SETS":<codeblock>&lt;div>
   &lt;a:documentation>COMMON ATTRIBUTE SETS&lt;/a:documentation>
   ...
@@ -1070,22 +1074,44 @@
                   </p>
                   </note></dd>
               </dlentry>
+              <?oxy_insert_start author="ekimber" timestamp="20131215T100813-0600"?>
+              <dlentry>
+                <dt>idElements pattern contribution</dt>
+                <dd>
+                  <p>Element types that declare the @id attribute as type "ID", including all topic and map element types, <term outputclass="OASIS-terminology">MUST</term> be included in the
+                    idElements pattern in order to correctly configure the "any" pattern overrides defined in document type shells. Each such element type <term outputclass="OASIS-terminology"
+                    >MUST</term> have a pattern declaration named "idElements" with a @combine value of "choice" and a reference to the element type's "<varname>tagname</varname>.element" pattern. The
+                    pattern declaration <term outputclass="OASIS-terminology">SHOULD</term> follow the "<varname>tagname</varname>.attlist"
+                    pattern:<codeblock>      ...
+      &lt;define name="map.attlist" combine="interleave">
+        &lt;ref name="map.attributes"/>
+        &lt;ref name="arch-atts"/>
+        &lt;ref name="domains-att"/>
+      &lt;/define>
+      &lt;define name="idElements" combine="choice">
+        &lt;ref name="map.element"/>
+      &lt;/define>
+    &lt;/div></codeblock></p>
+                </dd>
+              </dlentry>
+              <?oxy_insert_end?>
               <dlentry>
                 <dt>Specialization attribute declarations</dt>
                 <dd>
                   <p>A vocabulary module <term outputclass="OASIS-terminology">MUST</term> define a @class attribute for every specialized element declared in the module.</p>
-                  <p>This section declares the @class attributes for the element types defined in the module. This section <term
-                    outputclass="OASIS-terminology">SHOULD</term> use the section header "SPECIALIZATION ATTRIBUTE DECLARATIONS":</p>
+                  <p>This section declares the @class attributes for the element types defined in the module. This section <term outputclass="OASIS-terminology">SHOULD</term> use the section header
+                    "SPECIALIZATION ATTRIBUTE DECLARATIONS":</p>
                   <codeblock>&lt;div>
   &lt;a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS&lt;/a:documentation>
   ...
 &lt;/div></codeblock>
-                  <p>For each element type defined in the module there <term
-                    outputclass="OASIS-terminology">MUST</term> be a pattern named <codeph><i>tagname</i>.attlist</codeph> that contains a reference to the attribute list pattern "global-atts" and
-                    defines an optional attribute named "class". The @class attribute default value <term outputclass="OASIS-terminology">MUST</term> include the value of the @class attribute of the base element, and append to it
-                    the element name qualified by the topic element name with at least one leading and trailing space. The @class attribute for an element introduced by a structural specialization
-                    <term outputclass="OASIS-terminology">MUST</term> start with a minus sign ("-"). The @class attribute for a domain specialization <term outputclass="OASIS-terminology">MUST</term> start with a plus sign ("+"). The initial minus or plus sign
-                    <term outputclass="OASIS-terminology">MUST</term> be followed by one or more spaces. The attribute value <term outputclass="OASIS-terminology">MUST</term> end with one or more trailing spaces. </p>
+                  <p>For each element type defined in the module there <term outputclass="OASIS-terminology">MUST</term> be a pattern named <codeph><i>tagname</i>.attlist</codeph> that contains a
+                    reference to the attribute list pattern "global-atts" and defines an optional attribute named "class". The @class attribute default value <term outputclass="OASIS-terminology"
+                    >MUST</term> include the value of the @class attribute of the base element, and append to it the element name qualified by the topic element name with at least one leading and
+                    trailing space. The @class attribute for an element introduced by a structural specialization <term outputclass="OASIS-terminology">MUST</term> start with a minus sign ("-"). The
+                    @class attribute for a domain specialization <term outputclass="OASIS-terminology">MUST</term> start with a plus sign ("+"). The initial minus or plus sign <term
+                    outputclass="OASIS-terminology">MUST</term> be followed by one or more spaces. The attribute value <term outputclass="OASIS-terminology">MUST</term> end with one or more trailing
+                    spaces. </p>
                   <p>The attribute default value is declared using the @defaultValue attribute from the RELAX NG DTD compatibility namespace "http://relaxng.org/ns/compatibility/annotations/1.0" (by
                     convention bound to the prefix "a").</p>
                   <p>For
@@ -1097,11 +1123,9 @@
       />
     &lt;/optional>
   &lt;/define></codeblock></p>
-                  <p>The @class attribute declarations for a module <term outputclass="OASIS-terminology">MUST</term> be grouped together at the end of the module after any other declarations. The declarations may occur in any
-                    order. By convention they are often ordered alphabetically or grouped logically.</p>
-                  <p>See <xref
-                    href="classatt.dita#classatt"
-                    format="dita"/> for complete details on the @class attribute.</p>
+                  <p>The @class attribute declarations for a module <term outputclass="OASIS-terminology">MUST</term> be grouped together at the end of the module after any other declarations. The
+                    declarations may occur in any order. By convention they are often ordered alphabetically or grouped logically.</p>
+                  <p>See <xref href="classatt.dita#classatt" format="dita"/> for complete details on the @class attribute.</p>
                 </dd>
               </dlentry>
               </dl></p>
@@ -1114,15 +1138,14 @@
         <shortdesc>A structural vocabulary module defines a new topic or map type as a specialization of a base topic or map type. The purpose is usually to enhance the user's interaction by adapting
           the topic or map type to its particular purposes.</shortdesc>
         <conbody>
-          <p>A structural type module <term outputclass="OASIS-terminology">MUST</term> conform to the following coding requirements in addition to the general module coding requirements and the rules defined in <xref
-            href="#concept_j2w_cgk_fm"
-            format="dita"/>.</p>
+          <p>A structural type module <term outputclass="OASIS-terminology">MUST</term> conform to the following coding requirements in addition to the general module coding requirements and the rules
+            defined in <xref href="#concept_j2w_cgk_fm" format="dita"/>.</p>
           <section>
             <title>Architecture attributes</title>
-            <p>The topic or map element type <term outputclass="OASIS-terminology">MUST</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a reliable way to check the
-              architecture version. In addition, because the @DITAArchVersion attribute is in a DITA-defined namespace, it serves as an unambiguous signal that the element is a DITA element. </p>
-            <p>The architectural attributes section <term
-              outputclass="OASIS-terminology">SHOULD</term> use the section header "ARCHITECTURE
+            <p>The topic or map element type <term outputclass="OASIS-terminology">MUST</term> declare the @DITAArchVersion attribute and set its value to "1.3". This attribute gives processors a
+              reliable way to check the architecture version. In addition, because the @DITAArchVersion attribute is in a DITA-defined namespace, it serves as an unambiguous signal that the element is
+              a DITA element. </p>
+            <p>The architectural attributes section <term outputclass="OASIS-terminology">SHOULD</term> use the section header "ARCHITECTURE
               ATTRIBUTES":<codeblock>&lt;div>
   &lt;a:documentation>ARCHITECTURE ATTRIBUTES&lt;/a:documentation>
   ...
@@ -1142,19 +1165,16 @@
         <title>Topic type module coding requirements</title>
         <shortdesc>Topic type vocabulary modules <term outputclass="OASIS-terminology">MUST</term> conform to additional coding requirements for defining default topic nesting.</shortdesc>
         <conbody>
-          <section
-            id="section_5E63C9E47F0D41EE83D5EB24F1617684">
+          <section id="section_5E63C9E47F0D41EE83D5EB24F1617684">
             <title>Default nested topics pattern</title>
-            <p>A topic type module <term
-              outputclass="OASIS-terminology">MUST</term> define a pattern to specify default subordinate topics. The pattern name <term
-              outputclass="OASIS-terminology">MUST</term> be the topic element name plus the suffix <codeph>-info-types</codeph>. For example, the info-types pattern for the concept topic type is
+            <p>A topic type module <term outputclass="OASIS-terminology">MUST</term> define a pattern to specify default subordinate topics. The pattern name <term outputclass="OASIS-terminology"
+              >MUST</term> be the topic element name plus the suffix <codeph>-info-types</codeph>. For example, the info-types pattern for the concept topic type is
               <codeph>concept-info-types</codeph>. The info type pattern section should use the section header "INFO TYPES
               PATTERNS":<codeblock>&lt;div>
   &lt;a:documentation>INFO TYPES PATTERNS&lt;/a:documentation>
   ...
 &lt;/div></codeblock></p>
-            <p>If the topic has default subordinate topics, this pattern <term
-              outputclass="OASIS-terminology">MAY</term> refer to a list of topic element type name patterns. If not, the pattern <term
+            <p>If the topic has default subordinate topics, this pattern <term outputclass="OASIS-terminology">MAY</term> refer to a list of topic element type name patterns. If not, the pattern <term
               outputclass="OASIS-terminology">SHOULD</term> refer to the <codeph>info-types</codeph> pattern as in the following example:</p>
             <codeblock>&lt;div>
   &lt;a:documentation>INFO TYPES PATTERNS&lt;/a:documentation>
@@ -1165,8 +1185,8 @@
 &lt;/div></codeblock>
             <p>A document type shell can then control how topics are allowed to nest by redefining the <codeph><varname>topictype</varname>-info-types</codeph> pattern for each topic type, or it can
               efficiently create common nesting rules by redefining the main info-types pattern.</p>
-            <p>In the declaration of the root element of a topic type, the last position in the content model <term outputclass="OASIS-terminology">MUST</term> be the <codeph><varname>topictype</varname>-info-types</codeph> nested
-              topics pattern, as in the following example:</p>
+            <p>In the declaration of the root element of a topic type, the last position in the content model <term outputclass="OASIS-terminology">MUST</term> be the
+              <codeph><varname>topictype</varname>-info-types</codeph> nested topics pattern, as in the following example:</p>
             <codeblock>&lt;div>
   &lt;a:documentation>LONG NAME: Concept&lt;/a:documentation>
   &lt;define name="concept.content">
@@ -1506,7 +1526,7 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
     &lt;define name="other">
       &lt;zeroOrMore>
         &lt;choice>
-          &lt;ref name="topic.element"/>
+          <?oxy_delete author="ekimber" timestamp="20131215T095724-0600" content="&amp;lt;ref name=&quot;topic.element&quot;/&gt;"?><?oxy_insert_start author="ekimber" timestamp="20131215T095724-0600"?>&lt;parentRef name="idElements"/><?oxy_insert_end?>
           &lt;element>
             &lt;anyName>
               &lt;except>
@@ -1530,7 +1550,7 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
     
     &lt;define name="any">
       &lt;choice>
-        &lt;ref name="topic.element">&lt;/ref>      
+        <?oxy_delete author="ekimber" timestamp="20131215T095734-0600" content="&amp;lt;ref name=&quot;topic.element&quot;&gt;&amp;lt;/ref&gt;"?><?oxy_insert_start author="ekimber" timestamp="20131215T095734-0600"?>&lt;parentRef name="idElements"/><?oxy_insert_end?>      
         &lt;element>
           &lt;anyName>
             &lt;except>
@@ -1551,26 +1571,26 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
     &lt;/define>
   &lt;/include>
   
-  &lt;define name="topic.element">
-    &lt;element name="topic" ns="">
-      &lt;ref name="any"/>
-      &lt;choice>
-        &lt;attribute name="id" ns="">
-          &lt;data type="ID"/>
-        &lt;/attribute>
-        &lt;zeroOrMore>
-          &lt;attribute>
-            &lt;anyName>
-              &lt;except>
-                &lt;name ns="">id&lt;/name>
-              &lt;/except>
-            &lt;/anyName>
-          &lt;/attribute>
-        &lt;/zeroOrMore>
-      &lt;/choice>
-    &lt;/element>
-  &lt;/define>
-&lt;/grammar></codeblock>
+<?oxy_delete author="ekimber" timestamp="20131215T095832-0600" content="  &amp;lt;define name=&quot;topic.element&quot;&gt;
+    &amp;lt;element name=&quot;topic&quot; ns=&quot;&quot;&gt;
+      &amp;lt;ref name=&quot;any&quot;/&gt;
+      &amp;lt;choice&gt;
+        &amp;lt;attribute name=&quot;id&quot; ns=&quot;&quot;&gt;
+          &amp;lt;data type=&quot;ID&quot;/&gt;
+        &amp;lt;/attribute&gt;
+        &amp;lt;zeroOrMore&gt;
+          &amp;lt;attribute&gt;
+            &amp;lt;anyName&gt;
+              &amp;lt;except&gt;
+                &amp;lt;name ns=&quot;&quot;&gt;id&amp;lt;/name&gt;
+              &amp;lt;/except&gt;
+            &amp;lt;/anyName&gt;
+          &amp;lt;/attribute&gt;
+        &amp;lt;/zeroOrMore&gt;
+      &amp;lt;/choice&gt;
+    &amp;lt;/element&gt;
+  &amp;lt;/define&gt;
+"?>&lt;/grammar></codeblock>
         </example>
       </conbody>
     </concept>

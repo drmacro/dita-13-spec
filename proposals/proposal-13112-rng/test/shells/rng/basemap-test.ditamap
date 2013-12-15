@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../org.oasis-open.dita.relaxng/doctypes/base/rng/basemap.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<map>
+ <title>DITA Topic Map</title>
+  <anchor id="anchor-id"/>
+  <topicgroup>
+    <anchorref href="#anchor-id"/>
+    <keydef keys="key-01"/>
+    <mapref href="some-map.ditamap"/>
+    <navref/>
+    <topichead>
+      <topicmeta>
+        <navtitle>A Topic Head</navtitle>
+      </topicmeta>
+    </topichead>
+    <topicset id="topic-set-01">
+      
+    </topicset>
+  </topicgroup>
+</map>

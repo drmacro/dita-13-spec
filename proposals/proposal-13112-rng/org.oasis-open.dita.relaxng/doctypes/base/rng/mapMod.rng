@@ -410,7 +410,9 @@
         <ref name="arch-atts"/>
         <ref name="domains-att"/>
       </define>
-
+      <define name="idElements" combine="choice">
+        <ref name="map.element"/>
+      </define>
     </div>
     <div>
       <a:documentation>LONG NAME: Navigation Reference</a:documentation>
@@ -525,6 +527,9 @@
       </define>
       <define name="anchor.attlist" combine="interleave">
         <ref name="anchor.attributes"/>
+      </define>
+      <define name="idElements" combine="choice">
+        <ref name="anchor.element"/>
       </define>
 
     </div>

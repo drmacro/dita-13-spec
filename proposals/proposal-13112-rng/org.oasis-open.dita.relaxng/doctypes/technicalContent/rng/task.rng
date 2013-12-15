@@ -70,7 +70,7 @@
   <define name="any">
     <zeroOrMore>
       <choice>
-        <ref name="task.element"/>
+        <ref name="idElements"/>
         <element>
           <anyName>
             <except>

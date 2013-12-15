@@ -6,7 +6,7 @@
     <define name="other">
       <zeroOrMore>
         <choice>
-          <ref name="topic.element"/>
+          <parentRef name="idElements"/>
           <element>
             <anyName>
               <except>
@@ -30,7 +30,7 @@
     
     <define name="any">
       <choice>
-        <ref name="topic.element"></ref>      
+        <parentRef name="idElements"/>      
         <element>
           <anyName>
             <except><name ns="">topic</name></except>
@@ -49,21 +49,4 @@
     </define>
   </include>
   
-  <define name="topic.element">
-    <element name="topic" ns="">
-      <ref name="any"/>
-      <choice>
-        <attribute name="id" ns=""><data type="ID"/></attribute>
-        <zeroOrMore>
-          <attribute>
-            <anyName>
-              <except>
-                <name ns="">id</name>
-              </except>
-            </anyName>
-          </attribute>
-        </zeroOrMore>
-      </choice>
-    </element>
-  </define>
 </grammar>

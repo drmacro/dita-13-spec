@@ -337,8 +337,6 @@ ORIGINAL CREATION DATE:
       <define name="idElements" combine="choice">
         <ref name="topic.element"/>
       </define>
-
-
     </div>
     <div>
       <a:documentation>LONG NAME: Title Alternatives</a:documentation>

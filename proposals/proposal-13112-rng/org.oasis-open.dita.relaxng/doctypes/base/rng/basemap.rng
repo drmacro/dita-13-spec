@@ -98,8 +98,7 @@ ORIGINAL CREATION DATE:
     <define name="any">
       <zeroOrMore>
         <choice>
-          <ref name="map.element"/>
-          <ref name="anchor.element"/>
+          <ref name="idElements"/>
           <element>
             <anyName>
               <except>
