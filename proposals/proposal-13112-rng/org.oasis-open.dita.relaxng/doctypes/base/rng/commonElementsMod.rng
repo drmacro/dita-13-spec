@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-  xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-  xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns:sch="http://purl.oclc.org/dsdl/schematron">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Common Elements</moduleTitle>
     <headerComment><![CDATA[
@@ -80,9 +78,6 @@ ORIGINAL CREATION DATE:
     </moduleMetadata>
   </moduleDesc>
 
-  <!-- ============================================================= -->
-  <!--                 ELEMENT TYPE NAME PATTERNS                    -->
-  <!-- ============================================================= -->
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
     <define name="alt">
@@ -244,107 +239,111 @@ ORIGINAL CREATION DATE:
     <define name="xref">
       <ref name="xref.element"/>
     </define>
-    <!-- Elements in tblDeclMod -->
-    <define name="table">
-      <ref name="table.element"/>
-    </define>
-    <define name="colspec">
-      <ref name="colspec.element"/>
-    </define>
-    <define name="entry">
-      <ref name="entry.element"/>
-    </define>
-    <define name="row">
-      <ref name="row.element"/>
-    </define>
-    <define name="tbody">
-      <ref name="tbody.element"/>
-    </define>
-    <define name="tgroup">
-      <ref name="tgroup.element"/>
-    </define>
-    <define name="thead">
-      <ref name="thead.element"/>
-    </define>
-    <!-- Elements in metaDeclMod -->
-    <define name="audience">
-      <ref name="audience.element"/>
-    </define>
-    <define name="author">
-      <ref name="author.element"/>
-    </define>
-    <define name="brand">
-      <ref name="brand.element"/>
-    </define>
-    <define name="category">
-      <ref name="category.element"/>
-    </define>
-    <define name="component">
-      <ref name="component.element"/>
-    </define>
-    <define name="copyrholder">
-      <ref name="copyrholder.element"/>
-    </define>
-    <define name="copyright">
-      <ref name="copyright.element"/>
-    </define>
-    <define name="copyryear">
-      <ref name="copyryear.element"/>
-    </define>
-    <define name="created">
-      <ref name="created.element"/>
-    </define>
-    <define name="critdates">
-      <ref name="critdates.element"/>
-    </define>
-    <define name="featnum">
-      <ref name="featnum.element"/>
-    </define>
-    <define name="keywords">
-      <ref name="keywords.element"/>
-    </define>
-    <define name="metadata">
-      <ref name="metadata.element"/>
-    </define>
-    <define name="othermeta">
-      <ref name="othermeta.element"/>
-    </define>
-    <define name="permissions">
-      <ref name="permissions.element"/>
-    </define>
-    <define name="platform">
-      <ref name="platform.element"/>
-    </define>
-    <define name="prodinfo">
-      <ref name="prodinfo.element"/>
-    </define>
-    <define name="prodname">
-      <ref name="prodname.element"/>
-    </define>
-    <define name="prognum">
-      <ref name="prognum.element"/>
-    </define>
-    <define name="publisher">
-      <ref name="publisher.element"/>
-    </define>
-    <define name="resourceid">
-      <ref name="resourceid.element"/>
-    </define>
-    <define name="revised">
-      <ref name="revised.element"/>
-    </define>
-    <define name="series">
-      <ref name="series.element"/>
-    </define>
-    <define name="source">
-      <ref name="source.element"/>
-    </define>
-    <define name="vrm">
-      <ref name="vrm.element"/>
-    </define>
-    <define name="vrmlist">
-      <ref name="vrmlist.element"/>
-    </define>
+    <div>
+      <a:documentation>Elements in tblDeclMod</a:documentation>
+      <define name="table">
+        <ref name="table.element"/>
+      </define>
+      <define name="colspec">
+        <ref name="colspec.element"/>
+      </define>
+      <define name="entry">
+        <ref name="entry.element"/>
+      </define>
+      <define name="row">
+        <ref name="row.element"/>
+      </define>
+      <define name="tbody">
+        <ref name="tbody.element"/>
+      </define>
+      <define name="tgroup">
+        <ref name="tgroup.element"/>
+      </define>
+      <define name="thead">
+        <ref name="thead.element"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation>Elements in metaDeclMod </a:documentation>
+      <define name="audience">
+        <ref name="audience.element"/>
+      </define>
+      <define name="author">
+        <ref name="author.element"/>
+      </define>
+      <define name="brand">
+        <ref name="brand.element"/>
+      </define>
+      <define name="category">
+        <ref name="category.element"/>
+      </define>
+      <define name="component">
+        <ref name="component.element"/>
+      </define>
+      <define name="copyrholder">
+        <ref name="copyrholder.element"/>
+      </define>
+      <define name="copyright">
+        <ref name="copyright.element"/>
+      </define>
+      <define name="copyryear">
+        <ref name="copyryear.element"/>
+      </define>
+      <define name="created">
+        <ref name="created.element"/>
+      </define>
+      <define name="critdates">
+        <ref name="critdates.element"/>
+      </define>
+      <define name="featnum">
+        <ref name="featnum.element"/>
+      </define>
+      <define name="keywords">
+        <ref name="keywords.element"/>
+      </define>
+      <define name="metadata">
+        <ref name="metadata.element"/>
+      </define>
+      <define name="othermeta">
+        <ref name="othermeta.element"/>
+      </define>
+      <define name="permissions">
+        <ref name="permissions.element"/>
+      </define>
+      <define name="platform">
+        <ref name="platform.element"/>
+      </define>
+      <define name="prodinfo">
+        <ref name="prodinfo.element"/>
+      </define>
+      <define name="prodname">
+        <ref name="prodname.element"/>
+      </define>
+      <define name="prognum">
+        <ref name="prognum.element"/>
+      </define>
+      <define name="publisher">
+        <ref name="publisher.element"/>
+      </define>
+      <define name="resourceid">
+        <ref name="resourceid.element"/>
+      </define>
+      <define name="revised">
+        <ref name="revised.element"/>
+      </define>
+      <define name="series">
+        <ref name="series.element"/>
+      </define>
+      <define name="source">
+        <ref name="source.element"/>
+      </define>
+      <define name="vrm">
+        <ref name="vrm.element"/>
+      </define>
+      <define name="vrmlist">
+        <ref name="vrmlist.element"/>
+      </define>
+    </div>
   </div>
   <div>
     <a:documentation>COMMENT ELEMENT SETS</a:documentation>
@@ -725,6 +724,19 @@ ORIGINAL CREATION DATE:
           <ref name="ph"/>
           <ref name="title"/>
         </choice>
+      </define>
+    </div>
+    <div>
+      <a:documentation><![CDATA[Pattern for element types that declare @id attributes as type ID
+      
+      This pattern is required by RELAX NG matching rules as they apply to the <anyName/>
+      pattern. Structural and domain modules that declare element types with an @id attribute
+      of type ID must extend this pattern to add those element types.
+      
+      NOTE: This pattern does not have an XSD or DTD analog, it is only relevant to RELAX NG.
+      ]]></a:documentation>
+      <define name="idElements">
+        <empty/>
       </define>
     </div>
   </div>
@@ -1203,13 +1215,13 @@ ORIGINAL CREATION DATE:
 
       </div>
       <div>
-        <a:documentation>LONG NAME: Description</a:documentation>
-        <!--
+        <a:documentation xml:space="preserve">LONG NAME: Description
+        
     Desc is used in context with figure and 
     table titles and also for content models 
     within linkgroup and object (for 
     accessibility)
-  -->
+        </a:documentation>
         <define name="desc.content">
           <zeroOrMore>
             <ref name="desc.cnt"/>
@@ -2191,11 +2203,11 @@ ORIGINAL CREATION DATE:
 
       </div>
       <div>
-        <a:documentation>LONG NAME: State</a:documentation>
-        <!--
+        <a:documentation xml:space="preserve">LONG NAME: State
+        
     A state can have a name and a string value, 
     even if empty or indeterminate
-  -->
+        </a:documentation>
         <define name="state.content">
           <empty/>
         </define>
@@ -2385,14 +2397,14 @@ ORIGINAL CREATION DATE:
         </define>
       </div>
       <div>
-        <a:documentation>LONG NAME: Object (Streaming/Executable Data)</a:documentation>
-        <!--
+        <a:documentation xml:space="preserve">LONG NAME: Object (Streaming/Executable Data)
+        
     The longdescre attribute is an error which appeared in the
     original DTD implementation of OASIS DITA. It is an error that
     is not part of the standard. It was left here to provide time
     to change documents, but it will be removed at a later date.
     The longdescref (with ending F) should be used instead.
-  -->
+        </a:documentation>
         <define name="object.content">
           <optional>
             <ref name="desc"/>
@@ -2658,11 +2670,6 @@ ORIGINAL CREATION DATE:
             </choice>
           </zeroOrMore>
         </define>
-        <!--
-    20080128: Removed enumeration for @disposition for DITA 1.2. Previous values:
-    accepted, completed, deferred, duplicate, issue, open, 
-    rejected, reopened, unassigned, -dita-use-conref-target
-  -->
         <define name="draft-comment.attributes">
           <optional>
             <attribute name="author"/>

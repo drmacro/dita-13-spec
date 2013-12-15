@@ -30,7 +30,7 @@
     <projectTree name="dita-13-spec.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/base/rng/basemap.rng"/>
-            <file name="org.dita-ng.doctypes/rng/base/rng/basetopic.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/base/rng/basetopic.rng"/>
             <file name="DITA1-1.2-xsds/xsd1.2-url/base/xsd/basetopic.xsd"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/bookmap/rng/bookmap.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/classifyMap.rng"/>

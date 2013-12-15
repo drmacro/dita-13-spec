@@ -334,6 +334,9 @@ ORIGINAL CREATION DATE:
         <ref name="arch-atts"/>
         <ref name="domains-att"/>
       </define>
+      <define name="idElements" combine="choice">
+        <ref name="topic.element"/>
+      </define>
 
 
     </div>
