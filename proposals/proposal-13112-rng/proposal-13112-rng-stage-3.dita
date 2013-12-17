@@ -806,22 +806,64 @@
             </dd>
           </dlentry>
           <dlentry>
-            <dt>ID-defining-elements overrideOverride of "any" patterns</dt>
+            <dt><?oxy_delete author="george" timestamp="20131217T060651+0200" content="ID-defining-elements override" comment="We need to keep only one of these..."?>Override
+              of "any" patterns</dt>
             <dd>
-              <p>The "any" pattern is used as content for the <keyword>foreign</keyword>, <keyword>unknown</keyword> and <keyword>required-cleanup</keyword> elements. The "any" pattern should accept
-                any element with any content or attributes. The RELAX NG DTD compatibility processing<?oxy_insert_start author="ekimber" timestamp="20131215T113524-0600"?> rules<?oxy_insert_end?>
-                require<?oxy_delete author="ekimber" timestamp="20131215T113527-0600" content="s"?> that any elements that match this pattern have consistent declarations for all attributes. In DITA,
-                &lt;topic> and all specializations of &lt;topic>, &lt;map > and all specializations of &lt;map>, and &lt;anchor>
-                <?oxy_insert_start author="ekimber" timestamp="20131215T101400-0600"?>and all specializations of &lt;anchor> <?oxy_insert_end?>declare the @id attribute as an XML ID (datatype "ID"),
-                making their declarations inconsistent with the base declaration defined in the id-atts pattern. This requires that shells override the "any" pattern to exclude these element types
-                from the "anyName" pattern and add those element types explicitly to the choice group that defines the "any" pattern. The set of element types that
-                <?oxy_delete author="ekimber" timestamp="20131207T081817-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081817-0600"?>have to<?oxy_insert_end?> be
-                reflected in this pattern depends on the set of map or topic types and domains integrated by the shell, but at a minimum, any topic types or map types
-                <?oxy_delete author="ekimber" timestamp="20131207T081824-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081824-0600"?>have to<?oxy_insert_end?> be
-                listed. For maps, the &lt;anchor> element and any specializations of &lt;anchor>
-                <?oxy_delete author="ekimber" timestamp="20131207T081831-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081831-0600"?>have to<?oxy_insert_end?> be
-                listed. In addition, foreign vocabularies intregrated through specializations of &lt;foreign> may also define similar patterns that require the same accommodation (see <xref
-                href="#concept_aqh_5zt_3h" format="dita"/>).</p>
+              <p>The "any" pattern is used as content for the
+                  <?oxy_comment_start author="george" timestamp="20131217T061731+0200" comment="In other places you used the form &lt;elementName&gt; to refer to elements, even below, when you refer to topic, map, etc. Maybe we should have these references to DITA elements in a consistent form?"?><keyword>foreign</keyword>,
+                  <keyword>unknown</keyword> and
+                  <keyword>required-cleanup<?oxy_comment_end?></keyword>
+                elements. The "any" pattern should accept any element
+                with any content or attributes. The RELAX NG DTD
+                compatibility
+                processing<?oxy_insert_start author="ekimber" timestamp="20131215T113524-0600"?>
+                rules<?oxy_insert_end?>
+                require<?oxy_delete author="ekimber" timestamp="20131215T113527-0600" content="s"?>
+                that any elements that match
+                <?oxy_delete author="george" timestamp="20131217T060806+0200" content="this"?><?oxy_insert_start author="george" timestamp="20131217T060807+0200"?>two
+                or more<?oxy_insert_end?>
+                pattern<?oxy_insert_start author="george" timestamp="20131217T060814+0200"?>s<?oxy_insert_end?>
+                have consistent declarations for all
+                attributes<?oxy_insert_start author="george" timestamp="20131217T055921+0200"?>
+                with respect to their ID type<?oxy_insert_end?>. In
+                DITA, &lt;topic> and all specializations of &lt;topic>,
+                &lt;map > and all specializations of &lt;map>,
+                <?oxy_delete author="george" timestamp="20131217T060250+0200" content="and "?>&lt;anchor>
+                <?oxy_insert_start author="ekimber" timestamp="20131215T101400-0600"?>and
+                all specializations of &lt;anchor>
+                <?oxy_insert_end?>declare the @id attribute as an XML ID
+                (datatype
+                "ID")<?oxy_delete author="george" timestamp="20131217T055957+0200" content=", making their declarations inconsistent with the base declaration defined in the id-atts pattern"?>.
+                This requires that shells override the "any" pattern to
+                exclude these element types from the
+                <?oxy_insert_start author="george" timestamp="20131217T060403+0200"?>pattern
+                that matches any element name with any attributes and
+                any content, because this pattern will match the @id
+                attribute without specifying that it is an XML ID, thus
+                resulting in an ID type conflict.
+                <?oxy_insert_end?><?oxy_delete author="george" timestamp="20131217T061221+0200" content="&quot;anyName&quot; pattern "?><?oxy_insert_start author="george" timestamp="20131217T062843+0200"?>These
+                elements should be added
+                <?oxy_insert_end?><?oxy_delete author="george" timestamp="20131217T062919+0200" content="and add those element types "?>explicitly
+                to the choice group that defines the "any"
+                pattern<?oxy_insert_start author="george" timestamp="20131217T063252+0200"?>
+                and this is done by contributing these elements to the
+                "idElements" pattern<?oxy_insert_end?>. The set of
+                element types that
+                <?oxy_delete author="ekimber" timestamp="20131207T081817-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081817-0600"?>have
+                to<?oxy_insert_end?> be reflected in this pattern
+                depends on the set of map or topic types and domains
+                integrated by the shell, but at a minimum, any topic
+                types or map types
+                <?oxy_delete author="ekimber" timestamp="20131207T081824-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081824-0600"?>have
+                to<?oxy_insert_end?> be listed. For maps, the
+                &lt;anchor> element and any specializations of
+                &lt;anchor>
+                <?oxy_delete author="ekimber" timestamp="20131207T081831-0600" content="must"?><?oxy_insert_start author="ekimber" timestamp="20131207T081831-0600"?>have
+                to<?oxy_insert_end?> be listed. In addition, foreign
+                vocabularies intregrated through specializations of
+                &lt;foreign> may also define similar patterns that
+                require the same accommodation (see <xref
+                  href="#concept_aqh_5zt_3h" format="dita"/>).</p>
               <?oxy_insert_start author="ekimber" timestamp="20131215T101453-0600"?>
               <p>The pattern "idElements" is defined in the commonElementsMod.rng module as an empty pattern. Modules that define element types with @id attributes of type ID then contribute to this
                 pattern (see <xref href="#concept_vmn_pbr_2m" format="dita"/>).</p>
@@ -1294,12 +1336,28 @@
           <?oxy_insert_start author="ekimber" timestamp="20131207T085649-0600"?>
           <section>
             <title>Inclusion of foreign vocabularies</title>
-            <p>In order to enable generation of DTD- and XSD-syntax versions of the RELAX NG vocabulary, domain modules that include foreign vocabularies using the &lt;externalRef> element <term
-              outputclass="OASIS-terminology">SHOULD</term> specify the attributes @ditaarch:dtdSystemId and @ditaarch:xsdURI and, optionally, ditaarch:dtdPublicId. The @ditaarch:dtdSystemId attribute
-              specifies the system ID URI to use for the DTD-syntax version of the foreign vocabulary as it should be specified on the external parameter entity reference to the foreign vocabulary
-              module in the generated DTD-syntax module. The @ditaarch:dtdPublicId attribute specifies the public ID or URN to use for the DTD-syntax version of the foreign vocabulary as it should be
-              specified on the external parameter entity reference to the foreign vocabulary module in the generated DTD-syntax module. The @ditaarch:xsdURI attribute specifies the URI reference as it
-              should be specified on the XSD &lt;import> or &lt;include> element's @schemalLocation attribute in the generated XSD-syntax module.</p>
+            <p>In order to enable generation of DTD- and XSD-syntax
+              versions of the RELAX NG vocabulary, domain modules that
+              include foreign vocabularies using the &lt;externalRef>
+              element <term outputclass="OASIS-terminology"
+                >SHOULD</term> specify the attributes
+              @ditaarch:dtdSystemId and @ditaarch:xsdURI and,
+              optionally, ditaarch:dtdPublicId. The
+              @ditaarch:dtdSystemId attribute specifies the system ID
+              URI to use for the DTD-syntax version of the foreign
+              vocabulary as it should be specified on the external
+              parameter entity reference to the foreign vocabulary
+              module in the generated DTD-syntax module. The
+              @ditaarch:dtdPublicId attribute specifies the public ID or
+              URN to use for the DTD-syntax version of the foreign
+              vocabulary as it should be specified on the external
+              parameter entity reference to the foreign vocabulary
+              module in the generated DTD-syntax module. The
+              <?oxy_comment_start author="george" timestamp="20131217T065328+0200" comment="If an XSD schema is from a specific namespace then we need to know also that namespace if we do not want to lookup into the XSD to get that information from the xsd:schema/@targetNamespace attribute - the schema may not be available at conversion time so maybe it is better to have an annotation to specify also the namespace, if needed. In the example below you need to generate an xsd:import that specifies not only rngGrammar.xsd but also the Relax NG namespace."?>@ditaarch:xsdURI
+              attribute specifies the URI reference as it should be
+              specified on the XSD &lt;import> or &lt;include> element's
+              @schemalLocation attribute in the generated XSD-syntax
+              module.<?oxy_comment_end?></p>
             <p>For
               example:<codeblock>...
     &lt;div>&lt;a:documentation>LONG NAME: RNG Grammar Container&lt;/a:documentation>
@@ -1449,13 +1507,22 @@
       <conbody>
         <draft-comment author="ekimber">[Insert<?oxy_insert_start author="ekimber" timestamp="20131215T081658-0600"?> this<?oxy_insert_end?> new example before XSD sample.]</draft-comment>
         <example>
-          <title>Example of specializing foreign content using RELAX NG</title>
-          <p>The sample below describes how to create a domain declaration for the RELAX NG grammar element and integrate it into a document type shell. </p>
-          <p>Domain modules that include foreign grammars should use the &lt;externalRef> element to refer to the foreign grammar when the grammar specifies a &lt;start> element. When using the
-            &lt;externalRef> element, it is possible to safely include foreign vocabularies that are not in a namespace because the externally-referenced grammar's patterns are not merged with those
-            of the referencing grammar.</p>
-          <p>The following specialization domain specializes &lt;foreign> in order to contain RELAX NG &lt;grammar> elements, for example, to document document types by rendering the grammar markup as
-            diagrams. </p>
+          <title>Example of specializing foreign content using RELAX
+            NG</title>
+          <p>The sample below describes how to create a domain
+            declaration for the RELAX NG grammar element and integrate
+            it into a document type shell. </p>
+          <p>Domain modules that include foreign grammars should use the
+            &lt;externalRef> element to refer to the foreign grammar
+            when the grammar specifies a &lt;start> element. When using
+            the &lt;externalRef> element, it is possible to safely
+            include foreign vocabularies that are not in a namespace
+            because the externally-referenced grammar's patterns are not
+            merged with those of the referencing grammar.</p>
+          <p>The following specialization domain specializes
+            &lt;foreign> in order to contain RELAX NG &lt;grammar>
+            elements, for example, to document document types by
+            rendering the grammar markup as diagrams. </p>
           <?oxy_delete author="ekimber" timestamp="20131207T074925-0600" content=" "?>
           <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
@@ -1549,10 +1616,27 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
   &lt;/define>
  &lt;/div>
 &lt;/grammar> </codeblock>
-          <p>Because the RELAX NG grammar defines elements with @id attributes of type ID and defines patterns that use the &lt;anyName> element within attribute list patterns (patterns named "other"
-            and "any" in the RELAX NG grammar), the domain requires overriding these patterns to remove the topic element type from them in order to satisfy @id attribute declaration consistency
-            requirements imposed by the RELAX NG DTD compatibility facility. This is done through an intermediate file, <filepath>rngGrammarProxy.rng</filepath>, which then references the main RELAX
-            NG grammar document, overriding the two patterns:<?oxy_insert_start author="ekimber" timestamp="20131207T075114-0600"?></p>
+          <p>Because the RELAX NG grammar
+            <?oxy_delete author="george" timestamp="20131217T065801+0200" content="defines elements with @id attributes of type ID and"?>
+            defines patterns that
+            <?oxy_insert_start author="george" timestamp="20131217T065843+0200"?>match
+            any element with any content
+            <?oxy_insert_end?><?oxy_delete author="george" timestamp="20131217T065904+0200" content="use the &amp;lt;anyName&gt; element within attribute list patterns "?>(patterns
+            named "other" and "any" in the RELAX NG grammar), the domain
+            requires overriding these patterns to
+            <?oxy_insert_start author="george" timestamp="20131217T070101+0200"?>exclude
+            the element names that define an attribute with an ID type
+            <?oxy_insert_end?><?oxy_delete author="george" timestamp="20131217T070209+0200" content="remove the topic element type from them "?>in
+            order to satisfy @id attribute declaration consistency
+            requirements imposed by the RELAX NG DTD compatibility facility<?oxy_delete author="george" timestamp="20131217T070504+0200" content="."?><?oxy_insert_start author="george" timestamp="20131217T070504+0200"?>,<?oxy_insert_end?>
+            <?oxy_insert_start author="george" timestamp="20131217T070307+0200"?>elements
+            which are referred explicitely in these patterns with the
+            reference to the "idElements" pattern.
+            <?oxy_insert_end?>This is done through an intermediate file,
+              <filepath>rngGrammarProxy.rng</filepath>, which then
+            references the main RELAX NG grammar document, overriding
+            the two
+            patterns:<?oxy_insert_start author="ekimber" timestamp="20131207T075114-0600"?></p>
           <?oxy_insert_end?>
           <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
