@@ -71,7 +71,6 @@
         <folder path="../../../../Applications/oxygen/frameworks/dita/css_classed/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/dtd/"/>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT1.8.M2/"/>
         <folder path="."/>
         <folder path="proposals/proposal-13106-learning2domain/spec/"/>
         <folder path="../dita-utilities/"/>
