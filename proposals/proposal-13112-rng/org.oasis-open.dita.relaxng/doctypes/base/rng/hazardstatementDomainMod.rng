@@ -22,8 +22,9 @@
   <div>
     <a:documentation>Define domain extension patterns</a:documentation>
     <define name="hazard-d-note">
-      <ref name="hazardstatement.element"/>
+      <ref name="hazardstatement"/>
     </define>
+    
     <define name="note" combine="choice">
       <ref name="hazard-d-note"/>
     </define>

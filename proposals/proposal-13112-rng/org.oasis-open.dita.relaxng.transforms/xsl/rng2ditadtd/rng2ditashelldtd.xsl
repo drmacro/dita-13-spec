@@ -134,14 +134,29 @@
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN EXTENSIONS                          -->
 &lt;!-- ============================================================= -->
+&lt;!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
 </xsl:text>
-        <xsl:for-each 
-          select="$modulesToProcess[ends-with(/*/dita:moduleDesc/dita:moduleMetadata/dita:moduleType, 'domain')]/*/dita:moduleDesc" >
-            <!--  element with domain extensions -->
+        <!-- Get the set of element domain modules then get the set of 
+             domain extension patterns from all of them then process
+             that set to generate one parameter entity for each unique
+             element type being extended.
+          -->
+        <xsl:variable name="domainModules" as="element()*"
+          select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
+        />
+          <xsl:message> + [DEBUG] DOMAIN EXTENSIONS: Found <xsl:sequence select="count($domainModules)"/> element domains modules.</xsl:message>
+        <xsl:variable name="domainExtensionPatterns" as="element()*"
+          select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
+        />
+        <xsl:message> + [DEBUG]     domainExtensionPatterns=<xsl:sequence select="$domainExtensionPatterns"/></xsl:message>
+        <xsl:for-each-group select="$domainExtensionPatterns" group-by="tokenize(@name, '-')[last()]">
             <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="current-grouping-key()" /><xsl:text>    "</xsl:text>
+            <xsl:sequence select="concat(current-grouping-key(), ' |', '&#x0a;')"/>
             <xsl:apply-templates select="current-group()" mode="domainExtension" />
-            <xsl:text>">&#x0a;</xsl:text>
-        </xsl:for-each>
+            <xsl:text>">&#x0a;</xsl:text>          
+        </xsl:for-each-group>
 
 <xsl:text>
 &lt;!-- ============================================================= -->

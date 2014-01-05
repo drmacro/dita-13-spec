@@ -21,7 +21,7 @@
   <div>
     <a:documentation>Define domain extension patterns</a:documentation>
     <define name="ut-d-fig">
-      <ref name="imagemap.element"/>
+      <ref name="imagemap"/>
     </define>
     <a:documentation>Extend the patterns with the domain contribution</a:documentation>
     <define name="fig" combine="choice">
@@ -29,7 +29,7 @@
     </define>
 
     <define name="ut-d-data">
-      <ref name="sort-as.element"/>
+      <ref name="sort-as"/>
     </define>
     <define name="data" combine="choice">
       <ref name="ut-d-data"/>
@@ -49,6 +49,9 @@
     </define>
     <define name="coords">
       <ref name="coords.element"/>
+    </define>
+    <define name="sort-as">
+      <ref name="sort-as.element"/>
     </define>
 
   </div>

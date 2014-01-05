@@ -84,6 +84,17 @@
     <xsl:sequence select="$title"/>
   </xsl:function>
   
+  <xsl:function name="rngfunc:isElementDomain" as="xs:boolean">
+    <xsl:param name="grammarDoc" as="document-node()"/>
+    <xsl:variable name="moduleType" as="xs:string" 
+      select="rngfunc:getModuleType($grammarDoc/*)"/>
+    <xsl:variable name="result" 
+      as="xs:boolean"
+      select="$moduleType = 'elementdomain'" 
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
   <xsl:function name="rngfunc:getEntityFilename" as="xs:string">
     <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:param name="entityType" as="xs:string"/><!-- 'ent' or 'mod' -->
