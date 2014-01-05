@@ -135,7 +135,8 @@
 &lt;!--                    DOMAIN EXTENSIONS                          -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <xsl:for-each select="$modulesToProcess[ends-with(/*/dita:moduleDesc/dita:moduleType, 'Domain')]/*/dita:moduleDesc" >
+        <xsl:for-each 
+          select="$modulesToProcess[ends-with(/*/dita:moduleDesc/dita:moduleMetadata/dita:moduleType, 'domain')]/*/dita:moduleDesc" >
             <!--  element with domain extensions -->
             <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="current-grouping-key()" /><xsl:text>    "</xsl:text>
             <xsl:apply-templates select="current-group()" mode="domainExtension" />

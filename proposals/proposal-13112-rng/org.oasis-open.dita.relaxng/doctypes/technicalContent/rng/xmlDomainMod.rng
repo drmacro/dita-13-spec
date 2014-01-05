@@ -2,7 +2,7 @@
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0">
 <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
    <moduleTitle>DITA XML Construct Domain</moduleTitle>
@@ -72,7 +72,7 @@
     </optional>
   </define>
   <define name="numcharref.element">
-    <element name="numcharref" ditaarch:longName="Numeric character reference">
+    <element name="numcharref" dita:longName="Numeric character reference">
       <ref name="numcharref.attlist"/>
       <ref name="numcharref.content"/>
     </element>
@@ -97,7 +97,7 @@
     </optional>
   </define>
   <define name="parameterentity.element">
-    <element name="parameterentity" ditaarch:longName="Parameter entity reference">
+    <element name="parameterentity" dita:longName="Parameter entity reference">
       <a:documentation>The parameterentity (&lt;parameterentity&gt;) element is used to identify
 mentions of XML DTD parameter entities.
         Category: Mention elements</a:documentation>
@@ -125,7 +125,7 @@ mentions of XML DTD parameter entities.
     </optional>
   </define>
   <define name="rngpattern.element">
-    <element name="rngpattern" ditaarch:longName="Relax NG named pattern">
+    <element name="rngpattern" dita:longName="Relax NG named pattern">
       <a:documentation>The rngpattern (&lt;rngpattern&gt;) element is used to 
 identify mentions of named patterns.
         Category: Mention elements</a:documentation>
@@ -153,7 +153,7 @@ identify mentions of named patterns.
     </optional>
   </define>
   <define name="textentity.element">
-    <element name="textentity" ditaarch:longName="">
+    <element name="textentity" dita:longName="">
       <a:documentation>The textentity (&lt;textentity&gt;) element is used to identify
 mentions of XML text entities.
         Category: Mention elements</a:documentation>
@@ -181,7 +181,7 @@ mentions of XML text entities.
     </optional>
   </define>
   <define name="xmlatt.element">
-    <element name="xmlatt" ditaarch:longName="XML attribute">
+    <element name="xmlatt" dita:longName="XML attribute">
       <a:documentation>The xmlatt (&lt;xmlatt&gt;) element is used to identify
 mentions of XML attributes.
         Category: Mention elements</a:documentation>
@@ -209,7 +209,7 @@ mentions of XML attributes.
     </optional>
   </define>
   <define name="xmlelement.element">
-    <element name="xmlelement" ditaarch:longName="">
+    <element name="xmlelement" dita:longName="">
       <a:documentation>The xmlelement (&lt;xmlelement&gt;) element is used to identity mentions
 of XML element types.
         Category: Mention elements</a:documentation>
@@ -237,7 +237,7 @@ of XML element types.
     </optional>
   </define>
   <define name="xmlnsname.element">
-    <element name="xmlnsname" ditaarch:longName="XML namespace name">
+    <element name="xmlnsname" dita:longName="XML namespace name">
       <a:documentation>The xmlnsname (&lt;xmlnsname&gt;) element is used to identify
 mentions of XML namespace names, e.g. the value used
 in @xmlns attributes.
@@ -266,7 +266,7 @@ in @xmlns attributes.
     </optional>
   </define>
   <define name="xsdattgroup.element">
-    <element name="xsdattgroup" ditaarch:longName="XSD attribute group">
+    <element name="xsdattgroup" dita:longName="XSD attribute group">
       <a:documentation>The xsdattgroup (&lt;xsdattgroup&gt;) element is used to identify
 mentions of XSD attribute groups.
         Category: Mention elements</a:documentation>
@@ -294,7 +294,7 @@ mentions of XSD attribute groups.
     </optional>
   </define>
   <define name="xsdcomplextype.element">
-    <element name="xsdcomplextype" ditaarch:longName="">
+    <element name="xsdcomplextype" dita:longName="">
       <a:documentation>The xsdcomplextype (&lt;xsdcomplextype&gt;) element is used to identify
 mentions  of XSD complex types.
         Category: Mention elements</a:documentation>
@@ -322,7 +322,7 @@ mentions  of XSD complex types.
     </optional>
   </define>
   <define name="xsdgroup.element">
-    <element name="xsdgroup" ditaarch:longName="XSD group">
+    <element name="xsdgroup" dita:longName="XSD group">
       <a:documentation>The xsdgroup (&lt;xsdgroup&gt;) element is used to identify
 mentions of XSD groups (element groups, as opposed to 
 attribute groups).
@@ -351,7 +351,7 @@ attribute groups).
     </optional>
   </define>
   <define name="xsdsimpletype.element">
-    <element name="xsdsimpletype" ditaarch:longName="XSD simpletype">
+    <element name="xsdsimpletype" dita:longName="XSD simpletype">
       <a:documentation>The xsdsimpletype (&lt;xsdsimpletype&gt;) element is used to identify
 mentions of XSD simple types ("data types").
         Category: Mention elements</a:documentation>

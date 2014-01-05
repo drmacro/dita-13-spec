@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
          xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
    <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
       <moduleTitle/>
@@ -116,15 +117,15 @@ ORIGINAL CREATION DATE:
             <domainsContribution>(topic topic)</domainsContribution>
          </moduleMetadata>
       </moduleDesc>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>ARCHITECTURE ATTRIBUTES</a:documentation>
          <define name="arch-atts">
             <optional>
-               <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
+               <attribute name="dita:DITAArchVersion" a:defaultValue="1.2"/>
             </optional>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>INFO TYPES PATTERNS</a:documentation>
          <define name="topic-info-types">
             <ref name="info-types"/>
@@ -133,7 +134,7 @@ ORIGINAL CREATION DATE:
             <ref name="topic.element"/>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
          <define name="abstract">
             <ref name="abstract.element"/>
@@ -184,7 +185,7 @@ ORIGINAL CREATION DATE:
             <ref name="titlealts.element"/>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>COMMON CONTENT MODEL PATTERNS</a:documentation>
          <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
             <moduleTitle>DITA Common Elements</moduleTitle>
@@ -1167,7 +1168,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="data-about.element">
-                     <element name="data-about" ditaarch:longName="Data About">
+                     <element name="data-about" dita:longName="Data About">
                         <a:documentation>The &lt;data-about&gt; element identifies the subject of a property when the subject isn't associated with the context in which the property is specified. The property itself
               is expressed by the &lt;data&gt; element. The &lt;data-about&gt; element handles exception cases where a property must be expressed somewhere other than inside the actual subject of the
               property. The &lt;data-about&gt; element is particularly useful as a basis for specialization in combination with the &lt;data&gt; element. Category: Miscellaneous elements</a:documentation>
@@ -1227,7 +1228,7 @@ ORIGINAL CREATION DATE:
                      <ref name="data-element-atts"/>
                   </define>
                   <define name="data.element">
-                     <element name="data" ditaarch:longName="Data">
+                     <element name="data" dita:longName="Data">
                         <a:documentation>The &lt;data&gt; element represents a property within a DITA topic or map. While the &lt;data&gt; element can be used directly to capture properties, it is particularly useful
               as a basis for specialization. Default processing treats the property values as an unknown kind of metadata, but custom processing can match the name attribute or specialized element to
               format properties as sidebars or other adornments or to harvest properties for automated processing. Category: Miscellaneous elements</a:documentation>
@@ -1248,7 +1249,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="unknown.element">
-                     <element name="unknown" ditaarch:longName="Unknown">
+                     <element name="unknown" dita:longName="Unknown">
                         <a:documentation>The &lt;unknown&gt; element is an open extension that allows information architects to incorporate xml fragments that do not necessarily fit into an existing DITA use case.
               The base processing for &lt;unknown&gt; is to suppress unless otherwise instructed. Category: Specialization elements</a:documentation>
                         <ref name="unknown.attlist"/>
@@ -1268,7 +1269,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="foreign.element">
-                     <element name="foreign" ditaarch:longName="Foreign">
+                     <element name="foreign" dita:longName="Foreign">
                         <a:documentation>The &lt;foreign&gt; element is an open extension that allows information architects to incorporate existing standard vocabularies for non-textual content. like MathML and
               SVG, as inline objects. If &lt;foreign&gt; contains more than one alternative content element, they will all be processed. Specialization of &lt;foreign&gt; should be implemented as a domain,
               but for those looking for more control over the content can implement foreign vocabulary as an element specialization. Category: Specialization elements</a:documentation>
@@ -1300,7 +1301,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="title.element">
-                     <element name="title" ditaarch:longName="Title">
+                     <element name="title" dita:longName="Title">
                         <a:documentation>The &lt;title&gt; element contains a heading or label for the main parts of a topic, including the topic as a whole, its sections and examples, and its labelled content, such
               as figures and tables. Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic elements</a:documentation>
                         <ref name="title.attlist"/>
@@ -1325,7 +1326,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="navtitle.element">
-                     <element name="navtitle" ditaarch:longName="Navigation Title">
+                     <element name="navtitle" dita:longName="Navigation Title">
                         <a:documentation>The navigation title (&lt;navtitle&gt;) element is one of a set of alternate titles that can be included inside the &lt;titlealts&gt; element. This navigation title may differ
               from the first level heading that shows in the main browser window. Use &lt;navtitle&gt; when the actual title of the topic isn't appropriate for use in navigation panes or online contents
               (for example, because the actual title is too long). Category: Topic elements</a:documentation>
@@ -1354,7 +1355,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="shortdesc.element">
-                     <element name="shortdesc" ditaarch:longName="Short Description">
+                     <element name="shortdesc" dita:longName="Short Description">
                         <a:documentation>The short description (&lt;shortdesc&gt;) element occurs between the topic title and the topic body, as the initial paragraph-like content of a topic, or it can be embedded
               in an abstract element. The short description, which represents the purpose or theme of the topic, is also intended to be used as a link preview and for searching. When used within a
               DITA map, the short description of the &lt;topicref&gt; can be used to override the short description in the topic. Category: Topic elements</a:documentation>
@@ -1380,7 +1381,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="desc.element">
-                     <element name="desc" ditaarch:longName="Description">
+                     <element name="desc" dita:longName="Description">
                         <a:documentation>The &lt;desc&gt; element contains the description of the current element. A description should provide more information than the title. This is its behavior in
               fig/table/linklist, for example. In xref/link, it provides a description of the target; processors that support it may choose to display this as hover help. In object, it contains
               alternate content for use when in contexts that cannot display the object. Category: Body elements</a:documentation>
@@ -1409,7 +1410,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="p.element">
-                     <element name="p" ditaarch:longName="Paragraph">
+                     <element name="p" dita:longName="Paragraph">
                         <a:documentation>A paragraph element (&lt;p&gt;) is a block of text containing a single main idea. Category: Body elements</a:documentation>
                         <ref name="p.attlist"/>
                         <ref name="p.content"/>
@@ -1458,7 +1459,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="note.element">
-                     <element name="note" ditaarch:longName="Note">
+                     <element name="note" dita:longName="Note">
                         <a:documentation>A &lt;note&gt; element contains information, differentiated from the main text, which expands on or calls attention to a particular point. Category: Body
               elements</a:documentation>
                         <ref name="note.attlist"/>
@@ -1503,7 +1504,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="longquoteref.element">
-                     <element name="longquoteref" ditaarch:longName="Long Quote Reference">
+                     <element name="longquoteref" dita:longName="Long Quote Reference">
                         <a:documentation>The &lt;longquoteref&gt; element provides a reference to the source of a long quote. The long quote (&lt;lq&gt;) element itself allows an href attribute to specify the source of
               a quote, but it does not allow other standard linking attributes such as keyref, scope, and format. The &lt;longquoteref&gt; element should be used for references that make use of these
               attributes. </a:documentation>
@@ -1554,7 +1555,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="lq.element">
-                     <element name="lq" ditaarch:longName="Long Quote">
+                     <element name="lq" dita:longName="Long Quote">
                         <a:documentation>The long quote (&lt;lq&gt;) element indicates content quoted from another source. Use the quote element &lt;q&gt; for short, inline quotations, and long quote &lt;lq&gt; for
               quotations that are too long for inline use, following normal guidelines for quoting other sources. You can store a URL to the source of the quotation in the href attribute; the href
               value may point to a DITA topic. Category: Body elements</a:documentation>
@@ -1580,7 +1581,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="q.element">
-                     <element name="q" ditaarch:longName="Quote">
+                     <element name="q" dita:longName="Quote">
                         <a:documentation>A quotation element (&lt;q&gt;) indicates content quoted from another source. This element is used for short quotes which are displayed inline. Use the long quote element
               (&lt;lq&gt;) for quotations that should be set off from the surrounding text. Category: Body elements</a:documentation>
                         <ref name="q.attlist"/>
@@ -1617,7 +1618,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="sl.element">
-                     <element name="sl" ditaarch:longName="Simple List">
+                     <element name="sl" dita:longName="Simple List">
                         <a:documentation>The simple list (&lt;sl&gt;) element contains a simple list of items of short, phrase-like content, such as in documenting the materials in a kit or package. Category: Body
               elements</a:documentation>
                         <ref name="sl.attlist"/>
@@ -1642,7 +1643,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="sli.element">
-                     <element name="sli" ditaarch:longName="Simple List Item">
+                     <element name="sli" dita:longName="Simple List Item">
                         <a:documentation>A simple list item (&lt;sli&gt;) is a single item in a simple list &lt;sl&gt;. Simple list items have phrase or text content, adequate for describing package contents, for
               example. When a DITA topic is formatted for output, the items of a simple list are placed each on its own line, with no other prefix such as a number (as in an ordered list) or bullet
               (as in an unordered list). Category: Body elements</a:documentation>
@@ -1680,7 +1681,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="ul.element">
-                     <element name="ul" ditaarch:longName="Unordered List">
+                     <element name="ul" dita:longName="Unordered List">
                         <a:documentation>In an unordered list (&lt;ul&gt;), the order of the list items is not significant. List items are typically styled on output with a "bullet" character, depending on nesting
               level. Category: Body elements</a:documentation>
                         <sch:pattern name="atLeastTwoChildren">
@@ -1722,7 +1723,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="ol.element">
-                     <element name="ol" ditaarch:longName="Ordered List">
+                     <element name="ol" dita:longName="Ordered List">
                         <a:documentation>An ordered list (&lt;ol&gt;) is a list of items sorted by sequence or order of importance. Category: List elements</a:documentation>
                         <ref name="ol.attlist"/>
                         <ref name="ol.content"/>
@@ -1746,7 +1747,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="li.element">
-                     <element name="li" ditaarch:longName="List Item">
+                     <element name="li" dita:longName="List Item">
                         <a:documentation>A list (&lt;li&gt;) item is a single item in an ordered &lt;ol&gt; or unordered &lt;ul&gt; list. When a DITA topic is formatted for output, numbers and alpha characters are usually
               output with list items in ordered lists, while bullets and dashes are usually output with list items in unordered lists. Category: Body elements</a:documentation>
                         <ref name="li.attlist"/>
@@ -1771,7 +1772,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="itemgroup.element">
-                     <element name="itemgroup" ditaarch:longName="Item Group">
+                     <element name="itemgroup" dita:longName="Item Group">
                         <a:documentation>The &lt;itemgroup&gt; element is reserved for use in specializations of DITA. As a container element, it can be used to sub-divide or organize elements that occur inside a
               list item, definition, or parameter definition. Category: Specialization elements</a:documentation>
                         <ref name="itemgroup.attlist"/>
@@ -1811,7 +1812,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dl.element">
-                     <element name="dl" ditaarch:longName="Definition List">
+                     <element name="dl" dita:longName="Definition List">
                         <a:documentation>A definition list (&lt;dl&gt;) is a list of terms and corresponding definitions. The term (&lt;dt&gt;) is usually flush left. The description or definition (&lt;dd&gt;) is usually
               either indented and on the next line, or on the same line to the right of the term. Category: Body elements</a:documentation>
                         <ref name="dl.attlist"/>
@@ -1839,7 +1840,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dlhead.element">
-                     <element name="dlhead" ditaarch:longName="Definition List Head">
+                     <element name="dlhead" dita:longName="Definition List Head">
                         <a:documentation>The &lt;dlhead&gt; element contains optional headings for the term and description columns in a definition list. The definition list heading contains a heading &lt;dthd&gt; for
               the column of terms and an optional heading &lt;ddhd&gt;for the column of descriptions. Category: Body elements</a:documentation>
                         <ref name="dlhead.attlist"/>
@@ -1864,7 +1865,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dthd.element">
-                     <element name="dthd" ditaarch:longName="Term Header">
+                     <element name="dthd" dita:longName="Term Header">
                         <a:documentation>The definition term heading (&lt;dthd&gt;) element is contained in a definition list head (&lt;dlhead&gt;) and provides an optional heading for the column of terms in a
               description list. Category: Body elements</a:documentation>
                         <ref name="dthd.attlist"/>
@@ -1889,7 +1890,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="ddhd.element">
-                     <element name="ddhd" ditaarch:longName="Definition Header">
+                     <element name="ddhd" dita:longName="Definition Header">
                         <a:documentation>The definition descriptions heading (&lt;ddhd&gt;) element contains an optional heading or title for a column of descriptions or definitions in a definition list. Category:
               Body elements</a:documentation>
                         <ref name="ddhd.attlist"/>
@@ -1917,7 +1918,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dlentry.element">
-                     <element name="dlentry" ditaarch:longName="Definition List Entry">
+                     <element name="dlentry" dita:longName="Definition List Entry">
                         <a:documentation>In a definition list, each list item is defined by the definition list entry (&lt;dlentry&gt;) element. The definition list entry element includes a term &lt;dt&gt; and one or
               more definitions or descriptions &lt;dd&gt; of that term. Category: Body elements</a:documentation>
                         <ref name="dlentry.attlist"/>
@@ -1945,7 +1946,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dt.element">
-                     <element name="dt" ditaarch:longName="Definition Term">
+                     <element name="dt" dita:longName="Definition Term">
                         <a:documentation>The definition term &lt;dt&gt; element contains a term in a definition list entry. Category: Body elements</a:documentation>
                         <ref name="dt.attlist"/>
                         <ref name="dt.content"/>
@@ -1969,7 +1970,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="dd.element">
-                     <element name="dd" ditaarch:longName="Definition Description">
+                     <element name="dd" dita:longName="Definition Description">
                         <a:documentation>The definition description (&lt;dd&gt;) element contains the description of a term in a definition list entry. Category: Body elements</a:documentation>
                         <ref name="dd.attlist"/>
                         <ref name="dd.content"/>
@@ -2006,7 +2007,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="fig.element">
-                     <element name="fig" ditaarch:longName="Figure">
+                     <element name="fig" dita:longName="Figure">
                         <a:documentation>The figure (&lt;fig&gt;) element is a display context (sometimes called an exhibit) with an optional title for a wide variety of content. Most commonly, the figure element
               contains an image element (a graphic or artwork), but it can contain several kinds of text objects as well. A title is placed inside the figure element to provide a caption to describe
               the content. Category: Body elements</a:documentation>
@@ -2038,7 +2039,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="figgroup.element">
-                     <element name="figgroup" ditaarch:longName="Figure Group">
+                     <element name="figgroup" dita:longName="Figure Group">
                         <a:documentation>The &lt;figgroup&gt; element is used only for specialization at this time. Figure groups can be used to contain multiple cross-references, footnotes or keywords, but not
               multipart images. Multipart images in DITA should be represented by a suitable media type displayed by the &lt;object&gt; element. Category: Body elements</a:documentation>
                         <ref name="figgroup.attlist"/>
@@ -2072,7 +2073,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="pre.element">
-                     <element name="pre" ditaarch:longName="Preformatted Text">
+                     <element name="pre" dita:longName="Preformatted Text">
                         <a:documentation>The preformatted element (&lt;pre&gt;) preserves line breaks and spaces entered manually by the author in the content of the element, and also presents the content in a
               monospaced type font (depending on your output formatting processor). Do not use &lt;pre&gt; when a more semantically specific element is appropriate, such as &lt;codeblock&gt;. Category: Body
               elements</a:documentation>
@@ -2107,7 +2108,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="lines.element">
-                     <element name="lines" ditaarch:longName="Line Respecting Text">
+                     <element name="lines" dita:longName="Line Respecting Text">
                         <a:documentation>The &lt;lines&gt; element may be used to represent dialogs, lists, text fragments, and so forth. The &lt;lines&gt; element is similar to &lt;pre&gt; in that hard line breaks are
               preserved, but the font style is not set to monospace, and extra spaces inside the lines are not preserved. Category: Body elements</a:documentation>
                         <ref name="lines.attlist"/>
@@ -2135,7 +2136,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="text.element">
-                     <element name="text" ditaarch:longName="Text">
+                     <element name="text" dita:longName="Text">
                         <a:documentation>The text element associates no semantics with its content. It exists to serve as a container for text where a container is needed (e.g., for conref, or for restricted
               content models in specializations). Unlike ph, text cannot contain images. Unlike keyword, text does not imply keyword-like semantics. The text element contains only text data, or nested
               text elements. All universal attributes are available on text.</a:documentation>
@@ -2168,7 +2169,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="keyword.element">
-                     <element name="keyword" ditaarch:longName="Keyword">
+                     <element name="keyword" dita:longName="Keyword">
                         <a:documentation>The &lt;keyword&gt; element identifies a keyword or token, such as a single value from an enumerated list, the name of a command or parameter, product name, or a lookup key
               for a message. Category: Body elements</a:documentation>
                         <ref name="keyword.attlist"/>
@@ -2200,7 +2201,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="term.element">
-                     <element name="term" ditaarch:longName="Term">
+                     <element name="term" dita:longName="Term">
                         <a:documentation>The &lt;term&gt; element identifies words that may have or require extended definitions or explanations. In future development of DITA, for example, terms might provide
               associative linking to matching glossary entries. Category: Specialization elements</a:documentation>
                         <ref name="term.attlist"/>
@@ -2231,7 +2232,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="ph.element">
-                     <element name="ph" ditaarch:longName="Phrase">
+                     <element name="ph" dita:longName="Phrase">
                         <a:documentation>The phrase (&lt;ph&gt;) element is used to organize content for reuse or conditional processing (for example, when part of a paragraph applies to a particular audience). It
               can be used by specializations of DITA to create semantic markup for content at the phrase level, which then allows (but does not require) specific processing or formatting. Category:
               Body elements</a:documentation>
@@ -2275,7 +2276,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="tm.element">
-                     <element name="tm" ditaarch:longName="Trade Mark">
+                     <element name="tm" dita:longName="Trade Mark">
                         <a:documentation>The trademark (&lt;tm&gt;) element in DITA is used to markup and identify a term or phrase that is trademarked. Trademarks include registered trademarks, service marks,
               slogans and logos. Category: Miscellaneous elements</a:documentation>
                         <ref name="tm.attlist"/>
@@ -2305,7 +2306,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="boolean.element">
-                     <element name="boolean" ditaarch:longName="Boolean  (deprecated)">
+                     <element name="boolean" dita:longName="Boolean  (deprecated)">
                         <a:documentation>The &lt;boolean&gt; element is used to express one of two opposite values, such as yes or no, on or off, true or false, high or low, and so forth. The element itself is
               empty; the value of the element is stored in its state attribute, and the semantic associated with the value is typically in a specialized name derived from this element. Category:
               Specialization elements</a:documentation>
@@ -2331,7 +2332,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="state.element">
-                     <element name="state" ditaarch:longName="State">
+                     <element name="state" dita:longName="State">
                         <a:documentation>The &lt;state&gt; element specifies a name/value pair whenever it is necessary to represent a named state that has a variable value. The element is primarily intended for use
               in specializations to represent specific states (like logic circuit states, chemical reaction states, airplane instrumentation states, and so forth). Category: Specialization
               elements</a:documentation>
@@ -2418,7 +2419,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="image.element">
-                     <element name="image" ditaarch:longName="Image Data">
+                     <element name="image" dita:longName="Image Data">
                         <a:documentation>Include artwork or images in a DITA topic by using the &lt;image&gt; element. The &lt;image&gt; element has optional attributes that indicate whether the placement of the
               included graphic or artwork should be inline (like a button or icon) or on a separate line for a larger image. There are also optional attributes that indicate the size to which the
               included graphic or artwork should be scaled. An href attribute is required on the image element, as this attribute creates a pointer to the image, and allows the output formatting
@@ -2449,7 +2450,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="alt.element">
-                     <element name="alt" ditaarch:longName="Alternate text">
+                     <element name="alt" dita:longName="Alternate text">
                         <a:documentation>The alt element provides alternate text for an image. It is equivalent to the alt attribute on the image element; the attribute is deprecated, so the alt element should be
               used instead. As an element, alt provides direct text entry within an XML editor and is more easily accessed than an attribute for translation. Category: Body elements</a:documentation>
                         <ref name="alt.attlist"/>
@@ -2494,7 +2495,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="longdescref.element">
-                     <element name="longdescref" ditaarch:longName="Long description reference">
+                     <element name="longdescref" dita:longName="Long description reference">
                         <a:documentation>A reference to a textual description of the graphic or object. This element is a replacement for the longdescref attribute on image and object elements.</a:documentation>
                         <ref name="longdescref.attlist"/>
                         <ref name="longdescref.content"/>
@@ -2582,7 +2583,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="object.element">
-                     <element name="object" ditaarch:longName="Object (Streaming/Executable Data)">
+                     <element name="object" dita:longName="Object (Streaming/Executable Data)">
                         <a:documentation>DITA's &lt;object&gt; element corresponds to the HTML &lt;object&gt; element. Category: Body elements</a:documentation>
                         <ref name="object.attlist"/>
                         <ref name="object.content"/>
@@ -2618,7 +2619,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="param.element">
-                     <element name="param" ditaarch:longName="Parameter">
+                     <element name="param" dita:longName="Parameter">
                         <a:documentation>The parameter (&lt;param&gt;) element specifies a set of values that may be required by an &lt;object&gt; at runtime. Any number of &lt;param&gt; elements may appear in the content
               of an object in any order, but must be placed at the start of the content of the enclosing object. This element is comparable to the XHMTL &lt;param&gt; element. Category: Body
               elements</a:documentation>
@@ -2664,7 +2665,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="simpletable.element">
-                     <element name="simpletable" ditaarch:longName="Simple Table">
+                     <element name="simpletable" dita:longName="Simple Table">
                         <a:documentation>The &lt;simpletable&gt; element is used for tables that are regular in structure and do not need a caption. Choose the simple table element when you want to show information
               in regular rows and columns. For example, multi-column tabular data such as phone directory listings or parts lists are good candidates for simpletable. Another good use of simpletable
               is for information that seems to beg for a "three-part definition list"—just use the keycol attribute to indicate which column represents the "key" or term-like column of your structure.
@@ -2691,7 +2692,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="sthead.element">
-                     <element name="sthead" ditaarch:longName="Simple Table Head">
+                     <element name="sthead" dita:longName="Simple Table Head">
                         <a:documentation>The simpletable header (&lt;sthead&gt;) element contains the table's header row. The header row is optional in a simple table. Category: Table elements</a:documentation>
                         <ref name="sthead.attlist"/>
                         <ref name="sthead.content"/>
@@ -2715,7 +2716,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="strow.element">
-                     <element name="strow" ditaarch:longName="Simple Table Row">
+                     <element name="strow" dita:longName="Simple Table Row">
                         <a:documentation>The &lt;simpletable&gt; row (&lt;strow&gt;) element specifies a row in a simple table. Category: Table elements</a:documentation>
                         <ref name="strow.attlist"/>
                         <ref name="strow.content"/>
@@ -2742,7 +2743,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="stentry.element">
-                     <element name="stentry" ditaarch:longName="Simple Table Cell (entry)">
+                     <element name="stentry" dita:longName="Simple Table Cell (entry)">
                         <a:documentation>The simpletable entry (&lt;stentry&gt;) element represents a single table cell, like &lt;entry&gt; in &lt;table&gt;. You can place any number of stentry cells in either an
               &lt;sthead&gt; element (for headings) or &lt;strow&gt; element (for rows of data). Category: Table elements</a:documentation>
                         <ref name="stentry.attlist"/>
@@ -2781,7 +2782,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="draft-comment.element">
-                     <element name="draft-comment" ditaarch:longName="Review Comments Block">
+                     <element name="draft-comment" dita:longName="Review Comments Block">
                         <a:documentation>The &lt;draft-comment&gt; element allows simple review and discussion of topic contents within the marked-up content. Use the &lt;draft-comment&gt; element to ask a question or
               make a comment that you would like others to review. To indicate the source of the draft comment or the status of the comment, use the author, time or disposition attributes. Category:
               Miscellaneous elements</a:documentation>
@@ -2805,7 +2806,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="required-cleanup.element">
-                     <element name="required-cleanup" ditaarch:longName="Required Cleanup Block">
+                     <element name="required-cleanup" dita:longName="Required Cleanup Block">
                         <a:documentation>A &lt;required-cleanup&gt; element is used as a placeholder for migrated elements that cannot be appropriately tagged without manual intervention. As the element name
               implies, the intent for authors is to clean up the contained material and eventually get rid of the &lt;required-cleanup&gt; element. Authors should not insert this element into documents.
               Category: Specialization elements</a:documentation>
@@ -2834,7 +2835,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="fn.element">
-                     <element name="fn" ditaarch:longName="Footnote">
+                     <element name="fn" dita:longName="Footnote">
                         <a:documentation>Use footnote (&lt;fn&gt;) to annotate text with notes that are not appropriate for inclusion in line or to indicate the source for facts or other material used in the text.
               Category: Miscellaneous elements</a:documentation>
                         <ref name="fn.attlist"/>
@@ -2870,7 +2871,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="indexterm.element">
-                     <element name="indexterm" ditaarch:longName="Index Term">
+                     <element name="indexterm" dita:longName="Index Term">
                         <a:documentation>An &lt;indexterm&gt; element allows the author to indicate that a certain word or phrase should produce an index entry in the generated index. Category: Miscellaneous
               elements</a:documentation>
                         <ref name="indexterm.attlist"/>
@@ -2898,7 +2899,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="index-base.element">
-                     <element name="index-base" ditaarch:longName="Index Base">
+                     <element name="index-base" dita:longName="Index Base">
                         <a:documentation>The &lt;index-base&gt; element allows indexing extensions to be added by specializing off this element. It does not in itself have any meaning and should be ignored in
               processing. Category: Miscellaneous elements</a:documentation>
                         <ref name="index-base.attlist"/>
@@ -2919,7 +2920,7 @@ ORIGINAL CREATION DATE:
                      <ref name="univ-atts"/>
                   </define>
                   <define name="indextermref.element">
-                     <element name="indextermref" ditaarch:longName="Index term reference">
+                     <element name="indextermref" dita:longName="Index term reference">
                         <a:documentation>This element is not completely defined, and is reserved for future use. Category: Miscellaneous elements</a:documentation>
                         <ref name="indextermref.attlist"/>
                         <ref name="indextermref.content"/>
@@ -2946,7 +2947,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="cite.element">
-                     <element name="cite" ditaarch:longName="Citation (bibliographic source)">
+                     <element name="cite" dita:longName="Citation (bibliographic source)">
                         <a:documentation>The &lt;cite&gt; element is used when you need a bibliographic citation that refers to a book or article. It specifically identifies the title of the resource. Category: Body
               elements</a:documentation>
                         <ref name="cite.attlist"/>
@@ -2996,7 +2997,7 @@ ORIGINAL CREATION DATE:
                      </optional>
                   </define>
                   <define name="xref.element">
-                     <element name="xref" ditaarch:longName="Cross Reference/Link">
+                     <element name="xref" dita:longName="Cross Reference/Link">
                         <a:documentation>Use the cross-reference (&lt;xref&gt;) element to link to a different location within the current topic, or a different topic within the same help system, or to external
               sources, such as Web pages, or to a location in another topic. The href attribute on the &lt;xref&gt; element provides the location of the target. Category: Body elements</a:documentation>
                         <ref name="xref.attlist"/>
@@ -3282,7 +3283,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.table.attributes"/>
                   </define>
                   <define name="table.element">
-                     <element name="table" ditaarch:longName="Table">
+                     <element name="table" dita:longName="Table">
                         <ref name="table.attlist"/>
                         <ref name="table.content"/>
                      </element>
@@ -3323,7 +3324,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.tgroup.attributes"/>
                   </define>
                   <define name="tgroup.element">
-                     <element name="tgroup" ditaarch:longName="Table Group">
+                     <element name="tgroup" dita:longName="Table Group">
                         <a:documentation>The &lt;tgroup&gt; element in a table contains column, row, spanning, header and
         footer specifications, and the body (&lt;tbody&gt;) of the table. 
         Category: Table elements</a:documentation>
@@ -3385,7 +3386,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.colspec.attributes"/>
                   </define>
                   <define name="colspec.element">
-                     <element name="colspec" ditaarch:longName="Column Specification">
+                     <element name="colspec" dita:longName="Column Specification">
                         <a:documentation>The &lt;colspec&gt; element contains a column specification for a table,
         including assigning a column name and number, cell content alignment, and column width.
         Category: Table elements</a:documentation>
@@ -3416,7 +3417,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.thead.attributes"/>
                   </define>
                   <define name="thead.element">
-                     <element name="thead" ditaarch:longName="Table Header">
+                     <element name="thead" dita:longName="Table Header">
                         <a:documentation>The table header (&lt;thead&gt;) element precedes the table body (&lt;tbody&gt;)
         element in a complex table. 
         Category: Table elements</a:documentation>
@@ -3447,7 +3448,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.tbody.attributes"/>
                   </define>
                   <define name="tbody.element">
-                     <element name="tbody" ditaarch:longName="Table Body">
+                     <element name="tbody" dita:longName="Table Body">
                         <a:documentation>The &lt;tbody&gt; element contains the rows in a table. 
         Category: Table elements</a:documentation>
                         <ref name="tbody.attlist"/>
@@ -3480,7 +3481,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.row.attributes"/>
                   </define>
                   <define name="row.element">
-                     <element name="row" ditaarch:longName="Table Row">
+                     <element name="row" dita:longName="Table Row">
                         <a:documentation>The &lt;row&gt; element contains a single row in a table &lt;tgroup&gt;. 
         Category: Table elements</a:documentation>
                         <ref name="row.attlist"/>
@@ -3558,7 +3559,7 @@ For &lt;entry&gt;, add:
                      <ref name="dita.entry.attributes"/>
                   </define>
                   <define name="entry.element">
-                     <element name="entry" ditaarch:longName="Table Row Entry">
+                     <element name="entry" dita:longName="Table Row Entry">
                         <a:documentation>The &lt;entry&gt; element defines a single cell in a table. 
         Category: Table elements</a:documentation>
                         <ref name="entry.attlist"/>
@@ -4045,7 +4046,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="author.element">
-                  <element name="author" ditaarch:longName="Author">
+                  <element name="author" dita:longName="Author">
                      <a:documentation>The &lt;author&gt; metadata element contains the name of the topic's author. Category: Prolog elements</a:documentation>
                      <ref name="author.attlist"/>
                      <ref name="author.content"/>
@@ -4091,7 +4092,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="source.element">
-                  <element name="source" ditaarch:longName="Source">
+                  <element name="source" dita:longName="Source">
                      <a:documentation>The &lt;source&gt; element contains a reference to a resource from which the present topic is derived, either completely or in part. The element can contain a description of
             the resource; the href reference can be a string or a URL that points to it. Category: Prolog elements</a:documentation>
                      <ref name="source.attlist"/>
@@ -4135,7 +4136,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="publisher.element">
-                  <element name="publisher" ditaarch:longName="Publisher">
+                  <element name="publisher" dita:longName="Publisher">
                      <a:documentation>The &lt;publisher&gt; metadata element contains the name of the person, company, or organization responsible for making the content or subject of the topic available. Category:
             Prolog elements</a:documentation>
                      <ref name="publisher.attlist"/>
@@ -4161,7 +4162,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="copyright.element">
-                  <element name="copyright" ditaarch:longName="Copyright">
+                  <element name="copyright" dita:longName="Copyright">
                      <a:documentation>The &lt;copyright&gt; element is used for a single copyright entry. It includes the copyright years and the copyright holder. Multiple &lt;copyright&gt; statements are allowed.
             Category: Prolog elements</a:documentation>
                      <ref name="copyright.attlist"/>
@@ -4184,7 +4185,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="copyryear.element">
-                  <element name="copyryear" ditaarch:longName="Copyright Year">
+                  <element name="copyryear" dita:longName="Copyright Year">
                      <a:documentation>The &lt;copyryear&gt; element contains the copyright year as specified by the year attribute. Category: Prolog elements</a:documentation>
                      <ref name="copyryear.attlist"/>
                      <ref name="copyryear.content"/>
@@ -4205,7 +4206,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="copyrholder.element">
-                  <element name="copyrholder" ditaarch:longName="Copyright Holder">
+                  <element name="copyrholder" dita:longName="Copyright Holder">
                      <a:documentation>The copyright holder (&lt;copyrholder&gt;) element names the entity that holds legal rights to the material contained in the topic. Category: Prolog elements</a:documentation>
                      <ref name="copyrholder.attlist"/>
                      <ref name="copyrholder.content"/>
@@ -4229,7 +4230,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="critdates.element">
-                  <element name="critdates" ditaarch:longName="Critical Dates">
+                  <element name="critdates" dita:longName="Critical Dates">
                      <a:documentation>The &lt;critdates&gt; element contains the critical dates in a document life cycle, such as the creation date and multiple revision dates. Category: Prolog
             elements</a:documentation>
                      <ref name="critdates.attlist"/>
@@ -4262,7 +4263,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="created.element">
-                  <element name="created" ditaarch:longName="Created Date">
+                  <element name="created" dita:longName="Created Date">
                      <a:documentation>The &lt;created&gt; element specifies the document creation date using the date attribute. Category: Prolog elements</a:documentation>
                      <ref name="created.attlist"/>
                      <ref name="created.content"/>
@@ -4294,7 +4295,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="revised.element">
-                  <element name="revised" ditaarch:longName="Revised Date">
+                  <element name="revised" dita:longName="Revised Date">
                      <a:documentation>The &lt;revised&gt; element in the prolog is used to maintain tracking dates that are important in a topic development cycle, such as the last modification date, the original
             availability date, and the expiration date. Category: Prolog elements</a:documentation>
                      <ref name="revised.attlist"/>
@@ -4315,7 +4316,7 @@ ORIGINAL CREATION DATE:
                   <attribute name="view"/>
                </define>
                <define name="permissions.element">
-                  <element name="permissions" ditaarch:longName="Permissions">
+                  <element name="permissions" dita:longName="Permissions">
                      <a:documentation>The &lt;permissions&gt; prolog element can indicate any preferred controls for access to a topic. Topics can be filtered based on the permissions element. This capability
             depends on your output formatting process. Category: Prolog elements</a:documentation>
                      <ref name="permissions.attlist"/>
@@ -4337,7 +4338,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="category.element">
-                  <element name="category" ditaarch:longName="Category">
+                  <element name="category" dita:longName="Category">
                      <a:documentation>The &lt;category&gt; element can represent any category by which a topic might be classified for retrieval or navigation; for example, the categories could be used to group
             topics in a generated navigation bar. Topics can belong to multiple categories. Category: Prolog elements</a:documentation>
                      <ref name="category.attlist"/>
@@ -4380,7 +4381,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="metadata.element">
-                  <element name="metadata" ditaarch:longName="Metadata">
+                  <element name="metadata" dita:longName="Metadata">
                      <a:documentation>The &lt;metadata&gt; section of the prolog contains information about a topic such as audience and product information. Metadata can be used by computational processes to
             select particular topics or to prepare search indexes or to customize navigation. Elements inside of &lt;metadata&gt; provide information about the content and subject of a topic; prolog
             elements outside of &lt;metadata&gt; provide lifecycle information for the content unit (such as the author or copyright), which are unrelated to the subject. Category: Prolog
@@ -4422,7 +4423,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="audience.element">
-                  <element name="audience" ditaarch:longName="Audience">
+                  <element name="audience" dita:longName="Audience">
                      <a:documentation>The &lt;audience&gt; metadata element indicates, through the value of its type attribute, the intended audience for a topic. Since a topic can have multiple audiences, you can
             include multiple audience elements. For each audience you specify, you can identify the high-level task (job) they are trying to accomplish and the level of experience (experiencelevel)
             expected. The audience element may be used to provide a more detailed definition of values used throughout the map or topic on the audience attribute. Category: Prolog
@@ -4449,7 +4450,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="keywords.element">
-                  <element name="keywords" ditaarch:longName="Keywords">
+                  <element name="keywords" dita:longName="Keywords">
                      <a:documentation>The &lt;keywords&gt; element contains a list of key words (using &lt;indexterm&gt; or &lt;keyword&gt; markup) that can be used by a search engine. Category: Prolog
             elements</a:documentation>
                      <ref name="keywords.attlist"/>
@@ -4480,7 +4481,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="prodinfo.element">
-                  <element name="prodinfo" ditaarch:longName="Product Information">
+                  <element name="prodinfo" dita:longName="Product Information">
                      <a:documentation>The &lt;prodinfo&gt; metadata element in the prolog contains information about the product or products that are the subject matter of the current topic. The prodinfo element
             may be used to provide a more detailed definition of values used throughout the map or topic on the product attribute. Category: Prolog elements</a:documentation>
                      <ref name="prodinfo.attlist"/>
@@ -4502,7 +4503,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="prodname.element">
-                  <element name="prodname" ditaarch:longName="Product Name">
+                  <element name="prodname" dita:longName="Product Name">
                      <a:documentation>The &lt;prodname&gt; metadata element contains the name of the product that is supported by the information in this topic. Category: Prolog elements</a:documentation>
                      <ref name="prodname.attlist"/>
                      <ref name="prodname.content"/>
@@ -4523,7 +4524,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="vrmlist.element">
-                  <element name="vrmlist" ditaarch:longName="Version Release and Modification List">
+                  <element name="vrmlist" dita:longName="Version Release and Modification List">
                      <a:documentation>The &lt;vrmlist&gt; element contains a set of &lt;vrm&gt; elements for logging the version, release, and modification information for multiple products or versions of products to
             which the topic applies. Category: Prolog elements</a:documentation>
                      <ref name="vrmlist.attlist"/>
@@ -4550,7 +4551,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="vrm.element">
-                  <element name="vrm" ditaarch:longName="Version Release and Modification">
+                  <element name="vrm" dita:longName="Version Release and Modification">
                      <a:documentation>The vrm empty element contains information about a single product's version, modification, and release, to which the current topic applies. Category: Prolog
             elements</a:documentation>
                      <ref name="vrm.attlist"/>
@@ -4572,7 +4573,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="brand.element">
-                  <element name="brand" ditaarch:longName="Brand">
+                  <element name="brand" dita:longName="Brand">
                      <a:documentation>The &lt;brand&gt; element indicates the manufacturer or brand associated with the product described by the parent &lt;prodinfo&gt; element. Category: Prolog
             elements</a:documentation>
                      <ref name="brand.attlist"/>
@@ -4594,7 +4595,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="series.element">
-                  <element name="series" ditaarch:longName="Series">
+                  <element name="series" dita:longName="Series">
                      <a:documentation>The &lt;series&gt; metadata element contains information about the product series that the topic supports. Category: Prolog elements</a:documentation>
                      <ref name="series.attlist"/>
                      <ref name="series.content"/>
@@ -4615,7 +4616,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="platform.element">
-                  <element name="platform" ditaarch:longName="Platform">
+                  <element name="platform" dita:longName="Platform">
                      <a:documentation>The &lt;platform&gt; metadata element contains a description of the operating system and/or hardware related to the product being described by the &lt;prodinfo&gt; element. The
             platform element may be used to provide a more detailed definition of values used throughout the map or topic on the platform attribute. Category: Prolog elements</a:documentation>
                      <ref name="platform.attlist"/>
@@ -4637,7 +4638,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="prognum.element">
-                  <element name="prognum" ditaarch:longName="Program Number">
+                  <element name="prognum" dita:longName="Program Number">
                      <a:documentation>The &lt;prognum&gt; metadata element identifies the program number of the associated program product. This is typically an order number or a product tracking code that could be
             replaced by an order number when a product completes development. Category: Prolog elements</a:documentation>
                      <ref name="prognum.attlist"/>
@@ -4659,7 +4660,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="featnum.element">
-                  <element name="featnum" ditaarch:longName="Feature Number">
+                  <element name="featnum" dita:longName="Feature Number">
                      <a:documentation>The &lt;featnum&gt; element contains the feature number of a product in the metadata. Category: Prolog elements</a:documentation>
                      <ref name="featnum.attlist"/>
                      <ref name="featnum.content"/>
@@ -4680,7 +4681,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="component.element">
-                  <element name="component" ditaarch:longName="Component">
+                  <element name="component" dita:longName="Component">
                      <a:documentation>The &lt;component&gt; element describes the component of the product that this topic is concerned with. For example, a product might be made up of many components, each of
             which is installable separately. Components might also be shared by several products so that the same component is available for installation with many products. An implementation may (but
             need not) use this identification to check cross-component dependencies when some components are installed, but not others. An implementation may also (but need not) use the identification
@@ -4713,7 +4714,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="othermeta.element">
-                  <element name="othermeta" ditaarch:longName="Other Metadata">
+                  <element name="othermeta" dita:longName="Other Metadata">
                      <a:documentation>The &lt;othermeta&gt; element can be used to identify properties not otherwise included in &lt;metadata&gt; and assign name/content values to those properties. The name attribute
             identifies the property and the content attribute specifies the property's value. The values in this attribute are output as HTML metadata elements, and have no defined meaning for other
             possible outputs such as PDF. Category: Prolog elements</a:documentation>
@@ -4740,7 +4741,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="resourceid.element">
-                  <element name="resourceid" ditaarch:longName="Resource Identifier">
+                  <element name="resourceid" dita:longName="Resource Identifier">
                      <a:documentation>The &lt;resourceid&gt; element provides an identifier for applications that require them in a particular format, when the normal id attribute of the topic can't be used. Each
             resourceid entry should be unique. It is one of the metadata elements that can be included within the prolog of a topic, along with document tracking and product information, etc. The
             element has no content, but takes an id attribute and an appname attribute. Category: Prolog elements</a:documentation>
@@ -5029,7 +5030,7 @@ ORIGINAL CREATION DATE:
             </optional>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
          <div>
             <a:documentation>LONG NAME: Topic</a:documentation>
@@ -5069,7 +5070,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="topic.element">
-               <element name="topic" ditaarch:longName="Topic">
+               <element name="topic" dita:longName="Topic">
                   <a:documentation>The &lt;topic&gt; element is the top-level DITA element for a single-subject topic or article. Other top-level DITA elements that are more content-specific are &lt;concept&gt;,
             &lt;task&gt;, &lt;reference&gt;, and &lt;glossary&gt;. Category: Topic elements</a:documentation>
                   <ref name="topic.attlist"/>
@@ -5096,7 +5097,7 @@ ORIGINAL CREATION DATE:
                <ref name="univ-atts"/>
             </define>
             <define name="titlealts.element">
-               <element name="titlealts" ditaarch:longName="Title Alternatives">
+               <element name="titlealts" dita:longName="Title Alternatives">
                   <a:documentation>The alternate title element (&lt;titlealts&gt;) is optional, but can occur after the topic title. Two elements can be inserted as sub-elements of &lt;titlealts&gt;: navigation
             title &lt;navtitle&gt; and search title &lt;searchtitle&gt;. Category: Topic elements</a:documentation>
                   <ref name="titlealts.attlist"/>
@@ -5121,7 +5122,7 @@ ORIGINAL CREATION DATE:
                <ref name="univ-atts"/>
             </define>
             <define name="searchtitle.element">
-               <element name="searchtitle" ditaarch:longName="Search Title">
+               <element name="searchtitle" dita:longName="Search Title">
                   <a:documentation>When your DITA topic is transformed to XHTML, the &lt;searchtitle&gt; element is used to create a title element at the top of the resulting HTML file. This title is normally
             used in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content
             (which may not be as well optimized for search summaries) Category: Topic elements</a:documentation>
@@ -5147,7 +5148,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="abstract.element">
-               <element name="abstract" ditaarch:longName="Abstract">
+               <element name="abstract" dita:longName="Abstract">
                   <a:documentation>The abstract element occurs between the topic title and the topic body, as the initial content of a topic. It can contain paragraph-level content as well as one or more
             shortdesc elements which can be used for providing link previews or summaries. The &lt;abstract&gt; element cannot be overridden by maps, but its contained &lt;shortdesc&gt; elements can be, for
             the purpose of creating link summaries or previews. Category: Topic elements</a:documentation>
@@ -5178,7 +5179,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="body.element">
-               <element name="body" ditaarch:longName="Body">
+               <element name="body" dita:longName="Body">
                   <a:documentation>The &lt;body&gt; element is the container for the main content of a &lt;topic&gt;. Category: Topic elements</a:documentation>
                   <ref name="body.attlist"/>
                   <ref name="body.content"/>
@@ -5206,7 +5207,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="bodydiv.element">
-               <element name="bodydiv" ditaarch:longName="Body division">
+               <element name="bodydiv" dita:longName="Body division">
                   <a:documentation>The &lt;bodydiv&gt; element is used to contain informal blocks of information within the body of a topic. The bodydiv element is specifically designed to be a grouping element,
             without any explicit semantics, other than to organize subsets of content into logical groups that are not intended or should not be contained as a topic. As such, it does not contain an
             explicit title to avoid enabling the creation of deeply nested content that would otherwise be written as separate topics. Content that requires a title should use a section element or a
@@ -5222,7 +5223,7 @@ ORIGINAL CREATION DATE:
          <div>
             <a:documentation>LONG NAME: No Topic nesting</a:documentation>
             <define name="no-topic-nesting.element">
-               <element name="no-topic-nesting" ditaarch:longName="No Topic nesting">
+               <element name="no-topic-nesting" dita:longName="No Topic nesting">
                   <a:documentation>The &lt;no-topic-nesting&gt; element is a placeholder in the DITA architecture. It is not actually used by the default DITA document types; it is for use only when creating a
             validly customized document type where the information designer wants to eliminate the ability to nest topics. Not intended for use by authors, and has no associated output processing.
             Category: Specialization elements</a:documentation>
@@ -5248,7 +5249,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="section.element">
-               <element name="section" ditaarch:longName="Section">
+               <element name="section" dita:longName="Section">
                   <a:documentation>The &lt;section&gt; element represents an organizational division in a topic. Sections are used to organize subsets of information that are directly related to the topic. For
             example, the titles Reference Syntax, Example and Properties might represent section-level discourse within a topic about a command-line process—the content in each section relates
             uniquely to the subject of that topic. Multiple sections within a single topic do not represent a hierarchy, but rather peer divisions of that topic. Sections cannot be nested. A section
@@ -5278,7 +5279,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="sectiondiv.element">
-               <element name="sectiondiv" ditaarch:longName="Section division">
+               <element name="sectiondiv" dita:longName="Section division">
                   <a:documentation>The &lt;sectiondiv&gt; element allows logical grouping of content within a section. There is no additional semantic associated with the sectiondiv element, aside from its
             function as a container for other content. The sectiondiv element does not contain a title; the lowest level of titled content within a topic is the section itself. If additional hierarchy
             is required, nested topics should be used in place of the section.</a:documentation>
@@ -5307,7 +5308,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="example.element">
-               <element name="example" ditaarch:longName="Example">
+               <element name="example" dita:longName="Example">
                   <a:documentation>The &lt;example&gt; element is a section with the specific role of containing examples that illustrate or support the current topic. The &lt;example&gt; element has the same
             content model as &lt;section&gt;. Category: Topic elements</a:documentation>
                   <ref name="example.attlist"/>
@@ -5358,7 +5359,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="prolog.element">
-                  <element name="prolog" ditaarch:longName="prolog">
+                  <element name="prolog" dita:longName="prolog">
                      <a:documentation>The &lt;prolog&gt; element contains information about the topic as an whole (for example, author information or subject category) that is either entered by the author or
               machine-maintained. Much of the metadata inside the &lt;prolog&gt; will not be displayed with the topic on output, but may be used by processes that generate search indexes or customize
               navigation. Category: Prolog elements</a:documentation>
@@ -5392,7 +5393,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="related-links.element">
-                  <element name="related-links" ditaarch:longName="related-links">
+                  <element name="related-links" dita:longName="related-links">
                      <a:documentation>The related information links of a topic (&lt;related-links&gt; element) are stored in a special section following the body of the topic. After a topic is processed into it
               final output form, the related links are usually displayed at the end of the topic, although some Web-based help systems might display them in a separate navigation frame. Category:
               Topic elements</a:documentation>
@@ -5431,7 +5432,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="link.element">
-                  <element name="link" ditaarch:longName="link">
+                  <element name="link" dita:longName="link">
                      <a:documentation>The &lt;link&gt; element defines a relationship to another topic. Links represent the types and roles of topics in a web of information, and therefore represent navigational
               links within that web. Links are typically sorted on output based on their attributes. The optional container elements for link (&lt;linkpool&gt; and &lt;linklist&gt;) allow authors to define
               groups with common attributes, or to preserve the authored sequence of links on output. Links placed in a &lt;linkpool&gt; may be rearranged for display purposes (combined with other local
@@ -5459,7 +5460,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="linktext.element">
-                  <element name="linktext" ditaarch:longName="linktext">
+                  <element name="linktext" dita:longName="linktext">
                      <a:documentation>The &lt;linktext&gt; element provides the literal label or line of text for a link. In most cases, the text of a link can be resolved during processing by cross reference
               with the target resource. Use the &lt;linktext&gt; element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format.
               When used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic.
@@ -5526,7 +5527,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="linklist.element">
-                  <element name="linklist" ditaarch:longName="linklist">
+                  <element name="linklist" dita:longName="linklist">
                      <a:documentation>The &lt;linklist&gt; element defines an author-arranged group of links. Within &lt;linklist&gt;, the organization of links on final output is in the same order as originally
               authored in the DITA topic. Category: Related Links elements</a:documentation>
                      <ref name="linklist.attlist"/>
@@ -5548,7 +5549,7 @@ ORIGINAL CREATION DATE:
                   <ref name="univ-atts"/>
                </define>
                <define name="linkinfo.element">
-                  <element name="linkinfo" ditaarch:longName="linkinfo">
+                  <element name="linkinfo" dita:longName="linkinfo">
                      <a:documentation>The &lt;linkinfo&gt; element allows you to place a descriptive paragraph following a list of links in a &lt;linklist&gt; element. Category: Related Links
               elements</a:documentation>
                      <ref name="linkinfo.attlist"/>
@@ -5601,7 +5602,7 @@ ORIGINAL CREATION DATE:
                   </optional>
                </define>
                <define name="linkpool.element">
-                  <element name="linkpool" ditaarch:longName="linkpool">
+                  <element name="linkpool" dita:longName="linkpool">
                      <a:documentation>The &lt;linkpool&gt; element defines a group of links that have common characteristics, such as type or audience or source. When links are not in a &lt;linklist&gt; (that is,
               they are in &lt;related-links&gt; or &lt;linkpool&gt; elements), the organization of links on final output is determined by the output process, not by the order that the links actually occur
               in the DITA topic. Category: Related Links elements</a:documentation>
@@ -5615,7 +5616,7 @@ ORIGINAL CREATION DATE:
             </div>
          </div>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
          <define name="abstract.attlist" combine="interleave">
             <ref name="global-atts"/>
@@ -11503,7 +11504,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="hazardstatement.element">
-               <element name="hazardstatement" ditaarch:longName="Hazard Statement">
+               <element name="hazardstatement" dita:longName="Hazard Statement">
                   <a:documentation>The &lt;hazardstatement&gt; element contains hazard warning information. It is based on the regulations of the ANSI Z535 and the ISO 3864 standards. It gives the author the
             opportunity to select the hazard statement, to add one or more safety signs and to add the required phrases.</a:documentation>
                   <ref name="hazardstatement.attlist"/>
@@ -11584,7 +11585,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="hazardsymbol.element">
-               <element name="hazardsymbol" ditaarch:longName="Hazard Symbol">
+               <element name="hazardsymbol" dita:longName="Hazard Symbol">
                   <a:documentation>A graphic representation intended to convey a message without the use of words. It may represent a hazard, a hazardous situation, a precaution to avoid a hazard, a result of
             not avoiding a hazard, or any combination of these messages.</a:documentation>
                   <ref name="hazardsymbol.attlist"/>
@@ -11616,7 +11617,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="messagepanel.element">
-               <element name="messagepanel" ditaarch:longName="Hazard Message panel">
+               <element name="messagepanel" dita:longName="Hazard Message panel">
                   <a:documentation>The &lt;messagepanel&gt; element describes the area of a safety sign or label that contains the word message which identifies a hazard, indicates how to avoid the hazard, and
             advises of the probable consequences of not avoiding the hazard.</a:documentation>
                   <ref name="messagepanel.attlist"/>
@@ -11645,7 +11646,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="typeofhazard.element">
-               <element name="typeofhazard" ditaarch:longName="The Type of Hazard">
+               <element name="typeofhazard" dita:longName="The Type of Hazard">
                   <a:documentation>&lt;typeofhazard&gt; element is the container for the first text entry of a safety label. It contains the description of the type of hazard, such as "Moving parts can crush
             and cut".</a:documentation>
                   <ref name="typeofhazard.attlist"/>
@@ -11674,7 +11675,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="consequence.element">
-               <element name="consequence" ditaarch:longName="Consequences of not Avoiding the Hazard">
+               <element name="consequence" dita:longName="Consequences of not Avoiding the Hazard">
                   <a:documentation>The &lt;consequence&gt; element is the container for the second text entry of a safety label. It contains the description of the consequences of not avoiding the hazard, such
             as "Keep guard in place".</a:documentation>
                   <ref name="consequence.attlist"/>
@@ -11704,7 +11705,7 @@ ORIGINAL CREATION DATE:
                </optional>
             </define>
             <define name="howtoavoid.element">
-               <element name="howtoavoid" ditaarch:longName="How to Avoid the Hazard">
+               <element name="howtoavoid" dita:longName="How to Avoid the Hazard">
                   <a:documentation>The &lt;howtoavoid&gt; element is the container for the third text entry of a safety label. It contains the description of how to avoid the hazard, such as "Lock out power
             before servicing".</a:documentation>
                   <ref name="howtoavoid.attlist"/>
@@ -11788,7 +11789,7 @@ UPDATES:
             <domainsContribution>(topic hi-d)</domainsContribution>
          </moduleMetadata>
       </moduleDesc>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
          <define name="hi-d-ph">
             <choice>
@@ -11804,7 +11805,7 @@ UPDATES:
             <ref name="hi-d-ph"/>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
          <define name="b">
             <ref name="b.element"/>
@@ -11825,7 +11826,7 @@ UPDATES:
             <ref name="u.element"/>
          </define>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
          <div>
             <a:documentation>LONG NAME: Bold</a:documentation>
@@ -11846,7 +11847,7 @@ UPDATES:
                </optional>
             </define>
             <define name="b.element">
-               <element name="b" ditaarch:longName="Bold">
+               <element name="b" dita:longName="Bold">
                   <a:documentation>The bold (&lt;b&gt;) element is used to apply bold highlighting to the content of the element. Use this element only when there is not some other more proper element. For
             example, for specific items such as GUI controls, use the &lt;uicontrol&gt; element. This element is part of the DITA highlighting domain. Category: Typographic elements</a:documentation>
                   <ref name="b.attlist"/>
@@ -11876,7 +11877,7 @@ UPDATES:
                </optional>
             </define>
             <define name="u.element">
-               <element name="u" ditaarch:longName="Underlined">
+               <element name="u" dita:longName="Underlined">
                   <a:documentation>The underline (&lt;u&gt;) element is used to apply underline highlighting to the content of the element. Category: Typographic elements</a:documentation>
                   <ref name="u.attlist"/>
                   <ref name="u.content"/>
@@ -11905,7 +11906,7 @@ UPDATES:
                </optional>
             </define>
             <define name="i.element">
-               <element name="i" ditaarch:longName="Italic">
+               <element name="i" dita:longName="Italic">
                   <a:documentation>The italic (&lt;i&gt;) element is used to apply italic highlighting to the content of the element. Category: Typographic elements</a:documentation>
                   <ref name="i.attlist"/>
                   <ref name="i.content"/>
@@ -11934,7 +11935,7 @@ UPDATES:
                </optional>
             </define>
             <define name="tt.element">
-               <element name="tt" ditaarch:longName="Teletype (monospaced)">
+               <element name="tt" dita:longName="Teletype (monospaced)">
                   <a:documentation> The teletype (&lt;tt&gt;) element is used to apply monospaced highlighting to the content of the element. Category: Typographic elements </a:documentation>
                   <ref name="tt.attlist"/>
                   <ref name="tt.content"/>
@@ -11963,7 +11964,7 @@ UPDATES:
                </optional>
             </define>
             <define name="sup.element">
-               <element name="sup" ditaarch:longName="Superscript">
+               <element name="sup" dita:longName="Superscript">
                   <a:documentation>The superscript (&lt;sup&gt;) element indicates that text should be superscripted, or vertically raised in relationship to the surrounding text. Superscripts are usually a
             smaller font than the surrounding text. Use this element only when there is not some other more proper tag. This element is part of the DITA highlighting domain. Category: Typographic
             elements</a:documentation>
@@ -11994,7 +11995,7 @@ UPDATES:
                </optional>
             </define>
             <define name="sub.element">
-               <element name="sub" ditaarch:longName="Subscript">
+               <element name="sub" dita:longName="Subscript">
                   <a:documentation>A subscript (&lt;sub&gt;) indicates that text should be subscripted, or placed lower in relationship to the surrounding text. Subscripted text is often a smaller font than the
             surrounding text. Formatting may vary depending on your output process. This element is part of the DITA highlighting domain. Category: Typographic elements</a:documentation>
                   <ref name="sub.attlist"/>
@@ -12006,7 +12007,7 @@ UPDATES:
             </define>
          </div>
       </div>
-      <div xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+      <div xmlns:dita="http://dita.oasis-open.org/architecture/2005/">
          <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
          <define name="b.attlist" combine="interleave">
             <ref name="global-atts"/>
@@ -12094,7 +12095,7 @@ UPDATES:
                <ref name="univ-atts"/>
             </define>
             <define name="index-see.element">
-               <element name="index-see" ditaarch:longName="Index See">
+               <element name="index-see" dita:longName="Index See">
                   <a:documentation>An &lt;index-see&gt; element within an &lt;indexterm&gt; redirects the reader to another index entry that the reader should reference instead of the current one. Category:
             Indexing domain elements</a:documentation>
                   <ref name="index-see.attlist"/>
@@ -12123,7 +12124,7 @@ UPDATES:
                <ref name="univ-atts"/>
             </define>
             <define name="index-see-also.element">
-               <element name="index-see-also" ditaarch:longName="Index See Also">
+               <element name="index-see-also" dita:longName="Index See Also">
                   <a:documentation>An &lt;index-see-also&gt; element within an &lt;indexterm&gt; redirects the reader to another index entry that the reader should reference in addition to the current one.
             Category: Indexing domain elements</a:documentation>
                   <ref name="index-see-also.attlist"/>
@@ -12148,7 +12149,7 @@ UPDATES:
                <ref name="univ-atts"/>
             </define>
             <define name="index-sort-as.element">
-               <element name="index-sort-as" ditaarch:longName="Index Sort As">
+               <element name="index-sort-as" dita:longName="Index Sort As">
                   <a:documentation>The &lt;index-sort-as&gt; element specifies a sort phrase under which an index entry would be sorted. Category: Indexing domain elements</a:documentation>
                   <ref name="index-sort-as.attlist"/>
                   <ref name="index-sort-as.content"/>
@@ -12250,7 +12251,7 @@ UPDATES:
                </optional>
             </define>
             <define name="imagemap.element">
-               <element name="imagemap" ditaarch:longName="Imagemap">
+               <element name="imagemap" dita:longName="Imagemap">
                   <a:documentation>The imagemap element supports the basic functionality 
             of the HTML client-side image map markup. Imagemap allows you to designate 
             a linkable area or region over an image,
@@ -12278,7 +12279,7 @@ UPDATES:
                </optional>
             </define>
             <define name="area.element">
-               <element name="area" ditaarch:longName="Hotspot Area Description">
+               <element name="area" dita:longName="Hotspot Area Description">
                   <a:documentation>The area element supports the basic functionality of the HTML 
             image map markup. 
             Category: Utilities elements</a:documentation>
@@ -12310,7 +12311,7 @@ UPDATES:
                </optional>
             </define>
             <define name="shape.element">
-               <element name="shape" ditaarch:longName="Shape of the Hotspot">
+               <element name="shape" dita:longName="Shape of the Hotspot">
                   <a:documentation>The shape element defines the shape of a linkable 
             area in an imagemap. Category: Utilities elements</a:documentation>
                   <ref name="shape.attlist"/>
@@ -12338,7 +12339,7 @@ UPDATES:
                </optional>
             </define>
             <define name="coords.element">
-               <element name="coords" ditaarch:longName="Coordinates of the Hotspot">
+               <element name="coords" dita:longName="Coordinates of the Hotspot">
                   <a:documentation>The coords element specifies the coordinates of the 
             linkable region in an imagemap area. Category: Utilities elements</a:documentation>
                   <ref name="coords.attlist"/>
@@ -12370,7 +12371,7 @@ UPDATES:
                </optional>
             </define>
             <define name="sort-as.element">
-               <element name="sort-as" ditaarch:longName="Sort as">
+               <element name="sort-as" dita:longName="Sort as">
                   <a:documentation>The sort-as element provides the sort key to use when 
             sorting and grouping the element in some way. The sort-as value is 
             prepended to whatever text value would otherwise be
@@ -17202,7 +17203,7 @@ UPDATES:
                <a:documentation>The &lt;map&gt; element is used to define a map which describes the relationships among a set of resources, such as DITA topics. Maps consist of references to topics and other
           resources organized into hierarchies, groups, and tables. Maps provide a way to express these relationships in a single common format that can be used for different outputs. Category: Map
           elements</a:documentation>
-               <element name="map" ditaarch:longName="Map">
+               <element name="map" dita:longName="Map">
                   <ref name="map.attlist"/>
                   <ref name="map.content"/>
                </element>
@@ -17233,7 +17234,7 @@ UPDATES:
             <define name="navref.element">
                <a:documentation> The &lt;navref&gt; represents a pointer to another map which should be preserved as a transcluding link rather than resolved. Output formats that support such linking will
           integrate the target when displaying the referencing map to an end user. Category: Map elements </a:documentation>
-               <element name="navref" ditaarch:longName="Navigation Reference">
+               <element name="navref" dita:longName="Navigation Reference">
                   <ref name="navref.attlist"/>
                   <ref name="navref.content"/>
                </element>
@@ -17288,7 +17289,7 @@ UPDATES:
           container &lt;topicref&gt; to determine how its children are related to each other. You can also express relationships among &lt;topicref&gt;s using group and table structures (using
           &lt;topicgroup&gt; and &lt;reltable&gt;). Relationships end up expressed as links in the output (with each participant in a relationship having links to the other participants by default).
           Category: Map elements </a:documentation>
-               <element name="topicref" ditaarch:longName="Topic Reference">
+               <element name="topicref" dita:longName="Topic Reference">
                   <ref name="topicref.attlist"/>
                   <ref name="topicref.content"/>
                </element>
@@ -17317,7 +17318,7 @@ UPDATES:
                <a:documentation>The &lt;anchor&gt; element is used for runtime integration of navigation. It provides an integration point that another map can point to in order to insert its navigation into
           the current navigation tree. For those familiar with Eclipse help systems, this serves the same purpose as the &lt;anchor&gt; element in that system. It may not be supported for all output
           formats. Category: Map elements</a:documentation>
-               <element name="anchor" ditaarch:longName="Anchor">
+               <element name="anchor" dita:longName="Anchor">
                   <ref name="anchor.attlist"/>
                   <ref name="anchor.content"/>
                </element>
@@ -17357,7 +17358,7 @@ UPDATES:
           (&lt;relcell&gt;). The &lt;relcell&gt; elements can contain &lt;topicref&gt; elements, which are then related to other &lt;topicref&gt; elements in the same row (although not necessarily in the same
           cell). By default, the contents of a &lt;reltable&gt; element are not output for navigation or TOC purposes, and are used only to define relationships that can be expressed as topic-to-topic
           links. Category: Map elements</a:documentation>
-               <element name="reltable" ditaarch:longName="Relationship Table">
+               <element name="reltable" dita:longName="Relationship Table">
                   <ref name="reltable.attlist"/>
                   <ref name="reltable.content"/>
                </element>
@@ -17379,7 +17380,7 @@ UPDATES:
             <define name="relheader.element">
                <a:documentation>The &lt;relheader&gt; element is a row of column definitions (&lt;relcolspec&gt; elements) in a relationship table. Each table can have only one set of column definitions. Category:
           Map elements</a:documentation>
-               <element name="relheader" ditaarch:longName="Relationship Header">
+               <element name="relheader" dita:longName="Relationship Header">
                   <ref name="relheader.attlist"/>
                   <ref name="relheader.content"/>
                </element>
@@ -17411,7 +17412,7 @@ UPDATES:
             <define name="relcolspec.element">
                <a:documentation>A column definition in the relationship table. You can use &lt;relcolspec&gt; column definitions to set defaults for the attributes of &lt;topicref&gt; elements in the column. For
           example, you can set type="concept" to treat all untyped &lt;topicref&gt; elements in the column as concepts. Category: Map elements</a:documentation>
-               <element name="relcolspec" ditaarch:longName="Relationship Column Specification">
+               <element name="relcolspec" dita:longName="Relationship Column Specification">
                   <ref name="relcolspec.attlist"/>
                   <ref name="relcolspec.content"/>
                </element>
@@ -17436,7 +17437,7 @@ UPDATES:
             <define name="relrow.element">
                <a:documentation> A &lt;relrow&gt; is a row in the relationship table. This creates a relationship between the cells in the row, which will end up expressed as links among the &lt;topicref&gt;
           elements in the cells. Category: Map elements </a:documentation>
-               <element name="relrow" ditaarch:longName="Relationship Table Row">
+               <element name="relrow" dita:longName="Relationship Table Row">
                   <ref name="relrow.attlist"/>
                   <ref name="relrow.content"/>
                </element>
@@ -17466,7 +17467,7 @@ UPDATES:
                <a:documentation>A &lt;relcell&gt; element is a cell in the relationship table. The &lt;topicref&gt; elements it contains will be related to topicrefs in other cells of the same row. By default,
           topicrefs in the same cell are not related to each other, unless you change the relcell's collection-type attribute to indicate that they are related. Category: Map
           elements</a:documentation>
-               <element name="relcell" ditaarch:longName="Relationship Table Cell">
+               <element name="relcell" dita:longName="Relationship Table Cell">
                   <ref name="relcell.attlist"/>
                   <ref name="relcell.content"/>
                </element>
@@ -17552,7 +17553,7 @@ UPDATES:
                <a:documentation>The &lt;topicmeta&gt; element defines the metadata that applies to a topic when it appears in a map, and to the other topics in the map that are contained by the same element
           that contains the &lt;topicmeta&gt; element. When creating links, it can also be used to override the title and short description of the topic. In addition, it can be used to add index entries
           to referenced content using the &lt;keywords&gt; element. Category: Map elements</a:documentation>
-               <element name="topicmeta" ditaarch:longName="Topic Metadata">
+               <element name="topicmeta" dita:longName="Topic Metadata">
                   <ref name="topicmeta.attlist"/>
                   <ref name="topicmeta.content"/>
                </element>

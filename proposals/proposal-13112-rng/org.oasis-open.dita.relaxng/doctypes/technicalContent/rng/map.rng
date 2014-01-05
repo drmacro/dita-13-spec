@@ -20,12 +20,34 @@
   All Rights Reserved.
   ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <!-- Define the root elements -->
   <start>
     <ref name="map.element"/>
   </start>
+  
+  <div>
+    <a:documentation>DITA DOMAINS ATTRIBUTE</a:documentation>
+
+    <define name="domains-att">
+      <optional>
+        <attribute name="domains"
+          a:defaultValue="
+        (topic abbrev-d) 
+        (topic delay-d) 
+        (topic hazard-d)
+        (topic hi-d) 
+        (topic indexing-d) 
+        (map mapgroup-d)
+        (topic pr-d) 
+        (topic ut-d) 
+        "/>
+      </optional>
+    </define>
+
+
+  </div>
   
   <!-- Include modules -->
   <include href="../../base/rng/mapMod.rng"/>

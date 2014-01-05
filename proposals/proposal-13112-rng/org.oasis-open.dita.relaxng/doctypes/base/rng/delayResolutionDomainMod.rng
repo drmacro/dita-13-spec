@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Delay Resolution Domain</moduleTitle>
@@ -91,7 +91,7 @@ ORIGINAL CREATION DATE:
         keys that should not be resolved during the initial
         preparation of the content for display; those IDs and keys will be 
         preserved after that preparation, as will the conref relationship itself.</a:documentation>
-        <element name="exportanchors" ditaarch:longName="Export Anchor List">
+        <element name="exportanchors" dita:longName="Export Anchor List">
           <ref name="exportanchors.attlist"/>
           <ref name="exportanchors.content"/>
         </element>
@@ -128,7 +128,7 @@ ORIGINAL CREATION DATE:
         of the content; it causes specified IDs to be preserved after that 
         process, and conref relationships that reuse the
         element will not be resolved during the initial process.</a:documentation>
-        <element name="anchorid" ditaarch:longName="Anchor ID">
+        <element name="anchorid" dita:longName="Anchor ID">
           <ref name="anchorid.attlist"/>
           <ref name="anchorid.content"/>
         </element>
@@ -158,7 +158,7 @@ ORIGINAL CREATION DATE:
         of the content; it allows specified keys to be preserved after that 
         process, and conref relationships which use that key
         will not be resolved during that initial process. </a:documentation>
-        <element name="anchorkey" ditaarch:longName="Anchor Key">
+        <element name="anchorkey" dita:longName="Anchor Key">
           <ref name="anchorkey.attlist"/>
           <ref name="anchorkey.content"/>
         </element>

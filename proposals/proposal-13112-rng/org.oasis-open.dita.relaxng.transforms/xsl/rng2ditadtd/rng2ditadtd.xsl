@@ -22,7 +22,7 @@
         that reflect the RNG definitions and conform to the DITA 1.3
         DTD coding requirements.
       </xd:p>
-      <xd:p>The primary output is a conversion manifest, which simply
+      <xd:p>The direct output is a conversion manifest, which simply
         lists the files generated. Each module and document type shell
         is generated separately using xsl:result-document.
       </xd:p>
@@ -100,9 +100,7 @@
       <xsl:apply-templates mode="gatherModules" />
     </xsl:variable>
     
-    <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
-    </xsl:if>
+    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
 
     <!-- STEP 2: Generate the manifest and process the modules: -->
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd">
@@ -258,7 +256,7 @@
        ============================== -->
 
   <xsl:template match="rng:grammar" mode="gatherModules">
-    <xsl:apply-templates select="rng:include" mode="#current" />
+    <xsl:apply-templates select="rng:include | rng:div" mode="#current" />
   </xsl:template>
 
   <xsl:template match="rng:include" mode="gatherModules">
@@ -295,6 +293,13 @@
   </xsl:template>
   <xsl:template match="rng:*" priority="-1" mode="class-att-decls">
     <xsl:message> - [WARN] class-att-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
+  </xsl:template>
+  
+  <xsl:template match="rng:div" mode="#all">
+    <!-- RNG div elements are "transparent" and have no special meaning
+         for DTD output (except possibly in a few special cases) 
+      -->
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
 </xsl:stylesheet>

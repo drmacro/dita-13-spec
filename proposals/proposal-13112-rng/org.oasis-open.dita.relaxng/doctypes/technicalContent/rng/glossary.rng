@@ -24,7 +24,7 @@
   file.
 -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   >
   <include href="glossentry.rng"/>
 </grammar>

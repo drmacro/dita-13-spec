@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+<grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
   xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
@@ -87,7 +87,7 @@ ORIGINAL CREATION DATE:
     <a:documentation>ARCHITECTURE ATTRIBUTES</a:documentation>
     <define name="arch-atts">
       <optional>
-        <attribute name="ditaarch:DITAArchVersion" a:defaultValue="1.2"/>
+        <attribute name="dita:DITAArchVersion" a:defaultValue="1.2"/>
       </optional>
     </define>
   </div>
@@ -322,7 +322,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="topic.element">
-        <element name="topic" ditaarch:longName="Topic">
+        <element name="topic" dita:longName="Topic">
           <a:documentation>The &lt;topic> element is the top-level DITA element for a single-subject topic or article. Other top-level DITA elements that are more content-specific are &lt;concept>,
             &lt;task>, &lt;reference>, and &lt;glossary>. Category: Topic elements</a:documentation>
           <ref name="topic.attlist"/>
@@ -353,7 +353,7 @@ ORIGINAL CREATION DATE:
         <ref name="univ-atts"/>
       </define>
       <define name="titlealts.element">
-        <element name="titlealts" ditaarch:longName="Title Alternatives">
+        <element name="titlealts" dita:longName="Title Alternatives">
           <a:documentation>The alternate title element (&lt;titlealts>) is optional, but can occur after the topic title. Two elements can be inserted as sub-elements of &lt;titlealts>: navigation
             title &lt;navtitle> and search title &lt;searchtitle>. Category: Topic elements</a:documentation>
           <ref name="titlealts.attlist"/>
@@ -379,7 +379,7 @@ ORIGINAL CREATION DATE:
         <ref name="univ-atts"/>
       </define>
       <define name="searchtitle.element">
-        <element name="searchtitle" ditaarch:longName="Search Title">
+        <element name="searchtitle" dita:longName="Search Title">
           <a:documentation>When your DITA topic is transformed to XHTML, the &lt;searchtitle> element is used to create a title element at the top of the resulting HTML file. This title is normally
             used in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content
             (which may not be as well optimized for search summaries) Category: Topic elements</a:documentation>
@@ -392,6 +392,36 @@ ORIGINAL CREATION DATE:
       </define>
 
     </div>
+      <div>
+        <a:documentation>LONG NAME: Short Description</a:documentation>
+        <define name="shortdesc.content">
+          <zeroOrMore>
+            <choice>
+              <ref name="title.cnt"/>
+              <ref name="draft-comment"/>
+            </choice>
+          </zeroOrMore>
+        </define>
+        <define name="shortdesc.attributes">
+          <ref name="univ-atts"/>
+          <optional>
+            <attribute name="outputclass"/>
+          </optional>
+        </define>
+        <define name="shortdesc.element">
+          <element name="shortdesc" dita:longName="Short Description">
+            <a:documentation>The short description (&lt;shortdesc>) element occurs between the topic title and the topic body, as the initial paragraph-like content of a topic, or it can be embedded
+              in an abstract element. The short description, which represents the purpose or theme of the topic, is also intended to be used as a link preview and for searching. When used within a
+              DITA map, the short description of the &lt;topicref> can be used to override the short description in the topic. Category: Topic elements</a:documentation>
+            <ref name="shortdesc.attlist"/>
+            <ref name="shortdesc.content"/>
+          </element>
+        </define>
+        <define name="shortdesc.attlist" combine="interleave">
+          <ref name="shortdesc.attributes"/>
+        </define>
+
+      </div>
     <div>
       <a:documentation>LONG NAME: Abstract</a:documentation>
 
@@ -407,7 +437,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="abstract.element">
-        <element name="abstract" ditaarch:longName="Abstract">
+        <element name="abstract" dita:longName="Abstract">
           <a:documentation>The abstract element occurs between the topic title and the topic body, as the initial content of a topic. It can contain paragraph-level content as well as one or more
             shortdesc elements which can be used for providing link previews or summaries. The &lt;abstract> element cannot be overridden by maps, but its contained &lt;shortdesc> elements can be, for
             the purpose of creating link summaries or previews. Category: Topic elements</a:documentation>
@@ -440,7 +470,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="body.element">
-        <element name="body" ditaarch:longName="Body">
+        <element name="body" dita:longName="Body">
           <a:documentation>The &lt;body> element is the container for the main content of a &lt;topic>. Category: Topic elements</a:documentation>
           <ref name="body.attlist"/>
           <ref name="body.content"/>
@@ -470,7 +500,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="bodydiv.element">
-        <element name="bodydiv" ditaarch:longName="Body division">
+        <element name="bodydiv" dita:longName="Body division">
           <a:documentation>The &lt;bodydiv> element is used to contain informal blocks of information within the body of a topic. The bodydiv element is specifically designed to be a grouping element,
             without any explicit semantics, other than to organize subsets of content into logical groups that are not intended or should not be contained as a topic. As such, it does not contain an
             explicit title to avoid enabling the creation of deeply nested content that would otherwise be written as separate topics. Content that requires a title should use a section element or a
@@ -488,7 +518,7 @@ ORIGINAL CREATION DATE:
       <a:documentation>LONG NAME: No Topic nesting</a:documentation>
 
       <define name="no-topic-nesting.element">
-        <element name="no-topic-nesting" ditaarch:longName="No Topic nesting">
+        <element name="no-topic-nesting" dita:longName="No Topic nesting">
           <a:documentation>The &lt;no-topic-nesting> element is a placeholder in the DITA architecture. It is not actually used by the default DITA document types; it is for use only when creating a
             validly customized document type where the information designer wants to eliminate the ability to nest topics. Not intended for use by authors, and has no associated output processing.
             Category: Specialization elements</a:documentation>
@@ -516,7 +546,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="section.element">
-        <element name="section" ditaarch:longName="Section">
+        <element name="section" dita:longName="Section">
           <a:documentation>The &lt;section> element represents an organizational division in a topic. Sections are used to organize subsets of information that are directly related to the topic. For
             example, the titles Reference Syntax, Example and Properties might represent section-level discourse within a topic about a command-line process—the content in each section relates
             uniquely to the subject of that topic. Multiple sections within a single topic do not represent a hierarchy, but rather peer divisions of that topic. Sections cannot be nested. A section
@@ -548,7 +578,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="sectiondiv.element">
-        <element name="sectiondiv" ditaarch:longName="Section division">
+        <element name="sectiondiv" dita:longName="Section division">
           <a:documentation>The &lt;sectiondiv> element allows logical grouping of content within a section. There is no additional semantic associated with the sectiondiv element, aside from its
             function as a container for other content. The sectiondiv element does not contain a title; the lowest level of titled content within a topic is the section itself. If additional hierarchy
             is required, nested topics should be used in place of the section.</a:documentation>
@@ -579,7 +609,7 @@ ORIGINAL CREATION DATE:
         </optional>
       </define>
       <define name="example.element">
-        <element name="example" ditaarch:longName="Example">
+        <element name="example" dita:longName="Example">
           <a:documentation>The &lt;example> element is a section with the specific role of containing examples that illustrate or support the current topic. The &lt;example> element has the same
             content model as &lt;section>. Category: Topic elements</a:documentation>
           <ref name="example.attlist"/>
@@ -633,7 +663,7 @@ ORIGINAL CREATION DATE:
           <ref name="univ-atts"/>
         </define>
         <define name="prolog.element">
-          <element name="prolog" ditaarch:longName="prolog">
+          <element name="prolog" dita:longName="prolog">
             <a:documentation>The &lt;prolog> element contains information about the topic as an whole (for example, author information or subject category) that is either entered by the author or
               machine-maintained. Much of the metadata inside the &lt;prolog> will not be displayed with the topic on output, but may be used by processes that generate search indexes or customize
               navigation. Category: Prolog elements</a:documentation>
@@ -668,7 +698,7 @@ ORIGINAL CREATION DATE:
           </optional>
         </define>
         <define name="related-links.element">
-          <element name="related-links" ditaarch:longName="related-links">
+          <element name="related-links" dita:longName="related-links">
             <a:documentation>The related information links of a topic (&lt;related-links> element) are stored in a special section following the body of the topic. After a topic is processed into it
               final output form, the related links are usually displayed at the end of the topic, although some Web-based help systems might display them in a separate navigation frame. Category:
               Topic elements</a:documentation>
@@ -709,7 +739,7 @@ ORIGINAL CREATION DATE:
           </optional>
         </define>
         <define name="link.element">
-          <element name="link" ditaarch:longName="link">
+          <element name="link" dita:longName="link">
             <a:documentation>The &lt;link> element defines a relationship to another topic. Links represent the types and roles of topics in a web of information, and therefore represent navigational
               links within that web. Links are typically sorted on output based on their attributes. The optional container elements for link (&lt;linkpool> and &lt;linklist>) allow authors to define
               groups with common attributes, or to preserve the authored sequence of links on output. Links placed in a &lt;linkpool> may be rearranged for display purposes (combined with other local
@@ -739,7 +769,7 @@ ORIGINAL CREATION DATE:
           <ref name="univ-atts"/>
         </define>
         <define name="linktext.element">
-          <element name="linktext" ditaarch:longName="linktext">
+          <element name="linktext" dita:longName="linktext">
             <a:documentation>The &lt;linktext> element provides the literal label or line of text for a link. In most cases, the text of a link can be resolved during processing by cross reference
               with the target resource. Use the &lt;linktext> element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format.
               When used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic.
@@ -808,7 +838,7 @@ ORIGINAL CREATION DATE:
           </optional>
         </define>
         <define name="linklist.element">
-          <element name="linklist" ditaarch:longName="linklist">
+          <element name="linklist" dita:longName="linklist">
             <a:documentation>The &lt;linklist> element defines an author-arranged group of links. Within &lt;linklist>, the organization of links on final output is in the same order as originally
               authored in the DITA topic. Category: Related Links elements</a:documentation>
             <ref name="linklist.attlist"/>
@@ -832,7 +862,7 @@ ORIGINAL CREATION DATE:
           <ref name="univ-atts"/>
         </define>
         <define name="linkinfo.element">
-          <element name="linkinfo" ditaarch:longName="linkinfo">
+          <element name="linkinfo" dita:longName="linkinfo">
             <a:documentation>The &lt;linkinfo> element allows you to place a descriptive paragraph following a list of links in a &lt;linklist> element. Category: Related Links
               elements</a:documentation>
             <ref name="linkinfo.attlist"/>
@@ -887,7 +917,7 @@ ORIGINAL CREATION DATE:
           </optional>
         </define>
         <define name="linkpool.element">
-          <element name="linkpool" ditaarch:longName="linkpool">
+          <element name="linkpool" dita:longName="linkpool">
             <a:documentation>The &lt;linkpool> element defines a group of links that have common characteristics, such as type or audience or source. When links are not in a &lt;linklist> (that is,
               they are in &lt;related-links> or &lt;linkpool> elements), the organization of links on final output is determined by the output process, not by the order that the links actually occur
               in the DITA topic. Category: Related Links elements</a:documentation>
@@ -1006,7 +1036,6 @@ ORIGINAL CREATION DATE:
       </optional>
     </define>
     <define name="shortdesc.attlist" combine="interleave">
-      <a:documentation>Shortdesc in map uses map/shortdesc so this one must be included, even though the element is common.</a:documentation>
       <ref name="global-atts"/>
       <optional>
         <attribute name="class" a:defaultValue="- topic/shortdesc "/>

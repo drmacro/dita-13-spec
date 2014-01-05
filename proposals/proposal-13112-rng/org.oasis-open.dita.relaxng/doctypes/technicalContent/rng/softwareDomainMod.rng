@@ -20,7 +20,7 @@
   All Rights Reserved.                                          
   ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:sch="http://purl.oclc.org/dsdl/schematron">
   <!-- Define the domain values of this module -->

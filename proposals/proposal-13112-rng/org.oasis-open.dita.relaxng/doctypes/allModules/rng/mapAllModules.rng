@@ -5,7 +5,9 @@
 <!--  -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  >
    <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle/>
     <headerComment>
@@ -17,7 +19,7 @@
 </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
-      <moduleShortName>Base topic</moduleShortName>
+      <moduleShortName>All Topic and Map types and domains</moduleShortName>
       <shellPublicIds>
         <dtdShell></dtdShell>
         <rncShell></rncShell>
@@ -28,58 +30,50 @@
   </moduleDesc>  
   <div><a:documentation>ROOT ELEMENT</a:documentation>
     <start>
-      <ref name="topic.element"/>
+      <ref name="map.element"/>
     </start>
   </div>  
   <div><a:documentation>DOMAINS ATTRIBUTE</a:documentation>
     <define name="domains-att">
       <attribute name="domains" 
         a:defaultValue="
-        (topic topic)
-        (topic abbrev-d)
-        (topic hazard-d)
-        (topic hi-d)
-        (topic indexing-d)
-        (topic pr-d)
-        (topic sw-d)
-        (topic ui-d)
-        (topic ut-d)
         "/>
     </define>
   </div>
     
-<div><a:documentation>INCLUDE MODULES</a:documentation>  
-  <include href="../../base/rng/topicMod.rng"/>
-  <include href="abbreviateDomainMod.rng"/>
-  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-  <include href="../../base/rng/highlightDomainMod.rng"/>
-  <include href="../../base/rng/indexingDomainMod.rng"/>
-  <include href="programmingDomainMod.rng"/>
-  <include href="softwareDomainMod.rng"/>
-  <include href="uiDomainMod.rng"/>
-  <include href="../../base/rng/utilitiesDomainMod.rng"/>
+
+    
+<div><a:documentation>Map types and domains</a:documentation>  
+ <include href="../../base/rng/mapMod.rng"/>
+ <include href="../../base/rng/mapGroupDomainMod.rng"/>
+ <include href="../../bookmap/rng/bookmapMod.rng"/>
+ <include href="../../learning/rng/learningMapdomainMod.rng"/>
+ <include href="../../subjectScheme/rng/classifyDomainMod.rng"/>
+ <include href="../../subjectScheme/rng/subjectSchemeMod.rng"/>
 </div>
+  
 <div><a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
   <define name="any">
-    <zeroOrMore>
-      <choice>
-        <ref name="topic.element"/>
-        <element>
-          <anyName>
-            <except>
-              <name>topic</name>
-            </except>
-          </anyName>
-          <zeroOrMore>
-            <attribute>
-              <anyName/>
-            </attribute>
-          </zeroOrMore>
-          <ref name="any"/>
-        </element>
-        <text/>
-      </choice>
-    </zeroOrMore>
-  </define>
-</div>
+      <zeroOrMore>
+        <choice>
+          <ref name="idElements"/>
+          <element>
+            <anyName>
+              <except>
+                <name>map</name>
+                <name>anchor</name>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <attribute>
+                <anyName/>
+              </attribute>
+            </zeroOrMore>
+            <ref name="any"/>
+          </element>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
+  </div>
 </grammar>

@@ -77,7 +77,9 @@
     <!-- Returns the title of the module -->
     <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
     <xsl:variable name="title" as="xs:string"
-      select="$rngGrammar/dita:moduleDesc/dita:moduleTitle"
+      select="if ($rngGrammar/dita:moduleDesc/dita:moduleTitle) 
+      then $rngGrammar/dita:moduleDesc/dita:moduleTitle 
+      else relpath:getName(document-uri(root($rngGrammar)))"
     />
     <xsl:sequence select="$title"/>
   </xsl:function>

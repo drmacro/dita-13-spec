@@ -2,7 +2,7 @@
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0">
 <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
    <moduleTitle>RelaxNG Foreign Domain</moduleTitle>
@@ -67,7 +67,7 @@ Define the Relax NG XML syntax as a DITA foreign vocabulary
         </optional>
       </define>
       <define name="rng_grammar.element">
-        <element name="rng_grammar" ditaarch:longName="Bold">
+        <element name="rng_grammar" dita:longName="Bold">
           <a:documentation></a:documentation>
           <ref name="rng_grammar.attlist"/>
           <ref name="rng_grammar.content"/>

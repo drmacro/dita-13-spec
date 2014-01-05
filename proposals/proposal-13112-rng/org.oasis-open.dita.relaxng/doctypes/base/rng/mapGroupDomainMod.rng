@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Map Group Domain</moduleTitle>
@@ -362,7 +362,7 @@ ORIGINAL CREATION DATE:
         <ref name="univ-atts"/>
       </define>
       <define name="mapref.element">
-        <element name="mapref" ditaarch:longName="Map reference">
+        <element name="mapref" dita:longName="Map reference">
           <a:documentation>The &lt;mapref> element is a convenience element that has the same meaning as a &lt;topicref> element that explicitly sets the format attribute to &#34;ditamap&#34;. The
             hierarchy of the referenced map is merged into the container map at the position of the reference, and the relationship tables of the child map are added to the parent
             map.</a:documentation>

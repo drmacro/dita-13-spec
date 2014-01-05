@@ -2,11 +2,9 @@
 <?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    <moduleTitle/>
+    <moduleTitle>DITA Topic Base RNG (only base domains)</moduleTitle>
     <headerComment xml:space="preserve">
 ============================================================= 
 MODULE:    DITA Topic Base RNG (only base domains)             
