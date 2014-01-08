@@ -8,14 +8,12 @@
   <!-- Math and equation domain elements to HTML -->
   
   <xsl:template match="*[contains(@class, ' equation-d/equation-inline ')]">
-    <xsl:message> + [DEBUG] equation-d/equation-inline </xsl:message>
     <fo:inline><xsl:apply-templates>
       <xsl:with-param name="blockOrInline" tunnel="yes" select="'inline'"/>
     </xsl:apply-templates></fo:inline>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' equation-d/equation-block ')]">
-    <xsl:message> + [DEBUG] equation-d/equation-block </xsl:message>
     <fo:block>
       <xsl:apply-templates>
         <xsl:with-param name="blockOrInline" tunnel="yes" select="'block'"/>
@@ -24,7 +22,6 @@
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' mathml-d/mathml ')]">
-    <xsl:message> + [DEBUG] mathml-d/mathml element</xsl:message>
     <xsl:apply-templates/>
   </xsl:template>
   
@@ -115,15 +112,14 @@
   
   <xsl:template match="m:math">
     <xsl:param name="blockOrInline" as="xs:string" tunnel="yes" select="'inline'"/>
-    <xsl:message> + [DEBUG] m:math...</xsl:message>
     <fo:instream-foreign-object>
-      <math xmlns="http://www.w3.org/1998/Math/MathML"      
+      <m:math      
         >
         <xsl:if test="$blockOrInline = 'block'">
           <xsl:attribute name="display" select="'block'"/>
         </xsl:if>
         <xsl:sequence select="node()"/><!-- Just copy the math to the output -->
-      </math>
+      </m:math>
     </fo:instream-foreign-object>
   </xsl:template>
   
