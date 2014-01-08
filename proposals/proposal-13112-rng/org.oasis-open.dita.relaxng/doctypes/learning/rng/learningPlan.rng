@@ -45,7 +45,7 @@
   -->
   <!-- Redefine the infotype entity to exclude other topic types and disallow nesting -->
   <define name="learningPlan-info-types">
-    <ref name="no-topic-nesting.element"/>
+    <empty/>
   </define>
 
   <!-- Include modules -->

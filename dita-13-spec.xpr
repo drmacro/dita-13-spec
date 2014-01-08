@@ -40,6 +40,7 @@
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossary.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossentry.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossgroup.rng"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/learning/rng/learningOverview.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/machineryIndustry/rng/machineryTask.rng"/>
             <file name="proposals/proposal-13059-branchfilter/org.oasis-open.dita.ditavalrefdomain.test/doctypes/rng/map-ditavalref-test.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/map.rng"/>

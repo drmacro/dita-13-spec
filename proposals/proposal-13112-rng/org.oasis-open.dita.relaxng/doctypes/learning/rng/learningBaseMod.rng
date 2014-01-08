@@ -23,11 +23,23 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-
-  <!-- Define the domain values of this module -->
-  <define name="domains-att-value" combine="choice">
-    <value>(topic learningBase+learningInteractionBase-d)</value>
-  </define>
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle></moduleTitle>
+    <headerComment xml:space="preserve">
+</headerComment>
+    <moduleMetadata>
+      <moduleType>topic</moduleType>
+      <moduleShortName>learningBase</moduleShortName>
+      <modulePublicIds>
+        <dtdEnt>-//OASIS//ENTITIES DITA Learning Base//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA Learning Base//EN</dtdMod>
+        <xsdMod>urn:oasis:names:tc:dita:xsd:learningBaseMod.xsd</xsdMod>
+        <rncMod>urn:oasis:names:tc:dita:rnc:learningBaseMod.rnc</rncMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:learningBaseMod.rng</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic learningBase+learningInteractionBase-d)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
   
   <define name="learningBasebody">
     <ref name="learningBasebody.element"/>

@@ -146,15 +146,15 @@
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
-          <xsl:message> + [DEBUG] DOMAIN EXTENSIONS: Found <xsl:sequence select="count($domainModules)"/> element domains modules.</xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
-        <xsl:message> + [DEBUG]     domainExtensionPatterns=<xsl:sequence select="$domainExtensionPatterns"/></xsl:message>
         <xsl:for-each-group select="$domainExtensionPatterns" group-by="tokenize(@name, '-')[last()]">
             <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="current-grouping-key()" /><xsl:text>    "</xsl:text>
             <xsl:sequence select="concat(current-grouping-key(), ' |', '&#x0a;')"/>
-            <xsl:apply-templates select="current-group()" mode="domainExtension" />
+            <xsl:apply-templates select="current-group()" mode="domainExtension" >
+              <xsl:with-param name="indent" as="xs:integer" select="26"/>
+            </xsl:apply-templates>
             <xsl:text>">&#x0a;</xsl:text>          
         </xsl:for-each-group>
 
@@ -162,18 +162,67 @@
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
 &lt;!-- ============================================================= -->
+
 </xsl:text>
-        <xsl:apply-templates 
-          select="$modulesToProcess[rngfunc:getModuleType(*) = 'attributedomain']" 
-          mode="attributeExtension" 
-        >
-          <xsl:with-param 
-            name="entityType" 
-            select="'mod'" 
-            as="xs:string" 
-            tunnel="yes"
-          />
-        </xsl:apply-templates>
+<!--
+<!ENTITY % props-attribute-extensions  
+  ""
+>
+<!ENTITY % base-attribute-extensions   
+  ""
+>       
+-->          
+        <xsl:variable name="domainModules" as="element()*"
+          select="$modulesToProcess[rngfunc:isAttributeDomain(.)]/*" 
+        />
+        <!-- ====== @props extensions ============ -->
+        <xsl:variable name="propsExtensionPatterns" as="element()*"
+          select="$domainModules//rng:define[@name = 'props-attribute-extensions']"
+        />
+<xsl:text>&lt;!ENTITY % props-attribute-extensions&#x0a;</xsl:text>
+<xsl:text>  "</xsl:text>
+        <xsl:for-each-group select="$propsExtensionPatterns" group-by="@name">
+            <!-- Here the referenced attribute group becomes the name of the entity 
+                 we want to reference. There should be exactly one <rng:ref> element
+                 within this <define>:
+                 
+  <define name="props-attribute-extensions" combine="interleave">
+    <ref name="deliveryTargetAtt-d-attribute"/>
+  </define>
+
+              -->
+            <xsl:variable name="entityName" as="xs:string"
+              select="rng:ref/@name"
+            />
+          <xsl:sequence select="concat('%', $entityName, ';', 
+            if (position() != last()) then concat('&#x0a;', str:indent(3)) else '')"/>
+        </xsl:for-each-group>
+<xsl:text>"&#x0a;&gt;&#x0a;</xsl:text>
+        
+        <!-- ====== @base extensions ============ -->
+        <xsl:variable name="baseExtensionPatterns" as="element()*"
+          select="$domainModules//rng:define[@name = 'base-attribute-extensions']"
+        />
+<xsl:text>&lt;!ENTITY % base-attribute-extensions&#x0a;</xsl:text>
+<xsl:text>  "</xsl:text>
+        <xsl:for-each-group select="$baseExtensionPatterns" group-by="@name">
+            <!-- Here the referenced attribute group becomes the name of the entity 
+                 we want to reference. There should be exactly one <rng:ref> element
+                 within this <define>:
+                 
+  <define name="base-attribute-extensions" combine="interleave">
+    <ref name="deliveryTargetAtt-d-attribute"/>
+  </define>
+
+              -->
+            <xsl:variable name="entityName" as="xs:string"
+              select="rng:ref/@name"
+            />
+          <xsl:sequence select="concat('%', $entityName, ';', 
+            if (position() != last()) then concat('&#x0a;', str:indent(3)) else '')"/>
+        </xsl:for-each-group>
+<xsl:text>"&#x0a;&gt;&#x0a;</xsl:text>
+        
 
 <xsl:text>
 &lt;!-- ============================================================= -->
@@ -181,7 +230,43 @@
 &lt;!-- ============================================================= -->
 </xsl:text>
         
-    <xsl:apply-templates select="$modulesToProcess" mode="generateExternalEntityDecls"/>
+    <!-- The *-info-types pattern will always be defined in the topic module
+         but may also be overridden in the reference to the module. Thus,
+         for each reference to a topic module we have to see what the effective
+         definition for the {topictype}-info-types pattern is and use it
+         here.
+      -->
+        <xsl:variable name="topicModuleIncludes" as="element()*">
+          <xsl:for-each select=".//rng:include">
+            <xsl:variable name="module" select="document(@href,.)"/>
+            <xsl:if test="rngfunc:getModuleType($module/*) = 'topic'">
+              <xsl:sequence select="."/>
+            </xsl:if>              
+          </xsl:for-each>
+        </xsl:variable>
+        
+        <xsl:message> + [DEBUG] topic nesting override: Found <xsl:sequence select="count($topicModuleIncludes)"/> topic modules</xsl:message>
+        
+        <xsl:for-each select="$topicModuleIncludes">
+          <xsl:choose>
+            <xsl:when test=".//rng:define">
+              <xsl:apply-templates select=".//rng:define" mode="generate-parment-decl-from-define"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <!-- The topic module is always included and we don't want to 
+                   reflect its -info-types pattern (because it's always just "topic")
+                -->
+              <xsl:variable name="module" select="document(./@href,.)" as="document-node()"/>
+              <xsl:variable name="topicType" as="xs:string" select="rngfunc:getModuleShortName($module/*)"/>
+              <xsl:if test="$topicType != 'topic'">
+                <xsl:apply-templates 
+                  select="$module//rng:define[ends-with(@name, '-info-types')]"
+                  mode="generate-parment-decl-from-define"
+                />
+              </xsl:if>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
 
         <!-- Only the ditabase doctype has a locally-defined containment
              section.

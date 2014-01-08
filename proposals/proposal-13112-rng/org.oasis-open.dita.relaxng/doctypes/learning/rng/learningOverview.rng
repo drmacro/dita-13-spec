@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- ============================================================= 
-  MODULE:    DITA Learning Overview - RNG              
-  VERSION:   1.2                                                
-  DATE:      November 2010                                       
-  ============================================================= -->
-<!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:learningOverview.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:learningOverview.rng:1.2
--->
-<!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)     
-  PURPOSE:    RNG for Learning Overview
-  ORIGINAL CREATION DATE:  
-  September 2010                                                
-  (C) Copyright Syncro Soft 2010-2011                                
-  All Rights Reserved.                                          
-  ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle/>
+    <headerComment xml:space="preserve">
+=============================================================
+                  HEADER                                    
+=============================================================
+MODULE:    DITA Learning Overview DTD                       
+VERSION:   1.2                                              
+DATE:      November 2009                                    
+                                                            
+=============================================================
+
+=============================================================
+                  PUBLIC DOCUMENT TYPE DEFINITION           
+                  TYPICAL INVOCATION                        
+                                                            
+Refer to this file by the following public identifier or an 
+    appropriate system identifier 
+PUBLIC "-//OASIS//DTD DITA Learning Overview//EN"
+    Delivered as file "learningOverview.dtd"                    
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                            
+PURPOSE:    DTD to describe DITA Learning Overview topic     
+                                                            
+ORIGINAL CREATION DATE:                                      
+           May 2007                                         
+                                                            
+           (C) Copyright OASIS Open 2007, 2009.             
+           All Rights Reserved.                             
+                                                            
+UPDATES:                                                    
+  2007.05.01 JPH: Original creation                         
+=============================================================
+
+    </headerComment>
+    <moduleMetadata>
+      <moduleType>topicshell</moduleType>
+      <moduleShortName>Learning overview</moduleShortName>
+      <shellPublicIds>
+        <dtdShell>-//OASIS//DTD DITA Learning Overview//EN</dtdShell>
+        <rncShell>urn:oasis:names:tc:dita:rnc:learningOverview.rnc</rncShell>
+        <rngShell>urn:oasis:names:tc:dita:rng:learningOverview.rng</rngShell>
+        <xsdShell>urn:oasis:names:tc:dita:xsd:learningOverview.xsd</xsdShell>
+      </shellPublicIds>
+    </moduleMetadata>
+  </moduleDesc>
   <!-- Define the root elements -->
   <start>
     <ref name="learningOverview.element"/>
@@ -31,11 +60,16 @@
   <define name="domains-att" combine="interleave">
     <optional>
       <attribute name="domains" 
-        a:defaultValue="(topic learningBase+learningInteractionBase-d) 
-        (topic learningInteractionBase-d) (topic learningInteractionBase-d learning-d)
+        a:defaultValue="
+        (topic learningBase+learningInteractionBase-d) 
+        (topic learningInteractionBase-d) 
+        (topic learningInteractionBase-d learning-d)
         (topic learningmeta-d)
         (topic learningBase learningOverview)
-        (topic hi-d) (topic ut-d) (topic indexing-d)"/>
+        (topic hi-d) 
+        (topic indexing-d)
+        (topic ut-d) 
+        "/>
     </optional>
   </define>
   
@@ -44,10 +78,11 @@
     other topic types and disallow nesting
   -->
   <define name="learningOverview-info-types">
-    <ref name="no-topic-nesting.element"/>
+    <empty/>
   </define>
   
   <!-- Include modules -->
+  <include href="../../base/rng/topicMod.rng"/>
   <include href="learningBaseMod.rng"/>
   <include href="learningOverviewMod.rng"/>
   <include href="../../base/rng/highlightDomainMod.rng"/>
@@ -60,24 +95,25 @@
   <!-- Define the any pattern to exclude elements with ID attributes
     from the wildcard and refer them expliceitely  -->
   <define name="any">
-    <zeroOrMore>
-      <choice>
-        <ref name="learningOverview.element"/>
-        <element>
-          <anyName>
-            <except>
-              <name>learningOverview</name>
-            </except>
-          </anyName>
-          <zeroOrMore>
-            <attribute>
-              <anyName/>
-            </attribute>
-          </zeroOrMore>
-          <ref name="any"/>
-        </element>
-        <text/>
-      </choice>
-    </zeroOrMore>
-  </define>
+      <zeroOrMore>
+        <choice>
+          <ref name="idElements"/>
+          <element>
+            <anyName>
+              <except>
+                <name>topic</name>
+                <name>learningOverview</name>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <attribute>
+                <anyName/>
+              </attribute>
+            </zeroOrMore>
+            <ref name="any"/>
+          </element>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
 </grammar>

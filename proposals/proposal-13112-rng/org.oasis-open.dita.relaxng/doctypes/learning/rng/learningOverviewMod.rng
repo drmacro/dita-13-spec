@@ -83,6 +83,9 @@
       <ref name="learningOverview.content"/>
     </element>
   </define>
+  <define name="idElements" combine="choice">
+    <ref name="learningOverview.element"/>
+  </define>
   <define name="learningOverview.attlist" combine="interleave">
     <ref name="learningOverview.attributes"/>
     <ref name="arch-atts"/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../org.oasis-open.dita.relaxng/doctypes/learning/rng/learningOverview.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<learningOverview id="overview_rft_q2d_tm">
+ <title>Overview</title>
+ <shortdesc></shortdesc>
+ <learningOverviewbody></learningOverviewbody>
+</learningOverview>
