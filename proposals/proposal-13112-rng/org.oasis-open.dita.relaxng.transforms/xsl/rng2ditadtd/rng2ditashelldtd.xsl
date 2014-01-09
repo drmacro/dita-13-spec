@@ -142,6 +142,8 @@
              domain extension patterns from all of them then process
              that set to generate one parameter entity for each unique
              element type being extended.
+             
+             Note: No space between declarations within this group.
           -->
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
@@ -150,14 +152,28 @@
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
         <xsl:for-each-group select="$domainExtensionPatterns" group-by="tokenize(@name, '-')[last()]">
-            <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="current-grouping-key()" /><xsl:text>    "</xsl:text>
-            <xsl:sequence select="concat(current-grouping-key(), ' |', '&#x0a;')"/>
-            <xsl:apply-templates select="current-group()" mode="domainExtension" >
-              <xsl:with-param name="indent" as="xs:integer" select="26"/>
-            </xsl:apply-templates>
-            <xsl:text>">&#x0a;</xsl:text>          
+            <xsl:variable name="firstPart" as="xs:string"
+              select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
+            />
+            <xsl:sequence select="$firstPart"/>
+            <xsl:sequence 
+              select="if (string-length($firstPart) lt 24) 
+              then str:indent(24 - string-length($firstPart)) 
+              else ' ' "/>
+            <xsl:text>"</xsl:text>
+            <xsl:sequence select="concat(current-grouping-key(), ' |', '&#x0a;', str:indent(24))"/>
+            <xsl:variable name="sep" as="xs:string"
+              select="concat('|', '&#x0a;', str:indent(24))"
+            />
+            <xsl:sequence select="
+              string-join(for $pattern in current-group() return concat('%', @name, ';'), $sep)
+              "/>
+            <xsl:text>&#x0a;</xsl:text>
+            <xsl:sequence select="str:indent(24)"/>
+            <xsl:text>"></xsl:text>          
         </xsl:for-each-group>
-
+        <xsl:text>&#x0a;</xsl:text>
+        
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->

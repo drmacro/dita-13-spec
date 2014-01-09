@@ -54,6 +54,7 @@ urn:dita-ng:dita:rng:basetopic.rng:1.3
     <a:documentation>MODULE INCLUSIONS</a:documentation>
     <include href="topicMod.rng"/>
     <include href="deliveryTargetAttDomain.rng"/>
+    <include href="hazardstatementDomainMod.rng"/>
     <include href="highlightDomainMod.rng"/>
     <include href="indexingDomainMod.rng"/>
     <include href="utilitiesDomainMod.rng"/>

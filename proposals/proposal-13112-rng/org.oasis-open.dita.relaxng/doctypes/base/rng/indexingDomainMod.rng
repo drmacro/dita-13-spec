@@ -7,7 +7,7 @@
     <headerComment/>
     <moduleMetadata>
       <moduleType>elementdomain</moduleType>
-      <moduleShortName>index-d</moduleShortName>
+      <moduleShortName>indexing-d</moduleShortName>
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA Indexing Domain//EN</dtdMod>
         <dtdEnt>-//OASIS//ENTITIES DITA Indexing Domain//EN</dtdEnt>
