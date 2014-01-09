@@ -37,7 +37,8 @@ urn:dita-ng:dita:rng:basetopic.rng:1.3
   <div>
     <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
     <define name="domains-att">
-      <attribute name="domains" a:defaultValue="
+      <attribute name="domains"
+        a:defaultValue="
         (topic topic)
         (topic hazard-d)
         (topic hi-d)
@@ -45,7 +46,8 @@ urn:dita-ng:dita:rng:basetopic.rng:1.3
         (topic ut-d)
         (topic hazard-d)
         a(props deliveryTarget)
-        "/>
+        "
+      />
     </define>
   </div>
   <div>

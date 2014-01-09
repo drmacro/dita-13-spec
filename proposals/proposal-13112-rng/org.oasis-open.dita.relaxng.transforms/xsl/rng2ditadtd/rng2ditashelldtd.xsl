@@ -228,7 +228,7 @@
 &lt;!-- ============================================================= -->
 &lt;!--                    TOPIC NESTING OVERRIDE                     -->
 &lt;!-- ============================================================= -->
-</xsl:text>
+&#x0a;</xsl:text>
         
     <!-- The *-info-types pattern will always be defined in the topic module
          but may also be overridden in the reference to the module. Thus,
@@ -245,20 +245,20 @@
           </xsl:for-each>
         </xsl:variable>
         
-        <xsl:message> + [DEBUG] topic nesting override: Found <xsl:sequence select="count($topicModuleIncludes)"/> topic modules</xsl:message>
-        
         <xsl:for-each select="$topicModuleIncludes">
           <xsl:choose>
             <xsl:when test=".//rng:define">
               <xsl:apply-templates select=".//rng:define" mode="generate-parment-decl-from-define"/>
             </xsl:when>
             <xsl:otherwise>
-              <!-- The topic module is always included and we don't want to 
-                   reflect its -info-types pattern (because it's always just "topic")
-                -->
               <xsl:variable name="module" select="document(./@href,.)" as="document-node()"/>
               <xsl:variable name="topicType" as="xs:string" select="rngfunc:getModuleShortName($module/*)"/>
-              <xsl:if test="$topicType != 'topic'">
+              <!-- The topic module is always included and we don't want to 
+                   reflect its -info-types pattern (because it's always just "topic").
+                   
+                   However, for shells that are configuring <topic>, we do want it.
+                -->
+              <xsl:if test="$topicType != 'topic' or (normalize-space(//rng:start/rng:ref/@name) = 'topic.element')">
                 <xsl:apply-templates 
                   select="$module//rng:define[ends-with(@name, '-info-types')]"
                   mode="generate-parment-decl-from-define"
@@ -285,8 +285,28 @@
 &lt;!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
 &lt;!-- ============================================================= -->
 </xsl:text>
-        <xsl:text>&#x0a;&lt;!ENTITY included-domains&#x0a;    "</xsl:text>
-        <xsl:apply-templates select="$modulesToProcess" mode="attributeOverride" />
+        <xsl:variable name="domainModules" as="element()*">
+          <xsl:for-each select=".//rng:include">
+            <xsl:variable name="module" select="document(@href,.)"/>
+            <xsl:if test="rngfunc:isElementDomain($module) or rngfunc:isAttributeDomain($module)">
+              <xsl:sequence select="$module/*"/>
+            </xsl:if>              
+          </xsl:for-each>
+        </xsl:variable>
+
+        <xsl:text>&#x0a;&lt;!ENTITY included-domains&#x0a;</xsl:text>
+        <xsl:sequence select="str:indent(27)"/>
+        <xsl:text>"</xsl:text>
+          <xsl:for-each select="$domainModules">
+            <xsl:variable name="attRef" as="xs:string"
+              select="concat('&amp;', normalize-space(rngfunc:getModuleShortName(.)), '-att', ';', '&#x0a;')"
+            />
+            <xsl:if test="position() > 1">
+              <!-- NOTE: The for-each loop introduces a space for each iteration. -->
+              <xsl:sequence select="str:indent(26)"/>
+            </xsl:if>
+            <xsl:sequence select="$attRef"/>
+          </xsl:for-each>
         <xsl:text>">&#x0a;</xsl:text>
 
 <xsl:text>
@@ -485,28 +505,6 @@
 
   <xsl:template match="rng:ref[ends-with(@name,'.element')]" mode="nestingOverride">
     <xsl:value-of select="substring-before(@name,'.element')" />
-  </xsl:template>
-
-  <xsl:template match="*" mode="attributeOverride">
-    <xsl:apply-templates mode="#current" select="node()" />
-  </xsl:template>
-
-  <xsl:template match="rng:grammar" mode="attributeOverride">
-    <xsl:variable name="domainValue" select="rng:define[@name='domains-atts-value']/rng:value[1]"/>
-    <xsl:if test="$domainValue and not($domainValue='')">
-      <xsl:variable name="domain" select="substring-before(tokenize($domainValue, ' ')[last()],')')"/>  
-      <xsl:variable name="domainAtt">
-        <xsl:choose>
-          <xsl:when test="contains($domain,'+')">
-            <xsl:value-of select="concat(substring-before($domain,'+'),'-att')" />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="concat($domain,'-att')" />
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:variable>
-      <xsl:text>&amp;</xsl:text><xsl:value-of select="$domainAtt" /><xsl:text>;&#x0a;</xsl:text>
-    </xsl:if>
   </xsl:template>
 
   <xsl:template match="rng:ref" mode="dtdExtension domainExtension">
