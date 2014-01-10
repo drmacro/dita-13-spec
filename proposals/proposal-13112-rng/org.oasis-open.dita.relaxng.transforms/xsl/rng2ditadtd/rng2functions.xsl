@@ -79,7 +79,7 @@
     <xsl:variable name="title" as="xs:string"
       select="if ($rngGrammar/dita:moduleDesc/dita:moduleTitle) 
       then $rngGrammar/dita:moduleDesc/dita:moduleTitle 
-      else relpath:getName(document-uri(root($rngGrammar)))"
+      else rngfunc:getGrammarUri($rngGrammar)"
     />
     <xsl:sequence select="$title"/>
   </xsl:function>
@@ -114,7 +114,7 @@
       select="if ($entityType = 'ent' and 
                  (rngfunc:getModuleType($rngGrammar) = 'topic' and rngfunc:getModuleShortName($rngGrammar) = 'topic'))
       then 'topicDefn'
-      else relpath:getNamePart(document-uri(root($rngGrammar)))"
+      else relpath:getNamePart(rngfunc:getGrammarUri($rngGrammar))"
     />
     <xsl:variable name="entityNamePart" as="xs:string"
          select="
@@ -127,6 +127,14 @@
       concat($entityNamePart, '.', $entityType)" 
     />
     <xsl:sequence select="$entFilename"/>
+  </xsl:function>
+  
+  <xsl:function name="rngfunc:getGrammarUri" as="xs:string">
+    <xsl:param name="rngGrammar" as="element(rng:grammar)"/>
+    <xsl:variable name="result" select="if (document-uri(root($rngGrammar))) 
+              then relpath:getName(document-uri(root($rngGrammar)))
+              else $rngGrammar/@origURI"/>
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
    <!-- ==========================================

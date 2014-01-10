@@ -32,10 +32,11 @@
        ============================== -->
 
   <xsl:template mode="entityFile" match="/">
-    <xsl:apply-templates mode="#current" select="node()" />
+    <xsl:apply-templates select="node()" />
   </xsl:template>
 
   <xsl:template mode="entityFile" match="rng:grammar">
+    <xsl:message> + [DEBUG] === entityFile: rng:grammar...</xsl:message>
     
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 
@@ -51,9 +52,9 @@
     <xsl:variable name="moduleType" as="xs:string"
       select="rngfunc:getModuleType(.)"
     />
-    
-    <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
-
+    <xsl:if test="false() and $doDebug">
+        <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
+    </xsl:if>
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>

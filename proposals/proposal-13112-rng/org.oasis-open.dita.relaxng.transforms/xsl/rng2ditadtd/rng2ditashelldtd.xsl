@@ -365,8 +365,6 @@
 </xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-        <xsl:message> + [DEBUG] === ELEMENT INTEGRATION: Processing <xsl:sequence select="count($modulesToProcess[rngfunc:getModuleType(*) = 'topic' or 
-                                      rngfunc:getModuleType(*) = 'map'])"/> modules.</xsl:message>
           <xsl:apply-templates 
             select="$modulesToProcess[rngfunc:getModuleType(*) = 'topic' or 
                                       rngfunc:getModuleType(*) = 'map']"
