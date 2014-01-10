@@ -311,6 +311,10 @@
   <xsl:template match="rng:div" mode="#all">
     <!-- RNG div elements are "transparent" and have no special meaning
          for DTD output (except possibly in a few special cases) 
+         
+         Note that this is really here for safety since we filter out
+         all the divs before doing any output processing once we have
+         gathered the modules to be processed.
       -->
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
