@@ -31,6 +31,7 @@
 
   <xsl:include href="../lib/relpath_util.xsl" />
   <xsl:include href="rng2functions.xsl"/>
+  <xsl:include href="rng2gatherModules.xsl"/>
   <xsl:include href="rng2preprocess.xsl"/>
   <xsl:include href="rng2ditashelldtd.xsl"/>
   <xsl:include href="rng2ditaent.xsl" />
@@ -98,7 +99,9 @@
 
     <!-- STEP 1: Figure out the RNG modules to be processed: -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
-      <xsl:apply-templates mode="gatherModules" />
+      <xsl:apply-templates mode="gatherModules" >
+        <xsl:with-param name="origModule" select="root(.)"/>
+      </xsl:apply-templates>
     </xsl:variable>
     
     <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
@@ -252,43 +255,6 @@
       </xsl:result-document>
     </xsl:if>
     
-  </xsl:template>
-
-  <!-- ==============================
-       Gather Modules mode
-       ============================== -->
-
-  <xsl:template match="rng:grammar" mode="gatherModules">
-    <xsl:apply-templates select="rng:include | rng:div" mode="#current" />
-  </xsl:template>
-
-  <xsl:template match="rng:include" mode="gatherModules">
-    <xsl:variable name="rngModule" as="document-node()?" select="document(@href, .)" />
-    <xsl:choose>
-      <xsl:when test="$rngModule">
-        <xsl:if test="false() and $doDebug">
-          <xsl:message> + [DEBUG] Resolved reference to module <xsl:sequence select="string(@href)" /></xsl:message>
-        </xsl:if>
-        <xsl:variable name="rngModuleNoDivs" as="document-node()">
-          <xsl:choose>
-            <xsl:when test="$rngModule//rng:div">
-              <xsl:apply-templates mode="removeDivs" select="$rngModule"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:sequence select="$rngModule"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:result-document href="{relpath:newFile(relpath:getParent(document-uri($rngModule)), concat(relpath:getNamePart(document-uri($rngModule)), '-nodiv', '.rng'))}">
-          <xsl:sequence select="$rngModuleNoDivs"/>
-        </xsl:result-document>
-        <xsl:sequence select="$rngModuleNoDivs" />
-        <xsl:apply-templates mode="gatherModules" select="$rngModuleNoDivs" />
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:message> - [ERROR] Failed to resolve reference to module <xsl:sequence select="string(@href)" /></xsl:message>
-      </xsl:otherwise>
-    </xsl:choose>
   </xsl:template>
 
   <!-- ==============================
