@@ -36,7 +36,7 @@
   </xsl:template>
 
   <xsl:template mode="entityFile" match="rng:grammar">
-    <xsl:message> + [DEBUG] === entityFile: rng:grammar...</xsl:message>
+    <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
     
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 
@@ -45,14 +45,14 @@
       select="rngfunc:getModuleShortName(.)" 
       as="xs:string"/>
     <xsl:variable name="domainValue" as="xs:string?" 
-      select="rng:define[@name='domains-att-contribution']/rng:value[1]"/>
+      select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"/>
     <xsl:variable name="domainPrefix" as="xs:string"
       select="rngfunc:getModuleShortName(.)" 
     />
     <xsl:variable name="moduleType" as="xs:string"
       select="rngfunc:getModuleType(.)"
     />
-    <xsl:if test="false() and $doDebug">
+    <xsl:if test="true() and $doDebug">
         <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
     </xsl:if>
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>

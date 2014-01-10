@@ -29,22 +29,22 @@
       <xsl:if test="$origURI">
         <xsl:attribute name="origURI" select="$origURI"/>
       </xsl:if>
-      <xsl:apply-templates select="@*,node()"/>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
   <xsl:template mode="removeDivs" match="*">
     <xsl:copy>
-      <xsl:apply-templates select="@*,node()"/>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template match="@*|text()|processing-instruction()|comment()">
+  <xsl:template match="@*|text()|processing-instruction()|comment()" mode="removeDivs">
     <xsl:sequence select="."/>
   </xsl:template>
   
   <xsl:template mode="removeDivs" match="rng:div" priority="10">
-    <xsl:apply-templates mode="#current"/>
+    <xsl:apply-templates mode="#current" select="node()"/>
   </xsl:template>
   
 </xsl:stylesheet>

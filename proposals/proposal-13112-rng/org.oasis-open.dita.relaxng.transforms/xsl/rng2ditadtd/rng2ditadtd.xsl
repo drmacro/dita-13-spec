@@ -279,6 +279,9 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
+        <xsl:result-document href="{relpath:newFile(relpath:getParent(document-uri($rngModule)), concat(relpath:getNamePart(document-uri($rngModule)), '-nodiv', '.rng'))}">
+          <xsl:sequence select="$rngModuleNoDivs"/>
+        </xsl:result-document>
         <xsl:sequence select="$rngModuleNoDivs" />
         <xsl:apply-templates mode="gatherModules" select="$rngModuleNoDivs" />
       </xsl:when>
