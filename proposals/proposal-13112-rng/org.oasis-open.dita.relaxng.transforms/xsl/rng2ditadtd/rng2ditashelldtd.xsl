@@ -46,7 +46,7 @@
     <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
     
     <xsl:if test="$shellType != 'topicshell' and $shellType != 'mapshell'">
-      <xsl:message terminate="yes"> - [ERROR] mode dtdFile: Expected module type 'topicShell' or 'mapShell', got "<xsl:sequence select="$shellType"/>".</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] mode dtdFile: Expected module type 'topicshell' or 'mapshell', got "<xsl:sequence select="$shellType"/>".</xsl:message>
     </xsl:if>
     
     <!-- ====================================
@@ -58,14 +58,14 @@
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
 
     <xsl:choose>
-      <xsl:when test="$shellType='mapShell'">
+      <xsl:when test="$shellType='mapshell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                MAP ENTITY DECLARATIONS                        -->
 &lt;!-- ============================================================= -->
 </xsl:text>
       </xsl:when>
-      <xsl:when test="$shellType='topicShell'">
+      <xsl:when test="$shellType='topicshell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--              TOPIC ENTITY DECLARATIONS                        -->
@@ -123,7 +123,7 @@
         >
           <xsl:with-param 
             name="entityType" 
-            select="'mod'" 
+            select="'ent'" 
             as="xs:string" 
             tunnel="yes"
           />
@@ -343,14 +343,14 @@
         </xsl:apply-templates>
 
     <xsl:choose>
-      <xsl:when test="$shellType='map'">
+      <xsl:when test="$shellType='mapshell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                      MAP ELEMENT INTEGRATION                  -->
 &lt;!-- ============================================================= -->
 </xsl:text>
       </xsl:when>
-      <xsl:when test="$shellType='topic'">
+      <xsl:when test="$shellType='topicshell'">
 <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    TOPIC ELEMENT INTEGRATION                  -->
@@ -365,9 +365,11 @@
 </xsl:text>
       </xsl:otherwise>
     </xsl:choose>
+        <xsl:message> + [DEBUG] === ELEMENT INTEGRATION: Processing <xsl:sequence select="count($modulesToProcess[rngfunc:getModuleType(*) = 'topic' or 
+                                      rngfunc:getModuleType(*) = 'map'])"/> modules.</xsl:message>
           <xsl:apply-templates 
-            select="$modulesToProcess[rngfunc:getModuleType(./*) = 'topic' or 
-                                      rngfunc:getModuleType(./*) = 'map']"
+            select="$modulesToProcess[rngfunc:getModuleType(*) = 'topic' or 
+                                      rngfunc:getModuleType(*) = 'map']"
             mode="entityDeclaration"
           >
             <xsl:with-param 
@@ -462,13 +464,15 @@
          else concat($shortName, '-def')
       "
     />
-        
-    <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
-    <xsl:sequence select="str:indent(3)"/>
-    <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
-    <xsl:sequence select="str:indent(9)"/>
-    <xsl:sequence select="concat('&quot;', $entFilename, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
-    <xsl:text>&gt;</xsl:text><xsl:sequence select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
+    
+    <xsl:if test="$entityType = 'mod' or $shortName != 'topic'">    
+      <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
+      <xsl:sequence select="str:indent(3)"/>
+      <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
+      <xsl:sequence select="str:indent(9)"/>
+      <xsl:sequence select="concat('&quot;', $entFilename, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
+      <xsl:text>&gt;</xsl:text><xsl:sequence select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*" mode="domainExtension">
