@@ -20,7 +20,7 @@
   </moduleDesc>
 
   <div>
-    <a:documentation>Define domain extension patterns</a:documentation>
+    <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
     <define name="hazard-d-note">
       <ref name="hazardstatement"/>
     </define>

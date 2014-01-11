@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-  MODULE:    DITA Strict Taskbody Constraint - RNG              
-  VERSION:   1.2                                                
-  DATE:      November 2010                                       
-  ============================================================= -->
-<!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:strictTaskbodyConstraintMod.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:strictTaskbodyConstraintMod.rng:1.2
--->
-<!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)     
-  PURPOSE:    Declaring the domain restrictions for the strict task
-              constraint module
-  ORIGINAL CREATION DATE:  
-  September 2010                                                
-  (C) Copyright Syncro Soft 2010-2011                                
-  All Rights Reserved.                                          
-  ============================================================= -->
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   >
-  <!-- Define the domain values of this module -->
+  <div><a:documentation> Define the domain values of this module </a:documentation>
   <define name="domains-att-value" combine="choice">
     <value>(topic task strictTaskbody-c)</value>
   </define>
@@ -75,5 +56,5 @@
       <ref name="steps.element"/>
     </define>
   </include>
-  
+  </div>  
 </grammar>

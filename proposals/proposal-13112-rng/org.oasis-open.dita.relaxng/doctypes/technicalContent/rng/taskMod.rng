@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-  MODULE:    DITA Task - RNG              
-  VERSION:   1.2                                                
-  DATE:      November 2010                                       
-  ============================================================= -->
-<!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:taskMod.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:taskMod.rng:1.2
--->
-<!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)     
-  PURPOSE:    Define elements and specialization attributes
-              for Tasks            
-  ORIGINAL CREATION DATE:  
-  September 2010                                                
-  (C) Copyright Syncro Soft 2010-2011                                
-  All Rights Reserved.                                          
-  ============================================================= -->
 <grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0" 
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-  <!-- Define the domain values of this module -->
+  <div><a:documentation> Define the domain values of this module </a:documentation>
   <define name="domains-att-value" combine="choice">
     <value>(topic task)</value>
   </define>
   
-  <!-- Define patterns -->
+  </div><div><a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
   
   <define name="taskbody">
     <ref name="taskbody.element"/>
@@ -109,13 +89,13 @@
     <ref name="chdesc.element"/>
   </define>
   
-  <!-- SHARED ATTRIBUTE LISTS -->
+  </div><div><a:documentation> SHARED ATTRIBUTE LISTS </a:documentation>
   
-  <!--
+  </div><div><a:documentation>
     Provide an alternative set of univ-atts 
     that allows importance to be redefined 
     locally
-  -->
+  </a:documentation>
   <define name="univ-atts-no-importance-task">
     <ref name="id-atts"/>
     <ref name="filter-atts"/>
@@ -144,9 +124,9 @@
     <ref name="info-types"/>
   </define>
 
-  <!-- Define elements content and attributes -->
+  </div><div><a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
   
-  <!-- LONG NAME: Task -->
+  </div><div><a:documentation> LONG NAME: Task </a:documentation>
   <define name="task.content">
     <ref name="title"/>
     <optional>
@@ -182,10 +162,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <task> element is the top-level element for a task topic. Tasks are the main building blocks for task-oriented user assistance. They generally provide step-by-step instructions that will enable a user to perform a task. A task answers the question of "how to?" by telling the user precisely what to do and the order in which to do it. Tasks have the same high-level structure as other topics, with a title, short description and body.
+  </div><div><a:documentation>
+    <![CDATA[The <task> element is the top-level element for a task topic. Tasks are the main building blocks for task-oriented user assistance. They generally provide step-by-step instructions that will enable a user to perform a task. A task answers the question of "how to?" by telling the user precisely what to do and the order in which to do it. Tasks have the same high-level structure as other topics, with a title, short description and body.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="task.element">
     <element name="task">
       <ref name="task.attlist"/>
@@ -200,7 +180,7 @@
     </optional>
   </define>
   
-  <!-- LONG NAME: Task Body -->
+  </div><div><a:documentation> LONG NAME: Task Body </a:documentation>
   <define name="taskbody.content">
     <zeroOrMore>
       <choice>
@@ -237,10 +217,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <taskbody> element is the main body-level element inside a task topic. A task body has a very specific structure, with the following elements in this order: <prereq>, <context>, <steps>, <result>, <example> and <postreq>. Each of the body sections are optional.
+  </div><div><a:documentation>
+    <![CDATA[The <taskbody> element is the main body-level element inside a task topic. A task body has a very specific structure, with the following elements in this order: <prereq>, <context>, <steps>, <result>, <example> and <postreq>. Each of the body sections are optional.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="taskbody.element">
     <element name="taskbody">
       <ref name="taskbody.attlist"/>
@@ -251,7 +231,7 @@
     <ref name="taskbody.attributes"/>
   </define>
   
-  <!-- LONG NAME: Prerequisites -->
+  </div><div><a:documentation> LONG NAME: Prerequisites </a:documentation>
   <define name="prereq.content">
     <zeroOrMore>
       <ref name="section.notitle.cnt"/>
@@ -263,10 +243,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The pre-requisite (<prereq>) section of a task should document things the user needs to know or do before starting the current task. Prerequisite links will be placed in a list after the related-links section; on output the <prereq> links from the related-links section are added to the <prereq> section.
+  </div><div><a:documentation>
+    <![CDATA[The pre-requisite (<prereq>) section of a task should document things the user needs to know or do before starting the current task. Prerequisite links will be placed in a list after the related-links section; on output the <prereq> links from the related-links section are added to the <prereq> section.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="prereq.element">
     <element name="prereq">
       <ref name="prereq.attlist"/>
@@ -277,7 +257,7 @@
     <ref name="prereq.attributes"/>
   </define>
   
-  <!-- LONG NAME: Context -->
+  </div><div><a:documentation> LONG NAME: Context </a:documentation>
   <define name="context.content">
     <zeroOrMore>
       <ref name="section.notitle.cnt"/>
@@ -289,10 +269,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <context> section of a task provides background information for the task. This information helps the user understand what the purpose of the task is and what they will gain by completing the task. This section should be brief and does not replace or recreate a concept topic on the same subject, although the context section may include some conceptual information.
+  </div><div><a:documentation>
+    <![CDATA[The <context> section of a task provides background information for the task. This information helps the user understand what the purpose of the task is and what they will gain by completing the task. This section should be brief and does not replace or recreate a concept topic on the same subject, although the context section may include some conceptual information.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="context.element">
     <element name="context">
       <ref name="context.attlist"/>
@@ -303,7 +283,7 @@
     <ref name="context.attributes"/>
   </define>
   
-  <!-- LONG NAME: Informal Steps -->
+  </div><div><a:documentation> LONG NAME: Informal Steps </a:documentation>
   <define name="steps-informal.content">
     <zeroOrMore>
       <ref name="section.notitle.cnt"/>
@@ -315,7 +295,7 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!-- doc:The <steps-informal> element allows authors to describe procedural task information that would not normally be described as steps. -->
+  </div><div><a:documentation> <![CDATA[The <steps-informal> element allows authors to describe procedural task information that would not normally be described as steps. ]]></a:documentation>
   <define name="steps-informal.element">
     <element name="steps-informal">
       <ref name="steps-informal.attlist"/>
@@ -326,7 +306,7 @@
     <ref name="steps-informal.attributes"/>
   </define>
   
-  <!-- LONG NAME: Steps -->
+  </div><div><a:documentation> LONG NAME: Steps </a:documentation>
   <define name="steps.content">
     <oneOrMore>
       <optional>
@@ -341,10 +321,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <steps> section of a task provides the main content of the task topic. The task is described as a series of steps that the user must follow to accomplish the task. One or more <steps> elements is required inside the <steps> section.
+  </div><div><a:documentation>
+    <![CDATA[The <steps> section of a task provides the main content of the task topic. The task is described as a series of steps that the user must follow to accomplish the task. One or more <steps> elements is required inside the <steps> section.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="steps.element">
     <element name="steps">
       <ref name="steps.attlist"/>
@@ -355,7 +335,7 @@
     <ref name="steps.attributes"/>
   </define>
   
-  <!-- LONG NAME: Steps: Unordered -->
+  </div><div><a:documentation> LONG NAME: Steps: Unordered </a:documentation>
   <define name="steps-unordered.content">
     <oneOrMore>
       <optional>
@@ -370,10 +350,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:Like the <steps> element, the <steps-unordered> section of a task provides the main content of the task topic, but particularly for cases in which the order of steps may vary from one situation to another. One or more steps is required inside the <steps-unordered> section.
+  </div><div><a:documentation>
+    <![CDATA[Like the <steps> element, the <steps-unordered> section of a task provides the main content of the task topic, but particularly for cases in which the order of steps may vary from one situation to another. One or more steps is required inside the <steps-unordered> section.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="steps-unordered.element">
     <element name="steps-unordered">
       <ref name="steps-unordered.attlist"/>
@@ -384,7 +364,7 @@
     <ref name="steps-unordered.attributes"/>
   </define>
   
-  <!-- LONG NAME: Step section -->
+  </div><div><a:documentation> LONG NAME: Step section </a:documentation>
   <define name="stepsection.content">
     <zeroOrMore>
       <ref name="listitem.cnt"/>
@@ -396,7 +376,7 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!-- doc:The <stepsection> element provides expository text before a step element. Although the element is specialized from <li> and has the same content model as a list item, this is not considered a step, and rendering engines may choose to skip this element when numbering steps. -->
+  </div><div><a:documentation> <![CDATA[The <stepsection> element provides expository text before a step element. Although the element is specialized from <li> and has the same content model as a list item, this is not considered a step, and rendering engines may choose to skip this element when numbering steps. ]]></a:documentation>
   <define name="stepsection.element">
     <element name="stepsection">
       <ref name="stepsection.attlist"/>
@@ -407,7 +387,7 @@
     <ref name="stepsection.attributes"/>
   </define>
   
-  <!-- LONG NAME: Step -->
+  </div><div><a:documentation> LONG NAME: Step </a:documentation>
   <define name="step.content">
     <zeroOrMore>
       <ref name="note"/>
@@ -443,10 +423,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <step> element represents an action that a user must follow to accomplish a task. Each step in a task must contain a command <cmd> element which describes the particular action the user must do to accomplish the overall task. The step element can also contain information <info>, substeps <substeps>, tutorial information <tutorialinfo>, a step example <stepxmp>, choices <choices> or a stepresult <stepresult>, although these are optional.
+  </div><div><a:documentation>
+    <![CDATA[The <step> element represents an action that a user must follow to accomplish a task. Each step in a task must contain a command <cmd> element which describes the particular action the user must do to accomplish the overall task. The step element can also contain information <info>, substeps <substeps>, tutorial information <tutorialinfo>, a step example <stepxmp>, choices <choices> or a stepresult <stepresult>, although these are optional.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="step.element">
     <element name="step">
       <ref name="step.attlist"/>
@@ -457,7 +437,7 @@
     <ref name="step.attributes"/>
   </define>
   
-  <!-- LONG NAME: Command -->
+  </div><div><a:documentation> LONG NAME: Command </a:documentation>
   <define name="cmd.content">
     <zeroOrMore>
       <ref name="ph.cnt"/>
@@ -472,10 +452,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The command (<cmd>) element is required as the first element inside a <step>. It provides the active voice instruction to the user for completing the step, and should not be more than one sentence. If the step needs additional explanation, this can follow the <cmd> element inside an <info > element.
+  </div><div><a:documentation>
+    <![CDATA[The command (<cmd>) element is required as the first element inside a <step>. It provides the active voice instruction to the user for completing the step, and should not be more than one sentence. If the step needs additional explanation, this can follow the <cmd> element inside an <info > element.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="cmd.element">
     <element name="cmd">
       <ref name="cmd.attlist"/>
@@ -486,7 +466,7 @@
     <ref name="cmd.attributes"/>
   </define>
  
-  <!-- LONG NAME: Information -->
+  </div><div><a:documentation> LONG NAME: Information </a:documentation>
   <define name="info.content">
     <zeroOrMore>
       <ref name="itemgroup.cnt"/>
@@ -498,10 +478,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The information element (<info>) occurs inside a <step> element to provide additional information about the step.
+  </div><div><a:documentation>
+    <![CDATA[The information element (<info>) occurs inside a <step> element to provide additional information about the step.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="info.element">
     <element name="info">
       <ref name="info.attlist"/>
@@ -512,7 +492,7 @@
     <ref name="info.attributes"/>
   </define>
   
-  <!-- LONG NAME: Sub-steps -->
+  </div><div><a:documentation> LONG NAME: Sub-steps </a:documentation>
   <define name="substeps.content">
     <oneOrMore>
       <ref name="substep"/>
@@ -524,10 +504,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <substeps> element allows you to break a step down into a series of separate actions, and should be used only if necessary. Try to describe the steps of a task in a single level of steps. If you need to use more than one level of substep nesting, you should probably rewrite the task to simplify it.
+  </div><div><a:documentation>
+    <![CDATA[The <substeps> element allows you to break a step down into a series of separate actions, and should be used only if necessary. Try to describe the steps of a task in a single level of steps. If you need to use more than one level of substep nesting, you should probably rewrite the task to simplify it.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="substeps.element">
     <element name="substeps">
       <ref name="substeps.attlist"/>
@@ -538,7 +518,7 @@
     <ref name="substeps.attributes"/>
   </define>
   
-  <!-- LONG NAME: Sub-step -->
+  </div><div><a:documentation> LONG NAME: Sub-step </a:documentation>
   <define name="substep.content">
     <zeroOrMore>
       <ref name="note"/>
@@ -571,10 +551,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:A <substep> element has the same structure as a <step>, except that it does not allow lists of choices or substeps within it, in order to prevent unlimited nesting of steps.
+  </div><div><a:documentation>
+    <![CDATA[A <substep> element has the same structure as a <step>, except that it does not allow lists of choices or substeps within it, in order to prevent unlimited nesting of steps.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="substep.element">
     <element name="substep">
       <ref name="substep.attlist"/>
@@ -585,7 +565,7 @@
     <ref name="substep.attributes"/>
   </define>
  
-  <!-- LONG NAME: Tutorial Information -->
+  </div><div><a:documentation> LONG NAME: Tutorial Information </a:documentation>
   <define name="tutorialinfo.content">
     <zeroOrMore>
       <ref name="itemgroup.cnt"/>
@@ -597,10 +577,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The tutorial info (<tutorialinfo>) element contains additional information that is useful when the task is part of a tutorial.
+  </div><div><a:documentation>
+    <![CDATA[The tutorial info (<tutorialinfo>) element contains additional information that is useful when the task is part of a tutorial.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="tutorialinfo.element">
     <element name="tutorialinfo">
       <ref name="tutorialinfo.attlist"/>
@@ -611,7 +591,7 @@
     <ref name="tutorialinfo.attributes"/>
   </define>
 
-  <!-- LONG NAME: Step Example -->
+  </div><div><a:documentation> LONG NAME: Step Example </a:documentation>
   <define name="stepxmp.content">
     <zeroOrMore>
       <ref name="itemgroup.cnt"/>
@@ -623,10 +603,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The step example (<stepxmp>) element is used to illustrate a step of a task. The example can be a couple of words, or an entire paragraph.
+  </div><div><a:documentation>
+    <![CDATA[The step example (<stepxmp>) element is used to illustrate a step of a task. The example can be a couple of words, or an entire paragraph.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="stepxmp.element">
     <element name="stepxmp">
       <ref name="stepxmp.attlist"/>
@@ -637,7 +617,7 @@
     <ref name="stepxmp.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choices -->
+  </div><div><a:documentation> LONG NAME: Choices </a:documentation>
   <define name="choices.content">
     <oneOrMore>
       <ref name="choice"/>
@@ -649,10 +629,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <choices> element contains a list of <choice> elements. It is used when the user will need to choose one of several actions while performing the steps of a task.
+  </div><div><a:documentation>
+    <![CDATA[The <choices> element contains a list of <choice> elements. It is used when the user will need to choose one of several actions while performing the steps of a task.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="choices.element">
     <element name="choices">
       <ref name="choices.attlist"/>
@@ -663,7 +643,7 @@
     <ref name="choices.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choice -->
+  </div><div><a:documentation> LONG NAME: Choice </a:documentation>
   <define name="choice.content">
     <zeroOrMore>
       <ref name="listitem.cnt"/>
@@ -675,10 +655,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:Each <choice> element describes one way that the user could accomplish the current step.
+  </div><div><a:documentation>
+    <![CDATA[Each <choice> element describes one way that the user could accomplish the current step.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="choice.element">
     <element name="choice">
       <ref name="choice.attlist"/>
@@ -689,7 +669,7 @@
     <ref name="choice.attributes"/>
   </define>
 
-  <!-- LONG NAME: Choice Table -->
+  </div><div><a:documentation> LONG NAME: Choice Table </a:documentation>
   <define name="choicetable.content">
     <optional>
       <ref name="chhead"/>
@@ -721,10 +701,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <choicetable> element contains a series of optional choices available within a step of a task.
+  </div><div><a:documentation>
+    <![CDATA[The <choicetable> element contains a series of optional choices available within a step of a task.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="choicetable.element">
     <element name="choicetable">
       <ref name="choicetable.attlist"/>
@@ -735,7 +715,7 @@
     <ref name="choicetable.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choice Head -->
+  </div><div><a:documentation> LONG NAME: Choice Head </a:documentation>
   <define name="chhead.content">
     <ref name="choptionhd"/>
     <ref name="chdeschd"/>
@@ -746,10 +726,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <chhead> element is a container inside the <choicetable> element that provides specific heading text to override the default Options and Description headings. The <chhead> element contains both a <choptionhd> and <chdeschd> element as a pair.
+  </div><div><a:documentation>
+    <![CDATA[The <chhead> element is a container inside the <choicetable> element that provides specific heading text to override the default Options and Description headings. The <chhead> element contains both a <choptionhd> and <chdeschd> element as a pair.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="chhead.element">
     <element name="chhead">
       <ref name="chhead.attlist"/>
@@ -760,7 +740,7 @@
     <ref name="chhead.attributes"/>
   </define>
 
-  <!-- LONG NAME: Choice Option Head -->
+  </div><div><a:documentation> LONG NAME: Choice Option Head </a:documentation>
   <define name="choptionhd.content">
     <zeroOrMore>
       <ref name="tblcell.cnt"/>
@@ -775,10 +755,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <choptionhd> element provides a specific label for the list of options that a user chooses from to accomplish a step. The default label for options is Option.
+  </div><div><a:documentation>
+    <![CDATA[The <choptionhd> element provides a specific label for the list of options that a user chooses from to accomplish a step. The default label for options is Option.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="choptionhd.element">
     <element name="choptionhd">
       <ref name="choptionhd.attlist"/>
@@ -789,7 +769,7 @@
     <ref name="choptionhd.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choice Description Head -->
+  </div><div><a:documentation> LONG NAME: Choice Description Head </a:documentation>
   <define name="chdeschd.content">
     <zeroOrMore>
       <ref name="tblcell.cnt"/>
@@ -804,10 +784,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <chdeschd> option provides a specific label for the list of descriptions of options that a user must choose to accomplish a step of a task. The default label overridden by <chdeschd> is Description.
+  </div><div><a:documentation>
+    <![CDATA[The <chdeschd> option provides a specific label for the list of descriptions of options that a user must choose to accomplish a step of a task. The default label overridden by <chdeschd> is Description.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="chdeschd.element">
     <element name="chdeschd">
       <ref name="chdeschd.attlist"/>
@@ -818,7 +798,7 @@
     <ref name="chdeschd.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choice Row -->
+  </div><div><a:documentation> LONG NAME: Choice Row </a:documentation>
   <define name="chrow.content">
     <ref name="choption"/>
     <ref name="chdesc"/>
@@ -829,10 +809,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <chrow> element is a container inside the <choicetable> element. The <chrow> element contains both a <choption> and <chdesc> element as a pair.
+  </div><div><a:documentation>
+    <![CDATA[The <chrow> element is a container inside the <choicetable> element. The <chrow> element contains both a <choption> and <chdesc> element as a pair.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="chrow.element">
     <element name="chrow">
       <ref name="chrow.attlist"/>
@@ -843,7 +823,7 @@
     <ref name="chrow.attributes"/>
   </define>
   
-  <!-- LONG NAME: Choice Option -->
+  </div><div><a:documentation> LONG NAME: Choice Option </a:documentation>
   <define name="choption.content">
     <zeroOrMore>
       <ref name="tblcell.cnt"/>
@@ -858,10 +838,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <choption> element describes an option that a user could choose to accomplish a step of a task. In a user interface, for example, this might be the name of radio button.
+  </div><div><a:documentation>
+    <![CDATA[The <choption> element describes an option that a user could choose to accomplish a step of a task. In a user interface, for example, this might be the name of radio button.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="choption.element">
     <element name="choption">
       <ref name="choption.attlist"/>
@@ -872,7 +852,7 @@
     <ref name="choption.attributes"/>
   </define>
  
-  <!-- LONG NAME: Choice Description -->
+  </div><div><a:documentation> LONG NAME: Choice Description </a:documentation>
   <define name="chdesc.content">
     <zeroOrMore>
       <ref name="tblcell.cnt"/>
@@ -887,10 +867,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <chdesc> element is a description of an option that a user chooses while performing a step to accomplish a task. It explains why the user would choose that option, and might explain the result of the choice when it is not immediately obvious.
+  </div><div><a:documentation>
+    <![CDATA[The <chdesc> element is a description of an option that a user chooses while performing a step to accomplish a task. It explains why the user would choose that option, and might explain the result of the choice when it is not immediately obvious.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="chdesc.element">
     <element name="chdesc">
       <ref name="chdesc.attlist"/>
@@ -901,7 +881,7 @@
     <ref name="chdesc.attributes"/>
   </define>
  
-  <!-- LONG NAME: Step Result -->
+  </div><div><a:documentation> LONG NAME: Step Result </a:documentation>
   <define name="stepresult.content">
     <zeroOrMore>
       <ref name="itemgroup.cnt"/>
@@ -913,10 +893,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <stepresult> element provides information on the expected outcome of a step. If a user interface is being documented, the outcome could describe a dialog box opening, or the appearance of a progress indicator. Step results are useful to assure a user that they are on track, but should not be used for every step, as this quickly becomes tedious.
+  </div><div><a:documentation>
+    <![CDATA[The <stepresult> element provides information on the expected outcome of a step. If a user interface is being documented, the outcome could describe a dialog box opening, or the appearance of a progress indicator. Step results are useful to assure a user that they are on track, but should not be used for every step, as this quickly becomes tedious.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="stepresult.element">
     <element name="stepresult">
       <ref name="stepresult.attlist"/>
@@ -927,7 +907,7 @@
     <ref name="stepresult.attributes"/>
   </define>
  
-  <!-- LONG NAME: Result -->
+  </div><div><a:documentation> LONG NAME: Result </a:documentation>
   <define name="result.content">
     <zeroOrMore>
       <ref name="section.notitle.cnt"/>
@@ -939,10 +919,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <result> element describes the expected outcome for the task as a whole.
+  </div><div><a:documentation>
+    <![CDATA[The <result> element describes the expected outcome for the task as a whole.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="result.element">
     <element name="result">
       <ref name="result.attlist"/>
@@ -953,7 +933,7 @@
     <ref name="result.attributes"/>
   </define>
  
-  <!-- LONG NAME: Post Requirements -->
+  </div><div><a:documentation> LONG NAME: Post Requirements </a:documentation>
   <define name="postreq.content">
     <zeroOrMore>
       <ref name="section.notitle.cnt"/>
@@ -965,10 +945,10 @@
       <attribute name="outputclass"/>
     </optional>
   </define>
-  <!--
-    doc:The <postreq> element describes steps or tasks that the user should do after the successful completion of the current task. It is often supported by links to the next task or tasks in the <related-links> section.
+  </div><div><a:documentation>
+    <![CDATA[The <postreq> element describes steps or tasks that the user should do after the successful completion of the current task. It is often supported by links to the next task or tasks in the <related-links> section.
     Category: Task elements
-  -->
+  ]]></a:documentation>
   <define name="postreq.element">
     <element name="postreq">
       <ref name="postreq.attlist"/>
@@ -979,7 +959,7 @@
     <ref name="postreq.attributes"/>
   </define>
 
-  <!-- Specialization attributes. Global attributes and class defaults -->
+  </div><div><a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
   
   <define name="task.attlist" combine="interleave">
     <ref name="global-atts"/>
@@ -1143,4 +1123,5 @@
       <attribute name="class" a:defaultValue="- topic/stentry task/chdesc "/>
     </optional>
   </define>
+  </div>
 </grammar>

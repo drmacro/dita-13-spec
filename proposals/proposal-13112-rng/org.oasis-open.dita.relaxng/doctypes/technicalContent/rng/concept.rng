@@ -47,7 +47,7 @@ ORIGINAL CREATION DATE:
   </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
-      <moduleShortName>Concept</moduleShortName>
+      <moduleShortName>concept</moduleShortName>
       <shellPublicIds>
         <dtdShell>-//OASIS//DTD DITA Concept//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:concept.rnc</rncShell>
@@ -88,7 +88,6 @@ ORIGINAL CREATION DATE:
     <a:documentation>MODULE INCLUSIONS</a:documentation>
     <include href="../../base/rng/topicMod.rng"/>
     <include href="conceptMod.rng">
-      <a:documentation> Redefine the infotype to exclude other topic types </a:documentation>
       <define name="concept-info-types">
         <ref name="concept.element"/>
       </define>

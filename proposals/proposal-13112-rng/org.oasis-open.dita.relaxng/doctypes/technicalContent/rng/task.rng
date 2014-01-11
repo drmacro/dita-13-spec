@@ -1,42 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- ============================================================= 
-  MODULE:    DITA Task RNG
-  VERSION:   1.2
-  DATE:      November 2010
-  ============================================================= -->
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    <headerComment>
-</headerComment>
-   <moduleMetadata>
-     <moduleType>topicshell</moduleType>
-     <moduleShortName>vocabularyModule</moduleShortName>
-     <shellPublicIds>
-       <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
-       <xsdShell>urn:oasis:names:tc:dita:xsd:topic.xsd</xsdShell>
-       <rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc</rncShell>
-       <rngShell>urn:oasis:names:tc:dita:rng:topic.rng</rngShell>
-     </shellPublicIds>
-   </moduleMetadata>
- </moduleDesc>  
-  
-<!-- ============================================================= -->
-<!--                 ROOT ELEMENT DECLARATION                      -->
-<!-- ============================================================= -->
-  <start>
-    <ref name="task.element"/>
-  </start>
-  
-<!-- ============================================================= -->
-<!--                 DITA DOMAINS ATTRIBUTE                        -->
-<!-- ============================================================= -->
-  <define name="domains-att" combine="interleave">
-    <optional>
-      <attribute name="domains" 
-        a:defaultValue="
+    <headerComment> </headerComment>
+    <moduleMetadata>
+      <moduleType>topicshell</moduleType>
+      <moduleShortName>vocabularyModule</moduleShortName>
+      <shellPublicIds>
+        <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
+        <xsdShell>urn:oasis:names:tc:dita:xsd:topic.xsd</xsdShell>
+        <rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc</rncShell>
+        <rngShell>urn:oasis:names:tc:dita:rng:topic.rng</rngShell>
+      </shellPublicIds>
+    </moduleMetadata>
+  </moduleDesc>
+
+  <div>
+    <a:documentation> ROOT ELEMENT DECLARATION </a:documentation>
+    <start>
+      <ref name="task.element"/>
+    </start>
+
+  </div>
+  <div>
+    <a:documentation> DITA DOMAINS ATTRIBUTE </a:documentation>
+    <define name="domains-att" combine="interleave">
+      <optional>
+        <attribute name="domains"
+          a:defaultValue="
         (topic task strictTaskbody-c) 
         (topic task)
         (topic abbrev-d) 
@@ -47,46 +38,48 @@
         (topic sw-d)
         (topic ui-d) 
         (topic ut-d)
-        "/>
-    </optional>    
-  </define>
-  
-<!-- ============================================================= -->
-<!--                 MODULE INCLUSIONS                             -->
-<!-- ============================================================= -->
-  <include href="strictTaskbodyConstraintMod.rng"/>  
-  <include href="abbreviateDomainMod.rng"/>
-  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-  <include href="../../base/rng/highlightDomainMod.rng"/>
-  <include href="../../base/rng/indexingDomainMod.rng"/>
-  <include href="programmingDomainMod.rng"/>
-  <include href="softwareDomainMod.rng"/>
-  <include href="uiDomainMod.rng"/>
-  <include href="../../base/rng/utilitiesDomainMod.rng"/>
- 
-<!-- ============================================================= -->
-<!--                 ID-DEFINING-ELEMENT OVERRIDES                 -->
-<!-- ============================================================= -->
-  <define name="any">
-    <zeroOrMore>
-      <choice>
-        <ref name="idElements"/>
-        <element>
-          <anyName>
-            <except>
-              <name>topic</name>
-              <name>task</name>
-            </except>
-          </anyName>
-          <zeroOrMore>
-            <attribute>
-              <anyName/>
-            </attribute>
-          </zeroOrMore>
-          <ref name="any"/>
-        </element>
-        <text/>
-      </choice>
-    </zeroOrMore>
-  </define>
+        "
+        />
+      </optional>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation> MODULE INCLUSIONS </a:documentation>
+    <include href="strictTaskbodyConstraintMod.rng"/>
+    <include href="abbreviateDomainMod.rng"/>
+    <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+    <include href="../../base/rng/highlightDomainMod.rng"/>
+    <include href="../../base/rng/indexingDomainMod.rng"/>
+    <include href="programmingDomainMod.rng"/>
+    <include href="softwareDomainMod.rng"/>
+    <include href="uiDomainMod.rng"/>
+    <include href="../../base/rng/utilitiesDomainMod.rng"/>
+
+  </div>
+  <div>
+    <a:documentation> ID-DEFINING-ELEMENT OVERRIDES </a:documentation>
+    <define name="any">
+      <zeroOrMore>
+        <choice>
+          <ref name="idElements"/>
+          <element>
+            <anyName>
+              <except>
+                <name>topic</name>
+                <name>task</name>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <attribute>
+                <anyName/>
+              </attribute>
+            </zeroOrMore>
+            <ref name="any"/>
+          </element>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
+  </div>
 </grammar>

@@ -1,89 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- ============================================================= 
-  MODULE:    DITA Map RNG
-  VERSION:   1.2
-  DATE:      October 2010
-  ============================================================= -->
-<!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:map.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:map.rng:1.2
--->
-<!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)
-  PURPOSE:    Relax NG schema to describe DITA Maps
-  ORIGINAL CREATION DATE:
-  September 2010
-  (C) Copyright Syncro Soft 2010-2011
-  All Rights Reserved.
-  ============================================================= -->
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <!-- Define the root elements -->
-  <start>
-    <ref name="map.element"/>
-  </start>
-  
-  <div>
-    <a:documentation>DITA DOMAINS ATTRIBUTE</a:documentation>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA MAP</moduleTitle>
+    <headerComment xml:space="preserve">
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA MAP DTD                                     
+ VERSION:   1.2                                              
+ DATE:      November 2009                                    
+                                                             
+=============================================================
 
-    <define name="domains-att">
-      <optional>
-        <attribute name="domains"
-          a:defaultValue="
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                       TYPICAL INVOCATION                    
+                                                             
+Refer to this file by the following public identifier or an
+     appropriate system identifier:
+PUBLIC "-//OASIS//DTD DITA Map//EN"
+     Delivered as file "map.dtd"                                  
+
+The public ID above refers to the latest version of this DTD.
+     To refer to this specific version, you may use this value:
+PUBLIC "-//OASIS//DTD DITA 1.2 Map//EN"                           
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    DTD to describe DITA maps                        
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2005.11.15 RDA: Corrected public ID for map.mod           
+   2005.11.15 RDA: Updated these comments to match template  
+   2006.06.07 RDA: Added indexing domain                     
+   2006.06.21 RDA: Added props attribute extensions          
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2008.02.01 RDA: Added Delayed Resolution domain           
+   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+   2010.09.20 RDA: Add topic-based domains                   
+=============================================================   
+  </headerComment>
+    <moduleMetadata>
+      <moduleType>mapshell</moduleType>
+      <moduleShortName>map</moduleShortName>
+      <shellPublicIds>
+        <dtdShell>-//OASIS//DTD DITA Map//EN</dtdShell>
+        <rncShell>urn:oasis:names:tc:dita:rnc:map.rnc</rncShell>
+        <rngShell>urn:oasis:names:tc:dita:rng:map.rng</rngShell>
+        <xsdShell>urn:oasis:names:tc:dita:xsd:map.xsd</xsdShell>
+      </shellPublicIds>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
+    <start>
+      <ref name="map.element"/>
+    </start>
+
+    <div>
+      <a:documentation>DITA DOMAINS ATTRIBUTE</a:documentation>
+
+      <define name="domains-att">
+        <optional>
+          <attribute name="domains"
+            a:defaultValue="
+        (map mapgroup-d)
         (topic abbrev-d) 
         (topic delay-d) 
         (topic hazard-d)
         (topic hi-d) 
         (topic indexing-d) 
-        (map mapgroup-d)
         (topic pr-d) 
         (topic ut-d) 
-        "/>
-      </optional>
-    </define>
-
+        "
+          />
+        </optional>
+      </define>
+    </div>
+  </div>
+  <div>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <include href="../../base/rng/mapMod.rng"/>
+    <include href="../../base/rng/delayResolutionDomainMod.rng"/>
+    <include href="glossrefDomainMod.rng"/>
+    <include href="../../base/rng/indexingDomainMod.rng"/>
+    <include href="../../base/rng/mapGroupDomainMod.rng"/>
+    <include href="../../base/rng/highlightDomainMod.rng"/>
+    <include href="../../base/rng/utilitiesDomainMod.rng"/>
+    <include href="../../base/rng/hazardstatementDomainMod.rng"/>
+    <include href="abbreviateDomainMod.rng"/>
+    <include href="programmingDomainMod.rng"/>
 
   </div>
-  
-  <!-- Include modules -->
-  <include href="../../base/rng/mapMod.rng"/>
-  <include href="../../base/rng/delayResolutionDomainMod.rng"/>
-  <include href="glossrefDomainMod.rng"/>
-  <include href="../../base/rng/indexingDomainMod.rng"/>
-  <include href="../../base/rng/mapGroupDomainMod.rng"/>
-  <include href="../../base/rng/highlightDomainMod.rng"/>
-  <include href="../../base/rng/utilitiesDomainMod.rng"/>
-  <include href="../../base/rng/hazardstatementDomainMod.rng"/>
-  <include href="abbreviateDomainMod.rng"/>
-  <include href="programmingDomainMod.rng"/>
-  
-  <!-- Define the any pattern to exclude elements with ID attributes
-    from the wildcard and refer them expliceitely  -->
-  <define name="any">
-    <zeroOrMore>
-      <choice>
-        <ref name="map.element"/>
-        <ref name="anchor.element"/>
-        <element>
-          <anyName>
-            <except>
-              <name>map</name>
-              <name>anchor</name>
-            </except>
-          </anyName>
-          <zeroOrMore>
-            <attribute>
-              <anyName/>
-            </attribute>
-          </zeroOrMore>
-          <ref name="any"/>
-        </element>
-        <text/>
-      </choice>
-    </zeroOrMore>
-  </define>
+  <div>
+    <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+    <define name="any">
+      <zeroOrMore>
+        <choice>
+          <ref name="idElements"/>
+          <element>
+            <anyName>
+              <except>
+                <name>map</name>
+                <name>anchor</name>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <attribute>
+                <anyName/>
+              </attribute>
+            </zeroOrMore>
+            <ref name="any"/>
+          </element>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
+  </div>
 </grammar>
