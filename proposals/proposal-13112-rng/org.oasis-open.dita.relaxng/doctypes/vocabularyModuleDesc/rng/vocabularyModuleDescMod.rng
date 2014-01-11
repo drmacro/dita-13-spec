@@ -124,6 +124,9 @@
   <define name="xsdMod">
     <ref name="xsdMod.element"/>
   </define>
+  <define name="xsdGrp">
+    <ref name="xsdGrp.element"/>
+  </define>
   <define name="xsdShell">
     <ref name="xsdShell.element"/>
   </define>
@@ -470,12 +473,28 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
   <define name="xsdMod.attributes">
     <empty/>
   </define>
+  
   <define name="xsdMod.element">
     <a:documentation>Defines the public identifier to use for the 
-      DTD .mod file for this module.</a:documentation>
+      XSD module (.mod) file for this module.</a:documentation>
     <element name="dita:xsdMod" dita:longName="XSD module public ID">
       <ref name="xsdMod.content"/>
       <ref name="xsdMod.attributes"/>
+    </element>
+  </define>
+  
+  <define name="xsdGrp.content">
+    <text/>
+  </define>
+  <define name="xsdGrp.attributes">
+    <empty/>
+  </define>
+  <define name="xsdGrp.element">
+    <a:documentation>Defines the public identifier to use for the 
+      XSD group (.grp) file for this module.</a:documentation>
+    <element name="dita:xsdGrp" dita:longName="XSD group public ID">
+      <ref name="xsdGrp.content"/>
+      <ref name="xsdGrp.attributes"/>
     </element>
   </define>
   
@@ -595,6 +614,12 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
     <ref name="global-atts"/>
     <optional>
       <attribute name="class" a:defaultValue="- topic/data moduleDesc/xsdMod "/>
+    </optional>
+  </define>
+  <define name="xsdGrp.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/data moduleDesc/xsdGrp "/>
     </optional>
   </define>
   <define name="xsdShell.attlist" combine="interleave">

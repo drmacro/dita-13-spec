@@ -62,14 +62,6 @@ ORIGINAL CREATION DATE:
     </moduleMetadata>
   </moduleDesc>
   <div>
-    <a:documentation>Define the domain values of this module</a:documentation>
-    <define name="domains-att-value" combine="choice">
-      <value>(map bookmap)</value>
-    </define>
-
-
-  </div>
-  <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
     <define name="abbrevlist">
       <ref name="abbrevlist.element"/>
