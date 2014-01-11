@@ -42,11 +42,11 @@ ORIGINAL CREATION DATE:
     <moduleType>constraint</moduleType>
     <moduleShortName>machineryTaskbody-c</moduleShortName>
     <modulePublicIds>
-      <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>
-      <dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN</dtdEnt>
-      <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomain.xsd</xsdMod>
-      <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomain.rnc</rncMod>
-      <rngMod>urn:oasis:names:tc:dita:rng:highlightDomain.rng</rngMod>
+      <dtdMod>-//OASIS//ELEMENTS DITA Taskbody Constraint//EN</dtdMod>
+      <dtdEnt>-//OASIS//ENTITIES DITA Taskbody Constraint//EN</dtdEnt>
+      <xsdMod>urn:oasis:names:tc:dita:xsd:machineryTaskbodyConstraintMod.xsd</xsdMod>
+      <rncMod>urn:oasis:names:tc:dita:rnc:machineryTaskbodyConstraintMod.rnc</rncMod>
+      <rngMod>urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng</rngMod>
     </modulePublicIds>
     <domainsContribution>(topic task+taskreq-d machineryTaskbody-c)</domainsContribution>
   </moduleMetadata>
