@@ -68,6 +68,5 @@
         <folder path="../DITA_TC_work/"/>
         <folder path="../../workspace_40/dita-12-spec/"/>
         <folder path="../../workspace_40/dita4publishers_0.9.19_clean/"/>
-        <folder path="../../workspace_40/omics-plugin/"/>
     </projectTree>
 </project>

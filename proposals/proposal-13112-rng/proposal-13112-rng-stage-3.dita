@@ -1404,9 +1404,10 @@
       <conbody>
         <section>
           <title>Requirements for structural constraint modules</title>
-          <p>Constraint modules <term outputclass="OASIS-terminology">SHOULD</term> be named "<varname>qualifier</varname><varname>tagname</varname>Constraints.mod", where <varname>qualifier</varname>
-            is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc. and <varname>tagname</varname> is the name of the element type to which the constraints
-            apply, e.g. "topic", "p", "myNewTopicType", etc.</p>
+          <p>Constraint modules <term outputclass="OASIS-terminology">SHOULD</term> be named
+            "<varname>qualifier</varname><varname>tagname</varname>Constraints<?oxy_insert_start author="ekimber" timestamp="20140111T091138-0600"?>Mod<?oxy_insert_end?><?oxy_delete author="ekimber" timestamp="20140111T091140-0600" content=".mod"?>"<?oxy_insert_start author="ekimber" timestamp="20140111T091222-0600"?>
+            with an extension of ".rng" or ".rnc"<?oxy_insert_end?>, where <varname>qualifier</varname> is specific to the constraints module and characterizes it, e.g. "strict", "requiredTitle", etc.
+            and <varname>tagname</varname> is the name of the element type to which the constraints apply, e.g. "topic", "p", "myNewTopicType", etc.</p>
           <p>The constraint module's @domains contribution pattern <term outputclass="OASIS-terminology">MUST</term> be of the form "(<varname>tagname</varname>
             <varname>qualifier</varname><varname>Tagname</varname>-c)", where <varname>tagname</varname> is the name of the element type to which the constraints apply, preceded by any ancestor types
             of <varname>tagname</varname>, <varname>qualifier</varname> is as for the module filename (e.g., "strict"), and <varname>Tagname</varname> is the element type name with an initial capital
