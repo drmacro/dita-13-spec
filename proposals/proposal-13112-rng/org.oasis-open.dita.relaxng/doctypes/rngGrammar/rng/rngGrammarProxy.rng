@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
   ns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns="http://relaxng.org/ns/structure/1.0">
+  <a:documentation>This grammar is here in order to define the
+  "other" and "any" patterns to handle elements with IDs as for topic and map
+  document type shells.</a:documentation>
   <include href="rngGrammar.rng">
     <define name="other">
       <zeroOrMore>

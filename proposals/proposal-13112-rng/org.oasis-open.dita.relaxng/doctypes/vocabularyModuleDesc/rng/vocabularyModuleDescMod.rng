@@ -302,7 +302,11 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
       <ref name="rncMod"/>
       <ref name="rngMod"/>
       <ref name="xsdMod"/>
-      <ref name="xsdGrp"/>
+      <optional>
+        <a:documentation>XSD topic and map types require an additional "group" schema file.
+          The xsdGrp element should only be used for XSD topic and map modules.
+        </a:documentation>
+        <ref name="xsdGrp"/></optional>
     </interleave>
   </define>
   <define name="modulePublicIds.attributes">

@@ -59,7 +59,7 @@ Test of RNG Grammar foreign specialization
       name="any">
       <zeroOrMore>
         <choice>
-          <ref name="topic.element"/>
+          <ref name="idElements"/>
           <element>
             <anyName>
               <except>
