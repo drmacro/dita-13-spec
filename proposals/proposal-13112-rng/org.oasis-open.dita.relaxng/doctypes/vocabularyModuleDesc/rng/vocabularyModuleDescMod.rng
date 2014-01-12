@@ -62,6 +62,7 @@
        <dtdMod>-//OASIS//ELEMENTS DITA Vocabulary Module Description//EN</dtdMod>
        <dtdEnt>-//OASIS//ENTITIES DITA Vocabulary Module Description//EN</dtdEnt>
        <xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDescMod.xsd</xsdMod>
+       <xsdGrp>urn:oasis:names:tc:dita:xsd:vocabularyModuleDescGrp.xsd</xsdGrp>
        <rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDescMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:vocabularyModuleDescMod.rng</rngMod>
      </modulePublicIds>
@@ -301,6 +302,7 @@ topic - A topic-type module (e.g., topicMod, conceptMod)
       <ref name="rncMod"/>
       <ref name="rngMod"/>
       <ref name="xsdMod"/>
+      <ref name="xsdGrp"/>
     </interleave>
   </define>
   <define name="modulePublicIds.attributes">
