@@ -6,22 +6,58 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
    <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    <moduleTitle/>
+    <moduleTitle>DITA Topic</moduleTitle>
     <headerComment>
-============================================================= 
-  MODULE:    DITA Topic RNG
-  VERSION:   1.2
-  DATE:      October 2010
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA Topic DTD                                   
+ VERSION:   1.2                                              
+ DATE:      November 2009                                    
+                                                             
+=============================================================
+
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//DTD DITA Topic//EN"
+      Delivered as file "topic.dtd"                               
+
+The public ID above refers to the latest version of this DTD.
+     To refer to this specific version, you may use this value:
+PUBLIC "-//OASIS//DTD DITA 1.2 Topic//EN"                         
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    DTD to describe DITA Topics                      
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2006.06.07 RDA: Added indexing domain                     
+   2006.06.21 RDA: Added props attribute extensions          
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+   2008.04.15 RDA: Added hazard domain                       
 =============================================================
 </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
-      <moduleShortName>Base topic</moduleShortName>
+      <moduleShortName>topic</moduleShortName>
       <shellPublicIds>
-        <dtdShell></dtdShell>
-        <rncShell></rncShell>
-        <rngShell></rngShell>
-        <xsdShell></xsdShell>
+        <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
+        <rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc</rncShell>
+        <rngShell>urn:oasis:names:tc:dita:rnc:topic.rng</rngShell>
+        <xsdShell>urn:oasis:names:tc:dita:rnc:topic.xsd</xsdShell>
       </shellPublicIds>
     </moduleMetadata>
   </moduleDesc>  
@@ -43,6 +79,7 @@
         (topic sw-d)
         (topic ui-d)
         (topic ut-d)
+        (topic xml-d)
         "/>
     </define>
   </div>
@@ -57,12 +94,13 @@
   <include href="softwareDomainMod.rng"/>
   <include href="uiDomainMod.rng"/>
   <include href="../../base/rng/utilitiesDomainMod.rng"/>
+  <include href="xmlDomainMod.rng"/>
 </div>
 <div><a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
   <define name="any">
     <zeroOrMore>
       <choice>
-        <ref name="topic.element"/>
+        <ref name="idElements"/>
         <element>
           <anyName>
             <except>

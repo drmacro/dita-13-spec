@@ -30,9 +30,9 @@ UPDATES:
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>
         <dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN</dtdEnt>
-        <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomain.xsd</xsdMod>
-        <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomain.rnc</rncMod>
-        <rngMod>urn:oasis:names:tc:dita:rng:highlightDomain.rng</rngMod>
+        <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd</xsdMod>
+        <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc</rncMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:highlightDomainMod.rng</rngMod>
       </modulePublicIds>
       <domainsContribution>(topic hi-d)</domainsContribution>
     </moduleMetadata>

@@ -2,15 +2,58 @@
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    <headerComment> </headerComment>
+    <moduleTitle>DITA Task Shell</moduleTitle>
+    <headerComment>
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA Task Shell                                  
+ VERSION:   1.2                                              
+ DATE:      November 2009                                    
+                                                             
+=============================================================
+
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an
+      appropriate system identifier: 
+PUBLIC "-//OASIS//DTD DITA Task//EN"
+      Delivered as file "task.dtd"                                
+
+The public ID above refers to the latest version of this DTD.
+     To refer to this specific version, you may use this value:
+PUBLIC "-//OASIS//DTD DITA 1.2 Task//EN"                          
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    DTD to describe DITA Tasks                       
+                                                             
+ORIGINAL CREATION DATE:                                      
+            March 2001                                       
+                                                             
+            (C) Copyright OASIS Open 2005, 2009.             
+            (C) Copyright IBM Corporation 2001, 2004.        
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+   2006.06.07 RDA: Added indexing domain                     
+   2006.06.21 RDA: Added props attribute extensions          
+   2008.02.01 RDA: Added reference to task.ent               
+   2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
+   2008.04.15 RDA: Added hazard domain                       
+=============================================================
+</headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
       <moduleShortName>vocabularyModule</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
-        <xsdShell>urn:oasis:names:tc:dita:xsd:topic.xsd</xsdShell>
-        <rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc</rncShell>
-        <rngShell>urn:oasis:names:tc:dita:rng:topic.rng</rngShell>
+        <dtdShell>-//OASIS//DTD DITA Task//EN</dtdShell>
+        <xsdShell>urn:oasis:names:tc:dita:xsd:task.xsd</xsdShell>
+        <rncShell>urn:oasis:names:tc:dita:rnc:task.rnc</rncShell>
+        <rngShell>urn:oasis:names:tc:dita:rng:task.rng</rngShell>
       </shellPublicIds>
     </moduleMetadata>
   </moduleDesc>
