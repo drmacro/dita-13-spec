@@ -22,7 +22,22 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <!-- Define the root elements -->
+<moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+  <moduleTitle>DITA Learning Content</moduleTitle>
+  <headerComment xml:space="preserve">
+    
+  </headerComment>
+  <moduleMetadata>
+    <moduleType>topicshell</moduleType>
+    <moduleShortName>learningContent</moduleShortName>
+    <shellPublicIds>
+      <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
+      <rncShell>urn:oasis:names:tc:dita:rnc:basetopic.rnc</rncShell>
+      <rngShell>urn:oasis:names:tc:dita:rng:basetopic.rng</rngShell>
+      <xsdShell>urn:oasis:names:tc:dita:xsd:basetopic.xsd</xsdShell>
+    </shellPublicIds>
+  </moduleMetadata>
+</moduleDesc>  <!-- Define the root elements -->
   <start>
     <ref name="learningContent.element"/>
   </start>
