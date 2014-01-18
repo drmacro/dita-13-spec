@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle/>
     <headerComment xml:space="preserve">
@@ -38,7 +36,6 @@ ORIGINAL CREATION DATE:
 UPDATES:                                                    
   2007.05.01 JPH: Original creation                         
 =============================================================
-
     </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
@@ -51,16 +48,19 @@ UPDATES:
       </shellPublicIds>
     </moduleMetadata>
   </moduleDesc>
-  <!-- Define the root elements -->
-  <start>
-    <ref name="learningOverview.element"/>
-  </start>
-  
-  <!-- The DITA domains attribute -->
-  <define name="domains-att" combine="interleave">
-    <optional>
-      <attribute name="domains" 
-        a:defaultValue="
+  <div>
+    <a:documentation> Define the root elements </a:documentation>
+    <start>
+      <ref name="learningOverview.element"/>
+    </start>
+
+  </div>
+  <div>
+    <a:documentation> The DITA domains attribute </a:documentation>
+    <define name="domains-att" combine="interleave">
+      <optional>
+        <attribute name="domains"
+          a:defaultValue="
         (topic learningBase+learningInteractionBase-d) 
         (topic learningInteractionBase-d) 
         (topic learningInteractionBase-d learning-d)
@@ -69,32 +69,34 @@ UPDATES:
         (topic hi-d) 
         (topic indexing-d)
         (topic ut-d) 
-        "/>
-    </optional>
-  </define>
-  
-  <!--
-    Redefine the infotype to exclude 
-    other topic types and disallow nesting
-  -->
-  <define name="learningOverview-info-types">
-    <empty/>
-  </define>
-  
-  <!-- Include modules -->
-  <include href="../../base/rng/topicMod.rng"/>
-  <include href="learningBaseMod.rng"/>
-  <include href="learningOverviewMod.rng"/>
-  <include href="../../base/rng/highlightDomainMod.rng"/>
-  <include href="../../base/rng/utilitiesDomainMod.rng"/>
-  <include href="../../base/rng/indexingDomainMod.rng"/>
-  <include href="learningInteractionBaseDomainMod.rng"/>
-  <include href="learningDomainMod.rng"/>
-  <include href="learningMetadataDomainMod.rng"/>
-  
-  <!-- Define the any pattern to exclude elements with ID attributes
-    from the wildcard and refer them expliceitely  -->
-  <define name="any">
+        "
+        />
+      </optional>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>INFO TYPES PATTERNS</a:documentation>
+    <define name="learningOverview-info-types">
+      <empty/>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <include href="../../base/rng/topicMod.rng"/>
+    <include href="learningBaseMod.rng"/>
+    <include href="learningOverviewMod.rng"/>
+    <include href="../../base/rng/highlightDomainMod.rng"/>
+    <include href="../../base/rng/utilitiesDomainMod.rng"/>
+    <include href="../../base/rng/indexingDomainMod.rng"/>
+    <include href="learningInteractionBaseDomainMod.rng"/>
+    <include href="learningDomainMod.rng"/>
+    <include href="learningMetadataDomainMod.rng"/>
+  </div>
+  <div>
+    <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+    <define name="any">
       <zeroOrMore>
         <choice>
           <ref name="idElements"/>
@@ -116,4 +118,5 @@ UPDATES:
         </choice>
       </zeroOrMore>
     </define>
+  </div>
 </grammar>

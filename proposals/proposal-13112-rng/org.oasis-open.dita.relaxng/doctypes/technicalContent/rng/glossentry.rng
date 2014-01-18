@@ -61,7 +61,6 @@ ORIGINAL CREATION DATE:
     <start>
       <ref name="glossentry.element"/>
     </start>
-
   </div>
   <div>
     <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
@@ -83,14 +82,12 @@ ORIGINAL CREATION DATE:
         />
       </optional>
     </define>
-
   </div>
   <div>
     <a:documentation>INFO TYPES PATTERNS</a:documentation>
     <define name="glossentry-info-types">
       <empty/>
     </define>
-
   </div>
   <div>
     <a:documentation>MODULE INCLUSIONS</a:documentation>
@@ -105,7 +102,6 @@ ORIGINAL CREATION DATE:
     <include href="uiDomainMod.rng"/>
     <include href="programmingDomainMod.rng"/>
     <include href="softwareDomainMod.rng"/>
-
   </div>
   <div>
     <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>

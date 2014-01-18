@@ -1,114 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= 
-  MODULE:    DITA Learning Interaction Base Domain - RNG              
-  VERSION:   1.2                                                
-  DATE:      November 2010                                       
-  ============================================================= -->
-<!--
-  Refer to the latest version of this file by the following URI:
-  urn:dita-ng:dita:rng:learningDomainMod.rng
-  To refer to this specific version, you may use this value:
-  urn:dita-ng:dita:rng:learningDomainMod.rng:1.2
--->
-<!-- ============================================================= 
-  SYSTEM:     Darwin Information Typing Architecture (DITA)     
-  PURPOSE:    Define elements and specialization attributes for 
-              Learning Interaction Base Domain
-  ORIGINAL CREATION DATE:  
-  September 2010                                                
-  (C) Copyright Syncro Soft 2010-2011                                
-  All Rights Reserved.                                          
-  ============================================================= -->
-<grammar
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns="http://relaxng.org/ns/structure/1.0" 
+<grammar xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-  
-  <!-- Define the domain values of this module -->
-  <define name="domains-att-value" combine="choice">
-    <value>(topic learningInteractionBase-d)</value>
-  </define>
-  
-  <define name="learningInteractionBase-d-fig">
-    <ref name="lcInteractionBase.element"/>
-  </define>
-  <define name="fig" combine="choice">
-    <ref name="learningInteractionBase-d-fig"/>
-  </define>
-  
-  <!-- Define patterns -->
-  <define name="lcInteractionBase">
-    <ref name="lcInteractionBase.element"/>
-  </define>
-  <define name="lcQuestionBase">
-    <ref name="lcQuestionBase.element"/>
-  </define>
-  
-  <!-- Define elements content and attributes -->
-  
-  <define name="lcInteractionBase.content">
-    <optional>
-      <ref name="title"/>
-    </optional>
-    <ref name="lcQuestionBase"/>
-    <zeroOrMore>
-      <ref name="fig.cnt"/>
-    </zeroOrMore>
-  </define>
-  <define name="lcInteractionBase.attributes">
-    <attribute name="id">
-      <data type="NMTOKEN"/>
-    </attribute>
-    <ref name="conref-atts"/>
-    <ref name="select-atts"/>
-    <ref name="localization-atts"/>
-    <optional>
-      <attribute name="outputclass"/>
-    </optional>
-  </define>
-  <define name="lcInteractionBase.element">
-    <element name="lcInteractionBase">
-      <ref name="lcInteractionBase.attlist"/>
-      <ref name="lcInteractionBase.content"/>
-    </element>
-  </define>
-  <define name="lcInteractionBase.attlist" combine="interleave">
-    <ref name="lcInteractionBase.attributes"/>
-  </define>
-  
-  <define name="lcQuestionBase.content">
-    <zeroOrMore>
-      <ref name="ph.cnt"/>
-    </zeroOrMore>
-  </define>
-  <define name="lcQuestionBase.attributes">
-    <ref name="univ-atts"/>
-    <optional>
-      <attribute name="outputclass"/>
-    </optional>
-  </define>
-  <define name="lcQuestionBase.element">
-    <element name="lcQuestionBase">
-      <ref name="lcQuestionBase.attlist"/>
-      <ref name="lcQuestionBase.content"/>
-    </element>
-  </define>
-  <define name="lcQuestionBase.attlist" combine="interleave">
-    <ref name="lcQuestionBase.attributes"/>
-  </define>
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Learning Interaction Base Domain</moduleTitle>
+    <headerComment xml:space="preserve">
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA Learning Interaction Base Domain            
+ VERSION:   1.2                                              
+ DATE:      Sept 2009                                        
+                                                             
+=============================================================
 
-  <!-- Specialization attributes. Global attributes and class defaults -->
-  <define name="lcInteractionBase.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="+ topic/fig learningInteractionBase-d/lcInteractionBase "/>
-    </optional>
-  </define>
-  <define name="lcQuestionBase.attlist" combine="interleave">
-    <ref name="global-atts"/>
-    <optional>
-      <attribute name="class" a:defaultValue="+ topic/p   learningInteractionBase-d/lcQuestionBase "/>
-    </optional>
-  </define>
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identfier or an 
+      appropriate system identifier 
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Interaction Base Domain//EN"
+      Delivered as file "learningInteractionBaseDomain.mod"                     
+
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Declaring the elements and specialization        
+            attributes for Learning Domain                   
+                                                             
+ORIGINAL CREATION DATE:                                      
+            Sept 2009                                        
+                                                             
+            (C) Copyright OASIS Open 2009.                   
+            All Rights Reserved.                             
+                                                             
+=============================================================
+  </headerComment>
+    <moduleMetadata>
+      <moduleType>elementdomain</moduleType>
+      <moduleShortName>learningInteractionBase-d</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>-//OASIS//ELEMENTS DITA Learning Interaction Base Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA Learning Interaction Base Domain//EN</dtdEnt>
+        <xsdMod>urn:oasis:names:tc:dita:xsd:learningInteractionBaseDomainMod.xsd</xsdMod>
+        <rncMod>urn:oasis:names:tc:dita:rnc:learningInteractionBaseDomainMod.rnc</rncMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:learningInteractionBaseDomainMod.rng</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic learningInteractionBase-d)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+    <define name="learningInteractionBase-d-fig">
+      <ref name="lcInteractionBase.element"/>
+    </define>
+    <define name="fig" combine="choice">
+      <ref name="learningInteractionBase-d-fig"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="lcInteractionBase">
+      <ref name="lcInteractionBase.element"/>
+    </define>
+    <define name="lcQuestionBase">
+      <ref name="lcQuestionBase.element"/>
+    </define>
+    <div>
+      <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+      <div>
+        <define name="lcInteractionBase.content">
+          <optional>
+            <ref name="title"/>
+          </optional>
+          <ref name="lcQuestionBase"/>
+          <zeroOrMore>
+            <ref name="fig.cnt"/>
+          </zeroOrMore>
+        </define>
+        <define name="lcInteractionBase.attributes">
+          <attribute name="id">
+            <data type="NMTOKEN"/>
+          </attribute>
+          <ref name="conref-atts"/>
+          <ref name="select-atts"/>
+          <ref name="localization-atts"/>
+          <optional>
+            <attribute name="outputclass"/>
+          </optional>
+        </define>
+        <define name="lcInteractionBase.element">
+          <element name="lcInteractionBase" dita:longName="Learning interaction base">
+            <ref name="lcInteractionBase.attlist"/>
+            <ref name="lcInteractionBase.content"/>
+          </element>
+        </define>
+        <define name="lcInteractionBase.attlist" combine="interleave">
+          <ref name="lcInteractionBase.attributes"/>
+        </define>
+      </div>
+      <div>
+        <define name="lcQuestionBase.content">
+          <zeroOrMore>
+            <ref name="ph.cnt"/>
+          </zeroOrMore>
+        </define>
+        <define name="lcQuestionBase.attributes">
+          <ref name="univ-atts"/>
+          <optional>
+            <attribute name="outputclass"/>
+          </optional>
+        </define>
+        <define name="lcQuestionBase.element">
+          <element name="lcQuestionBase" dita:longName="Learning interaction question base">
+            <ref name="lcQuestionBase.attlist"/>
+            <ref name="lcQuestionBase.content"/>
+          </element>
+        </define>
+        <define name="lcQuestionBase.attlist" combine="interleave">
+          <ref name="lcQuestionBase.attributes"/>
+        </define>
+      </div>
+    </div>
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+    <define name="lcInteractionBase.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/fig learningInteractionBase-d/lcInteractionBase "/>
+      </optional>
+    </define>
+    <define name="lcQuestionBase.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/p   learningInteractionBase-d/lcQuestionBase "/>
+      </optional>
+    </define>
+  </div>
 </grammar>
