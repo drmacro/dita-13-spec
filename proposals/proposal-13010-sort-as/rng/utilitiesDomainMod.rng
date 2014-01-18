@@ -23,9 +23,18 @@
     <define name="ut-d-fig">
       <ref name="imagemap"/>
     </define>
+    <a:documentation>Extend the patterns with the domain contribution</a:documentation>
     <define name="fig" combine="choice">
       <ref name="ut-d-fig"/>
     </define>
+
+    <define name="ut-d-data">
+      <ref name="sort-as"/>
+    </define>
+    <define name="data" combine="choice">
+      <ref name="ut-d-data"/>
+    </define>
+
   </div>
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
@@ -40,6 +49,9 @@
     </define>
     <define name="coords">
       <ref name="coords.element"/>
+    </define>
+    <define name="sort-as">
+      <ref name="sort-as.element"/>
     </define>
 
   </div>
@@ -165,6 +177,41 @@
       </define>
       <define name="coords.attlist" combine="interleave">
         <ref name="coords.attributes"/>
+      </define>
+
+    </div>
+    <div>
+      <a:documentation>LONG NAME: Sort as</a:documentation>
+      <define name="sort-as.content">
+        <zeroOrMore>
+          <choice>
+            <text/>
+            <ref name="keyword"/>
+            <ref name="text"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="sort-as.attributes">
+        <ref name="univ-atts"/>
+        <optional>
+          <attribute name="value"/>
+        </optional>
+        <optional>
+          <attribute name="class" a:defaultValue="+ topic/data ut-d/sort-as "/>
+        </optional>
+      </define>
+      <define name="sort-as.element">
+        <element name="sort-as" dita:longName="Sort as">
+          <a:documentation>The sort-as element provides the sort key to use when 
+            sorting and grouping the element in some way. The sort-as value is 
+            prepended to whatever text value would otherwise be
+            used for sorting the containing element in order to form a complete sort key.</a:documentation>
+          <ref name="sort-as.attlist"/>
+          <ref name="sort-as.content"/>
+        </element>
+      </define>
+      <define name="sort-as.attlist" combine="interleave">
+        <ref name="sort-as.attributes"/>
       </define>
     </div>
   </div>
