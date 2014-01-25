@@ -145,7 +145,7 @@
              
              Note: No space between declarations within this group.
           -->
-        <xsl:message> + [DEBUG] ======== DOMAIN EXTENSIONS ===== </xsl:message>
+        <xsl:message> + [INFO] Generating domain extension integration entities... </xsl:message>
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
@@ -153,13 +153,10 @@
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
-          <xsl:message> + [DEBUG] domainExtensionPatterns="<xsl:sequence 
-            select="for $pattern in $domainExtensionPatterns return string($pattern/@name)"/>"</xsl:message>
         
-        <xsl:for-each-group select="$domainExtensionPatterns" group-by="tokenize(@name, '-')[last()]">
-          <xsl:message> + [DEBUG] current-grouping-key()="<xsl:sequence select="current-grouping-key()"/>"</xsl:message>
-          <xsl:message> + [DEBUG]  current-Group()="<xsl:sequence 
-            select="for $pattern in current-group() return string($pattern/@name)"/>"</xsl:message>
+        <xsl:for-each-group select="$domainExtensionPatterns" 
+          group-by="substring-after(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))">
+<!--          <xsl:message> + [DEBUG   current-grouping-key="<xsl:sequence select="current-grouping-key()"/>"</xsl:message>-->
             <xsl:variable name="firstPart" as="xs:string"
               select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
             />
