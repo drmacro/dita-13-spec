@@ -36,7 +36,7 @@
   </xsl:template>
 
   <xsl:template mode="entityFile" match="rng:grammar">
-    <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>
+<!--    <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>-->
     
     <xsl:variable name="moduleTitle" 
       select="rngfunc:getModuleTitle(.)" 
@@ -52,7 +52,7 @@
     <xsl:variable name="moduleType" as="xs:string"
       select="rngfunc:getModuleType(.)"
     />
-    <xsl:if test="true() and $doDebug">
+    <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
     </xsl:if>
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
@@ -78,7 +78,7 @@
       <xsl:apply-templates 
         select="/*/rng:define[starts-with(@name, $domainPrefix)]" 
         mode="generate-parment-decl-from-define">
-        <xsl:with-param name="indent" as="xs:integer" select="2"/>
+        <xsl:with-param name="indent" as="xs:integer" select="3"/>
       </xsl:apply-templates>
       
     </xsl:if>
@@ -93,7 +93,7 @@
       
     </xsl:if>
 
-    <xsl:if test="ends-with($moduleType, 'domain')">
+    <xsl:if test="ends-with($moduleType, 'domain') or $moduleType = 'topic' or $moduleType = 'map'" >
       <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ENTITY DECLARATION                  -->
