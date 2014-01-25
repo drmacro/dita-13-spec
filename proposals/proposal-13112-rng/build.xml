@@ -1,0 +1,121 @@
+<project name="proposal-13112-rng" basedir="." default="deploy-toolkit-plugins"
+	>
+	
+	<!-- NOTE: This script requires that the DITA Open Toolkit
+	           libraries be included in the Java classpath
+	           used to run Ant itself. See the project
+	           documentation for setup instructions. For 
+	           Eclipse, you need to add the jars in the
+	           Toolkit lib/ and lib/saxon/ directories
+	           to the Ant jars configured in the Eclipse
+	           Ant/runtime preferences.
+	  -->
+
+	<!-- NOTE: Update version.properties as needed to reflect new 
+	           versions of project components.
+	  -->
+  <property file="version.properties"/>
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+	
+  <property name="build" location="${basedir}/build"/>
+  <property name="dist" location="${basedir}/dist"/>
+  <property name="lib" location="${basedir}/lib"/>
+  <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
+  <property name="temp" location="${basedir}/temp"/>
+  <property name="templates.dir" location="${basedir}/templates"/>
+	<property name="plugin.dist" location="${dist}/plugins"/>
+  <property name="dita-ot-dir" location="${basedir}/DITA-OT"/>
+
+  <property name="plugin.src" location="${basedir}"/>
+  <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
+  <property name="xslt.src" location="${basedir}/xsl"/>
+	
+	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
+
+	<path id="dita-classpath"
+		>
+		<fileset dir="${dita-ot-dir}">
+			<include name="lib"/>
+		</fileset>
+		<fileset dir="${dita-ot-dir}/lib">
+		  <include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+  <path id="classpath.base">
+    <pathelement path="${classes.home}"/>
+    <fileset dir="${lib}">
+        <include name="*.jar"/>
+    </fileset>
+  </path>
+
+	<target name="init">
+		<buildnumber/>
+    <tstamp/>
+  </target>
+
+  <tstamp>
+		<format property="package.date" pattern="yyyy-MM-dd"/>
+	</tstamp>
+  
+  <tstamp>
+  	<format property="build-date-time"
+  	          pattern="yyyy-MM-dd HH:mm:SSS z"/>
+	</tstamp>
+
+
+  <target name="clean">
+  </target>
+	
+	<target name="add-version-info-to-files">
+	   <!-- See D4P build file for examples -->
+	</target>
+	
+	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
+		 depends="
+		dist-init
+		"
+		>
+    <delete includeemptydirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"  includes="com.zenoss.*/**"/>
+    </delete>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+				<exclude name="*.zip"/> 
+			</fileset>
+		</copy>
+		
+    <antcall target="add-version-info-to-files"/>
+
+  </target>
+	
+	
+	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
+	  description="Deploy plugins to local DITA Open Toolkit">
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${plugin-deploy_target}" includes="org.oasis-open.dita.*/**">
+			</fileset>
+		</delete>
+		<mkdir dir="${plugin-deploy_target}"/>
+		<copy todir="${plugin-deploy_target}" force="true">
+			<fileset dir="${plugin.dist}">
+				<include name="**/*"/>
+        <exclude name="**/CVS"/>
+			</fileset>
+		</copy>
+    <!-- Integrate the deployed plugins: -->
+    <antcall target="integrate"/>
+	  
+	</target>
+	
+	<target name="dist-init" depends="init">
+		<delete failonerror="false" includeemptydirs="true">
+			<fileset dir="${dist}" includes="*/**"/>
+  	</delete>
+		<mkdir dir="${dist}"/>
+  </target>
+	
+	
+</project>

@@ -99,7 +99,7 @@
 &lt;!--                    DOMAIN ENTITY DECLARATION                  -->
 &lt;!-- ============================================================= -->&#x0a;</xsl:text>
       <xsl:apply-templates mode="domainAttContributeEntityDecl"
-        select="rng:define[@name = 'domains-att-contribution']"
+        select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"
         >
         <xsl:with-param name="domainPrefix" select="$domainPrefix" as="xs:string" />
       </xsl:apply-templates>
@@ -112,14 +112,14 @@
     <xsl:text> ================== -->&#x0a; </xsl:text>    
   </xsl:template>
   
-  <xsl:template match="rng:define" mode="domainAttContributeEntityDecl">
+  <xsl:template match="dita:domainsContribution" mode="domainAttContributeEntityDecl">
     <xsl:param name="domainPrefix" as="xs:string"/>
 
     <xsl:text>&#x0a;</xsl:text>
     <xsl:text>&lt;!ENTITY </xsl:text>
     <xsl:sequence select="concat($domainPrefix, '-att')"/>
     <xsl:text>&#x0a;</xsl:text>
-    <xsl:text>  "</xsl:text><xsl:value-of select="rng:value"/><xsl:text>"&#x0a;</xsl:text>
+    <xsl:text>  "</xsl:text><xsl:value-of select="."/><xsl:text>"&#x0a;</xsl:text>
     <xsl:text>&gt;&#x0a;</xsl:text>    
   </xsl:template>
 
