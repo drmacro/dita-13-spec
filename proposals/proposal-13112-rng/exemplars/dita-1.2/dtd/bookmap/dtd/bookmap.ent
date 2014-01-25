@@ -33,10 +33,10 @@ PUBLIC "-//OASIS//ENTITIES DITA BookMap//EN"
 
 
 <!-- ============================================================= -->
-<!--                    BOOKMAP ENTITIES                           -->
+<!--                    DOMAIN ENTITY DECLARATION                  -->
 <!-- ============================================================= -->
 
-<!ENTITY bookmap-att     
+<!ENTITY bookmap-att
   "(map bookmap)"
 >
 

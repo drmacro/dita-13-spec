@@ -20,6 +20,4 @@ Declare @domains attribute
    
 7. topicDefn.ent needs to reference commonElements.ent and element name entities.
 
-8. Get concensus on indent for content model declarations. Probably aligned under L in Long Name.
-
-9. Output locations for modules is wrong (filenames are correct).
+8. Output locations for modules is wrong (filenames are correct).

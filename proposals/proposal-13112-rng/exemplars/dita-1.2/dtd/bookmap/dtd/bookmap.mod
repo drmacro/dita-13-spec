@@ -70,7 +70,6 @@ PUBLIC "-//OASIS//ELEMENTS DITA BookMap//EN"
 <!-- ============================================================= -->
  
 <!ENTITY % bookmap         "bookmap"                                 >
-
 <!ENTITY % abbrevlist      "abbrevlist"                              >
 <!ENTITY % bookabstract    "bookabstract"                            >
 <!ENTITY % amendments      "amendments"                              >

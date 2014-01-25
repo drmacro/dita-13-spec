@@ -2,7 +2,7 @@
 <?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
-    <moduleTitle/>
+    <moduleTitle>DITA Book Map</moduleTitle>
     <headerComment xml:space="preserve">
 =============================================================
                    HEADER                                    
@@ -69,8 +69,19 @@ ORIGINAL CREATION DATE:
       <optional>
         <attribute name="domains"
           a:defaultValue="
-        (map bookmap) (topic delay-d) (topic indexing-d) (map mapgroup-d) (topic xnal-d)
-        (topic hi-d) (topic ut-d) (topic hazard-d) (topic abbrev-d) (topic ui-d) (topic pr-d) (topic sw-d)"
+            (map bookmap) 
+            (map mapgroup-d) 
+            (topic abbrev-d) 
+            (topic delay-d) 
+            (topic hazard-d) 
+            (topic hi-d) 
+            (topic indexing-d) 
+            (topic pr-d) 
+            (topic sw-d)
+            (topic ui-d) 
+            (topic ut-d) 
+            (topic xnal-d)
+            "
         />
       </optional>
     </define>
@@ -78,8 +89,8 @@ ORIGINAL CREATION DATE:
   </div>
   <div>
     <a:documentation>MODULE INCLUSIONS</a:documentation>
-    <include href="bookmapMod.rng"/>
     <include href="../../base/rng/mapMod.rng"/>
+    <include href="bookmapMod.rng"/>
     <include href="../../base/rng/delayResolutionDomainMod.rng"/>
     <include href="../../base/rng/indexingDomainMod.rng"/>
     <include href="../../base/rng/mapGroupDomainMod.rng"/>
