@@ -43,12 +43,12 @@ UPDATES:
 
     <define name="hi-d-ph">
       <choice>
-        <ref name="b"/>
-        <ref name="i"/>
-        <ref name="sup"/>
-        <ref name="sub"/>
-        <ref name="tt"/>
-        <ref name="u"/>
+        <ref name="b.element"/>
+        <ref name="i.element"/>
+        <ref name="sup.element"/>
+        <ref name="sub.element"/>
+        <ref name="tt.element"/>
+        <ref name="u.element"/>
       </choice>
     </define>
 

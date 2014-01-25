@@ -99,7 +99,7 @@
       select="rng:define[.//rng:attribute[@name='class']]"/>
 
 <xsl:text>
-&lt;!-- ================== </xsl:text><xsl:sequence select="$moduleTitle"/><xsl:text> ==================== -->&#x0a; </xsl:text>    
+&lt;!-- ================== </xsl:text><xsl:value-of select="$moduleTitle"/><xsl:text> ==================== -->&#x0a; </xsl:text>    
   </xsl:template>
   
   <!--================================
@@ -118,8 +118,15 @@
     -->
     <xsl:variable name="tagname" select="string(@name)" as="xs:string"/>    
     <xsl:text>&lt;!ENTITY % </xsl:text>
-    <xsl:sequence select="str:pad($tagname, 11)"/>    
-    <xsl:sequence select="str:pad(concat('&quot;', $tagname, '&quot;'), 46)"/>
+    <xsl:variable name="paddedName" as="xs:string"
+      select="str:pad($tagname, 12)"
+    />
+    <xsl:value-of select="$paddedName"/>
+    <xsl:if test="not(ends-with($paddedName, ' '))">
+      <xsl:text>&#x0a;</xsl:text>
+      <xsl:value-of select="str:indent(23)"/>
+    </xsl:if>    
+    <xsl:value-of select="str:pad(concat('&quot;', $tagname, '&quot;'), 46)"/>
     <xsl:text>&gt;&#x0a;</xsl:text>    
   </xsl:template>
 
@@ -194,9 +201,9 @@
   <xsl:template mode="generate-parment-decl-from-define" match="rng:define">
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:text>&lt;!ENTITY % </xsl:text>
-    <xsl:sequence select="string(@name)" />
+    <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>
-    <xsl:sequence select="str:indent($indent)"/>        
+    <xsl:value-of select="str:indent($indent)"/>        
     <xsl:text>&quot;</xsl:text>
     <xsl:variable name="addparen" as="xs:boolean"
       select="count(rng:*) &gt; 1 and not(ends-with(@name, '.attributes')) and not(.//rng:attribute)"/>
@@ -212,7 +219,7 @@
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
     </xsl:if>
-    <xsl:text>&quot; </xsl:text>
+    <xsl:text>&quot;</xsl:text>
     <xsl:text>&#x0a;</xsl:text>
     <xsl:text>&gt;&#x0a;</xsl:text>
   </xsl:template>
@@ -220,7 +227,7 @@
   <xsl:template match="rng:zeroOrMore" mode="element-decls" priority="10">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:if test="not(parent::rng:define) or preceding-sibling::rng:*">
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
@@ -236,7 +243,7 @@
   <xsl:template match="rng:oneOrMore" mode="element-decls" priority="10">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:if test="preceding-sibling::rng:*">
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
@@ -252,7 +259,7 @@
   <xsl:template match="rng:group" mode="element-decls">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:if test="preceding-sibling::rng:*">
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:apply-templates mode="#current" >
@@ -266,7 +273,7 @@
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:if test="preceding-sibling::rng:* or 
       parent::rng:*[not(self::rng:define)]/preceding-sibling::rng:*">
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:text>(</xsl:text>
     <xsl:for-each select="rng:*">
@@ -299,7 +306,7 @@
                  this ref must be part of to emit
                  a newline after whatever precedes this ref. 
       -->
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="@name='any'">
@@ -331,7 +338,7 @@
   <xsl:template match="rng:value" mode="element-decls" priority="10">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
     <xsl:if test="preceding-sibling::rng:*">
-      <xsl:sequence select="str:indent($indent)"/>
+      <xsl:value-of select="str:indent($indent)"/>
     </xsl:if>
     <xsl:value-of select="." />
   </xsl:template>
@@ -353,7 +360,7 @@
       <xsl:when test="ancestor::rng:element or ends-with(ancestor::rng:define/@name, '.content')">
         <!-- optional element content -->
         <xsl:if test="preceding-sibling::rng:*">
-          <xsl:sequence select="str:indent($indent)"/>
+          <xsl:value-of select="str:indent($indent)"/>
         </xsl:if>
         <xsl:text>(</xsl:text>
         <xsl:apply-templates mode="#current" >
@@ -414,11 +421,11 @@
       <!-- The generator of the attlist decl or parameter entity
            has to ensure a newline before the attribute
         -->
-      <xsl:sequence select="str:indent(15)"/>
+      <xsl:value-of select="str:indent(15)"/>
     </xsl:if>
     <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>
-    <xsl:sequence select="str:indent(26)"/>
+    <xsl:value-of select="str:indent(26)"/>
     <xsl:choose>
       <xsl:when test="not(node())">
         <xsl:text>CDATA</xsl:text>
@@ -431,7 +438,7 @@
         <xsl:text>)</xsl:text>
         <xsl:if test="@rnga:defaultValue">
           <xsl:text>&#x0a;</xsl:text>
-          <xsl:sequence select="str:indent(36)"/>
+          <xsl:value-of select="str:indent(36)"/>
           <xsl:text>#FIXED </xsl:text>
         </xsl:if>
       </xsl:when>
@@ -444,19 +451,19 @@
     <xsl:choose>
       <xsl:when test="@rnga:defaultValue">
         <xsl:text>&#x0a;</xsl:text>
-        <xsl:sequence select="str:indent(36)"/>
+        <xsl:value-of select="str:indent(36)"/>
         <xsl:text>'</xsl:text>
         <xsl:value-of select="@rnga:defaultValue" />
         <xsl:text>'</xsl:text>
       </xsl:when>
       <xsl:when test="local-name(..)='optional'">
         <xsl:text>&#x0a;</xsl:text>
-        <xsl:sequence select="str:indent(36)"/>
+        <xsl:value-of select="str:indent(36)"/>
         <xsl:text>#IMPLIED</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>&#x0a;</xsl:text>
-        <xsl:sequence select="str:indent(36)"/>
+        <xsl:value-of select="str:indent(36)"/>
         <xsl:text>#REQUIRED</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
@@ -477,7 +484,7 @@
                  else concat(upper-case(substring(@name, 1, 1)), substring(@name, 2))"
     />
     <xsl:text>&lt;!--                    LONG NAME: </xsl:text>
-    <xsl:sequence select="str:pad($longName, 31)"/>
+    <xsl:value-of select="str:pad($longName, 31)"/>
     <xsl:text> --&gt;&#x0a;</xsl:text>
     
     <!-- .content and .attributes parameter entity declarations: -->
@@ -530,18 +537,18 @@
   <xsl:template mode="generate-element-decl" match="rng:ref">
     <xsl:param name="tagname" tunnel="yes" as="xs:string"/>
     <xsl:text>&lt;!ELEMENT  </xsl:text>
-    <xsl:sequence select="$tagname" />
+    <xsl:value-of select="$tagname" />
     <xsl:text> </xsl:text>
-    <xsl:sequence select="concat('%', @name, ';')"/>
+    <xsl:value-of select="concat('%', @name, ';')"/>
     <xsl:text>&gt;&#x0a;</xsl:text>
   </xsl:template>
   
   <xsl:template mode="generate-attlist-decl" match="rng:ref[ends-with(@name, '.attributes')]">
     <xsl:param name="tagname" tunnel="yes" as="xs:string"/>
     <xsl:text>&lt;!ATTLIST  </xsl:text>
-    <xsl:sequence select="$tagname" />
+    <xsl:value-of select="$tagname" />
     <xsl:text> </xsl:text>
-    <xsl:sequence select="concat('%', @name, ';')"/>
+    <xsl:value-of select="concat('%', @name, ';')"/>
     <xsl:text>&gt;&#x0a;</xsl:text>
   </xsl:template>
   
@@ -572,7 +579,7 @@
     <!-- FIXME: I don't think we want to echo comments from the RNG to the DTD -->
     <xsl:choose>
       <xsl:when test="not(following::rng:grammar)">
-        <xsl:text>&lt;!-- </xsl:text><xsl:sequence select="translate(.,'&lt;&gt;','')"/><xsl:text> -->&#x0a;</xsl:text>
+        <xsl:text>&lt;!-- </xsl:text><xsl:value-of select="translate(.,'&lt;&gt;','')"/><xsl:text> -->&#x0a;</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <!-- Suppress comments in moduleFile mode -->
@@ -596,9 +603,9 @@
     <xsl:variable name="elementDec" as="element()?" select="key('attlistIndex',$tagnameLookupKey)"/>
     <xsl:variable name="tagname" select="if ($elementDec) then $elementDec/@name else '{unknown}'" as="xs:string?"/>
     <xsl:text>&lt;!ATTLIST  </xsl:text>
-    <xsl:sequence select="str:pad($tagname, 12)"/>
+    <xsl:value-of select="str:pad($tagname, 12)"/>
     <xsl:text> %global-atts;  class CDATA </xsl:text>
-    <xsl:sequence select="str:pad(concat('&quot;', string(./rng:optional/rng:attribute/@a:defaultValue), '&quot;'), 22)"/>
+    <xsl:value-of select="str:pad(concat('&quot;', string(./rng:optional/rng:attribute/@a:defaultValue), '&quot;'), 22)"/>
     <xsl:text>&gt;&#x0a;</xsl:text>
     
   </xsl:template>
@@ -620,18 +627,18 @@
         <xsl:analyze-string select="." regex="^.+$" flags="m">
           <xsl:matching-substring>
             <xsl:text>&lt;!-- </xsl:text>
-            <xsl:sequence select="str:pad(., 61)"/>
+            <xsl:value-of select="str:pad(., 61)"/>
             <xsl:text> -->&#x0a;</xsl:text>
           </xsl:matching-substring>
           <xsl:non-matching-substring>
-            <xsl:sequence select="if (normalize-space(.) != '') then concat('&lt;-- ', ., ' -->') else ''"/>             
+            <xsl:value-of select="if (normalize-space(.) != '') then concat('&lt;-- ', ., ' -->') else ''"/>             
           </xsl:non-matching-substring>
         </xsl:analyze-string>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>&lt;!-- </xsl:text>
         <!-- FIXME: Escape anything that needs escaping -->
-        <xsl:sequence select="string(.)"/>
+        <xsl:value-of select="string(.)"/>
         <xsl:text> -->&#x0a;</xsl:text>
       </xsl:otherwise>
     </xsl:choose>

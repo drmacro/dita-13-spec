@@ -1,2 +1,16 @@
 RNG2DTD To Dos:
 
+2. Pull {typename}-attlist into main {typename)-attributes:
+
+<!ENTITY % concept.attlist
+              "(%concept.attributes;
+                %arch-atts;)" 
+>
+
+Declare @domains attribute
+
+3. Do not allow domain entity extension declaration in .mod file. e.g., highlightDomain.mod
+
+4. *.element and *.content declaration indent should be 23
+
+5. Provide parameter to control line break before " at end of parameter entity decl.

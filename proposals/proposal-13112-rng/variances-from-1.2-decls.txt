@@ -1,0 +1,19 @@
+Variances from 1.2 DTD declarations:
+
+0. Formatting of declarations standardized across modules
+
+1. Using "-type" in place of "-typemod" for structural modules
+
+2. Omitting use of : 
+<!ENTITY % hazard.cnt 
+  "#PCDATA | 
+   %basic.ph; | 
+   %sl; | 
+   %simpletable;"
+>
+
+in hazardstatementDomain.mod--only used in one element type, no point in preserving.
+
+3. The element name entity declarations for metaDecl.mod are in metaDecl.mod, not commonElements.ent.
+
+4. Omitted revision-specific comments. They are available in the 1.2 distribution for historical purposes.

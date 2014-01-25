@@ -78,7 +78,7 @@
       <xsl:apply-templates 
         select="/*/rng:define[starts-with(@name, $domainPrefix)]" 
         mode="generate-parment-decl-from-define">
-        <xsl:with-param name="indent" as="xs:integer" select="3"/>
+        <xsl:with-param name="indent" as="xs:integer" select="2"/>
       </xsl:apply-templates>
       
     </xsl:if>
