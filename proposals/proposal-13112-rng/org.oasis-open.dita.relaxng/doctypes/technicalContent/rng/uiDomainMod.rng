@@ -44,7 +44,7 @@ ORIGINAL CREATION DATE:
 </headerComment>
     <moduleMetadata>
       <moduleType>elementdomain</moduleType>
-      <moduleShortName>hi-d</moduleShortName>
+      <moduleShortName>ui-d</moduleShortName>
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA User Interface Domain//EN</dtdMod>
         <dtdEnt>-//OASIS//ENTITIES DITA User Interface Domain//EN</dtdEnt>

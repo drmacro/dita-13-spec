@@ -38,7 +38,7 @@ ORIGINAL CREATION DATE:
   </headerComment>
     <moduleMetadata>
       <moduleType>elementdomain</moduleType>
-      <moduleShortName>hi-d</moduleShortName>
+      <moduleShortName>abbrev-d</moduleShortName>
       <modulePublicIds>
         <dtdMod>-//OASIS//ELEMENTS DITA Abbreviated Form Domain//EN</dtdMod>
         <dtdEnt>-//OASIS//ENTITIES DITA Abbreviated Form Domain//EN</dtdEnt>

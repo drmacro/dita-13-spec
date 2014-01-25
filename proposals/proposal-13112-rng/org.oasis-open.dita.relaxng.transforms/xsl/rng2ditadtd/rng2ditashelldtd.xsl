@@ -145,13 +145,21 @@
              
              Note: No space between declarations within this group.
           -->
+        <xsl:message> + [DEBUG] ======== DOMAIN EXTENSIONS ===== </xsl:message>
         <xsl:variable name="domainModules" as="element()*"
           select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
         />
+        <xsl:message> + [INFO] Domain modules to integrate: <xsl:sequence select="for $mod in $domainModules return rngfunc:getModuleShortName($mod)"/></xsl:message>
         <xsl:variable name="domainExtensionPatterns" as="element()*"
           select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
         />
+          <xsl:message> + [DEBUG] domainExtensionPatterns="<xsl:sequence 
+            select="for $pattern in $domainExtensionPatterns return string($pattern/@name)"/>"</xsl:message>
+        
         <xsl:for-each-group select="$domainExtensionPatterns" group-by="tokenize(@name, '-')[last()]">
+          <xsl:message> + [DEBUG] current-grouping-key()="<xsl:sequence select="current-grouping-key()"/>"</xsl:message>
+          <xsl:message> + [DEBUG]  current-Group()="<xsl:sequence 
+            select="for $pattern in current-group() return string($pattern/@name)"/>"</xsl:message>
             <xsl:variable name="firstPart" as="xs:string"
               select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
             />
@@ -163,10 +171,10 @@
             <xsl:text>"</xsl:text>
             <xsl:value-of select="concat(current-grouping-key(), ' |', '&#x0a;', str:indent(25))"/>
             <xsl:variable name="sep" as="xs:string"
-              select="concat('|', '&#x0a;', str:indent(25))"
+              select="concat(' |', '&#x0a;', str:indent(25))"
             />
             <xsl:value-of select="
-              string-join(for $pattern in current-group() return concat('%', @name, ';'), $sep)
+              string-join(for $pattern in current-group() return concat('%', $pattern/@name, ';'), $sep)
               "/>
             <xsl:text>&#x0a;</xsl:text>
             <xsl:value-of select="str:indent(24)"/>
