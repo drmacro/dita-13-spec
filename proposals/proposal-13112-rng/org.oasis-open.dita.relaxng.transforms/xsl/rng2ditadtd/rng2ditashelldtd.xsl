@@ -309,7 +309,11 @@
         <xsl:variable name="domainModules" as="element()*">
           <xsl:for-each select=".//rng:include">
             <xsl:variable name="module" select="document(@href,.)"/>
-            <xsl:if test="rngfunc:isElementDomain($module) or rngfunc:isAttributeDomain($module)">
+            <xsl:if test="
+               rngfunc:isElementDomain($module) or 
+               rngfunc:isAttributeDomain($module)  or 
+               (rngfunc:isTypeModule($module) and 
+                not(rngfunc:getModuleShortName($module/*) = 'topic'))">
               <xsl:sequence select="$module/*"/>
             </xsl:if>              
           </xsl:for-each>
