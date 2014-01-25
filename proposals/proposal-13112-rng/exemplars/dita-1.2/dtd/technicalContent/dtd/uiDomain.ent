@@ -59,7 +59,7 @@ PUBLIC "-//OASIS//ENTITIES DITA User Interface Domain//EN"
 <!-- ============================================================= -->
 
 
-<!ENTITY ui-d-att 
+<!ENTITY ui-d-att
   "(topic ui-d)"
 >
 

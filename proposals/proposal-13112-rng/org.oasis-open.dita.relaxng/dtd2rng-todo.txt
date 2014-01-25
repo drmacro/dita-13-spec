@@ -14,3 +14,12 @@ Declare @domains attribute
 4. *.element and *.content declaration indent should be 23
 
 5. Provide parameter to control line break before " at end of parameter entity decl.
+
+6. Declaration for no-topic-nesting attributes. Should be an empty replacement text rather
+   than no declaration at all.
+   
+7. topicDefn.ent needs to reference commonElements.ent and element name entities.
+
+8. Get concensus on indent for content model declarations. Probably aligned under L in Long Name.
+
+9. Output locations for modules is wrong (filenames are correct).

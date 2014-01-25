@@ -517,14 +517,22 @@ ORIGINAL CREATION DATE:
     <div>
       <a:documentation>LONG NAME: No Topic nesting</a:documentation>
 
+      <define name="no-topic-nesting.content">
+        <empty/>
+      </define>
+      <define name="no-topic-nesting.attributes">
+      </define>
       <define name="no-topic-nesting.element">
         <element name="no-topic-nesting" dita:longName="No Topic nesting">
           <a:documentation>The &lt;no-topic-nesting> element is a placeholder in the DITA architecture. It is not actually used by the default DITA document types; it is for use only when creating a
             validly customized document type where the information designer wants to eliminate the ability to nest topics. Not intended for use by authors, and has no associated output processing.
             Category: Specialization elements</a:documentation>
           <ref name="no-topic-nesting.attlist"/>
-          <empty/>
+          <ref name="no-topic-nesting.content"/>
         </element>
+      </define>
+      <define name="no-topic-nesting.attlist" combine="interleave">
+        <ref name="no-topic-nesting.attributes"/>
       </define>
 
     </div>

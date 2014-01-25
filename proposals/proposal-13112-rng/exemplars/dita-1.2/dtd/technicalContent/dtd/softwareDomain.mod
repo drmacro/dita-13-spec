@@ -51,7 +51,7 @@ PUBLIC "-//OASIS//ELEMENTS DITA Software Domain//EN"
 <!ENTITY % varname     "varname"                                     >
 <!ENTITY % filepath    "filepath"                                    >
 <!ENTITY % userinput   "userinput"                                   >
-<!ENTITY % systemoutput 
+<!ENTITY % systemoutput
                        "systemoutput"                                >
 
 
