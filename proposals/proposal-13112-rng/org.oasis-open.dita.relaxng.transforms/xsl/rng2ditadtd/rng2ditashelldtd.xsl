@@ -155,21 +155,21 @@
             <xsl:variable name="firstPart" as="xs:string"
               select="concat('&#x0a;&lt;!ENTITY % ', current-grouping-key())"
             />
-            <xsl:sequence select="$firstPart"/>
-            <xsl:sequence 
-              select="if (string-length($firstPart) lt 24) 
-              then str:indent(24 - string-length($firstPart)) 
+            <xsl:value-of select="$firstPart"/>
+            <xsl:value-of 
+              select="if (string-length($firstPart) lt 26) 
+              then str:indent(25 - string-length($firstPart)) 
               else ' ' "/>
             <xsl:text>"</xsl:text>
-            <xsl:sequence select="concat(current-grouping-key(), ' |', '&#x0a;', str:indent(24))"/>
+            <xsl:value-of select="concat(current-grouping-key(), ' |', '&#x0a;', str:indent(25))"/>
             <xsl:variable name="sep" as="xs:string"
-              select="concat('|', '&#x0a;', str:indent(24))"
+              select="concat('|', '&#x0a;', str:indent(25))"
             />
-            <xsl:sequence select="
+            <xsl:value-of select="
               string-join(for $pattern in current-group() return concat('%', @name, ';'), $sep)
               "/>
             <xsl:text>&#x0a;</xsl:text>
-            <xsl:sequence select="str:indent(24)"/>
+            <xsl:value-of select="str:indent(24)"/>
             <xsl:text>"></xsl:text>          
         </xsl:for-each-group>
         <xsl:text>&#x0a;</xsl:text>
@@ -210,7 +210,7 @@
             <xsl:variable name="entityName" as="xs:string"
               select="rng:ref/@name"
             />
-          <xsl:sequence select="concat('%', $entityName, ';', 
+          <xsl:value-of select="concat('%', $entityName, ';', 
             if (position() != last()) then concat('&#x0a;', str:indent(3)) else '')"/>
         </xsl:for-each-group>
 <xsl:text>"&#x0a;&gt;&#x0a;</xsl:text>
@@ -234,7 +234,7 @@
             <xsl:variable name="entityName" as="xs:string"
               select="rng:ref/@name"
             />
-          <xsl:sequence select="concat('%', $entityName, ';', 
+          <xsl:value-of select="concat('%', $entityName, ';', 
             if (position() != last()) then concat('&#x0a;', str:indent(3)) else '')"/>
         </xsl:for-each-group>
 <xsl:text>"&#x0a;&gt;&#x0a;</xsl:text>
@@ -311,19 +311,18 @@
         </xsl:variable>
 
         <xsl:text>&#x0a;&lt;!ENTITY included-domains&#x0a;</xsl:text>
-        <xsl:sequence select="str:indent(27)"/>
+        <xsl:value-of select="str:indent(26)"/>
         <xsl:text>"</xsl:text>
           <xsl:for-each select="$domainModules">
             <xsl:variable name="attRef" as="xs:string"
               select="concat('&amp;', normalize-space(rngfunc:getModuleShortName(.)), '-att', ';', '&#x0a;')"
             />
             <xsl:if test="position() > 1">
-              <!-- NOTE: The for-each loop introduces a space for each iteration. -->
-              <xsl:sequence select="str:indent(26)"/>
+              <xsl:value-of select="str:indent(27)"/>
             </xsl:if>
-            <xsl:sequence select="$attRef"/>
+            <xsl:value-of select="$attRef"/>
           </xsl:for-each>
-        <xsl:text>">&#x0a;</xsl:text>
+        <xsl:text>  "&#x0a;>&#x0a;</xsl:text>
 
 <xsl:text>
 &lt;!-- ============================================================= -->
@@ -372,7 +371,7 @@
           >
             <xsl:with-param 
               name="entityType" 
-              select="'mod'" 
+              select="'type'" 
               as="xs:string" 
               tunnel="yes"
             />
@@ -402,7 +401,7 @@
     
     <xsl:text>
 &lt;!-- ================= End of </xsl:text>
-    <xsl:sequence select="rngfunc:getModuleTitle(.)"/>
+    <xsl:value-of select="rngfunc:getModuleTitle(.)"/>
     <xsl:text> ================= --></xsl:text>
     
     <xsl:message> + [INFO] === DTD shell <xsl:value-of select="$dtdFilename" /> generated.</xsl:message>
@@ -419,7 +418,7 @@
     <xsl:variable name="dtdPublicId" 
       select="rngfunc:getPublicId($dtdDoc/*, 'dtdMod')" />
     <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="concat($dtdRedirect,'Dtd')" /> 
-    <xsl:text>&#x0a;  PUBLIC "</xsl:text><xsl:sequence select="$dtdPublicId" /><xsl:text>" &#x0a;         "</xsl:text>
+    <xsl:text>&#x0a;  PUBLIC "</xsl:text><xsl:value-of select="$dtdPublicId" /><xsl:text>" &#x0a;         "</xsl:text>
     <xsl:value-of select="concat($dtdRedirect,'.dtd')" />
     <xsl:text>"&#x0a;>&#x0a;%</xsl:text>
     <xsl:value-of select="concat($dtdRedirect,'Dtd')" /> 
@@ -438,13 +437,26 @@
       name="entityType" 
       as="xs:string" 
       tunnel="yes"
-    /><!-- One of "ent" or "mod" -->
+    /><!-- One of "type, "ent", or "mod" 
+      
+           Note that "type" = "mod" for the purposes of
+           constructing filenames because topic and map
+           modules use an entity name of *-type.
+    -->
+    <xsl:variable name="filenameSuffix" as="xs:string"
+      select="if ($entityType = 'type') then 'mod' else $entityType"
+    />
+    <xsl:variable name="entityNameSuffix" as="xs:string"
+      select="if ($entityType = 'ent')
+         then '-dec'
+         else if ($entityType = 'type') then '-type' else '-def'"
+    />
     
     <!-- Have to special case the base topic module as its .ent file is named "topicDefn.ent"
          rather than topic.ent.
       -->
     <xsl:variable name="entFilename" as="xs:string"
-      select="rngfunc:getEntityFilename(., $entityType)"
+      select="rngfunc:getEntityFilename(., $filenameSuffix)"
     />
     <xsl:variable name="shortName" as="xs:string"
       select="rngfunc:getModuleShortName(.)"
@@ -456,20 +468,16 @@
       select="rngfunc:getPublicId(., $pubidTagname)" 
     />
     <xsl:variable name="entityName" as="xs:string"
-      select="
-      if ($entityType = 'ent')
-         then concat($shortName, '-dec')
-         else concat($shortName, '-def')
-      "
+      select="concat($shortName, $entityNameSuffix)"
     />
     
     <xsl:if test="$entityType = 'mod' or $shortName != 'topic'">    
       <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
-      <xsl:sequence select="str:indent(3)"/>
+      <xsl:value-of select="str:indent(2)"/>
       <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
-      <xsl:sequence select="str:indent(9)"/>
-      <xsl:sequence select="concat('&quot;', $entFilename, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
-      <xsl:text>&gt;</xsl:text><xsl:sequence select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
+      <xsl:value-of select="str:indent(9)"/>
+      <xsl:value-of select="concat('&quot;', $entFilename, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
+      <xsl:text>&gt;</xsl:text><xsl:value-of select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>
 

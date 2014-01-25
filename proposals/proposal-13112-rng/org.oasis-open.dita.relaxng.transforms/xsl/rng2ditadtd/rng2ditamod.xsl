@@ -155,7 +155,7 @@
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
-                mode="element-decls" priority="10">
+                mode="element-decls" priority="20">
       <!-- reference to element name in this module, will be in the entity file -->
   </xsl:template>
 

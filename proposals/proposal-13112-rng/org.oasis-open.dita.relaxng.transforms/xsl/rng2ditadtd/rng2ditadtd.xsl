@@ -26,6 +26,18 @@
         lists the files generated. Each module and document type shell
         is generated separately using xsl:result-document.
       </xd:p>
+      <xd:p>A note about generating text:</xd:p>
+      <xd:p>In XSLT 2, xsl:value-of returns text nodes (in XSLT 1 it
+      returned document nodes). In any context where strings would
+      be concatenated, including for-each and for-each-group, if 
+      you use xsl:sequence to return strings, the strings will be
+      concatenated using the rules for string sequence concatenation,
+      which means a blank will be inserted between each string. However,
+      if you use xsl:value-of to return text nodes, there is no
+      concatenation.</xd:p>
+      <xd:p>This means that the code uses xsl:sequence *only* to return
+      non-string, non-text nodes. Anywhere that the code generates
+      literal strings it uses xsl:value-of.</xd:p>
     </xd:desc>
   </xd:doc>
 
