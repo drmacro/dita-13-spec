@@ -47,12 +47,10 @@
     <xsl:variable name="moduleShortName" as="xs:string"
       select="rngfunc:getModuleShortName(.)"
     />
-    <xsl:variable name="domainValue" select="rng:define[@name='domains-atts-value']/rng:value[1]"/>
-    <xsl:variable name="domainPrefix"> 
-      <xsl:if test="$domainValue and not($domainValue='')">
-        <xsl:value-of select="concat(substring-before(tokenize($domainValue, ' ')[last()],')'),'-')" />
-      </xsl:if>  
-    </xsl:variable>
+    <xsl:variable name="domainPrefix" 
+      as="xs:string"
+      select="rngfunc:getModuleShortName(.)"
+    /> 
 
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
@@ -84,7 +82,9 @@
          
       -->
     <xsl:apply-templates mode="element-decls" 
-      select="rng:define except (rng:define[.//rng:attribute[@name='class']])">
+      select="rng:define except 
+                  (rng:define[.//rng:attribute[@name='class']])"
+      >
       <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
     </xsl:apply-templates>
 
@@ -144,11 +144,11 @@
   <!-- Class attributes are handled in a separate mode -->
   <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10"/>
 
-  <xsl:template match="rng:define[@name='domains-atts-value']" mode="element-decls" priority="15">
-    <!-- Ignore domains attribute value definition, has no analog in DTD-syntax modules -->
-  </xsl:template>
+  <xsl:template match="rng:define[starts-with(@name, rngfunc:getModuleShortName(ancestor::rng:grammar))]" 
+    mode="element-decls" priority="30"
+  />
 
-  <xsl:template match="rng:define[@combine = 'choice']" mode="element-decls" priority="10">
+  <xsl:template match="rng:define[@combine = 'choice']" mode="element-decls" priority="20">
       <!-- Domain integration entity. Not output in the DTD. -->
   </xsl:template>
 
@@ -162,12 +162,12 @@
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
-                mode="element-decls" priority="20">
+                mode="element-decls" priority="10">
       <!-- reference to element name in this module, will be in the entity file -->
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and not(key('definesByName',rng:ref/@name)) and ends-with(rng:ref/@name, '.element')]" 
-                mode="element-decls" priority="10">
+                mode="element-decls" priority="20">
       <!-- reference to element name in another module, will be in entity file -->
   </xsl:template>
   
@@ -190,6 +190,7 @@
 <!--    <xsl:message> + [DEBUG] mode: element-decls: rng:define name="<xsl:value-of select="@name"/>"</xsl:message>-->
     <xsl:choose>
       <xsl:when test="$domainPfx and not($domainPfx='') and starts-with(@name, $domainPfx)">
+        <!-- Should never get here so this is belt to go with suspenders -->
         <!--  Domain extension pattern, not output in the .mod file (goes in shell DTDs) -->
       </xsl:when>
       <xsl:otherwise>
@@ -214,7 +215,8 @@
       <xsl:with-param name="indent" 
         select="if ($addparen) then $indent + 2 else $indent + 1" 
         as="xs:integer" 
-        tunnel="yes"/>
+        tunnel="yes"
+      />
     </xsl:apply-templates>
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
@@ -483,7 +485,9 @@
                  then @ditaarch:longName
                  else concat(upper-case(substring(@name, 1, 1)), substring(@name, 2))"
     />
-    <xsl:text>&lt;!--                    LONG NAME: </xsl:text>
+    <xsl:text>&lt;!--</xsl:text>
+    <xsl:value-of select="str:indent(20)"/>
+    <xsl:text>LONG NAME: </xsl:text>
     <xsl:value-of select="str:pad($longName, 31)"/>
     <xsl:text> --&gt;&#x0a;</xsl:text>
     
@@ -518,7 +522,13 @@
         <xsl:apply-templates select="$define/rng:ref" mode="#current"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="$define" mode="generate-parment-decl-from-define"/>
+        <!-- .content parameter entity -->
+        <xsl:variable name="indent" as="xs:integer"
+          select="if (ends-with(@name, '.content')) then 23 else 14"
+        />
+        <xsl:apply-templates select="$define" mode="generate-parment-decl-from-define">        
+           <xsl:with-param name="indent" as="xs:integer" select="$indent"/>
+        </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

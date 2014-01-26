@@ -43,8 +43,8 @@ PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN"
 <!-- ============================================================= -->
 
 <!ENTITY % b           "b"                                           >
-<!ENTITY % i           "i"                                           >
 <!ENTITY % u           "u"                                           > 
+<!ENTITY % i           "i"                                           >
 <!ENTITY % tt          "tt"                                          >
 <!ENTITY % sup         "sup"                                         >
 <!ENTITY % sub         "sub"                                         >

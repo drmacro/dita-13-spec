@@ -9,10 +9,6 @@ RNG2DTD To Dos:
 
 Declare @domains attribute
 
-3. Do not allow domain entity extension declaration in .mod file. e.g., highlightDomain.mod
-
-4. *.element and *.content declaration indent should be 23
-
 5. Provide parameter to control line break before " at end of parameter entity decl.
 
 6. Declaration for no-topic-nesting attributes. Should be an empty replacement text rather
