@@ -201,6 +201,9 @@
   
   <xsl:template mode="generate-parment-decl-from-define" match="rng:define">
     <xsl:param name="indent" as="xs:integer" select="14"/>
+    <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
+    
+    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
     <xsl:text>&lt;!ENTITY % </xsl:text>
     <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>
@@ -220,6 +223,10 @@
     </xsl:apply-templates>
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
+    </xsl:if>
+    <xsl:if test="$nlBeforeClosingQuote">
+      <xsl:text>&#x0a;</xsl:text>
+      <xsl:value-of select="str:indent(2)"/>
     </xsl:if>
     <xsl:text>&quot;</xsl:text>
     <xsl:text>&#x0a;</xsl:text>
@@ -376,7 +383,9 @@
       <xsl:otherwise>
         <!-- optional attribute value -->
         <xsl:apply-templates mode="#current" />
-        <xsl:text>&#x0a;</xsl:text>
+        <xsl:if test="not(position()=last())">
+          <xsl:text>&#x0a;</xsl:text>
+        </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -522,7 +531,6 @@
         <xsl:apply-templates select="$define/rng:ref" mode="#current"/>
       </xsl:when>
       <xsl:otherwise>
-        <!-- .content parameter entity -->
         <xsl:variable name="indent" as="xs:integer"
           select="if (ends-with(@name, '.content')) then 23 else 14"
         />

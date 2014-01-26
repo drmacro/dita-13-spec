@@ -9,8 +9,6 @@ RNG2DTD To Dos:
 
 Declare @domains attribute
 
-5. Provide parameter to control line break before " at end of parameter entity decl.
-
 6. Declaration for no-topic-nesting attributes. Should be an empty replacement text rather
    than no declaration at all.
    
