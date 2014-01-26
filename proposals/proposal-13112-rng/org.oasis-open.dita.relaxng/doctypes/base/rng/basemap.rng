@@ -7,7 +7,8 @@
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA Highlight Domain</moduleTitle>
-    <headerComment xml:space="preserve">=============================================================
+    <headerComment xml:space="preserve">
+=============================================================
                               HEADER                                    
 =============================================================
  MODULE:    DITA Base MAP DTD (only base domains)            

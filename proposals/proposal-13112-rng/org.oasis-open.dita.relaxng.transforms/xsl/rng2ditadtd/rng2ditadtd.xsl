@@ -89,32 +89,41 @@
   <xsl:key name="attlistIndex" match="rng:element" use="rng:ref[ends-with(@name, '.attlist')]/@name" />
 
   <xsl:template match="/">
+    <!-- The base directory under which all output will be generated. This
+         implements the organization structure of the OASIS-provided modules,
+         such that all generated files reflect the same relative locations
+         as for the RNG modules.
+      -->
+    <!-- For OASIS modules, any shell will be in rng/{package}/rng
+         The output needs to be in dtd/{package}/dtd
+      -->
+    <xsl:variable name="dtdOutputDir" as="xs:string"
+      select="if ($outdir = '') 
+                 then relpath:newFile(relpath:getParent(relpath:getParent(relpath:getParent(string(base-uri(.))))), 'dtd') 
+                 else relpath:getAbsolutePath($outdir)"
+    />
+    
+    <xsl:message> + [INFO] DTD output directory is  "<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
+
+    <!-- STEP 1: Figure out the RNG modules to be processed: -->
     <!-- Construct a sequence of all the input modules so we can
          then process them serially, rather than in tree order.
          We have to do this because in XSLT you can't start a new
          result document while you're in the process of creating
          another result document.
       -->
-    <xsl:variable name="dtdOutputDir" as="xs:string"
-      select="if ($outdir = '') 
-                 then string(base-uri(.)) 
-                 else relpath:getAbsolutePath($outdir)"
-    />
-    <xsl:variable name="moduleOutputDir" as="xs:string"
-      select="if ($moduleOutdir = '') 
-                 then string(base-uri(.)) 
-                 else relpath:getAbsolutePath($moduleOutdir)"
-    />
-    
-    <xsl:message> + [INFO] Shell Output directory is  "<xsl:sequence select="$dtdOutputDir"/>"</xsl:message>
-    <xsl:message> + [INFO] Module Output directory is "<xsl:sequence select="$moduleOutputDir"/>"</xsl:message>
-
-    <!-- STEP 1: Figure out the RNG modules to be processed: -->
     <xsl:variable name="modulesToProcess" as="document-node()*">
       <xsl:apply-templates mode="gatherModules" >
         <xsl:with-param name="origModule" select="root(.)"/>
       </xsl:apply-templates>
     </xsl:variable>
+    
+    <!-- NOTE: At this point, the modules have been preprocessed to remove
+         <div> elements. This means that any module may be an intermediate
+         node that has no associated document-uri() value. The @origURI
+         attribute will have been added to the root element so we know where
+         it came from.
+      -->
     
     <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
 
@@ -136,11 +145,6 @@
                 tunnel="yes"
                 as="xs:string"
               />
-              <xsl:with-param name="moduleOutputDir"
-                select="$moduleOutputDir"
-                tunnel="yes"
-                as="xs:string"
-              />
             </xsl:apply-templates>
           </generatedModules>
       </xsl:otherwise>
@@ -149,17 +153,20 @@
     <!-- Generate the .dtd file: -->
     <xsl:variable name="rngDtdUrl" as="xs:string"
       select="string(base-uri(root(.)))" />
+    <xsl:variable name="packageName" as="xs:string" 
+      select="relpath:getName(relpath:getParent(relpath:getParent($rngDtdUrl)))"
+    />
     <xsl:variable name="dtdFilename" as="xs:string"
       select="concat(relpath:getNamePart($rngDtdUrl), '.dtd')" />
     <xsl:variable name="dtdResultUrl"
-      select="relpath:newFile($dtdOutputDir, $dtdFilename)" />
+      select="relpath:newFile(relpath:newFile(relpath:newFile($dtdOutputDir, $packageName), 'dtd'), $dtdFilename)" 
+    />
       
     <dtdFile><xsl:sequence select="$dtdResultUrl" /></dtdFile>
     <xsl:result-document href="{$dtdResultUrl}" format="dtd">
       <xsl:apply-templates mode="dtdFile">
         <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
         <xsl:with-param name="dtdDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
-        <xsl:with-param name="moduleOutputDir" select="$moduleOutputDir" tunnel="yes" as="xs:string" />
         <xsl:with-param name="modulesToProcess"  select="$modulesToProcess" tunnel="yes" as="document-node()*" />
       </xsl:apply-templates>
     </xsl:result-document>
@@ -173,16 +180,11 @@
       tunnel="yes" 
       as="xs:string"
     />
-    <xsl:param 
-      name="moduleOutputDir"
-      tunnel="yes" 
-      as="xs:string"
-    />
     
     <xsl:variable name="rngModuleUrl" as="xs:string"
-      select="string(base-uri(.))"
+      select="if (*/@origURI) then */@origURI else base-uri(.)"
     />
-    <xsl:if test="false() and $doDebug">
+    <xsl:if test="true() and $doDebug">
       <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
         select="$rngModuleUrl"/>"</xsl:message>
     </xsl:if>
@@ -194,7 +196,7 @@
          The general file organization pattern for OASIS-provided vocabulary files 
          is:
          
-         doctypes/{groupname}/{typename}/{module file}
+         doctypes/{packagename}/{typename}/{module file}
          
          e.g.:
          
@@ -202,15 +204,15 @@
          doctypes/base/dtd/topic.mod
          
       -->
-    <xsl:variable name="rngParentDirName" as="xs:string"
-      select="relpath:getNamePart(relpath:getParent(relpath:getParent($rngModuleUrl)))"
+    <xsl:variable name="packageName" as="xs:string"
+      select="relpath:getName(relpath:getParent(relpath:getParent($rngModuleUrl)))"
     />
 
     <!-- Put the DTD files in a directory named "dtd/" -->
     <xsl:variable name="resultDir"
-      select="relpath:newFile(relpath:newFile($moduleOutputDir, $rngParentDirName), 'dtd')"
+      select="relpath:newFile(relpath:newFile($dtdOutputDir, $packageName), 'dtd')"
     />
-    <xsl:if test="false() and $doDebug">
+    <xsl:if test="true() and $doDebug">
       <xsl:message> + [DEBUG] generate-modules: resultDir="<xsl:sequence select="$resultDir"/>"</xsl:message>
     </xsl:if>
 
