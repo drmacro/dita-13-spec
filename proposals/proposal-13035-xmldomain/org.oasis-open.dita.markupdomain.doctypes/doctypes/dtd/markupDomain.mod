@@ -26,7 +26,6 @@
 <!ENTITY % markupname.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % markupname.attributes

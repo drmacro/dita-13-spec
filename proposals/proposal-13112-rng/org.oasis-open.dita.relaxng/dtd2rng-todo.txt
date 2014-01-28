@@ -1,5 +1,7 @@
 RNG2DTD To Dos:
 
+1. Verify all generated modules are going to the right place.
+
 2. Pull {typename}-attlist into main {typename)-attributes:
 
 <!ENTITY % concept.attlist
@@ -14,4 +16,4 @@ Declare @domains attribute
    
 7. topicDefn.ent needs to reference commonElements.ent and element name entities.
 
-8. Output locations for modules is wrong (filenames are correct).
+8. Generate catalogs

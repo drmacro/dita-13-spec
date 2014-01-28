@@ -43,7 +43,6 @@
 <!ENTITY % xmlelement.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % xmlelement.attributes
@@ -63,7 +62,6 @@
 <!ENTITY % xmlatt.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % xmlatt.attributes
@@ -83,7 +81,6 @@
 <!ENTITY % textentity.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % textentity.attributes
@@ -103,7 +100,6 @@
 <!ENTITY % parameterentity.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % parameterentity.attributes
@@ -123,7 +119,6 @@
 <!ENTITY % numcharref.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % numcharref.attributes
@@ -143,7 +138,6 @@
 <!ENTITY % xmlnsname.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % xmlnsname.attributes
@@ -163,7 +157,6 @@
 <!ENTITY % xmlpi.content
 "
   (#PCDATA |
-   %keyword; |
    %text;)*
 ">
 <!ENTITY % xmlpi.attributes
