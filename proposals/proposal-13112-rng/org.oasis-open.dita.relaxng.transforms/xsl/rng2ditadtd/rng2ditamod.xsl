@@ -78,6 +78,27 @@
 >%commonDefns;
 </xsl:text>
     </xsl:when>
+     <xsl:when test="$moduleShortName = 'topic'">
+<xsl:text><![CDATA[
+ <!--                    Definitions of declared elements           -->
+<!ENTITY % topicDefns 
+  PUBLIC "-//OASIS//ENTITIES DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Topic Definitions//EN" 
+         "topicDefn.ent" 
+>%topicDefns;
+
+<!--                      Content elements common to map and topic -->
+<!ENTITY % commonElements 
+  PUBLIC "-//OASIS//ELEMENTS DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Common Elements//EN" 
+         "commonElements.mod" 
+>%commonElements;
+
+<!--                       MetaData Elements, plus indexterm       -->
+<!ENTITY % metaXML 
+  PUBLIC "-//OASIS//ELEMENTS DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Metadata//EN" 
+         "metaDecl.mod" 
+>%metaXML;
+ ]]></xsl:text>       
+     </xsl:when>
      <xsl:otherwise>
         <xsl:apply-templates mode="element-name-entities" select="rng:define"/>       
      </xsl:otherwise>

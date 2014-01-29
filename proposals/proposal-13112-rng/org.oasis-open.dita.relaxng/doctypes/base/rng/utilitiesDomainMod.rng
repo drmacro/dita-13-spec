@@ -21,7 +21,7 @@
   <div>
     <a:documentation>Define domain extension patterns</a:documentation>
     <define name="ut-d-fig">
-      <ref name="imagemap"/>
+      <ref name="imagemap.element"/>
     </define>
     <define name="fig" combine="choice">
       <ref name="ut-d-fig"/>

@@ -68,7 +68,7 @@ ORIGINAL CREATION DATE:
   <div>
     <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
     <define name="hazard-d-note">
-      <ref name="hazardstatement"/>
+      <ref name="hazardstatement.element"/>
     </define>
     
     <define name="note" combine="choice">
