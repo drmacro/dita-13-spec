@@ -10,6 +10,14 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
+                        <String>key.xml.catalog.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>process.namespaces.through.uri.mapping.for.xml.schema</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
                         <String>search.resources.filter.history</String>
                         <filterPanelHistoryItems>
                             <field name="expressionsLists">
@@ -18,6 +26,10 @@
                                 </list>
                             </field>
                         </filterPanelHistoryItems>
+                    </entry>
+                    <entry>
+                        <String>use.default.catalog</String>
+                        <Boolean>false</Boolean>
                     </entry>
                     <entry>
                         <String>validation.scenarios</String>

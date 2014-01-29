@@ -27,7 +27,7 @@ keyword |= xml-d-keyword
 
 # LONG NAME: Numeric character reference (&#10;, &#x0a;)
 numcharref.content =
-  (text | \text | tm)*
+  (text | \text)*
 numcharref.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -42,7 +42,7 @@ numcharref.attlist &= numcharref.attributes
 
 # LONG NAME: Parameter entity reference (%p.content;)
 parameterentity.content =
-  (text | \text | tm)*
+  (text | \text)*
 parameterentity.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -60,7 +60,7 @@ parameterentity.attlist &= parameterentity.attributes
 
 # LONG NAME: Text entity (&prodname;)
 textentity.content =
-  (text | \text | tm)*
+  (text | \text)*
 textentity.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -78,7 +78,7 @@ textentity.attlist &= textentity.attributes
 
 # LONG NAME: XML attribute
 xmlatt.content =
-  (text | \text | tm)*
+  (text | \text)*
 xmlatt.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -96,7 +96,7 @@ xmlatt.attlist &= xmlatt.attributes
 
 # LONG NAME: XML element
 xmlelement.content =
-  (text | \text | tm)*
+  (text | \text)*
 xmlelement.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -114,7 +114,7 @@ xmlelement.attlist &= xmlelement.attributes
 
 # LONG NAME: XML namespace name (aka "namespace URI") 
 xmlnsname.content =
-  (text | \text | tm)*
+  (text | \text)*
 xmlnsname.attributes =
   univ-atts,
   attribute outputclass { text }?
@@ -132,7 +132,7 @@ xmlnsname.attlist &= xmlnsname.attributes
 
 # LONG NAME: XML processing instruction (PI) 
 xmlpi.content =
-  (text | \text | tm)*
+  (text | \text)*
 xmlpi.attributes =
   univ-atts,
   attribute outputclass { text }?

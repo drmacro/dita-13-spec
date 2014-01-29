@@ -1,6 +1,8 @@
 RNG2DTD To Dos:
 
-1. Verify all generated modules are going to the right place.
+Done. 0. Make relative paths in shell system IDs resolvable. 
+
+Done. 1. Verify all generated modules are going to the right place.
 
 2. Pull {typename}-attlist into main {typename)-attributes:
 

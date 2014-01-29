@@ -203,7 +203,7 @@
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
     
-    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>-->
     <xsl:text>&lt;!ENTITY % </xsl:text>
     <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>
@@ -576,12 +576,12 @@
   
 
 <!-- others -->
-  <xsl:template match="rng:include" mode="moduleFile">
-    <!-- FIXME: Use the public ID data from the module documentation -->
+<!--  <xsl:template match="rng:include" mode="moduleFile">
+    <!-\- FIXME: Use the public ID data from the module documentation -\->
     <xsl:variable name="includedDoc" select="document(@href)" />
     <xsl:if test="$includedDoc/rng:grammar">
       <xsl:variable name="includedDomain" select="normalize-space(substring-before(substring-after($includedDoc/comment()[1],'MODULE:'),'VERSION:'))" />
-      <!-- FIXME: Need to parameterize the public ID. See Issue 8. -->
+      <!-\- FIXME: Need to parameterize the public ID. See Issue 8. -\->
       <xsl:text>
   &lt;!ENTITY % </xsl:text><xsl:value-of select="substring-before(@href,'.')" /><xsl:text>
      PUBLIC "-//OASIS//ELEMENTS </xsl:text><xsl:value-of select="$includedDomain" /><xsl:text>//EN"
@@ -591,7 +591,7 @@
 </xsl:text>
     </xsl:if>
   </xsl:template>
-  
+-->  
 
   <xsl:template match="comment()" mode="moduleFile" >
     <!-- FIXME: I don't think we want to echo comments from the RNG to the DTD -->

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
-  xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
   <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
     <moduleTitle>DITA XML Construct Domain</moduleTitle>
     <headerComment xml:space="preserve"><![CDATA[
@@ -55,7 +53,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -82,7 +79,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -110,7 +106,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -138,7 +133,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -166,7 +160,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -194,7 +187,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>
@@ -223,7 +215,6 @@
           <choice>
             <text/>
             <ref name="text"/>
-            <ref name="tm"/>
           </choice>
         </zeroOrMore>
       </define>

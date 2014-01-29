@@ -452,6 +452,13 @@
            constructing filenames because topic and map
            modules use an entity name of *-type.
     -->
+    <xsl:param name="dtdDir" tunnel="yes" as="xs:string" />
+    <xsl:param name="rngShellUrl" tunnel="yes" as="xs:string"/>
+    
+    <xsl:variable name="rngShellParent" as="xs:string"
+      select="relpath:getParent($rngShellUrl)"
+    />
+    
     <xsl:variable name="filenameSuffix" as="xs:string"
       select="if ($entityType = 'type') then 'mod' else $entityType"
     />
@@ -467,6 +474,12 @@
     <xsl:variable name="entFilename" as="xs:string"
       select="rngfunc:getEntityFilename(., $filenameSuffix)"
     />
+    <xsl:variable name="moduleUrl" as="xs:string"
+      select="rngfunc:getGrammarUri(.)"
+    />
+    <xsl:variable name="relpathFromShell" as="xs:string"
+      select="relpath:getParent(relpath:getRelativePath($rngShellParent, $moduleUrl))"
+      />
     <xsl:variable name="shortName" as="xs:string"
       select="rngfunc:getModuleShortName(.)"
     />
@@ -479,13 +492,26 @@
     <xsl:variable name="entityName" as="xs:string"
       select="concat($shortName, $entityNameSuffix)"
     />
-    
-    <xsl:if test="$entityType = 'mod' or $shortName != 'topic'">    
+    <!-- FIXME: The replace is a short-term hack to avoid figuring out how to
+                generalize the code for getting the result URI for a module
+                so we can construct the relative output path properly.
+                This hack will work for OASIS files but not necessarily 
+                any other organization pattern.
+      -->
+    <xsl:variable name="entitySystemID" as="xs:string"
+      select="replace(relpath:newFile($relpathFromShell, $entFilename), '/rng/', '/dtd/')"
+    />
+    <!-- Special case the topic module, which does not have a topic.ent file like all the rest (it has
+         topicDefn.ent, which is included in the topic.mod file. It has to be included *after* 
+         all the domain entity integration parameter entities so that those declarations will
+         take precedence over those in topicDefn.ent.
+      -->
+    <xsl:if test="$entityType != 'ent' or ($entityType = 'ent' and not($entityName = 'topic-dec'))">    
       <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
       <xsl:value-of select="str:indent(2)"/>
       <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
       <xsl:value-of select="str:indent(9)"/>
-      <xsl:value-of select="concat('&quot;', $entFilename, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
+      <xsl:value-of select="concat('&quot;', $entitySystemID, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
       <xsl:text>&gt;</xsl:text><xsl:value-of select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
     </xsl:if>
   </xsl:template>

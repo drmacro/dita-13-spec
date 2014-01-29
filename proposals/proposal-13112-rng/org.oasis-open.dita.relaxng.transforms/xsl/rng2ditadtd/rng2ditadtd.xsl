@@ -151,13 +151,13 @@
     </xsl:choose>
 
     <!-- Generate the .dtd file: -->
-    <xsl:variable name="rngDtdUrl" as="xs:string"
+    <xsl:variable name="rngShellUrl" as="xs:string"
       select="string(base-uri(root(.)))" />
     <xsl:variable name="packageName" as="xs:string" 
-      select="relpath:getName(relpath:getParent(relpath:getParent($rngDtdUrl)))"
+      select="relpath:getName(relpath:getParent(relpath:getParent($rngShellUrl)))"
     />
     <xsl:variable name="dtdFilename" as="xs:string"
-      select="concat(relpath:getNamePart($rngDtdUrl), '.dtd')" />
+      select="concat(relpath:getNamePart($rngShellUrl), '.dtd')" />
     <xsl:variable name="dtdResultUrl"
       select="relpath:newFile(relpath:newFile(relpath:newFile($dtdOutputDir, $packageName), 'dtd'), $dtdFilename)" 
     />
@@ -168,6 +168,7 @@
         <xsl:with-param name="dtdFilename" select="$dtdFilename" tunnel="yes" as="xs:string" />
         <xsl:with-param name="dtdDir" select="$dtdOutputDir" tunnel="yes" as="xs:string" />
         <xsl:with-param name="modulesToProcess"  select="$modulesToProcess" tunnel="yes" as="document-node()*" />
+        <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
       </xsl:apply-templates>
     </xsl:result-document>
     </rng2ditadtd:conversionManifest>
