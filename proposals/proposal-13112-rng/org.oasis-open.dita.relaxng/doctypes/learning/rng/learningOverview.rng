@@ -41,7 +41,7 @@ UPDATES:
       <moduleType>topicshell</moduleType>
       <moduleShortName>Learning overview</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Learning Overview//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Learning Overview//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:learningOverview.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:learningOverview.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:learningOverview.xsd</xsdShell>

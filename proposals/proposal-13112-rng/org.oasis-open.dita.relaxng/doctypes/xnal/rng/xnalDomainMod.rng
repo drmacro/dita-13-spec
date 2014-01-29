@@ -33,7 +33,7 @@ ORIGINAL CREATION DATE:
             (C) Copyright OASIS Open 2006, 2009.             
             All Rights Reserved.                             
  UPDATES:                                                    
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.28 RDA: Removed enumerations for attributes:      
                    authorinformation/@type                   
    2008.02.12 RDA: Add keyword to data specializations       
@@ -45,8 +45,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>xnal-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA XNAL Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA XNAL Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 XNAL Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 XNAL Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:xnalDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:xnalDomainMod.rng</rngMod>
@@ -154,7 +154,7 @@ ORIGINAL CREATION DATE:
         </zeroOrMore>
       </define>
       <a:documentation>
-    20080128: Removed enumeration for @type for DITA 1.2. Previous values:
+    20080128: Removed enumeration for @type for DITA 1.2 . Previous values:
     creator, contributor, -dita-use-conref-target
   </a:documentation>
       <define name="authorinformation.attributes">

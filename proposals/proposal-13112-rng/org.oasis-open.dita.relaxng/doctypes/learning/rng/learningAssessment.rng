@@ -42,7 +42,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>learningAssessment</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Learning Assessment//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Learning Assessment//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:learningAssessment.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:learningAssessment.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:learningAssessment.xsd</xsdShell>

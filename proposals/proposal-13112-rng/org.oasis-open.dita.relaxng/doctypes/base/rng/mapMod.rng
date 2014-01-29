@@ -16,8 +16,8 @@
       <moduleShortName>map</moduleShortName>
       <domainsContribution>(map map)</domainsContribution>
       <modulePublicIds>
-        <dtdEnt>-//OASIS//ENTITIES DITA Map//EN</dtdEnt>
-        <dtdMod>-//OASIS//ELEMENTS DITA Map//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Map//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Map//EN</dtdMod>
         <xsdMod>urn:oasis:names:tc:dita:xsd:mapMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:mapMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:mapMod.rng</rngMod>

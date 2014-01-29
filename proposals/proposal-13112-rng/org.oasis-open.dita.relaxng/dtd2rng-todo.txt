@@ -16,6 +16,6 @@ Declare @domains attribute
 6. Declaration for no-topic-nesting attributes. Should be an empty replacement text rather
    than no declaration at all.
    
-7. topicDefn.ent needs to reference commonElements.ent and element name entities.
+--> 7. commonElements.mod needs to reference commonElements.ent 
 
 8. Generate catalogs

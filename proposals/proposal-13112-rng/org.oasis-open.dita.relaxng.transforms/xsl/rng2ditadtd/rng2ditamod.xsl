@@ -54,20 +54,34 @@
 
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
-    <!-- Module-header comments should be in an <a:documentation> element that is the first child
-         of the <grammar> element -->
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
     
-    <xsl:if test="$moduleShortName != 'commonElements'">
       <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                   ELEMENT NAME ENTITIES                       -->
 &lt;!-- ============================================================= -->
 
 </xsl:text>
-
-        <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
-    </xsl:if>    
+    
+    <!-- Special Case: the commonElements.mod file references commonElements.ent,
+         which contains the element type name entities for the 
+         common elements. This organization isn't required by DTD processing
+         rules but is just how it was done.
+         
+      -->
+   <xsl:choose>
+    <xsl:when test="$moduleShortName = 'commonElements'">
+      <xsl:text>
+&lt;!ENTITY % commonDefns 
+  PUBLIC "-//OASIS//ENTITIES DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Common Elements//EN" 
+         "commonElements.ent" 
+>%commonDefns;
+</xsl:text>
+    </xsl:when>
+     <xsl:otherwise>
+        <xsl:apply-templates mode="element-name-entities" select="rng:define"/>       
+     </xsl:otherwise>
+   </xsl:choose>
 
     <xsl:text>
 &lt;!-- ============================================================= -->

@@ -90,7 +90,7 @@ For <entry>, add:
      <moduleType>base</moduleType>
      <moduleShortName>tblDecl</moduleShortName>
      <modulePublicIds>
-       <dtdMod>-//OASIS//ELEMENTS DITA Exchange Table Model//EN</dtdMod>
+       <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Exchange Table Model//EN</dtdMod>
        <xsdMod>urn:oasis:names:tc:dita:xsd:tblDeclMod.xsd</xsdMod>
        <rncMod>urn:oasis:names:tc:dita:rnc:tblDeclMod.rnc</rncMod>
        <rngMod>urn:oasis:names:tc:dita:rng:tblDeclMod.rng</rngMod>

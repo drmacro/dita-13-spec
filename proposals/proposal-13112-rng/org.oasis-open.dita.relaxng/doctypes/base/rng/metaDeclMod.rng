@@ -44,7 +44,7 @@ ORIGINAL CREATION DATE:
                      (DITA 1.1 proposal #12)                 
    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
                      attributes                              
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.28 RDA: Removed enumerations for attributes:      
                    author/@type, copyright/@type,            
                    permissions/@view, audience/@type,        
@@ -65,7 +65,7 @@ ORIGINAL CREATION DATE:
       <moduleType>base</moduleType>
       <moduleShortName>metaDecl</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Metadata//EN</dtdMod>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Metadata//EN</dtdMod>
         <xsdMod>urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:metaDeclMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:metaDeclMod.rng</rngMod>

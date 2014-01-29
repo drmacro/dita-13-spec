@@ -41,8 +41,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>hi-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Glossary Group//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Glossary Group//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Glossary Group//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Glossary Group//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:glossgroupMod.xsd</xsdMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:glossgroupGrp.xsd</xsdGrp>
         <rncMod>urn:oasis:names:tc:dita:rnc:glossgroupMod.rnc</rncMod>

@@ -24,7 +24,7 @@ PUBLIC "-//OASIS//DTD DITA Glossary Entry//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Glossary Entry//EN"                      
+PUBLIC "-//OASIS//DTD DITA 1.2  Glossary Entry//EN"                      
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -50,7 +50,7 @@ ORIGINAL CREATION DATE:
     <moduleType>topicshell</moduleType>
     <moduleShortName>Glossary Entry</moduleShortName>
     <shellPublicIds>
-      <dtdShell>-//OASIS//DTD DITA Glossary Entry//EN</dtdShell>
+      <dtdShell>-//OASIS//DTD DITA 1.2 1.2Glossary Entry//EN</dtdShell>
       <rncShell>urn:oasis:names:tc:dita:rnc:glossentry.rnc</rncShell>
       <rngShell>urn:oasis:names:tc:dita:rng:glossentry.rng</rngShell>
       <xsdShell>urn:oasis:names:tc:dita:xsd:glossentry.xsd</xsdShell>

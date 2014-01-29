@@ -45,8 +45,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>learningmap-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Learning Map Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Learning Map Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Learning Map Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Learning Map Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:learningMapDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:learningMapDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:learningMapDomainMod.rng</rngMod>

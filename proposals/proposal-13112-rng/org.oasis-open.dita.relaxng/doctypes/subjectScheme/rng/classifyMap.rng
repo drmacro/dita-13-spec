@@ -43,7 +43,7 @@ ORIGINAL CREATION DATE:
       <moduleType>mapshell</moduleType>
       <moduleShortName>classifyMap</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Classification Map//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Classification Map//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:classifyMap.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:classifyMap.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:classifyMap.xsd</xsdShell>

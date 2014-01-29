@@ -39,8 +39,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topic</moduleType>
       <moduleShortName>topic</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Learning Plan//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Learning Plan//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Learning Plan//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Learning Plan//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:learningPlanMod.xsd</xsdMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:learningPlanGrp.xsd</xsdGrp>
         <rncMod>urn:oasis:names:tc:dita:rnc:learningPlanMod.rnc</rncMod>

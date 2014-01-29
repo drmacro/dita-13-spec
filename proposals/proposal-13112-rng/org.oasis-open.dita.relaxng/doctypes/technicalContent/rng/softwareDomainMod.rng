@@ -38,7 +38,7 @@ ORIGINAL CREATION DATE:
  UPDATES:                                                    
    2005.11.15 RDA: Corrected the PURPOSE in this comment     
    2005.11.15 RDA: Corrected the "Delivered as" system ID    
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.02.12 RDA: Add text to msgnum, cmdname, varname      
    2008.02.13 RDA: Create .content and .attributes entities  
 =============================================================  
@@ -47,8 +47,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>sw-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Software Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Software Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Software Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Software Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:softwareDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:softwareDomainMod.rng</rngMod>

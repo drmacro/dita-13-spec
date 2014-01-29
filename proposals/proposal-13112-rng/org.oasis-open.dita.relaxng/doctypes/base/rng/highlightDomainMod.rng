@@ -21,15 +21,15 @@ ORIGINAL CREATION DATE: March 2001
 UPDATES: 
 2005.11.15 RDA: Corrected descriptive names for all elements except bold 
 2005.11.15 RDA: Corrected the "Delivered as" system ID 
-2007.12.01 WEK: Reformatted DTD modulesfor DITA 1.2 
+2007.12.01 WEK: Reformatted DTD modulesfor DITA 1.2  
 2008.02.13 RDA: Create .content and .attributes entities 
       </headerComment>
     <moduleMetadata>
       <moduleType>elementdomain</moduleType>
       <moduleShortName>hi-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Highlight Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Highlight Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:highlightDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:highlightDomainMod.rng</rngMod>

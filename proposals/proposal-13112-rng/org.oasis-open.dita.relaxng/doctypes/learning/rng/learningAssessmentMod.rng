@@ -39,8 +39,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topic</moduleType>
       <moduleShortName>learningAssessment</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Learning Assessment//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Learning Assessment//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Learning Assessment//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Learning Assessment//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:learningAssessmentMod.xsd</xsdMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:learningAssessmentGrp.xsd</xsdGrp>
         <rncMod>urn:oasis:names:tc:dita:rnc:learningAssessmentMod.rnc</rncMod>

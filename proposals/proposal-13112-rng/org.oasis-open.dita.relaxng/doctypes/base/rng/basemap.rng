@@ -28,7 +28,7 @@ PUBLIC "-//OASIS//DTD DITA Base Map//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN"                      
+PUBLIC "-//OASIS//DTD DITA 1.2  Base Map//EN"                      
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -49,7 +49,7 @@ ORIGINAL CREATION DATE:
       <moduleType>mapshell</moduleType>
       <moduleShortName>basemap</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Base Map//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Base Map//EN</dtdShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:basemap.xsd</xsdShell>
         <rncShell>urn:oasis:names:tc:dita:rng:basemap.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:basemap.rng</rngShell>

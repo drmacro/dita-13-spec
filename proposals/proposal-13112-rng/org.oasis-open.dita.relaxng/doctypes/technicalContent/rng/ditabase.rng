@@ -24,7 +24,7 @@ PUBLIC "-//OASIS//DTD DITA Composite//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Composite//EN"                     
+PUBLIC "-//OASIS//DTD DITA 1.2  Composite//EN"                     
  
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -55,7 +55,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>ditabase</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Composite//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Composite//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:ditabase.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:ditabase.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:ditabase.xsd</xsdShell>

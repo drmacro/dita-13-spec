@@ -42,8 +42,8 @@ ORIGINAL CREATION DATE:
     <moduleType>constraint</moduleType>
     <moduleShortName>machineryTaskbody-c</moduleShortName>
     <modulePublicIds>
-      <dtdMod>-//OASIS//ELEMENTS DITA Taskbody Constraint//EN</dtdMod>
-      <dtdEnt>-//OASIS//ENTITIES DITA Taskbody Constraint//EN</dtdEnt>
+      <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Taskbody Constraint//EN</dtdMod>
+      <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Taskbody Constraint//EN</dtdEnt>
       <xsdMod>urn:oasis:names:tc:dita:xsd:machineryTaskbodyConstraintMod.xsd</xsdMod>
       <rncMod>urn:oasis:names:tc:dita:rnc:machineryTaskbodyConstraintMod.rnc</rncMod>
       <rngMod>urn:oasis:names:tc:dita:rng:machineryTaskbodyConstraintMod.rng</rngMod>

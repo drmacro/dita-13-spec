@@ -41,7 +41,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>learningPlan</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Learning Plan//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Learning Plan//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:learningPlan.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:learningPlan.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:learningPlan.xsd</xsdShell>

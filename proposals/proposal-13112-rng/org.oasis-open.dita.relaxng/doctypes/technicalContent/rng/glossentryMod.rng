@@ -35,9 +35,9 @@ ORIGINAL CREATION DATE:
             All Rights Reserved.                             
                                                              
  UPDATES:                                                    
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
-   2008.02.12 RDA: Expand glossary for DITA 1.2              
+   2008.02.12 RDA: Expand glossary for DITA 1.2               
    2008.02.13 RDA: Create .content and .attributes entities  
    2009.09.21 WEK: Renamed glossentry.mod                    
 =============================================================
@@ -46,8 +46,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>glossentry</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Glossary Entry//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Glossary Entry//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Glossary Entry//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Glossary Entry//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:glossentryMod.xsd</xsdMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:glossentryGrp.xsd</xsdGrp>
         <rncMod>urn:oasis:names:tc:dita:rnc:glossentryMod.rnc</rncMod>

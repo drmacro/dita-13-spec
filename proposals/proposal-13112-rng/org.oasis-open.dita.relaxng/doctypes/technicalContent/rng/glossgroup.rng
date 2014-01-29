@@ -41,8 +41,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>glossgroup</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Glossary Group//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Glossary Group//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Glossary Group//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Glossary Group//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:glossgroup.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:glossgroup.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:glossgroup.rng</rngMod>

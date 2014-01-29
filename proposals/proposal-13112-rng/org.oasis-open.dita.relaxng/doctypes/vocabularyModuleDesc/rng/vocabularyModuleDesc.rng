@@ -65,7 +65,7 @@
      <moduleType>topicshell</moduleType>
      <moduleShortName>vocabularyModule</moduleShortName>
      <shellPublicIds>
-       <dtdShell>-//OASIS//DTD DITA Vocabulary Module Description//EN</dtdShell>
+       <dtdShell>-//OASIS//DTD DITA 1.2 1.2Vocabulary Module Description//EN</dtdShell>
        <xsdShell>urn:oasis:names:tc:dita:xsd:vocabularyModuleDesc.xsd</xsdShell>
        <rncShell>urn:oasis:names:tc:dita:rnc:vocabularyModuleDesc.rnc</rncShell>
        <rngShell>urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng</rngShell>

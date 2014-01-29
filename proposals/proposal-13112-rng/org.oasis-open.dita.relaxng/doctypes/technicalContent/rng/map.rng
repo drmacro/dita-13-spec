@@ -24,7 +24,7 @@ PUBLIC "-//OASIS//DTD DITA Map//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Map//EN"                           
+PUBLIC "-//OASIS//DTD DITA 1.2  Map//EN"                           
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -43,7 +43,7 @@ ORIGINAL CREATION DATE:
    2005.11.15 RDA: Updated these comments to match template  
    2006.06.07 RDA: Added indexing domain                     
    2006.06.21 RDA: Added props attribute extensions          
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.02.01 RDA: Added Delayed Resolution domain           
    2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
    2010.09.20 RDA: Add topic-based domains                   
@@ -53,7 +53,7 @@ ORIGINAL CREATION DATE:
       <moduleType>mapshell</moduleType>
       <moduleShortName>map</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Map//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Map//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:map.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:map.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:map.xsd</xsdShell>

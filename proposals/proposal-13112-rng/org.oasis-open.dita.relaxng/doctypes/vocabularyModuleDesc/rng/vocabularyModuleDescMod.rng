@@ -59,8 +59,8 @@
      <moduleType>topic</moduleType>
      <moduleShortName>vocabularyModule</moduleShortName>
      <modulePublicIds>
-       <dtdMod>-//OASIS//ELEMENTS DITA Vocabulary Module Description//EN</dtdMod>
-       <dtdEnt>-//OASIS//ENTITIES DITA Vocabulary Module Description//EN</dtdEnt>
+       <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Vocabulary Module Description//EN</dtdMod>
+       <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Vocabulary Module Description//EN</dtdEnt>
        <xsdMod>urn:oasis:names:tc:dita:xsd:vocabularyModuleDescMod.xsd</xsdMod>
        <xsdGrp>urn:oasis:names:tc:dita:xsd:vocabularyModuleDescGrp.xsd</xsdGrp>
        <rncMod>urn:oasis:names:tc:dita:rnc:vocabularyModuleDescMod.rnc</rncMod>

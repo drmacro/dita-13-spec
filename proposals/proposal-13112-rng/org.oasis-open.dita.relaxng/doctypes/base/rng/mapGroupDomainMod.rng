@@ -39,7 +39,7 @@ ORIGINAL CREATION DATE:
    2005.11.15 RDA: Corrected the "Delivered as" system ID    
    2006.06.07 RDA: Make universal attributes universal       
                      (DITA 1.1 proposal #12)                 
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.02.01 RDA: Added keydef element, keys attributes     
    2008.02.12 RDA: Navtitle no longer required on topichead  
    2008.02.13 RDA: Create .content and .attributes entities  
@@ -51,8 +51,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>mapgroup-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Map Group//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Metadata//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Map Group//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Metadata//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:mapGroupMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:mapGroupMod.rng</rngMod>

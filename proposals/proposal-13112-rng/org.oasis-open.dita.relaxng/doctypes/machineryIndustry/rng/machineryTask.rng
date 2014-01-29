@@ -23,7 +23,7 @@ PUBLIC "-//OASIS//DTD DITA Machinery Task//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Machinery Task//EN"                
+PUBLIC "-//OASIS//DTD DITA 1.2  Machinery Task//EN"                
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -43,7 +43,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>Machinery Task</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Machinery Task//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Machinery Task//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:machinerytask.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:machinerytask.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:machinerytask.xsd</xsdShell>

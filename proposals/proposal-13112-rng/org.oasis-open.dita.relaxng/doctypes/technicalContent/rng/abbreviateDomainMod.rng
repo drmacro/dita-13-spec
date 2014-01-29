@@ -40,8 +40,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>abbrev-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Abbreviated Form Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Abbreviated Form Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Abbreviated Form Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Abbreviated Form Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:abbreviateDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:abbreviateDomainMod.rng</rngMod>

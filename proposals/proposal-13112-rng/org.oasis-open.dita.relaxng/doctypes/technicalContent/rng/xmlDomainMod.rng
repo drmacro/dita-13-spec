@@ -20,8 +20,8 @@
       <moduleType>elementdomain</moduleType>
       <moduleShortName>xml-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA XML Domain//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA XML Domain//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 XML Domain//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 XML Domain//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:xmlDomainMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:xmlDomainMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:xmlDomainMod.rng</rngMod>

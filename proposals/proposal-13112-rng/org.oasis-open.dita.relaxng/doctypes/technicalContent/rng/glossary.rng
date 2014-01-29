@@ -8,13 +8,13 @@
 This module provides simply redirects to the glossentry
 topic type. It is maintained for backward compatibility with
 DITA 1.1 and should not be used for documents conforming
-to DITA 1.2 or later.
+to DITA 1.2  or later.
     </headerComment>
     <moduleMetadata>
       <moduleType>topicshell</moduleType>
       <moduleShortName>glossary</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Glossary//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Glossary//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:glossary.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:glossary.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:glossary.xsd</xsdShell>

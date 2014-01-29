@@ -39,8 +39,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topic</moduleType>
       <moduleShortName>learningOverview</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Learning Overview//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Learning Overview//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Learning Overview//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Learning Overview//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:learningOverviewMod.xsd</xsdMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:learningOverviewGrp.xsd</xsdGrp>
         <rncMod>urn:oasis:names:tc:dita:rnc:learningOverviewMod.rnc</rncMod>

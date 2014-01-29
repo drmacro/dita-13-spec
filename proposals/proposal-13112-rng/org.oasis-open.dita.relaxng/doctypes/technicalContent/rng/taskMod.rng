@@ -47,7 +47,7 @@ ORIGINAL CREATION DATE:
    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
                      attributes                              
    2006.11.30 RDA: Remove #FIXED from DITAArchVersion        
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
    2008.02.06 RDA: Add note and itemgroup to step, substep   
    2008.02.06 RDA: Loosen content model of taskbody; add     
@@ -61,8 +61,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topic</moduleType>
       <moduleShortName>task</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Task//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Task//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Task//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Task//EN</dtdEnt>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:taskGrp.xsd</xsdGrp>
         <xsdMod>urn:oasis:names:tc:dita:xsd:taskMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:taskMod.rnc</rncMod>

@@ -65,6 +65,19 @@
        style of header comment.
     -->
   <xsl:param name="headerCommentStyle" select="'as-is'" as="xs:string"/>
+  
+  <xsl:param name="usePublicIDsInShell" as="xs:string"
+    select="'true'"
+  />
+
+  <xsl:param name="ditaVersion" as="xs:string"
+    select="'1.2'"
+  />
+
+  <xsl:variable name="usePublicIDsInShellBoolean" as="xs:boolean"
+    select="lower-case($usePublicIDsInShell) = ('yes', 'true', '1')"
+  />
+  
   <!-- NOTE: The primary output of this transform is an XML 
        manifest file that lists all input files and their
        corresponding outputs.

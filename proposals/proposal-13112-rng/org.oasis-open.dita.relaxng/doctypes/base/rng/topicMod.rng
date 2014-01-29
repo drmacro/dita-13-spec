@@ -57,7 +57,7 @@ ORIGINAL CREATION DATE:
    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
                      attributes                              
    2006.11.30 RDA: Remove #FIXED from DITAArchVersion        
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.28 RDA: Add draft-comment to body.cnt             
    2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod    
    2008.01.30 RDA: Replace @conref defn. with %conref-atts;  
@@ -74,8 +74,8 @@ ORIGINAL CREATION DATE:
       <moduleType>topic</moduleType>
       <moduleShortName>topic</moduleShortName>
       <modulePublicIds>
-        <dtdEnt>-//OASIS//ENTITIES DITA Topic//EN</dtdEnt>
-        <dtdMod>-//OASIS//ELEMENTS DITA Topic//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Topic//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Topic//EN</dtdMod>
         <xsdMod>urn:oasis:names:tc:dita:xsd:topicMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:topicMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:topicMod.rng</rngMod>

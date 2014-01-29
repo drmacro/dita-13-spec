@@ -509,8 +509,15 @@
     <xsl:if test="$entityType != 'ent' or ($entityType = 'ent' and not($entityName = 'topic-dec'))">    
       <xsl:text>&#x0a;&lt;!ENTITY % </xsl:text><xsl:value-of select="$entityName" /><xsl:text>&#x0a;</xsl:text> 
       <xsl:value-of select="str:indent(2)"/>
-      <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
-      <xsl:value-of select="str:indent(9)"/>
+      <xsl:choose>
+        <xsl:when test="$usePublicIDsInShellBoolean">
+          <xsl:text>PUBLIC "</xsl:text><xsl:value-of select="$publicId" /><xsl:text>"&#x0a;</xsl:text>
+          <xsl:value-of select="str:indent(9)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>SYSTEM </xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:value-of select="concat('&quot;', $entitySystemID, '&quot;')"/><xsl:text>&#x0a;</xsl:text>
       <xsl:text>&gt;</xsl:text><xsl:value-of select="concat('%', $entityName, ';')"/><xsl:text>&#x0a;</xsl:text>
     </xsl:if>

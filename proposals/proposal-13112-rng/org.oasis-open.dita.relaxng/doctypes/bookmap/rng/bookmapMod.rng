@@ -35,7 +35,7 @@ ORIGINAL CREATION DATE:
             (C) Copyright IBM Corporation 2004, 2005.        
             All Rights Reserved.                             
  UPDATES:                                                    
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.28 RDA: Removed enumerations for attributes:      
                    publishtype/@value, bookrestriction/@value
    2008.01.28 RDA: Added <metadata> to <bookmeta>            
@@ -52,8 +52,8 @@ ORIGINAL CREATION DATE:
       <moduleType>map</moduleType>
       <moduleShortName>bookmap</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA BookMap//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA BookMap//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 BookMap//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 BookMap//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:bookmap.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:bookmap.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:bookmap.rng</rngMod>

@@ -40,7 +40,7 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>hi-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Strict Taskbody Constraint//EN</dtdMod>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Strict Taskbody Constraint//EN</dtdMod>
         <xsdMod>urn:oasis:names:tc:dita:xsd:strictTaskbodyConstraintMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:strictTaskbodyConstraintMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:strictTaskbodyConstraintMod.rng</rngMod>

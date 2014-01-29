@@ -24,7 +24,7 @@ PUBLIC "-//OASIS//DTD DITA Concept//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Concept//EN"                       
+PUBLIC "-//OASIS//DTD DITA 1.2  Concept//EN"                       
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -49,7 +49,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>concept</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Concept//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Concept//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:concept.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:concept.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:concept.xsd</xsdShell>

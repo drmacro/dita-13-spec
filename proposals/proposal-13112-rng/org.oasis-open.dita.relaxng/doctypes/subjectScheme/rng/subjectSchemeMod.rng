@@ -43,8 +43,8 @@ ORIGINAL CREATION DATE:
       <moduleType>elementdomain</moduleType>
       <moduleShortName>hi-d</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Subject Scheme Map//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Subject Scheme Map//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Subject Scheme Map//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Subject Scheme Map//EN</dtdEnt>
         <rncMod>urn:oasis:names:tc:dita:rnc:subjectSchemeMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:subjectSchemeMod.rng</rngMod>
         <xsdGrp>urn:oasis:names:tc:dita:xsd:subjectSchemeGrp.xsd</xsdGrp>

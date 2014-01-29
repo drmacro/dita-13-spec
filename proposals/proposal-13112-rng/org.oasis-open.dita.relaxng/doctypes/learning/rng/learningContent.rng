@@ -45,7 +45,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>learningContent</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Learning Content//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Learning Content//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:learningContent.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:learningContent.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:learningContent.xsd</xsdShell>

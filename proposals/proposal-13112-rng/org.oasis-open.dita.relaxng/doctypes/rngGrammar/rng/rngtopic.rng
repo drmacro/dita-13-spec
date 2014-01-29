@@ -16,7 +16,7 @@ Test of RNG Grammar foreign specialization
       <moduleType>topicshell</moduleType>
       <moduleShortName>rngtopic</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA RNG Topic//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2RNG Topic//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:rngtopic</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rng:rngtopic</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:xsd:rngtopic</xsdShell>

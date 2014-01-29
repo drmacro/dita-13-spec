@@ -47,7 +47,7 @@ ORIGINAL CREATION DATE:
    2006.06.14 RDA: Add dir attribute to localization-atts    
    2006.11.30 RDA: Add -dita-use-conref-target to enumerated 
                      attributes                              
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.01.28 RDA: Add draft-comment to shortdesc            
    2008.01.28 RDA: Remove enumeration for @disposition on    
                    draft-comment                             
@@ -68,8 +68,8 @@ ORIGINAL CREATION DATE:
       <moduleType>base</moduleType>
       <moduleShortName>commonElements</moduleShortName>
       <modulePublicIds>
-        <dtdMod>-//OASIS//ELEMENTS DITA Common Elements//EN</dtdMod>
-        <dtdEnt>-//OASIS//ENTITIES DITA Common Elements//EN</dtdEnt>
+        <dtdMod>-//OASIS//ELEMENTS DITA 1.2 Common Elements//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA 1.2 Common Elements//EN</dtdEnt>
         <xsdMod>urn:oasis:names:tc:dita:xsd:commonElementsMod.xsd</xsdMod>
         <rncMod>urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:commonElementsMod.rng</rngMod>

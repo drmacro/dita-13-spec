@@ -28,7 +28,7 @@ PUBLIC "-//OASIS//DTD DITA Topic//EN"
 
 The public ID above refers to the latest version of this DTD.
      To refer to this specific version, you may use this value:
-PUBLIC "-//OASIS//DTD DITA 1.2 Topic//EN"                         
+PUBLIC "-//OASIS//DTD DITA 1.2  Topic//EN"                         
 
 =============================================================
 SYSTEM:     Darwin Information Typing Architecture (DITA)    
@@ -45,7 +45,7 @@ ORIGINAL CREATION DATE:
  UPDATES:                                                    
    2006.06.07 RDA: Added indexing domain                     
    2006.06.21 RDA: Added props attribute extensions          
-   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      
+   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       
    2008.02.12 RDA: Modify imbeds to use specific 1.2 version 
    2008.04.15 RDA: Added hazard domain                       
 =============================================================
@@ -54,7 +54,7 @@ ORIGINAL CREATION DATE:
       <moduleType>topicshell</moduleType>
       <moduleShortName>topic</moduleShortName>
       <shellPublicIds>
-        <dtdShell>-//OASIS//DTD DITA Topic//EN</dtdShell>
+        <dtdShell>-//OASIS//DTD DITA 1.2 1.2Topic//EN</dtdShell>
         <rncShell>urn:oasis:names:tc:dita:rnc:topic.rnc</rncShell>
         <rngShell>urn:oasis:names:tc:dita:rnc:topic.rng</rngShell>
         <xsdShell>urn:oasis:names:tc:dita:rnc:topic.xsd</xsdShell>
