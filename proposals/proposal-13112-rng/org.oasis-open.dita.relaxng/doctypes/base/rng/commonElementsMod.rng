@@ -2888,9 +2888,9 @@ ORIGINAL CREATION DATE:
         <define name="xref.attlist" combine="interleave">
           <ref name="xref.attributes"/>
         </define>
-        <include href="tblDeclMod.rng"/>
       </div>
     </div>
+    <include href="tblDeclMod.rng"/>
   </div>
   <div>
     <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>

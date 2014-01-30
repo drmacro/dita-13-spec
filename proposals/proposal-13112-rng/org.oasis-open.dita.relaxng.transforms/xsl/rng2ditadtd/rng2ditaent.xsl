@@ -36,6 +36,10 @@
   </xsl:template>
 
   <xsl:template mode="entityFile" match="rng:grammar">
+    <xsl:param name="modulesToProcess" 
+      as="document-node()*"
+      tunnel="yes"
+    />
 <!--    <xsl:message> + [DEBUG] === entityFile: rng:grammar <xsl:value-of select="@origURI"/></xsl:message>-->
     
     <xsl:variable name="moduleTitle" 
@@ -66,6 +70,16 @@
 &lt;!-- ============================================================= -->&#x0a;</xsl:text>
       
       <xsl:apply-templates  select="rng:define" mode="element-name-entities" />
+      <xsl:message> + [DEBUG] in element-name-entities for commonElements</xsl:message>
+      <!-- commonElements.ent includes the element name entities for the metaDecl and tblDecl modules -->
+      <xsl:for-each select="$modulesToProcess[rngfunc:getModuleShortName(./*) = ('metaDecl', 'tblDecl')]">
+ <xsl:text>
+&lt;!-- </xsl:text><xsl:value-of select="str:indent(18)"/><xsl:text>Elements in </xsl:text>
+        <xsl:value-of select="str:pad(concat(rngfunc:getModuleShortName(./*), '.mod'), 32)"/><xsl:text>-->
+</xsl:text>
+        
+        <xsl:apply-templates mode="element-name-entities" select="./*/rng:define"/>
+      </xsl:for-each>
     </xsl:if>
 
     <xsl:if test="$moduleType = 'elementdomain'">
@@ -105,10 +119,6 @@
 </xsl:text>
 <xsl:apply-templates mode="element-name-entities" select="rng:define"/>
         
-        <!-- NOTE: This reference to commonElements.ent is redundant with one
-                   from commonElements.mod, but that's how the 1.2 DTDs
-                   are coded.
-          -->
         <xsl:text><![CDATA[
 <!--                    Also include common elements used in topics
                         and maps                                      -->]]></xsl:text>

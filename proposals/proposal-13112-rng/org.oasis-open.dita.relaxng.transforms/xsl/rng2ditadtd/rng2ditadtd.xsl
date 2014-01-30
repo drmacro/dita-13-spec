@@ -141,6 +141,10 @@
 <!--    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>-->
 
     <!-- STEP 2: Generate the manifest and process the modules: -->
+    
+    <xsl:variable name="rngShellUrl" as="xs:string"
+      select="string(base-uri(root(.)))" />
+
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd">
       <inputDoc><xsl:sequence select="base-uri(root(.))"></xsl:sequence></inputDoc>
     <xsl:choose>
@@ -158,14 +162,17 @@
                 tunnel="yes"
                 as="xs:string"
               />
+              <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
+              <xsl:with-param name="modulesToProcess" as="document-node()*"
+                tunnel="yes"
+                select="$modulesToProcess"
+              />
             </xsl:apply-templates>
           </generatedModules>
       </xsl:otherwise>
     </xsl:choose>
 
     <!-- Generate the .dtd file: -->
-    <xsl:variable name="rngShellUrl" as="xs:string"
-      select="string(base-uri(root(.)))" />
     <xsl:variable name="packageName" as="xs:string" 
       select="relpath:getName(relpath:getParent(relpath:getParent($rngShellUrl)))"
     />
@@ -264,9 +271,10 @@
     <!-- Generate the .ent file: -->
     <!-- NOTE: Not all base modules have .ent files -->
     <xsl:if test="
-      $moduleShortName != 'tblDecl' and 
-      $moduleShortName != 'metaDecl' and 
-      $moduleShortName != 'map'"
+      $moduleShortName != 
+      ('tblDecl', 
+       'metaDecl', 
+       'map')"
       >    
       <xsl:result-document href="{$entResultUrl}" format="dtd">
           <xsl:apply-templates mode="entityFile">

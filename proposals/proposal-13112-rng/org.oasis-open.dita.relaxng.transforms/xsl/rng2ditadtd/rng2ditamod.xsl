@@ -81,14 +81,14 @@
 
 ]]></xsl:text>
     </xsl:if>
-    
+    <xsl:if test="not($moduleShortName = ('metaDecl', 'tblDecl'))">
       <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                   ELEMENT NAME ENTITIES                       -->
 &lt;!-- ============================================================= -->
 
 </xsl:text>
-    
+    </xsl:if>
     <!-- Special Case: the commonElements.mod file references commonElements.ent,
          which contains the element type name entities for the 
          common elements. This organization isn't required by DTD processing
@@ -163,6 +163,9 @@
 >%metaXML;
 </xsl:text>       
      </xsl:when>
+     <xsl:when test="$moduleShortName = ('metaDecl')">
+       <!-- metaDecl.mod does not include it's element name entities but tblDecl does -->
+     </xsl:when>
      <xsl:otherwise>
         <xsl:apply-templates mode="element-name-entities" select="rng:define"/>       
      </xsl:otherwise>
@@ -216,7 +219,7 @@
          
       -->
     <xsl:apply-templates mode="element-decls" 
-      select="rng:define except 
+      select="(rng:define | rng:include) except 
                   (rng:define[.//rng:attribute[@name='class']])"
       >
       <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
@@ -620,6 +623,31 @@
     <xsl:if test="position() != last()">
       <xsl:text>&#x0a;</xsl:text>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="rng:include" mode="element-decls">
+    <xsl:variable name="thisModuleURI" as="xs:string"
+      select="rngfunc:getGrammarUri(root(.)/*)"
+    />
+    <xsl:variable name="targetUri" as="xs:string"
+      select="relpath:newFile(relpath:getParent($thisModuleURI), @href)"
+    />
+    <xsl:variable name="module" select="document($targetUri)"/>
+    <xsl:choose>
+      <xsl:when test="$module">
+          <xsl:apply-templates select="$module" mode="entityDeclaration">
+                <xsl:with-param 
+                  name="entityType" 
+                  as="xs:string" 
+                  tunnel="yes"
+                  select="'mod'"
+                />
+          </xsl:apply-templates>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> - [ERROR] Failed to resolve grammar reference <xsl:value-of select="@href"/> using full URL "<xsl:value-of select="$targetUri"/>"</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- ================================
