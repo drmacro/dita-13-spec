@@ -105,30 +105,93 @@
 </xsl:text>
     </xsl:when>
      <xsl:when test="$moduleShortName = 'topic'">
-<xsl:text><![CDATA[
- <!--                    Definitions of declared elements           -->
-<!ENTITY % topicDefns 
-  PUBLIC "-//OASIS//ENTITIES DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Topic Definitions//EN" 
-         "topicDefn.ent" 
+<xsl:text>
+&lt;!--                    Definitions of declared elements           -->
+&lt;!ENTITY % topicDefns</xsl:text>
+       <xsl:choose>
+       <xsl:when test="$usePublicIDsInShellBoolean">
+  <xsl:text>
+    PUBLIC "-//OASIS//ENTITIES DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Topic Definitions//EN"</xsl:text>          
+       </xsl:when>
+         <xsl:otherwise>
+           <xsl:text>
+    SYSTEM</xsl:text>
+         </xsl:otherwise>
+       </xsl:choose>
+        <xsl:text> "topicDefn.ent" 
 >%topicDefns;
 
-<!--                      Content elements common to map and topic -->
-<!ENTITY % commonElements 
-  PUBLIC "-//OASIS//ELEMENTS DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Common Elements//EN" 
+&lt;!--                      Content elements common to map and topic -->
+&lt;!ENTITY % commonElements
+</xsl:text>
+       <xsl:choose>
+       <xsl:when test="$usePublicIDsInShellBoolean">
+  <xsl:text>
+  PUBLIC "-//OASIS//ELEMENTS DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Common Elements//EN"</xsl:text> 
+       </xsl:when>
+         <xsl:otherwise>
+           <xsl:text>
+    SYSTEM</xsl:text>
+         </xsl:otherwise>
+       </xsl:choose><xsl:text>
          "commonElements.mod" 
 >%commonElements;
 
-<!--                       MetaData Elements, plus indexterm       -->
-<!ENTITY % metaXML 
-  PUBLIC "-//OASIS//ELEMENTS DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Metadata//EN" 
+&lt;!--                       MetaData Elements, plus indexterm       -->
+&lt;!ENTITY % metaXML 
+</xsl:text>
+       <xsl:choose>
+       <xsl:when test="$usePublicIDsInShellBoolean">
+  <xsl:text>  PUBLIC "-//OASIS//ELEMENTS DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Metadata//EN"</xsl:text> 
+       </xsl:when>
+         <xsl:otherwise>
+           <xsl:text>
+    SYSTEM</xsl:text>
+         </xsl:otherwise>
+       </xsl:choose><xsl:text>
          "metaDecl.mod" 
 >%metaXML;
- ]]></xsl:text>       
+</xsl:text>       
      </xsl:when>
      <xsl:otherwise>
         <xsl:apply-templates mode="element-name-entities" select="rng:define"/>       
      </xsl:otherwise>
    </xsl:choose>
+    
+    <xsl:if test="$moduleShortName = 'topic'">
+<xsl:text><![CDATA[
+<!-- ============================================================= -->
+<!--                COMMON ENTITY DECLARATIONS                     -->
+<!-- ============================================================= -->
+
+<!-- Use of this entity is deprecated; the nbsp entity will be 
+     removed in DITA 2.0.                                          -->
+<!ENTITY nbsp                   "&#xA0;"                             >
+
+
+<!-- ============================================================= -->
+<!--                    NOTATION DECLARATIONS                      -->
+<!-- ============================================================= -->
+<!--                    DITA uses the direct reference model; 
+                        notations may be added later as required   -->
+
+
+<!-- ============================================================= -->
+<!--                    STRUCTURAL MEMBERS                         -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % info-types 
+  "topic
+  "
+> 
+
+<!-- ============================================================= -->
+<!--                    COMMON ATTLIST SETS                        -->
+<!-- ============================================================= -->
+
+]]></xsl:text>      
+    </xsl:if>
 
     <xsl:text>
 &lt;!-- ============================================================= -->
@@ -144,7 +207,7 @@
       -->
     <xsl:apply-templates mode="element-decls" 
       select="rng:define except 
-                  (rng:define[.//rng:attribute[@name='class']] | rng:define[@name='arch-atts'])"
+                  (rng:define[.//rng:attribute[@name='class']])"
       >
       <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
     </xsl:apply-templates>
@@ -205,7 +268,7 @@
   <!-- Class attributes are handled in a separate mode -->
   <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10"/>
 
-  <xsl:template match="rng:define[starts-with(@name, rngfunc:getModuleShortName(ancestor::rng:grammar))]" 
+  <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
     mode="element-decls" priority="30"
   />
 
@@ -260,11 +323,15 @@
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template mode="generate-parment-decl-from-define" match="rng:define[@name = 'arch-atts']" priority="10">
+    <!-- arch-atts declaration is hard-coded -->
+  </xsl:template>
+  
   <xsl:template mode="generate-parment-decl-from-define" match="rng:define">
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
     
-<!--    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>-->
+    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
     <xsl:text>&lt;!ENTITY % </xsl:text>
     <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>
@@ -550,6 +617,7 @@
   <xsl:template match="rng:element" mode="element-decls" priority="10">
     <!-- Generate the content and attribute list parameter entities: -->
     <!-- Generate the element type and attribute list declarations -->
+<!--    <xsl:message> + [DEBUG] element-decls: rng:element, name="<xsl:value-of select="@name"/>" </xsl:message>-->
     <xsl:variable name="longName" as="xs:string"
       select="if (@ditaarch:longName) 
                  then @ditaarch:longName
@@ -624,10 +692,23 @@
   
   <xsl:template mode="generate-attlist-decl" match="rng:ref[ends-with(@name, '.attributes')]">
     <xsl:param name="tagname" tunnel="yes" as="xs:string"/>
+    
+    <xsl:variable name="moduleShortName" as="xs:string"
+      select="rngfunc:getModuleShortName(root(.)/*)"
+    />
+
     <xsl:text>&lt;!ATTLIST  </xsl:text>
     <xsl:value-of select="$tagname" />
     <xsl:text> </xsl:text>
     <xsl:value-of select="concat('%', @name, ';')"/>
+    <xsl:if test="$tagname = 'topic'">
+<xsl:text>
+                 %arch-atts;
+                 domains 
+                        CDATA
+                                  "&amp;included-domains;"
+</xsl:text>      
+    </xsl:if>
     <xsl:text>&gt;&#x0a;</xsl:text>
   </xsl:template>
   
