@@ -76,17 +76,17 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN"                     -->
                         the name of the domain(s) in which the
                         extension was declared                     -->
 
+<!ENTITY % note         "note | 
+                         %hazard-d-note;
+                        ">
 <!ENTITY % ph           "ph | 
                          %hi-d-ph;
-                        ">
-<!ENTITY % fig          "fig |
-                         %ut-d-fig;
                         ">
 <!ENTITY % index-base   "index-base | 
                          %indexing-d-index-base;
                         ">
-<!ENTITY % note         "note | 
-                         %hazard-d-note;
+<!ENTITY % fig          "fig |
+                         %ut-d-fig;
                         ">
 
 <!-- ============================================================= -->
@@ -119,10 +119,10 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN"                     -->
                         puts @domains first in order               -->
 
 <!ENTITY included-domains 
-                          "&hi-d-att; 
-                           &ut-d-att; 
+                          "&hazard-d-att;
+                           &hi-d-att;
                            &indexing-d-att;
-                           &hazard-d-att;
+                           &ut-d-att;
   "
 >
 

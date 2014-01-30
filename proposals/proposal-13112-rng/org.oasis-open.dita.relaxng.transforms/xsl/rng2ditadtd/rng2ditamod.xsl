@@ -98,9 +98,19 @@
    <xsl:choose>
     <xsl:when test="$moduleShortName = 'commonElements'">
       <xsl:text>
-&lt;!ENTITY % commonDefns 
-  PUBLIC "-//OASIS//ENTITIES DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Common Elements//EN" 
-         "commonElements.ent" 
+&lt;!ENTITY % commonDefns</xsl:text>
+      <xsl:choose>
+        <xsl:when test="$usePublicIDsInShellBoolean">
+<xsl:text>
+  PUBLIC "-//OASIS//ENTITIES DITA </xsl:text>          
+<xsl:value-of select="$ditaVersion"/><xsl:text> Common Elements//EN" </xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+<xsl:text>
+  SYSTEM </xsl:text>          
+        </xsl:otherwise>
+      </xsl:choose>
+<xsl:text>         "commonElements.ent" 
 >%commonDefns;
 </xsl:text>
     </xsl:when>
@@ -331,7 +341,8 @@
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
     
-    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
+-->
     <xsl:text>&lt;!ENTITY % </xsl:text>
     <xsl:value-of select="@name" />
     <xsl:text>&#x0a;</xsl:text>

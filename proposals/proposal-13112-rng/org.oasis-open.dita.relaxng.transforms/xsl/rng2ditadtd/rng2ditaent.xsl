@@ -111,12 +111,24 @@
           -->
         <xsl:text><![CDATA[
 <!--                    Also include common elements used in topics
-                        and maps                                   -->
-<!ENTITY % commonDefns   PUBLIC 
-                       "-//OASIS//ENTITIES DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Common Elements//EN" 
-                       "commonElements.ent"                          >
+                        and maps                                      -->]]></xsl:text>
+        <xsl:text>
+&lt;!ENTITY % commonDefns </xsl:text>
+<xsl:choose>
+  <xsl:when test="$usePublicIDsInShellBoolean">
+    <xsl:text>
+  PUBLIC 
+                       "-//OASIS//ENTITIES DITA </xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text> Common Elements//EN" 
+</xsl:text>
+  </xsl:when>
+  <xsl:otherwise>
+    <xsl:text>
+  SYSTEM </xsl:text>
+  </xsl:otherwise>
+</xsl:choose>                        
+                      <xsl:text> "commonElements.ent"                          >
 %commonDefns;
-          ]]></xsl:text>
+          </xsl:text>
       </xsl:when>
       <xsl:otherwise>
           <xsl:if test="ends-with($moduleType, 'domain') or $moduleType = 'topic' or $moduleType = 'map'" >
