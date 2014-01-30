@@ -138,7 +138,7 @@
          it came from.
       -->
     
-    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>
+<!--    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>-->
 
     <!-- STEP 2: Generate the manifest and process the modules: -->
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd">
@@ -199,8 +199,8 @@
       select="if (*/@origURI) then */@origURI else base-uri(.)"
     />
     <xsl:if test="true() and $doDebug">
-      <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
-        select="$rngModuleUrl"/>"</xsl:message>
+<!--      <xsl:message> + [DEBUG] generate-modules: rngModuleUrl="<xsl:sequence
+        select="$rngModuleUrl"/>"</xsl:message>-->
     </xsl:if>
     <!-- Use the RNG module's grandparent directory name to construct output
          dir so the DTD module organization mirrors the RNG organization.
@@ -226,7 +226,7 @@
     <xsl:variable name="resultDir"
       select="relpath:newFile(relpath:newFile($dtdOutputDir, $packageName), 'dtd')"
     />
-    <xsl:if test="true() and $doDebug">
+    <xsl:if test="false() and $doDebug">
       <xsl:message> + [DEBUG] generate-modules: resultDir="<xsl:sequence select="$resultDir"/>"</xsl:message>
     </xsl:if>
 

@@ -55,6 +55,32 @@
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
     
     <xsl:apply-templates select="dita:moduleDesc" mode="header-comment"/>
+    <xsl:if test="$moduleShortName = 'topic'">
+    <xsl:text><![CDATA[
+<!-- ============================================================= -->
+<!--                   ARCHITECTURE ENTITIES                       -->
+<!-- ============================================================= -->
+
+<!-- default namespace prefix for DITAArchVersion attribute can be
+     overridden through predefinition in the document type shell   -->
+<!ENTITY % DITAArchNSPrefix
+  "ditaarch"
+>
+
+<!-- must be instanced on each topic type                          -->
+<!ENTITY % arch-atts 
+             "xmlns:%DITAArchNSPrefix; 
+                        CDATA
+                                  #FIXED 'http://dita.oasis-open.org/architecture/2005/'
+              %DITAArchNSPrefix;:DITAArchVersion
+                         CDATA
+                                  ']]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA['
+  "
+>
+
+
+]]></xsl:text>
+    </xsl:if>
     
       <xsl:text>
 &lt;!-- ============================================================= -->
@@ -118,7 +144,7 @@
       -->
     <xsl:apply-templates mode="element-decls" 
       select="rng:define except 
-                  (rng:define[.//rng:attribute[@name='class']])"
+                  (rng:define[.//rng:attribute[@name='class']] | rng:define[@name='arch-atts'])"
       >
       <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
     </xsl:apply-templates>

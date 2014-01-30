@@ -52,7 +52,7 @@
     <xsl:variable name="moduleType" as="xs:string"
       select="rngfunc:getModuleType(.)"
     />
-    <xsl:if test="$doDebug">
+    <xsl:if test="false() and $doDebug">
         <xsl:message> + [DEBUG] moduleType="<xsl:sequence select="$moduleType"/>"</xsl:message>
     </xsl:if>
     <xsl:text>&lt;?xml version="1.0" encoding="UTF-8"?>&#x0a;</xsl:text>
@@ -92,19 +92,47 @@
       </xsl:apply-templates>
       
     </xsl:if>
+    
+    <xsl:choose>
+      <xsl:when test="$moduleShortName = 'topic'">
+        <xsl:text>
 
-    <xsl:if test="ends-with($moduleType, 'domain') or $moduleType = 'topic' or $moduleType = 'map'" >
+&lt;!-- ============================================================= -->
+&lt;!--                    ELEMENT NAME ENTITIES                      -->
+&lt;!-- ============================================================= -->
+
+        
+</xsl:text>
+<xsl:apply-templates mode="element-name-entities" select="rng:define"/>
+        
+        <!-- NOTE: This reference to commonElements.ent is redundant with one
+                   from commonElements.mod, but that's how the 1.2 DTDs
+                   are coded.
+          -->
+        <xsl:text><![CDATA[
+<!--                    Also include common elements used in topics
+                        and maps                                   -->
+<!ENTITY % commonDefns   PUBLIC 
+                       "-//OASIS//ENTITIES DITA ]]></xsl:text><xsl:value-of select="$ditaVersion"/><xsl:text><![CDATA[ Common Elements//EN" 
+                       "commonElements.ent"                          >
+%commonDefns;
+          ]]></xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+          <xsl:if test="ends-with($moduleType, 'domain') or $moduleType = 'topic' or $moduleType = 'map'" >
       <xsl:text>
 &lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ENTITY DECLARATION                  -->
 &lt;!-- ============================================================= -->&#x0a;</xsl:text>
-      <xsl:apply-templates mode="domainAttContributeEntityDecl"
-        select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"
-        >
-        <xsl:with-param name="domainPrefix" select="$domainPrefix" as="xs:string" />
-      </xsl:apply-templates>
-  
-    </xsl:if>
+            <xsl:apply-templates mode="domainAttContributeEntityDecl"
+              select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"
+              >
+              <xsl:with-param name="domainPrefix" select="$domainPrefix" as="xs:string" />
+            </xsl:apply-templates>
+        
+          </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
 
     <xsl:text>
 &lt;!-- ================ End of </xsl:text>
