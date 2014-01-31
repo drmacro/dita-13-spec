@@ -204,6 +204,32 @@
 <!--                    COMMON ATTLIST SETS                        -->
 <!-- ============================================================= -->
 
+]]></xsl:text>
+      
+<!-- FIXME: The common attribute lists (relational-atts, rel-atts)
+            should go here to exactly match 1.2 organization
+            but they are processed in the 
+            element declaration processing below.
+  -->
+
+<xsl:text><![CDATA[
+<!-- ============================================================= -->
+<!--                    SPECIALIZATION OF DECLARED ELEMENTS        -->
+<!-- ============================================================= -->
+
+<!ENTITY % topic-info-types 
+  "%info-types;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+
+<!ENTITY included-domains 
+  ""
+>
+
 ]]></xsl:text>      
     </xsl:if>
 
@@ -211,7 +237,7 @@
 &lt;!-- ============================================================= -->
 &lt;!--                    ELEMENT DECLARATIONS                       -->
 &lt;!-- ============================================================= -->
-  
+
 </xsl:text>    
 
     <!-- Process all defines in the order they occur, except
