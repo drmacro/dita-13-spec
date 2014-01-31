@@ -822,7 +822,7 @@
     <xsl:value-of select="$tagname" />
     <xsl:text> </xsl:text>
     <xsl:value-of select="concat('%', @name, ';')"/>
-    <xsl:if test="$tagname = 'topic'">
+    <xsl:if test="rngfunc:getModuleType(ancestor-or-self::rng:grammar) = ('topic', 'map')">
 <xsl:text>
                  %arch-atts;
                  domains 
