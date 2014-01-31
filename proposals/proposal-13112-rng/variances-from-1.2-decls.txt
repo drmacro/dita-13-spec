@@ -18,4 +18,7 @@ in hazardstatementDomain.mod--only used in one element type, no point in preserv
 
 5. Omitted revision-specific comments. They are available in the 1.2 distribution for historical purposes.
 
- 
+Variances from 1.2 XSD declarations
+
+1. commonElement*.xsd becomes commonElements*.xsd (or should be preserve the 1.2 naming convention)?
+

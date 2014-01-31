@@ -11,7 +11,8 @@
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc"
+  xmlns:local="http://local-functions"
+  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc local"
   version="2.0">
 
   <!-- DITA RNG to XSD document type shell schema 
@@ -63,10 +64,22 @@
       <xsl:comment> ================ GROUP DEFINITIONS ===================== </xsl:comment>
       <xsl:text>&#x0a;</xsl:text>
       
+      <!-- The tbl and metaDecl group modules are included before the the topic ones. --> 
       <xsl:apply-templates 
         mode="generateIncludes"
-        select="$modulesToProcess[rngfunc:getModuleShortName(./*) != 'commonElements' and
-                                  rngfunc:getModuleType(./*) = ('topic', 'map', 'base')]" 
+        select="$modulesToProcess[rngfunc:getModuleShortName(./*) = 'metaDecl']" 
+        >
+        <xsl:with-param name="fileType" select="'grp'" as="xs:string" tunnel="yes"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates 
+        mode="generateIncludes"
+        select="$modulesToProcess[rngfunc:getModuleShortName(./*) = 'tblDecl']" 
+        >
+        <xsl:with-param name="fileType" select="'grp'" as="xs:string" tunnel="yes"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates 
+        mode="generateIncludes"
+        select="$modulesToProcess[rngfunc:getModuleType(./*) = ('topic', 'map')]" 
         >
         <xsl:with-param name="fileType" select="'grp'" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>
@@ -98,20 +111,26 @@
         <xsl:with-param name="fileType" select="'mod'" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>
   
-  <xsl:choose>
-    <xsl:when test="$shellType = 'topicshell'">
-    </xsl:when>
-    <xsl:when test="$shellType = 'mapshell'">
-      <!-- FIXME: Do map stuff. -->
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:message> - [ERROR] Unexpected shellType value "<xsl:sequence select="$shellType"/>"</xsl:message>
-    </xsl:otherwise>
-  </xsl:choose>
   
-  <xs:redefine schemaLocation="../../base/xsd/commonElementGrp.xsd">
+  <!-- FIXME: This hard-coded reference will work for all OASIS shells but not for non-OASIS shells -->
+  <xsl:text>&#x0a;</xsl:text>
+  <xs:redefine>
+    <xsl:choose>
+      <xsl:when test="$useURNsInShellBoolean">
+        <xsl:attribute name="schemaLocation"
+          select="concat('urn:oasis:names:tc:dita:xsd:mapGrp.xsd:', $ditaVersion)"
+        />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="schemaLocation"
+          select="'../../base/xsd/commonElementGrp.xsd'"
+        />
+
+      </xsl:otherwise>
+    </xsl:choose>
     <!-- FIXME: Generate domain redefines here. -->
   </xs:redefine>
+  <xsl:text>&#x0a;</xsl:text>
   <xsl:text>&#x0a;</xsl:text>
   
    <xsl:choose>
@@ -143,6 +162,7 @@
    </xsl:choose>
       
   <!-- Maps and topics both declare the @domains attribute: -->
+      <xsl:text>&#x0a;</xsl:text>
       <xs:attributeGroup name="domains-att">
         <!-- FIXME: Generate the @domains value -->
         <xs:attribute name="domains" type="xs:string" 
@@ -162,23 +182,18 @@
     -->
     <xsl:param name="xsdDir" tunnel="yes" as="xs:string" />
     <xsl:param name="rngShellUrl" tunnel="yes" as="xs:string"/>
-    <xsl:message> + [DEBUG] generateIncludes: rngShellUrl="<xsl:value-of select="$rngShellUrl"/></xsl:message>
     
     <xsl:variable name="rngShellParent" as="xs:string"
       select="relpath:getParent($rngShellUrl)"
     />
-    <xsl:message> + [DEBUG] generateIncludes: rngShellParent="<xsl:value-of select="$rngShellParent"/></xsl:message>
     
     <xsl:variable name="rngModuleUrl" as="xs:string"
       select="rngfunc:getGrammarUri(.)"
     />
-    <xsl:message> + [DEBUG] generateIncludes: rngModuleUrl="<xsl:value-of select="$rngModuleUrl"/></xsl:message>
     <xsl:variable name="rngModuleName" as="xs:string"
       select="relpath:getNamePart($rngModuleUrl)" />
     <xsl:variable name="moduleBaseName" as="xs:string"
-      select="if (ends-with($rngModuleName, 'Mod')) 
-      then substring-before($rngModuleName, 'Mod') 
-      else $rngModuleName"
+      select="local:getModuleBaseFilename($rngModuleName)"
     />
     <xsl:variable name="targetFilename" as="xs:string"
       select="
@@ -186,11 +201,9 @@
         then concat($moduleBaseName, 'Grp.xsd') 
         else concat($moduleBaseName, 'Mod.xsd')"
     />
-    <xsl:message> + [DEBUG] generateIncludes: targetFilename="<xsl:value-of select="$targetFilename"/></xsl:message>
     <xsl:variable name="moduleUrl" as="xs:string"
       select="rngfunc:getGrammarUri(.)"
     />
-    <xsl:message> + [DEBUG] generateIncludes: moduleUrl="<xsl:value-of select="$moduleUrl"/></xsl:message>
     <xsl:variable name="relpathFromShell" as="xs:string"
       select="relpath:getParent(relpath:getRelativePath($rngShellParent, $moduleUrl))"
       />

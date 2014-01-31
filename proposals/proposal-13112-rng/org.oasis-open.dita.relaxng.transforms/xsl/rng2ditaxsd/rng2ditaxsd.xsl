@@ -9,7 +9,8 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
+  xmlns:local="http://local-functions"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local"
   version="2.0">
 
   <xd:doc scope="stylesheet">
@@ -234,10 +235,9 @@
 
     <xsl:variable name="rngModuleName" as="xs:string"
       select="relpath:getNamePart($rngModuleUrl)" />
+   
     <xsl:variable name="moduleBaseName" as="xs:string"
-      select="if (ends-with($rngModuleName, 'Mod')) 
-      then substring-before($rngModuleName, 'Mod') 
-      else $rngModuleName"
+      select="local:getModuleBaseFilename($rngModuleName)"
     />
     <xsl:variable name="grpFilename" as="xs:string"
       select="concat($moduleBaseName, 'Grp.xsd')"
@@ -305,5 +305,19 @@
       -->
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
+  
+  <xsl:function name="local:getModuleBaseFilename" as="xs:string">
+    <xsl:param name="rngModuleName" as="xs:string"/>
+        <xsl:variable name="moduleBaseName" as="xs:string"
+      select="if (ends-with($rngModuleName, 'Mod')) 
+      then substring-before($rngModuleName, 'Mod') 
+      else $rngModuleName"
+    />
+    <xsl:variable name="adjustedModuleBaseName" as="xs:string"
+      select="if ($moduleBaseName = 'commonElements') then 'commonElement' else $moduleBaseName"
+    />
+    <xsl:sequence select="$adjustedModuleBaseName"/>
+
+  </xsl:function>
 
 </xsl:stylesheet>

@@ -9,7 +9,8 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
+  xmlns:local="http://local-functions"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc local"
   version="2.0">
 
   <xd:doc scope="stylesheet">
