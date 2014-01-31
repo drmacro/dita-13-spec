@@ -1084,6 +1084,9 @@ ORIGINAL CREATION DATE:
       </div>
       <div>
         <a:documentation>LONG NAME: Unknown element</a:documentation>
+        <define name="unknown.content">
+          <ref name="any"/>
+        </define>
         <define name="unknown.attributes">
           <ref name="univ-atts"/>
           <optional>
@@ -1095,7 +1098,7 @@ ORIGINAL CREATION DATE:
             <a:documentation>The &lt;unknown> element is an open extension that allows information architects to incorporate xml fragments that do not necessarily fit into an existing DITA use case.
               The base processing for &lt;unknown> is to suppress unless otherwise instructed. Category: Specialization elements</a:documentation>
             <ref name="unknown.attlist"/>
-            <ref name="any"/>
+            <ref name="unknown.content"/>
           </element>
         </define>
         <define name="unknown.attlist" combine="interleave">
@@ -1105,6 +1108,9 @@ ORIGINAL CREATION DATE:
       </div>
       <div>
         <a:documentation>LONG NAME: Foreign content element</a:documentation>
+        <define name="foreign.content">
+          <ref name="any"/>
+        </define>
         <define name="foreign.attributes">
           <ref name="univ-atts"/>
           <optional>
@@ -1117,7 +1123,7 @@ ORIGINAL CREATION DATE:
               SVG, as inline objects. If &lt;foreign> contains more than one alternative content element, they will all be processed. Specialization of &lt;foreign> should be implemented as a domain,
               but for those looking for more control over the content can implement foreign vocabulary as an element specialization. Category: Specialization elements</a:documentation>
             <ref name="foreign.attlist"/>
-            <ref name="any"/>
+            <ref name="foreign.content"/>
           </element>
         </define>
         <define name="foreign.attlist" combine="interleave">
@@ -2671,6 +2677,9 @@ ORIGINAL CREATION DATE:
       </div>
       <div>
         <a:documentation>LONG NAME: Required Cleanup Block</a:documentation>
+        <define name="required-cleanup.content">
+          <ref name="any"/>
+        </define>        
         <define name="required-cleanup.attributes">
           <optional>
             <attribute name="remap"/>
@@ -2686,7 +2695,7 @@ ORIGINAL CREATION DATE:
               implies, the intent for authors is to clean up the contained material and eventually get rid of the &lt;required-cleanup> element. Authors should not insert this element into documents.
               Category: Specialization elements</a:documentation>
             <ref name="required-cleanup.attlist"/>
-            <ref name="any"/>
+            <ref name="required-cleanup.content"/>
           </element>
         </define>
         <define name="required-cleanup.attlist" combine="interleave">
