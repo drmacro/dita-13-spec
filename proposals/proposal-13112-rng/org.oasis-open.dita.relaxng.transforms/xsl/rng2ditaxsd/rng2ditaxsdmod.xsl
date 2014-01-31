@@ -60,7 +60,14 @@
       </xs:annotation>
       <xsl:text>&#x0a;</xsl:text>
       
-      <xsl:apply-templates mode="groupFile" select="rng:define/rng:element"/>
+      <xsl:choose>
+        <xsl:when test="rngfunc:getModuleShortName(.) = ('commonElements', 'tblDecl', 'metaDecl') or rngfunc:getModuleType(.) = ('topic', 'map')">
+          <!-- No groups in the Mod.xsd file -->
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates mode="groupFile" select="rng:define/rng:element"/>
+        </xsl:otherwise>
+      </xsl:choose>
       
       <xsl:text>&#x0a;</xsl:text>
       <xsl:apply-templates mode="#current" select="rng:define/rng:element"/>
@@ -143,20 +150,23 @@
       <xsl:variable name="contentPatternName" as="xs:string"
         select="concat(@name, '.content')"
       />
-      <!--<xsl:message> + [DEBUG] rng:element: contentPatternName="<xsl:value-of select="$contentPatternName"/>"</xsl:message>-->
-      <!--<xsl:message> + [DEBUG] rng:element: ref=<xsl:sequence select="rng:ref[@name = $contentPatternName]"/></xsl:message>-->
       <xsl:apply-templates 
         select="rng:ref[@name = $contentPatternName]" 
         mode="generateXsdContentModel"/>
     </xs:group>
+    
+    <xs:attributeGroup name="{@name}.attributes">
+      <xs:attributeGroup ref="global-atts"/>
+      <xsl:variable name="attributesPatternName" as="xs:string"
+        select="concat(@name, '.attributes')"
+      />
+      <xsl:apply-templates 
+        select="../../rng:define[@name = $attributesPatternName]" 
+        mode="doAttributeListGeneration"/>      
+    </xs:attributeGroup>
     <!-- 
   
   
-  <xs:attributeGroup name="sup.attributes">
-    <xs:attributeGroup ref="global-atts"/>
-    <xs:attributeGroup ref="univ-atts"/>
-    <xs:attribute name="outputclass" type="xs:string"/>
-  </xs:attributeGroup>
     
     -->
   </xsl:template>
@@ -233,6 +243,49 @@
   <xsl:template mode="generateXsdContentModel" match="*" priority="-1">
     <xsl:message> - [WARN] generateXsdContentModel: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
   </xsl:template>
+  
+  <!-- ==============================
+       Mode generateXsdAttributeDecls
+       ============================== -->
+ 
+ 
+  <xsl:template mode="doAttributeListGeneration" match="rng:ref" priority="10">
+    <!--<xsl:message> + [DEBUG] generateXsdAttributeDecls: rng:ref name="<xsl:value-of select="@name"/>"</xsl:message>-->
+    <xsl:variable name="pattern" select="key('definesByName', string(@name))"
+      as="element(rng:define)*"
+    />
+    <xsl:apply-templates mode="generateXsdAttributeDecls" select="$pattern"/>
+  </xsl:template>
+
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:ref">
+    <xs:attributeGroup ref="{@name}"/>
+  </xsl:template>
+
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:define">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:optional">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:attribute">
+    <!-- FIXME: Handle enumerated attributes correctly -->
+    <xs:attribute name="{@name}" type="xs:string"/>
+  </xsl:template>
+  
+  <xsl:template mode="generateXsdAttributeDecls" match="*" priority="-1">
+    <xsl:message> - [WARN] generateXsdAttributeDecls: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+  </xsl:template>
+  
+  <xsl:template match="a:*" mode="generateXsdAttributeDecls">
+    <!-- Ignore annotations -->
+  </xsl:template>
+  
+  
+  <!-- ==============================
+       Mode documentation
+       ============================== -->
   
   <xsl:template match="a:documentation" mode="documentation">
     <xsl:apply-templates mode="#current"/>
