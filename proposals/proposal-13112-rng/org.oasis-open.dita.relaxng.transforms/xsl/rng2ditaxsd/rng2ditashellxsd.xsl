@@ -128,7 +128,9 @@
 
       </xsl:otherwise>
     </xsl:choose>
-    <!-- FIXME: Generate domain redefines here. -->
+    <xsl:call-template name="generateRedefines">
+      <xsl:with-param name="modulesToProcess" select="$modulesToProcess" as="document-node()*"/>
+    </xsl:call-template>
   </xs:redefine>
   <xsl:text>&#x0a;</xsl:text>
   <xsl:text>&#x0a;</xsl:text>
@@ -171,6 +173,51 @@
     
     </xs:schema>
   </xsl:template>  
+  
+  <xsl:template name="generateRedefines">
+    <xsl:param name="modulesToProcess" as="document-node()*"/>
+    
+  <!-- Get the set of element domain modules then get the set of 
+       domain extension patterns from all of them then process
+       that set to generate one redefine group for each unique
+       element type being extended.
+    -->
+        <xsl:message> + [INFO] Generating domain extension redefines... </xsl:message>
+        <xsl:variable name="domainModules" as="element()*"
+          select="$modulesToProcess[rngfunc:isElementDomain(.)]/*" 
+        />
+        <xsl:message> + [INFO] Domain modules to integrate: <xsl:sequence select="for $mod in $domainModules return rngfunc:getModuleShortName($mod)"/></xsl:message>
+    
+        <xsl:variable name="domainExtensionPatterns" as="element()*"
+          select="$domainModules//rng:define[starts-with(@name, rngfunc:getModuleShortName(root(.)/*))]"
+        />
+        
+        <xsl:for-each-group select="$domainExtensionPatterns" 
+          group-by="substring-after(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))">
+<!--
+     <xs:group name="ph">
+      <xs:choice>
+        <xs:group ref="ph"/>
+        <xs:group ref="hi-d-ph" />
+      </xs:choice>
+    </xs:group>
+            
+-->
+          
+            <xsl:variable name="groupName" as="xs:string"
+              select="current-grouping-key()"
+            />
+            <xs:group name="{$groupName}">
+              <xs:choice>
+                <xs:group ref="{$groupName}"/>
+                <xsl:for-each select="current-group()">
+                  <xs:group ref="{@name}"/>
+                </xsl:for-each>
+              </xs:choice>
+            </xs:group>
+        </xsl:for-each-group>
+
+  </xsl:template>
   
   <xsl:template match="rng:grammar" mode="generateIncludes">
     <xsl:param 
