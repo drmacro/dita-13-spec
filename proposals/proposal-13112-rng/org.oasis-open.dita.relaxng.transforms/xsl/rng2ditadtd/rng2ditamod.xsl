@@ -141,7 +141,8 @@
        </xsl:when>
          <xsl:otherwise>
            <xsl:text>
-    SYSTEM</xsl:text>
+  SYSTEM
+</xsl:text>
          </xsl:otherwise>
        </xsl:choose><xsl:text>
          "commonElements.mod" 
@@ -280,17 +281,30 @@
   
   <!-- Class attributes are handled in a separate mode -->
   <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10"/>
+  
 
   <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
     mode="element-decls" priority="30"
-  />
+  >
+  </xsl:template>
 
   <xsl:template match="rng:define[@combine = 'choice']" mode="element-decls" priority="20">
       <!-- Domain integration entity. Not output in the DTD. -->
   </xsl:template>
 
-  <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" mode="element-decls" priority="15">
-      <!-- content and attlist declarations are handled from within the rng:element processing -->
+  <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
+    mode="element-decls" priority="15">
+    <xsl:param name="tagname" tunnel="yes" as="xs:string" select="'unset'"/>
+      <!-- content and attlist declarations are handled from within the rng:element processing 
+      
+      -->
+    
+    <xsl:if test="ends-with(@name, '.attributes')">
+      <xsl:variable name="attsDefName" as="xs:string" select="concat($tagname, '.attributes')"/>
+      <xsl:if test="@name != $attsDefName">
+        <xsl:next-match/><!-- Handle cases like "dita.table.attributes" -->
+      </xsl:if>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
@@ -344,6 +358,17 @@
     <xsl:param name="indent" as="xs:integer" select="14"/>
     <xsl:param name="nlBeforeClosingQuote" as="xs:boolean" select="false()"/>
     
+    <!-- FIXME: The following is a hack that depends on a consistent naming convention
+         for attribute sets.
+         
+         The more complete solution I think requires producing a single-document resolved
+         grammar (e.g., RNG simplification) and then examining the define in that 
+         grammar to see if it has any attribute declarations.
+      -->
+    <xsl:variable name="isAttSet" as="xs:boolean"
+      select="matches(@name, '-atts|attribute|\.att') or .//rng:attribute"
+    />
+    
 <!--    <xsl:message> + [DEBUG] generate-parment-decl-from-define: name="<xsl:value-of select="@name"/>"</xsl:message>
 -->
     <xsl:text>&lt;!ENTITY % </xsl:text>
@@ -352,7 +377,7 @@
     <xsl:value-of select="str:indent($indent)"/>        
     <xsl:text>&quot;</xsl:text>
     <xsl:variable name="addparen" as="xs:boolean"
-      select="count(rng:*) &gt; 1 and not(ends-with(@name, '.attributes')) and not(.//rng:attribute)"/>
+      select="not($isAttSet) and count(rng:*) &gt; 1"/>
     <xsl:if test="$addparen">
       <xsl:text>(</xsl:text>
     </xsl:if>
@@ -362,6 +387,7 @@
         as="xs:integer" 
         tunnel="yes"
       />
+      <xsl:with-param name="isAttSet" as="xs:boolean" select="$isAttSet" tunnel="yes"/>      
     </xsl:apply-templates>
     <xsl:if test="$addparen">
       <xsl:text>)</xsl:text>
@@ -452,6 +478,7 @@
 
   <xsl:template match="rng:ref" mode="element-decls" priority="10">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
     <xsl:if test="preceding-sibling::rng:*">
       <!-- NOTE: It is up to the processor of the group
                  this ref must be part of to emit
@@ -472,7 +499,22 @@
         <xsl:value-of select="substring-before(@name,'.element')" />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>%</xsl:text><xsl:value-of select="@name" /><xsl:text>;</xsl:text>
+        <xsl:variable name="entRef" as="node()*">
+          <xsl:text>%</xsl:text><xsl:value-of select="@name" /><xsl:text>;</xsl:text>
+        </xsl:variable>
+        <xsl:choose>
+          <xsl:when test="not($isAttSet) and parent::rng:define and count(../rng:*) > 1">
+            <xsl:text>(</xsl:text>
+            <xsl:sequence select="$entRef"/>
+            <xsl:text>)</xsl:text>
+            <xsl:if test="not(position() = last())">
+              <xsl:text>,</xsl:text>
+            </xsl:if>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="$entRef"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:if test="not(position() = last())">
@@ -507,8 +549,9 @@
 
   <xsl:template match="rng:optional" mode="element-decls" priority="10">
     <xsl:param name="indent" as="xs:integer" tunnel="yes"/>
+    <xsl:param name="isAttSet" as="xs:boolean" tunnel="yes"/>
     <xsl:choose>
-      <xsl:when test="ancestor::rng:element or ends-with(ancestor::rng:define/@name, '.content')">
+      <xsl:when test="not($isAttSet)">
         <!-- optional element content -->
         <xsl:if test="preceding-sibling::rng:*">
           <xsl:value-of select="str:indent($indent)"/>

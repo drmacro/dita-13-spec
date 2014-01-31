@@ -4,6 +4,10 @@ Done. 0. Make relative paths in shell system IDs resolvable.
 
 Done. 1. Verify all generated modules are going to the right place.
 
+** univ-atts and univ-atts-translate-no have parens in parment decl, should not
+
+** Missing dita.table.attributes parameter entity
+
 2. Pull {typename}-attlist into main {typename)-attributes:
 
 <!ENTITY % concept.attlist

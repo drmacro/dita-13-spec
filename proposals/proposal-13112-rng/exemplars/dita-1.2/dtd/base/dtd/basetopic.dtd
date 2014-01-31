@@ -44,25 +44,25 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN"                     -->
 <!-- ============================================================= -->
 
 
+<!ENTITY % hazard-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Hazard Statement Domain//EN" 
+         "hazardstatementDomain.ent"
+>%hazard-d-dec;
+
 <!ENTITY % hi-d-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN" 
          "highlightDomain.ent"
 >%hi-d-dec;
-
-<!ENTITY % ut-d-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Utilities Domain//EN" 
-         "utilitiesDomain.ent"                                                
->%ut-d-dec;
 
 <!ENTITY % indexing-d-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
          "indexingDomain.ent"                                                 
 >%indexing-d-dec;
 
-<!ENTITY % hazard-d-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Hazard Statement Domain//EN" 
-         "hazardstatementDomain.ent"
->%hazard-d-dec;
+<!ENTITY % ut-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Utilities Domain//EN" 
+         "utilitiesDomain.ent"                                                
+>%ut-d-dec;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
@@ -143,24 +143,24 @@ PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN"                     -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
 
+<!ENTITY % hazard-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Hazard Statement Domain//EN" 
+         "hazardstatementDomain.mod"
+>%hazard-d-def;
+
 <!ENTITY % hi-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN" 
          "highlightDomain.mod"
 >%hi-d-def;
-
-<!ENTITY % ut-d-def     
-  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Utilities Domain//EN" 
-         "utilitiesDomain.mod"
->%ut-d-def;
 
 <!ENTITY % indexing-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
          "indexingDomain.mod"
 >%indexing-d-def;
 
-<!ENTITY % hazard-d-def     
-  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Hazard Statement Domain//EN" 
-         "hazardstatementDomain.mod"
->%hazard-d-def;
+<!ENTITY % ut-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Utilities Domain//EN" 
+         "utilitiesDomain.mod"
+>%ut-d-def;
 
 <!-- ================== End DITA Topic DTD  ====================== -->
