@@ -645,6 +645,7 @@
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng.transforms/xsl/rng2containsby/rng2containsby.xsl"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng.transforms/xsl/rng2ditadtd/rng2ditadtd.xsl"/>
             <file name="../dita-ng/xslt/rng2ditadtd/rng2ditadtd.xsl"/>
+            <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng.transforms/xsl/rng2ditaxsd/rng2ditaxsd.xsl"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/rngGrammar/rng/rngtopic.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/subjectScheme/rng/subjectScheme.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/task.rng"/>

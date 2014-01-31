@@ -61,10 +61,11 @@
     -->
   <xsl:param name="moduleOutdir" as="xs:string" select="''"/>
   
-  <!-- Set this parameter to "comment-per-line" to get the OASIS module
-       style of header comment.
+  <!-- Set this parameter to "as-is" to output the comments exactly
+       as they are within the RNG documentation and header comment
+       elements.
     -->
-  <xsl:param name="headerCommentStyle" select="'as-is'" as="xs:string"/>
+  <xsl:param name="headerCommentStyle" select="'comment-per-line'" as="xs:string"/>
   
   <xsl:param name="usePublicIDsInShell" as="xs:string"
     select="'true'"

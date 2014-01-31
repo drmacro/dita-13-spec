@@ -32,7 +32,8 @@
   <xsl:include href="../rng2ditadtd/rng2functions.xsl"/>
   <xsl:include href="../rng2ditadtd/rng2gatherModules.xsl"/>
   <xsl:include href="../rng2ditadtd/rng2preprocess.xsl"/>
-  <!--<xsl:include href="rng2ditashellxsd.xsl"/>-->
+  <xsl:include href="rng2ditashellxsd.xsl"/>
+  <xsl:include href="rng2ditaxsdmod.xsl"/>
  
   <!-- Output directory to put the generated XSD shell files in. 
       
@@ -45,6 +46,13 @@
        modules to another.
     -->
   <xsl:param name="moduleOutdir" as="xs:string" select="''"/>
+  
+  <!-- Set this parameter to "as-is" to output the comments exactly
+       as they are within the RNG documentation and header comment
+       elements.
+    -->
+  <xsl:param name="headerCommentStyle" select="'comment-per-line'" as="xs:string"/>
+
   
   <!-- Set this parameter to "comment-per-line" to get the OASIS module
        style of header comment.
@@ -134,14 +142,14 @@
 
     <rng2ditadtd:conversionManifest xmlns="http://dita.org/rng2ditadtd">
       <inputDoc><xsl:value-of select="base-uri(root(.))"></xsl:value-of></inputDoc>
-    <xsl:choose>
-      <xsl:when test="count(rng:grammar/*)=1 and rng:grammar/rng:include">
-        <!--  simple redirection, as in technicalContent/glossary.xsd -->
-          <redirectedTo>
-            <xsl:value-of select="concat(substring-before(rng:grammar/rng:include/@href,'.rng'),'.xsd')" />
-          </redirectedTo>
-      </xsl:when>
-      <xsl:otherwise>
+      <xsl:choose>
+        <xsl:when test="count(rng:grammar/*)=1 and rng:grammar/rng:include">
+          <!--  simple redirection, as in technicalContent/glossary.xsd -->
+            <redirectedTo>
+              <xsl:value-of select="concat(substring-before(rng:grammar/rng:include/@href,'.rng'),'.xsd')" />
+            </redirectedTo>
+        </xsl:when>
+        <xsl:otherwise>
           <generatedModules>
             <xsl:apply-templates select="$modulesToProcess" mode="generate-modules">
               <xsl:with-param name="xsdOutputDir"
