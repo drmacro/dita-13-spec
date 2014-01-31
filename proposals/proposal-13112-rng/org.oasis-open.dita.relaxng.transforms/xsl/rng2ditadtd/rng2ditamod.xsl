@@ -219,12 +219,25 @@
          end of the module file.
          
       -->
-    <xsl:apply-templates mode="element-decls" 
-      select="(rng:define | rng:include) except 
-                  (rng:define[.//rng:attribute[@name='class']])"
-      >
-      <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
-    </xsl:apply-templates>
+    <xsl:choose>
+      <xsl:when test="$moduleShortName = 'topic'">
+        <!-- All the includes for the topic module are hard code above -->
+        <xsl:apply-templates mode="element-decls" 
+          select="(rng:define) except 
+                      (rng:define[.//rng:attribute[@name='class']])"
+          >
+          <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="element-decls" 
+          select="(rng:define | rng:include) except 
+                      (rng:define[.//rng:attribute[@name='class']])"
+          >
+          <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
 
 <xsl:text>
 &lt;!-- ============================================================= -->
