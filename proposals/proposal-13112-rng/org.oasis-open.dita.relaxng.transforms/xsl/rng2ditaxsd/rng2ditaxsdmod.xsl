@@ -21,7 +21,37 @@
     </xd:desc>
   </xd:doc>
   
-    <!-- ====================
+  <xsl:template match="/" mode="groupFile moduleFile">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="groupFile moduleFile" match="rng:include">
+   <!-- FIXME: What to do? -->
+  </xsl:template>
+  
+  <xsl:template mode="groupFile moduleFile" match="rng:grammar">
+    <xsl:apply-templates mode="header-comment" select="."/>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsl:apply-templates mode="#current"/>
+    </xs:schema>
+  </xsl:template>
+  
+  <!-- ====================
+       Mode groupFile
+       ==================== -->
+  <xsl:template mode="groupFile" match="rng:define">
+    <!-- FIXME: Do something -->
+  </xsl:template>
+  
+  <!-- ====================
+       Mode moduleFile
+       ==================== -->
+
+  <xsl:template mode="moduleFile" match="rng:define">
+    <!-- FIXME: Do something -->
+  </xsl:template>
+  
+  <!-- ====================
        Mode header-comment
        ==================== -->
 

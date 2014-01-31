@@ -263,12 +263,15 @@
       <grpFile><xsl:sequence select="$grpResultUrl" /></grpFile>
       <modFile><xsl:sequence select="$modResultUrl" /></modFile>
     </moduleFiles>
+    <!-- Only structural modules and base modules have Grp files. -->
+    <xsl:if test="$moduleType = ('topic', 'map', 'base')">
     <!-- Generate the Grp.xsd file: -->
       <xsl:result-document href="{$grpResultUrl}" format="xsd">
-          <xsl:apply-templates mode="entityFile">
-            <xsl:with-param name="thisFile" select="$grpResultUrl" tunnel="yes" as="xs:string" />
-          </xsl:apply-templates>
-        </xsl:result-document>
+        <xsl:apply-templates mode="groupFile">
+          <xsl:with-param name="thisFile" select="$grpResultUrl" tunnel="yes" as="xs:string" />
+        </xsl:apply-templates>
+      </xsl:result-document>
+    </xsl:if>
     <!-- Generate the Mod.xsd file:  -->
       <xsl:result-document href="{$modResultUrl}" format="xsd">
         <xsl:apply-templates mode="moduleFile" >
@@ -284,18 +287,12 @@
 
   <xsl:template match="text()" mode="#all" priority="-1" />
 
-  <xsl:template match="rng:*" priority="-1" mode="entityFile">
-    <xsl:message> - [WARN] entityFile: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /></xsl:message>
+  <xsl:template match="rng:*" priority="-1" mode="groupFile">
+    <xsl:message> - [WARN] groupFile: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /></xsl:message>
   </xsl:template>
-
-  <xsl:template match="rng:*" priority="-1" mode="element-decls">
-    <xsl:message> - [WARN] element-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
-  </xsl:template>
-  <xsl:template match="rng:*" priority="-1" mode="element-name-entities">
-    <xsl:message> - [WARN] element-name-entities: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
-  </xsl:template>
-  <xsl:template match="rng:*" priority="-1" mode="class-att-decls">
-    <xsl:message> - [WARN] class-att-decls: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /><xsl:copy-of select="." /></xsl:message>
+  
+  <xsl:template match="rng:*" priority="-1" mode="moduleFile">
+    <xsl:message> - [WARN] moduleFile: Unhandled RNG element <xsl:sequence select="concat(name(..), '/', name(.))" /></xsl:message>
   </xsl:template>
   
   <xsl:template match="rng:div" mode="#all">

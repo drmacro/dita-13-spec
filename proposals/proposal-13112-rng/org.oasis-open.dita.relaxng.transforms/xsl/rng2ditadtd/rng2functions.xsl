@@ -148,6 +148,17 @@
     <xsl:sequence select="$result"/>
   </xsl:function>
   
+  <xsl:function name="rngfunc:getDomainsAttValue" as="xs:string?">
+    <xsl:param name="grammar" as="element(rng:grammar)"/>
+    <xsl:variable name="domainsAttValue" as="xs:string?"
+      select="$grammar//rng:attribute[@name = 'domains']/@a:defaultValue"
+    />
+    <xsl:if test="not($domainsAttValue)">
+      <xsl:message> - [WARN] rngfunc:getDomainsAttValue(): Did not find an attribute declaration for an attribute named "domains".</xsl:message>
+    </xsl:if>
+    <xsl:sequence select="$domainsAttValue"/>
+  </xsl:function>
+  
    <!-- ==========================================
         String formatting functions
         ========================================== -->
