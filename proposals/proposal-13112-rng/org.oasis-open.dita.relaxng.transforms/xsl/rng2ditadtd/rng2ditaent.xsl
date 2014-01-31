@@ -49,7 +49,7 @@
       select="rngfunc:getModuleShortName(.)" 
       as="xs:string"/>
     <xsl:variable name="domainValue" as="xs:string?" 
-      select="dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"/>
+      select="rngfunc:getDomainsContribution(.)"/>
     <xsl:variable name="domainPrefix" as="xs:string"
       select="rngfunc:getModuleShortName(.)" 
     />

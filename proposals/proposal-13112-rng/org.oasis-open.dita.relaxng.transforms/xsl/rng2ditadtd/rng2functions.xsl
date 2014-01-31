@@ -159,6 +159,24 @@
     <xsl:sequence select="$domainsAttValue"/>
   </xsl:function>
   
+  <xsl:function name="rngfunc:getDomainsContribution" as="xs:string">
+    <xsl:param name="grammar" as="element(rng:grammar)"/>
+    <xsl:variable name="domainValue" as="xs:string?" 
+      select="$grammar/dita:moduleDesc/dita:moduleMetadata/dita:domainsContribution"/>
+    <xsl:sequence select="$domainValue"/>
+  </xsl:function>
+  
+  <xsl:function name="rngfunc:isMixedContent" as="xs:boolean">
+    <xsl:param name="element" as="element(rng:element)"/>
+    <xsl:variable name="contentDefineName" select="concat($element/@name, '.content')" as="xs:string"/>
+    <xsl:variable name="contentDecl" 
+      select="($element/../../rng:define[@name = $contentDefineName])[1]" 
+      as="element()?"
+    />
+    <xsl:variable name="result" as="xs:boolean" select="boolean($contentDecl//rng:text)"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
    <!-- ==========================================
         String formatting functions
         ========================================== -->
