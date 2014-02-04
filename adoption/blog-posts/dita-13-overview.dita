@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_ffx_k4m_1n">
+  <title>DITA 1.3 Feature Overview</title>
+  <shortdesc>Briefly describes the new features in DITA 1.3</shortdesc>
+  <body>
+    <p>Version 1.3 of the DITA specification adds new markup vocabulary, refines a number of over-constrained content models, fixes some bugs, and adds some important new architectural features. Version 1.3 is not quite as big a leap as from 1.1 to 1.2 with addition of keys, but the new architectural features do pose some potential implementation challenges for DITAs.</p>
+    <p>The big new features are:<ul id="ul_ifr_rpm_1n">
+      <li>Scoped keys. Allows you to have the same key bound to different resources with the same map by created named "key scopes" within a single map tree. This new feature lets you do things like single publications that reflect different products or models where topics reused across the scopes need to get different resources for content references or key references. For example, can have the same key-based content reference resolve to different text in different key scopes. More about key scopes below. The scoped keys feature does not change the behavior of maps that only have global keys.</li>
+      <li>Branch filtering. Allows you to associate DITAVAL files with different branches (topicrefs) within a map so that different branches of your map reflect different active values for doing filtering and flagging. The branch filtering feature can be combined with scoped keys to do very clever things with re-used content.</li>
+      <li>RelaxNG grammars for DITA vocabulary. RelaxNG provides the most convenient syntax of any standard document schema or constraint language. RelaxNG makes it about as easy as it can be to create document type shells or define new constraints or specializations. With DITA 1.3 RelaxNG is used to author all vocabulary and the DTD and XSD versions are generated from the RelaxNG. This allows you to take advantage of RelaxNG even if your tools only use DTDs or XSDs.</li>
+      <li>New "this topic" fragment identifier that removes the need to specify explicit topic IDs when the target of the reference is within the same topic, e.g. "#./step-02" instead of "#topic1234/step-02" where "step-02" is the ID of an element within topic "topic1234". One effect of this is that it allows references to be included in content that will be used by conkeyref such that the link will be to the target element in the context of the topic that made the conref, not the topic that contains the conreffed element or elements.</li>
+      <li>Domains for MathML and SVG. Provides out-of-the-box integration of the MathML and SVG vocabularies with DITA content. Allows both inline MathML and SVG as well as references to MathML and SVG markup held in separate non-DITA documents.</li>
+      <li>New Learning and Training interaction markup (questions and answers) that allows block-level elements pretty much anywhere text is allowed, such as question statements, answer options, and feedback. This addresses a serious problem with the original L&amp;T design that made it difficult to mark up complex questions that had more than simple phrase-level content.</li>
+      <li>New generic "div" element as an alternative to &lt;bodydiv> and &lt;sectiondiv>.</li>
+      </ul></p>
+    <section><title>Using DITA 1.3 vocabulary with DITA 1.2 systems</title><p>None of the new vocabulary in DITA 1.3 depends on any new architectural features of DITA, meaning processing that is fundamentally different from what conforming DITA 1.2 systems already do. As long as your <i>documents</i> don't use scoped keys, branch filtering, or the "this topic" fragment identifier, they'll work just fine in a DITA 1.2 system given appropriate support for the new vocabulary.</p><p>The new vocabulary in DITA 1.3 takes two forms:<ul
+      id="ul_jyj_nsm_1n">
+      <li>New base elements and attributes</li>
+      <li>New specializations</li>
+      </ul></p><p>The only new base element type is &lt;div>, generic division, which is allowed in both topic bodies and sections. It provides a more general alternative to the existing &lt;bodydiv> and &lt;sectiondiv> elements. The only new domain that uses the &lt;div> element as a specialization base is the Learning and Training learning2 domain.</p><p>This means that all the other new element types work as normal DITA 1.2 specializations and therefore can be directly integrated into existing DITA 1.2 document type shells. In a DITA 1.2 environment you won't have access to the new &lt;div> element or to the new attributes but you can use the new domains and structural types. </p><p>The new domains are:</p><ul
+      id="ul_grm_c3n_1n">
+      <li>MathML and equation domains</li>
+      <li>SVG domain</li>
+      <li>The markup and XML domains</li>
+      <li>The learning object map map type </li>
+      <li>The deliveryTarget attribute domain</li>
+      </ul><p>The new structural types are:<ul id="ul_bnh_tln_1n">
+      <li>Learning object map</li>
+      <li>Learning group map</li>
+      <li>Troubleshooting topic type</li>
+      </ul></p>If you want to use the new learning2 domain in a DITA 1.2 environment, you can, since while the element types all declare topic/div as their specialization base, the domain doesn't use the &lt;div> element directly in any content models. This use of the learning2 domain in a DITA 1.2 context would not be strictly conforming since the specialization is in reference to an undefined (in DITA 1.2) base type, but the documents will be schema valid and you can process them just fine as long as you either implement handling for topic/div or the learning2 element types.<p>Beyond using the new vocabulary modules you could in fact deploy all the DITA 1.3 modules to a DITA 1.2 processor. This would allow existing 1.2 processors to <i>validate</i> documents using all new DITA 1.3 vocabulary, even if those processors don't know how to process the new element types and attributes. You would need to extend your processor to understand the new &lt;div> element, which since it's just a generic container with no defined presentation effect, is pretty easy. In the case of the DITA Open Toolkit, the DITA editors have already provided basic support for the DITA 1.3 markup for HTML and PDF output.</p><p>Thus, from the standpoint of allowing use of an implementing all the new vocabulary except those things directly related to key scopes and branch filtering, existing DITA 1.2 processors should be able to do so immediately.</p><p>The the main issue is risk of change: it's always possible that aspects of the markup design will change right up until the final 1.3 specification is approved. However, the DITA 1.3 proposals when through a pretty thorough review and approval process so they are expected to be pretty stable between now and release. But as with any standard, early adopters do risk the cost of late changes.</p><p>But this is no different from the risk inherent in using purpose-built specializations that have to be changed because of new requirements or new understanding or discovery of bugs that have to be fixed. But there is no <i>technical</i> barrier to using the new DITA 1.3 vocabulary now with existing DITA 1.2 processors.</p></section>
+    <section>
+      <title>New base vocabulary</title>
+      <p>The new &lt;div> element provides a generic container that can occur in any block context (that is, wherever &lt;p> can occur). It is more flexible than &lt;bodydiv> and &lt;sectiondiv> because it can occur in both contexts. However, in order to allow it to occur within &lt;section> it does not allow &lt;section>.</p>
+      <p>DITA 1.3 also adds some new attributes:<ul id="ul_afn_2nn_1n">
+        <li>@orient on &lt;table> and @rotate on &lt;entry></li>
+        <li>@scope and @headers to &lt;entry> to enable specification of row and column headers to improve table accessibility.</li>
+        <li>@cascade for use in maps to better control how metadata attributes cascade within a DITA map.</li>
+        <li>@appid on &lt;resourceid>. Lets you indicate what application a given &lt;resourceid> applies to. For example, you might have object IDs from different content management systems stored using &lt;resourceid> or different help IDs for the same topic used in different product-specific online help packages.</li>
+        <li>The new value "trouble" for the @type attribute of &lt;note>, used to indicate a troubleshooting "trouble" admonition.</li>
+        </ul></p>
+    </section>
+    <section>
+      <title>New specializations</title>
+      <ul id="ul_ng3_4nn_1n">
+        <li>MathML domain. Integrates MathML as a DITA foreign vocabulary, allowing you to have inline MathML in DITA documents or refer to MathML markup stored in separate non-DITA XML documents.</li>
+        <li>Equation domain. Provides elements for identifying any kind of data, not just MathML, as an equation. The equation domain elements can then contain MathML, images, or any data format you might want or need to use to represent your equations. You can include alternate representations of the same equation, for example both a MathML version and bitmap.</li>
+        <li>SVG domain. Integrates SVG as a DITA foreign vocabulary, llowing you to have inline SVG graphics in DITA documents or refer to SVG markup stored in separate non-DITA XML documents.</li>
+        <li>New elements for troubleshooting:<ul id="ul_esm_j4n_1n">
+          <li>&lt;steptroubleshooting>, allowed within &lt;step>. Intended to contain information to assist users in troubleshooting that specific step.</li>
+          <li>&lt;tasktroubleshooting>, a specialization of &lt;section> within &lt;task>. Intended to contain information to assist in troubleshooting the task as a whole.</li>
+          <li>New &lt;troubleshooting> topic type, specialized from general task.</li>
+          </ul></li>
+        <li>New user assistance (online help) element types and attributes for &lt;resourceid>:<ul id="ul_igw_r4n_1n">
+          <li>&lt;uxwindowref>, specifies the window or viewport in which an online help topic or Web page should be displayed.</li>
+          <li>@ux-context-string</li>
+          <li>@ux-source-priority</li>
+          <li>@ux-windowref</li>
+          </ul></li>
+        <li>XML mention domain, provides markup for identifying mentions of markup names and named XML components (elements, attributes, etc.). Useful for documentation that talks about XML markup (such as the DITA standard itself).</li>
+        <li>Release management domain, provides additional prolog metadata for logging comments about changes to the content in topics and maps.</li>
+        <li>Learning2 domain, provides an alternative to the 1.2 learningDomain in which all elements that can contain text allow multiple block-level elements in addition to text and phrase-level elements.</li>
+        <li>New learningObjectMap and learningGroupMap map types. These enable using maps to represent individual learning objects or groups of learning objects, rather than just topics as in DITA 1.2.</li>
+        <li>New element &lt;sort-as> (specialization of &lt;data>) added to the utilities domain. Provide a general way to specify sort phrases for elements that may be sorted, such as glossary entries, table cells, definition list items, and so on. Can be used in place of &lt;index-sort-as> within index entries.</li>
+        <li>New elements &lt;line-through> and &lt;overline> added to the highlight domain, to complete the triumvirate of underlin, line-through, and overline. All are specializations of &lt;ph> as for the existing highlight domain elements.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Modifications to base content models</title>
+      <p>For DITA 1.3 we tried to refine content models that were found to be lacking in one way or another in DITA 1.2. In general these changes involve either relaxing content models or allowing elements in more places. The changes are:<ul
+        id="ul_yf5_tpn_1n">
+        <li>Enable &lt;draft-comment> in more places. This changes makes &lt;draft-comment> valid pretty much anywhere. This change may require updates to formatters that output draft comments to make sure that the output is appropriate for all possible contexts.</li>
+        <li>Enable &lt;text> to be used pretty anywhere that #PCDATA is allowed. This should allow the universal use of &lt;text> as a basis for conrefs to text phrases, removing the need to use both &lt;keyword> and &lt;text> depending on the reference context.</li>
+        <li>Allow basic.ph within &lt;data> rather than just words.cnt. This allows pretty much any kind of inline content within &lt;data>.</li>
+        <li>Allow &lt;ph> within &lt;indexterm>. This lets you do things like use elements from the hightlight domain in index entries (e.g., to index a word with a superscript). This change may require processors that render indexes to be more sophisticated in how they manage the text of index entries since it will now be necessary to maintain the markup within index entry text in order to properly render the index entries.</li>
+        <li>Allow the @rev attribute on &lt;title> elements. Titles are not, by design, allowed to be conditional, but the @rev attribute, while organized with the selection attributes, is explicitly not intended to be used for filtering but only for capturing associated revisions.</li>
+        <li>Allow &lt;cite> within &lt;title> and similar contexts.</li>
+        <li>Allow &lt;xref> within &lt;shortdesc>. Processors that use short descriptions for things like tooltips will need to be sure they are handling xrefs appropriately in that context (e.g., by showing the link text in the tooltip even if the link itself cannot be navigated in that context).</li>
+        </ul></p>
+    </section>
+    <section>
+      <title>Architectural enhancement: scoped keys</title>
+      <p>The scoped keys mechanism allows a single map to define multiple key spaces, it's root (global) key space and any number of named "key scopes". Any topicref within a map and any submap may specify a keyscope name, creating a new key scope.</p>
+      <p>Key scopes still obey the highest-definition-wins precedence rule from DITA 1.2, meaning that higher scopes can still override the declarations of keys defined in lower descendant scopes. This means that the owner of the root map still has ultimate control over all keys defined the map.</p>
+      <p>You refer to keys within a specific scope by prepending the scope name plus a "." separator to the base key name to construct a qualified key name. For example, if you want to refer to key "X" in scope "B" from outside of scope "B", you would specify the qualified key name "B.X".</p>
+      <p>Note that the qualified key name is still syntactically just a normal key name, which means that you can make scoped keys work in a 1.2 context by simply making all the key definitions and references qualified, which is a relatively simple transform to apply to maps. It does require copying topics that are used different scopes and that make references to keys that will be different in those different scopes. But it does mean that there is a relatively-simple transform that can be applied to any DITA 1.3 map and topic set to produce an equivalent map and topic set that can be processed with existing DITA 1.2 processors.</p>
+      <p>Within a given key scope, unqualified key names on key references will match keys defined within that scope as long as that same key name has not been defined in a higher scope.</p>
+      <p>For example, if you have topic "mytopic.dita" that references key "Y" like so:<codeblock>&lt;p>See &lt;xref keyref="Y"/> ...</codeblock></p>
+      <p>If you have this map:<codeblock>&lt;map>
+ &lt;topicgroup
+    keyscope="A">
+   &lt;keydef keys="Y" 
+      href="topics/scope-A-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+ &lt;topicgroup
+    keyscope="B">
+   &lt;keydef keys="Y" 
+      href="topics/scope-B-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+&lt;/map></codeblock></p>
+      <p>Then when you process this map, the topic "mytopic.dita" will be rendered twice, once for each of key scopes "A" and "B". The rendition of the topic within scope "A" will have a cross reference to topic "scope-A-topic-Y.dita". The rendition of the topic within scope "B" will have a cross reference to topic "scope-B-topic-Y.dita".</p>
+      <p>However, if the author of the map wanted to override the binding of the unqualified key name "Y" they could so by declaring the key name "Y" in the root (global) scope:</p>
+      <codeblock>&lt;map>
+<b> &lt;keydef keys="Y" 
+      href="topics/global-topic-Y.dita"
+ /></b>
+ &lt;topicgroup
+    keyscope="A">
+   &lt;keydef keys="Y" 
+      href="topics/scope-A-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+ &lt;topicgroup
+    keyscope="B">
+   &lt;keydef keys="Y" 
+      href="topics/scope-B-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+&lt;/map></codeblock>
+      <p>The global binding of the key name "Y" to the resource "global-topic-Y.dita" overrides the binding of the key name "Y" in both of the child scopes. </p>
+      <p>The map author could override the binding of the key name "Y" in scope "A" without overriding the binding in scope "B" by putting a new scope around scope "A":<codeblock>&lt;map>
+ <b>&lt;topicgroup scope="A-override"></b>
+   &lt;keydef keys="Y" 
+      href="topics/global-topic-Y.dita"
+   />
+   &lt;topicgroup
+      keyscope="A">
+     &lt;keydef keys="Y" 
+        href="topics/scope-A-topic-Y.dita"
+     />
+     &lt;topicref href="topics/mytopic.dita"/>
+   &lt;/topicgroup>
+ <b>&lt;/topicgroup></b>
+ &lt;topicgroup
+    keyscope="B">
+   &lt;keydef keys="Y" 
+      href="topics/scope-B-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+&lt;/map></codeblock></p>
+      <p>You can also override qualified key names by simply declaring a key binding for the qualified key name you want to override. For example, if the topic also had a reference to qualified key name "C.X", a reference to the key name "X" as declared in the scope "C", which isn't present in this map, the map author could just declare that key in the root scope:<codeblock>&lt;map>
+ <b>&lt;keydef keys="C.X" 
+    href="common/topic-not-available.dita"
+ /></b>
+ &lt;topicgroup scope="A-override">
+   &lt;keydef keys="Y" 
+      href="topics/global-topic-Y.dita"
+   />
+   &lt;topicgroup
+      keyscope="A">
+     &lt;keydef keys="Y" 
+        href="topics/scope-A-topic-Y.dita"
+     />
+     &lt;topicref href="topics/mytopic.dita"/>
+   &lt;/topicgroup>
+ &lt;/topicgroup>
+ &lt;topicgroup
+    keyscope="B">
+   &lt;keydef keys="Y" 
+      href="topics/scope-B-topic-Y.dita"
+   />
+   &lt;topicref href="topics/mytopic.dita"/>
+ &lt;/topicgroup>
+&lt;/map></codeblock></p>
+      <p>Note that the new key definition is just a normal key definition not associated with any scope. I didn't have to define the scope named "C" in order to then override a declaration of a key within that scope. I just defined a key "C.X".</p>
+      <p>That emphasizes an important aspect of scoped keys: at the level of the constructed key space, a key is just a string and when you resolve key references you just resolve the key normally. This means that when processors construct key spaces they at least conceptually produce a separate key definition for each different qualified version of a given key within a scope, as though each such key had be literally defined. This keeps the key resolution processing normal and also allows for the preprocessing described above. </p>
+      <p>The rule for constructing key spaces is that lower scopes inherit all keys explicitly defined in higher scopes and also inherit keys reflecting the accumulated qualifications from higher scopes.</p>
+      <p>The overall intent is that key references should work as authors intuitively expect while still giving map authors complete control over the effective key spaces. </p>
+      <p>There is of course some potentially authoring complexity if you have complex documents with lots of scopes and keys, and of course there are some use cases that can't be handled with this mechanism. But it's definitely the case that the scoped keys facility defined for DITA 1.3 was the simplest we could come up with that seemed to work for the bulk of use cases and that also enabled relatively easy interoperation with DITA 1.2 key processors.</p>
+      <p>There are a few potentially-surprising implications of scoped keys:<ul id="ul_fhl_kvn_1n">
+        <li>Topics used in multiple key scopes may need to be rendered multiple times. <p>In monolithic outputs like PDF where every use of a topic necessarily results in a separate rendering of the topic then it's not a problem. But in outputs like HTML where the output consists of many components, one per topic, then there may be a problem if authors expect a given source topic to result in exactly one output component no matter how many times the topic is used.</p><p>That would be a problem particularly if there is an expectation that the generated output components have persistent locations or identifiers (e.g., URLs for generated HTML pages).</p><p>In theory, depending on the details of the output format you're generating, you could reflect the conditionality inherent in the different key bindings in the final result. For example, in HTML you could generate markup with distinguishing @id values and use JavaScript to dynamically show the appropriate content based on the current navigation context. But of course that only works if there is in fact a navigation context, which there may not be if the HTML is found via search.</p><p>So there may need to be some thought there. And of course the problem can be compounded when you have several levels of maps that are then combined together—it may be difficult or impossible to predict or control all key scopes a given topic is used within.</p></li>
+        <li>
+          <p>Currently unqualified key references may need to be made qualified so they continue to link to the correct resource when you add scopes to existing maps.</p>
+        </li>
+        </ul></p>
+      <p>In general DITA information architects will need to give careful thought to how to use key scopes to make sure they don't just create a bigger mess then they already have.</p>
+    </section>
+    <section>
+      <title>Branch filtering</title>
+      <p>The branch filtering feature allows you to include references to DITAVAL files within any map or topicref. When you do this, it makes the DITAVAL apply to just that branch of the map.</p>
+      <p>This lets you do things like have a single map that supports two products or two audience types or whatever and include that map twice with two different DITAVALs applied.</p>
+      <p>In addition, as a convenience feature, if a topicref contains multiple DITAVAL references, then each reference implies a <i>copy</i> of that branch of the map, with each copy reflecting a different DITAVAL file. This saves you having to literally duplicate the topicref for the branch.</p>
+      <p>However, this feature of branch filtering also has some implications for topic filenames, key scope names, and key names. To address that, the &lt;ditavalref> element lets you specify prefixes and suffixes to add to the names within the branch in order to make them unique for that effective copy of the branch.</p>
+      <p>Note that like key scopes, branch filtering can be implemented by applying a pre-process to the map to generate all the branch copies and to generate DITAVAL files that provide distinct property values within each branch so that a single global DITAVAL file can then produce the correct filtered result. The result of this transform could then be processed with a normal DITA 1.2 processor (having also applied the key scope expansion transform).</p>
+    </section>
+    <section>
+      <title>The "this topic" fragment identifier</title>
+      <p>Many cross references and a few content references in DITA content are to elements within the same topic as the reference, such as references to other steps in the same task or examples within a reference topic referenced from the usage section.</p>
+      <p>Through DITA 1.2 these references require that you specify both the ID of the containing topic and the ID of the target element, e.g.:<codeblock>&lt;topic id="topic-01">&lt;title>Topic One&lt;/title>
+&lt;body>
+&lt;ol>
+&lt;li id="step-01">
+Go to &lt;xref href="<b>#topic-01/step-03</b>">Step 3&lt;/xref>.&lt;/li>
+&lt;li id="step-02">
+Go to &lt;xref href="#topic-01/step-01">Step 1&lt;/xref>.&lt;/li>
+&lt;li id="step-03">
+Go to &lt;xref href="#topic-01/step-02">Step 2&lt;/xref>.&lt;/li>
+&lt;/ol>
+&lt;/body>
+&lt;/topic></codeblock></p>
+      <p>THe "this topic" fragment identifier lets you replace the topic ID with a period ("."):<codeblock>&lt;topic id="topic-01">&lt;title>Topic One&lt;/title>
+&lt;body>
+&lt;ol id="list-01">
+&lt;li id="step-01">
+Go to &lt;xref href="<b>#./step-03</b>">Step 3&lt;/xref>.&lt;/li>
+&lt;li id="step-02">
+Go to &lt;xref href="#./step-01">Step 1&lt;/xref>.&lt;/li>
+&lt;li id="step-03">
+Go to &lt;xref href="#./step-02">Step 2&lt;/xref>.&lt;/li>
+&lt;/ol>
+&lt;/body>
+&lt;/topic></codeblock></p>
+      <p>When an element like the list in this example is used by content reference, then the "this topic" is the topic that makes the content reference, e.g.:<codeblock>&lt;topic id="topic-02">&lt;title>Topic Two&lt;/title>
+&lt;body>
+<b>&lt;ol conref="topic-01.dita#topic-01/list-01"/></b>
+&lt;/body>
+&lt;/topic></codeblock></p>
+      <p>Here, the cross references will naturally resolve to the correct steps because the "this topic" reference is resolved in terms of topic-02, not topic 01. Without the "this topic" reference, there is no way to actually do this in DITA 1.2 and have the cross reference be correct in its location as authored and have it work correctly after conref resolution.</p>
+    </section>
+    <section>
+      <title>Cross-deliverable linking</title>
+      <p>Through DITA 1.2 there is no defined way to author a cross reference to a specific element within another publication. That is, there is no way using DITA-defined addressing to point to a DITA element <i>as authored</i> and have it unambiguously mean "this element in the context of this other publication". The reason for that is that through DITA 1.2 you can only point to topics directly or to topicrefs. The @scope values "peer" and "external" can help but a direct reference to a topic, whether via key or direct URI, doesn't tell you want <i>use</i> of that topic you mean, that is, which root map that includes the topic you want to resolve the reference in terms of.</p>
+      <p>In DITA 1.3 we solved this by taking advantage of key scopes and defining a specific meaning for the @scope value "peer" on key definitions that point to maps.</p>
+      <p>In short, if you have a topicref to a DITA map with a @scope of "peer" and a specified key scope, then it means that you can reference keys in the peer map by using qualified key references to the map's associated scope and that the peer map's resources are all peer resources, meaning that they are not directly included in the referencing map's resources but are expected to be available for processing, or are at least managed together in some coordinated way.</p>
+      <p>For example, say you have two books in your product library, a how-to guide and a product reference. You'd like to have direct cross references from how-to topics to reference topics in the other publication. You can set this up by binding  a key scope to the product reference's map in the how-to guide's map:</p>
+      <p>
+        <codeblock>&lt;map>&lt;title>How-To Guide&lt;/title>
+  &lt;mapref keyscope="product-ref"
+     href="../product-ref.ditamap"
+     scope="peer"
+  />
+  ...
+&lt;/map></codeblock>
+      </p>
+      <p>The &lt;mapref> binds the key scope "product-ref" to the peer map "product-ref.ditamap". The "peer" value of @scope is a signal that the peer map should be literally included in this map as part of normal map resolution processing. Rather, references to keys in the "product-ref" key scope will be managed in some production process so that the references as authored become working links in whatever deliverables are produced from the how-to guide.</p>
+      <p>A reference to a topic in the product-ref publication would look like this:<codeblock>&lt;p>See &lt;xref keyref="product-ref.thing-one-ref">Thing One&lt;/xref> for
+details.&lt;/p></codeblock></p>
+      <p>As far as the author of the topic knows this is just a key reference like any other. They do not need to know that or if the key will be to another publication or the same publication. It might be both for this topic depending on how the content is packaged.</p>
+      <p>For example, the print version of this content might be published as two separate physical books (or PDF files) but the HTML version published as a single unified set of HTML pages. The only difference between those two would be the binding of the key scope "product-ref": all references to keys in that scope would not need to change.</p>
+      <p>This makes authoring easy.</p>
+      <p>However, deliverable production is still a challenge because for each deliverable you have to decide, for each reference to a given key, what target deliverable it should be bound to. There are simple rules you can apply to make it easy, such as "like links to like", meaning if you're generating PDF all the links are to PDFs and if you're generating HTML all the links are to HTML but your business rules may not always be that simple.</p>
+      <p>The solution is to provide some way to configure the processors to do the right thing. We defined an abstract method for doing that, but since it ends up being entirely an implementation concern, we dropped it from DITA 1.3, partly for lack of time and partly because it's not really appropriate for standardizing at the DITA level. I am still working on the mechanism because we do need to implement support for cross-deliverable links at least in the DITA Open Toolkit.</p>
+      <p>The general solution approach that Michael Priestly and I arrived at was to generate intermediate sets of key definitions where the peer references are replaced with direct references of scope "external" to the specific deliverable you want to link to. This requires a multi-pass process to gather the links and some way to capture configuration details for each root-map/deliverable pair you want to produce, but the basic mechanism is conceptually simple and the use of intermediate generated sets of keys means that it can be implemented using any existing DITA 1.2 key-aware processsor because the input to the final deliverable generation phase is just a normal set of maps and topics with direct external-scope key references.</p>
+    </section>
+  </body>
+</topic>

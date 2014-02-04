@@ -242,6 +242,12 @@
         <attribute name="class" a:defaultValue="+ topic/ph ut-d/coords "/>
       </optional>
     </define>
+    <define name="sort-as.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/data ut-d/sort-as "/>
+      </optional>
+    </define>
 
   </div>
 </grammar>

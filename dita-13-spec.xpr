@@ -252,7 +252,7 @@
                                     <String>6/dita/dita.framework/DITA</String>
                                 </field>
                                 <field name="enable">
-                                    <Boolean>false</Boolean>
+                                    <Boolean>true</Boolean>
                                 </field>
                             </documentTypeEntry>
                             <documentTypeEntry>
@@ -260,7 +260,7 @@
                                     <String>6/dita/ditamap.framework/DITA Map</String>
                                 </field>
                                 <field name="enable">
-                                    <Boolean>false</Boolean>
+                                    <Boolean>true</Boolean>
                                 </field>
                             </documentTypeEntry>
                             <documentTypeEntry>
@@ -618,10 +618,6 @@
                                 </list>
                             </field>
                         </filterPanelHistoryItems>
-                    </entry>
-                    <entry>
-                        <String>use.default.catalog</String>
-                        <Boolean>false</Boolean>
                     </entry>
                     <entry>
                         <String>validation.scenarios</String>
