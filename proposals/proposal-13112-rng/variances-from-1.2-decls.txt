@@ -20,5 +20,12 @@ in hazardstatementDomain.mod--only used in one element type, no point in preserv
 
 Variances from 1.2 XSD declarations
 
-1. commonElement*.xsd becomes commonElements*.xsd (or should be preserve the 1.2 naming convention)?
+1. commonElement*.xsd becomes commonElements*.xsd (or should we preserve the 1.2 naming convention)?
+
+2. Attribute declarations for enumerated attributes are all repeated for each declaration of the attribute,
+   rather than using the separate attribute class declarations. In looking at the XSDs I don't think the use
+   of the classes is actually warranted by the DITA design because each element type may choose to constrain
+   each of its attributes in any way it wants.
+   
+   
 

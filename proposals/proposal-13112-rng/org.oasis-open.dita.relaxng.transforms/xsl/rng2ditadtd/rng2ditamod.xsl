@@ -248,7 +248,7 @@
       -->
     <xsl:choose>
       <xsl:when test="$moduleShortName = 'topic'">
-        <!-- All the includes for the topic module are hard code above -->
+        <!-- All the includes for the topic module are hard coded above -->
         <xsl:apply-templates mode="element-decls" 
           select="(rng:define) except 
                       (rng:define[.//rng:attribute[@name='class']])"
