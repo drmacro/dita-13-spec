@@ -28,7 +28,7 @@
   <!-- ==================== Import Section ======================= -->
   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="../../base/xsd/ditaarch.xsd"/>
 
-  <!-- these are common for some classes of resources and exhibits -->  
+  <!-- these are common for some classes of resources and exhibits -->
   <xs:attributeGroup name="rel-atts">
     <xs:annotation>
       <xs:documentation>Relational attributes (&lt;<keyword>%rel-atts;</keyword>>) is a
@@ -44,68 +44,68 @@
     <xs:attribute name="scope" type="scope-att.class"/>
   </xs:attributeGroup>
 
-  
-  
-  
+
+
+
   <!-- Predefined content.model groups, based on the previous, element-only categories: -->
   <!-- txt.incl is appropriate for any mixed content definitions (those that have PCDATA) -->
   <!-- the context for blocks is implicitly an InfoMaster "containing_division" -->
   <!-- <!ENTITY % body.cnt             "%basic.block;|%required-cleanup;"> -->
-    <xs:group name="body.cnt">
+  <xs:group name="body.cnt">
     <xs:sequence>
-    <xs:choice>
-      <xs:group ref="basic.block"/>
-      <xs:group ref="required-cleanup"/>
-      <xs:group ref="draft-comment" />
-      <xs:group ref="data.elements.incl"/>
-      <xs:group ref="foreign.unknown.incl"/>
-    </xs:choice>
-      </xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="required-cleanup"/>
+        <xs:group ref="draft-comment"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+      </xs:choice>
+    </xs:sequence>
   </xs:group>
 
   <xs:group name="example.cnt">
     <xs:sequence>
-    <xs:choice>
-      <xs:group ref="basic.ph"/>
-      <xs:group ref="basic.block"/>
-      <xs:group ref="title"/>
-      <xs:group ref="txt.incl"/>
-      <xs:group ref="data.elements.incl"/>
-      <xs:group ref="foreign.unknown.incl"/>
-    </xs:choice>
+      <xs:choice>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="title"/>
+        <xs:group ref="txt.incl"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
 
   <!-- <!ENTITY % section.cnt          "#PCDATA | %basic.ph; | %basic.block; | %title; |  %txt.incl;"> -->
   <xs:group name="section.cnt">
     <xs:sequence>
-    <xs:choice>
-      <xs:group ref="basic.ph"/>
-      <xs:group ref="basic.block"/>
-      <xs:group ref="title"/>
-      <xs:group ref="sectiondiv"/>
-      <xs:group ref="txt.incl"/>
-      <xs:group ref="data.elements.incl"/>
-      <xs:group ref="foreign.unknown.incl"/>
-    </xs:choice>
-      </xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="title"/>
+        <xs:group ref="sectiondiv"/>
+        <xs:group ref="txt.incl"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+      </xs:choice>
+    </xs:sequence>
   </xs:group>
 
   <!-- <!ENTITY % section.notitle.cnt  "#PCDATA | %basic.ph; | %basic.block; |             %txt.incl;"> -->
   <xs:group name="section.notitle.cnt">
     <xs:sequence>
-    <xs:choice>
-      <xs:group ref="basic.ph"/>
-      <xs:group ref="basic.block"/>
-      <xs:group ref="sectiondiv"/>
-      <xs:group ref="txt.incl"/>
-      <xs:group ref="data.elements.incl"/>
-      <xs:group ref="foreign.unknown.incl"/>
-    </xs:choice>
-      </xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="sectiondiv"/>
+        <xs:group ref="txt.incl"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+      </xs:choice>
+    </xs:sequence>
   </xs:group>
 
-  
+
 
   <!-- STRUCTURAL MEMBERS ======================================================== -->
   <!-- things that can be nested under topic after body - redefined when specializing -->
@@ -121,13 +121,13 @@
     </xs:restriction>
   </xs:simpleType>
 
-  
-   <xs:group name="topic-info-types">
-      <xs:choice>
-        <xs:group ref="topic"/>
-        <xs:group ref="info-types"/>
-      </xs:choice>
-    </xs:group>
+
+  <xs:group name="topic-info-types">
+    <xs:choice>
+      <xs:group ref="topic"/>
+      <xs:group ref="info-types"/>
+    </xs:choice>
+  </xs:group>
 
   <!--  infotype 'topic'
  | Topic is the archetype from which other typed topics may be derived.
@@ -156,24 +156,24 @@
     </xs:sequence>
     <xs:attributeGroup ref="topic.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="topic.content">
     <xs:sequence>
       <xs:sequence>
-      <xs:group ref="title"/>
-      <xs:group ref="titlealts" minOccurs="0"/>
-      <xs:choice minOccurs="0" >
-        <xs:group ref="shortdesc" />
-        <xs:group ref="abstract" />
-      </xs:choice>      
-      <xs:group ref="prolog" minOccurs="0"/>
-      <xs:group ref="body" minOccurs="0"/>
-      <xs:group ref="related-links" minOccurs="0"/>
-      <xs:group ref="topic-info-types" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+        <xs:group ref="title"/>
+        <xs:group ref="titlealts" minOccurs="0"/>
+        <xs:choice minOccurs="0">
+          <xs:group ref="shortdesc"/>
+          <xs:group ref="abstract"/>
+        </xs:choice>
+        <xs:group ref="prolog" minOccurs="0"/>
+        <xs:group ref="body" minOccurs="0"/>
+        <xs:group ref="related-links" minOccurs="0"/>
+        <xs:group ref="topic-info-types" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="topic.attributes">
     <xs:attribute name="id" type="xs:ID" use="required"/>
     <xs:attribute name="outputclass" type="xs:string"/>
@@ -191,7 +191,7 @@
       <xs:documentation>The &lt;<keyword>no-topic-nesting</keyword>> element is a placeholder
         in the DITA architecture. It is not actually used by the DITA XSDs; it is
         for use only when creating a customized XSD where the information designer
-        wants to eliminate the ability to nest topics. <b>Not for use by authors.</b>        
+        wants to eliminate the ability to nest topics. <b>Not for use by authors.</b>
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -205,12 +205,12 @@
   <xs:complexType name="no-topic-nesting.class">
     <xs:attributeGroup ref="no-topic-nesting.attributes"/>
   </xs:complexType>
-  
+
   <xs:attributeGroup name="no-topic-nesting.attributes">
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
+
   <xs:element name="titlealts">
     <xs:annotation>
       <xs:documentation>The alternate title element (&lt;<keyword>titlealts</keyword>>)
@@ -240,33 +240,34 @@
     </xs:sequence>
     <xs:attributeGroup ref="titlealts.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="titlealts.content">
     <xs:sequence>
       <xs:sequence>
-      <xs:group ref="navtitle" minOccurs="0"/>
-      <xs:group ref="searchtitle" minOccurs="0"/>
-    </xs:sequence>
+        <xs:group ref="navtitle" minOccurs="0"/>
+        <xs:group ref="searchtitle" minOccurs="0"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="titlealts.attributes">
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
-  
 
-  
+
+
+
   <xs:element name="searchtitle">
     <xs:annotation>
       <xs:documentation>When your DITA topic is transformed to XHTML, the &lt;<keyword>searchtitle</keyword>>
         element is used to create a title element at the top of the resulting HTML
         file. This title is normally used in search result summaries by some search
         engines, such as that in Eclipse (
-          <xref format="html" href="http://eclipse.org"
-          scope="external">http://eclipse.org</xref>
+          <xref
+        format="html" href="http://eclipse.org" scope="external"
+        >http://eclipse.org</xref>
         ); if not set, the XHTML's
         title element defaults to the source topic's title content (which may not
         be as well optimized for search summaries)
@@ -286,23 +287,23 @@
     </xs:sequence>
     <xs:attributeGroup ref="searchtitle.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="searchtitle.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="words.cnt" minOccurs="0"/>
-      <xs:group ref="ph" minOccurs="0"/>
-    </xs:choice>
+        <xs:group ref="words.cnt" minOccurs="0"/>
+        <xs:group ref="ph" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="searchtitle.attributes">
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
-  
+
+
   <xs:element name="body">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>body</keyword>> element is the container for the
@@ -323,24 +324,24 @@
     </xs:sequence>
     <xs:attributeGroup ref="body.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="body.content">
     <xs:sequence>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="body.cnt" minOccurs="0"/>
-      <xs:group ref="bodydiv" minOccurs="0"/>
-      <xs:group ref="section" minOccurs="0"/>
-      <xs:group ref="example" minOccurs="0"/>
-    </xs:choice>  
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="body.cnt" minOccurs="0"/>
+        <xs:group ref="bodydiv" minOccurs="0"/>
+        <xs:group ref="section" minOccurs="0"/>
+        <xs:group ref="example" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
 
-    <xs:attributeGroup name="body.attributes">
-      <xs:attribute name="outputclass" type="xs:string"/>
+  <xs:attributeGroup name="body.attributes">
+    <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
-    </xs:attributeGroup>
-  
+  </xs:attributeGroup>
+
   <xs:element name="section">
     <xs:annotation>
       <xs:documentation> The &lt;<keyword>section</keyword>> element represents an organizational
@@ -367,27 +368,26 @@
     </xs:sequence>
     <xs:attributeGroup ref="section.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="section.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="section.cnt" minOccurs="0"/>
-    </xs:choice>  
+        <xs:group ref="section.cnt" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
 
-<xs:attributeGroup name="section.attributes">
-  <xs:attribute name="spectitle" type="xs:string"/>
+  <xs:attributeGroup name="section.attributes">
+    <xs:attribute name="spectitle" type="xs:string"/>
     <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
-</xs:attributeGroup>
-  
-  
+  </xs:attributeGroup>
+
+
   <xs:element name="bodydiv">
     <xs:annotation>
-      <xs:documentation>
-      </xs:documentation>
+      <xs:documentation> </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -397,46 +397,45 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:complexType name="bodydiv.class" mixed="true">
     <xs:sequence>
       <xs:group ref="bodydiv.content"/>
     </xs:sequence>
     <xs:attributeGroup ref="bodydiv.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="bodydiv.content">
     <xs:sequence>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="bodydiv.cnt" minOccurs="0"/>
-      <xs:group ref="bodydiv" minOccurs="0"/>
-      <xs:group ref="section" minOccurs="0"/>
-    </xs:choice>  
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="bodydiv.cnt" minOccurs="0"/>
+        <xs:group ref="bodydiv" minOccurs="0"/>
+        <xs:group ref="section" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
 
-    <xs:attributeGroup name="bodydiv.attributes">
-      <xs:attribute name="outputclass" type="xs:string"/>
+  <xs:attributeGroup name="bodydiv.attributes">
+    <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
-    </xs:attributeGroup>
-  
-    <xs:group name="bodydiv.cnt">
-      <xs:sequence>
-        <xs:choice>
-          <xs:group ref="basic.block"/>
-          <xs:group ref="basic.ph"/>
-          <xs:group ref="data.elements.incl"/>
-          <xs:group ref="foreign.unknown.incl"/>
-          <xs:group ref="txt.incl"/>
-        </xs:choice>
-      </xs:sequence>
-    </xs:group>
-  
+  </xs:attributeGroup>
+
+  <xs:group name="bodydiv.cnt">
+    <xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+        <xs:group ref="txt.incl"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
   <xs:element name="sectiondiv">
     <xs:annotation>
-      <xs:documentation> 
-      </xs:documentation>
+      <xs:documentation> </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:complexContent>
@@ -452,35 +451,35 @@
     </xs:sequence>
     <xs:attributeGroup ref="sectiondiv.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="sectiondiv.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="sectiondiv.cnt" minOccurs="0"/>
-      <xs:group ref="sectiondiv" minOccurs="0"/>
-    </xs:choice>  
+        <xs:group ref="sectiondiv.cnt" minOccurs="0"/>
+        <xs:group ref="sectiondiv" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
 
-<xs:attributeGroup name="sectiondiv.attributes">
+  <xs:attributeGroup name="sectiondiv.attributes">
     <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
-</xs:attributeGroup>
-  
-   <xs:group name="sectiondiv.cnt">
-      <xs:sequence>
-        <xs:choice>
-          <xs:group ref="basic.block"/>
-          <xs:group ref="basic.ph"/>
-          <xs:group ref="data.elements.incl"/>
-          <xs:group ref="foreign.unknown.incl"/>
-          <xs:group ref="txt.incl"/>
-        </xs:choice>
-      </xs:sequence>
-    </xs:group>
-  
-  
+  </xs:attributeGroup>
+
+  <xs:group name="sectiondiv.cnt">
+    <xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+        <xs:group ref="txt.incl"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
+
   <xs:element name="example">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>example</keyword>> element is a section with the
@@ -503,15 +502,15 @@
     </xs:sequence>
     <xs:attributeGroup ref="example.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="example.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="example.cnt" minOccurs="0"/>
-    </xs:choice>
+        <xs:group ref="example.cnt" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="example.attributes">
     <xs:attribute name="spectitle" type="xs:string"/>
     <xs:attribute name="outputclass" type="xs:string"/>
@@ -519,13 +518,13 @@
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
-  
+
+
   <!-- PROLOG (metadata for topics) =================================== -->
   <!-- TYPED DATA ELEMENTS: ======================================================= -->
   <!-- typed content definitions  -->
   <!-- typed, localizable content -->
-  
+
   <xs:element name="prolog">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>prolog</keyword>> element contains information
@@ -550,36 +549,36 @@
     </xs:sequence>
     <xs:attributeGroup ref="prolog.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="prolog.content">
     <xs:sequence>
       <xs:sequence>
-      <xs:group ref="author" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:group ref="source" minOccurs="0"/>
-      <xs:group ref="publisher" minOccurs="0"/>
-      <xs:group ref="copyright" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:group ref="critdates" minOccurs="0"/>
-      <xs:group ref="permissions" minOccurs="0"/>
-      <xs:group ref="metadata" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:group ref="resourceid" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:group ref="data.elements.incl"/>
-        <xs:group ref="foreign.unknown.incl"/>
-      </xs:choice>
-    </xs:sequence>
+        <xs:group ref="author" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="source" minOccurs="0"/>
+        <xs:group ref="publisher" minOccurs="0"/>
+        <xs:group ref="copyright" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="critdates" minOccurs="0"/>
+        <xs:group ref="permissions" minOccurs="0"/>
+        <xs:group ref="metadata" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:group ref="resourceid" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:group ref="data.elements.incl"/>
+          <xs:group ref="foreign.unknown.incl"/>
+        </xs:choice>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="prolog.attributes">
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
- 
-  
+
+
 
   <!-- ================ LINKS GROUPING - START ================ -->
- 
+
   <xs:element name="related-links">
     <xs:annotation>
       <xs:documentation>The related information links of a topic (&lt;<keyword>related-links</keyword>>
@@ -603,17 +602,17 @@
     </xs:sequence>
     <xs:attributeGroup ref="related-links.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="related-links.content">
     <xs:sequence>
-      <xs:choice  minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="link" minOccurs="0"/>
-      <xs:group ref="linklist" minOccurs="0"/>
-      <xs:group ref="linkpool" minOccurs="0"/>
-    </xs:choice>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="link" minOccurs="0"/>
+        <xs:group ref="linklist" minOccurs="0"/>
+        <xs:group ref="linkpool" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="related-links.attributes">
     <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="rel-atts"/>
@@ -621,7 +620,7 @@
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
+
   <xs:element name="linklist">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>linklist</keyword>> element defines an author-arranged
@@ -644,21 +643,21 @@
     </xs:sequence>
     <xs:attributeGroup ref="linklist.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="linklist.content">
     <xs:sequence>
       <xs:sequence>
-      <xs:group ref="title" minOccurs="0"/>
-      <xs:group ref="desc" minOccurs="0"/>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:group ref="linklist"/>
-        <xs:group ref="link"/>
-      </xs:choice>
-      <xs:group ref="linkinfo" minOccurs="0"/>
-    </xs:sequence>
+        <xs:group ref="title" minOccurs="0"/>
+        <xs:group ref="desc" minOccurs="0"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:group ref="linklist"/>
+          <xs:group ref="link"/>
+        </xs:choice>
+        <xs:group ref="linkinfo" minOccurs="0"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="linklist.attributes">
     <xs:attribute name="collection-type" type="collection-type.class"/>
     <xs:attribute name="duplicates" type="yesno-att.class"/>
@@ -674,7 +673,8 @@
     <xs:annotation>
       <xs:documentation>
         The &lt;<keyword>linkinfo</keyword>> element allows you to place
-        a descriptive paragraph following a list of links in a <xref href="linklist.xml">linklist</xref>  element. 
+        a descriptive paragraph following a list of links in a <xref href="linklist.xml"
+        >linklist</xref>  element. 
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -691,21 +691,21 @@
     </xs:sequence>
     <xs:attributeGroup ref="linkinfo.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="linkinfo.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="desc.cnt"/>
-    </xs:choice>
+        <xs:group ref="desc.cnt"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="linkinfo.attributes">
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
+
   <xs:element name="linkpool">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>linkpool</keyword>> element defines a group of
@@ -729,16 +729,16 @@
     </xs:sequence>
     <xs:attributeGroup ref="linkpool.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="linkpool.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="linkpool" minOccurs="0"/>
-      <xs:group ref="link" minOccurs="0"/>
-    </xs:choice>
+        <xs:group ref="linkpool" minOccurs="0"/>
+        <xs:group ref="link" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="linkpool.attributes">
     <xs:attribute name="collection-type" type="collection-type.class"/>
     <xs:attribute name="duplicates" type="yesno-att.class"/>
@@ -749,7 +749,7 @@
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
+
   <xs:element name="linktext">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>linktext</keyword>> element provides the literal
@@ -773,22 +773,22 @@
     </xs:sequence>
     <xs:attributeGroup ref="linktext.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="linktext.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:group ref="words.cnt" minOccurs="0"/>
-      <xs:group ref="ph" minOccurs="0"/>
-    </xs:choice>
+        <xs:group ref="words.cnt" minOccurs="0"/>
+        <xs:group ref="ph" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="linktext.attributes">
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 
-  
+
   <xs:element name="link">
     <xs:annotation>
       <xs:documentation>The &lt;<keyword>link</keyword>> element defines a relationship
@@ -812,16 +812,16 @@
     </xs:sequence>
     <xs:attributeGroup ref="link.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="link.content">
     <xs:sequence>
       <xs:sequence>
-      <xs:group ref="linktext" minOccurs="0"/>
-      <xs:group ref="desc" minOccurs="0"/>
-    </xs:sequence>
+        <xs:group ref="linktext" minOccurs="0"/>
+        <xs:group ref="desc" minOccurs="0"/>
+      </xs:sequence>
     </xs:sequence>
   </xs:group>
-  
+
   <xs:attributeGroup name="link.attributes">
     <xs:attribute name="href" type="xs:string"/>
     <xs:attribute name="keyref" type="xs:string"/>
@@ -843,53 +843,53 @@
   </xs:simpleType>
 
   <!-- ================ LINKS GROUPING - END ================ -->
-  
+
   <!--                    LONG NAME: Abstract                        -->
   <!-- <!ELEMENT abstract      (%section.notitle.cnt; | %shortdesc;)*       > -->
   <xs:element name="abstract">
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="abstract.class">
-          <xs:attribute ref="class" default="- topic/abstract " />
+          <xs:attribute ref="class" default="- topic/abstract "/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  <xs:complexType name="abstract.class" mixed="true"> 
+  <xs:complexType name="abstract.class" mixed="true">
     <xs:sequence>
       <xs:group ref="abstract.content"/>
     </xs:sequence>
     <xs:attributeGroup ref="abstract.attributes"/>
   </xs:complexType>
-  
+
   <xs:group name="abstract.content">
     <xs:sequence>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:group ref="abstract.cnt" minOccurs="0"/>
-    </xs:choice>
+        <xs:group ref="abstract.cnt" minOccurs="0"/>
+      </xs:choice>
     </xs:sequence>
   </xs:group>
-  
-    <xs:group name="abstract.cnt">
-      <xs:sequence>
-        <xs:choice>
-          <xs:group ref="basic.block"/>
-          <xs:group ref="basic.ph"/>
-          <xs:group ref="data.elements.incl"/>
-          <xs:group ref="foreign.unknown.incl"/>
-          <xs:group ref="shortdesc"/>
-          <xs:group ref="txt.incl"/>
-        </xs:choice>
-      </xs:sequence>
-    </xs:group>
-  
+
+  <xs:group name="abstract.cnt">
+    <xs:sequence>
+      <xs:choice>
+        <xs:group ref="basic.block"/>
+        <xs:group ref="basic.ph"/>
+        <xs:group ref="data.elements.incl"/>
+        <xs:group ref="foreign.unknown.incl"/>
+        <xs:group ref="shortdesc"/>
+        <xs:group ref="txt.incl"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+
   <xs:attributeGroup name="abstract.attributes">
     <xs:attribute name="outputclass" type="xs:string"/>
     <xs:attributeGroup ref="univ-atts"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
-  
-   <xs:element name="shortdesc">
+
+  <xs:element name="shortdesc">
     <xs:annotation>
       <xs:documentation>The short description (&lt;<keyword>shortdesc</keyword>>) element
         occurs between the topic title and the topic body, as the initial paragraph-like
@@ -906,7 +906,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
-  
- 
-  
+
+
+
 </xs:schema>
