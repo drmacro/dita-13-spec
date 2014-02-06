@@ -14,3 +14,13 @@ RNG2DTD To Dos:
    
 
 8. Generate catalogs
+
+RNG2XSD To Dos:
+
+- Handle @class attributes
+
+- Handle define/data patterns
+
+- Handle module integration groups
+
+- Put commonElements and metaDecl inclusions in shells, not topicMod.xsd

@@ -84,7 +84,15 @@
         select="rngfunc:getModuleShortName(.)"
       /> 
 
-      <xsl:apply-templates mode="element-decls" 
+      <!-- The handleDefinitionsForMod mode handles all definitions except the 
+           element-specific .content and .attributes definitions, which are
+           handled through the rng:element processing.
+           
+           This mode should produce all other groups and attribute groups
+           that should result from rng:define elements.
+        -->
+           
+      <xsl:apply-templates mode="handleDefinitionsForMod" 
         select="(rng:define | rng:include) except 
                     (rng:define[.//rng:attribute[@name='class']])"
         >
@@ -132,62 +140,60 @@
     <xsl:message> + [WARN] groupFile: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
   </xsl:template>
   
-  <!-- ====================
-       Mode element-decls
-       Mode generate-group-decl-from-defines
-       ==================== -->
+  <!-- ============================
+       Mode handleDefinitionsForMod
+       ============================ -->
 
   <!-- Class attributes are handled in a separate mode -->
-  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="element-decls" priority="10"/>
+  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="handleDefinitionsForMod" priority="10"/>
   
 
   <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
-    mode="element-decls" priority="30"
+    mode="handleDefinitionsForMod" priority="30"
   >
+    <!-- Ignored for XSD output -->
   </xsl:template>
   
-  <xsl:template match="rng:define[@combine = 'choice']" mode="element-decls" priority="20">
+  <xsl:template match="rng:define[@combine = 'choice']" mode="handleDefinitionsForMod" priority="20">
       <!-- Domain integration pattern. Not output in the XSD. -->
   </xsl:template>
 
 
   <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
-    mode="element-decls" priority="15">
-    <xsl:param name="tagname" tunnel="yes" as="xs:string" select="'unset'"/>
-      <!-- content and attlist declarations are handled from within the rng:element processing 
-      
-      -->
+    mode="handleDefinitionsForMod" priority="15">
     
     <xsl:if test="ends-with(@name, '.attributes')">
-      <xsl:variable name="attsDefName" as="xs:string" select="concat($tagname, '.attributes')"/>
-      <xsl:if test="@name != $attsDefName">
+      <xsl:if test="count(tokenize(@name, '\.')) gt 2">
         <xsl:next-match/><!-- Handle cases like "dita.table.attributes" -->
       </xsl:if>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
-                mode="element-decls" priority="10">
+                mode="handleDefinitionsForMod" priority="10">
       <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
-                mode="element-decls" priority="10">
+                mode="handleDefinitionsForMod" priority="10">
       <!-- reference to element name in this module, will be in the group file -->
   </xsl:template>
   
-  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and not(key('definesByName',rng:ref/@name)) and ends-with(rng:ref/@name, '.element')]" 
-                mode="element-decls" priority="20">
+  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and 
+                                  not(key('definesByName',rng:ref/@name)) and 
+                                  ends-with(rng:ref/@name, '.element')]" 
+                mode="handleDefinitionsForMod" priority="20">
       <!-- reference to element name in another module, will be in group file -->
   </xsl:template>
 
-  <xsl:template match="rng:define[not(.//rng:attribute[@name='class'])]" mode="element-decls" priority="8">
+  <xsl:template match="rng:define" mode="handleDefinitionsForMod" priority="8">
     <!-- Main template for generating group declarations from defines. 
     
          Note that the .content and .attributes handling is driven from within the rng:element
     -->
     <xsl:param name="domainPfx" tunnel="yes" as="xs:string" />
-<!--    <xsl:message> + [DEBUG] mode: element-decls: rng:define name="<xsl:value-of select="@name"/>"</xsl:message>-->
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>-->
+
     <xsl:choose>
       <xsl:when test="$domainPfx and not($domainPfx='') and starts-with(@name, $domainPfx)">
         <!-- Should never get here so this is belt to go with suspenders -->
@@ -199,16 +205,24 @@
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template mode="element-decls" match="rng:include">
+  <xsl:template mode="handleDefinitionsForMod" match="rng:include">
     <!-- Suppress, at least in the topicMod.xsd -->
   </xsl:template>
+
+  <xsl:template mode="handleDefinitionsForMod" match="*" priority="-1">
+    <xsl:message> - [WARN] handleDefinitionsForMod: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+  </xsl:template>
   
+  <!-- ====================================
+       Mode generate-group-decl-from-define
+       ==================================== -->
+
   <xsl:template mode="generate-group-decl-from-define" match="rng:define[@name = 'arch-atts']" priority="10">
     <!-- arch-atts declaration is hard-coded -->
   </xsl:template>
 
   <xsl:template mode="generate-group-decl-from-define" match="rng:define[rng:element]" priority="10">
-    <xsl:apply-templates select="rng:element" mode="element-decls"/>
+    <xsl:apply-templates select="rng:element" mode="handleDefinitionsForMod"/>
   </xsl:template>
 
   <xsl:template mode="generate-group-decl-from-define" match="rng:define">
@@ -235,7 +249,7 @@
       <xsl:otherwise>
         <xs:group name="{@name}">         
           <xs:sequence>
-            <xsl:apply-templates mode="element-decls">
+            <xsl:apply-templates mode="generateXsdContentModel">
               <xsl:with-param name="isAttSet" as="xs:boolean" select="$isAttSet" tunnel="yes"/>      
             </xsl:apply-templates>
           </xs:sequence>
@@ -244,17 +258,7 @@
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template mode="element-decls" match="rng:choice">
-    <xs:choice>
-      <xsl:apply-templates mode="#current"/>
-    </xs:choice>
-  </xsl:template>
-  
-  <xsl:template mode="element-decls" match="rng:ref">
-    <xs:group ref="{@name}"/>
-  </xsl:template>
-  
-  <xsl:template mode="element-decls generateXsdAttributeDecls" match="a:documentation">
+  <xsl:template mode="generateXsdAttributeDecls" match="a:documentation">
     <xs:annotation>
       <xs:documentation>
         <xsl:apply-templates select="." mode="documentation"/>
@@ -262,7 +266,7 @@
     </xs:annotation>
   </xsl:template>
   
-  <xsl:template mode="element-decls" match="rng:element">
+  <xsl:template mode="handleDefinitionsForMod" match="rng:element">
     <xs:element name="{@name}">
       <xs:annotation>
         <xs:documentation>
@@ -276,16 +280,16 @@
           </xs:extension>
         </xs:complexContent>
       </xs:complexType>
-      <xs:complexType name="{@name}.class">
-        <xsl:if test="rngfunc:isMixedContent(.)">
-          <xsl:attribute name="mixed" select="'true'"/>
-        </xsl:if>
-        <xs:sequence>
-          <xs:group ref="{@name}.content"/>
-        </xs:sequence>
-        <xs:attributeGroup ref="{@name}.attributes"/>
-      </xs:complexType>
     </xs:element>
+    <xs:complexType name="{@name}.class">
+      <xsl:if test="rngfunc:isMixedContent(.)">
+        <xsl:attribute name="mixed" select="'true'"/>
+      </xsl:if>
+      <xs:sequence>
+        <xs:group ref="{@name}.content"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="{@name}.attributes"/>
+    </xs:complexType>
     
     <xs:group name="{@name}.content">
       <xsl:variable name="contentPatternName" as="xs:string"
@@ -303,16 +307,13 @@
       />
       <xsl:apply-templates 
         select="../../rng:define[@name = $attributesPatternName]" 
-        mode="doAttributeListGeneration"/>      
+        mode="doAttributeListGeneration">
+        <xsl:with-param name="tagname" select="@name" as="xs:string" tunnel="yes"/>
+      </xsl:apply-templates>      
     </xs:attributeGroup>
-    <!-- 
-  
-  
-    
-    -->
   </xsl:template>
   
-  <xsl:template match="*" mode="element-decls" priority="-1">
+  <xsl:template match="*" mode="handleDefinitionsForMod" priority="-1">
     <xsl:message> - [WARN] Mode element-decls: Unhandled element <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
   </xsl:template>
 
@@ -338,31 +339,37 @@
     </xs:sequence>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls generateXsdAttributeDecls" match="rng:zeroOrMore">
+  <xsl:template mode="generateXsdContentModel generateXsdAttributeDecls" match="rng:zeroOrMore">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls generateXsdAttributeDecls" match="rng:oneOrMore">
+  <xsl:template mode="generateXsdContentModel generateXsdAttributeDecls" match="rng:oneOrMore">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls generateXsdAttributeDecls" match="rng:optional">
+  <xsl:template mode="generateXsdContentModel generateXsdAttributeDecls" match="rng:optional">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls" match="rng:zeroOrMore/rng:choice">
+  <xsl:template mode="generateXsdContentModel" match="rng:choice">
+    <xs:choice>
+      <xsl:apply-templates mode="#current"/>
+    </xs:choice>
+  </xsl:template>
+  
+  <xsl:template mode="generateXsdContentModel" match="rng:zeroOrMore/rng:choice" priority="10">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xsl:apply-templates mode="#current"/>
     </xs:choice>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls" match="rng:oneOrMore/rng:choice">
+  <xsl:template mode="generateXsdContentModel" match="rng:oneOrMore/rng:choice" priority="10">
     <xs:choice minOccurs="1" maxOccurs="unbounded">
       <xsl:apply-templates mode="#current"/>
     </xs:choice>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls" match="rng:optional/rng:choice">
+  <xsl:template mode="generateXsdContentModel" match="rng:optional/rng:choice" priority="10">
     <xs:choice minOccurs="0">
       <xsl:apply-templates mode="#current"/>
     </xs:choice>
@@ -376,11 +383,11 @@
      <xs:group ref="{@name}" minOccurs="0"/>
   </xsl:template>
   
-  <xsl:template mode="generateXsdContentModel element-decls" match="rng:text">
+  <xsl:template mode="generateXsdContentModel" match="rng:text">
     <!-- Becomes mixed="true" -->
   </xsl:template>
 
-  <xsl:template mode="generateXsdContentModel element-decls" match="rng:empty">
+  <xsl:template mode="generateXsdContentModel" match="rng:empty">
     <!-- Empty sequence in XSD -->
   </xsl:template>
 
@@ -393,6 +400,10 @@
        Mode generateXsdAttributeDecls
        ============================== -->
  
+ <xsl:template mode="doAttributeListGeneration" match="rng:define">
+<!--   <xsl:message> + [DEBUG] generateXsdAttributeDecls: rng:define name="<xsl:value-of select="@name"/>"</xsl:message> -->
+   <xsl:apply-templates mode="generateXsdAttributeDecls"/>
+ </xsl:template>
  
   <xsl:template mode="doAttributeListGeneration" match="rng:ref" priority="10">
 <!--    <xsl:message> + [DEBUG] generateXsdAttributeDecls: rng:ref name="<xsl:value-of select="@name"/>"</xsl:message>-->
