@@ -17,9 +17,7 @@ RNG2DTD To Dos:
 
 RNG2XSD To Dos:
 
-- Handle @class attributes
-
-- Handle define/data patterns
+- Handle attributes in tblDeclMod.xsd, metaDeclMod.xsd
 
 - Handle module integration groups
 
