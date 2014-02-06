@@ -631,6 +631,7 @@
         <folder masterFiles="true" name="Master Files">
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/base/rng/basemap.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/base/rng/basetopic.rng"/>
+            <file name="proposals/proposal-13112-rng/exemplars/dita-1.2/xsd-url/base/xsd/basetopic.xsd"/>
             <file name="proposals/proposal-13112-rng/temp/generated-xsd/base/xsd/basetopic.xsd"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossentry.rng"/>
             <file name="proposals/proposal-13112-rng/org.oasis-open.dita.relaxng/doctypes/technicalContent/rng/glossgroup.rng"/>

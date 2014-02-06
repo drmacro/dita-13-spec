@@ -81,8 +81,24 @@
       <xsl:text>&#x0a;</xsl:text>
       <xsl:variable name="domainPrefix" 
         as="xs:string"
-        select="rngfunc:getModuleShortName(.)"
+        select="concat(rngfunc:getModuleShortName(.), '-')"
       /> 
+      
+      <!-- CommonElementsMod has some additional declarations specific to the XSD that
+           have no direct correlate in the RNG declarations.
+        -->
+      
+      <xsl:if test="rngfunc:getModuleShortName(.) = 'commonElements'">
+        	<xs:attribute name="class" type="xs:string">
+        		<xs:annotation>
+        			<xs:documentation>
+                        The class attribute supports specialization. Its predefined values help 
+                        the output transforms work correctly with ranges of related content. 
+                    </xs:documentation>
+        		</xs:annotation>
+        	</xs:attribute>
+
+      </xsl:if>
 
       <!-- The handleDefinitionsForMod mode handles all definitions except the 
            element-specific .content and .attributes definitions, which are
@@ -96,7 +112,7 @@
         select="(rng:define | rng:include) except 
                     (rng:define[.//rng:attribute[@name='class']])"
         >
-        <xsl:with-param name="domainPfx" select="$domainPrefix" tunnel="yes" as="xs:string" />
+        <xsl:with-param name="domainPrefix" select="$domainPrefix" tunnel="yes" as="xs:string" />
       </xsl:apply-templates>
     </xs:schema>
   </xsl:template>
@@ -191,11 +207,11 @@
     
          Note that the .content and .attributes handling is driven from within the rng:element
     -->
-    <xsl:param name="domainPfx" tunnel="yes" as="xs:string" />
-<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>-->
+    <xsl:param name="domainPrefix" tunnel="yes" as="xs:string" />
+    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>
 
     <xsl:choose>
-      <xsl:when test="$domainPfx and not($domainPfx='') and starts-with(@name, $domainPfx)">
+      <xsl:when test="$domainPrefix and not($domainPrefix='') and starts-with(@name, $domainPrefix)">
         <!-- Should never get here so this is belt to go with suspenders -->
         <!--  Domain extension pattern, not output in the .mod file (goes in shell DTDs) -->
       </xsl:when>
@@ -383,6 +399,11 @@
   <xsl:template mode="generateXsdContentModel" match="rng:ref">
      <xs:group ref="{@name}"/>
   </xsl:template>
+  <xsl:template mode="generateXsdContentModel" match="rng:ref[@name = 'any']" priority="10">
+      <xs:sequence>
+				<xs:any processContents="skip"/>
+			</xs:sequence>
+  </xsl:template>
   
   <xsl:template mode="generateXsdContentModel" match="rng:optional/rng:ref">
      <xs:group ref="{@name}" minOccurs="0"/>
@@ -541,8 +562,14 @@
 
   <xsl:function name="local:getElementClassValue" as="xs:string">
     <xsl:param name="elementElem" as="element(rng:element)"/>
+    <xsl:variable name="defineName" as="xs:string" 
+      select="concat($elementElem/@name, '.attlist')"
+    />
+    <xsl:variable name="classAtt" as="element(rng:attribute)"
+      select="root($elementElem)//rng:define[@name = $defineName]//rng:attribute[@name = 'class']"
+    />
     
-    <xsl:variable name="classValue" as="xs:string" select="'????'"/>
+    <xsl:variable name="classValue" as="xs:string" select="$classAtt/@a:defaultValue"/>
     <xsl:sequence select="$classValue"/>
   </xsl:function>
   
