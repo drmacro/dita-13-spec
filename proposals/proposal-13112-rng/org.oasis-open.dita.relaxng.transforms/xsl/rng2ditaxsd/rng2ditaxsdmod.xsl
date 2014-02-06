@@ -301,15 +301,20 @@
     </xs:group>
     
     <xs:attributeGroup name="{@name}.attributes">
-      <xs:attributeGroup ref="global-atts"/>
       <xsl:variable name="attributesPatternName" as="xs:string"
         select="concat(@name, '.attributes')"
       />
+      <!-- We only want those attributes defined in the tagname.attributes
+           pattern for the element type. The global-atts group is
+           an invariant reference and the @class attribute is handled
+           separately.
+        -->
       <xsl:apply-templates 
         select="../../rng:define[@name = $attributesPatternName]" 
-        mode="doAttributeListGeneration">
+        mode="doElementTypeAttlistGeneration">
         <xsl:with-param name="tagname" select="@name" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>      
+      <xs:attributeGroup ref="global-atts"/>
     </xs:attributeGroup>
   </xsl:template>
   
@@ -400,19 +405,13 @@
        Mode generateXsdAttributeDecls
        ============================== -->
  
- <xsl:template mode="doAttributeListGeneration" match="rng:define">
-<!--   <xsl:message> + [DEBUG] generateXsdAttributeDecls: rng:define name="<xsl:value-of select="@name"/>"</xsl:message> -->
+ <xsl:template mode="doElementTypeAttlistGeneration" match="rng:define">
+   <!-- This mode handles the .attlist pattern used for each unique 
+        element type.
+     -->
    <xsl:apply-templates mode="generateXsdAttributeDecls"/>
  </xsl:template>
  
-  <xsl:template mode="doAttributeListGeneration" match="rng:ref" priority="10">
-<!--    <xsl:message> + [DEBUG] generateXsdAttributeDecls: rng:ref name="<xsl:value-of select="@name"/>"</xsl:message>-->
-    <xsl:variable name="pattern" select="key('definesByName', string(@name))"
-      as="element(rng:define)*"
-    />
-    <xsl:apply-templates mode="generateXsdAttributeDecls" select="$pattern"/>
-  </xsl:template>
-
   <xsl:template mode="generateXsdAttributeDecls" match="rng:empty">
     <!-- Do nothing. Result should be an empty xs:attributeGroup element -->
   </xsl:template>
