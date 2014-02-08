@@ -108,11 +108,11 @@
            that should result from rng:define elements.
         -->
       
-      <xsl:message> + [DEBUG] Applying templates to the following defines:
+<!--      <xsl:message> + [DEBUG] Applying templates to the following defines:
 <xsl:sequence select="for $def in (rng:define | rng:include) except 
                     (rng:define[.//rng:attribute[@name='class']]) return string($def/@name)"></xsl:sequence>      
       </xsl:message>
-           
+-->           
       <xsl:apply-templates mode="handleDefinitionsForMod" 
         select="(rng:define | rng:include) except 
                     (rng:define[.//rng:attribute[@name='class']])"
@@ -167,19 +167,19 @@
 
   <!-- Class attributes are handled in a separate mode -->
   <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="handleDefinitionsForMod" priority="10">
-        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Contains @class attribute declaration.</xsl:message>
+<!--        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Contains @class attribute declaration.</xsl:message>-->
   </xsl:template>
   
 
   <xsl:template match="rng:define[@combine = 'choice']" mode="handleDefinitionsForMod" priority="20">
-        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Domain integration pattern. Not output in the XSD.</xsl:message>
+<!--        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Domain integration pattern. Not output in the XSD.</xsl:message>-->
       <!-- Domain integration pattern. Not output in the XSD. -->
   </xsl:template>
 
 
   <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
     mode="handleDefinitionsForMod" priority="15">
-        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attlist, ignoring or not</xsl:message>
+<!--        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attlist, ignoring or not</xsl:message>-->
 
     <xsl:if test="ends-with(@name, '.attributes')">
       <xsl:if test="count(tokenize(@name, '\.')) gt 2">
@@ -190,13 +190,13 @@
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
                 mode="handleDefinitionsForMod" priority="10">
-    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>-->
       <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
                 mode="handleDefinitionsForMod" priority="10">
-    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in this module, will be in the group file</xsl:message>
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in this module, will be in the group file</xsl:message>-->
       <!-- reference to element name in this module, will be in the group file -->
   </xsl:template>
   
@@ -204,7 +204,7 @@
                                   not(key('definesByName',rng:ref/@name)) and 
                                   ends-with(rng:ref/@name, '.element')]" 
                 mode="handleDefinitionsForMod" priority="20">
-    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in another module, will be in group file</xsl:message>
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in another module, will be in group file</xsl:message>-->
       <!-- reference to element name in another module, will be in group file -->
   </xsl:template>
 
@@ -252,7 +252,7 @@
          Note that the .content and .attributes handling is driven from within the rng:element
     -->
     <xsl:param name="domainPrefix" tunnel="yes" as="xs:string" />
-    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>-->
 
     <xsl:apply-templates mode="generate-group-decl-from-define" select="."/>
   </xsl:template>
