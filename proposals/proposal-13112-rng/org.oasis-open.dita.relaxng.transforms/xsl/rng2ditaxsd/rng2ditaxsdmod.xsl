@@ -107,6 +107,11 @@
            This mode should produce all other groups and attribute groups
            that should result from rng:define elements.
         -->
+      
+      <xsl:message> + [DEBUG] Applying templates to the following defines:
+<xsl:sequence select="for $def in (rng:define | rng:include) except 
+                    (rng:define[.//rng:attribute[@name='class']]) return string($def/@name)"></xsl:sequence>      
+      </xsl:message>
            
       <xsl:apply-templates mode="handleDefinitionsForMod" 
         select="(rng:define | rng:include) except 
@@ -161,23 +166,21 @@
        ============================ -->
 
   <!-- Class attributes are handled in a separate mode -->
-  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="handleDefinitionsForMod" priority="10"/>
-  
-
-  <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(ancestor::rng:grammar), '-'))]" 
-    mode="handleDefinitionsForMod" priority="30"
-  >
-    <!-- Ignored for XSD output -->
+  <xsl:template match="rng:define[.//rng:attribute[@name='class']]" mode="handleDefinitionsForMod" priority="10">
+        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Contains @class attribute declaration.</xsl:message>
   </xsl:template>
   
+
   <xsl:template match="rng:define[@combine = 'choice']" mode="handleDefinitionsForMod" priority="20">
+        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: Domain integration pattern. Not output in the XSD.</xsl:message>
       <!-- Domain integration pattern. Not output in the XSD. -->
   </xsl:template>
 
 
   <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
     mode="handleDefinitionsForMod" priority="15">
-    
+        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attlist, ignoring or not</xsl:message>
+
     <xsl:if test="ends-with(@name, '.attributes')">
       <xsl:if test="count(tokenize(@name, '\.')) gt 2">
         <xsl:next-match/><!-- Handle cases like "dita.table.attributes" -->
@@ -187,11 +190,13 @@
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
                 mode="handleDefinitionsForMod" priority="10">
+    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>
       <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
                 mode="handleDefinitionsForMod" priority="10">
+    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in this module, will be in the group file</xsl:message>
       <!-- reference to element name in this module, will be in the group file -->
   </xsl:template>
   
@@ -199,7 +204,46 @@
                                   not(key('definesByName',rng:ref/@name)) and 
                                   ends-with(rng:ref/@name, '.element')]" 
                 mode="handleDefinitionsForMod" priority="20">
+    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: reference to element name in another module, will be in group file</xsl:message>
       <!-- reference to element name in another module, will be in group file -->
+  </xsl:template>
+
+  <xsl:template match="rng:define[starts-with(@name, concat(rngfunc:getModuleShortName(root(.)/*), '-'))]" 
+                mode="handleDefinitionsForMod" priority="20">
+    <!-- Domain integration group. References to *.element groaups need to become references
+         to the elements themselves.
+      -->
+    <xs:group name="{@name}">
+      <xs:choice>
+        <xsl:apply-templates mode="refToTagname"/>
+      </xs:choice>
+    </xs:group>
+    <xsl:text>&#x0a;</xsl:text>
+  </xsl:template>  
+  
+  <xsl:template mode="refToTagname" match="text()"/>  
+  
+  <xsl:template mode="refToTagname" match="*" priority="-1">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="refToTagname" match="rng:ref">
+    <xsl:variable name="target" select="@name" as="xs:string"/>
+    <xsl:variable name="elementDecls" as="element()*"
+      select="key('definesByName', $target)"
+    />
+    <xsl:variable name="elementDecl"
+      select="($elementDecls/rng:element)[1]"
+    />
+    <xsl:choose>
+      <xsl:when test="$elementDecl">
+         <xs:element ref="{$elementDecl/@name}"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:comment> Failed to find element declaration for reference "<xsl:value-of select="@name"/>" </xsl:comment>
+        <xsl:message> - [WARN] refToTagname: Failed to find element declaration for reference "<xsl:value-of select="@name"/>"</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="rng:define" mode="handleDefinitionsForMod" priority="8">
@@ -210,15 +254,7 @@
     <xsl:param name="domainPrefix" tunnel="yes" as="xs:string" />
     <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/></xsl:message>
 
-    <xsl:choose>
-      <xsl:when test="$domainPrefix and not($domainPrefix='') and starts-with(@name, $domainPrefix)">
-        <!-- Should never get here so this is belt to go with suspenders -->
-        <!--  Domain extension pattern, not output in the .mod file (goes in shell DTDs) -->
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates mode="generate-group-decl-from-define" select="."/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:apply-templates mode="generate-group-decl-from-define" select="."/>
   </xsl:template>
   
   <xsl:template mode="handleDefinitionsForMod" match="rng:include">
@@ -335,7 +371,7 @@
   </xsl:template>
   
   <xsl:template match="*" mode="handleDefinitionsForMod" priority="-1">
-    <xsl:message> - [WARN] Mode element-decls: Unhandled element <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
+    <xsl:message> - [WARN] Mode handleDefinitionsForMod: Unhandled element <xsl:value-of select="name(..), '/', name(.)"/></xsl:message>
   </xsl:template>
 
   <!-- ============================
