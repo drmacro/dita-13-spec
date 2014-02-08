@@ -34,20 +34,20 @@
     <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:metaDeclMod.xsd:1.2"/>
     
     <!-- Map Domains -->
-    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomain.xsd:1.2" />
-    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xnalDomain.xsd:1.2" />
-    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:delayResolutionDomain.xsd:1.2" />
+    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:indexingDomainMod.xsd:1.2" />
+    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:xnalDomainMod.xsd:1.2" />
+    <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:delayResolutionDomainMod.xsd:1.2" />
     
      <!-- Tech content domains -->
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomain.xsd:1.2"/>
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomain.xsd:1.2"/>
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomain.xsd:1.2"/>
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomain.xsd:1.2" />
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:programmingDomainMod.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:softwareDomainMod.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:uiDomainMod.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:abbreviateDomainMod.xsd:1.2" />
   
   <!-- Base domains -->
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomain.xsd:1.2"/>
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd:1.2"/>
-  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardstatementDomain.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:highlightDomainMod.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:utilitiesDomainMod.xsd:1.2"/>
+  <xs:include schemaLocation="urn:oasis:names:tc:dita:xsd:hazardstatementDomainMod.xsd:1.2"/>
   
    
     <!--  ================ GROUP DEFINITIONS =====================  -->

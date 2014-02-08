@@ -27,11 +27,11 @@
     attributeFormDefault="unqualified">
     <!-- Add the domains to the base topic XML Schema -->
     <!--  ================ TOPIC DOMAINS =====================  -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-   <xs:include schemaLocation="learningMetadataDomain.xsd"/>
-   <xs:include schemaLocation="learningDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd"/>
+   <xs:include schemaLocation="learningMetadataDomainMod.xsd"/>
+   <xs:include schemaLocation="learningDomainMod.xsd"/>
 
 
     <!--  ================ GROUP DEFINITIONS =====================  -->
@@ -88,7 +88,7 @@
         </xs:group>
     </xs:redefine>
 
-    <xs:redefine schemaLocation="learningInteractionBaseDomain.xsd">
+    <xs:redefine schemaLocation="learningInteractionBaseDomainMod.xsd">
      <xs:group name="lcInteractionBase">
       <xs:choice>
         <xs:group ref="lcInteractionBase"/>

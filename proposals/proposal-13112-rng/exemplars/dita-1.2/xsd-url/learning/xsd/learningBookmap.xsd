@@ -35,16 +35,16 @@
   <!-- ======= MetaData elements, plus keyword and indexterm ======= -->
   <xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
 
-    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd" />
-    <xs:include schemaLocation="../../xnal/xsd/xnalDomain.xsd" />
-    <xs:include schemaLocation="../../base/xsd/delayResolutionDomain.xsd" />
-    <xs:include schemaLocation="learningMapDomain.xsd"/>
-    <xs:include schemaLocation="learningMetadataDomain.xsd"/>
+    <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
+    <xs:include schemaLocation="../../xnal/xsd/xnalDomainMod.xsd" />
+    <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
+    <xs:include schemaLocation="learningMapDomainMod.xsd"/>
+    <xs:include schemaLocation="learningMetadataDomainMod.xsd"/>
 
     <!-- base domains -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
 
     <!--  ================ GROUP DEFINITIONS =====================  -->
     <xs:include schemaLocation="../../bookmap/xsd/bookmapGrp.xsd"/>

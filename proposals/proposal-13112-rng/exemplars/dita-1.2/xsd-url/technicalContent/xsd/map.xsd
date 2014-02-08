@@ -30,20 +30,20 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   <!-- ======= INCLUDE ======= -->
  <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd" />
- <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd" />
-  <xs:include schemaLocation="../../base/xsd/delayResolutionDomain.xsd" />
-  <xs:include schemaLocation="glossrefDomain.xsd"/>
+ <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
+  <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
+  <xs:include schemaLocation="glossrefDomainMod.xsd"/>
 
  <!-- Tech content domains -->
-  <xs:include schemaLocation="programmingDomain.xsd"/>
-  <xs:include schemaLocation="softwareDomain.xsd"/>
-  <xs:include schemaLocation="uiDomain.xsd"/>
-  <xs:include schemaLocation="abbreviateDomain.xsd" />
+  <xs:include schemaLocation="programmingDomainMod.xsd"/>
+  <xs:include schemaLocation="softwareDomainMod.xsd"/>
+  <xs:include schemaLocation="uiDomainMod.xsd"/>
+  <xs:include schemaLocation="abbreviateDomainMod.xsd" />
   
   <!-- Base domains -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
 
   
  <!--  ================ GROUP DEFINITIONS =====================  -->

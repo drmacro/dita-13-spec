@@ -29,9 +29,9 @@
   <xs:include schemaLocation="../../base/xsd/tblDeclGrp.xsd"/>
  
  <!-- base domains -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
  
  <!-- =================  MODULE INLCUDE DEFINITION  ==================  -->
   <xs:include schemaLocation="../../base/xsd/commonElementMod.xsd"/>

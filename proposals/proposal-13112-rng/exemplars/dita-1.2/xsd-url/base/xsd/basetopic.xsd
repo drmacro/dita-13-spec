@@ -24,10 +24,10 @@
   
   <!-- Add the domains to the base topic XML Schema -->
   <!--  ================ TOPIC DOMAINS =====================  -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+  <xs:include schemaLocation="highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="indexingDomainMod.xsd"/>
+  <xs:include schemaLocation="hazardstatementDomainMod.xsd"/>
   
   
   <!--  ================ GROUP DEFINITIONS =====================  -->

@@ -20,12 +20,12 @@
 <!-- ============================================================= -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../technicalContent/xsd/uiDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
-  <xs:include schemaLocation="../../technicalContent/xsd/taskreqDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../technicalContent/xsd/uiDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
+  <xs:include schemaLocation="../../technicalContent/xsd/taskreqDomainMod.xsd"/>
   
   <!--  ================ GROUP DEFINITIONS =====================  -->
    <xs:include schemaLocation="../../base/xsd/metaDeclGrp.xsd"/>

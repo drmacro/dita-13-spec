@@ -34,20 +34,20 @@
     <xs:include schemaLocation="../../base/xsd/metaDeclMod.xsd"/>
     
 <!-- Map Domains -->
-    <xs:include schemaLocation="../../base/xsd/indexingDomain.xsd" />
-    <xs:include schemaLocation="../../xnal/xsd/xnalDomain.xsd" />
-    <xs:include schemaLocation="../../base/xsd/delayResolutionDomain.xsd" />
+    <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
+    <xs:include schemaLocation="../../xnal/xsd/xnalDomainMod.xsd" />
+    <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
    
      <!-- Tech content domains -->
-  <xs:include schemaLocation="../../technicalContent/xsd/programmingDomain.xsd"/>
-  <xs:include schemaLocation="../../technicalContent/xsd/softwareDomain.xsd"/>
-  <xs:include schemaLocation="../../technicalContent/xsd/uiDomain.xsd"/>
-  <xs:include schemaLocation="../../technicalContent/xsd/abbreviateDomain.xsd" />
+  <xs:include schemaLocation="../../technicalContent/xsd/programmingDomainMod.xsd"/>
+  <xs:include schemaLocation="../../technicalContent/xsd/softwareDomainMod.xsd"/>
+  <xs:include schemaLocation="../../technicalContent/xsd/uiDomainMod.xsd"/>
+  <xs:include schemaLocation="../../technicalContent/xsd/abbreviateDomainMod.xsd" />
   
   <!-- Base domains -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomain.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomain.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
   
    
     <!--  ================ GROUP DEFINITIONS =====================  -->
