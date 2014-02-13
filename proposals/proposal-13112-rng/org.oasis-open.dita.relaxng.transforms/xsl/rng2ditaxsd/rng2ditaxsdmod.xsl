@@ -12,7 +12,7 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
-  exclude-result-prefixes="xs xd rng rnga relpath a str ditaarch dita rngfunc local"
+  exclude-result-prefixes="xs xd rng rnga relpath a str dita rngfunc local"
   version="2.0">
   <xd:doc scope="stylesheet">
     <xd:desc>
@@ -41,7 +41,8 @@
   <xsl:template mode="groupFile" match="rng:grammar">
     <xsl:message> + [INFO] === <xsl:value-of select="rngfunc:getModuleShortName(.)"/>: Generating Grp.xsd file...</xsl:message>
     <xsl:apply-templates mode="header-comment" select="."/>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+      <xsl:namespace name="ditaarch">http://dita.oasis-open.org/architecture/2005/</xsl:namespace>
       <xsl:apply-templates mode="#current"/>
     </xs:schema>
   </xsl:template>
@@ -52,12 +53,23 @@
     
     <xsl:apply-templates mode="header-comment" select="."/>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsl:namespace name="ditaarch">http://dita.oasis-open.org/architecture/2005/</xsl:namespace>
       <xsl:if test="rngfunc:getModuleShortName(.) = 'topic'">
-          <xsl:comment> ==================== Import Section ======================= </xsl:comment>
-          <xsl:text>&#x0a;</xsl:text>
-          <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="../../base/xsd/ditaarch.xsd"/>
-          <xsl:text>&#x0a;</xsl:text>
-          <xsl:text>&#x0a;</xsl:text>
+        <xsl:comment> ==================== Import Section ======================= </xsl:comment>
+        <xsl:text>&#x0a;</xsl:text>
+        <xs:import namespace="http://dita.oasis-open.org/architecture/2005/">
+          <xsl:choose>
+            <xsl:when test="$useURNsInShellBoolean">
+              <xsl:attribute name="schemaLocation" select="concat('urn:oasis:names:tc:dita:xsd:ditaarch.xsd:',$ditaVersion)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name="schemaLocation" select="'../../base/xsd/ditaarch.xsd'"/>
+              </xsl:otherwise>
+          </xsl:choose>
+        </xs:import>
+        <xsl:text>&#x0a;</xsl:text>
+        <xsl:text>&#x0a;</xsl:text>
+        <xsl:call-template name="ensureDitaArchXsd"/>
       </xsl:if>
       
       
@@ -477,6 +489,10 @@
     <xs:attributeGroup ref="{@name}"/>
   </xsl:template>
 
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:ref[@name='arch-atts']" priority="10">
+    <xs:attribute ref="ditaarch:DITAArchVersion"/>
+  </xsl:template>
+
   <xsl:template mode="generateXsdAttributeDecls" match="rng:attribute[matches(@name,'^xml:.+')]"
     priority="100">
     <!-- XML namespace attributes are handled through the xml.xsd module -->
@@ -619,6 +635,50 @@
         <xsl:comment><xsl:value-of select="string(.)"/></xsl:comment>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template name="ensureDitaArchXsd">
+    <xsl:param name="xsdOutputDir" tunnel="yes" as="xs:string"/>
+    <!-- Ensure that there is a ditaarch.xsd file in the output base/xsd directory -->
+    <xsl:variable name="ditaarchModUri" 
+      select="relpath:newFile(relpath:newFile(relpath:newFile($xsdOutputDir, 'base'), 'xsd'), 'ditaarch.xsd')"
+      as="xs:string"
+    />
+    <xsl:variable name="ditaarchModDoc" as="document-node()?"
+      select="document($ditaarchModUri)"
+    />
+    <xsl:if test="not($ditaarchModDoc)">
+    <xsl:result-document href="{$ditaarchModUri}">
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>                    HEADER                                     </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>  MODULE:    DITA DITA Architecture Attribute                  </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>  VERSION:   1.2                                             </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>  DATE:      November 2009                                     </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>                                                               </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> SYSTEM:     Darwin Information Typing Architecture (DITA)     </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>                                                               </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> PURPOSE:    W3C XML Schema to describe DITA architecture      </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>             attribute                                         </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>                                                               </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> ORIGINAL CREATION DATE:                                       </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>             March 2001                                        </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>                                                               </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>             (C) Copyright OASIS-Open.org 2005, 2009                </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>             (C) Copyright IBM Corporation 2001, 2004.         </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment>             All Rights Reserved.                              </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://dita.oasis-open.org/architecture/2005/" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+
+  <xs:attribute name="DITAArchVersion" type="xs:string" default="{$ditaVersion}"/>
+
+</xs:schema>
+      </xsl:result-document>
+    </xsl:if>
   </xsl:template>
 
   <xsl:function name="local:getElementClassValue" as="xs:string">
