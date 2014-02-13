@@ -494,7 +494,7 @@
   </xsl:template>
   
   <xsl:template mode="generateXsdAttributeDecls" match="rng:optional/rng:attribute" priority="10">
-    <!-- FIXME: Handle enumerated attributes correctly -->
+<!--    <xsl:message> + [DEBUG] rng:optional/rng:attribute: name="<xsl:value-of select="@name"/>"</xsl:message>-->
     <xs:attribute name="{@name}">
       <xsl:if test="not(rng:choice | rng:data)">
         <xsl:attribute name="type" select="'xs:string'"/>
@@ -502,6 +502,31 @@
       <xsl:apply-templates mode="#current"/>
     </xs:attribute>
   </xsl:template>
+  
+  <xsl:template match="rng:attribute/rng:ref" mode="generateXsdAttributeDecls">
+    <!-- The reference should be to a datatype defintion -->
+    <xsl:variable name="data" as="node()*"
+      select="key('definesByName',string(@name))"
+    />
+    <xsl:if test="not($data)">
+      <xsl:message> - [WARN] rng:attribute/rng:ref: <xsl:value-of select="name(..)"/> - Failed to resolve reference to define "<xsl:value-of select="@name"/>" </xsl:message>
+    </xsl:if>
+<!--    <xsl:message> + [DEBUG] rng:attribute/rng:ref: $data=<xsl:sequence select="$data"/></xsl:message>-->
+    <xsl:apply-templates select="$data" mode="generateXsdAttributeDecls"/>
+  </xsl:template>
+  
+  <xsl:template mode="generateXsdContentModel generateXsdAttributeDecls" 
+                match="rng:define[rng:data]" priority="10">
+    <!-- We don't define anything for <rng:data> because in DITA through 1.3 we 
+         are limited to the DTD-level type definitions, so no point in trying
+         to generate simple or complex types for attribute values.
+         
+         Enumerated values are always declared directly on each attribute since
+         each element type may use a different set of values for the same
+         attribute name.
+      -->
+  </xsl:template>
+ 
   
   <xsl:template mode="generateXsdAttributeDecls" match="rng:data">
     <xsl:variable name="rngType" select="@type" as="xs:string"/>
