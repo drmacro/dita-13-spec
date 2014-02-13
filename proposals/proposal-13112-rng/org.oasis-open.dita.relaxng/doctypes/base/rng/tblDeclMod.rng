@@ -133,9 +133,6 @@ For <entry>, add:
       </attribute>
     </optional>
   </define>
-  <define name="bodyatt">
-    <empty/>
-  </define>
   <define name="tbl.tgroup.mdl">
     <zeroOrMore>
       <ref name="colspec"/>
@@ -285,7 +282,6 @@ For <entry>, add:
       </attribute>
     </optional>
     <ref name="tbl.table.att"/>
-    <ref name="bodyatt"/>
     <ref name="dita.table.attributes"/>
   </define>
   <define name="table.element">
