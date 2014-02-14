@@ -453,7 +453,7 @@
      <xs:group ref="{@name}"/>
   </xsl:template>
   <xsl:template mode="generateXsdContentModel" match="rng:ref[@name = 'any']" priority="10">
-      <xs:sequence>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
 				<xs:any processContents="skip"/>
 			</xs:sequence>
   </xsl:template>

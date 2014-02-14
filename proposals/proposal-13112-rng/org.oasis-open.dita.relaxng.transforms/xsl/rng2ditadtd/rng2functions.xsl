@@ -171,7 +171,8 @@
          references expanded.
       -->
     <xsl:param name="element" as="element(rng:element)"/>
-    <xsl:variable name="result" as="xs:boolean" select="boolean($element//rng:text)"/>
+    <xsl:variable name="result" as="xs:boolean" 
+      select="boolean($element//rng:text) or boolean($element//rng:ref[@name = 'any'])"/>
     <xsl:sequence select="$result"/>
   </xsl:function>
   
