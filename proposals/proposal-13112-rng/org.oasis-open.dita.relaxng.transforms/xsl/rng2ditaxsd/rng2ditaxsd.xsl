@@ -33,6 +33,7 @@
   <xsl:include href="../rng2ditadtd/rng2functions.xsl"/>
   <xsl:include href="../rng2ditadtd/rng2gatherModules.xsl"/>
   <xsl:include href="../rng2ditadtd/rng2preprocess.xsl"/>
+  <xsl:include href="../rng2ditadtd/rng2normalize.xsl"/>
   <xsl:include href="rng2ditashellxsd.xsl"/>
   <xsl:include href="rng2ditaxsdmod.xsl"/>
  
@@ -135,6 +136,16 @@
       -->
     
 <!--    <xsl:message> + [DEBUG] Initial process: Found <xsl:sequence select="count($modulesToProcess)" /> modules.</xsl:message>-->
+    
+    <!-- Step 1.5: Construct a version of the root grammar with all references
+         and includes resolved.
+      -->
+    
+    <xsl:message> + [DEBUG] Constructing normalized grammar...</xsl:message>
+    <xsl:variable name="normalizedGrammar" as="node()*">
+      <xsl:apply-templates select="." mode="normalize"/>
+    </xsl:variable>
+    <xsl:message> + [DEBUG] Normalized grammar constructed.</xsl:message>
 
     <!-- STEP 2: Generate the manifest and process the modules: -->
     
@@ -163,6 +174,10 @@
                 tunnel="yes"
                 select="$modulesToProcess"
               />
+              <xsl:with-param name="normalizedGrammar" as="node()*" 
+                select="$normalizedGrammar" 
+                tunnel="yes"
+              />
             </xsl:apply-templates>
           </generatedModules>
       </xsl:otherwise>
@@ -185,6 +200,10 @@
         <xsl:with-param name="xsdDir" select="$xsdOutputDir" tunnel="yes" as="xs:string" />
         <xsl:with-param name="modulesToProcess"  select="$modulesToProcess" tunnel="yes" as="document-node()*" />
         <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
+        <xsl:with-param name="normalizedGrammar" as="node()*" 
+          select="$normalizedGrammar" 
+          tunnel="yes"
+        />
       </xsl:apply-templates>
     </xsl:result-document>
     </rng2ditadtd:conversionManifest>

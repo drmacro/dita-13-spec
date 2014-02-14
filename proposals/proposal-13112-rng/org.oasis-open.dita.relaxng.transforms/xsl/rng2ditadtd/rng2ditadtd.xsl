@@ -46,6 +46,7 @@
   <xsl:include href="rng2functions.xsl"/>
   <xsl:include href="rng2gatherModules.xsl"/>
   <xsl:include href="rng2preprocess.xsl"/>
+  <xsl:include href="rng2normalize.xsl"/>
   <xsl:include href="rng2ditashelldtd.xsl"/>
   <xsl:include href="rng2ditaent.xsl" />
   <xsl:include href="rng2ditamod.xsl" />

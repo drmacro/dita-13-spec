@@ -17,8 +17,5 @@ RNG2DTD To Dos:
 
 RNG2XSD To Dos:
 
-- Handle attributes in tblDeclMod.xsd, metaDeclMod.xsd
-
-- Handle module integration groups
 
 - Put commonElements and metaDecl inclusions in shells, not topicMod.xsd

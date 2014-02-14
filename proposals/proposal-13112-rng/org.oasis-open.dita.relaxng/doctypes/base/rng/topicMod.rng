@@ -98,7 +98,7 @@ ORIGINAL CREATION DATE:
     </define>
     <define name="info-types">
       <ref name="topic.element"/>
-    </define>
+    </define>         
   </div>
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>

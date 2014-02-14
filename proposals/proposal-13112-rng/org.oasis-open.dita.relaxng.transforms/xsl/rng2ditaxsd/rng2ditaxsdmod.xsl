@@ -64,7 +64,7 @@
             </xsl:when>
             <xsl:otherwise>
               <xsl:attribute name="schemaLocation" select="'../../base/xsd/ditaarch.xsd'"/>
-              </xsl:otherwise>
+            </xsl:otherwise>
           </xsl:choose>
         </xs:import>
         <xsl:text>&#x0a;</xsl:text>
@@ -346,6 +346,7 @@
       </xs:complexType>
     </xs:element>
     <xs:complexType name="{@name}.class">
+      <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent(.)=<xsl:value-of select="rngfunc:isMixedContent(.)"/></xsl:message>
       <xsl:if test="rngfunc:isMixedContent(.)">
         <xsl:attribute name="mixed" select="'true'"/>
       </xsl:if>

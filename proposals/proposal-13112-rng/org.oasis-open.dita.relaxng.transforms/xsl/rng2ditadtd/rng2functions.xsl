@@ -167,13 +167,11 @@
   </xsl:function>
   
   <xsl:function name="rngfunc:isMixedContent" as="xs:boolean">
+    <!-- The element parameter is the normalized element with all
+         references expanded.
+      -->
     <xsl:param name="element" as="element(rng:element)"/>
-    <xsl:variable name="contentDefineName" select="concat($element/@name, '.content')" as="xs:string"/>
-    <xsl:variable name="contentDecl" 
-      select="($element/../../rng:define[@name = $contentDefineName])[1]" 
-      as="element()?"
-    />
-    <xsl:variable name="result" as="xs:boolean" select="boolean($contentDecl//rng:text)"/>
+    <xsl:variable name="result" as="xs:boolean" select="boolean($element//rng:text)"/>
     <xsl:sequence select="$result"/>
   </xsl:function>
   

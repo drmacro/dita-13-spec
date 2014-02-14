@@ -252,7 +252,7 @@
                                     <String>6/dita/dita.framework/DITA</String>
                                 </field>
                                 <field name="enable">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                             </documentTypeEntry>
                             <documentTypeEntry>
@@ -260,7 +260,7 @@
                                     <String>6/dita/ditamap.framework/DITA Map</String>
                                 </field>
                                 <field name="enable">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                             </documentTypeEntry>
                             <documentTypeEntry>
@@ -594,11 +594,35 @@
                         </documentTypeEntry-array>
                     </entry>
                     <entry>
+                        <String>editor.format.break.line.before.attribute</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>editor.format.indent.inline.elements</String>
+                        <Boolean>false</Boolean>
+                    </entry>
+                    <entry>
+                        <String>editor.format.preserve.text.as.it.is</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>editor.indent.on.paste</String>
+                        <Boolean>false</Boolean>
+                    </entry>
+                    <entry>
+                        <String>editor.sort.attributes</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
                         <String>enable.project.master.files.support</String>
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
                         <String>key.editor.document.type.association.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.editor.format.xml.option.pane</String>
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
@@ -618,6 +642,10 @@
                                 </list>
                             </field>
                         </filterPanelHistoryItems>
+                    </entry>
+                    <entry>
+                        <String>use.default.catalog</String>
+                        <Boolean>false</Boolean>
                     </entry>
                     <entry>
                         <String>validation.scenarios</String>

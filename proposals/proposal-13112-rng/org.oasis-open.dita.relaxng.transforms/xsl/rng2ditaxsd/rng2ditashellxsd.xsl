@@ -32,7 +32,6 @@
     
     <xsl:message> + [INFO] === Generating DTD shell <xsl:value-of select="$xsdFilename" />...</xsl:message>
     
-    
     <xsl:variable name="shellType" select="rngfunc:getModuleType(.)" as="xs:string"/>
     
     <xsl:if test="$shellType != 'topicshell' and $shellType != 'mapshell'">
