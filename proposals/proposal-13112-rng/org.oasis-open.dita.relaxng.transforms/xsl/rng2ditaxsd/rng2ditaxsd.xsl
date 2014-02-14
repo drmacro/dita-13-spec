@@ -96,6 +96,7 @@
   <xsl:strip-space elements="*"/>
   
   <xsl:key name="definesByName" match="rng:define" use="@name" />
+  <xsl:key name="elementsByName" match="rng:element" use="@name" />
   <xsl:key name="attlistIndex" match="rng:element" use="rng:ref[ends-with(@name, '.attlist')]/@name" />
 
   <xsl:template match="/">
@@ -142,7 +143,7 @@
       -->
     
     <xsl:message> + [DEBUG] Constructing normalized grammar...</xsl:message>
-    <xsl:variable name="normalizedGrammar" as="node()*">
+    <xsl:variable name="normalizedGrammar" as="document-node()">
       <xsl:apply-templates select="." mode="normalize"/>
     </xsl:variable>
     <xsl:message> + [DEBUG] Normalized grammar constructed.</xsl:message>
@@ -174,7 +175,7 @@
                 tunnel="yes"
                 select="$modulesToProcess"
               />
-              <xsl:with-param name="normalizedGrammar" as="node()*" 
+              <xsl:with-param name="normalizedGrammar" as="document-node()" 
                 select="$normalizedGrammar" 
                 tunnel="yes"
               />
@@ -200,7 +201,7 @@
         <xsl:with-param name="xsdDir" select="$xsdOutputDir" tunnel="yes" as="xs:string" />
         <xsl:with-param name="modulesToProcess"  select="$modulesToProcess" tunnel="yes" as="document-node()*" />
         <xsl:with-param name="rngShellUrl" select="$rngShellUrl" tunnel="yes" as="xs:string"/>
-        <xsl:with-param name="normalizedGrammar" as="node()*" 
+        <xsl:with-param name="normalizedGrammar" as="document-node()" 
           select="$normalizedGrammar" 
           tunnel="yes"
         />

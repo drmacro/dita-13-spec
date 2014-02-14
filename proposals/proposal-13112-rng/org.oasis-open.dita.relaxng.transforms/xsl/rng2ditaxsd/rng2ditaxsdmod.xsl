@@ -331,6 +331,10 @@
   </xsl:template>
   
   <xsl:template mode="handleDefinitionsForMod" match="rng:element">
+    <xsl:param name="normalizedGrammar" tunnel="yes" as="document-node()"/>
+    <xsl:variable name="normalizedElement" as="element()"
+      select="key('elementsByName', string(@name), $normalizedGrammar)"
+    />
     <xs:element name="{@name}">
       <xs:annotation>
         <xs:documentation>
@@ -346,8 +350,8 @@
       </xs:complexType>
     </xs:element>
     <xs:complexType name="{@name}.class">
-      <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent(.)=<xsl:value-of select="rngfunc:isMixedContent(.)"/></xsl:message>
-      <xsl:if test="rngfunc:isMixedContent(.)">
+      <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent($normalizedElement)=<xsl:value-of select="rngfunc:isMixedContent($normalizedElement)"/></xsl:message>
+      <xsl:if test="rngfunc:isMixedContent($normalizedElement)">
         <xsl:attribute name="mixed" select="'true'"/>
       </xsl:if>
       <xs:sequence>
@@ -458,6 +462,14 @@
      <xs:group ref="{@name}" minOccurs="0"/>
   </xsl:template>
   
+  <xsl:template mode="generateXsdContentModel" match="rng:zeroOrMore/rng:ref">
+     <xs:group ref="{@name}" minOccurs="0" maxOccurs="unbounded"/>
+  </xsl:template>
+
+  <xsl:template mode="generateXsdContentModel" match="rng:oneOrMore/rng:ref">
+     <xs:group ref="{@name}" minOccurs="1" maxOccurs="unbounded"/>
+  </xsl:template>
+
   <xsl:template mode="generateXsdContentModel" match="rng:text">
     <!-- Becomes mixed="true" -->
   </xsl:template>
