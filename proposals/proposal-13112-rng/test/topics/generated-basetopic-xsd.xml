@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../../temp/generated-xsd/base/xsd/basetopic.xsd" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="topicid" ditaarch:DITAArchVersion="1.2">
+  <title>topic title</title>
+  <body>
+    <p>Paragraph before the first &lt;bodydiv&gt;</p>
+    <bodydiv>
+      <b>bold</b>
+      <boolean state="yes"/>
+      <cite>cite</cite>
+      <data>data</data>
+      <data-about>
+        <data>data-about</data>
+        <data>data-about second child</data>
+      </data-about>
+      <dl>
+        <dlentry>
+          <dt>dl entry term</dt>
+          <dd>dl entry definition</dd>
+        </dlentry>
+      </dl>
+      <draft-comment author="wek">Draft comment</draft-comment>
+      <fig>
+        <title>A Figure</title>
+        <lines>
+          Lines within a figure
+        </lines>
+      </fig>
+      <fn>A footnote</fn>
+      <foreign></foreign>
+<i>italics</i>
+<image height="10px"><alt>Alt text for image</alt></image>
+<hazardstatement>
+  <messagepanel>
+    <typeofhazard>type of hazard</typeofhazard>
+    <howtoavoid>How to avoid the hazard</howtoavoid>
+  </messagepanel>
+</hazardstatement>
+<indexterm>indexterm</indexterm>
+<keyword keyref="some-key">keyword</keyword>
+<lq>Long quote<p>Para in long quote</p></lq>
+<note>A note</note>
+      <object><param name="paraname" value="value"/></object>
+<ol>
+  <li>Ordered list item</li>
+  <li>Ordered list item 2</li>
+</ol>      
+      <p>Paragraph</p>
+      <ph>A phrase</ph>
+      <pre>
+        Preformatted content
+        More lines in pre
+      </pre>
+      <q>Quoted phrase</q>
+      <required-cleanup>Required cleanup</required-cleanup>
+      <section>
+        <title>A Section</title>
+        <p>Paragraph in a section</p>
+      </section>
+      <simpletable>
+        <strow>
+          <stentry>St entry</stentry>
+          <stentry>St entry</stentry>
+        </strow>
+        <strow>
+          <stentry>St entry</stentry>
+          <stentry>St entry</stentry>
+        </strow>
+      </simpletable>
+      <sl>
+        <sli>Simple list item</sli>
+        <sli>Second Simple list item</sli>
+      </sl>
+      <state name="state-name" value="state-value"/>
+      <sub>subscript</sub>
+      <sup>Superscript</sup>
+      <table>
+        <title>Table Title</title>
+        <tgroup cols="3">
+          <colspec/>
+          <colspec/>
+          <colspec/>
+          <thead>
+            <row>
+              <entry>table head entry</entry>
+              <entry>table head entry</entry>
+              <entry>table head entry</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>table entry</entry>
+              <entry>table entry</entry>
+              <entry>table entry</entry>
+            </row>
+            <row>
+              <entry>table entry</entry>
+              <entry>table entry</entry>
+              <entry>table entry</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <term>a term</term>
+      <tm tmtype="reg">trademark</tm>
+      <tt>teletype text</tt>
+      <u>underlined text</u>
+      <ul>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+      </ul>
+      <unknown>Unknown element</unknown>
+      <xref keyref="some-other-key">Cross reference</xref>      
+    </bodydiv>
+    <p>Paragraph in body.</p>
+  </body>
+</topic>

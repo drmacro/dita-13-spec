@@ -24,13 +24,12 @@
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   <!-- ======= INCLUDE ======= -->
- <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd" />
- <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
-  <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
-  <!-- base domains -->
-  <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
-  <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/delayResolutionDomainMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/indexingDomainMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/mapGroupMod.xsd" />
+   <xs:include schemaLocation="../../base/xsd/highlightDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/utilitiesDomainMod.xsd"/>
+   <xs:include schemaLocation="../../base/xsd/hazardstatementDomainMod.xsd"/>
 
  <!--  ================ GROUP DEFINITIONS =====================  -->
  <xs:redefine schemaLocation="../../base/xsd/metaDeclGrp.xsd">

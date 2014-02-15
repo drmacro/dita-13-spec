@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../exemplars/dita-1.2/dtd/base/dtd/basetopic.dtd"
+>
+<topic id="topicid">
+  <title>topic title</title>
+  <body>
+    <p>Non-breaking space entity ref: "&nbsp;".</p>
+    <p>More stuff</p>
+  </body>
+</topic>

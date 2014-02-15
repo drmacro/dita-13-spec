@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../../temp/generated-xsd/base/xsd/basemap.xsd" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="topicid" ditaarch:DITAArchVersion="1.2">
+  <title>Map Title</title>
+  <topicmeta>
+    
+  </topicmeta>
+  <topicref/>
+  <topicref keys="key01"/>
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Topic Group With Navtitle</navtitle>
+    </topicmeta>
+    <topichead>
+      <topicmeta>
+        <navtitle>Topic Head</navtitle>
+      </topicmeta>
+    </topichead>
+  </topicgroup>
+</map>

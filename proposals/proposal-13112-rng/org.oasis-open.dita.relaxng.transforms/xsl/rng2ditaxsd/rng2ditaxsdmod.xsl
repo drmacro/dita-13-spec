@@ -54,7 +54,7 @@
     <xsl:apply-templates mode="header-comment" select="."/>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xsl:namespace name="ditaarch">http://dita.oasis-open.org/architecture/2005/</xsl:namespace>
-      <xsl:if test="rngfunc:getModuleShortName(.) = 'topic'">
+      <xsl:if test="rngfunc:getModuleShortName(.) = 'topic' or rngfunc:getModuleShortName(.) = 'map'">
         <xsl:text>&#x0a;</xsl:text>
         <xsl:comment> ==================== Import Section ======================= </xsl:comment>
         <xsl:text>&#x0a;</xsl:text>
@@ -206,12 +206,6 @@
         <xsl:next-match/><!-- Handle cases like "dita.table.attributes" -->
       </xsl:if>
     </xsl:if>
-  </xsl:template>
-
-  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
-                mode="handleDefinitionsForMod" priority="10">
-<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>-->
-      <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
 
   <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('definesByName',rng:ref/@name)/rng:element]" 
@@ -398,8 +392,6 @@
       </xsl:apply-templates>      
       <xs:attributeGroup ref="global-atts"/>
     </xs:attributeGroup>
-    <xsl:text>&#x0a;</xsl:text>
-    <xsl:comment> end of rng:element template</xsl:comment>
   </xsl:template>
   
   <xsl:template match="*" mode="handleDefinitionsForMod" priority="-1">
@@ -506,9 +498,7 @@
    <!-- This mode handles the .attlist pattern used for each unique 
         element type.
      -->
-   <xsl:message> + [DEBUG] doElementTypeAttlistGeneration: Starting... </xsl:message>
    <xsl:apply-templates mode="generateXsdAttributeDecls"/>
-   <xsl:message> + [DEBUG] doElementTypeAttlistGeneration: Done.</xsl:message>
  </xsl:template>
  
   <xsl:template mode="generateXsdAttributeDecls" match="rng:empty">
@@ -519,12 +509,18 @@
     <xs:attributeGroup ref="{@name}"/>
   </xsl:template>
 
-  <xsl:template mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]" priority="10">
-    <xsl:message> + [DEBUG] mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]"</xsl:message>
-    <!-- Will be handled in .attributes processing -->
+  <xsl:template match="rng:define[count(rng:*)=1 and rng:ref and key('attlistIndex',@name)]" 
+                mode="handleDefinitionsForMod" priority="10">
+<!--    <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .attlist pointing to .attributes, ignore</xsl:message>-->
+      <!-- .attlist pointing to .attributes, ignore -->
   </xsl:template>
 
-  <xsl:template mode="generateXsdAttributeDecls" match="rng:ref[ends-with(@name, '.attributes')]" priority="10">
+<!--  <xsl:template mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]" priority="10">
+    <xsl:message> + [DEBUG] mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]"</xsl:message>
+    <!-\- Will be handled in .attributes processing -\->
+  </xsl:template>
+
+-->  <xsl:template mode="generateXsdAttributeDecls" match="rng:ref[ends-with(@name, '.attributes')]" priority="10">
     <xsl:param name="tagname" as="xs:string" tunnel="yes" select="'#unset'"/>
     <xsl:choose>
       <xsl:when test="@name = concat($tagname, '.attributes')">
