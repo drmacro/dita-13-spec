@@ -11,7 +11,7 @@
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rng rnga relpath a ditaarch str rngfunc"
+  exclude-result-prefixes="xs xd rng rnga relpath a ditaarch str rngfunc rng2ditadtd"
   version="2.0">
 
   <xd:doc scope="stylesheet">

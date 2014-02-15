@@ -21,10 +21,12 @@
 <!--    2009.05.05 EAS:  Added navtitle element.  Moved shortdesc element declaration to mapMod.xsd and topicMod.xsd.  -->
 <!--    2009.05.05 EAS:  Moved metadata to metaDeclMod.xsd  -->
 <!-- ============================================================= -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<!--  Import the XML Schema that contains the defiinitions for xml:lang and xml:space attributes -->
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd" />
+	<!--  Import the XML Schema that contains the definitions for xml:lang and xml:space attributes -->
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" 
+               schemaLocation="xml.xsd" />
 	<xs:attributeGroup name="display-atts">
 		<xs:annotation>
 			<xs:documentation>Display attributes is a parameter entity declaration in the topic

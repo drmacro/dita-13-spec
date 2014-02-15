@@ -9,7 +9,7 @@
   xmlns:str="http://local/stringfunctions"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
-  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc"
+  exclude-result-prefixes="xs xd rng rnga relpath str ditaarch rngfunc rng2ditadtd"
   version="2.0">
   <!-- ==============================
        Gather Modules mode

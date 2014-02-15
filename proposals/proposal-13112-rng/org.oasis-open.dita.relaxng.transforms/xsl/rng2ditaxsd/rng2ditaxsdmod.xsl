@@ -12,7 +12,7 @@
   xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:rngfunc="http://dita.oasis-open.org/dita/rngfunctions"
   xmlns:local="http://local-functions"
-  exclude-result-prefixes="xs xd rng rnga relpath a str dita rngfunc local"
+  exclude-result-prefixes="xs xd rng rnga relpath a str dita rngfunc local rng2ditadtd"
   version="2.0">
   <xd:doc scope="stylesheet">
     <xd:desc>
@@ -55,6 +55,7 @@
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xsl:namespace name="ditaarch">http://dita.oasis-open.org/architecture/2005/</xsl:namespace>
       <xsl:if test="rngfunc:getModuleShortName(.) = 'topic'">
+        <xsl:text>&#x0a;</xsl:text>
         <xsl:comment> ==================== Import Section ======================= </xsl:comment>
         <xsl:text>&#x0a;</xsl:text>
         <xs:import namespace="http://dita.oasis-open.org/architecture/2005/">
@@ -72,6 +73,13 @@
         <xsl:call-template name="ensureDitaArchXsd"/>
       </xsl:if>
       
+      <xsl:if test="rngfunc:getModuleShortName(.) = 'commonElements'">
+        <xsl:text>&#x0a;</xsl:text>
+        	<xsl:comment>  Import the XML Schema that contains the definitions for xml:lang and xml:space attributes </xsl:comment>
+        <xsl:text>&#x0a;</xsl:text>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd" />
+        <xsl:call-template name="ensureXmlXsd"/>
+      </xsl:if>
       
       <xs:annotation>
         <xs:appinfo>
@@ -350,7 +358,8 @@
       </xs:complexType>
     </xs:element>
     <xs:complexType name="{@name}.class">
-      <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent($normalizedElement)=<xsl:value-of select="rngfunc:isMixedContent($normalizedElement)"/></xsl:message>
+<!--      <xsl:message> + [DEBUG] rng:element: <xsl:value-of select="@name"/>: rngfunc:isMixedContent($normalizedElement)=<xsl:value-of select="rngfunc:isMixedContent($normalizedElement)"/></xsl:message>
+-->
       <xsl:if test="rngfunc:isMixedContent($normalizedElement)">
         <xsl:attribute name="mixed" select="'true'"/>
       </xsl:if>
@@ -650,6 +659,26 @@
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template name="ensureXmlXsd">
+    <xsl:param name="xsdOutputDir" tunnel="yes" as="xs:string"/>
+    <!-- Ensure that there is a ditaarch.xsd file in the output base/xsd directory -->
+    <xsl:variable name="xmlModUri" 
+      select="relpath:newFile(relpath:newFile(relpath:newFile($xsdOutputDir, 'base'), 'xsd'), 'xml.xsd')"
+      as="xs:string"
+    />
+    <xsl:variable name="xmlModDoc" as="document-node()?"
+      select="document($xmlModUri)"
+    />
+    <xsl:if test="not($xmlModDoc)">
+      <xsl:variable name="xsdMod" as="document-node()"
+        select="document('static-schemas/xml.xsd')"
+      /> 
+      <xsl:result-document href="{$xmlModUri}">
+        <xsl:sequence select="$xsdMod/node()"/>
+      </xsl:result-document>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template name="ensureDitaArchXsd">
     <xsl:param name="xsdOutputDir" tunnel="yes" as="xs:string"/>
     <!-- Ensure that there is a ditaarch.xsd file in the output base/xsd directory -->
@@ -661,6 +690,10 @@
       select="document($ditaarchModUri)"
     />
     <xsl:if test="not($ditaarchModDoc)">
+      <!-- NOTE: We have to generate this rather than simply copying it 
+           because we need to set the DITA version in the default value
+           for the @ditaarch:DITAArchVersion attribute.
+         -->
     <xsl:result-document href="{$ditaarchModUri}">
 <xsl:comment> ============================================================= </xsl:comment><xsl:text>&#x0a;</xsl:text>
 <xsl:comment>                    HEADER                                     </xsl:comment><xsl:text>&#x0a;</xsl:text>

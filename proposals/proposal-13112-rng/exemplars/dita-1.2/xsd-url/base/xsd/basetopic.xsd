@@ -83,7 +83,8 @@
   
   <xs:attributeGroup name="domains-att">
     <xs:attribute name="domains" type="xs:string" 
-                            default="(topic hazard-d)
+                            default="(topic topic) 
+                                     (topic hazard-d)
                                             (topic hi-d)  
                                             (topic indexing-d)
                                             (topic ut-d)                                              
