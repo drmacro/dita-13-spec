@@ -20,4 +20,4 @@ RNG2XSD To Dos:
 
 - Put commonElements and metaDecl inclusions in shells, not topicMod.xsd
 
-- Generate import of xml.xsd in commonElements.mod
+- Include *.attlist in main .attributes group

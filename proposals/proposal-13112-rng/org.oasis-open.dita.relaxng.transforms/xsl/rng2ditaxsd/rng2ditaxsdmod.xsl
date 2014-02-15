@@ -199,7 +199,7 @@
 
   <xsl:template match="rng:define[ends-with(@name, '.content') or ends-with(@name, '.attributes')]" 
     mode="handleDefinitionsForMod" priority="15">
-<!--        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attlist, ignoring or not</xsl:message>-->
+<!--        <xsl:message> + [DEBUG] handleDefinitionsForMod: Main template: Handling define: <xsl:value-of select="@name"/>: .content or .attributes, ignoring or not</xsl:message>-->
 
     <xsl:if test="ends-with(@name, '.attributes')">
       <xsl:if test="count(tokenize(@name, '\.')) gt 2">
@@ -380,20 +380,26 @@
     
     <xs:attributeGroup name="{@name}.attributes">
       <xsl:variable name="attributesPatternName" as="xs:string"
-        select="concat(@name, '.attributes')"
+        select="concat(@name, '.attlist')"
       />
       <!-- We only want those attributes defined in the tagname.attributes
            pattern for the element type. The global-atts group is
            an invariant reference and the @class attribute is handled
            separately.
+           
+           Process the tagname.attlist pattern, which then references 
+           the tagname.attributes pattern and other patterns used
+           for specific element types (e.g., topic types).
         -->
       <xsl:apply-templates 
-        select="../../rng:define[@name = $attributesPatternName]" 
+        select="../../rng:define[@name = $attributesPatternName][not(.//rng:attribute[@name = 'class'])]" 
         mode="doElementTypeAttlistGeneration">
         <xsl:with-param name="tagname" select="@name" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>      
       <xs:attributeGroup ref="global-atts"/>
     </xs:attributeGroup>
+    <xsl:text>&#x0a;</xsl:text>
+    <xsl:comment> end of rng:element template</xsl:comment>
   </xsl:template>
   
   <xsl:template match="*" mode="handleDefinitionsForMod" priority="-1">
@@ -500,7 +506,9 @@
    <!-- This mode handles the .attlist pattern used for each unique 
         element type.
      -->
+   <xsl:message> + [DEBUG] doElementTypeAttlistGeneration: Starting... </xsl:message>
    <xsl:apply-templates mode="generateXsdAttributeDecls"/>
+   <xsl:message> + [DEBUG] doElementTypeAttlistGeneration: Done.</xsl:message>
  </xsl:template>
  
   <xsl:template mode="generateXsdAttributeDecls" match="rng:empty">
@@ -511,6 +519,29 @@
     <xs:attributeGroup ref="{@name}"/>
   </xsl:template>
 
+  <xsl:template mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]" priority="10">
+    <xsl:message> + [DEBUG] mode="handleDefinitionsForMod" match="rng:define[ends-with(@name, '.attlist')]"</xsl:message>
+    <!-- Will be handled in .attributes processing -->
+  </xsl:template>
+
+  <xsl:template mode="generateXsdAttributeDecls" match="rng:ref[ends-with(@name, '.attributes')]" priority="10">
+    <xsl:param name="tagname" as="xs:string" tunnel="yes" select="'#unset'"/>
+    <xsl:choose>
+      <xsl:when test="@name = concat($tagname, '.attributes')">
+        <xsl:variable name="targetDefine" as="element()*"
+          select="key('definesByName', string(@name), root(.))"
+        />
+        <xsl:apply-templates select="$targetDefine/*" mode="#current"/>
+      </xsl:when>
+      <xsl:when test="$tagname = '#unset'">
+        <!-- Not in context of a element type declaration, suppress -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:next-match/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <xsl:template mode="generateXsdAttributeDecls" match="rng:ref[@name='arch-atts']" priority="10">
     <xs:attribute ref="ditaarch:DITAArchVersion"/>
   </xsl:template>
@@ -522,7 +553,6 @@
 
   <xsl:template mode="generateXsdAttributeDecls" match="rng:define/rng:attribute ">
     <!-- NOTE: attributes not declared within rng:optional are required -->
-    <!-- FIXME: Handle enumerated attributes correctly -->
     <xs:attribute name="{@name}" use="required">
       <xsl:if test="not(rng:choice)">
         <xsl:attribute name="type" select="'xs:string'"/>

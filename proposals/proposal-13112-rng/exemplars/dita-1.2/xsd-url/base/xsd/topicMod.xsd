@@ -24,7 +24,10 @@
 <!--  UPDATES                                           -->
 <!-- ============================================================= -->
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+attributeFormDefault="qualified" 
+xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
   <!-- ==================== Import Section ======================= -->
   <xs:import namespace="http://dita.oasis-open.org/architecture/2005/" schemaLocation="../../base/xsd/ditaarch.xsd"/>
 
@@ -158,7 +161,6 @@
   </xs:complexType>
 
   <xs:group name="topic.content">
-    <xs:sequence>
       <xs:sequence>
         <xs:group ref="title"/>
         <xs:group ref="titlealts" minOccurs="0"/>
@@ -171,17 +173,16 @@
         <xs:group ref="related-links" minOccurs="0"/>
         <xs:group ref="topic-info-types" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
-    </xs:sequence>
   </xs:group>
 
   <xs:attributeGroup name="topic.attributes">
-    <xs:attribute name="id" type="xs:ID" use="required"/>
-    <xs:attribute name="outputclass" type="xs:string"/>
+    <xs:attribute name="id" use="required" type="xs:ID"/>
     <xs:attributeGroup ref="conref-atts"/>
-    <xs:attribute ref="ditaarch:DITAArchVersion"/>
-    <xs:attributeGroup ref="domains-att"/>
     <xs:attributeGroup ref="select-atts"/>
     <xs:attributeGroup ref="localization-atts"/>
+    <xs:attribute name="outputclass" type="xs:string"/>
+    <xs:attribute ref="ditaarch:DITAArchVersion"/>
+    <xs:attributeGroup ref="domains-att"/>
     <xs:attributeGroup ref="global-atts"/>
   </xs:attributeGroup>
 

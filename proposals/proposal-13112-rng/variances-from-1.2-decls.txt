@@ -29,3 +29,7 @@ Variances from 1.2 XSD declarations
    
 3. Name all domain modules with *Mod.xsd per spec.   
 
+4. Where element content models have two levels of sequence nesting, the generated declarations only have one
+  (this is equivalent to having double parens in a DTD, e.g. ((foo, bar)) as opposed to (foo, bar). The two
+  are functionally equivalent.
+
