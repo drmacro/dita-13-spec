@@ -15,7 +15,7 @@
         <rncMod>urn:oasis:names:tc:dita:rnc:utilitiesDomain.rnc</rncMod>
         <rngMod>urn:oasis:names:tc:dita:rng:utilitiesDomain.rng</rngMod>
       </modulePublicIds>
-      <domainsContribution>(topic hi-d)</domainsContribution>
+      <domainsContribution>(topic ut-d)</domainsContribution>
     </moduleMetadata>
   </moduleDesc>
   <div>

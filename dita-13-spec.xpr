@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="15.2">
+<project version="15.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="15.2" xml:space="preserve">
+            <serialized version="15.0" xml:space="preserve">
                 <map>
+                    <entry>
+                        <String>catalogs.v5</String>
+                        <String-array>
+                            <String>file:/Users/ekimber/workspace/dita-12-spec/doctypes/test/temp/generated/1.2/catalog-dita.xml</String>
+                        </String-array>
+                    </entry>
                     <entry>
                         <String>document.types</String>
                         <documentTypeDescriptor-array>
@@ -24,9 +30,6 @@
                                 </field>
                                 <field name="classpath">
                                     <String-array/>
-                                </field>
-                                <field name="parentClassLoaderID">
-                                    <null/>
                                 </field>
                                 <field name="authorExtensionDescriptor">
                                     <authorExtension>
@@ -273,14 +276,6 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/daisy/daisy.framework/Daisy</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>true</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>6/docbook/docbook4.framework/DocBook 4</String>
                                 </field>
                                 <field name="enable">
@@ -337,22 +332,6 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/maven/maven.framework/Maven Project</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>true</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/maven/maven.framework/Maven Settings</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>true</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>6/ncx/ncx.framework/NCX</String>
                                 </field>
                                 <field name="enable">
@@ -385,7 +364,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/odf/odf.framework/ODF 1.2</String>
+                                    <String>6/odf/odf.framework/ODF</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>true</Boolean>

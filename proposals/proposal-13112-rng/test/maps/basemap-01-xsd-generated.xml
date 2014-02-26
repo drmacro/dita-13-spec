@@ -17,4 +17,14 @@
       </topicmeta>
     </topichead>
   </topicgroup>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref></topicref>
+      </relcell>
+    </relrow>
+    <relrow>
+       <relcell><topicref/></relcell>
+    </relrow>
+  </reltable>
 </map>
