@@ -43,7 +43,7 @@
   </define>
   
   <!-- NOTE: this constraint includes map.mod.rng -->
-  <include href="learningAggregationsTopicrefConstraints.mod.rng"/>
+  <include href="learningAggregationsTopicrefConstraintMod.rng"/>
 
   <!-- Include modules -->
   <include href="../../base/rng/mapGroup.mod.rng"/>
